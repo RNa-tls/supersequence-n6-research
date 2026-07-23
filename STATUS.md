@@ -119,15 +119,18 @@ repository changes that.
   research corpus this project had already produced, integrated as-is;
   see its own README for scope and exclusions.
 - `src/analyze_j_completion.py`, `src/verify_j_normal_forms.py`,
-  `research/*.md`, `outputs/j_completion_analysis.json`,
-  `outputs/j_normal_forms.json` — an audit of the F=1,H=0,N=2 "J" charge-2
-  joint (abandonment weight>=3 into an already-used E-orbit). See
-  "J-branch findings" below.
+  `src/recover_j_witnesses.py`, `src/verify_j_witnesses.py`,
+  `src/search_j_afterstate.py`, `research/*.md`, `outputs/j_*.json` — an
+  audit of, and now full literal recovery for, the F=1,H=0,N=2 "J"
+  charge-2 joint (abandonment weight>=3 into an already-used E-orbit).
+  See "J-branch findings" below.
 
 ## J-branch findings (F=1,H=0,N=2, the charge-2 joint J)
 
 Full detail in `research/J_COMPLETION_OBSTRUCTION.md`,
 `research/J_FUTURE_DEMAND_BOUND.md`, `research/J_NORMAL_FORMS.md`,
+`research/J_230_WITNESS_RECOVERY.md`, `research/J_EXACT_NORMAL_FORMS.md`,
+`research/J_DECISIVE_EVENT_SEARCH.md`, `research/J_BRANCH_CLOSURE_STATUS.md`,
 `research/N2_BRANCH_DECOMPOSITION.md`, `research/N2_CLOSURE_STRATEGY.md`.
 Summary:
 
@@ -135,24 +138,40 @@ Summary:
   exhausted (=`TARGET_F`), so no further abandonment is possible for the
   rest of that walk, and at most one further `R`-type joint is possible
   before the N budget (`Ndef+H<=3`) is exceeded. Every other remaining
-  joint is forced into a narrow zero-charge alphabet, whose counts are
-  arithmetically determined exactly for the one literal J example
-  available (see below). This reduces J-branch completion to the same
-  kind of zero-charge scheduling problem as the still-unsolved `N=0`
-  branch — a genuine reduction, not a shortcut.
-- **Literal replay: only 1 of the 230 recorded J states has a literal walk
-  in this corpus** (the stored "representative"); the other 229 are known
-  only through derived summary fields (`deficit_phase_type`,
-  `legal_macro_tail_count`). That one representative was independently
-  replayed against the actual engine and its recomputed state hash
-  matches the stored hash exactly.
-- **A bounded, single-seed continuation experiment** (macro depth <=4,
-  edge cap 100,000, no checkpoint, from that one seed only) found no
-  obstruction beyond the two already-proved budget mechanisms within that
-  shallow window — this is a limited experiment, not a completeness or
-  impossibility result.
-- **J completability is still open.** Nothing here shows J can or cannot
-  extend to a full walk. Arithmetic alone does not rule it out.
+  joint is forced into a narrow zero-charge alphabet. This reduces
+  J-branch completion to the same kind of zero-charge scheduling problem
+  as the still-unsolved `N=0` branch — a genuine reduction, not a
+  shortcut. A further general argument (`R_blocked_w3_existing` and
+  `Z2_blocked_w2_existing` have identical effect on F/O/D/P, differing
+  only in N) shows `R` is **never arithmetically required** by any of
+  the 230 J states — if it's ever geometrically required, that reason
+  hasn't been found.
+- **All 230 recorded J states now have a recovered, independently
+  verified literal witness** (previously only 1 of 230 did). Recovery
+  reproduced the exact same bounded search this corpus's own
+  checkpoint_header already specifies (`node_limit=20000,
+  max_macro_depth=6` — not a new or larger search) and found all 230
+  target hashes just before that same node limit. Independent replay
+  (`src/verify_j_witnesses.py`, calling the engine directly, not reusing
+  the recovery script's own bookkeeping): **230/230 pass** every check
+  (hash match, per-step transition reproduction, N<2 before J, N==2 at
+  and after J, exact J deltas, final F/H/N).
+- **A coarse per-state normal-form fingerprint (fragment shape, current
+  shape, steps-since-J) groups the 230 into 21 classes, but that quotient
+  is provably lossy**: 75 pairs of states share a fingerprint yet have
+  different 1-step legal-continuation shapes (minimal counterexample
+  recorded in `outputs/j_exact_normal_forms.json`). No coarser-than-exact
+  normal form was found that guarantees isomorphic continuation trees.
+- **A bounded, capped decisive-event search across all 230 seeds** (macro
+  depth <=6, edge cap 3,000 each, raw/uncanonicalized for speed) found
+  zero completions (expected — completion needs ~100+ more joints) but
+  did find `remaining_cover_capacity_impossible` firing on at least one
+  branch for 45 of the 230 seeds — the first empirical sign of an
+  obstruction beyond pure resource arithmetic, though only on some
+  branches of some seeds, not a proof.
+- **J completability is still open**, and the closure-status classification
+  is explicitly "C: reduction insufficient so far" (not "closed", not
+  "reduced to fixed families") per `research/J_BRANCH_CLOSURE_STATUS.md`.
 
 ## Open problems (genuinely open, not resolved by this repository)
 

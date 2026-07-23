@@ -92,7 +92,13 @@ def profile_from_seed(seed_state: "exact.ExactState", max_depth: int, edge_cap: 
             if reason is not None:
                 terminal_reason_counts[reason] += 1
                 continue
-            child = exact.canonicalize(edge.state)
+            # Deliberately raw (uncanonicalized): canonicalize() tries all 720
+            # left-S6 relabellings per state and dominates runtime at this
+            # scale (230 seeds). Left-relabelling is proved equivariant
+            # (superperm_partial_f1.py's own sanity suite), so skipping it
+            # changes counts (raw states aren't merged across symmetric
+            # duplicates) but not which decisive events are reachable.
+            child = edge.state
             key = child.stable_key()
             labels = path_by_key.get(state.stable_key(), []) + [edge.label]
             path_by_key[key] = labels
@@ -126,8 +132,11 @@ def profile_from_seed(seed_state: "exact.ExactState", max_depth: int, edge_cap: 
         "completions_not_using_R": r_unused_terminal_states,
         "example_completion_macro_path": example_completion_path,
         "scope": (
-            "bounded, capped profiling from ONE seed state only; "
-            "not an exhaustive completeness or impossibility result"
+            "bounded, capped, RAW (uncanonicalized) profiling from ONE seed "
+            "state only; not an exhaustive completeness or impossibility "
+            "result. Raw traversal does not merge left-S6-symmetric "
+            "duplicate states, so counts here are upper bounds on the "
+            "number of distinct canonical states, not canonical counts."
         ),
     }
 
