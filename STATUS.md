@@ -275,6 +275,40 @@ Full detail in `research/J_9_SEED_LEDGER.md`, `research/J_9_EXACT_CLOSURE.md`,
 - `search_j_9_exact.py` supports checkpoint/resume, so a future session
   can continue with a much larger node cap without restarting.
 
+## Follow-up: hunting for a safe state-space reduction (not more node cap)
+
+Full detail in `research/J_STATE_SPACE_REDUCTION.md`, `research/ZERO_CHARGE_GRAPH_STRUCTURE.md`,
+`research/J_DOMINANCE_RULES.md`, `research/J_TERMINAL_DEMAND_PRUNES.md`.
+
+- **Explained the branching, precisely:** at every depth measured (0-3,
+  all 9 seeds), zero canonical duplicates appeared, and every legal child
+  of a state shares the exact same `visited_count` — the ~3-4x growth per
+  level is genuine width from *which orbit to jump to*, not from rotation-
+  length variation or redundant re-exploration.
+- **Proved a general "forced-ell" lemma:** at a state with budget
+  `Phi=k`, the very next rotation-run length must satisfy `ell>=5-k` (an
+  immediate corollary of the already-proved monotonicity identity). For
+  the 3 `Phi=0` seeds this forces `ell=5` on every remaining step. It does
+  **not** reduce branching, though: the joint-target choice (which orbit)
+  is untouched by this lemma, confirmed empirically (149 unique states at
+  depth 3, same as without it — a 0% reduction, reported honestly rather
+  than oversold).
+- **Proved the state-transition graph is acyclic** (a one-line
+  consequence of `visited_count` strictly increasing every legal step) —
+  but this only guarantees finiteness, not narrowness, and does not
+  explain or fix the branching-width problem.
+- **Tested 5 candidate dominance rules against real state pairs; 2
+  falsified with concrete counterexamples, 3 left undetermined** (no
+  qualifying pair found in a 6,045-state pool — not claimed safe).
+- **Investigated, and could not establish:** any symmetry stronger than
+  the existing left-S6 canonicalization, any provably-safe way to drop
+  stale visited bits, or any arithmetic lower bound tighter than the
+  already-proved `Phi>=0`. All reported as honest negative results.
+- **No method met the requested 50% state-space reduction bar.** This
+  round's contribution is explanatory (why the branching happens) and a
+  filtered-out set of naive ideas that don't work, not a working
+  reduction.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

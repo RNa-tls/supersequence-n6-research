@@ -1,0 +1,110 @@
+{
+  "pool_size": 6045,
+  "results": [
+    {
+      "candidate": "A_superset_visited_dominance",
+      "note": "no qualifying pair found in this bounded pool",
+      "verdict": "UNDETERMINED"
+    },
+    {
+      "candidate": "B_lower_phi_dominance",
+      "counterexample": {
+        "higher_phi": 4,
+        "higher_phi_hash": "c652843b153b6c7b12f1afcbd7f45ac7f467f74dc17706f410de3ab26d3ed6c3",
+        "higher_signature": [
+          [
+            2,
+            false,
+            1
+          ],
+          [
+            3,
+            false,
+            1
+          ],
+          [
+            3,
+            true,
+            1
+          ]
+        ],
+        "lower_phi": 0,
+        "lower_phi_hash": "45929408de25b866a834c1fe59a79dba3e3d6427efdca37b22220d469d015459",
+        "lower_signature": [
+          [
+            2,
+            false,
+            5
+          ],
+          [
+            3,
+            false,
+            5
+          ],
+          [
+            3,
+            true,
+            5
+          ]
+        ],
+        "note": "Same endpoint and P, but the higher-Phi state's legal signature is NOT a superset of the lower-Phi one's."
+      },
+      "verdict": "FALSIFIED"
+    },
+    {
+      "candidate": "C_fewer_unused_orbit_dominance",
+      "counterexample": {
+        "fewer_O": 5,
+        "fewer_orbit_hash": "c652843b153b6c7b12f1afcbd7f45ac7f467f74dc17706f410de3ab26d3ed6c3",
+        "fewer_signature": [
+          [
+            2,
+            false,
+            1
+          ],
+          [
+            3,
+            false,
+            1
+          ],
+          [
+            3,
+            true,
+            1
+          ]
+        ],
+        "more_O": 6,
+        "more_orbit_hash": "45929408de25b866a834c1fe59a79dba3e3d6427efdca37b22220d469d015459",
+        "more_signature": [
+          [
+            2,
+            false,
+            5
+          ],
+          [
+            3,
+            false,
+            5
+          ],
+          [
+            3,
+            true,
+            5
+          ]
+        ]
+      },
+      "verdict": "FALSIFIED"
+    },
+    {
+      "candidate": "D_phase_mask_containment_dominance",
+      "note": "no qualifying pair found in this bounded pool",
+      "verdict": "UNDETERMINED"
+    },
+    {
+      "candidate": "E_same_boundary_larger_used_resource_dominance",
+      "note": "no qualifying pair found in this bounded pool",
+      "verdict": "UNDETERMINED"
+    }
+  ],
+  "schema": "j-dominance-rules-v1"
+}
