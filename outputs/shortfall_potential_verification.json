@@ -1,0 +1,156 @@
+{
+  "macro_literal_consistency_check": {
+    "examples": [
+      {
+        "edge_label": "rot^5;w3:120",
+        "ell": 5,
+        "literal_phi_trace_during_rotation": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "phi_after_joint": 2,
+        "predicted_via_macro_identity": 2
+      },
+      {
+        "edge_label": "rot^5;w3:201",
+        "ell": 5,
+        "literal_phi_trace_during_rotation": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "phi_after_joint": 4,
+        "predicted_via_macro_identity": 4
+      },
+      {
+        "edge_label": "rot^5;w3:201",
+        "ell": 5,
+        "literal_phi_trace_during_rotation": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "phi_after_joint": 4,
+        "predicted_via_macro_identity": 4
+      }
+    ],
+    "literal_increase_by_exactly_1_mismatches": 0,
+    "literal_steps_checked": 150,
+    "net_macro_effect_mismatches": 0,
+    "phi_is_monotone_only_at_joint_boundaries_not_literal_level": true
+  },
+  "schema": "shortfall-potential-verification-v1",
+  "section_1_boundary_facts": {
+    "TARGET_D": 4,
+    "TARGET_F": 1,
+    "TARGET_O": 25,
+    "TARGET_P": 121,
+    "ell_definition": "RotationRun.ell = number of consecutive successful literal w=1 rotations taken immediately after a joint fires, before either hitting the hexagon size limit (N-1=5) or an already-visited window (collision). Defined in superperm_partial_f1_macro.py::rotation_runs.",
+    "ell_is_a_property_of_the_run_not_the_joint_type": "ell is chosen by the walker (any value from 0 up to the run's own collision point is legal) independently of which joint (Z2/Z3/R/A2/A3/J) eventually fires at the end of that run. There is therefore no fixed 'ell for R' vs 'ell for Z3' -- see section_2_charge_table for what IS type-dependent.",
+    "ell_possible_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "final_state_note": "area_a_final requires visited_count==720 AND P==TARGET_P simultaneously (plus O,D,F,H,Ndef conditions that do not enter Phi). Substituting n=TARGET_P-P=0 and deficit=720-visited=0 into Phi's definition gives Phi=5 at the exact final state, for ANY target constants -- not a fact special to F=1's P=121,O=25; it is a pure consequence of Phi's algebraic form.",
+    "phi_at_true_final_state": 5,
+    "terminal_visited_count": 720
+  },
+  "section_2_charge_table": [
+    {
+      "abandonment": false,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 0,
+      "delta_N": 0,
+      "delta_P_from_this_joint": 1,
+      "kind": "Z2_blocked_w2_existing",
+      "new_orbit": false,
+      "weight": 2
+    },
+    {
+      "abandonment": true,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 1,
+      "delta_N": 1,
+      "delta_P_from_this_joint": 1,
+      "kind": "A2_abandon_w2_existing",
+      "new_orbit": false,
+      "weight": 2
+    },
+    {
+      "abandonment": true,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 1,
+      "delta_N": 0,
+      "delta_P_from_this_joint": 1,
+      "kind": "Z2_abandon_w2_new",
+      "new_orbit": true,
+      "weight": 2
+    },
+    {
+      "abandonment": false,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 0,
+      "delta_N": 1,
+      "delta_P_from_this_joint": 1,
+      "kind": "R_blocked_w3_existing",
+      "new_orbit": false,
+      "weight": 3
+    },
+    {
+      "abandonment": false,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 0,
+      "delta_N": 0,
+      "delta_P_from_this_joint": 1,
+      "kind": "Z3_blocked_w3_new",
+      "new_orbit": true,
+      "weight": 3
+    },
+    {
+      "abandonment": true,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 1,
+      "delta_N": 2,
+      "delta_P_from_this_joint": 1,
+      "kind": "J_abandon_w3_existing_charge2",
+      "new_orbit": false,
+      "weight": 3
+    },
+    {
+      "abandonment": true,
+      "charge_c_5_minus_ell": "independent of joint type -- determined solely by the rotation run length ell preceding this joint, any value 0..5 is legal for any joint type (subject to collision)",
+      "delta_F": 1,
+      "delta_N": 1,
+      "delta_P_from_this_joint": 1,
+      "kind": "A3_abandon_w3_new",
+      "new_orbit": true,
+      "weight": 3
+    }
+  ],
+  "tight_bound_analysis": {
+    "corrected_conclusion": "At the last-ever joint-boundary state S_k, n(S_k)=0. The walk completes iff deficit(S_k) can be closed by a rotation-only suffix of length <=5, i.e. deficit(S_k)<=5, i.e. 5+6*0-deficit(S_k)>=0, i.e. Phi(S_k)>=0 -- exactly the engine's existing remaining_window_capacity_prune threshold.",
+    "retracted_incorrect_claim": "Phi(joint-boundary state) must be >=5 for eventual completion, because Phi is non-increasing and must equal exactly 5 at the state where n=0 and deficit=0 simultaneously.",
+    "verdict": "Phi>=0 is already the TIGHT necessary condition obtainable from (P, visited_count) counting alone. No scalar improvement of this specific bound was found; strengthening it further requires information this counting argument does not capture (which specific permutations collide), i.e. genuine geometry.",
+    "why_it_was_wrong": "It assumed completion always occurs exactly at a state where both n=0 AND deficit=0 hold simultaneously. In fact the walk can complete via a trailing rotation-only suffix taken AFTER the last joint (n already 0, deficit not yet 0), closing the remaining deficit purely by rotation, no further joint needed."
+  },
+  "zero_charge_run_bound_example": {
+    "argument": "n is fixed and finite (TARGET_P - P), decreasing by exactly 1 per joint regardless of that joint's charge. Zero-charge joints do not exempt themselves from this count -- they still consume one of the n remaining joint slots. This alone bounds any zero-charge run's length by n, with no need for a separate collision/cycle argument.",
+    "remaining_existing_orbit_joints_required": 92,
+    "remaining_joint_count_n": 115,
+    "remaining_new_orbit_joints_required_exactly": 23
+  }
+}

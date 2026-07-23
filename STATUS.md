@@ -208,6 +208,46 @@ above:
   slab-wide shortfall budget, which is a geometric question this
   potential argument alone cannot answer.
 
+## Follow-up: full boundary formalization, finite charge-word reduction, deeper search
+
+Full detail in `research/SHORTFALL_BUDGET_THEOREM.md`, `research/ZERO_CHARGE_SKELETON.md`,
+`research/J_74_SURVIVOR_CLASSIFICATION.md`, `research/FUTURE_SHORTFALL_LOWER_BOUND.md`,
+`research/J_BRANCH_BUDGET_CLOSURE.md`.
+
+- **A self-caught-and-corrected error, recorded rather than hidden:** an
+  early pass in this follow-up concluded completion requires `Phi>=5`
+  throughout (not just `Phi>=0`), which would have meant 229 of 230 J
+  states were already arithmetically dead. That was **wrong** — it missed
+  that a walk can complete via a trailing rotation-only suffix after the
+  last-ever joint. The corrected, verified conclusion:
+  **`Phi>=0` is already the tightest bound obtainable from pure
+  (P, visited_count) counting** — it cannot be scalar-strengthened without
+  genuinely new (geometric) information. Section 3 of
+  `SHORTFALL_BUDGET_THEOREM.md` documents the wrong claim and its fix.
+- **Finite reduction achieved:** every future "shortfall word" compatible
+  with a state's budget `Phi` collapses to a small enumerable catalogue of
+  charge multisets — 1, 2, 4, 12, or 19 families depending on whether
+  `Phi` is 0, 1, 2, 4, or 5 (all 230 states fall in this range). Also
+  clarified: `Phi` oscillates (rises during rotation, drops at each joint)
+  at the literal step level and is only non-increasing at joint
+  boundaries — an important precision the original theorem statement
+  glossed over.
+- **Deeper bounded search, not a new full Area-A search:** extending the
+  same minimal-failing-path search to depth<=15 with a larger (but still
+  finite, single-run, no-checkpoint) edge budget found the same capacity
+  failure in **221 of the 230 J states (96%)**, up from 156. Only 9 remain
+  unresolved within this bound (3 of which are the most constrained,
+  `Phi=0`, single-charge-word states).
+- **Important logical caveat, explicitly flagged:** finding that *some*
+  branch from a seed hits `Phi<0` does **not** show that seed itself
+  cannot complete — other branches (different rotation-length choices)
+  might avoid the collision. This work found failing branches, not proof
+  that every branch from a given seed fails. That gap is exactly why this
+  is reported as a strong bounded pattern, not a closure.
+- No nontrivial arithmetic lower bound stronger than `Phi>=0`, and no
+  useful vector potential beyond the scalar `Phi`, were found — both
+  reported as honest negative results, not forced into false theorems.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
