@@ -1,0 +1,92 @@
+{
+  "aggregate_over_full_corpus_exact": {
+    "candidate_correlation": {
+      "claim": "component_relation contains 'same' implies first_target_second_source (chaining)",
+      "converse_claim": "first_target_second_source (chaining) implies component_relation contains 'same'",
+      "converse_counterexamples": 65,
+      "converse_holds": false,
+      "counterexamples": 0,
+      "holds_over_full_corpus_exactly": true
+    },
+    "chaining_subset": {
+      "component_relation_distribution": {
+        "('different', 'same')": 3,
+        "('unresolved', 'different')": 65,
+        "('unresolved', 'same')": 7
+      },
+      "count": 75,
+      "support_distribution": {
+        "overlap": 75
+      }
+    },
+    "component_relation_distribution": {
+      "('different', 'same')": 3,
+      "('different', 'unresolved')": 118,
+      "('unresolved', 'different')": 172,
+      "('unresolved', 'same')": 7,
+      "('unresolved', 'unresolved')": 4170
+    },
+    "defect_macro_distance_distribution": {
+      "1": 1298,
+      "2": 1037,
+      "3": 971,
+      "4": 688,
+      "5": 476
+    },
+    "fragment_relation_distribution": {
+      "('different_or_unresolved', 'different_or_unresolved')": 1070,
+      "('different_or_unresolved', 'no_observable_fragment')": 72,
+      "('different_or_unresolved', 'target_component_of_fragment')": 74,
+      "('different_or_unresolved', 'target_is_fragment_hex')": 320,
+      "('no_observable_fragment', 'different_or_unresolved')": 1634,
+      "('no_observable_fragment', 'no_observable_fragment')": 1221,
+      "('no_observable_fragment', 'target_component_of_fragment')": 5,
+      "('no_observable_fragment', 'target_is_fragment_hex')": 32,
+      "('target_component_of_fragment', 'different_or_unresolved')": 2,
+      "('target_component_of_fragment', 'target_component_of_fragment')": 4,
+      "('target_is_fragment_hex', 'no_observable_fragment')": 36
+    },
+    "orbit_relation_marginals": {
+      "first_source_second_target": {
+        "count": 5,
+        "fraction": 0.0011185682326621924
+      },
+      "first_target_second_source_chaining": {
+        "count": 75,
+        "fraction": 0.016778523489932886
+      },
+      "same_source": {
+        "count": 12,
+        "fraction": 0.0026845637583892616
+      },
+      "same_target": {
+        "count": 1200,
+        "fraction": 0.2684563758389262
+      }
+    },
+    "same_component_subset": {
+      "all_are_chaining": true,
+      "chaining_count": 10,
+      "count": 10,
+      "same_source_count": 0,
+      "same_target_count": 0,
+      "support_distribution": {
+        "overlap": 10
+      }
+    },
+    "support_distribution": {
+      "disjoint": 3181,
+      "overlap": 1289
+    },
+    "total_rr_records": 4470
+  },
+  "literal_cross_validation_sample": {
+    "checked": 300,
+    "missing_from_checkpoint": 0,
+    "sample_available_in_checkpoint": 300,
+    "sample_requested": 300,
+    "word_reconstruction_all_match": true,
+    "word_reconstruction_mismatches": []
+  },
+  "schema": "rr-interaction-analysis-v1"
+}

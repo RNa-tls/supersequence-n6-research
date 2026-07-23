@@ -309,6 +309,60 @@ Full detail in `research/J_STATE_SPACE_REDUCTION.md`, `research/ZERO_CHARGE_GRAP
   filtered-out set of naive ideas that don't work, not a working
   reduction.
 
+## U-branch (two-charge-1-defect words) findings
+
+Full detail in `research/U_BRANCH_ARCHITECTURE.md`,
+`research/RA2_EXACT_ANALYSIS.md`, `research/A2R_IMPOSSIBILITY_STATUS.md`,
+`research/RR_INTERACTION_INVARIANT.md`, `research/RA3_A3R_ASYMMETRY.md`.
+
+The N=2, depth<=6 corpus (25,660 states) splits exactly into J-branch
+(single charge-2 defect, 230 states, see above) and U-branch (two
+charge-1 defects, five ordered words: RR 4,470 / RA2 24 / A2R 0 / RA3
+9,952 / A3R 10,984). This round advanced the U-branch side without
+touching the N=0 search/checkpoint and without any new large-scale
+search — witnesses were recovered by reusing the existing J-witness
+recovery checkpoint's parent chains.
+
+- **RA2 (24 states, all recovered literally): 20/24 proved unable to
+  complete** via the same Phi capacity potential already proved for
+  J-branch (finite exhaustive continuation search found a concrete
+  Phi<0 killer for each). The remaining 4 (all Phi=5) stayed unresolved
+  even at depth<=18/edge_cap=1.5M — reported as genuinely unresolved,
+  not forced closed. **Not** "RA2 fully CLOSED."
+- **A2R (0 observed in the corpus): the conjectured impossibility is
+  DISPROVED.** A concrete, literally-verified witness reaches word A2R
+  at macro-depth exactly 6 from the initial state (raw BFS), matching
+  the corpus's own recorded depth bound. Of 5 candidate explanations for
+  the non-observation, 4 are refuted by this witness; the remaining one
+  (an artifact of the original `node_limit=20000` canonical search's
+  node budget/ordering) is the best-supported explanation by elimination,
+  though not directly proved.
+- **RR interaction:** over the full 4,470-record corpus (not a sample),
+  every state where the two R's resolve to the same incidence-component
+  (10/4,470) is also a "chaining" state (first R's target = second R's
+  source) — an exact implication with zero counterexamples. The converse
+  fails (65/75 chaining states still show unresolved components). The
+  structural reason for the forward implication is not proved (flagged
+  as conjecture).
+- **RA3/A3R order asymmetry — the strongest result this round.** Proved
+  (deductively, from the model's F<=1 abandonment budget and the
+  definition of `fragment_hex`) a single theorem explaining, for all
+  four words RA2/RA3/A3R/RR at once, exactly when a "fragment" structural
+  signal can appear: it requires an earlier abandonment in the same walk,
+  and F<=1 permits only one. Verified exactly against the full corpus
+  (25,430 records, 8/8 slot predictions match with zero exceptions) and
+  the causal mechanism itself (a hidden zero-charge abandoning joint
+  firing before the second event) was confirmed by literal replay on a
+  20-state RR sample (20/20 confirmed).
+- None of the four literal success criteria from the originating request
+  were met exactly as stated; (2) is met in reversed form (disproof
+  instead of proof) and (4) is met in the spirit requested (one unified
+  interaction theorem) rather than as a state-count reduction. Recorded
+  honestly in `U_BRANCH_ARCHITECTURE.md` rather than claimed as full
+  success.
+- The section-7 "Theta" composite potential was not attempted this
+  round — explicitly left as future work, not silently skipped.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

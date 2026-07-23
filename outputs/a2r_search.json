@@ -1,0 +1,109 @@
+{
+  "a2_only_states_found": 1,
+  "a2_roots_searched": 1,
+  "a2r_found_in_any_root": true,
+  "config": {
+    "a2_search_depth": 6,
+    "a2_search_node_cap": 3000,
+    "max_a2_roots": 10,
+    "output": "/home/user/supersequence-n6-research/outputs/a2r_search.json",
+    "r_search_depth": 8,
+    "r_search_edge_cap": 20000,
+    "raw_bfs_max_depth": 6,
+    "raw_bfs_node_cap": 200000
+  },
+  "raw_bfs_minimum_depth_search": {
+    "depth": 6,
+    "final_state_json": {
+      "F": 1,
+      "H": 0,
+      "S": 6,
+      "hex_masks": [
+        [
+          0,
+          63
+        ],
+        [
+          1,
+          32
+        ],
+        [
+          18,
+          63
+        ],
+        [
+          66,
+          63
+        ],
+        [
+          69,
+          63
+        ],
+        [
+          96,
+          2
+        ],
+        [
+          105,
+          63
+        ]
+      ],
+      "orbit_masks": [
+        [
+          0,
+          21
+        ],
+        [
+          32,
+          2
+        ],
+        [
+          66,
+          1
+        ],
+        [
+          70,
+          8
+        ],
+        [
+          120,
+          16
+        ]
+      ],
+      "p": [
+        4,
+        0,
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    "found": true,
+    "macro_path": [
+      "rot^5;w3:210",
+      "rot^5;w3:201",
+      "rot^5;w3:201",
+      "rot^5;w3:201",
+      "rot^0;w2:10",
+      "rot^5;w3:120"
+    ],
+    "nodes_expanded": 2649
+  },
+  "resource_budget_argument": "A2 spends the walk's one allowed abandonment (F: 0->1). R requires abandonment=False only, which the F/N budget does not forbid after an A2. So A2R is NOT excluded by the same argument that kills A2A2/A2A3/A3A2/A3A3. Non-observation in the depth<=6 corpus and in this bounded search is not a proof of impossibility.",
+  "results": [
+    {
+      "a2_state_hash": "f98bf9e64e065f196bb47cf62675482c2b67988cf6457fda7a7471ad0790a13c",
+      "phi": 2,
+      "result": {
+        "depth": 2,
+        "found": true,
+        "macro_path": [
+          "rot^5;w2:10",
+          "rot^5;w3:120"
+        ]
+      }
+    }
+  ],
+  "schema": "a2r-search-v1"
+}
