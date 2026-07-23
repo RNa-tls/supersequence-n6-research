@@ -1,0 +1,332 @@
+{
+  "bounded_continuation_from_J_seed": {
+    "cap_hit": false,
+    "config": {
+      "checkpoint": null,
+      "edge_cap": 100000,
+      "macro_depth_cap": 4
+    },
+    "depth_survivor_counts": {
+      "0": 1,
+      "1": 3,
+      "2": 10,
+      "3": 34,
+      "4": 110
+    },
+    "edges_expanded": 1043,
+    "example_longest_surviving_macro_label_path": [
+      "rot^5;w3:120",
+      "rot^5;w2:10",
+      "rot^3;w2:10",
+      "rot^5;w3:201"
+    ],
+    "immediate_terminal_states": 0,
+    "max_survivor_depth_reached": 4,
+    "prune_counts": {
+      "F_exceeded": 866,
+      "N_exceeded_monotone": 20
+    },
+    "scope": "single-seed bounded experiment from the one literal J representative; not a completeness or impossibility result",
+    "states_with_only_pruned_children": 0
+  },
+  "bounded_reachability_check": {
+    "distinct_raw_states_reached": 244617,
+    "elapsed_seconds": 84.25,
+    "expanded": 60000,
+    "forbidden_row_observed": false,
+    "frontier_remaining": 184617,
+    "max_depth": 7,
+    "node_cap": 60000,
+    "note": "Absence of the forbidden row here is a bounded empirical check, not a proof. It is consistent with (does not itself establish) the 'blocked-w2 lemma' this corpus cites from prior work.",
+    "observed_combo_counts": {
+      "A2_abandon_w2_existing": {
+        "abandonment": true,
+        "count": 3600,
+        "first_example": {
+          "depth": 1,
+          "label": "rot^3;w2:10"
+        },
+        "new_orbit": false,
+        "weight": 2
+      },
+      "A3_abandon_w3_new": {
+        "abandonment": true,
+        "count": 803346,
+        "first_example": {
+          "depth": 0,
+          "label": "rot^0;w3:120"
+        },
+        "new_orbit": true,
+        "weight": 3
+      },
+      "J_abandon_w3_existing_charge2": {
+        "abandonment": true,
+        "count": 23842,
+        "first_example": {
+          "depth": 1,
+          "label": "rot^3;w3:210"
+        },
+        "new_orbit": false,
+        "weight": 3
+      },
+      "R_blocked_w3_existing": {
+        "abandonment": false,
+        "count": 56473,
+        "first_example": {
+          "depth": 0,
+          "label": "rot^5;w3:120"
+        },
+        "new_orbit": false,
+        "weight": 3
+      },
+      "Z2_abandon_w2_new": {
+        "abandonment": true,
+        "count": 269605,
+        "first_example": {
+          "depth": 0,
+          "label": "rot^0;w2:10"
+        },
+        "new_orbit": true,
+        "weight": 2
+      },
+      "Z2_blocked_w2_existing": {
+        "abandonment": false,
+        "count": 55986,
+        "first_example": {
+          "depth": 0,
+          "label": "rot^5;w2:10"
+        },
+        "new_orbit": false,
+        "weight": 2
+      },
+      "Z3_blocked_w3_new": {
+        "abandonment": false,
+        "count": 112931,
+        "first_example": {
+          "depth": 0,
+          "label": "rot^5;w3:201"
+        },
+        "new_orbit": true,
+        "weight": 3
+      }
+    }
+  },
+  "charge_two_uniqueness_proved": true,
+  "engine_code_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+  "engine_core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+  "literal_J_representative_replay": {
+    "final_coordinate_P_F_S_H_O_D_N": [
+      6,
+      1,
+      3,
+      0,
+      2,
+      4,
+      2
+    ],
+    "last_step_deltas_match_J_row": true,
+    "last_step_is_J": true,
+    "recomputed_state_hash": "1a1ac861c6531f75c023a9b3ce98645a7105cfc1aed3d03e99708a2a4ffd9334",
+    "state_hash_matches": true,
+    "steps": [
+      {
+        "abandonment": false,
+        "delta_F": 0,
+        "delta_N": 0,
+        "delta_O": 1,
+        "delta_S": 1,
+        "kind": "Z3_blocked_w3_new",
+        "label": "w3:201",
+        "new_orbit": true,
+        "rotation_length": 5,
+        "weight": 3
+      },
+      {
+        "abandonment": false,
+        "delta_F": 0,
+        "delta_N": 0,
+        "delta_O": 0,
+        "delta_S": 0,
+        "kind": "Z2_blocked_w2_existing",
+        "label": "w2:10",
+        "new_orbit": false,
+        "rotation_length": 5,
+        "weight": 2
+      },
+      {
+        "abandonment": false,
+        "delta_F": 0,
+        "delta_N": 0,
+        "delta_O": 0,
+        "delta_S": 0,
+        "kind": "Z2_blocked_w2_existing",
+        "label": "w2:10",
+        "new_orbit": false,
+        "rotation_length": 5,
+        "weight": 2
+      },
+      {
+        "abandonment": false,
+        "delta_F": 0,
+        "delta_N": 0,
+        "delta_O": 0,
+        "delta_S": 0,
+        "kind": "Z2_blocked_w2_existing",
+        "label": "w2:10",
+        "new_orbit": false,
+        "rotation_length": 5,
+        "weight": 2
+      },
+      {
+        "abandonment": true,
+        "delta_F": 1,
+        "delta_N": 2,
+        "delta_O": 0,
+        "delta_S": 1,
+        "kind": "J_abandon_w3_existing_charge2",
+        "label": "w3:120",
+        "new_orbit": false,
+        "rotation_length": 1,
+        "weight": 3
+      }
+    ],
+    "stored_coordinate_matches": true,
+    "stored_state_hash": "1a1ac861c6531f75c023a9b3ce98645a7105cfc1aed3d03e99708a2a4ffd9334"
+  },
+  "macro_code_sha256": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+  "negative_charge_rows": [
+    {
+      "abandonment": false,
+      "delta_F": 0,
+      "delta_N": -1,
+      "delta_O": 1,
+      "delta_S": 0,
+      "kind": "forbidden_blocked_w2_new",
+      "new_orbit": true,
+      "weight": 2
+    }
+  ],
+  "post_J_budget_theorem": {
+    "abandonment_budget_remaining": 0,
+    "arithmetic_consistency_check": {
+      "actual_D_change_needed_for_TARGET_D": 0,
+      "consistent": true,
+      "predicted_D_change_from_counts": 0
+    },
+    "coordinate_P_F_S_H_O_D_N": [
+      6,
+      1,
+      3,
+      0,
+      2,
+      4,
+      2
+    ],
+    "forced_joint_alphabet_for_remainder": {
+      "A2_A3_J_or_Z2_abandon_w2_new": "impossible (abandonment budget exhausted)",
+      "R_blocked_w3_existing": "at most 1",
+      "Z2_blocked_w2_existing": "remaining_existing_orbit_joints - (0..1 of them being R)",
+      "Z3_blocked_w3_new": 23
+    },
+    "no_further_abandonment_possible": true,
+    "remaining_existing_orbit_joints_required": 92,
+    "remaining_joints_total": 115,
+    "remaining_n_budget_for_R_events": 1,
+    "remaining_new_orbit_joints_required": 23
+  },
+  "schema": "j-completion-analysis-v1",
+  "truth_table": [
+    {
+      "abandonment": false,
+      "delta_F": 0,
+      "delta_N": 0,
+      "delta_O": 0,
+      "delta_S": 0,
+      "kind": "Z2_blocked_w2_existing",
+      "new_orbit": false,
+      "weight": 2
+    },
+    {
+      "abandonment": false,
+      "delta_F": 0,
+      "delta_N": -1,
+      "delta_O": 1,
+      "delta_S": 0,
+      "kind": "forbidden_blocked_w2_new",
+      "new_orbit": true,
+      "weight": 2
+    },
+    {
+      "abandonment": true,
+      "delta_F": 1,
+      "delta_N": 1,
+      "delta_O": 0,
+      "delta_S": 0,
+      "kind": "A2_abandon_w2_existing",
+      "new_orbit": false,
+      "weight": 2
+    },
+    {
+      "abandonment": true,
+      "delta_F": 1,
+      "delta_N": 0,
+      "delta_O": 1,
+      "delta_S": 0,
+      "kind": "Z2_abandon_w2_new",
+      "new_orbit": true,
+      "weight": 2
+    },
+    {
+      "abandonment": false,
+      "delta_F": 0,
+      "delta_N": 1,
+      "delta_O": 0,
+      "delta_S": 1,
+      "kind": "R_blocked_w3_existing",
+      "new_orbit": false,
+      "weight": 3
+    },
+    {
+      "abandonment": false,
+      "delta_F": 0,
+      "delta_N": 0,
+      "delta_O": 1,
+      "delta_S": 1,
+      "kind": "Z3_blocked_w3_new",
+      "new_orbit": true,
+      "weight": 3
+    },
+    {
+      "abandonment": true,
+      "delta_F": 1,
+      "delta_N": 2,
+      "delta_O": 0,
+      "delta_S": 1,
+      "kind": "J_abandon_w3_existing_charge2",
+      "new_orbit": false,
+      "weight": 3
+    },
+    {
+      "abandonment": true,
+      "delta_F": 1,
+      "delta_N": 1,
+      "delta_O": 1,
+      "delta_S": 1,
+      "kind": "A3_abandon_w3_new",
+      "new_orbit": true,
+      "weight": 3
+    }
+  ],
+  "unique_charge_two_row": [
+    {
+      "abandonment": true,
+      "delta_F": 1,
+      "delta_N": 2,
+      "delta_O": 0,
+      "delta_S": 1,
+      "kind": "J_abandon_w3_existing_charge2",
+      "new_orbit": false,
+      "weight": 3
+    }
+  ]
+}

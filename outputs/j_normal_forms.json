@@ -1,0 +1,97 @@
+{
+  "classification": {
+    "deficit_phase_type_group_count": 13,
+    "deficit_phase_type_groups": {
+      "(1, 3)": 1,
+      "(1, 3, 4)": 16,
+      "(1, 4, 4)": 6,
+      "(1, 4, 4, 4)": 12,
+      "(2, 2, 4)": 8,
+      "(2, 3, 4, 4)": 44,
+      "(2, 4, 4, 4)": 12,
+      "(2, 4, 4, 4, 4)": 17,
+      "(3, 3, 3, 4)": 14,
+      "(3, 3, 4, 4)": 13,
+      "(3, 3, 4, 4, 4)": 46,
+      "(3, 4, 4, 4, 4)": 25,
+      "(3, 4, 4, 4, 4, 4)": 16
+    },
+    "deficit_phase_type_x_legal_macro_tail_count": {
+      "(1, 3)": {
+        "3": 1
+      },
+      "(1, 3, 4)": {
+        "2": 5,
+        "3": 6,
+        "4": 5
+      },
+      "(1, 4, 4)": {
+        "2": 4,
+        "3": 2
+      },
+      "(1, 4, 4, 4)": {
+        "4": 12
+      },
+      "(2, 2, 4)": {
+        "2": 2,
+        "3": 4,
+        "4": 2
+      },
+      "(2, 3, 4, 4)": {
+        "2": 4,
+        "3": 5,
+        "4": 35
+      },
+      "(2, 4, 4, 4)": {
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "(2, 4, 4, 4, 4)": {
+        "2": 2,
+        "4": 15
+      },
+      "(3, 3, 3, 4)": {
+        "3": 3,
+        "4": 11
+      },
+      "(3, 3, 4, 4)": {
+        "3": 2,
+        "4": 11
+      },
+      "(3, 3, 4, 4, 4)": {
+        "3": 2,
+        "4": 44
+      },
+      "(3, 4, 4, 4, 4)": {
+        "3": 1,
+        "4": 24
+      },
+      "(3, 4, 4, 4, 4, 4)": {
+        "2": 1,
+        "4": 15
+      }
+    },
+    "distinct_state_hashes": 230,
+    "duplicate_state_hashes": [],
+    "legal_macro_tail_count_distribution": {
+      "2": 22,
+      "3": 30,
+      "4": 178
+    },
+    "pairwise_relation_fields_all_null_as_expected": true,
+    "total_records": 230
+  },
+  "data_availability_limitation": "Only 1 of the 230 J states (the stored 'representative') has a literal walk / hex-orbit-mask record in this corpus. The other 229 are known only by state_hash + deficit_phase_type + legal_macro_tail_count. A full canonical normal form (source orbit, target orbit, split-hexagon position, fragment position, open component structure, visited-mask support, legal-tail signature) cannot be reconstructed for those 229 without re-running the generating search, which this task explicitly does not do (no new large-scale search).",
+  "representative_cross_check": {
+    "note": "The aggregate file's own legal_macro_tail_count_distribution and deficit_phase_counts mix all five words together (A3R/RA3/RR/J/RA2), so they are not directly comparable to the J-only tallies above without re-deriving the split -- which is exactly what this script does from state_records, independently of that aggregation.",
+    "representative_deficit_phase_type": [
+      1,
+      3
+    ],
+    "representative_legal_macro_tail_count": 3,
+    "representative_state_hash": "1a1ac861c6531f75c023a9b3ce98645a7105cfc1aed3d03e99708a2a4ffd9334"
+  },
+  "schema": "j-normal-forms-v1",
+  "scope": "Coarse classification of the 230 recorded F=1,H=0,N=2 J-type states, bounded by the summary fields actually stored in this corpus. NOT a full exact canonical normal form -- see module docstring for exactly what is and is not available."
+}

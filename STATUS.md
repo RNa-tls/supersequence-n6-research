@@ -74,12 +74,29 @@ open). See `legacy_research/README.md` for the exclusions applied
 (one 696MB in-progress checkpoint, `__pycache__`, compiled `.pyc` files)
 and a summary of what that corpus does and does not establish.
 
-**The two things to hold onto:** the `F=1, H=0, N=0` exact-state search is
-**incomplete** (interrupted twice; 142 terminal certificates found, 0
-success certificates, per `legacy_research/outputs/F1_N0_COMMITTED_RESUME_FINAL_STATUS.md`),
-and **neither `L_6 >= 872` nor `L_6 = 872` is proved anywhere in this
-repository**, conditionally (under the `NR6` assumption) or otherwise — the
-original corpus's own status table agrees, listing both as open.
+**Three states need to stay distinct here, and the wording below is
+deliberately precise about which one each number describes:**
+
+1. **Latest state contained in the imported repository snapshot.** The
+   numbers `expanded=36,250 / accepted=114,182 / frontier=77,932 /
+   terminal=142 / success=0` are the last **committed** record inside the
+   uploaded ZIP (`legacy_research/outputs/F1_N0_COMMITTED_RESUME_FINAL_STATUS.md`).
+   This is a snapshot of one run at one point in time, not a live value.
+2. **External live search state: unknown to this repository.** The
+   external Windows process that produced that snapshot may have continued
+   running afterward, on a different machine this repository has no access
+   to. This repository cannot see, and does not claim to know, whatever
+   that process's state is *now*. Any statement of the form "the search is
+   currently at X" would be a fabrication — nothing here can observe that.
+3. **`N=0` exhaustive search: incomplete**, independent of (1) and (2).
+   Every checkpoint captured in this corpus records `completed=false` / an
+   interrupted run; no artifact anywhere in this repository shows the
+   `F=1,H=0,N=0` search reaching a terminal, verified conclusion.
+
+None of the three licenses a claim that `L_6 >= 872` (conditionally, under
+`NR6`) or `L_6 = 872` (unconditionally) is proved. The imported corpus's
+own status table agrees, listing both as open, and nothing added in this
+repository changes that.
 
 ## What this repository actually contains now
 
@@ -101,6 +118,41 @@ original corpus's own status table agrees, listing both as open.
 - `legacy_research/` — the actual (much larger, much further along) local
   research corpus this project had already produced, integrated as-is;
   see its own README for scope and exclusions.
+- `src/analyze_j_completion.py`, `src/verify_j_normal_forms.py`,
+  `research/*.md`, `outputs/j_completion_analysis.json`,
+  `outputs/j_normal_forms.json` — an audit of the F=1,H=0,N=2 "J" charge-2
+  joint (abandonment weight>=3 into an already-used E-orbit). See
+  "J-branch findings" below.
+
+## J-branch findings (F=1,H=0,N=2, the charge-2 joint J)
+
+Full detail in `research/J_COMPLETION_OBSTRUCTION.md`,
+`research/J_FUTURE_DEMAND_BOUND.md`, `research/J_NORMAL_FORMS.md`,
+`research/N2_BRANCH_DECOMPOSITION.md`, `research/N2_CLOSURE_STRATEGY.md`.
+Summary:
+
+- **Proved, from definitions alone (no search):** once J occurs, F is
+  exhausted (=`TARGET_F`), so no further abandonment is possible for the
+  rest of that walk, and at most one further `R`-type joint is possible
+  before the N budget (`Ndef+H<=3`) is exceeded. Every other remaining
+  joint is forced into a narrow zero-charge alphabet, whose counts are
+  arithmetically determined exactly for the one literal J example
+  available (see below). This reduces J-branch completion to the same
+  kind of zero-charge scheduling problem as the still-unsolved `N=0`
+  branch — a genuine reduction, not a shortcut.
+- **Literal replay: only 1 of the 230 recorded J states has a literal walk
+  in this corpus** (the stored "representative"); the other 229 are known
+  only through derived summary fields (`deficit_phase_type`,
+  `legal_macro_tail_count`). That one representative was independently
+  replayed against the actual engine and its recomputed state hash
+  matches the stored hash exactly.
+- **A bounded, single-seed continuation experiment** (macro depth <=4,
+  edge cap 100,000, no checkpoint, from that one seed only) found no
+  obstruction beyond the two already-proved budget mechanisms within that
+  shallow window — this is a limited experiment, not a completeness or
+  impossibility result.
+- **J completability is still open.** Nothing here shows J can or cannot
+  extend to a full walk. Arithmetic alone does not rule it out.
 
 ## Open problems (genuinely open, not resolved by this repository)
 
@@ -124,6 +176,9 @@ original corpus's own status table agrees, listing both as open.
 3. Producing and independently verifying an actual 872-length n=6 string
    would at least pin down the upper bound side concretely; this
    repository does not have one to check.
+4. Whether the F=1,H=0,N=2 slab's J-branch (or U-branch) can complete to a
+   full walk — see "J-branch findings" above and `research/N2_CLOSURE_STRATEGY.md`.
+   The overall conditional `L_6>=872` remains open regardless.
 
 ## How to run everything
 
