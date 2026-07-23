@@ -1,0 +1,145 @@
+{
+  "definition": "d_frag(S) = 6 - popcount(hex_masks[fragment_hex]) if fragment_hex exists else 0",
+  "naive_scalar_claim": {
+    "claim": "d_frag(S) > 0 implies walk cannot complete",
+    "reason": "d_frag(S) > 0 merely restates that the fragment hex has an unvisited window, true of every not-yet-full hex in every unfinished state; it is not a reachability statement, so no monotone scalar built only from it can be safe without additional positional/reachability information.",
+    "status": "REFUTED as a general principle -- see research/FRAGMENT_DEBT_LEMMA.md for the minimal abstract counter-model"
+  },
+  "observational_correlation_not_a_proof": {
+    "d_frag_after_A2_vs_status": {
+      "(1, 'unresolved_within_bounds_tried')": 4,
+      "(2, 'capacity_failure_found')": 1,
+      "(4, 'capacity_failure_found')": 18,
+      "(5, 'capacity_failure_found')": 1
+    }
+  },
+  "proven_sublemma_post_f1_blocked_only": {
+    "abandonment_after_f1_found_among_legal": 0,
+    "legal_transitions_checked": 41796,
+    "sublemma_holds": true,
+    "violation_examples": []
+  },
+  "records": [
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "10e9ab488d6c2cf5cadf625867f389acf85d12e741d1e47a46a1bcade42b574c"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "13ae04d9f7a5a95a9ae29a72e158537fc0e69d303b6bd26be300134a3836b1e5"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "15186b558afe45e7e400cb931a01dd7d60f557dbefb478f6ee496afcc1b9f076"
+    },
+    {
+      "d_frag_after_A2": 1,
+      "status": "unresolved_within_bounds_tried",
+      "target_hash": "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870"
+    },
+    {
+      "d_frag_after_A2": 1,
+      "status": "unresolved_within_bounds_tried",
+      "target_hash": "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "24378473d5993fbc8e1e81f77819954e8645f4cb6d2daf364dd6cd82a4d695c4"
+    },
+    {
+      "d_frag_after_A2": 1,
+      "status": "unresolved_within_bounds_tried",
+      "target_hash": "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "2d8f56bd04e05608bd7a58a5884d448db74dc6a5ed704d95f9b2e33730a867b4"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "4797a8e815cc5c7c4403f5c577b5faab198052ab734687904d77d398bf9c338a"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "528ceea70a6d780c625891d0cc06127a0619af9dbe17b2118a91d09ed8dd3525"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "587d7a77e0effc788602cd605af4805d9e3340bc42bfd4ca9a291e4efef80b9b"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "6ebc7a68a8ec6c3ee3ce1a673730123640bb37872554565f29068c15645ad1a5"
+    },
+    {
+      "d_frag_after_A2": 1,
+      "status": "unresolved_within_bounds_tried",
+      "target_hash": "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "a8185d5454429afeaa56b859c563c63e538a6841dc9ea373485244e3b1b35102"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "c3b4910cfb74a1cb46896f98af8efeaae6469feabd82a94b976dac5c6d483909"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "d5ab8253bc8d1b0b263bf771f030151ee7743bfc2002542754cff425e5c62e27"
+    },
+    {
+      "d_frag_after_A2": 2,
+      "status": "capacity_failure_found",
+      "target_hash": "d92abc8c8e611b89796c856b7a9f66a0ec095d6e1572608ef9c4217a2a9a99d2"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "da5660ec66fd9ffbd6d6ab1d1bc7c3f42652f7500bb84e7f80487e0583021d1a"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "dc4809339635040acc30886ed00e4115b1cae8aa85d5f760f89c473fe67b0bcd"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "e0d357a883488ced199707985fa9a4fd006dba28848224c6f7b05801d190cafa"
+    },
+    {
+      "d_frag_after_A2": 5,
+      "status": "capacity_failure_found",
+      "target_hash": "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "e59ee0038f2580e65cd7a6c2da142c607eba3fa27dd33692f14a5558601b86cd"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "eb2784716137d85ebb0d427cc7ebc2acc908de389819be289ff22d6bc60abaab"
+    },
+    {
+      "d_frag_after_A2": 4,
+      "status": "capacity_failure_found",
+      "target_hash": "f26bef32aab7e9cd71499df08a8931353e92c1ec4a7bf0526cb7a2d3cd4b9ad2"
+    }
+  ],
+  "schema": "ra2-fragment-debt-v1"
+}

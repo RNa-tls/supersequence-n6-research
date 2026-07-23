@@ -1,0 +1,30 @@
+{
+  "comparison": [
+    {
+      "new_prune_applied": false,
+      "prior_pass3_status": "unresolved_within_bounds_tried",
+      "reduction_vs_prior": "not applicable -- no validated new prune existed to apply this round (see FRAGMENT_DEBT_LEMMA.md, RA2_THETA_POTENTIAL.md); this run reuses the identical baseline search logic at the requested initial bounds only",
+      "target_hash": "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870",
+      "this_run": {
+        "edge_budget_remaining": 0,
+        "found": null,
+        "frontier_empty_at_stop": false,
+        "max_frontier_size": 178240,
+        "nodes_expanded": 96691,
+        "success_found": false,
+        "terminal_reason_counts": {
+          "N_exceeded_monotone": 65065,
+          "abandonment_illegal_post_f1": 1660003
+        },
+        "unique_states_seen": 274908
+      }
+    }
+  ],
+  "config": {
+    "node_cap_per_state": 200000,
+    "total_edge_cap": 2000000
+  },
+  "decision": "No new safe prune or compression was validated in sections 3-4 of this round (fragment debt scalar refuted; fragment/phase slack monotonicity left unresolved). Per this round's own instruction not to widen bounds without >=30% state reduction from a real new obstruction, this run does NOT go beyond the requested initial caps, and the honest expected outcome is 0% reduction versus the prior baseline (all 4 states still unresolved).",
+  "elapsed_seconds": 101.86,
+  "schema": "ra2-reduction-benchmark-v1"
+}

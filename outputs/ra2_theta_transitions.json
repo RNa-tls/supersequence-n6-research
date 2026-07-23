@@ -1,0 +1,119 @@
+{
+  "monotonicity_verdict": {
+    "fragment_slack_and_phase_slack": "UNRESOLVED -- theoretically could increase via a fragment/current swap (see FRAGMENT_DEBT_LEMMA.md), no counterexample found in bounded search, no proof obtained either",
+    "orbit_slack": "proven safe (d_orbit_slack <= 0 always, O never decreases)",
+    "phi": "proven safe (d_phi <= 0 always, established previously)"
+  },
+  "note": "delta ranges observed at depth 1 from all 24 RA2 final (post-A2) states, per move kind, over LEGAL continuations only (area_a_prune_reason is None)",
+  "per_move_kind_delta_ranges": {
+    "A2": {
+      "count_legal": 0,
+      "count_total": 4,
+      "d_orbit_slack_range": null,
+      "d_phase_slack_range": null,
+      "d_phi_range": null
+    },
+    "A3": {
+      "count_legal": 0,
+      "count_total": 325,
+      "d_orbit_slack_range": null,
+      "d_phase_slack_range": null,
+      "d_phi_range": null
+    },
+    "J": {
+      "count_legal": 0,
+      "count_total": 7,
+      "d_orbit_slack_range": null,
+      "d_phase_slack_range": null,
+      "d_phi_range": null
+    },
+    "R": {
+      "count_legal": 18,
+      "count_total": 18,
+      "d_orbit_slack_range": [
+        0,
+        0
+      ],
+      "d_phase_slack_range": [
+        0,
+        0
+      ],
+      "d_phi_range": [
+        0,
+        0
+      ]
+    },
+    "Z2": {
+      "count_legal": 20,
+      "count_total": 20,
+      "d_orbit_slack_range": [
+        0,
+        0
+      ],
+      "d_phase_slack_range": [
+        0,
+        0
+      ],
+      "d_phi_range": [
+        0,
+        0
+      ]
+    },
+    "Z2abandon": {
+      "count_legal": 0,
+      "count_total": 97,
+      "d_orbit_slack_range": null,
+      "d_phase_slack_range": null,
+      "d_phi_range": null
+    },
+    "Z3": {
+      "count_legal": 40,
+      "count_total": 40,
+      "d_orbit_slack_range": [
+        -1,
+        -1
+      ],
+      "d_phase_slack_range": [
+        0,
+        0
+      ],
+      "d_phi_range": [
+        0,
+        0
+      ]
+    }
+  },
+  "rotation_delta_sample_first5": [
+    {
+      "d_frag": 0,
+      "d_orbit_slack": 0,
+      "d_phase_slack": -1,
+      "d_phi": 1
+    },
+    {
+      "d_frag": 0,
+      "d_orbit_slack": 0,
+      "d_phase_slack": -1,
+      "d_phi": 1
+    },
+    {
+      "d_frag": 0,
+      "d_orbit_slack": 0,
+      "d_phase_slack": -1,
+      "d_phi": 1
+    },
+    {
+      "d_frag": 0,
+      "d_orbit_slack": 0,
+      "d_phase_slack": -1,
+      "d_phi": 1
+    },
+    {
+      "d_frag": 0,
+      "d_orbit_slack": 0,
+      "d_phase_slack": -1,
+      "d_phi": 1
+    }
+  ],
+  "schema": "ra2-theta-transitions-v1"
+}

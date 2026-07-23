@@ -363,6 +363,65 @@ recovery checkpoint's parent chains.
 - The section-7 "Theta" composite potential was not attempted this
   round — explicitly left as future work, not silently skipped.
 
+## RA2's 4 remaining unresolved states, and a second RR structural lemma
+
+Full detail in `research/RA2_FOUR_SURVIVORS.md`, `research/FRAGMENT_DEBT_LEMMA.md`,
+`research/RA2_THETA_POTENTIAL.md`, `research/RA2_COMPLETION_OBSTRUCTION.md`,
+`research/RR_CHAINING_PROOF_STATUS.md`.
+
+Follow-up round targeting the 4 RA2 states left unresolved above, plus
+strengthening the fragment-asymmetry theorem into a quantitative
+obstruction, plus another attempt at the RR chaining proof. No new
+large-scale search; N=0 untouched.
+
+- **The 4 U4 states are proved pairwise non-isomorphic.** Their R and A2
+  events are literally identical across all 4 (same source/target
+  orbit+phase for both); the only difference is how many zero-charge
+  joints intervene. A shallow abstracted-signature comparison suggested a
+  misleading "2+2" grouping at depth 1, but depth 2 refutes it exactly --
+  since the comparison uses only labeling-independent resource deltas
+  (P/F/S/H/O/D/Ndef), the depth-2 mismatch is a deductive proof that no
+  structure-preserving equivalence can merge them. Verdict: 4 independent
+  exact states, not further reducible.
+- **A proven sub-lemma:** once F=1 (the walk's one abandonment spent),
+  every legal joint for the rest of the walk must be abandonment=False
+  ("blocked" type only) -- a direct consequence of F<=1 and extend()'s
+  abandonment formula, verified computationally (0 violations among legal
+  transitions, 24/24 seeds).
+- **The requested scalar "fragment debt > 0 implies incomplete" lemma is
+  false and not salvageable as stated** -- it is a tautology (restates
+  "this hex isn't full yet", true of every unfinished hex) rather than a
+  reachability argument; documented with a minimal abstract counter-model.
+  A genuine byproduct, though: among all 24 RA2 states, fragment-debt=1
+  after A2 exactly identifies the 4 unresolved states (24/24, no
+  exceptions) -- an exact but unexplained (conjectural) correlation.
+- **Theta potential:** Phi and orbit-slack are the only candidate
+  coordinates proved monotone; fragment/phase slack monotonicity was
+  left genuinely unresolved (a swap mechanism could in principle break
+  it; no counterexample was found in bounded search either). No usable
+  RA2-specific potential beyond Phi was obtained.
+- Per this round's own instruction not to widen search bounds without a
+  validated >=30% reduction from a real new prune, the requested
+  family-local re-search was run at the specified initial caps only (no
+  new prune existed to add) and, as expected, found nothing new --
+  reported honestly as 0% improvement rather than silently re-running at
+  larger bounds.
+- **A second, real RR lemma:** if the two R's chain (first R's target
+  orbit = second R's source orbit), the second R's own component relation
+  is *never* "unresolved" -- proved deductively (the source orbit is
+  automatically a registered union-find node, since it equals the first
+  R's own target) and verified exactly against the full 4,470-record
+  corpus (75/75 chaining states resolve to same-or-different, zero
+  unresolved). The originally-requested exact direction (same-component
+  implies chaining) remains unproved and un-refuted -- honestly left
+  open, no valid abstract counter-model constructed either (it would
+  require replicating the real S6 E-orbit/hexagon combinatorics).
+- None of this round's four success criteria (U4 fully closed; U4 reduced
+  to few subcases; fragment-debt/Theta proof; RR chaining proof) were met
+  in their literal form. Two genuine proven lemmas came out of the
+  attempts anyway (post-F1 blocked-only; chaining-implies-resolved) and
+  are recorded as real, if partial, progress.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

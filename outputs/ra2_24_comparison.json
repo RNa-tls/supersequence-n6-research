@@ -1,0 +1,5158 @@
+{
+  "c20_vs_u4_diff": {
+    "discriminating_fields": [
+      {
+        "C20_values": [
+          0,
+          9,
+          120
+        ],
+        "U4_value": 3,
+        "field": "A2_event.source_orbit_q",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          0,
+          2
+        ],
+        "U4_value": 3,
+        "field": "A2_event.source_phase",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          2,
+          24,
+          33
+        ],
+        "U4_value": 1,
+        "field": "A2_event.target_hexagon",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          3,
+          33,
+          120
+        ],
+        "U4_value": 1,
+        "field": "A2_event.target_orbit_q",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          1,
+          2,
+          4
+        ],
+        "U4_value": 0,
+        "field": "A2_event.target_phase",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          "[[1, 2, 2]]",
+          "[[1, 4, 4]]",
+          "[[2, 3, 2]]",
+          "[[3, 4, 2]]",
+          "[[4, 4, 1]]"
+        ],
+        "U4_value": "[[0, 4, 5]]",
+        "field": "after_A2_final.fragment_components",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[1, 2, 2]], \"hex\": 13, \"mask\": 6}]",
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[1, 2, 2]], \"hex\": 19, \"mask\": 6}]",
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[1, 4, 4]], \"hex\": 1, \"mask\": 30}]",
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[2, 3, 2]], \"hex\": 4, \"mask\": 12}]",
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[3, 4, 2]], \"hex\": 1, \"mask\": 24}]",
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[4, 4, 1]], \"hex\": 1, \"mask\": 16}]"
+        ],
+        "U4_value": "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}, {\"components\": [[0, 4, 5]], \"hex\": 1, \"mask\": 31}]",
+        "field": "after_A2_final.non_full_hexagon_masks",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          1,
+          2,
+          4
+        ],
+        "U4_value": 5,
+        "field": "after_A2_final.phi",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          0,
+          2
+        ],
+        "U4_value": 3,
+        "field": "before_A2.endpoint_orbit_phase",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          0,
+          9,
+          120
+        ],
+        "U4_value": 3,
+        "field": "before_A2.endpoint_orbit_q",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          "[0, 1, 2, 3, 4, 5]",
+          "[1, 2, 3, 4, 5, 0]",
+          "[3, 4, 5, 0, 1, 2]"
+        ],
+        "U4_value": "[4, 5, 0, 1, 2, 3]",
+        "field": "before_A2.endpoint_permutation",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          10,
+          16,
+          17,
+          20
+        ],
+        "U4_value": 8,
+        "field": "before_A2.legal_macro_children_total",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          6,
+          11,
+          12,
+          13,
+          15
+        ],
+        "U4_value": 5,
+        "field": "before_A2.legal_positive_charge_children",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          "[{\"components\": [[0, 0, 1]], \"hex\": 0, \"mask\": 1}]",
+          "[{\"components\": [[0, 1, 2]], \"hex\": 0, \"mask\": 3}]",
+          "[{\"components\": [[0, 3, 4]], \"hex\": 0, \"mask\": 15}]"
+        ],
+        "U4_value": "[{\"components\": [[0, 4, 5]], \"hex\": 0, \"mask\": 31}]",
+        "field": "before_A2.non_full_hexagon_masks",
+        "kind": "U4_constant_C20_never_matches"
+      },
+      {
+        "C20_values": [
+          6,
+          7,
+          9
+        ],
+        "U4_value": 10,
+        "field": "before_A2.phi",
+        "kind": "U4_constant_C20_never_matches"
+      }
+    ]
+  },
+  "note_on_split_hexagon": "This codebase has no distinct 'split hexagon' field (confirmed by grep across legacy_research/work/*.py); consistent with this project's earlier documented usage, 'split hexagon' is treated as an alias for f1_normal_form(state).fragment_hex.",
+  "records": [
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 689,
+        "remaining_orbit_count": 22,
+        "visited_count": 31
+      },
+      "before_A2": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 688,
+        "remaining_orbit_count": 22,
+        "visited_count": 32
+      },
+      "before_R": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 5,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 690,
+        "remaining_orbit_count": 22,
+        "visited_count": 30
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "10e9ab488d6c2cf5cadf625867f389acf85d12e741d1e47a46a1bcade42b574c"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 22,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 688,
+        "remaining_orbit_count": 22,
+        "visited_count": 32
+      },
+      "before_R": {
+        "D": 11,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 22,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "13ae04d9f7a5a95a9ae29a72e158537fc0e69d303b6bd26be300134a3836b1e5"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 19,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 19,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 3,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 707,
+        "remaining_orbit_count": 23,
+        "visited_count": 13
+      },
+      "before_A2": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 700,
+        "remaining_orbit_count": 23,
+        "visited_count": 20
+      },
+      "before_R": {
+        "D": 8,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 2,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 708,
+        "remaining_orbit_count": 23,
+        "visited_count": 12
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "15186b558afe45e7e400cb931a01dd7d60f557dbefb478f6ee496afcc1b9f076"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 3,
+        "source_phase": 3,
+        "target_hexagon": 1,
+        "target_orbit_q": 1,
+        "target_phase": 0,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            0,
+            4,
+            5
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 20,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 1,
+            "mask": 31
+          }
+        ],
+        "phi": 5,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 690,
+        "remaining_orbit_count": 22,
+        "visited_count": 30
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 3,
+        "endpoint_orbit_q": 3,
+        "endpoint_permutation": [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 8,
+        "legal_positive_charge_children": 5,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 0,
+            "mask": 31
+          }
+        ],
+        "phi": 10,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 691,
+        "remaining_orbit_count": 22,
+        "visited_count": 29
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "U4",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 3,
+        "source_phase": 3,
+        "target_hexagon": 1,
+        "target_orbit_q": 1,
+        "target_phase": 0,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            0,
+            4,
+            5
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 19,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 1,
+            "mask": 31
+          }
+        ],
+        "phi": 5,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 684,
+        "remaining_orbit_count": 22,
+        "visited_count": 36
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 3,
+        "endpoint_orbit_q": 3,
+        "endpoint_permutation": [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 8,
+        "legal_positive_charge_children": 5,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 0,
+            "mask": 31
+          }
+        ],
+        "phi": 10,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 685,
+        "remaining_orbit_count": 22,
+        "visited_count": 35
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "U4",
+      "macro_distance_R_to_A2": 3,
+      "target_hash": "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 13,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 13,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 16,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 23,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "24378473d5993fbc8e1e81f77819954e8645f4cb6d2daf364dd6cd82a4d695c4"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 3,
+        "source_phase": 3,
+        "target_hexagon": 1,
+        "target_orbit_q": 1,
+        "target_phase": 0,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            0,
+            4,
+            5
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 19,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 1,
+            "mask": 31
+          }
+        ],
+        "phi": 5,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 684,
+        "remaining_orbit_count": 22,
+        "visited_count": 36
+      },
+      "after_R": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 23,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 3,
+        "endpoint_orbit_q": 3,
+        "endpoint_permutation": [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 8,
+        "legal_positive_charge_children": 5,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 0,
+            "mask": 31
+          }
+        ],
+        "phi": 10,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 685,
+        "remaining_orbit_count": 22,
+        "visited_count": 35
+      },
+      "before_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 4,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 23,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "U4",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 11,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 4,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 22,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 22,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 12,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 3,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 22,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "2d8f56bd04e05608bd7a58a5884d448db74dc6a5ed704d95f9b2e33730a867b4"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 13,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 13,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 20,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 23,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 16,
+        "legal_positive_charge_children": 11,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 23,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 4,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 23,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "4797a8e815cc5c7c4403f5c577b5faab198052ab734687904d77d398bf9c338a"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 22,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 16,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 688,
+        "remaining_orbit_count": 22,
+        "visited_count": 32
+      },
+      "before_R": {
+        "D": 11,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 22,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "528ceea70a6d780c625891d0cc06127a0619af9dbe17b2118a91d09ed8dd3525"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 11,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 4,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 22,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 22,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 12,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 3,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 22,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "587d7a77e0effc788602cd605af4805d9e3340bc42bfd4ca9a291e4efef80b9b"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 4,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 2,
+        "P": 6,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            2,
+            3,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 4,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                2,
+                3,
+                2
+              ]
+            ],
+            "hex": 4,
+            "mask": 12
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 23,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 3,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 707,
+        "remaining_orbit_count": 23,
+        "visited_count": 13
+      },
+      "before_A2": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 700,
+        "remaining_orbit_count": 23,
+        "visited_count": 20
+      },
+      "before_R": {
+        "D": 8,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 2,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 708,
+        "remaining_orbit_count": 23,
+        "visited_count": 12
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "6ebc7a68a8ec6c3ee3ce1a673730123640bb37872554565f29068c15645ad1a5"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 3,
+        "source_phase": 3,
+        "target_hexagon": 1,
+        "target_orbit_q": 1,
+        "target_phase": 0,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            0,
+            4,
+            5
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 20,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 1,
+            "mask": 31
+          }
+        ],
+        "phi": 5,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 690,
+        "remaining_orbit_count": 22,
+        "visited_count": 30
+      },
+      "after_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 3,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 707,
+        "remaining_orbit_count": 23,
+        "visited_count": 13
+      },
+      "before_A2": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 3,
+        "endpoint_orbit_q": 3,
+        "endpoint_permutation": [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 8,
+        "legal_positive_charge_children": 5,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                4,
+                5
+              ]
+            ],
+            "hex": 0,
+            "mask": 31
+          }
+        ],
+        "phi": 10,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 691,
+        "remaining_orbit_count": 22,
+        "visited_count": 29
+      },
+      "before_R": {
+        "D": 8,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 2,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 708,
+        "remaining_orbit_count": 23,
+        "visited_count": 12
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "U4",
+      "macro_distance_R_to_A2": 3,
+      "target_hash": "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 4,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 2,
+        "P": 6,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            2,
+            3,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 4,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                2,
+                3,
+                2
+              ]
+            ],
+            "hex": 4,
+            "mask": 12
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 23,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 700,
+        "remaining_orbit_count": 23,
+        "visited_count": 20
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "a8185d5454429afeaa56b859c563c63e538a6841dc9ea373485244e3b1b35102"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 19,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 19,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 20,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 23,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 16,
+        "legal_positive_charge_children": 11,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 23,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 4,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 23,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "c3b4910cfb74a1cb46896f98af8efeaae6469feabd82a94b976dac5c6d483909"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 19,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 19,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 5,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 5,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 16,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 23,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "d5ab8253bc8d1b0b263bf771f030151ee7743bfc2002542754cff425e5c62e27"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 9,
+        "source_phase": 2,
+        "target_hexagon": 2,
+        "target_orbit_q": 3,
+        "target_phase": 4,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 14,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 4,
+        "P": 6,
+        "S": 5,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            4,
+            4
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                4,
+                4
+              ]
+            ],
+            "hex": 1,
+            "mask": 30
+          }
+        ],
+        "phi": 4,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 691,
+        "remaining_orbit_count": 21,
+        "visited_count": 29
+      },
+      "after_R": {
+        "D": 15,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 4,
+        "P": 5,
+        "S": 5,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 21,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 15,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 4,
+        "P": 5,
+        "S": 5,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 9,
+        "endpoint_permutation": [
+          3,
+          4,
+          5,
+          0,
+          1,
+          2
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 10,
+        "legal_positive_charge_children": 6,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                3,
+                4
+              ]
+            ],
+            "hex": 0,
+            "mask": 15
+          }
+        ],
+        "phi": 9,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 692,
+        "remaining_orbit_count": 21,
+        "visited_count": 28
+      },
+      "before_R": {
+        "D": 16,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 4,
+        "P": 4,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 3,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 21,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "d92abc8c8e611b89796c856b7a9f66a0ec095d6e1572608ef9c4217a2a9a99d2"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 19,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 19,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 700,
+        "remaining_orbit_count": 23,
+        "visited_count": 20
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "da5660ec66fd9ffbd6d6ab1d1bc7c3f42652f7500bb84e7f80487e0583021d1a"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 8,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 7,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 687,
+        "remaining_orbit_count": 22,
+        "visited_count": 33
+      },
+      "after_R": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 20,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 689,
+        "remaining_orbit_count": 22,
+        "visited_count": 31
+      },
+      "before_A2": {
+        "D": 9,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 16,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 688,
+        "remaining_orbit_count": 22,
+        "visited_count": 32
+      },
+      "before_R": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 5,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 3,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 690,
+        "remaining_orbit_count": 22,
+        "visited_count": 30
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "dc4809339635040acc30886ed00e4115b1cae8aa85d5f760f89c473fe67b0bcd"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 22,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 22,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 11,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 22,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "e0d357a883488ced199707985fa9a4fd006dba28848224c6f7b05801d190cafa"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 0,
+        "source_phase": 0,
+        "target_hexagon": 33,
+        "target_orbit_q": 120,
+        "target_phase": 1,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 18,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 5,
+        "P": 7,
+        "S": 6,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            4,
+            4,
+            1
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 3,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                4,
+                4,
+                1
+              ]
+            ],
+            "hex": 1,
+            "mask": 16
+          }
+        ],
+        "phi": 1,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 688,
+        "remaining_orbit_count": 20,
+        "visited_count": 32
+      },
+      "after_R": {
+        "D": 3,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 1,
+        "P": 2,
+        "S": 2,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 713,
+        "remaining_orbit_count": 24,
+        "visited_count": 7
+      },
+      "before_A2": {
+        "D": 19,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 5,
+        "P": 6,
+        "S": 6,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 20,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 689,
+        "remaining_orbit_count": 20,
+        "visited_count": 31
+      },
+      "before_R": {
+        "D": 4,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 1,
+        "P": 1,
+        "S": 1,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 714,
+        "remaining_orbit_count": 24,
+        "visited_count": 6
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": true,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 5,
+      "target_hash": "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 13,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 13,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 3,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 23,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 707,
+        "remaining_orbit_count": 23,
+        "visited_count": 13
+      },
+      "before_A2": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 13,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 700,
+        "remaining_orbit_count": 23,
+        "visited_count": 20
+      },
+      "before_R": {
+        "D": 8,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 2,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 708,
+        "remaining_orbit_count": 23,
+        "visited_count": 12
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 2,
+      "target_hash": "e59ee0038f2580e65cd7a6c2da142c607eba3fa27dd33692f14a5558601b86cd"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            3,
+            4,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 1,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 16,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                3,
+                4,
+                2
+              ]
+            ],
+            "hex": 1,
+            "mask": 24
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 695,
+        "remaining_orbit_count": 22,
+        "visited_count": 25
+      },
+      "before_A2": {
+        "D": 10,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 3,
+        "P": 5,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 694,
+        "remaining_orbit_count": 22,
+        "visited_count": 26
+      },
+      "before_R": {
+        "D": 11,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 3,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 696,
+        "remaining_orbit_count": 22,
+        "visited_count": 24
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "eb2784716137d85ebb0d427cc7ebc2acc908de389819be289ff22d6bc60abaab"
+    },
+    {
+      "A2_event": {
+        "abandonment": true,
+        "new_orbit": false,
+        "source_orbit_q": 120,
+        "source_phase": 0,
+        "target_hexagon": 24,
+        "target_orbit_q": 33,
+        "target_phase": 2,
+        "weight": 2
+      },
+      "R_event": {
+        "abandonment": false,
+        "new_orbit": false,
+        "source_orbit_q": 1,
+        "source_phase": 4,
+        "target_hexagon": 18,
+        "target_orbit_q": 0,
+        "target_phase": 2,
+        "weight": 3
+      },
+      "after_A2_final": {
+        "D": 9,
+        "F": 1,
+        "H": 0,
+        "N_charge_Ndef": 2,
+        "O": 3,
+        "P": 6,
+        "S": 4,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fragment_components": [
+          [
+            1,
+            2,
+            2
+          ]
+        ],
+        "fragment_hex_aka_split_hex": 13,
+        "legal_ell5_children": 4,
+        "legal_macro_children_total": 22,
+        "legal_positive_charge_children": 14,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "hex": 0,
+            "mask": 1
+          },
+          {
+            "components": [
+              [
+                1,
+                2,
+                2
+              ]
+            ],
+            "hex": 13,
+            "mask": 6
+          }
+        ],
+        "phi": 2,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 693,
+        "remaining_orbit_count": 22,
+        "visited_count": 27
+      },
+      "after_R": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 18,
+        "endpoint_orbit_phase": 2,
+        "endpoint_orbit_q": 0,
+        "endpoint_permutation": [
+          2,
+          3,
+          4,
+          0,
+          1,
+          5
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 2,
+        "legal_macro_children_total": 21,
+        "legal_positive_charge_children": 15,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                3,
+                3,
+                1
+              ]
+            ],
+            "hex": 18,
+            "mask": 8
+          }
+        ],
+        "phi": 6,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 701,
+        "remaining_orbit_count": 23,
+        "visited_count": 19
+      },
+      "before_A2": {
+        "D": 6,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 1,
+        "O": 2,
+        "P": 4,
+        "S": 3,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 0,
+        "endpoint_orbit_q": 120,
+        "endpoint_permutation": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 17,
+        "legal_positive_charge_children": 12,
+        "non_full_hexagon_masks": [
+          {
+            "components": [
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "hex": 0,
+            "mask": 3
+          }
+        ],
+        "phi": 7,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 700,
+        "remaining_orbit_count": 23,
+        "visited_count": 20
+      },
+      "before_R": {
+        "D": 7,
+        "F": 0,
+        "H": 0,
+        "N_charge_Ndef": 0,
+        "O": 2,
+        "P": 3,
+        "S": 2,
+        "current_hex": 0,
+        "endpoint_orbit_phase": 4,
+        "endpoint_orbit_q": 1,
+        "endpoint_permutation": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "fragment_components": [],
+        "fragment_hex_aka_split_hex": null,
+        "legal_ell5_children": 0,
+        "legal_macro_children_total": 4,
+        "legal_positive_charge_children": 1,
+        "non_full_hexagon_masks": [],
+        "phi": 11,
+        "pure_rotation_suffix_possible": false,
+        "remaining_deficit_windows": 702,
+        "remaining_orbit_count": 23,
+        "visited_count": 18
+      },
+      "component_relation_at_final": {
+        "A2_source_target_same_component": false,
+        "R_source_target_same_component": false,
+        "R_target_A2_source_same_component": false,
+        "R_target_A2_target_same_component": false
+      },
+      "group": "C20",
+      "macro_distance_R_to_A2": 1,
+      "target_hash": "f26bef32aab7e9cd71499df08a8931353e92c1ec4a7bf0526cb7a2d3cd4b9ad2"
+    }
+  ],
+  "schema": "ra2-24-comparison-v1"
+}
