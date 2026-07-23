@@ -173,6 +173,41 @@ Summary:
   is explicitly "C: reduction insufficient so far" (not "closed", not
   "reduced to fixed families") per `research/J_BRANCH_CLOSURE_STATUS.md`.
 
+## Capacity obstruction: a proved monotone potential (F=1,H=0 slab-wide)
+
+Full detail in `research/J_CAPACITY_OBSTRUCTION.md`,
+`research/J_CAPACITY_CORE_CERTIFICATES.md`, `research/J4_COMPONENT_ANALYSIS.md`.
+Following up on the 45/230 `remaining_cover_capacity_impossible` signal
+above:
+
+- **Proved (and verified against 11,920 real transitions with zero
+  exceptions):** `Phi(S) = 5 + 6*(TARGET_P - S.P) - (720 - S.visited_count)`
+  is a monotone potential — `Phi(child) = Phi(parent) + (rotation_run_length
+  - 5)`, so it never increases along any legal move, and going negative
+  proves the rest of that walk cannot complete. This re-derives the
+  engine's existing (but previously just-cited) capacity prune as a real
+  theorem, not a black box.
+- **Slab-wide fact, not J-specific:** `Phi` at the very start of *any*
+  complete F=1,H=0 walk is exactly 6 — across all 121 joints in the whole
+  slab, total tolerable rotation shortfall is at most 6. All 230 J states
+  inherit an already-tiny remainder of that budget: `Phi` is in
+  `{0,1,2,4,5}` for every single one of them (216 of 230 at exactly 4).
+- **All 45 observed capacity failures are now fully, mechanically
+  explained and independently re-verified (45/45 pass):** each is exactly
+  a state with small `Phi` followed by a short rotation run (`ell` mostly
+  0) that exceeds it — nothing else is needed. R usage is provably
+  irrelevant to this mechanism (R and Z2 have identical effect on `Phi`).
+- **Extending the same search (still bounded, depth<=6, larger edge cap)
+  found the same failure in 156 of the 230 seeds**, not just the original
+  45 — strong evidence (not proof) that the 45/185 split was an artifact
+  of how shallow the first search was, not a real distinction between
+  seeds.
+- Whether *every* J state (or the whole F=1,H=0 slab) is arithmetically
+  doomed this way remains a conjecture, not a theorem — proving it would
+  require showing no collision-free schedule can stay within the 6-unit
+  slab-wide shortfall budget, which is a geometric question this
+  potential argument alone cannot answer.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
