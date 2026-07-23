@@ -1,0 +1,2066 @@
+{
+  "analysis_sha256": "26813bd8e01601f532bf916b91811f56497a4136b3ac6d9813f1105081b6e22e",
+  "checkpoint": "outputs\\f1_profile_depth6.checkpoint.json",
+  "checkpoint_sha256": "3fcfd43b22d77aa99c4cf92d44a58b50a1e4553af40b08b2a5393677935d6eb2",
+  "checkpoint_size_bytes": 929361,
+  "completed": true,
+  "completed_depth": 6,
+  "config": {
+    "canonical_children": true,
+    "memory_limit_bytes": 1073741824,
+    "mode": "general",
+    "node_limit_per_stage": 20000
+  },
+  "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+  "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+  "final_frontier_states": 980,
+  "layers": [
+    {
+      "F1_states": 0,
+      "canonical_states_at_depth": 1,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1
+      },
+      "depth": 0,
+      "fragment_before_after": {
+        "before_F1": 1
+      },
+      "fragment_type_count": 0,
+      "fragment_type_histogram": {},
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1
+      },
+      "histogram_N_H": {
+        "(0, 0)": 1
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1
+      }
+    },
+    {
+      "F1_states": 88,
+      "canonical_states_at_depth": 89,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1,
+        "(2, 1, 1, 0, 2, 8, 0)": 1,
+        "(2, 1, 2, 0, 2, 8, 1)": 3,
+        "(2, 1, 2, 1, 2, 8, 1)": 13,
+        "(2, 1, 2, 2, 2, 8, 1)": 71
+      },
+      "depth": 1,
+      "fragment_before_after": {
+        "after_F1": 88,
+        "before_F1": 1
+      },
+      "fragment_type_count": 4,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 89.0,
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1,
+        "(8, 0, 0)": 1,
+        "(8, 1, 0)": 3,
+        "(8, 1, 1)": 13,
+        "(8, 1, 2)": 71
+      },
+      "histogram_N_H": {
+        "(0, 0)": 2,
+        "(1, 0)": 3,
+        "(1, 1)": 13,
+        "(1, 2)": 71
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1,
+        "(2, 2)": 88
+      }
+    },
+    {
+      "F1_states": 176,
+      "canonical_states_at_depth": 177,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1,
+        "(2, 1, 1, 0, 2, 8, 0)": 2,
+        "(2, 1, 2, 0, 2, 8, 1)": 6,
+        "(2, 1, 2, 1, 2, 8, 1)": 26,
+        "(2, 1, 2, 2, 2, 8, 1)": 142
+      },
+      "depth": 2,
+      "fragment_before_after": {
+        "after_F1": 176,
+        "before_F1": 1
+      },
+      "fragment_type_count": 8,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 1.9887640449438202,
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1,
+        "(8, 0, 0)": 2,
+        "(8, 1, 0)": 6,
+        "(8, 1, 1)": 26,
+        "(8, 1, 2)": 142
+      },
+      "histogram_N_H": {
+        "(0, 0)": 3,
+        "(1, 0)": 6,
+        "(1, 1)": 26,
+        "(1, 2)": 142
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1,
+        "(2, 2)": 176
+      }
+    },
+    {
+      "F1_states": 264,
+      "canonical_states_at_depth": 265,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1,
+        "(2, 1, 1, 0, 2, 8, 0)": 3,
+        "(2, 1, 2, 0, 2, 8, 1)": 9,
+        "(2, 1, 2, 1, 2, 8, 1)": 39,
+        "(2, 1, 2, 2, 2, 8, 1)": 213
+      },
+      "depth": 3,
+      "fragment_before_after": {
+        "after_F1": 264,
+        "before_F1": 1
+      },
+      "fragment_type_count": 12,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 1.497175141242938,
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1,
+        "(8, 0, 0)": 3,
+        "(8, 1, 0)": 9,
+        "(8, 1, 1)": 39,
+        "(8, 1, 2)": 213
+      },
+      "histogram_N_H": {
+        "(0, 0)": 4,
+        "(1, 0)": 9,
+        "(1, 1)": 39,
+        "(1, 2)": 213
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1,
+        "(2, 2)": 264
+      }
+    },
+    {
+      "F1_states": 352,
+      "canonical_states_at_depth": 353,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1,
+        "(2, 1, 1, 0, 2, 8, 0)": 4,
+        "(2, 1, 2, 0, 2, 8, 1)": 12,
+        "(2, 1, 2, 1, 2, 8, 1)": 52,
+        "(2, 1, 2, 2, 2, 8, 1)": 284
+      },
+      "depth": 4,
+      "fragment_before_after": {
+        "after_F1": 352,
+        "before_F1": 1
+      },
+      "fragment_type_count": 16,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 1.3320754716981131,
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1,
+        "(8, 0, 0)": 4,
+        "(8, 1, 0)": 12,
+        "(8, 1, 1)": 52,
+        "(8, 1, 2)": 284
+      },
+      "histogram_N_H": {
+        "(0, 0)": 5,
+        "(1, 0)": 12,
+        "(1, 1)": 52,
+        "(1, 2)": 284
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1,
+        "(2, 2)": 352
+      }
+    },
+    {
+      "F1_states": 440,
+      "canonical_states_at_depth": 441,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1,
+        "(2, 1, 1, 0, 2, 8, 0)": 5,
+        "(2, 1, 2, 0, 2, 8, 1)": 15,
+        "(2, 1, 2, 1, 2, 8, 1)": 65,
+        "(2, 1, 2, 2, 2, 8, 1)": 355
+      },
+      "depth": 5,
+      "fragment_before_after": {
+        "after_F1": 440,
+        "before_F1": 1
+      },
+      "fragment_type_count": 20,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 1.2492917847025495,
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1,
+        "(8, 0, 0)": 5,
+        "(8, 1, 0)": 15,
+        "(8, 1, 1)": 65,
+        "(8, 1, 2)": 355
+      },
+      "histogram_N_H": {
+        "(0, 0)": 6,
+        "(1, 0)": 15,
+        "(1, 1)": 65,
+        "(1, 2)": 355
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1,
+        "(2, 2)": 440
+      }
+    },
+    {
+      "F1_states": 440,
+      "canonical_states_at_depth": 980,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(2, 0, 1, 0, 1, 3, 0)": 1,
+        "(2, 0, 2, 0, 1, 3, 1)": 1,
+        "(2, 0, 2, 0, 2, 8, 0)": 2,
+        "(2, 0, 2, 1, 1, 3, 1)": 1,
+        "(2, 0, 2, 1, 2, 8, 0)": 12,
+        "(2, 0, 2, 2, 1, 3, 1)": 1,
+        "(2, 0, 2, 2, 2, 8, 0)": 70,
+        "(2, 0, 2, 3, 2, 8, 0)": 452,
+        "(2, 1, 1, 0, 2, 8, 0)": 5,
+        "(2, 1, 2, 0, 2, 8, 1)": 15,
+        "(2, 1, 2, 1, 2, 8, 1)": 65,
+        "(2, 1, 2, 2, 2, 8, 1)": 355
+      },
+      "depth": 6,
+      "fragment_before_after": {
+        "after_F1": 440,
+        "before_F1": 540
+      },
+      "fragment_type_count": 20,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":63,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":63,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":63,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":33,\"cyclic_mask\":[0,1,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[1],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[5],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":49,\"cyclic_mask\":[0,0,1,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[2],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[4],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":57,\"cyclic_mask\":[0,0,0,1,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[3],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[3],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":61,\"cyclic_mask\":[0,0,0,0,1,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[4],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[2],\"two_arc_start_separations\":[]}": 71,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":63,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 2.2222222222222223,
+      "histogram_D_N_H": {
+        "(3, 0, 0)": 1,
+        "(3, 1, 0)": 1,
+        "(3, 1, 1)": 1,
+        "(3, 1, 2)": 1,
+        "(8, 0, 0)": 7,
+        "(8, 0, 1)": 12,
+        "(8, 0, 2)": 70,
+        "(8, 0, 3)": 452,
+        "(8, 1, 0)": 15,
+        "(8, 1, 1)": 65,
+        "(8, 1, 2)": 355
+      },
+      "histogram_N_H": {
+        "(0, 0)": 8,
+        "(0, 1)": 12,
+        "(0, 2)": 70,
+        "(0, 3)": 452,
+        "(1, 0)": 16,
+        "(1, 1)": 66,
+        "(1, 2)": 356
+      },
+      "histogram_O_P": {
+        "(1, 2)": 4,
+        "(2, 2)": 976
+      }
+    }
+  ],
+  "outcome": "completed_target_depth",
+  "requested_target_depth": 6,
+  "schema": "partial-f1-depth-profile-v1",
+  "scope": "bounded experiment only; no slab nonexistence conclusion",
+  "stage_records": [
+    {
+      "checkpoint_sha256": "f33fc034b85d421b21badfb0e8e31568a12a4fcc599e5b71d001056abe244f81",
+      "checkpoint_size_bytes": 65378,
+      "completed": true,
+      "elapsed_seconds": 1.152,
+      "growth_ratio_vs_previous_depth": 89.0,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "7891b3a1c5b019b2eb875296e86e6e2ec2b8a3d56022097cfbe299ce1c0e9774",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 550,
+          "new_E_orbit_opening_candidates": 88,
+          "new_canonical_children": 89,
+          "representative_path": [],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 89
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 89,
+      "peak_working_set_bytes": 40177664,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 1,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w2:10"
+          ],
+          "to": 2
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w2:10"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "N_plus_H_exceeded": 461
+      },
+      "raw_generated_transitions": 550,
+      "raw_visited_nodes_expanded": 1,
+      "source_depth": 0,
+      "target_depth": 1
+    },
+    {
+      "checkpoint_sha256": "5a061a060c27972cf737714ab2b88b830121f615a821b5f212a2356703d3de20",
+      "checkpoint_size_bytes": 146494,
+      "completed": true,
+      "elapsed_seconds": 4.004,
+      "growth_ratio_vs_previous_depth": 1.9887640449438202,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "ed3fcbea1e7ffaed65fce88180f3b05eae2d9b8cda8980843fe3481ee38c7792",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 88,
+          "new_canonical_children": 89,
+          "representative_path": [
+            "w1:0"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 89
+        },
+        {
+          "canonical_state_sha256": "bd8fac811adc9db52429ac86e8ccfc0609250ccbf96abdb448ccf244501dd33b",
+          "coordinate": [
+            2,
+            1,
+            2,
+            1,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 4,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              5
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              1
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w4:1302"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "c3f9f3c3089b395df73eb8ad986639262f79ba9cb2744f77467cce0b30b65fc2",
+          "coordinate": [
+            2,
+            1,
+            2,
+            1,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 4,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              5
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              1
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w4:2031"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "e860c787c1def2023a6eb956e6d2f5c1e556cefabb8e03ce408f0842ba7dab8c",
+          "coordinate": [
+            2,
+            1,
+            2,
+            1,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 4,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              5
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              1
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w4:3021"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "0286521d4f43ae6499c65177fdf4b9c2f962177af22c6008e9f004aa69bebd3a",
+          "coordinate": [
+            2,
+            1,
+            2,
+            1,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 4,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              5
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              1
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w4:3102"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 177,
+      "peak_working_set_bytes": 41152512,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 1,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 2
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "F_exceeded": 48178,
+        "N_plus_H_exceeded": 460
+      },
+      "raw_generated_transitions": 48815,
+      "raw_visited_nodes_expanded": 89,
+      "source_depth": 1,
+      "target_depth": 2
+    },
+    {
+      "checkpoint_sha256": "4e64d0a890913d7e3225c572da3ed769129bf6c05d49509f11178ca8658b5706",
+      "checkpoint_size_bytes": 239310,
+      "completed": true,
+      "elapsed_seconds": 6.519,
+      "growth_ratio_vs_previous_depth": 1.497175141242938,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "3b1e7c62783b763ed88178490871057d20a3e90ca788bdb2fc1b6df401b07128",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 548,
+          "new_E_orbit_opening_candidates": 88,
+          "new_canonical_children": 89,
+          "representative_path": [
+            "w1:0",
+            "w1:0"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 89
+        },
+        {
+          "canonical_state_sha256": "f64cf769746755e867d11f947f8c6bc45c1c543b89c9d124365c13450ee537df",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              4
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              2
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w5:12403"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "147058d5b145976651bc6dfe81ea26ccaa0b0a4c334d333608a3ec24fcae53a5",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              4
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              2
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w5:13042"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "b377e472a4143bdf9f1397e14db08ede10ca6b708dc259e790c9980196290b6a",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              4
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              2
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w5:13402"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "f0822bf6dec79fa44834b8e68ca0af9092c3bde9fec65ba86e159f1a2eaaeadc",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              4
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              2
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w5:14023"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 265,
+      "peak_working_set_bytes": 42627072,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 1,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 2
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "F_exceeded": 96368,
+        "N_plus_H_exceeded": 459
+      },
+      "raw_generated_transitions": 97092,
+      "raw_visited_nodes_expanded": 177,
+      "source_depth": 2,
+      "target_depth": 3
+    },
+    {
+      "checkpoint_sha256": "651dfab2b7f07c40136eb41b6e828b13b491215283083008de2c069e688ed9f7",
+      "checkpoint_size_bytes": 343381,
+      "completed": true,
+      "elapsed_seconds": 9.347,
+      "growth_ratio_vs_previous_depth": 1.3320754716981131,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "c41fc3b16cd418f7f0d5fcd6caa4f3f9aef389dd5f933b770777f584ce54fce6",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 547,
+          "new_E_orbit_opening_candidates": 88,
+          "new_canonical_children": 89,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 89
+        },
+        {
+          "canonical_state_sha256": "26c394153fb61dc3e2837d251981453f75a053b49ea9ce1c209eb86858f4a755",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              3
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              3
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w5:12403"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "abe1d0299bf6d86325b61168c81230ed215f478cd7c091e869bc89c5cf3ba188",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              3
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              3
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w5:14023"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "94d279b16d282eb4ce35a01fd82ac3de4706ecc0783cedfc1d0b3621ac3ed298",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              3
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              3
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w5:14032"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "8c652591ddff95e9be05a5114b1775d45c00ea30b06450373fd551d64cd713f6",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              3
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              3
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w5:14203"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 353,
+      "peak_working_set_bytes": 42283008,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 1,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 2
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "F_exceeded": 144272,
+        "N_plus_H_exceeded": 458
+      },
+      "raw_generated_transitions": 145083,
+      "raw_visited_nodes_expanded": 265,
+      "source_depth": 3,
+      "target_depth": 4
+    },
+    {
+      "checkpoint_sha256": "d45e3965ff5bb6d6ea803fb34b9a813c2008b5b770b94601df7adcb921a850d6",
+      "checkpoint_size_bytes": 459157,
+      "completed": true,
+      "elapsed_seconds": 12.127,
+      "growth_ratio_vs_previous_depth": 1.2492917847025495,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "850e80e45305fb062d356f0e5aeebdec81ce61b4c52b37143593959478d2f8e3",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 546,
+          "new_E_orbit_opening_candidates": 88,
+          "new_canonical_children": 89,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 89
+        },
+        {
+          "canonical_state_sha256": "bea974e52114c4a0835a43531187f5ea63958b6d17c7eb7caa9b010ff98802bd",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              2
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              4
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:14032"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "067a702b93b2ba80dd00cc9ddcc30a5217d81ec30c0819d9ee8f38054fa20c56",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              2
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              4
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:40132"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "a1884c3b3f7f050cef5c115e046420a8d731e9e6bbefaed3e549a9a21a95cfde",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              2
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              4
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:40312"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "4a4c3efa605ea66625ec0cdb28751d35d672d3dd8f6ca4e93f6dac7e0a6777da",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              2
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              4
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:40321"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 441,
+      "peak_working_set_bytes": 43577344,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 1,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 2
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "F_exceeded": 192082,
+        "N_plus_H_exceeded": 457
+      },
+      "raw_generated_transitions": 192980,
+      "raw_visited_nodes_expanded": 353,
+      "source_depth": 4,
+      "target_depth": 5
+    },
+    {
+      "checkpoint_sha256": "3fcfd43b22d77aa99c4cf92d44a58b50a1e4553af40b08b2a5393677935d6eb2",
+      "checkpoint_size_bytes": 929361,
+      "completed": true,
+      "elapsed_seconds": 20.75,
+      "growth_ratio_vs_previous_depth": 2.2222222222222223,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "02fe41aeb633503ca54a0b820f6be0e5aaee40cdb5fba6ea3a36a16aadc2adc8",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 544,
+          "new_E_orbit_opening_candidates": 536,
+          "new_canonical_children": 540,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 540
+        },
+        {
+          "canonical_state_sha256": "3a851d9d4d1416317c7660d531d7a893ae58b5cbf0c38c57daa7b84184f1aab0",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              1
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              5
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:40321"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "e2eb3d4ff7ce6aa35c6b3574644be8fc3851b856fa8bdcf049d877a53b3b7f05",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              1
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              5
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 549,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:43021"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "4dae4c947e3cfca9f86e4c4a94240cbe29400bcf5e38578b410803819bc6c089",
+          "coordinate": [
+            2,
+            1,
+            2,
+            1,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 4,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              1
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              5
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 548,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w4:3021"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        },
+        {
+          "canonical_state_sha256": "8fc3b908cad21b7daa1d0eaf8cabb60f821652da3ad1e62e512d54ca416bb01b",
+          "coordinate": [
+            2,
+            1,
+            2,
+            2,
+            2,
+            8,
+            1
+          ],
+          "fragment_fingerprint": {
+            "creation_weight": 5,
+            "current_equals_fragment": false,
+            "current_hex_mask": 1,
+            "cyclic_mask": [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "exit_adjacency": "different_current_hex",
+            "fragment_E_phase_masks": [
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "gaps": [
+              1
+            ],
+            "kind": "fragment",
+            "observable_pass_starts_in_fragment_hex": 1,
+            "occupied_runs": [
+              5
+            ],
+            "two_arc_start_separations": []
+          },
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 548,
+          "new_E_orbit_opening_candidates": 0,
+          "new_canonical_children": 1,
+          "representative_path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w5:30421"
+          ],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 1
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 980,
+      "peak_working_set_bytes": 45621248,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            0,
+            1,
+            0,
+            1,
+            3,
+            0
+          ],
+          "from": 0,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w2:10"
+          ],
+          "to": 1
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            0,
+            2,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w1:0",
+            "w3:201"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "F_exceeded": 239688,
+        "N_plus_H_exceeded": 4
+      },
+      "raw_generated_transitions": 240672,
+      "raw_visited_nodes_expanded": 441,
+      "source_depth": 5,
+      "target_depth": 6
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "SCC_statement": "N charge is monotone: every geometrically admitted H=0 joint has DeltaN >= 0. Thus no SCC crosses charge layers. Zero-charge SCCs in this quotient are not exact SCC statements.",
+  "positive_charge_transitions": [
+    {
+      "condition": "blocked w3 -> existing orbit",
+      "delta": {
+        "D": -1,
+        "F": 0,
+        "N": 1,
+        "O": 0,
+        "S": 1
+      },
+      "layer": "q -> q+1",
+      "name": "R"
+    },
+    {
+      "condition": "abandonment w2 -> existing orbit",
+      "credit": "unused -> spent",
+      "delta": {
+        "D": -1,
+        "F": 1,
+        "N": 1,
+        "O": 0,
+        "S": 0
+      },
+      "layer": "q -> q+1",
+      "name": "A2"
+    },
+    {
+      "condition": "abandonment w3 -> new orbit",
+      "credit": "unused -> spent",
+      "delta": {
+        "D": 4,
+        "F": 1,
+        "N": 1,
+        "O": 1,
+        "S": 1
+      },
+      "layer": "q -> q+1",
+      "name": "A3"
+    },
+    {
+      "condition": "abandonment w3 -> existing orbit",
+      "credit": "unused -> spent",
+      "delta": {
+        "D": -1,
+        "F": 1,
+        "N": 2,
+        "O": 0,
+        "S": 1
+      },
+      "layer": "0 -> 2",
+      "name": "J",
+      "status": "not excluded by current bookkeeping lemmas"
+    }
+  ],
+  "proved_word_filter": {
+    "F1_impossible_words": [
+      "A2A2",
+      "A2A3",
+      "A3A2",
+      "A3A3"
+    ],
+    "additional_single_charge_two_form": [
+      "J"
+    ],
+    "unit_charge_words": [
+      "RR",
+      "RA2",
+      "A2R",
+      "RA3",
+      "A3R"
+    ]
+  },
+  "schema": "f1-n2-necessary-defect-automaton-v1",
+  "state": "(N_charge in {0,1,2}, event_count, last_defect_type, abandonment_credit unused/spent, fragment_phase_type, component_relation, repair_status)",
+  "status": "necessary-only quotient; exact visited masks intentionally omitted",
+  "unresolved_exact_information": [
+    "whether J is realizable in an F=1,H=0 exact prefix",
+    "component, fragment, and repair compatibility of two defects",
+    "whether disjoint supports make defects swappable",
+    "literal collision and capacity terminality"
+  ],
+  "zero_charge_transitions": [
+    {
+      "condition": "blocked w3 -> new orbit",
+      "delta": {
+        "D": 4,
+        "F": 0,
+        "N": 0,
+        "O": 1,
+        "S": 1
+      },
+      "name": "Z3"
+    },
+    {
+      "condition": "abandonment w2 -> new orbit",
+      "credit": "unused -> spent",
+      "delta": {
+        "D": 4,
+        "F": 1,
+        "N": 0,
+        "O": 1,
+        "S": 0
+      },
+      "name": "Z2-open"
+    },
+    {
+      "condition": "blocked w2 -> existing orbit",
+      "delta": {
+        "D": -1,
+        "F": 0,
+        "N": 0,
+        "O": 0,
+        "S": 0
+      },
+      "name": "Z2-repair"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+# F=1,N=1 necessary defect automaton
+
+Status: necessary-only quotient; no exact-state conclusion.
+
+```json
+{
+  "SCC_statement": "After quotienting only by the defect-used bit, all transitions are within a layer or go unused->used; no transition returns used->unused. Exact SCCs are not determined by this relaxation.",
+  "defect_free_completion": "permitted by the relaxation; exact N=0 feasibility is not decided here",
+  "minimum_distance_to_second_defect": "not defined in N<=1 automaton: a second DeltaN=1 transition is budget-forbidden immediately",
+  "schema": "f1-n1-necessary-defect-automaton-v1",
+  "states": "(fragment_unused/spent, defect_unused/used, current_component_relation, repair_unknown/pending/repaired)",
+  "terminal_claim": "none; literal masks are required to decide collision/capacity terminality",
+  "transitions": [
+    {
+      "delta": {
+        "D": 4,
+        "N": 0,
+        "O": 1
+      },
+      "fragment": "unchanged",
+      "name": "normal_w3_new",
+      "post": "same_defect_bit",
+      "pre": "defect_unused_or_used",
+      "status": "proved local flow"
+    },
+    {
+      "delta": {
+        "D": 4,
+        "N": 0,
+        "O": 1
+      },
+      "fragment": "creates the unique abandonment",
+      "name": "normal_w2_abandon_new",
+      "post": "fragment_spent",
+      "pre": "fragment_unused",
+      "status": "proved local flow"
+    },
+    {
+      "delta": {
+        "D": -1,
+        "N": 0,
+        "O": 0
+      },
+      "fragment": "does not determine whether it repairs the old gap",
+      "name": "normal_w2_blocked_existing",
+      "post": "repair_pending_or_repaired",
+      "pre": "any",
+      "status": "proved delta; repair relation omitted"
+    },
+    {
+      "delta": {
+        "D": -1,
+        "N": 1,
+        "O": 0
+      },
+      "fragment": "unchanged",
+      "name": "R_blocked_w3_existing",
+      "post": "defect_used",
+      "pre": "defect_unused",
+      "status": "proved defect normal form"
+    },
+    {
+      "delta": {
+        "D": 4,
+        "N": 1,
+        "O": 1
+      },
+      "fragment": "creates abandonment",
+      "name": "A3_abandon_w3_new",
+      "post": "fragment_spent,defect_used",
+      "pre": "fragment_unused,defect_unused",
+      "status": "proved defect normal form"
+    },
+    {
+      "delta": {
+        "D": -1,
+        "N": 1,
+        "O": 0
+      },
+      "fragment": "creates abandonment",
+      "name": "A2_abandon_w2_existing",
+      "post": "fragment_spent,defect_used",
+      "pre": "fragment_unused,defect_unused",
+      "status": "proved defect normal form"
+    }
+  ]
+}
+```

@@ -1,0 +1,60 @@
+﻿{
+    "new_artifacts":  {
+                          "checkpoint":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json",
+                          "events":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_committed_resume.events.jsonl",
+                          "result":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_committed_resume_search.json",
+                          "stderr":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_committed_resume.stderr.log",
+                          "status":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_committed_resume_status.json",
+                          "stdout":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_committed_resume.stdout.log"
+                      },
+    "validated_at":  "2026-07-23T14:33:39.0050852+09:00",
+    "committed_summary":  {
+                              "schema":  "partial-f1-macro-checkpoint-v1",
+                              "macro_sha256":  "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+                              "engine_sha256":  "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+                              "core_sha256":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+                              "config":  {
+                                             "canonical_children":  true,
+                                             "max_macro_depth":  null,
+                                             "memory_limit_bytes":  0,
+                                             "n_limit":  0,
+                                             "name":  "small_F1_H0_N0",
+                                             "node_limit":  0
+                                         },
+                              "expanded":  25000,
+                              "accepted":  79683,
+                              "frontier":  54683,
+                              "terminal_certificates":  101,
+                              "success_certificates":  0,
+                              "prunes":  {
+                                             "F_exceeded":  420059,
+                                             "N_exceeded_monotone":  53868,
+                                             "collision":  44357,
+                                             "remaining_cover_capacity_impossible":  242
+                                         }
+                          },
+    "uncommitted_tmp_comparison_only":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.checkpoint.json.tmp",
+    "state":  "validated",
+    "immutable_backups":  [
+                              {
+                                  "path":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.checkpoint.committed.0ca3f3530e78a115.backup.json",
+                                  "sha256":  "0ca3f3530e78a115ba8443cde2df4d496a07d64711a101e4e1ca56913ccf3a9f",
+                                  "size_bytes":  210370536,
+                                  "last_write":  "2026-07-23T14:14:50.9776554+09:00"
+                              },
+                              {
+                                  "path":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.checkpoint.tmp.6b5db667b1f4faca.backup.json",
+                                  "sha256":  "6b5db667b1f4facaaed4259a118751d344ef32d03f618c26e6e0e398ff25a42c",
+                                  "size_bytes":  213055207,
+                                  "last_write":  "2026-07-23T14:15:08.9826804+09:00"
+                              }
+                          ],
+    "schema":  "partial-f1-n0-committed-resume-preflight-v1",
+    "resume_source":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.checkpoint.json",
+    "code_sha256":  {
+                        "core":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+                        "engine":  "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+                        "verifier":  "6d88013aa41218cec56caafa5423c8a1e61595c21b56f52789eeb4f161c2d432",
+                        "macro":  "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049"
+                    }
+}

@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\work\superperm_partial_f1_macro.py", line 840, in <module>
+    main()
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\work\superperm_partial_f1_macro.py", line 836, in main
+    args.func(args)
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\work\superperm_partial_f1_macro.py", line 791, in cmd_enumerate
+    report = run_macro_search(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\work\superperm_partial_f1_macro.py", line 647, in run_macro_search
+    write_json_atomic(checkpoint, checkpoint_payload(list(frontier), seen, stats, search_config))
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\work\superperm_partial_f1_macro.py", line 429, in write_json_atomic
+    os.replace(tmp, path)
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json.tmp' -> 'C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json'

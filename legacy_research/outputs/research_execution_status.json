@@ -1,0 +1,169 @@
+{
+  "N0_search": {
+    "checkpoint": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.retry2.checkpoint.json",
+    "checkpoint_observation": {
+      "exists": true,
+      "last_write": "2026-07-23T16:20:19.4978791+09:00",
+      "parse_ok": true,
+      "size_bytes": 353584526,
+      "summary": {
+        "accepted": 129231,
+        "config": {
+          "canonical_children": true,
+          "max_macro_depth": null,
+          "memory_limit_bytes": 0,
+          "n_limit": 0,
+          "name": "small_F1_H0_N0",
+          "node_limit": 0
+        },
+        "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+        "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+        "expanded": 41750,
+        "frontier": 87481,
+        "macro_sha256": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+        "prunes": {
+          "F_exceeded": 710855,
+          "N_exceeded_monotone": 80439,
+          "collision": 78445,
+          "memo_duplicate": 1,
+          "remaining_cover_capacity_impossible": 374
+        },
+        "schema": "partial-f1-macro-checkpoint-v1",
+        "success_certificates": 0,
+        "terminal_certificates": 161
+      }
+    },
+    "command": [
+      "C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\work\\run_with_atomic_replace_retry.py",
+      "--replace-retries",
+      "240",
+      "--replace-delay-seconds",
+      "0.5",
+      "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\work\\superperm_partial_f1_macro.py",
+      "enumerate",
+      "--subcase",
+      "N0",
+      "--unbounded",
+      "--node-limit",
+      "0",
+      "--memory-limit-mib",
+      "0",
+      "--checkpoint",
+      "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.retry2.checkpoint.json",
+      "--checkpoint-every",
+      "250",
+      "--resume",
+      "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json",
+      "--output",
+      "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2_search.json"
+    ],
+    "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+    "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+    "events": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2.events.jsonl",
+    "immutable_backup": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.5fc78a33465b861.backup.json",
+    "macro_sha256": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+    "memory_limit_mib": 0,
+    "node_limit": 0,
+    "observed_at": "2026-07-23T16:20:46.9031301+09:00",
+    "process": {
+      "cpu_seconds": 673.719,
+      "private_memory_bytes": 1585426432,
+      "start_time": "2026-07-23T16:08:39.1383690+09:00",
+      "working_set_bytes": 1583595520
+    },
+    "process_id": 22304,
+    "result": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2_search.json",
+    "resume_source": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json",
+    "resume_source_sha256": "5fc78a33465b86131ac99d8851bfd7cb827318eba8ee12575c100b43bacced8a",
+    "schema": "partial-f1-n0-retry2-v1",
+    "source_summary": {
+      "accepted": 114182,
+      "config": {
+        "canonical_children": true,
+        "max_macro_depth": null,
+        "memory_limit_bytes": 0,
+        "n_limit": 0,
+        "name": "small_F1_H0_N0",
+        "node_limit": 0
+      },
+      "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+      "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+      "expanded": 36250,
+      "frontier": 77932,
+      "macro_sha256": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+      "prunes": {
+        "F_exceeded": 611630,
+        "N_exceeded_monotone": 75035,
+        "collision": 66355,
+        "memo_duplicate": 1,
+        "remaining_cover_capacity_impossible": 334
+      },
+      "schema": "partial-f1-macro-checkpoint-v1",
+      "success_certificates": 0,
+      "terminal_certificates": 142
+    },
+    "source_tmp_comparison_only": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json.tmp",
+    "started_at": "2026-07-23T16:08:39.0167722+09:00",
+    "state": "N=0 exhaustive search resumed from retry-1 committed checkpoint",
+    "stderr": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2.stderr.log",
+    "stdout": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2.stdout.log",
+    "wrapper_sha256": "c40a57fdbac1f7a63e9245adf8f8c3864dfa68fb937f23c67024c844c737deae"
+  },
+  "artifact_sha256": {
+    "PARTIAL_F1_N0_FLOW_LEMMA.md": "f7a5a905488822412bf5d7b9af8ee6df169e1d0794c50c026d1b43327cd5af80",
+    "PARTIAL_F1_PORT_SKELETON.md": "74946a9b0a6d6d8c7e301e50bf41df257dc5881da7ac2b474c0b7148b37eb330",
+    "PARTIAL_F1_REDUCTION_SAFETY.md": "43476a89812ac860873f2ef3e61ee7c15c0a4da3451e2608c390a0b335de2100",
+    "SEMI_SATURATED_F2_TO_F4_ARCHITECTURE.md": "8482304b7a049522ea575c2bc62dd706f5b1999d3b4e52c4fb8e1d5e88c3ba9f",
+    "work\\finalize_f1_n0_retry2.py": "b4cccb4af20a9e52bdb1df5ad3ce5d44b8f43e9dc067cbf46fe129b2eafa5b19",
+    "work\\run_with_atomic_replace_retry.py": "c40a57fdbac1f7a63e9245adf8f8c3864dfa68fb937f23c67024c844c737deae",
+    "work\\superperm_semisaturated_model.py": "64319cf0b9d4343f2471146dc46ae0a313a2d17581e4387e341f995bd5afa44c"
+  },
+  "proof_or_finite_controls": {
+    "F1_port_skeleton": {
+      "exists": true,
+      "passed": true,
+      "valid": null
+    },
+    "F1_reduction_safety": {
+      "exists": true,
+      "passed": null,
+      "valid": null
+    },
+    "F1_relaxed_port_control": {
+      "exists": true,
+      "passed": null,
+      "valid": true
+    },
+    "F5_forest_port_control": {
+      "exists": true,
+      "passed": null,
+      "valid": true
+    },
+    "N0_flow_truth_table": {
+      "exists": true,
+      "passed": true,
+      "valid": null
+    }
+  },
+  "schema": "superpermutation-research-execution-status-v1",
+  "scope": {
+    "finite_controls": [
+      "144 E-orbit distinct-hexagon check",
+      "joint-flow truth table",
+      "F=5 and relaxed F=1 port-envelope controls"
+    ],
+    "not_claimed": [
+      "completion or failure of active N=0 exhaustive search",
+      "safe visited-mask dominance",
+      "any F=2,3,4 exact enumeration",
+      "L6>=872"
+    ],
+    "proved": [
+      "F=1,H=0,N=0 joint-flow normal form",
+      "F=1,D=4 port-incidence forest and nine local deficit-shape families",
+      "trivial residual left-S6 stabilizer once p is retained"
+    ]
+  },
+  "status": "N=0 exhaustive search resumed from retry-1 committed checkpoint"
+}

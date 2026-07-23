@@ -1,0 +1,109 @@
+{
+  "checker_sha256": "1d5ec7bd02b9edfdee1a427c50572a8586df5a4a92b50bf12aa9487079077c4c",
+  "expected_normal_forms": [
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 0,
+      "weight": 2
+    },
+    {
+      "abandonment": 1,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 1,
+      "weight": 2
+    },
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 1,
+      "weight": 3
+    }
+  ],
+  "passed": true,
+  "rows": [
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 0,
+      "weight": 2
+    },
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": true,
+      "delta_N": -1,
+      "new_E_orbit": 1,
+      "weight": 2
+    },
+    {
+      "abandonment": 1,
+      "blocked_w2_violation": false,
+      "delta_N": 1,
+      "new_E_orbit": 0,
+      "weight": 2
+    },
+    {
+      "abandonment": 1,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 1,
+      "weight": 2
+    },
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 1,
+      "new_E_orbit": 0,
+      "weight": 3
+    },
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 1,
+      "weight": 3
+    },
+    {
+      "abandonment": 1,
+      "blocked_w2_violation": false,
+      "delta_N": 2,
+      "new_E_orbit": 0,
+      "weight": 3
+    },
+    {
+      "abandonment": 1,
+      "blocked_w2_violation": false,
+      "delta_N": 1,
+      "new_E_orbit": 1,
+      "weight": 3
+    }
+  ],
+  "schema": "f1-n0-flow-lemma-truth-table-v1",
+  "zero_N_cases_compatible_with_blocked_w2": [
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 0,
+      "weight": 2
+    },
+    {
+      "abandonment": 1,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 1,
+      "weight": 2
+    },
+    {
+      "abandonment": 0,
+      "blocked_w2_violation": false,
+      "delta_N": 0,
+      "new_E_orbit": 1,
+      "weight": 3
+    }
+  ]
+}

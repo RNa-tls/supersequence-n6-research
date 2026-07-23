@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "report_code": "work/build_forest_recovery_report.py",
+    "report_code_sha256": "e77695116d6cefed8aad93cf4bccc51464d67d7973571f40cc48fe61ee195fb8",
+    "generator_code_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+    "verifier_code_sha256": "b23f20a250cac4c90f4c36a22335edf6b5eaa9bc84ef5b17e3a584dc876d20f6",
+    "runner_code_sha256": "fd98b21d8a897820cd1989f36098a0abc03949df82c4d084fec4b115875ca634",
+    "branch_input_sha256": {
+      "0,2": "3fd842db73dd8e56e8335a2bde57ef3ba23bb55b91a4a37f475b32e1e6f0c7d3",
+      "0,3": "36d4d4b75d20b75560b151b06e56db287930c21b6001943d9b4fc7b74fa7f194",
+      "0,7": "1e04ea4fb027bed754a953adc3e80e5b26433750c0f660a0745bb3427f804875",
+      "0,15": "24fccd0b2e83ed7550ca4a47ebb251ffd9692f13c897ee7c18f6e6312b2fb4bf",
+      "0,27": "7ce0288fd807b18cfc604c359c399553d8d722ada7771294270212dda7d52e3a"
+    },
+    "merged_input_sha256": "4aa5b39543979f1f1e117022166c13dd10cd0ea52334a80bdd8b99b97a14dc00",
+    "raw_certificate_total": 1630,
+    "canonical_unique_class_count": 326,
+    "seed_duplicate_removals": 1304
+  },
+  "merged_verification": {
+    "incidence": {
+      "path": "outputs/forest_all_classes.incidence_verified.json",
+      "file_sha256": "b392d0b45b2663c88b58fc20bc7abf7fca8af1f9a8dc14d3930bee72d814c4cf",
+      "certificates_verified": 326,
+      "dp_replayed": false,
+      "verifier_sha256": "b23f20a250cac4c90f4c36a22335edf6b5eaa9bc84ef5b17e3a584dc876d20f6",
+      "row_sha_set_matches_merged_input": true
+    },
+    "full_dp_replay": {
+      "path": "outputs/forest_all_classes.fully_verified.json",
+      "file_sha256": "a3fa37b4e45845c238d51d576fd1181f2769867e015d76df35e53c7e62a9d665",
+      "certificates_verified": 326,
+      "dp_replayed": true,
+      "verifier_sha256": "b23f20a250cac4c90f4c36a22335edf6b5eaa9bc84ef5b17e3a584dc876d20f6",
+      "row_sha_set_matches_merged_input": true
+    }
+  },
+  "collision_forest_component_partition_distribution": {
+    "3,3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1": 76,
+    "4,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1": 2,
+    "6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1": 248
+  },
+  "H3_max_cycles_reached_distribution": {
+    "9": 8,
+    "10": 6,
+    "11": 20,
+    "12": 64,
+    "13": 164,
+    "14": 64
+  },
+  "all_merged_classes_H_0_to_3_complete_lift_false": true,
+  "scope": "All five completed depth-2 forest branches only; this is not a proof of the broader n=6 superpermutation lower bound."
+}

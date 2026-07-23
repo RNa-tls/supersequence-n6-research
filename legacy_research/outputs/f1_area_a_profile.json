@@ -1,0 +1,138 @@
+{
+  "config": {
+    "memory_limit_mib": 1024,
+    "n_limit": 3,
+    "name": "A_F1_H0_Nle3",
+    "node_limit": 20000
+  },
+  "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+  "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+  "limited_experiment": true,
+  "macro_sha256": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+  "schema": "partial-f1-area-a-macro-profile-v1",
+  "stages": [
+    {
+      "canonical_seen": 25,
+      "checkpoint": "outputs\\f1_macro_checkpoints\\A_F1_H0_Nle3_macro_depth1.checkpoint.json",
+      "checkpoint_sha256": "18e44da1546b22fc05db35da5dce028dbf38cbb9c0499a15afb8c256d01de82f",
+      "checkpoint_size_bytes": 2938,
+      "completed": true,
+      "elapsed_seconds": 0.306,
+      "frontier_remaining": 0,
+      "generated_literal_transitions": 39,
+      "generated_macro_edges": 24,
+      "growth_ratio_frontier": null,
+      "limited_experiment": true,
+      "macro_depth": 1,
+      "memo_duplicates": 0,
+      "peak_working_set_bytes": 0,
+      "prunes": {}
+    },
+    {
+      "canonical_seen": 197,
+      "checkpoint": "outputs\\f1_macro_checkpoints\\A_F1_H0_Nle3_macro_depth2.checkpoint.json",
+      "checkpoint_sha256": "fdd1915542867e5ab2c83b8934bb7009f3c137461b7315924c2f84fbfaa0a4fa",
+      "checkpoint_size_bytes": 18503,
+      "completed": true,
+      "elapsed_seconds": 2.774,
+      "frontier_remaining": 0,
+      "generated_literal_transitions": 975,
+      "generated_macro_edges": 600,
+      "growth_ratio_frontier": null,
+      "limited_experiment": true,
+      "macro_depth": 2,
+      "memo_duplicates": 0,
+      "peak_working_set_bytes": 0,
+      "prunes": {
+        "F_exceeded": 393,
+        "collision": 11
+      }
+    },
+    {
+      "canonical_seen": 1184,
+      "checkpoint": "outputs\\f1_macro_checkpoints\\A_F1_H0_Nle3_macro_depth3.checkpoint.json",
+      "checkpoint_sha256": "41a4891c213c05313f7e02e8aa4a4f8237796e727671f1f29c37b37f67e42ae2",
+      "checkpoint_size_bytes": 122217,
+      "completed": true,
+      "elapsed_seconds": 18.482,
+      "frontier_remaining": 0,
+      "generated_literal_transitions": 7683,
+      "generated_macro_edges": 4728,
+      "growth_ratio_frontier": null,
+      "limited_experiment": true,
+      "macro_depth": 3,
+      "memo_duplicates": 0,
+      "peak_working_set_bytes": 0,
+      "prunes": {
+        "F_exceeded": 3386,
+        "collision": 159
+      }
+    },
+    {
+      "canonical_seen": 6109,
+      "checkpoint": "outputs\\f1_macro_checkpoints\\A_F1_H0_Nle3_macro_depth4.checkpoint.json",
+      "checkpoint_sha256": "5f4a3a18cd0ca34b1b38ee1236ce8136e41556e5e51636ff4739342af6f9ed9b",
+      "checkpoint_size_bytes": 715238,
+      "completed": true,
+      "elapsed_seconds": 103.518,
+      "frontier_remaining": 0,
+      "generated_literal_transitions": 45831,
+      "generated_macro_edges": 28236,
+      "growth_ratio_frontier": null,
+      "limited_experiment": true,
+      "macro_depth": 4,
+      "memo_duplicates": 0,
+      "peak_working_set_bytes": 0,
+      "prunes": {
+        "F_exceeded": 20807,
+        "N_exceeded_monotone": 60,
+        "collision": 1261
+      }
+    },
+    {
+      "canonical_seen": 28618,
+      "checkpoint": "outputs\\f1_macro_checkpoints\\A_F1_H0_Nle3_macro_depth5.checkpoint.json",
+      "checkpoint_sha256": "ebd82a91c1f03d5ad6d58626786cb327f1a871cc44c2371cbc0f7ba254b81f28",
+      "checkpoint_size_bytes": 3776096,
+      "completed": true,
+      "elapsed_seconds": 544.483,
+      "frontier_remaining": 0,
+      "generated_literal_transitions": 235868,
+      "generated_macro_edges": 145372,
+      "growth_ratio_frontier": null,
+      "limited_experiment": true,
+      "macro_depth": 5,
+      "memo_duplicates": 0,
+      "peak_working_set_bytes": 0,
+      "prunes": {
+        "F_exceeded": 108087,
+        "N_exceeded_monotone": 632,
+        "collision": 8012,
+        "remaining_cover_capacity_impossible": 24
+      }
+    },
+    {
+      "canonical_seen": 85340,
+      "checkpoint": "outputs\\f1_macro_checkpoints\\A_F1_H0_Nle3_macro_depth6.checkpoint.json",
+      "checkpoint_sha256": "6b6f73d6751d48760150ff5c2aa10512e5a40aae59c6461e928520c0b4ebe3f8",
+      "checkpoint_size_bytes": 190123241,
+      "completed": false,
+      "elapsed_seconds": 1984.153,
+      "frontier_remaining": 65340,
+      "generated_literal_transitions": 772818,
+      "generated_macro_edges": 476248,
+      "growth_ratio_frontier": null,
+      "limited_experiment": true,
+      "macro_depth": 6,
+      "memo_duplicates": 0,
+      "peak_working_set_bytes": 0,
+      "prunes": {
+        "F_exceeded": 356395,
+        "N_exceeded_monotone": 3519,
+        "collision": 30826,
+        "remaining_cover_capacity_impossible": 169
+      }
+    }
+  ],
+  "warning": "Bounded macro-depth profile only; not a slab-exhaustion result."
+}

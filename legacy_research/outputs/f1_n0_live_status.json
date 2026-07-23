@@ -1,0 +1,23 @@
+{
+  "schema": "partial-f1-n0-live-status-v1",
+  "status": "N=0 exhaustive search resumed from committed checkpoint",
+  "scope": "NR6/exact-state subcase F=1, H=0, N=0 only; no nonexistence conclusion is currently permitted",
+  "resume_source": "outputs/f1_small_n0.checkpoint.json",
+  "uncommitted_tmp_comparison_only": "outputs/f1_small_n0.checkpoint.json.tmp",
+  "source_checkpoint": {
+    "sha256": "0ca3f3530e78a115ba8443cde2df4d496a07d64711a101e4e1ca56913ccf3a9f",
+    "expanded_nodes": 25000,
+    "canonical_states_seen": 79683,
+    "frontier_states": 54683,
+    "macro_sha256": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+    "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+    "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+    "node_limit": 0,
+    "memory_limit_bytes": 0
+  },
+  "immutable_backup_record": "outputs/f1_n0_committed_resume_preflight.json",
+  "live_supervisor_status": "outputs/f1_small_n0_committed_resume_status.json",
+  "new_checkpoint": "outputs/f1_small_n0.committed_resume.checkpoint.json",
+  "new_result": "outputs/f1_small_n0_committed_resume_search.json",
+  "automatic_restart": false
+}

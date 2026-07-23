@@ -1,0 +1,180 @@
+﻿{
+    "updated_at":  "2026-07-23T05:26:22.4828460+09:00",
+    "runner_sha256":  "fd98b21d8a897820cd1989f36098a0abc03949df82c4d084fec4b115875ca634",
+    "runner":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\work\\run_forest_overnight.ps1",
+    "max_concurrent":  2,
+    "poll_seconds":  120,
+    "machine":  {
+                    "logical_processors":  16,
+                    "physical_memory_gb":  31.4,
+                    "free_memory_gb":  7.2,
+                    "battery_present":  true,
+                    "battery_status":  2,
+                    "charge_percent":  100,
+                    "ac_online":  true,
+                    "sleep_prevention":  "ES_SYSTEM_REQUIRED only; display is not held awake"
+                },
+    "branches":  [
+                     {
+                         "seed":  "0,2",
+                         "state":  "verified",
+                         "reason":  "ok",
+                         "pid":  null,
+                         "command":  null,
+                         "start_time":  null,
+                         "cpu_seconds":  null,
+                         "working_set_mb":  null,
+                         "priority":  null,
+                         "node_count":  39754357,
+                         "prune_counts":  {
+                                              "collision_cycle":  720534,
+                                              "excess_above_five":  28304285,
+                                              "seen_canonical_state":  1036894,
+                                              "triple_hexagon":  3067143
+                                          },
+                         "certificate_count":  326,
+                         "branch_code_sha256":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+                         "completed":  true,
+                         "incidence_verified":  true,
+                         "dp_replay_verified":  true,
+                         "last_heartbeat_at":  null,
+                         "checkpoint_supported":  false,
+                         "resume_command":  "\u0026 \u0027C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\u0027 work\\\\superperm_port_lift.py enumerate-forest-covers --seed 0,2 --node-limit 0 --output outputs\\\\forest_branch_0_2.json",
+                         "output_json":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_2.json",
+                         "stdout_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_2.stdout.log",
+                         "stderr_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_2.stderr.log",
+                         "last_stdout":  {
+
+                                         },
+                         "last_stderr":  {
+
+                                         }
+                     },
+                     {
+                         "seed":  "0,3",
+                         "state":  "verified",
+                         "reason":  "ok",
+                         "pid":  null,
+                         "command":  null,
+                         "start_time":  null,
+                         "cpu_seconds":  null,
+                         "working_set_mb":  null,
+                         "priority":  null,
+                         "node_count":  15350197,
+                         "prune_counts":  {
+                                              "collision_cycle":  150373,
+                                              "excess_above_five":  11104348,
+                                              "seen_canonical_state":  238604,
+                                              "triple_hexagon":  1298180
+                                          },
+                         "certificate_count":  326,
+                         "branch_code_sha256":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+                         "completed":  true,
+                         "incidence_verified":  true,
+                         "dp_replay_verified":  true,
+                         "last_heartbeat_at":  null,
+                         "checkpoint_supported":  false,
+                         "resume_command":  "\u0026 \u0027C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\u0027 work\\\\superperm_port_lift.py enumerate-forest-covers --seed 0,3 --node-limit 0 --output outputs\\\\forest_branch_0_3.json",
+                         "output_json":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_3.json",
+                         "stdout_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_3.stdout.log",
+                         "stderr_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_3.stderr.log",
+                         "last_stdout":  {
+
+                                         },
+                         "last_stderr":  {
+
+                                         }
+                     },
+                     {
+                         "seed":  "0,7",
+                         "state":  "running",
+                         "reason":  "live process",
+                         "pid":  40920,
+                         "command":  "\"C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\" work\\superperm_port_lift.py enumerate-forest-covers --seed 0,7 --node-limit 0 --output outputs\\forest_branch_0_7.json ",
+                         "start_time":  "2026-07-23T01:57:41.6098860+09:00",
+                         "cpu_seconds":  12230.52,
+                         "working_set_mb":  3558.5,
+                         "priority":  "BelowNormal",
+                         "node_count":  null,
+                         "prune_counts":  null,
+                         "certificate_count":  null,
+                         "branch_code_sha256":  null,
+                         "completed":  false,
+                         "incidence_verified":  false,
+                         "dp_replay_verified":  false,
+                         "last_heartbeat_at":  "2026-07-23T05:26:22.4808456+09:00",
+                         "checkpoint_supported":  false,
+                         "resume_command":  "\u0026 \u0027C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\u0027 work\\\\superperm_port_lift.py enumerate-forest-covers --seed 0,7 --node-limit 0 --output outputs\\\\forest_branch_0_7.json",
+                         "output_json":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_7.json",
+                         "stdout_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_7.stdout.log",
+                         "stderr_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_7.stderr.log",
+                         "last_stdout":  {
+
+                                         },
+                         "last_stderr":  {
+
+                                         }
+                     },
+                     {
+                         "seed":  "0,15",
+                         "state":  "running",
+                         "reason":  "live process",
+                         "pid":  31376,
+                         "command":  "\"C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\" work\\superperm_port_lift.py enumerate-forest-covers --seed 0,15 --node-limit 0 --output outputs\\forest_branch_0_15.json ",
+                         "start_time":  "2026-07-23T04:40:13.8707825+09:00",
+                         "cpu_seconds":  2715.77,
+                         "working_set_mb":  1649.1,
+                         "priority":  "BelowNormal",
+                         "node_count":  null,
+                         "prune_counts":  null,
+                         "certificate_count":  null,
+                         "branch_code_sha256":  null,
+                         "completed":  false,
+                         "incidence_verified":  false,
+                         "dp_replay_verified":  false,
+                         "last_heartbeat_at":  "2026-07-23T05:26:22.4818467+09:00",
+                         "checkpoint_supported":  false,
+                         "resume_command":  "\u0026 \u0027C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\u0027 work\\\\superperm_port_lift.py enumerate-forest-covers --seed 0,15 --node-limit 0 --output outputs\\\\forest_branch_0_15.json",
+                         "output_json":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_15.json",
+                         "stdout_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_15.stdout.log",
+                         "stderr_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_15.stderr.log",
+                         "last_stdout":  {
+
+                                         },
+                         "last_stderr":  {
+
+                                         }
+                     },
+                     {
+                         "seed":  "0,27",
+                         "state":  "queued",
+                         "reason":  null,
+                         "pid":  null,
+                         "command":  null,
+                         "start_time":  null,
+                         "cpu_seconds":  null,
+                         "working_set_mb":  null,
+                         "priority":  null,
+                         "node_count":  null,
+                         "prune_counts":  null,
+                         "certificate_count":  null,
+                         "branch_code_sha256":  null,
+                         "completed":  false,
+                         "incidence_verified":  false,
+                         "dp_replay_verified":  false,
+                         "last_heartbeat_at":  null,
+                         "checkpoint_supported":  false,
+                         "resume_command":  "\u0026 \u0027C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\u0027 work\\\\superperm_port_lift.py enumerate-forest-covers --seed 0,27 --node-limit 0 --output outputs\\\\forest_branch_0_27.json",
+                         "output_json":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_27.json",
+                         "stdout_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_27.stdout.log",
+                         "stderr_log":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\forest_branch_0_27.stderr.log",
+                         "last_stdout":  {
+
+                                         },
+                         "last_stderr":  {
+
+                                         }
+                     }
+                 ],
+    "final_merge_permitted":  false
+}

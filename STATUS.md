@@ -56,27 +56,30 @@ nodes.
 ## About the research summary this repository started from
 
 A long, highly detailed "progress summary" was provided as the task
-description for this session (frag/rotation-pass decomposition, `F`, `P`,
-`S`, `H`, `O` quantities, an `L = 867 + (k+N+H)` coordinate system, claims
-of a completed forest-enumeration computation with specific certificate
-counts, a partially-run exact-state search with specific node/state counts,
-etc.).
+description for the session that wrote the code in `src/`, `tests/`, and
+`experiments/` (frag/rotation-pass decomposition, `F`, `P`, `S`, `H`, `O`
+quantities, an `L = 867 + (k+N+H)` coordinate system, claims of a completed
+forest-enumeration computation with specific certificate counts, a
+partially-run exact-state search with specific node/state counts, etc.).
 
-**None of that is backed by anything in this repository.** Before this
-session, the repository contained a single commit: a one-line README. There
-was no code, no checkpoint file, no verifier, nothing that could be
-inspected or resumed. Some of the *shape* of that summary is consistent
-with real, published techniques for this problem (e.g. superpermutations
-genuinely do decompose into rotation-cycle blocks connected by more
-expensive transitions — see the recursive construction discussion above,
-and Houston's paper). But every *specific numeric claim* in that summary
-(326 certificates, 79,683 canonical states, a proven "N-credit forcing"
-lemma, etc.) is **unverified** and should not be treated as established
-fact. If that work exists somewhere else (a different repo, a different
-session's private state), it was not available here, and this repository
-does not attempt to reconstruct it from the prose description alone — that
-would risk baking speculative/possibly-wrong mathematics in as if it were
-checked.
+At that point **none of it was backed by anything in this repository** —
+the repo contained a single commit: a one-line README. That part of this
+document is no longer current: the actual local research corpus behind
+that summary was uploaded afterward and is now integrated at
+[`legacy_research/`](legacy_research/README.md). It is real, substantial,
+and internally disciplined about proof status (it distinguishes proved /
+finite-computation-certified / experimental-only / disproved throughout,
+and its own final status table already marks the headline claims as
+open). See `legacy_research/README.md` for the exclusions applied
+(one 696MB in-progress checkpoint, `__pycache__`, compiled `.pyc` files)
+and a summary of what that corpus does and does not establish.
+
+**The two things to hold onto:** the `F=1, H=0, N=0` exact-state search is
+**incomplete** (interrupted twice; 142 terminal certificates found, 0
+success certificates, per `legacy_research/outputs/F1_N0_COMMITTED_RESUME_FINAL_STATUS.md`),
+and **neither `L_6 >= 872` nor `L_6 = 872` is proved anywhere in this
+repository**, conditionally (under the `NR6` assumption) or otherwise — the
+original corpus's own status table agrees, listing both as open.
 
 ## What this repository actually contains now
 
@@ -95,6 +98,9 @@ checked.
 - `tests/` — 14 passing tests (`python -m unittest discover -s tests`)
   covering all of the above, including independent verification of a
   literature-sourced n=4 witness string.
+- `legacy_research/` — the actual (much larger, much further along) local
+  research corpus this project had already produced, integrated as-is;
+  see its own README for scope and exclusions.
 
 ## Open problems (genuinely open, not resolved by this repository)
 

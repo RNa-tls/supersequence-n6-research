@@ -1,0 +1,111 @@
+﻿{
+    "resume_source":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json",
+    "state":  "N=0 exhaustive search resumed from retry-1 committed checkpoint",
+    "immutable_backup":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.5fc78a33465b861.backup.json",
+    "source_tmp_comparison_only":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json.tmp",
+    "process":  {
+                    "working_set_bytes":  2592251904,
+                    "start_time":  "2026-07-23T16:08:39.1383690+09:00",
+                    "private_memory_bytes":  3156656128,
+                    "cpu_seconds":  7281.391
+                },
+    "observed_at":  "2026-07-23T19:43:17.1706403+09:00",
+    "memory_limit_mib":  0,
+    "schema":  "partial-f1-n0-retry2-v1",
+    "stderr":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2.stderr.log",
+    "events":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2.events.jsonl",
+    "macro_sha256":  "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+    "checkpoint":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.retry2.checkpoint.json",
+    "checkpoint_observation":  {
+                                   "parse_ok":  true,
+                                   "size_bytes":  687875489,
+                                   "summary":  {
+                                                   "schema":  "partial-f1-macro-checkpoint-v1",
+                                                   "macro_sha256":  "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+                                                   "engine_sha256":  "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+                                                   "core_sha256":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+                                                   "config":  {
+                                                                  "canonical_children":  true,
+                                                                  "max_macro_depth":  null,
+                                                                  "memory_limit_bytes":  0,
+                                                                  "n_limit":  0,
+                                                                  "name":  "small_F1_H0_N0",
+                                                                  "node_limit":  0
+                                                              },
+                                                   "expanded":  76500,
+                                                   "accepted":  237784,
+                                                   "frontier":  161284,
+                                                   "terminal_certificates":  332,
+                                                   "success_certificates":  0,
+                                                   "prunes":  {
+                                                                  "F_exceeded":  1289298,
+                                                                  "N_exceeded_monotone":  153105,
+                                                                  "collision":  149682,
+                                                                  "memo_duplicate":  4,
+                                                                  "remaining_cover_capacity_impossible":  740
+                                                              }
+                                               },
+                                   "last_write":  "2026-07-23T19:42:16.1990292+09:00",
+                                   "exists":  true
+                               },
+    "core_sha256":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+    "wrapper_sha256":  "c40a57fdbac1f7a63e9245adf8f8c3864dfa68fb937f23c67024c844c737deae",
+    "node_limit":  0,
+    "engine_sha256":  "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+    "resume_source_sha256":  "5fc78a33465b86131ac99d8851bfd7cb827318eba8ee12575c100b43bacced8a",
+    "stdout":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2.stdout.log",
+    "process_id":  22304,
+    "command":  [
+                    "C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+                    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\work\\run_with_atomic_replace_retry.py",
+                    "--replace-retries",
+                    "240",
+                    "--replace-delay-seconds",
+                    "0.5",
+                    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\work\\superperm_partial_f1_macro.py",
+                    "enumerate",
+                    "--subcase",
+                    "N0",
+                    "--unbounded",
+                    "--node-limit",
+                    "0",
+                    "--memory-limit-mib",
+                    "0",
+                    "--checkpoint",
+                    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.retry2.checkpoint.json",
+                    "--checkpoint-every",
+                    "250",
+                    "--resume",
+                    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0.committed_resume.checkpoint.json",
+                    "--output",
+                    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2_search.json"
+                ],
+    "started_at":  "2026-07-23T16:08:39.0167722+09:00",
+    "source_summary":  {
+                           "schema":  "partial-f1-macro-checkpoint-v1",
+                           "macro_sha256":  "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+                           "engine_sha256":  "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+                           "core_sha256":  "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+                           "config":  {
+                                          "canonical_children":  true,
+                                          "max_macro_depth":  null,
+                                          "memory_limit_bytes":  0,
+                                          "n_limit":  0,
+                                          "name":  "small_F1_H0_N0",
+                                          "node_limit":  0
+                                      },
+                           "expanded":  36250,
+                           "accepted":  114182,
+                           "frontier":  77932,
+                           "terminal_certificates":  142,
+                           "success_certificates":  0,
+                           "prunes":  {
+                                          "F_exceeded":  611630,
+                                          "N_exceeded_monotone":  75035,
+                                          "collision":  66355,
+                                          "memo_duplicate":  1,
+                                          "remaining_cover_capacity_impossible":  334
+                                      }
+                       },
+    "result":  "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\outputs\\f1_small_n0_retry2_search.json"
+}

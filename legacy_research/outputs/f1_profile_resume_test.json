@@ -1,0 +1,179 @@
+{
+  "analysis_sha256": "66c3dd8996bd3a92f7f8319a51f42153006b7a34dd134855a92043b844e54c40",
+  "checkpoint": "outputs\\f1_profile_resume_test.checkpoint.json",
+  "checkpoint_sha256": "4c9502fc7525a54d794b86dfb8e8ba4b377790ac6f1fa9c6a234e8eb5032c583",
+  "checkpoint_size_bytes": 65374,
+  "completed": true,
+  "completed_depth": 1,
+  "config": {
+    "canonical_children": true,
+    "memory_limit_bytes": 1073741824,
+    "mode": "general",
+    "node_limit_per_stage": 1
+  },
+  "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+  "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+  "final_frontier_states": 89,
+  "layers": [
+    {
+      "F1_states": 0,
+      "canonical_states_at_depth": 1,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1
+      },
+      "depth": 0,
+      "fragment_before_after": {
+        "before_F1": 1
+      },
+      "fragment_type_count": 0,
+      "fragment_type_histogram": {},
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1
+      },
+      "histogram_N_H": {
+        "(0, 0)": 1
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1
+      }
+    },
+    {
+      "F1_states": 88,
+      "canonical_states_at_depth": 89,
+      "coordinates_P_F_S_H_O_D_N": {
+        "(1, 0, 1, 0, 1, 4, 0)": 1,
+        "(2, 1, 1, 0, 2, 8, 0)": 1,
+        "(2, 1, 2, 0, 2, 8, 1)": 3,
+        "(2, 1, 2, 1, 2, 8, 1)": 13,
+        "(2, 1, 2, 2, 2, 8, 1)": 71
+      },
+      "depth": 1,
+      "fragment_before_after": {
+        "after_F1": 88,
+        "before_F1": 1
+      },
+      "fragment_type_count": 4,
+      "fragment_type_histogram": {
+        "{\"creation_weight\":2,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 1,
+        "{\"creation_weight\":3,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 3,
+        "{\"creation_weight\":4,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 13,
+        "{\"creation_weight\":5,\"current_equals_fragment\":false,\"current_hex_mask\":1,\"cyclic_mask\":[0,0,0,0,0,1],\"exit_adjacency\":\"different_current_hex\",\"fragment_E_phase_masks\":[[0,0,0,0,1]],\"gaps\":[5],\"kind\":\"fragment\",\"observable_pass_starts_in_fragment_hex\":1,\"occupied_runs\":[1],\"two_arc_start_separations\":[]}": 71
+      },
+      "growth_ratio_vs_previous_depth": 89.0,
+      "histogram_D_N_H": {
+        "(4, 0, 0)": 1,
+        "(8, 0, 0)": 1,
+        "(8, 1, 0)": 3,
+        "(8, 1, 1)": 13,
+        "(8, 1, 2)": 71
+      },
+      "histogram_N_H": {
+        "(0, 0)": 2,
+        "(1, 0)": 3,
+        "(1, 1)": 13,
+        "(1, 2)": 71
+      },
+      "histogram_O_P": {
+        "(1, 1)": 1,
+        "(2, 2)": 88
+      }
+    }
+  ],
+  "outcome": "completed_target_depth",
+  "requested_target_depth": 1,
+  "schema": "partial-f1-depth-profile-v1",
+  "scope": "bounded experiment only; no slab nonexistence conclusion",
+  "stage_records": [
+    {
+      "checkpoint_sha256": "4c9502fc7525a54d794b86dfb8e8ba4b377790ac6f1fa9c6a234e8eb5032c583",
+      "checkpoint_size_bytes": 65374,
+      "completed": true,
+      "elapsed_seconds": 1.213,
+      "growth_ratio_vs_previous_depth": 89.0,
+      "long_lived_archetypes_by_new_children": [
+        {
+          "canonical_state_sha256": "7891b3a1c5b019b2eb875296e86e6e2ec2b8a3d56022097cfbe299ce1c0e9774",
+          "coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "fragment_fingerprint": null,
+          "fragment_repair_entry_candidates": 0,
+          "legal_tail_count": 550,
+          "new_E_orbit_opening_candidates": 88,
+          "new_canonical_children": 89,
+          "representative_path": [],
+          "safe_prune_status": "survives_all_current_safe_prunes",
+          "surviving_transition_count": 89
+        }
+      ],
+      "memo_duplicates": 0,
+      "new_canonical_states": 89,
+      "peak_working_set_bytes": 40169472,
+      "potential_nonincrease_counterexamples": {
+        "partial_hex_gap_count": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 1,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w2:10"
+          ],
+          "to": 2
+        },
+        "remaining_empty_E_phases": {
+          "child_coordinate": [
+            2,
+            1,
+            1,
+            0,
+            2,
+            8,
+            0
+          ],
+          "from": 4,
+          "parent_coordinate": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            4,
+            0
+          ],
+          "path": [
+            "w2:10"
+          ],
+          "to": 8
+        }
+      },
+      "prune_reasons": {
+        "N_plus_H_exceeded": 461
+      },
+      "raw_generated_transitions": 550,
+      "raw_visited_nodes_expanded": 1,
+      "source_depth": 0,
+      "target_depth": 1
+    }
+  ]
+}

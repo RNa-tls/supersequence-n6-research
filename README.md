@@ -27,3 +27,8 @@ python -m experiments.n6_search_baseline  # honest n=6 attempt (inconclusive)
   independently re-verified by this repo's own checker before being
   trusted (see `tests/test_literature_witnesses.py`).
 - `tests/` — the test suite.
+- `legacy_research/` — the actual local research corpus (write-ups, data,
+  Python implementation) behind this project's deeper NR6-conditional
+  lower-bound attempt. Much further along than `src/`, but its own headline
+  claims (conditional `L_6 >= 872`, unconditional `L_6 = 872`) are marked
+  **open** by the material itself. See `legacy_research/README.md`.
