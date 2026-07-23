@@ -248,6 +248,33 @@ Full detail in `research/SHORTFALL_BUDGET_THEOREM.md`, `research/ZERO_CHARGE_SKE
   useful vector potential beyond the scalar `Phi`, were found — both
   reported as honest negative results, not forced into false theorems.
 
+## Follow-up: attempted seed-level exact closure of the remaining 9
+
+Full detail in `research/J_9_SEED_LEDGER.md`, `research/J_9_EXACT_CLOSURE.md`,
+`research/J_230_BOUNDED_SEED_CLOSURE_STATUS.md`.
+
+- Built a canonical-memoized exhaustive search
+  (`src/search_j_9_exact.py`) plus an independent pure-rotation-suffix
+  decision procedure (`src/verify_pure_rotation_suffix.py`, 5/5 boundary
+  cases pass against real engine rotation mechanics) and a read-only
+  certificate verifier (`src/verify_j_9_certificates.py`, 9/9 pass).
+- Ran it on all 9 remaining seeds. **All 9 came back `INCOMPLETE`** (not
+  `CLOSED`, not `SUCCESS`) — at a node cap of 800 canonical states per
+  seed (~38s each; canonicalization's 720-relabel cost limits throughput
+  to ~20 states/sec), the frontier was still growing roughly 3x with
+  essentially zero canonical-state merging. That means the true reachable
+  canonical state count from here is very likely in the tens of thousands
+  or more — well beyond what this session can exhaustively search.
+- **A more conservative correction to how the 221/230 figure above should
+  be read, made explicit here:** finding that *some* branch from a seed
+  fails does not prove that seed cannot complete. So, strictly, **no
+  single one of the 230 J states — not even the 221 — has been proven
+  unable to complete.** The 221 figure means "at least one failing branch
+  found," not "closed." This is more conservative than earlier summaries
+  may have implied, and is corrected here explicitly.
+- `search_j_9_exact.py` supports checkpoint/resume, so a future session
+  can continue with a much larger node cap without restarting.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
