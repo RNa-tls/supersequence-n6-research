@@ -1,0 +1,336 @@
+{
+  "central_identity": "Phi(post-A2) = 1 + ell_A2 = 6 - fragment_debt, exact for all 24 RA2 witnesses",
+  "counterfactual_ell_sweep_per_U4_state": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "actual_ell_A2": 4,
+      "ell_sweep": [
+        {
+          "abandonment": true,
+          "ell": 0,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 5
+        },
+        {
+          "abandonment": true,
+          "ell": 1,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 4
+        },
+        {
+          "abandonment": true,
+          "ell": 2,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 3
+        },
+        {
+          "ell": 3,
+          "legal": false
+        },
+        {
+          "abandonment": true,
+          "ell": 4,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": 1
+        },
+        {
+          "abandonment": false,
+          "ell": 5,
+          "is_A2_type": false,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": null
+        }
+      ],
+      "move_used": "w2:10"
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "actual_ell_A2": 4,
+      "ell_sweep": [
+        {
+          "abandonment": true,
+          "ell": 0,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 5
+        },
+        {
+          "abandonment": true,
+          "ell": 1,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 4
+        },
+        {
+          "abandonment": true,
+          "ell": 2,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 3
+        },
+        {
+          "ell": 3,
+          "legal": false
+        },
+        {
+          "abandonment": true,
+          "ell": 4,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": 1
+        },
+        {
+          "abandonment": false,
+          "ell": 5,
+          "is_A2_type": false,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": null
+        }
+      ],
+      "move_used": "w2:10"
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "actual_ell_A2": 4,
+      "ell_sweep": [
+        {
+          "abandonment": true,
+          "ell": 0,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 5
+        },
+        {
+          "abandonment": true,
+          "ell": 1,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 4
+        },
+        {
+          "abandonment": true,
+          "ell": 2,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 3
+        },
+        {
+          "ell": 3,
+          "legal": false
+        },
+        {
+          "abandonment": true,
+          "ell": 4,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": 1
+        },
+        {
+          "abandonment": false,
+          "ell": 5,
+          "is_A2_type": false,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": null
+        }
+      ],
+      "move_used": "w2:10"
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "actual_ell_A2": 4,
+      "ell_sweep": [
+        {
+          "abandonment": true,
+          "ell": 0,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 5
+        },
+        {
+          "abandonment": true,
+          "ell": 1,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 4
+        },
+        {
+          "abandonment": true,
+          "ell": 2,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": true,
+          "resulting_debt": 3
+        },
+        {
+          "ell": 3,
+          "legal": false
+        },
+        {
+          "abandonment": true,
+          "ell": 4,
+          "is_A2_type": true,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": 1
+        },
+        {
+          "abandonment": false,
+          "ell": 5,
+          "is_A2_type": false,
+          "legal": true,
+          "new_orbit": false,
+          "resulting_debt": null
+        }
+      ],
+      "move_used": "w2:10"
+    }
+  },
+  "repair_cost_lemma_checks": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "R1_at_least_one_targeted_blocked_joint_required": {
+        "claim": "closing fragment-debt=1 requires at least one blocked joint targeting the missing window",
+        "status": "PROVEN (trivial, structural) -- only a joint can add visits to a non-current hex; rotation cannot"
+      },
+      "R2_repair_costs_at_least_1_slack_or_shortfall": {
+        "claim": "the repair joint consumes at least 1 unit of orbit slack or Phi shortfall",
+        "counterexample": {
+          "macro_distance": 3,
+          "macro_path": [
+            "rot^5;w2:10",
+            "rot^5;w2:10",
+            "rot^5;w3:120"
+          ],
+          "orbit_slack_after_repair": 22,
+          "orbit_slack_consumed": 0,
+          "phi_after_repair": 5,
+          "phi_consumed": 0
+        },
+        "status": "REFUTED"
+      },
+      "R3_required_repair_cost_exceeds_available_budget": {
+        "claim": "U4's required repair cost exceeds its available budget",
+        "reason": "cheapest found repair witnesses cost 0 Phi and (mostly) 0 orbit slack -- well within any positive budget",
+        "status": "REFUTED"
+      },
+      "R4_repair_orbit_reuse_conflicts_with_other_demand": {
+        "claim": "the repair transition's orbit is needed elsewhere, so repair conflicts with other completion demand",
+        "status": "\ubbf8\uc644\ub8cc (untested) -- no completed witness of this slab exists anywhere in this research to check against, so 'other completion demand' cannot be evaluated concretely"
+      }
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "R1_at_least_one_targeted_blocked_joint_required": {
+        "claim": "closing fragment-debt=1 requires at least one blocked joint targeting the missing window",
+        "status": "PROVEN (trivial, structural) -- only a joint can add visits to a non-current hex; rotation cannot"
+      },
+      "R2_repair_costs_at_least_1_slack_or_shortfall": {
+        "claim": "the repair joint consumes at least 1 unit of orbit slack or Phi shortfall",
+        "counterexample": {
+          "macro_distance": 5,
+          "macro_path": [
+            "rot^5;w3:201",
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w2:10",
+            "rot^5;w3:201"
+          ],
+          "orbit_slack_after_repair": 20,
+          "orbit_slack_consumed": 0,
+          "phi_after_repair": 5,
+          "phi_consumed": 0
+        },
+        "status": "REFUTED"
+      },
+      "R3_required_repair_cost_exceeds_available_budget": {
+        "claim": "U4's required repair cost exceeds its available budget",
+        "reason": "cheapest found repair witnesses cost 0 Phi and (mostly) 0 orbit slack -- well within any positive budget",
+        "status": "REFUTED"
+      },
+      "R4_repair_orbit_reuse_conflicts_with_other_demand": {
+        "claim": "the repair transition's orbit is needed elsewhere, so repair conflicts with other completion demand",
+        "status": "\ubbf8\uc644\ub8cc (untested) -- no completed witness of this slab exists anywhere in this research to check against, so 'other completion demand' cannot be evaluated concretely"
+      }
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "R1_at_least_one_targeted_blocked_joint_required": {
+        "claim": "closing fragment-debt=1 requires at least one blocked joint targeting the missing window",
+        "status": "PROVEN (trivial, structural) -- only a joint can add visits to a non-current hex; rotation cannot"
+      },
+      "R2_repair_costs_at_least_1_slack_or_shortfall": {
+        "claim": "the repair joint consumes at least 1 unit of orbit slack or Phi shortfall",
+        "counterexample": {
+          "macro_distance": 5,
+          "macro_path": [
+            "rot^5;w3:201",
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w2:10",
+            "rot^5;w3:201"
+          ],
+          "orbit_slack_after_repair": 20,
+          "orbit_slack_consumed": 0,
+          "phi_after_repair": 5,
+          "phi_consumed": 0
+        },
+        "status": "REFUTED"
+      },
+      "R3_required_repair_cost_exceeds_available_budget": {
+        "claim": "U4's required repair cost exceeds its available budget",
+        "reason": "cheapest found repair witnesses cost 0 Phi and (mostly) 0 orbit slack -- well within any positive budget",
+        "status": "REFUTED"
+      },
+      "R4_repair_orbit_reuse_conflicts_with_other_demand": {
+        "claim": "the repair transition's orbit is needed elsewhere, so repair conflicts with other completion demand",
+        "status": "\ubbf8\uc644\ub8cc (untested) -- no completed witness of this slab exists anywhere in this research to check against, so 'other completion demand' cannot be evaluated concretely"
+      }
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "R1_at_least_one_targeted_blocked_joint_required": {
+        "claim": "closing fragment-debt=1 requires at least one blocked joint targeting the missing window",
+        "status": "PROVEN (trivial, structural) -- only a joint can add visits to a non-current hex; rotation cannot"
+      },
+      "R2_repair_costs_at_least_1_slack_or_shortfall": {
+        "claim": "the repair joint consumes at least 1 unit of orbit slack or Phi shortfall",
+        "counterexample": {
+          "macro_distance": 3,
+          "macro_path": [
+            "rot^5;w2:10",
+            "rot^5;w2:10",
+            "rot^5;w3:120"
+          ],
+          "orbit_slack_after_repair": 22,
+          "orbit_slack_consumed": 0,
+          "phi_after_repair": 5,
+          "phi_consumed": 0
+        },
+        "status": "REFUTED"
+      },
+      "R3_required_repair_cost_exceeds_available_budget": {
+        "claim": "U4's required repair cost exceeds its available budget",
+        "reason": "cheapest found repair witnesses cost 0 Phi and (mostly) 0 orbit slack -- well within any positive budget",
+        "status": "REFUTED"
+      },
+      "R4_repair_orbit_reuse_conflicts_with_other_demand": {
+        "claim": "the repair transition's orbit is needed elsewhere, so repair conflicts with other completion demand",
+        "status": "\ubbf8\uc644\ub8cc (untested) -- no completed witness of this slab exists anywhere in this research to check against, so 'other completion demand' cannot be evaluated concretely"
+      }
+    }
+  },
+  "schema": "ra2-counterfactual-edits-v1"
+}

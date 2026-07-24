@@ -422,6 +422,63 @@ large-scale search; N=0 untouched.
   attempts anyway (post-F1 blocked-only; chaining-implies-resolved) and
   are recorded as real, if partial, progress.
 
+## RA2's zero-charge history: a clean closed-form identity, and the fragment-debt obstruction hypothesis is refuted
+
+Full detail in `research/RA2_ZERO_CHARGE_HISTORY.md`,
+`research/FRAGMENT_REPAIR_OBLIGATION.md`, `research/RA2_REPAIR_COST_LEMMA.md`,
+`research/RA2_U4_CAUSAL_DIFFERENCE.md`.
+
+Third follow-up round on RA2's 4 unresolved states, targeting a
+quantitative completion obstruction from the zero-charge history between
+R and A2. No new large-scale search; N=0 untouched.
+
+- **Main result, a genuine theorem:** `Phi(state right after A2) = 1 +
+  ell_A2 = 6 - fragment_debt`, exactly, verified over all 24 RA2
+  witnesses with zero exceptions. Proof: while F=0, `f1_normal_form`
+  forces the current hex to be a single contiguous arc, so its rotation
+  successor is always unvisited until the arc reaches full length --
+  meaning any abandonment=False ("blocked") joint can only fire once its
+  own hex is already FULL. Consequently every joint before A2 (R itself
+  and every intervening zero-charge joint) is forced to use the maximal
+  rotation length (ell=5), leaving zero residual debt; only A2 itself
+  (which requires abandonment=True) can leave a hex incomplete. The
+  elaborate zero-charge word structure turns out to be causally
+  irrelevant to the eventual fragment debt -- only A2's own preceding
+  rotation length matters. This is an exact zero-charge-history invariant
+  separating U4 (ell_A2=4) from C20 (ell_A2 in {0,1,3,5}), with zero
+  exceptions among all 24.
+- **The fragment-debt-as-obstruction hypothesis is refuted, not
+  confirmed.** A bounded repair-cone search found 11-15 legal repair
+  witnesses per U4 state (within a 20,000-node cap), the shallowest
+  costing exactly 0 Phi and 0 orbit slack -- fragment repair is cheap and
+  plentiful, not a bottleneck. Of the requested repair-cost lemma
+  candidates: R1 (a targeted joint is required) is trivially proved; R2
+  (repair costs at least 1 unit of slack) and R3 (repair cost exceeds
+  budget) are both refuted with concrete zero-cost witnesses; R4 (orbit
+  reuse conflicts with other demand) is left untested since no completion
+  witness of this slab exists anywhere to check against.
+- The requested combined invariant Omega collapses: Phi and fragment
+  debt are the same information (per the identity above), so Omega's
+  four components reduce to effectively two (Phi, orbit slack) plus a
+  repair-accessibility term that turns out not to be scarce for U4 either.
+- **Minimal counterfactual edit found:** replaying the same A2 move at
+  every rotation length ell=0..5 immediately before it shows debt =
+  5,4,3,(illegal),1,(not-A2) purely as a function of ell -- U4's debt=1
+  and a typical C20's debt=4 differ by exactly one rotation step, not by
+  any orbit-target choice (only one legal A2-type move existed at that
+  point in the tested case).
+- An attempted unification with the RR "chaining implies resolved" lemma
+  from the previous round was tried and explicitly declined: both share
+  a "most of the intervening history is irrelevant" theme, but rest on
+  different mechanisms (orbit-hexagon union-find registration vs.
+  hexagon-arc rotation mechanics) -- no forced merge.
+- Of this round's four success criteria, none were met in their literal
+  form (U4 not proved impossible; repair cost does NOT exceed budget --
+  the opposite was shown), but criterion 3 (an exact invariant separating
+  U4 from C20) was met via the ell_A2/Phi identity, and criterion 4 (few
+  exact subcases) is satisfied in the sense that U4 reduces to the single
+  parameter value ell_A2=4.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
