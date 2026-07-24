@@ -1,0 +1,10 @@
+{
+  "abstract_state": "(ell_A2=4 fixed, Phi, hole_present in {True,False}, repair_status in {unrepaired,repaired})",
+  "note": "Full 7-tuple abstraction requested (ell_A2, Phi, hole position, endpoint phase, target orbit relation, repair status, split status) was attempted but hole position/endpoint phase/target orbit relation vary per literal state even within U4 (different orbits touched by each state's own zero-charge history, RA2_FOUR_SURVIVORS.md) -- so a SHARED automaton across all 4 U4 states can only safely use the coarser (Phi, hole_present, repair_status) triple; the finer position/phase/orbit fields are per-state, not shared abstraction coordinates. Reported honestly rather than forcing a shared 7-tuple.",
+  "schema": "ra2-ell4-automaton-v1",
+  "transitions": {
+    "(Phi, hole=False, repaired) -[...]-> further completion": "NOT further explored this round (out of scope -- full completion search)",
+    "(Phi=5, hole=True, unrepaired) -[hole repair edge]-> (Phi=5, hole=False, repaired)": "REALIZED (found in all 4 U4 states, RA2_ZERO_CHARGE_HISTORY-linked repair search)",
+    "(Phi=5, hole=True, unrepaired) -[non-repair blocked edge]-> (Phi<=5, hole=True, unrepaired)": "REALIZED (dominant branch, most legal continuations)"
+  }
+}

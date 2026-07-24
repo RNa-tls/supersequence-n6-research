@@ -1,0 +1,391 @@
+{
+  "results": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "one_hole_lemma_candidates": {
+        "H1": {
+          "claim": "H1: repair \ud6c4 endpoint\uac00 terminal-compatible class\uc5d0\uc11c \ubc97\uc5b4\ub09c\ub2e4",
+          "repairs_found_at_depth1": 0,
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c, \ub354 \uae4a\uc774 \ubd10\uc57c \ud568 -- \ubbf8\uc644\ub8cc)",
+          "test": "repair \uc9c1\ud6c4 \uc0c1\ud0dc\uac00 area_a_prune_reason\uc744 \ud1b5\uacfc\ud558\ub294\uc9c0(=\uc544\uc9c1 \uc54c\ub824\uc9c4 \ud544\uc694\uc870\uac74\uc5d0\uc11c \uc548 \ubc97\uc5b4\ub0ac\ub294\uc9c0) \ud655\uc778"
+        },
+        "H2": {
+          "claim": "H2: hole repair\ub294 zero-cost\uc9c0\ub9cc \ud2b9\uc815 E-orbit\ub97c \uc7ac\uc0ac\uc6a9\ud558\uac8c \ub9cc\ub4e0\ub2e4",
+          "repair_new_orbit_flags": [],
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c)"
+        },
+        "H3": {
+          "claim": "H3: hole\uc744 \uc720\uc9c0\ud558\uba74(non-repair) \uc774\ud6c4 \ubaa8\ub4e0 legal transition\uc774 \ud2b9\uc815 phase class\uc5d0 \uac07\ud78c\ub2e4",
+          "non_repair_target_orbit_qs_at_depth1": [
+            0,
+            32,
+            138
+          ],
+          "status": "REFUTED -- \uc5ec\ub7ec \uc11c\ub85c \ub2e4\ub978 target orbit q\uac00 \uad00\uce21\ub428, \ub2e8\uc77c phase class\ub85c \uc81c\ud55c\ub418\uc9c0 \uc54a\uc74c"
+        },
+        "H4": {
+          "claim": "H4: hole \uc704\uce58\uc640 A2 target phase\uac00 \uacb0\ud569\ub418\uc5b4 incidence parity\ub97c \uace0\uc815\ud55c\ub2e4",
+          "status": "\ubbf8\uc644\ub8cc -- 'incidence parity'\uac00 \uc774 \ucf54\ub4dc\ubca0\uc774\uc2a4\uc5d0 \uba85\uc2dc\uc801\uc73c\ub85c \uc815\uc758\ub41c \uac1c\ub150\uc774 \uc544\ub2c8\ub77c \uc815\ud655\ud55c \uac80\uc815\uc744 \uad6c\uc131\ud558\uc9c0 \ubabb\ud568"
+        }
+      },
+      "transition_table": [
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": 0,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "legal": true,
+          "new_orbit": false,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 96,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "weight": 2
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": 0,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "R",
+          "label": "rot^5;w3:120",
+          "legal": true,
+          "new_orbit": false,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 18,
+          "target_orbit_q": 0,
+          "target_phase": 2,
+          "weight": 3
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 32,
+          "target_orbit_q": 138,
+          "target_phase": 2,
+          "weight": 3
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 105,
+          "target_orbit_q": 32,
+          "target_phase": 1,
+          "weight": 3
+        }
+      ]
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "one_hole_lemma_candidates": {
+        "H1": {
+          "claim": "H1: repair \ud6c4 endpoint\uac00 terminal-compatible class\uc5d0\uc11c \ubc97\uc5b4\ub09c\ub2e4",
+          "repairs_found_at_depth1": 0,
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c, \ub354 \uae4a\uc774 \ubd10\uc57c \ud568 -- \ubbf8\uc644\ub8cc)",
+          "test": "repair \uc9c1\ud6c4 \uc0c1\ud0dc\uac00 area_a_prune_reason\uc744 \ud1b5\uacfc\ud558\ub294\uc9c0(=\uc544\uc9c1 \uc54c\ub824\uc9c4 \ud544\uc694\uc870\uac74\uc5d0\uc11c \uc548 \ubc97\uc5b4\ub0ac\ub294\uc9c0) \ud655\uc778"
+        },
+        "H2": {
+          "claim": "H2: hole repair\ub294 zero-cost\uc9c0\ub9cc \ud2b9\uc815 E-orbit\ub97c \uc7ac\uc0ac\uc6a9\ud558\uac8c \ub9cc\ub4e0\ub2e4",
+          "repair_new_orbit_flags": [],
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c)"
+        },
+        "H3": {
+          "claim": "H3: hole\uc744 \uc720\uc9c0\ud558\uba74(non-repair) \uc774\ud6c4 \ubaa8\ub4e0 legal transition\uc774 \ud2b9\uc815 phase class\uc5d0 \uac07\ud78c\ub2e4",
+          "non_repair_target_orbit_qs_at_depth1": [
+            0,
+            32,
+            138
+          ],
+          "status": "REFUTED -- \uc5ec\ub7ec \uc11c\ub85c \ub2e4\ub978 target orbit q\uac00 \uad00\uce21\ub428, \ub2e8\uc77c phase class\ub85c \uc81c\ud55c\ub418\uc9c0 \uc54a\uc74c"
+        },
+        "H4": {
+          "claim": "H4: hole \uc704\uce58\uc640 A2 target phase\uac00 \uacb0\ud569\ub418\uc5b4 incidence parity\ub97c \uace0\uc815\ud55c\ub2e4",
+          "status": "\ubbf8\uc644\ub8cc -- 'incidence parity'\uac00 \uc774 \ucf54\ub4dc\ubca0\uc774\uc2a4\uc5d0 \uba85\uc2dc\uc801\uc73c\ub85c \uc815\uc758\ub41c \uac1c\ub150\uc774 \uc544\ub2c8\ub77c \uc815\ud655\ud55c \uac80\uc815\uc744 \uad6c\uc131\ud558\uc9c0 \ubabb\ud568"
+        }
+      },
+      "transition_table": [
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": 0,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "legal": true,
+          "new_orbit": false,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 96,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "weight": 2
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 32,
+          "target_orbit_q": 138,
+          "target_phase": 2,
+          "weight": 3
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 105,
+          "target_orbit_q": 32,
+          "target_phase": 1,
+          "weight": 3
+        }
+      ]
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "one_hole_lemma_candidates": {
+        "H1": {
+          "claim": "H1: repair \ud6c4 endpoint\uac00 terminal-compatible class\uc5d0\uc11c \ubc97\uc5b4\ub09c\ub2e4",
+          "repairs_found_at_depth1": 0,
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c, \ub354 \uae4a\uc774 \ubd10\uc57c \ud568 -- \ubbf8\uc644\ub8cc)",
+          "test": "repair \uc9c1\ud6c4 \uc0c1\ud0dc\uac00 area_a_prune_reason\uc744 \ud1b5\uacfc\ud558\ub294\uc9c0(=\uc544\uc9c1 \uc54c\ub824\uc9c4 \ud544\uc694\uc870\uac74\uc5d0\uc11c \uc548 \ubc97\uc5b4\ub0ac\ub294\uc9c0) \ud655\uc778"
+        },
+        "H2": {
+          "claim": "H2: hole repair\ub294 zero-cost\uc9c0\ub9cc \ud2b9\uc815 E-orbit\ub97c \uc7ac\uc0ac\uc6a9\ud558\uac8c \ub9cc\ub4e0\ub2e4",
+          "repair_new_orbit_flags": [],
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c)"
+        },
+        "H3": {
+          "claim": "H3: hole\uc744 \uc720\uc9c0\ud558\uba74(non-repair) \uc774\ud6c4 \ubaa8\ub4e0 legal transition\uc774 \ud2b9\uc815 phase class\uc5d0 \uac07\ud78c\ub2e4",
+          "non_repair_target_orbit_qs_at_depth1": [
+            0,
+            32,
+            138
+          ],
+          "status": "REFUTED -- \uc5ec\ub7ec \uc11c\ub85c \ub2e4\ub978 target orbit q\uac00 \uad00\uce21\ub428, \ub2e8\uc77c phase class\ub85c \uc81c\ud55c\ub418\uc9c0 \uc54a\uc74c"
+        },
+        "H4": {
+          "claim": "H4: hole \uc704\uce58\uc640 A2 target phase\uac00 \uacb0\ud569\ub418\uc5b4 incidence parity\ub97c \uace0\uc815\ud55c\ub2e4",
+          "status": "\ubbf8\uc644\ub8cc -- 'incidence parity'\uac00 \uc774 \ucf54\ub4dc\ubca0\uc774\uc2a4\uc5d0 \uba85\uc2dc\uc801\uc73c\ub85c \uc815\uc758\ub41c \uac1c\ub150\uc774 \uc544\ub2c8\ub77c \uc815\ud655\ud55c \uac80\uc815\uc744 \uad6c\uc131\ud558\uc9c0 \ubabb\ud568"
+        }
+      },
+      "transition_table": [
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": 0,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "legal": true,
+          "new_orbit": false,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 96,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "weight": 2
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 32,
+          "target_orbit_q": 138,
+          "target_phase": 2,
+          "weight": 3
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 105,
+          "target_orbit_q": 32,
+          "target_phase": 1,
+          "weight": 3
+        }
+      ]
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "one_hole_lemma_candidates": {
+        "H1": {
+          "claim": "H1: repair \ud6c4 endpoint\uac00 terminal-compatible class\uc5d0\uc11c \ubc97\uc5b4\ub09c\ub2e4",
+          "repairs_found_at_depth1": 0,
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c, \ub354 \uae4a\uc774 \ubd10\uc57c \ud568 -- \ubbf8\uc644\ub8cc)",
+          "test": "repair \uc9c1\ud6c4 \uc0c1\ud0dc\uac00 area_a_prune_reason\uc744 \ud1b5\uacfc\ud558\ub294\uc9c0(=\uc544\uc9c1 \uc54c\ub824\uc9c4 \ud544\uc694\uc870\uac74\uc5d0\uc11c \uc548 \ubc97\uc5b4\ub0ac\ub294\uc9c0) \ud655\uc778"
+        },
+        "H2": {
+          "claim": "H2: hole repair\ub294 zero-cost\uc9c0\ub9cc \ud2b9\uc815 E-orbit\ub97c \uc7ac\uc0ac\uc6a9\ud558\uac8c \ub9cc\ub4e0\ub2e4",
+          "repair_new_orbit_flags": [],
+          "status": "\uc801\uc6a9 \ub300\uc0c1 \uc5c6\uc74c (depth 1\uc5d0 repair edge \uc5c6\uc74c)"
+        },
+        "H3": {
+          "claim": "H3: hole\uc744 \uc720\uc9c0\ud558\uba74(non-repair) \uc774\ud6c4 \ubaa8\ub4e0 legal transition\uc774 \ud2b9\uc815 phase class\uc5d0 \uac07\ud78c\ub2e4",
+          "non_repair_target_orbit_qs_at_depth1": [
+            0,
+            32,
+            138
+          ],
+          "status": "REFUTED -- \uc5ec\ub7ec \uc11c\ub85c \ub2e4\ub978 target orbit q\uac00 \uad00\uce21\ub428, \ub2e8\uc77c phase class\ub85c \uc81c\ud55c\ub418\uc9c0 \uc54a\uc74c"
+        },
+        "H4": {
+          "claim": "H4: hole \uc704\uce58\uc640 A2 target phase\uac00 \uacb0\ud569\ub418\uc5b4 incidence parity\ub97c \uace0\uc815\ud55c\ub2e4",
+          "status": "\ubbf8\uc644\ub8cc -- 'incidence parity'\uac00 \uc774 \ucf54\ub4dc\ubca0\uc774\uc2a4\uc5d0 \uba85\uc2dc\uc801\uc73c\ub85c \uc815\uc758\ub41c \uac1c\ub150\uc774 \uc544\ub2c8\ub77c \uc815\ud655\ud55c \uac80\uc815\uc744 \uad6c\uc131\ud558\uc9c0 \ubabb\ud568"
+        }
+      },
+      "transition_table": [
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": 0,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "legal": true,
+          "new_orbit": false,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 96,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "weight": 2
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": 0,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "R",
+          "label": "rot^5;w3:120",
+          "legal": true,
+          "new_orbit": false,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 18,
+          "target_orbit_q": 0,
+          "target_phase": 2,
+          "weight": 3
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 32,
+          "target_orbit_q": 138,
+          "target_phase": 2,
+          "weight": 3
+        },
+        {
+          "d_frag_after": 1,
+          "d_orbit_slack": -1,
+          "d_phi": 0,
+          "ell": 5,
+          "is_fragment_repair": false,
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "legal": true,
+          "new_orbit": true,
+          "prune_reason": null,
+          "pure_rotation_suffix_possible_after": false,
+          "source_orbit_q": 0,
+          "source_phase": 0,
+          "target_hexagon": 105,
+          "target_orbit_q": 32,
+          "target_phase": 1,
+          "weight": 3
+        }
+      ]
+    }
+  },
+  "schema": "ra2-ell4-transition-table-v1"
+}

@@ -479,6 +479,57 @@ R and A2. No new large-scale search; N=0 untouched.
   exact subcases) is satisfied in the sense that U4 reduces to the single
   parameter value ell_A2=4.
 
+## ell_A2=4 geometry: A2R-like non-observation resolved, and an A2/A3 common theorem
+
+Full detail in `research/A2_ROTATION_LENGTH_CLASSIFICATION.md`,
+`research/RA2_ELL4_BOUNDARY_GEOMETRY.md`, `research/RA2_ONE_HOLE_LEMMA.md`,
+`research/RA2_TERMINAL_COMPATIBILITY.md`.
+
+Fourth follow-up round on RA2, moving past the fragment-debt line
+(refuted last round) to directly classify the A2 rotation-length
+spectrum and the exact post-A2 geometry it produces. No new large-scale
+search; N=0 untouched.
+
+- **ell_A2=2, unobserved in the 24-state corpus, is NOT structurally
+  impossible.** A genuinely exhaustive raw BFS at depth<=6 (frontier
+  fully exhausted at 12,367 nodes, well under any cap) confirms it is
+  absent within the corpus's own recorded bound -- but a concrete witness
+  was found at depth 7, one step beyond that bound. Same pattern as the
+  earlier A2R non-observation: a depth-6 search-boundary artifact, not an
+  impossibility. ell_A2=5 remains proved structurally impossible (the
+  full-hex argument).
+- **A controlled counterfactual** (same R-to-A2 prefix, same A2 move,
+  only the rotation length before it varied) shows U4's ell_A2=4 differs
+  from ell=0,1,2 not only in Phi, but also in an independent geometric
+  fact: at ell=4 the move happens to land in an ALREADY-visited orbit
+  (new_orbit=False), while at ell=0,1,2 the same move lands in a fresh
+  orbit (new_orbit=True) -- a genuine additional distinguishing fact, not
+  reducible to the Phi/debt identity alone. Whether this, or just Phi
+  being high, explains why capacity-failure search finds violations for
+  ell=0,1,2 but not ell=4 remains open (the two co-occur, not separated).
+- Of the four "one-hole geometry" candidates: H1 (repair breaks
+  terminal-compatibility) is refuted -- repair witnesses pass every known
+  necessary condition; H2 (repair forces reuse of an existing E-orbit) is
+  proved true (4/4 shortest repair witnesses use new_orbit=False); H3
+  (holding the hole traps future moves in one phase class) is refuted;
+  H4 ("incidence parity") is left unresolved for lack of a precise
+  definition of the term in this codebase.
+- **A2/A3 common theorem, confirmed:** the F=0 full-sweep argument behind
+  Phi=1+ell=6-debt never used the abandoning move's weight, so it applies
+  identically to A3. Verified directly against 60 A3R witnesses: 60/60
+  match the identity exactly, and all pre-abandonment joints use ell=5.
+  A3R's ell_A3 distribution (sample of 100) covers all five values
+  {0,1,2,3,4}, independently confirming ell=2's absence in RA2 was a
+  small-sample artifact, not a structural gap.
+- Of this round's four success criteria: (1) ell_A2=2's status is fully
+  resolved (not impossible, depth-7 witness); (4) the A2/A3 common
+  theorem is established with deductive proof plus computational
+  confirmation. (2) and (3) were only partially advanced -- no full
+  boundary-only obstruction was proved, and U4 reduces to one shared
+  parameter value (ell_A2=4) but not a further geometric subclassification
+  beyond that, since the 4 states' finer geometry is individually
+  distinct (consistent with their proven pairwise independence).
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
