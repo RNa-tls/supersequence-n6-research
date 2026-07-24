@@ -582,6 +582,53 @@ N=0 untouched.
   different kind of argument than local rotation-length/orbit-novelty
   geometry.
 
+## RA2 <-> A2R defect-order exchange: a proven adjacent-exchange theorem, a sharp A2R minimum-depth result, but no new leverage on U4
+
+Full detail in `research/RA2_A2R_EXCHANGE_THEOREM.md`, `research/A2R_MINIMUM_DEPTH.md`,
+`research/U4_EXCHANGE_OBSTRUCTION.md`, `research/U_BRANCH_DEFECT_ORDER_INVARIANT.md`.
+
+Sixth follow-up round, moving from RA2's local post-A2 geometry to the
+defect-order exchange structure between RA2 (R then A2) and A2R (A2 then
+R). No new large-scale search; N=0 untouched.
+
+- **Adjacent-exchange theorem, proved:** for all 10 RA2 witnesses where R
+  and A2 are macro-adjacent (no zero-charge joint between them), swapping
+  A2 before R is impossible for a single, general, structural reason: R's
+  own pre-boundary hex is always forced to be fully swept (the F=0
+  full-sweep theorem from an earlier round), so no further rotation is
+  possible from that exact point -- any nonzero ell_A2 collides
+  immediately. Verified 10/10; the analogous bubble-sort generalization
+  to the full zero-charge word was attempted and refuted by a
+  counterexample (a later joint in the word is often preceded by a
+  freshly-restarted hex, not a full one, so the same obstruction does not
+  automatically propagate).
+- **A2R's minimum depth, pinned down exactly:** depth 6, with a UNIQUE
+  canonical witness at that depth (exhaustive raw BFS, frontier fully
+  consumed at 2,853 nodes). Explained quantitatively: A3 is legal as the
+  walk's literal first move (3 legal options from the true initial
+  state), R requires only that its own starting hex be fully swept
+  (still the walk's first macro-edge), but A2 requires at least 4 prior
+  joints (minimum depth 5) before any existing-target weight-2
+  abandoning move becomes available -- confirmed by direct enumeration
+  (0 legal existing-target weight-2 moves from the initial state).
+- **U4 turned out to be outside this round's classification entirely:**
+  all 4 U4 states have a nonzero zero-charge word between R and A2, so
+  the proved adjacent-exchange theorem doesn't apply to them, and the
+  exchange-distance measure chi (A2R's global minimum depth minus how
+  deep each RA2 witness itself reaches A2) does not separate U4 from
+  C20 -- both span the same {0,1} range.
+- A new defect-order invariant emerged as a byproduct: the minimum
+  macro-index at which each event type can first appear (A3: 0, R: 0 but
+  gated by a full sweep, A2: 4) -- this offers a plausible (though
+  unverified quantitatively) explanation for why RA3/A3R's corpora are
+  ~400x larger than RA2's within the same depth<=6 bound.
+- Of this round's five success criteria: (1) the adjacent R/A2 diamond
+  lemma and (2) A2R's exact minimum-depth theorem were both achieved
+  with genuine proofs. (3) (an exchange obstruction separating U4) and
+  (5) (a general RA3/A3R exchange theorem) were not achieved -- reported
+  honestly as another round where U4 itself resisted the specific new
+  angle tried, even though the angle produced real theorems elsewhere.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
