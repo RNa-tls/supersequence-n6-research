@@ -936,6 +936,53 @@ gap. No new large-scale search; N=0 untouched.
   zero tolerance for any further ell<5 move. Reported as a corpus-exact
   correlation, not claimed as a proven causal mechanism.
 
+## Thirteenth follow-up round: Hub Touch Count <=2 proved, "hub=R1" corrected, closure INCOMPLETE
+
+Thirteenth follow-up round, explicitly pushed past re-confirming
+statistics toward either a real proof or a precisely isolated gap. No
+new large-scale search; N=0 untouched.
+
+- **New lemma proved fully deductively (Hub Touch Count <= 2)**, purely
+  from `current_hex`'s own code definition (`hexagon_id(state.p)`) plus
+  the already-established F<=1 budget: whenever a hexagon receives a
+  second joint-target (a "hub"), that event makes the hub the new
+  current hex; since F is already spent, the hub can never again be
+  abandoned, so its remaining positions can only be visited by pure
+  rotation until it closes forever. Re-confirmed exhaustively over all
+  4,470 RR witnesses (0 violations). This upgrades last round's
+  corpus-exact-only observation to a genuine, depth-independent proof.
+- **Self-correction: round 12's claim "the hub's second touch is always
+  R1 itself" is FALSE.** Literal replay found 6/10 same-component
+  witnesses where a separate zero-charge event -- not R1 -- completes
+  the hub, reusing R1's own target ORBIT via a different phase/hexagon.
+  The real, corpus-exact (10/10) necessary condition is purely about
+  orbit identity, not event identity: "the hub completer's target orbit
+  equals R1's target orbit," independent of which literal event
+  performs the completion. The abstract-model axiom ablation (M2) was
+  already encoding this correctly at the orbit level; only round 12's
+  prose description was too strong.
+- **Deep bounded re-search (depth<=9, exhaustive within bound, node_cap
+  60,000 per witness) from all 10 same-component witnesses'
+  post-abandonment states, exploring ALL reachable R1/R2 choices (not
+  just the corpus's own recorded path)** -- one witness alone had 121
+  alternative non-R hub-completing candidates before any R fired -- and
+  still found zero same-component non-chaining counterexamples. This is
+  substantially stronger local evidence than last round's depth<=5,
+  fixed-R1 check.
+- **Phi=0 continuation confirmed structurally forced by the F<=1
+  budget** (not independently by Phi itself): every ell<5 candidate
+  after R2 is pruned as `F_exceeded`, and the hub can never be
+  re-touched (by the new Hub Touch Count lemma) -- both directly
+  verified against `area_a_prune_reason`.
+- **Bounded closure search (node_cap=30,000 per witness) toward actual
+  completion from all 10 same-component witnesses' post-R2 states did
+  NOT resolve** -- all 10 hit the node cap without the frontier
+  emptying, so neither success nor exhaustive failure was established.
+  Honestly reported as INCOMPLETE, consistent with this project's
+  repeated experience that this scale of capacity question (orbit slack
+  ~23) resists small bounded searches (cf. RA2's U4 states, unresolved
+  even at depth<=18/edge_cap=1.5M).
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
