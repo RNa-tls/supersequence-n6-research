@@ -1,0 +1,42 @@
+{
+  "results": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "global_orbit_credit_slack": 93,
+      "hole_demand_hall_check": {
+        "demand_set_size": 1,
+        "hall_condition_holds": true,
+        "neighborhood_size_N_X": 11,
+        "violating_subset_found": false
+      }
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "global_orbit_credit_slack": 92,
+      "hole_demand_hall_check": {
+        "demand_set_size": 1,
+        "hall_condition_holds": true,
+        "neighborhood_size_N_X": 15,
+        "violating_subset_found": false
+      }
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "global_orbit_credit_slack": 92,
+      "hole_demand_hall_check": {
+        "demand_set_size": 1,
+        "hall_condition_holds": true,
+        "neighborhood_size_N_X": 14,
+        "violating_subset_found": false
+      }
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "global_orbit_credit_slack": 93,
+      "hole_demand_hall_check": {
+        "demand_set_size": 1,
+        "hall_condition_holds": true,
+        "neighborhood_size_N_X": 12,
+        "violating_subset_found": false
+      }
+    }
+  },
+  "schema": "ra2-orbit-demand-analysis-v1",
+  "scope_note": "This round modeled only the smallest available demand set (the single fragment hole) against its found repair witnesses as 'supply'. No violating subset (|N(X)| < |X|) was found for any U4 state -- Hall's condition holds trivially here. A full bipartite model of ALL remaining completion demand (every unvisited hexagon phase) against ALL remaining legal target slots was NOT constructed this round -- that is a much larger undertaking (effectively the full completion search) and was out of scope given the no-large-search constraint. Reported honestly as INCOMPLETE, not as a proof that no obstruction exists at a larger scale."
+}

@@ -1,0 +1,290 @@
+{
+  "central_redefinition": "nu_A is fixed by the named joint kind (A2 always nu=0, A3 always nu=1) in this project's established taxonomy -- it is not a free second axis within a fixed weight. rho_A is therefore tested as a local opportunity-cost question, not assumed to be 1 whenever nu=0.",
+  "results": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "h2_strengthening": {
+        "H2a_repair_reuses_A2_target_orbit": {
+          "claim": "repair always targets A2's own target orbit",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2b_repair_reuses_A2_source_component": {
+          "a2_source_root_registered": false,
+          "claim": "repair always targets A2's own source orbit's component",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED (A2's own source orbit is not even registered in the union-find at that point)"
+        },
+        "H2c_repair_decreases_fresh_orbit_slack_by_1": {
+          "claim": "repair always decreases fresh-orbit slack by exactly 1 (i.e. is itself new_orbit=True)",
+          "repair_new_orbit_flags": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2d_repair_and_orbit_opening_mutually_exclusive": {
+          "claim": "a single transition cannot simultaneously repair the hole and open a new orbit",
+          "status": "\uad00\uce21\uc0c1 \ucc38(12/12 repair witness \uc804\ubd80 new_orbit=False)\uc774\uc9c0\ub9cc, hex\uc640 orbit\uc774 \uc11c\ub85c \ub2e4\ub978 \ubd84\ud560\uc774\ubbc0\ub85c \uc6d0\ub9ac\uc801\uc73c\ub85c \ubc30\uc81c\ub41c\ub2e4\ub294 \uc99d\uba85\uc740 \uc5bb\uc9c0 \ubabb\ud588\ub2e4 -- \ubbf8\uc644\ub8cc"
+        }
+      },
+      "rho_A_global_orbit_credit": {
+        "binding": false,
+        "future_abandonment_credit": 0,
+        "future_joints_available": 115,
+        "orbit_openings_still_needed": 22,
+        "slack": 93
+      },
+      "rho_A_local_choice_by_ell": {
+        "0": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "1": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "2": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "3": {
+          "existing_nu0": 0,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        },
+        "4": {
+          "existing_nu0": 1,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        }
+      },
+      "rho_A_local_verdict": "0 for the actual ell=4 transition -- no genuine existing-vs-fresh choice was ever available at any tested ell (at most one weight-2 abandoning move is legal at each ell, and its novelty is fixed, not chosen)"
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "h2_strengthening": {
+        "H2a_repair_reuses_A2_target_orbit": {
+          "claim": "repair always targets A2's own target orbit",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2b_repair_reuses_A2_source_component": {
+          "a2_source_root_registered": false,
+          "claim": "repair always targets A2's own source orbit's component",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED (A2's own source orbit is not even registered in the union-find at that point)"
+        },
+        "H2c_repair_decreases_fresh_orbit_slack_by_1": {
+          "claim": "repair always decreases fresh-orbit slack by exactly 1 (i.e. is itself new_orbit=True)",
+          "repair_new_orbit_flags": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2d_repair_and_orbit_opening_mutually_exclusive": {
+          "claim": "a single transition cannot simultaneously repair the hole and open a new orbit",
+          "status": "\uad00\uce21\uc0c1 \ucc38(12/12 repair witness \uc804\ubd80 new_orbit=False)\uc774\uc9c0\ub9cc, hex\uc640 orbit\uc774 \uc11c\ub85c \ub2e4\ub978 \ubd84\ud560\uc774\ubbc0\ub85c \uc6d0\ub9ac\uc801\uc73c\ub85c \ubc30\uc81c\ub41c\ub2e4\ub294 \uc99d\uba85\uc740 \uc5bb\uc9c0 \ubabb\ud588\ub2e4 -- \ubbf8\uc644\ub8cc"
+        }
+      },
+      "rho_A_global_orbit_credit": {
+        "binding": false,
+        "future_abandonment_credit": 0,
+        "future_joints_available": 114,
+        "orbit_openings_still_needed": 22,
+        "slack": 92
+      },
+      "rho_A_local_choice_by_ell": {
+        "0": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "1": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "2": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "3": {
+          "existing_nu0": 0,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        },
+        "4": {
+          "existing_nu0": 1,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        }
+      },
+      "rho_A_local_verdict": "0 for the actual ell=4 transition -- no genuine existing-vs-fresh choice was ever available at any tested ell (at most one weight-2 abandoning move is legal at each ell, and its novelty is fixed, not chosen)"
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "h2_strengthening": {
+        "H2a_repair_reuses_A2_target_orbit": {
+          "claim": "repair always targets A2's own target orbit",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2b_repair_reuses_A2_source_component": {
+          "a2_source_root_registered": false,
+          "claim": "repair always targets A2's own source orbit's component",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED (A2's own source orbit is not even registered in the union-find at that point)"
+        },
+        "H2c_repair_decreases_fresh_orbit_slack_by_1": {
+          "claim": "repair always decreases fresh-orbit slack by exactly 1 (i.e. is itself new_orbit=True)",
+          "repair_new_orbit_flags": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2d_repair_and_orbit_opening_mutually_exclusive": {
+          "claim": "a single transition cannot simultaneously repair the hole and open a new orbit",
+          "status": "\uad00\uce21\uc0c1 \ucc38(12/12 repair witness \uc804\ubd80 new_orbit=False)\uc774\uc9c0\ub9cc, hex\uc640 orbit\uc774 \uc11c\ub85c \ub2e4\ub978 \ubd84\ud560\uc774\ubbc0\ub85c \uc6d0\ub9ac\uc801\uc73c\ub85c \ubc30\uc81c\ub41c\ub2e4\ub294 \uc99d\uba85\uc740 \uc5bb\uc9c0 \ubabb\ud588\ub2e4 -- \ubbf8\uc644\ub8cc"
+        }
+      },
+      "rho_A_global_orbit_credit": {
+        "binding": false,
+        "future_abandonment_credit": 0,
+        "future_joints_available": 114,
+        "orbit_openings_still_needed": 22,
+        "slack": 92
+      },
+      "rho_A_local_choice_by_ell": {
+        "0": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "1": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "2": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "3": {
+          "existing_nu0": 0,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        },
+        "4": {
+          "existing_nu0": 1,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        }
+      },
+      "rho_A_local_verdict": "0 for the actual ell=4 transition -- no genuine existing-vs-fresh choice was ever available at any tested ell (at most one weight-2 abandoning move is legal at each ell, and its novelty is fixed, not chosen)"
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "h2_strengthening": {
+        "H2a_repair_reuses_A2_target_orbit": {
+          "claim": "repair always targets A2's own target orbit",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2b_repair_reuses_A2_source_component": {
+          "a2_source_root_registered": false,
+          "claim": "repair always targets A2's own source orbit's component",
+          "matches": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED (A2's own source orbit is not even registered in the union-find at that point)"
+        },
+        "H2c_repair_decreases_fresh_orbit_slack_by_1": {
+          "claim": "repair always decreases fresh-orbit slack by exactly 1 (i.e. is itself new_orbit=True)",
+          "repair_new_orbit_flags": [
+            false,
+            false,
+            false
+          ],
+          "status": "REFUTED"
+        },
+        "H2d_repair_and_orbit_opening_mutually_exclusive": {
+          "claim": "a single transition cannot simultaneously repair the hole and open a new orbit",
+          "status": "\uad00\uce21\uc0c1 \ucc38(12/12 repair witness \uc804\ubd80 new_orbit=False)\uc774\uc9c0\ub9cc, hex\uc640 orbit\uc774 \uc11c\ub85c \ub2e4\ub978 \ubd84\ud560\uc774\ubbc0\ub85c \uc6d0\ub9ac\uc801\uc73c\ub85c \ubc30\uc81c\ub41c\ub2e4\ub294 \uc99d\uba85\uc740 \uc5bb\uc9c0 \ubabb\ud588\ub2e4 -- \ubbf8\uc644\ub8cc"
+        }
+      },
+      "rho_A_global_orbit_credit": {
+        "binding": false,
+        "future_abandonment_credit": 0,
+        "future_joints_available": 115,
+        "orbit_openings_still_needed": 22,
+        "slack": 93
+      },
+      "rho_A_local_choice_by_ell": {
+        "0": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "1": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "2": {
+          "existing_nu0": 0,
+          "fresh_nu1": 1,
+          "genuine_choice_available": false
+        },
+        "3": {
+          "existing_nu0": 0,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        },
+        "4": {
+          "existing_nu0": 1,
+          "fresh_nu1": 0,
+          "genuine_choice_available": false
+        }
+      },
+      "rho_A_local_verdict": "0 for the actual ell=4 transition -- no genuine existing-vs-fresh choice was ever available at any tested ell (at most one weight-2 abandoning move is legal at each ell, and its novelty is fixed, not chosen)"
+    }
+  },
+  "schema": "ra2-target-novelty-counterfactuals-v1"
+}

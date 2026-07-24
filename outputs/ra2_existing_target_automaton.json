@@ -1,0 +1,10 @@
+{
+  "abstract_state": "(ell_A=4 fixed, nu_A=0 fixed [forced by being A2], Phi, fresh_orbit_slack, hole_repaired, terminal_demand_class)",
+  "classification_of_U4": "'\ud2b9\uc815 fresh-opening word \ud544\uc694' -- U4\uc758 4\uac1c \uc0c1\ud0dc\ub294 \uc989\uc2dc \ubd88\uac00\ub2a5\ud558\uc9c0\ub3c4, repair \uc774\ud6c4 \ubd88\uac00\ub2a5\ud558\uc9c0\ub3c4 \uc54a\ub2e4(repair witness \ub2e4\uc218 \uc874\uc7ac, \uc804\ubd80 legal \ud544\uc694\uc870\uac74 \ud1b5\uacfc). \uadf8\ub807\ub2e4\uace0 \uc18c\uc218\uc758 exact subcase\ub85c \uc644\uc804\ud788 \ub2eb\ud788\uc9c0\ub3c4 \uc54a\ub294\ub2e4(\uac1c\ubcc4 \uc0c1\ud0dc\uc758 \uc138\ubd80 \uc9c0\uc624\uba54\ud2b8\ub9ac\uac00 \uc11c\ub85c \ub3c5\ub9bd\uc784\uc774 \uc774\ubbf8 \uc99d\uba85\ub428, RA2_FOUR_SURVIVORS.md). \uac00\uc7a5 \uc815\uc9c1\ud55c \ubd84\ub958\ub294 '\uc5ec\uc804\ud788 \ub300\ud615 geometry search\uac00 \ud544\uc694\ud568'\uc774\ub2e4 -- \uc774\ubc88 \ub77c\uc6b4\ub4dc\uac00 \uc2dc\ub3c4\ud55c \uad6d\uc18c\uc801 obstruction(rho_A, Hall-type, H2a-d)\uc774 \uc804\ubd80 non-binding\uc774\uac70\ub098 \ubc18\uc99d\ub410\uc73c\ubbc0\ub85c, U4\ub97c \ub2eb\uae30 \uc704\ud55c \ub2e4\uc74c \ub2e8\uacc4\ub294 \uc774\ubc88 \ubc29\ubc95\ub860(\uad6d\uc18c rotation-length/orbit-novelty geometry)\uc758 \uc5f0\uc7a5\uc774 \uc544\ub2c8\ub77c \ub2e4\ub978 \uc885\ub958\uc758 \ub17c\uc99d\uc774 \ud544\uc694\ud558\ub2e4\ub294 \uac83\uc774 \uc774\ubc88 \ub77c\uc6b4\ub4dc\uc758 \uc8fc\ub41c \uacb0\ub860\uc774\ub2e4.",
+  "schema": "ra2-existing-target-automaton-v1",
+  "transitions": {
+    "(Phi=5, hole=True) -[non-repair]-> (Phi<=5, hole=True)": "REALIZED, dominant branch",
+    "(Phi=5, hole=True) -[repair]-> (Phi=5, hole=False)": "REALIZED, cheap, non-binding",
+    "(any, hole=False) -[...]-> terminal": "\ubbf8\ud0d0\uad6c (\uc804\uccb4 \uc644\uc8fc \ud0d0\uc0c9 \ubc94\uc704 \ubc16)"
+  }
+}

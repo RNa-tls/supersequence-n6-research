@@ -530,6 +530,58 @@ search; N=0 untouched.
   beyond that, since the 4 states' finer geometry is individually
   distinct (consistent with their proven pairwise independence).
 
+## Abandonment target novelty: (ell, nu) is not a free 2D space, and every obstruction candidate this round was non-binding
+
+Full detail in `research/ABANDONMENT_TARGET_NOVELTY.md`,
+`research/RA2_ORBIT_REUSE_CHARGE.md`, `research/EXISTING_TARGET_ABANDONMENT_OBLIGATION.md`,
+`research/RA2_ORBIT_DEMAND_MATCHING.md`.
+
+Fifth follow-up round on RA2, examining whether the rotation length
+(ell_A) and target-orbit novelty (nu_A: existing vs. fresh) jointly
+determine a completion obstruction for U4. No new large-scale search;
+N=0 untouched.
+
+- **Central re-derivation:** (ell_A, nu_A) is not an independent 2D
+  space. This project's own established joint taxonomy already fixes
+  nu_A by which named event you're looking at -- "A2" is DEFINED as
+  (weight=2, abandonment, new_orbit=False) and "A3" as (weight=3,
+  abandonment, new_orbit=True); the other two weight/novelty
+  combinations are different joint kinds entirely (Z2abandon,
+  zero-charge; J, the charge-2 J-branch event, a disjoint corpus).
+  Re-extracted and confirmed over 622 real abandonment events (RA2's 24,
+  a 300-state RA3 sample, a 298-state A3R sample): every existing-target
+  (nu=0) event is from RA2 (24/24), every RA3/A3R event is fresh-target
+  (598/598). This decomposes the "2D truth table" into two already
+  largely-understood 1D spectra (ell_A2, ell_A3) rather than a genuine
+  2x2 combinatorial space.
+- Direct computation shows U4 never actually faced an existing-vs-fresh
+  *choice*: at every rotation length tested, at most one legal weight-2
+  abandoning move existed, and its novelty was fully determined by that
+  length -- there was no alternative to forgo. A local and a global
+  version of the requested "orbit-reuse charge" rho_A were both
+  evaluated and found non-binding (global orbit-opening slack is 92-93,
+  nowhere near tight).
+- H2 (repair reuses an existing orbit, proved last round) resisted every
+  strengthening attempt: H2a (reuses A2's own target orbit) and H2c
+  (repair costs exactly 1 unit of orbit slack) are refuted with concrete
+  counterexamples; H2b (reuses A2's own source component) is refuted
+  because that component isn't even registered at that point; H2d is
+  left unresolved.
+- A minimal Hall-type check (fragment hole as the sole demand, its found
+  repair witnesses as supply) trivially holds -- no violating subset
+  found, though a full bipartite model over all remaining completion
+  demand was explicitly out of scope (would amount to the full
+  completion search).
+- Of this round's five success criteria, only (1) (a complete local
+  truth table for (ell_A, nu_A)) was achieved -- and in a form that
+  corrects the round's own premise rather than confirming it. Criteria
+  (2), (3), (4), (5) were all attempted and came back non-binding or
+  refuted; the round's honest conclusion is that existing-target
+  novelty, as an axis, is not a further source of leverage on U4 beyond
+  what the ell_A2 spectrum already gives -- closing U4 will need a
+  different kind of argument than local rotation-length/orbit-novelty
+  geometry.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
