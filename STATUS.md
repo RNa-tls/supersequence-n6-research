@@ -894,6 +894,48 @@ in this session (previously only a 300-witness sample was available).
   results do not depend on that theorem and were obtained by direct
   literal replay instead.
 
+## Twelfth follow-up round: the Unique Hub Hexagon lemma, generalizing hex-0 necessity
+
+Twelfth follow-up round, pushed specifically to go past re-confirming the
+75/75 statistic and find either a real proof or the precise minimal axiom
+gap. No new large-scale search; N=0 untouched.
+
+- **New general, fully deductive lemma (Unique Hub Hexagon), proved from
+  `f1_normal_form`'s own documented F<=1 invariant and re-confirmed
+  exhaustively over all 4,470 RR witnesses (0 exceptions)**: in any
+  F<=1-budget word, AT MOST ONE hexagon is ever the target of two or
+  more different joints over the word's entire history (its "hub", if
+  one exists at all). This generalizes last round's "hex 0" finding:
+  orbit 0's component can only grow beyond the trivial pair {orbit 0,
+  hex 0} if hex 0 itself becomes that hub -- i.e. if the word's one
+  allowed abandonment fires while still inside hex 0 (the very first
+  joint of the word).
+- **Necessity direction narrowed to a single, precisely identified
+  remaining gap**: same-component (R2) requires both R2's source and
+  target orbit to connect through the hub -- proved in general. Within
+  this depth<=6 corpus, the hub (when it exists) is exhaustively
+  confirmed to be touched EXACTLY twice, and in all 10 same-component
+  witnesses the second touch is always R1 itself (never a third,
+  unrelated event) -- an exhaustive, corpus-exact fact, honestly
+  labeled a "necessary axiom, not a general proof" since whether this
+  holds beyond depth 6 is untested.
+- **Abstract-model axiom ablation pinpointed the exact missing axiom**:
+  adding a bare "at most one hub hexagon" cardinality cap to the round-11
+  countermodel does NOT eliminate it; only additionally requiring "the
+  hub's second touch must be R1 itself, not a third party" does. This is
+  a genuinely new, precise result -- not a graph axiom, a fact about
+  event roles within the word.
+- **Bounded local search (depth<=5, exhaustive within bound, from all
+  10 same-component witnesses' post-R1 states) found zero
+  same-component-non-chaining candidates** -- strong local evidence,
+  not a full proof.
+- **New completion-cost finding**: R2's own already-proven-tight Phi
+  potential is exactly 0 for all 10 same-component witnesses (vs. mean
+  3.68 for non-chaining and 4.91 for chaining-but-different) -- these
+  10 states sit exactly on the proven Phi>=0 completion boundary, with
+  zero tolerance for any further ell<5 move. Reported as a corpus-exact
+  correlation, not claimed as a proven causal mechanism.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

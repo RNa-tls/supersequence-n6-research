@@ -1,0 +1,43 @@
+{
+  "conclusion": "Adding a bare 'at most one hub hexagon' cardinality cap (M1) does NOT eliminate the same-component/non-chaining countermodel -- it is a purely graph-level fact already respected by M0. The countermodel is eliminated only once the model additionally assumes 'whichever event provides the hub's second touch (if any) is R1 itself, not a third, unrelated event' (M2) -- this is NOT a graph axiom, it is the specific fact exhaustively verified in the real 4,470-witness corpus (all 10 same-component witnesses have R1 as the hub's own second-touch event, 10/10, no exceptions). This is the minimal additional axiom that closes the gap between the abstract graph model and the real corpus's exact implication -- see RR_ANCESTRY_PROOF.md for the honest caveat that 'R1 is always the hub-completer' and 'the hub is never touched a third time' are both verified EXHAUSTIVELY within this depth<=6 corpus but not proved as a general law for arbitrarily long RR words.",
+  "models": {
+    "M0_graph_axioms_only": {
+      "chaining": false,
+      "countermodel_survives": true,
+      "forest_respected": true,
+      "hub_completer_is_r1": false,
+      "hub_hexagon": "hX",
+      "hub_touch_count": 2,
+      "r1_target": "qB",
+      "r2_source": "qC",
+      "r2_target": "qB",
+      "same_component": true
+    },
+    "M1_plus_unique_hub_hexagon": {
+      "chaining": false,
+      "countermodel_survives": true,
+      "forest_respected": true,
+      "hub_completer_is_r1": false,
+      "hub_hexagon": "hX",
+      "hub_touch_count": 2,
+      "r1_target": "qB",
+      "r2_source": "qC",
+      "r2_target": "qB",
+      "same_component": true,
+      "unique_hub_axiom_respected": true
+    },
+    "M2_plus_R1_is_hub_completer": {
+      "chaining": true,
+      "countermodel_survives": false,
+      "forest_respected": true,
+      "hub_completer_is_r1": true,
+      "hub_hexagon": "hX",
+      "hub_touch_count": 2,
+      "r1_target": "qC",
+      "r2_source": "qC",
+      "r2_target": "qB",
+      "same_component": true
+    }
+  },
+  "schema": "rr-initial-axiom-ablation-v1"
+}
