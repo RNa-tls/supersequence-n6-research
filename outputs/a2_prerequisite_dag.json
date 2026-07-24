@@ -1,0 +1,14 @@
+{
+  "a2r_minimum_depth_consistency_check": {
+    "actual_a2r_min_depth_established_previously": 6,
+    "claim": "d_min(A2R) = i_min(A2) + 1 (R's own minimal follow-up edge)",
+    "i_min_A2": 4,
+    "matches": true,
+    "predicted_a2r_min_depth": 6
+  },
+  "comparison": "J (weight=3, existing-target abandon) needs i_min=1; A2 (weight=2, existing-target abandon) needs i_min=4 -- the gap is attributed to weight-2 vs weight-3 tail-action combinatorics, not proven group-theoretically.",
+  "i_min_A2": 4,
+  "i_min_J": 1,
+  "note": "A full formal DAG proof of why i_min(A2)=4 exactly (not 3) was not obtained this round -- reported honestly as incomplete in A2_PREREQUISITE_DAG.md. This file records the comparison data that supports the qualitative explanation (weight=2 existing-target abandonment is uniquely hard among all 7 joint kinds).",
+  "schema": "a2-prerequisite-dag-v1"
+}

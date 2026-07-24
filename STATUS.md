@@ -629,6 +629,53 @@ R). No new large-scale search; N=0 untouched.
   honestly as another round where U4 itself resisted the specific new
   angle tried, even though the angle produced real theorems elsewhere.
 
+## R-to-A2 word restart-block decomposition: a new exact U4 signature, and a generalized barrier lemma
+
+Full detail in `research/U_BRANCH_RESTART_BLOCKS.md`, `research/A2_PREREQUISITE_DAG.md`,
+`research/RA2_RESTART_BARRIER.md`, `research/U4_RESTART_ANCESTRY.md`,
+`research/U_EVENT_FIRST_INDEX_THEOREM.md`.
+
+Seventh follow-up round, decomposing the zero-charge word between R and
+A2 into "restart blocks" to look for long-range prerequisite structure.
+No new large-scale search; N=0 untouched.
+
+- **Proved (deductive + exhaustive verification over all 107 relevant
+  joints):** every joint before A2 fires (R itself and all intervening
+  zero-charge joints) must target a completely FRESH hexagon (0 bits
+  visited) -- f1_normal_form's F=0 single-partial-hex constraint rules
+  out any other option. So at the hex level the requested 6-way restart
+  classification collapses to a single case; the real per-block variation
+  is at the orbit/component level.
+- **A new, exact U4 signature found:** decomposing each RA2 witness into
+  R + word-blocks + A2, the 11 witnesses with exactly one intervening
+  block split perfectly along group lines -- all 9 C20 cases reuse R's
+  own target orbit literally (component "same"); both U4 cases instead
+  open a completely unrelated fresh orbit (component "unresolved"). The
+  2 two-block U4 states contain exactly the C20 pattern as an optional
+  first block, plus this same critical fresh-orbit block appended before
+  A2. All 4 U4 states share this exact critical-restart signature with
+  zero exceptions -- but it is necessary, not sufficient, for U4
+  membership (one C20 outlier shares it too, differing only in the
+  already-known ell_A2).
+- **Restart-barrier lemma B1, proved and verified over all 107 full-swept
+  block boundaries in the corpus (not just R's):** after any block that
+  ends in a fully-swept hex, no nonzero-length rotation is possible from
+  that exact boundary, generalizing last round's adjacent-exchange
+  finding beyond the R-specific case.
+- **Completed the event-first-index table** for all 7 joint kinds:
+  A3/Z2abandon/R/Z2/Z3 all have minimum first-appearance index 0-1;
+  A2 alone requires index 4; J (the other existing-target abandonment)
+  needs only index 1 -- isolating "weight-2 existing-target" as the
+  specific hard combination. Confirmed the arithmetic identity
+  d_min(A2R) = i_min(A2) + 2 = 6 exactly.
+- Of this round's four success criteria: (2) the barrier lemma
+  generalization and (3) an exact restart-block invariant for U4 were
+  both achieved (with the necessary-not-sufficient caveat stated
+  honestly). (1) the full prerequisite-DAG proof of why i_min(A2)=4
+  exactly stayed qualitative, not fully deductive. (4) RA3/A3R
+  application produced a plausible explanation for corpus-size asymmetry
+  but not a proven general theorem.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
