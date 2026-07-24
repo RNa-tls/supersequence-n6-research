@@ -1,0 +1,17 @@
+{
+  "A3R_A3_first_R_second": {
+    "no_critical_restart": 46,
+    "reuse": 0,
+    "sample_size": 150,
+    "unrelated": 104
+  },
+  "RA3_R_first_A3_second": {
+    "no_critical_restart": 39,
+    "reuse": 38,
+    "sample_size": 150,
+    "unrelated": 73
+  },
+  "finding": "A3R shows exactly 0/150 reuse cases (the critical restart before R never reuses A3's own target orbit), a sharp asymmetry versus RA3's mixed 38/150. Reported as an observation (conjecture for its cause), not a proven theorem -- see A2_PREREQUISITE_DAG_PROOF.md section 9.",
+  "note": "Uses only the already-recovered witness ledger (RA3/A3R samples); no new continuation search.",
+  "schema": "u-branch-critical-restart-by-word-v1"
+}

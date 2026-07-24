@@ -676,6 +676,61 @@ No new large-scale search; N=0 untouched.
   application produced a plausible explanation for corpus-size asymmetry
   but not a proven general theorem.
 
+## Five-state focused comparison: a corpus-exact classifier, a methodological correction, and ell_A2 confirmed forced not chosen
+
+Full detail in `research/RA2_FIVE_STATE_COMPARISON.md`, `research/RA2_CRITICAL_RESTART_CLASSIFIER.md`,
+`research/RA2_CRITICAL_RESTART_ANCESTRY.md`, `research/A2_PREREQUISITE_DAG_PROOF.md`.
+
+Eighth follow-up round, narrowing to exactly 5 states (U4's 4 plus the
+one C20 outlier sharing U4's critical-restart signature) for a tight
+comparison. No new large-scale search; N=0 untouched.
+
+- **Methodological correction, found and fixed:** the prior round's
+  per-block "component_relation" computed a block's "source" from the
+  position *before* that block's own rotation run -- but canonicalize()
+  resets the walk's literal position to the identity after every
+  macro-edge, so that "source" was always orbit 0 regardless of which
+  block was examined, a canonicalization artifact rather than genuine
+  per-block information. Switched to a direct, unambiguous comparison
+  (literal target-orbit index vs R's own target-orbit index) and
+  reconfirmed the prior finding survives intact under the corrected
+  definition.
+- **Corpus-exact classifier achieved:** "critical-restart target orbit
+  differs from R's own target orbit" AND "ell_A2=4" correctly classifies
+  all 24 RA2 states (4 true positives, 0 false positives, 20 true
+  negatives, 0 false negatives) -- though flagged honestly that ell_A2=4
+  alone already fully determines this on its own; the restart-signature
+  term adds no extra discriminating power within this corpus.
+- **The critical restart is LITERALLY identical (same source, target
+  orbit, phase) across all 4 U4 states and the C20 outlier** -- the only
+  field that ever differs among these 5 states is ell_A2 itself (4 for
+  U4, 0 for the outlier).
+- **Proved ell_A2 is forced, not a free/lucky choice:** enumerating
+  every rotation length 0-5 at the post-critical-restart boundary for
+  all 5 states shows exactly one legal A2 option per state, and its
+  length is fixed by the state (U4: only ell=4 works; outlier: only
+  ell=0). Since the critical restart itself is identical, the forcing
+  factor is the *accumulated* orbit-touching history from the blocks
+  preceding it (the outlier passes through 3 extra preparation blocks
+  U4's states skip), not the critical restart in isolation.
+- A depth<=6 continuation-tree comparison across the same 5 states found
+  zero capacity-failure prunes for any U4 state, versus 4 total for the
+  outlier starting at depth 4 -- confirmed the already-known Phi gap
+  under this tighter control, framed as a bounded "escape-transition"
+  observation rather than a new independent mechanism.
+- Ancestry theorem candidates C1-C4 were tested directly: C1 refuted
+  with a concrete counterexample; C2/C3 left undefined for lack of a
+  precise formalization; C4 true but a restatement of the already-known
+  Phi/debt identity.
+- A new, sharp asymmetry surfaced in the RA3/A3R ledger (sampled, no new
+  search): A3R shows exactly 0/150 cases where the critical restart
+  before R reuses A3's own target orbit, versus RA3's mixed 38/150 --
+  reported as an observation/conjecture, not connected to a proven
+  general theorem.
+- The three-round-running open problem (a full deductive prerequisite-DAG
+  proof for why i_min(A2)=4 exactly) remains unresolved; recorded
+  honestly as still incomplete rather than forced.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
