@@ -1,0 +1,288 @@
+{
+  "method": "bounded exhaustive tree exploration (max_depth=4, node_cap=20000 per witness) starting from the state immediately after A2 fires at each witness's own unique legal ell (4 for U4, 0 for the outlier) -- small, bounded, reused macro_edges()/area_a_prune_reason() machinery, NOT a new large-scale search.",
+  "per_witness": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "group": "U4",
+      "legal_ell_fired": 4,
+      "post_a2_tree_stats": {
+        "any_terminal_reached": false,
+        "exhaustive_within_cap": true,
+        "frontier_remaining": 0,
+        "nodes_expanded": 65,
+        "per_depth": {
+          "0": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 2,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 4
+            },
+            "fresh_orbit_openings": 2,
+            "legal_children_total": 4,
+            "states_expanded": 1
+          },
+          "1": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 13
+            },
+            "fresh_orbit_openings": 8,
+            "legal_children_total": 13,
+            "states_expanded": 4
+          },
+          "2": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 47
+            },
+            "fresh_orbit_openings": 26,
+            "legal_children_total": 47,
+            "states_expanded": 13
+          },
+          "3": {
+            "candidate_orbit_reuse_ell0": 2,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 1,
+            "ell_counts": {
+              "0": 3,
+              "5": 150
+            },
+            "fresh_orbit_openings": 84,
+            "legal_children_total": 153,
+            "states_expanded": 47
+          }
+        }
+      }
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "group": "U4",
+      "legal_ell_fired": 4,
+      "post_a2_tree_stats": {
+        "any_terminal_reached": false,
+        "exhaustive_within_cap": true,
+        "frontier_remaining": 0,
+        "nodes_expanded": 49,
+        "per_depth": {
+          "0": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 3
+            },
+            "fresh_orbit_openings": 2,
+            "legal_children_total": 3,
+            "states_expanded": 1
+          },
+          "1": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 10
+            },
+            "fresh_orbit_openings": 6,
+            "legal_children_total": 10,
+            "states_expanded": 3
+          },
+          "2": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 35
+            },
+            "fresh_orbit_openings": 19,
+            "legal_children_total": 35,
+            "states_expanded": 10
+          },
+          "3": {
+            "candidate_orbit_reuse_ell0": 1,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 1,
+            "ell_counts": {
+              "5": 116
+            },
+            "fresh_orbit_openings": 64,
+            "legal_children_total": 116,
+            "states_expanded": 35
+          }
+        }
+      }
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "group": "U4",
+      "legal_ell_fired": 4,
+      "post_a2_tree_stats": {
+        "any_terminal_reached": false,
+        "exhaustive_within_cap": true,
+        "frontier_remaining": 0,
+        "nodes_expanded": 50,
+        "per_depth": {
+          "0": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 3
+            },
+            "fresh_orbit_openings": 2,
+            "legal_children_total": 3,
+            "states_expanded": 1
+          },
+          "1": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 10
+            },
+            "fresh_orbit_openings": 6,
+            "legal_children_total": 10,
+            "states_expanded": 3
+          },
+          "2": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 36
+            },
+            "fresh_orbit_openings": 20,
+            "legal_children_total": 36,
+            "states_expanded": 10
+          },
+          "3": {
+            "candidate_orbit_reuse_ell0": 1,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 1,
+            "ell_counts": {
+              "5": 119
+            },
+            "fresh_orbit_openings": 64,
+            "legal_children_total": 119,
+            "states_expanded": 36
+          }
+        }
+      }
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "group": "U4",
+      "legal_ell_fired": 4,
+      "post_a2_tree_stats": {
+        "any_terminal_reached": false,
+        "exhaustive_within_cap": true,
+        "frontier_remaining": 0,
+        "nodes_expanded": 64,
+        "per_depth": {
+          "0": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 2,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 4
+            },
+            "fresh_orbit_openings": 2,
+            "legal_children_total": 4,
+            "states_expanded": 1
+          },
+          "1": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 13
+            },
+            "fresh_orbit_openings": 8,
+            "legal_children_total": 13,
+            "states_expanded": 4
+          },
+          "2": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 46
+            },
+            "fresh_orbit_openings": 25,
+            "legal_children_total": 46,
+            "states_expanded": 13
+          },
+          "3": {
+            "candidate_orbit_reuse_ell0": 2,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 1,
+            "ell_counts": {
+              "0": 3,
+              "5": 147
+            },
+            "fresh_orbit_openings": 84,
+            "legal_children_total": 150,
+            "states_expanded": 46
+          }
+        }
+      }
+    },
+    "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c": {
+      "group": "C20_outlier",
+      "legal_ell_fired": 0,
+      "post_a2_tree_stats": {
+        "any_terminal_reached": false,
+        "exhaustive_within_cap": true,
+        "frontier_remaining": 0,
+        "nodes_expanded": 49,
+        "per_depth": {
+          "0": {
+            "candidate_orbit_reuse_ell0": 1,
+            "candidate_orbit_reuse_ell4": 0,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 3
+            },
+            "fresh_orbit_openings": 2,
+            "legal_children_total": 3,
+            "states_expanded": 1
+          },
+          "1": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 10
+            },
+            "fresh_orbit_openings": 6,
+            "legal_children_total": 10,
+            "states_expanded": 3
+          },
+          "2": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 1,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 35
+            },
+            "fresh_orbit_openings": 18,
+            "legal_children_total": 35,
+            "states_expanded": 10
+          },
+          "3": {
+            "candidate_orbit_reuse_ell0": 0,
+            "candidate_orbit_reuse_ell4": 2,
+            "capacity_fail_leaves": 0,
+            "ell_counts": {
+              "5": 110
+            },
+            "fresh_orbit_openings": 59,
+            "legal_children_total": 110,
+            "states_expanded": 35
+          }
+        }
+      }
+    }
+  },
+  "schema": "u4-two-bit-capacity-comparison-v1"
+}

@@ -1,0 +1,301 @@
+{
+  "method": "each witness replayed in its OWN raw (never-canonicalized) frame from initial_state to the A2 fresh-landing boundary -- verified separately that canonicalize() relabels orbit_masks indices between macro-edges, so tracking a fixed orbit id's opening history is only valid within one continuously-unrelabeled frame. The 'one_step_alternatives' field is a SINGLE bounded macro_edges() enumeration at the state immediately before the opening event -- it checks whether an immediate different move could avoid opening this orbit, NOT whether a full alternate continuation to an equivalent boundary exists (that would require a real search, which this round does not run).",
+  "per_witness": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "ell0_candidate_orbit_id_raw": 99,
+      "ell4_candidate_orbit_id_raw": 0,
+      "events_before_a2": [
+        {
+          "block_index": 0,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 32
+        },
+        {
+          "block_index": 1,
+          "ell": 5,
+          "kind": "Z2",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 32
+        },
+        {
+          "block_index": 2,
+          "ell": 5,
+          "kind": "R",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 32
+        },
+        {
+          "block_index": 3,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 105
+        }
+      ],
+      "existing_at_true_word_start_before_any_tracked_block": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "first_opening_of_ell0_candidate_during_tracked_history": null,
+      "first_opening_of_ell4_candidate_during_tracked_history": null,
+      "group": "U4"
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "ell0_candidate_orbit_id_raw": 19,
+      "ell4_candidate_orbit_id_raw": 0,
+      "events_before_a2": [
+        {
+          "block_index": 0,
+          "ell": 5,
+          "kind": "Z2",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 0
+        },
+        {
+          "block_index": 1,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 24
+        },
+        {
+          "block_index": 2,
+          "ell": 5,
+          "kind": "R",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 24
+        },
+        {
+          "block_index": 3,
+          "ell": 5,
+          "kind": "Z2",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 24
+        },
+        {
+          "block_index": 4,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 21
+        }
+      ],
+      "existing_at_true_word_start_before_any_tracked_block": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "first_opening_of_ell0_candidate_during_tracked_history": null,
+      "first_opening_of_ell4_candidate_during_tracked_history": null,
+      "group": "U4"
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "ell0_candidate_orbit_id_raw": 19,
+      "ell4_candidate_orbit_id_raw": 0,
+      "events_before_a2": [
+        {
+          "block_index": 0,
+          "ell": 5,
+          "kind": "Z2",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 0
+        },
+        {
+          "block_index": 1,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 24
+        },
+        {
+          "block_index": 2,
+          "ell": 5,
+          "kind": "Z2",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 24
+        },
+        {
+          "block_index": 3,
+          "ell": 5,
+          "kind": "R",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 24
+        },
+        {
+          "block_index": 4,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 21
+        }
+      ],
+      "existing_at_true_word_start_before_any_tracked_block": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "first_opening_of_ell0_candidate_during_tracked_history": null,
+      "first_opening_of_ell4_candidate_during_tracked_history": null,
+      "group": "U4"
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "ell0_candidate_orbit_id_raw": 99,
+      "ell4_candidate_orbit_id_raw": 0,
+      "events_before_a2": [
+        {
+          "block_index": 0,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 32
+        },
+        {
+          "block_index": 1,
+          "ell": 5,
+          "kind": "R",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 32
+        },
+        {
+          "block_index": 2,
+          "ell": 5,
+          "kind": "Z2",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 32
+        },
+        {
+          "block_index": 3,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": false,
+            "b_ell4": true
+          },
+          "target_orbit_q_raw": 105
+        }
+      ],
+      "existing_at_true_word_start_before_any_tracked_block": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "first_opening_of_ell0_candidate_during_tracked_history": null,
+      "first_opening_of_ell4_candidate_during_tracked_history": null,
+      "group": "U4"
+    },
+    "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c": {
+      "ell0_candidate_orbit_id_raw": 0,
+      "ell4_candidate_orbit_id_raw": 45,
+      "events_before_a2": [
+        {
+          "block_index": 0,
+          "ell": 5,
+          "kind": "R",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": true,
+            "b_ell4": false
+          },
+          "target_orbit_q_raw": 0
+        },
+        {
+          "block_index": 1,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": true,
+            "b_ell4": false
+          },
+          "target_orbit_q_raw": 6
+        },
+        {
+          "block_index": 2,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": true,
+            "b_ell4": false
+          },
+          "target_orbit_q_raw": 98
+        },
+        {
+          "block_index": 3,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": true,
+            "b_ell4": false
+          },
+          "target_orbit_q_raw": 113
+        },
+        {
+          "block_index": 4,
+          "ell": 5,
+          "kind": "Z3",
+          "orbit_masks_snapshot_after_block": {
+            "b_ell0": true,
+            "b_ell4": false
+          },
+          "target_orbit_q_raw": 21
+        }
+      ],
+      "existing_at_true_word_start_before_any_tracked_block": {
+        "b_ell0": true,
+        "b_ell4": false
+      },
+      "first_opening_of_ell0_candidate_during_tracked_history": null,
+      "first_opening_of_ell4_candidate_during_tracked_history": null,
+      "group": "C20_outlier"
+    }
+  },
+  "schema": "a2-orbit-opening-histories-v1"
+}

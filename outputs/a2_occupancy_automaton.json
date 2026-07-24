@@ -1,0 +1,189 @@
+{
+  "note": "This automaton is reconstructed directly from the 5 EXACT witnesses' event sequences (not a fresh enumeration of the reachable state space). It is sound as a record of what actually happened in these 5 witnesses, but it is NOT a complete cover of all realizable (b_ell4,b_ell0) histories at depth 0..3 -- promoting any depth<4 all-false observation here to a general i_min(A2)=4 lower bound is NOT justified by this data alone (doing so would require the same exhaustive state-space search this round was explicitly told not to repeat). Labeled '\ubbf8\uc644\ub8cc' for that purpose; usable only as a 'corpus exact observation' about these 5 witnesses.",
+  "schema": "a2-occupancy-automaton-v1",
+  "traces": {
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "final_bits_at_pre_a2": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "group": "U4",
+      "trace": [
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 0,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 1,
+          "kind": "Z2"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 2,
+          "kind": "R"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 3,
+          "kind": "Z3"
+        }
+      ]
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "final_bits_at_pre_a2": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "group": "U4",
+      "trace": [
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 0,
+          "kind": "Z2"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 1,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 2,
+          "kind": "R"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 3,
+          "kind": "Z2"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 4,
+          "kind": "Z3"
+        }
+      ]
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "final_bits_at_pre_a2": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "group": "U4",
+      "trace": [
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 0,
+          "kind": "Z2"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 1,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 2,
+          "kind": "Z2"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 3,
+          "kind": "R"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 4,
+          "kind": "Z3"
+        }
+      ]
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "final_bits_at_pre_a2": {
+        "b_ell0": false,
+        "b_ell4": true
+      },
+      "group": "U4",
+      "trace": [
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 0,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 1,
+          "kind": "R"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 2,
+          "kind": "Z2"
+        },
+        {
+          "b_ell0": false,
+          "b_ell4": true,
+          "block_index": 3,
+          "kind": "Z3"
+        }
+      ]
+    },
+    "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c": {
+      "final_bits_at_pre_a2": {
+        "b_ell0": true,
+        "b_ell4": false
+      },
+      "group": "C20_outlier",
+      "trace": [
+        {
+          "b_ell0": true,
+          "b_ell4": false,
+          "block_index": 0,
+          "kind": "R"
+        },
+        {
+          "b_ell0": true,
+          "b_ell4": false,
+          "block_index": 1,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": true,
+          "b_ell4": false,
+          "block_index": 2,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": true,
+          "b_ell4": false,
+          "block_index": 3,
+          "kind": "Z3"
+        },
+        {
+          "b_ell0": true,
+          "b_ell4": false,
+          "block_index": 4,
+          "kind": "Z3"
+        }
+      ]
+    }
+  }
+}

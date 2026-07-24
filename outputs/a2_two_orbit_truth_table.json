@@ -1,0 +1,361 @@
+{
+  "combo_key_legend": "each key is two letters (b1 then b120); T=existing(True), F=fresh-not-visited-not-existing(False), N=target(4) already VISITED (a strictly stronger block than fresh, only applies to the b1/ell=4 position in this corpus)",
+  "fixed_candidate_orbit_sequence_ell_0to5_for_p0_identity": [
+    120,
+    33,
+    9,
+    3,
+    1,
+    0
+  ],
+  "invariant_names": {
+    "orbit_1": "ell=4 candidate orbit (E-orbit of Sigma^4 * unique-weight2-action; canonical rep is its own fixed point under further rotation among the 6 candidates)",
+    "orbit_120": "ell=0 candidate orbit (E-orbit of the unique weight-2 action itself, i.e. the action's own canonical representative -- SIGMA)"
+  },
+  "note_on_FF_combination": "(False, False) covers most of C20 but is NOT uniquely determined by these two bits alone -- within FF, legal_ells varies (typically [1], one exception [3]) depending on the existing/visited status of the other 4 candidate orbits (33, 9, 3, 0).",
+  "note_on_NF_combination": "9/24 C20 witnesses have target(4) already VISITED (not merely fresh) at ell=4, combined with existing(orbit120)=False at ell=0 -- this is a third state beyond the binary existing/fresh distinction requested; it is strictly stronger than F for blocking purposes since visited alone already forces A2Legal(.,4)=False regardless of existing().",
+  "note_on_TT_combination": "(existing(orbit1)=True, existing(orbit120)=True) is NOT observed in the 24-witness RA2 corpus (0/24) -- any theorem about this combination is necessarily abstract/untested, not corpus-verified.",
+  "orbit_structural_facts": {
+    "ell0_candidate_orbit_impl_id_120": {
+      "canonical_representative": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "e_orbit_id": 120,
+      "hexagons_touched": [
+        0,
+        33,
+        64,
+        90,
+        96
+      ],
+      "port_count": 5
+    },
+    "ell4_candidate_orbit_impl_id_1": {
+      "canonical_representative": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "e_orbit_id": 1,
+      "hexagons_touched": [
+        1,
+        72,
+        12,
+        2,
+        0
+      ],
+      "port_count": 5
+    }
+  },
+  "schema": "a2-two-orbit-truth-table-v1",
+  "two_bit_occupancy_table": {
+    "combo_membership": {
+      "FF": [
+        "10e9ab488d6c",
+        "4797a8e815cc",
+        "a8185d545442",
+        "c3b4910cfb74",
+        "d92abc8c8e61",
+        "da5660ec66fd",
+        "dc4809339635",
+        "e0d357a88348",
+        "eb2784716137",
+        "f26bef32aab7"
+      ],
+      "FT": [
+        "e2b44997e783"
+      ],
+      "NF": [
+        "13ae04d9f7a5",
+        "15186b558afe",
+        "24378473d599",
+        "2d8f56bd04e0",
+        "528ceea70a6d",
+        "587d7a77e0ef",
+        "6ebc7a68a8ec",
+        "d5ab8253bc8d",
+        "e59ee0038f25"
+      ],
+      "TF": [
+        "17a42b24ccfb",
+        "1d8b48ab7d56",
+        "29f6af1e8aee",
+        "86ec22eaaba4"
+      ]
+    },
+    "rows": [
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "10e9ab488d6c2cf5cadf625867f389acf85d12e741d1e47a46a1bcade42b574c",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "13ae04d9f7a5a95a9ae29a72e158537fc0e69d303b6bd26be300134a3836b1e5",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "15186b558afe45e7e400cb931a01dd7d60f557dbefb478f6ee496afcc1b9f076",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": true,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "TF",
+        "group": "U4",
+        "hash": "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870",
+        "legal_ells": [
+          4
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": true,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "TF",
+        "group": "U4",
+        "hash": "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b",
+        "legal_ells": [
+          4
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "24378473d5993fbc8e1e81f77819954e8645f4cb6d2daf364dd6cd82a4d695c4",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": true,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "TF",
+        "group": "U4",
+        "hash": "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e",
+        "legal_ells": [
+          4
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "2d8f56bd04e05608bd7a58a5884d448db74dc6a5ed704d95f9b2e33730a867b4",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "4797a8e815cc5c7c4403f5c577b5faab198052ab734687904d77d398bf9c338a",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "528ceea70a6d780c625891d0cc06127a0619af9dbe17b2118a91d09ed8dd3525",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "587d7a77e0effc788602cd605af4805d9e3340bc42bfd4ca9a291e4efef80b9b",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "6ebc7a68a8ec6c3ee3ce1a673730123640bb37872554565f29068c15645ad1a5",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": true,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "TF",
+        "group": "U4",
+        "hash": "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658",
+        "legal_ells": [
+          4
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "a8185d5454429afeaa56b859c563c63e538a6841dc9ea373485244e3b1b35102",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "c3b4910cfb74a1cb46896f98af8efeaae6469feabd82a94b976dac5c6d483909",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "d5ab8253bc8d1b0b263bf771f030151ee7743bfc2002542754cff425e5c62e27",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "d92abc8c8e611b89796c856b7a9f66a0ec095d6e1572608ef9c4217a2a9a99d2",
+        "legal_ells": [
+          3
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "da5660ec66fd9ffbd6d6ab1d1bc7c3f42652f7500bb84e7f80487e0583021d1a",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "dc4809339635040acc30886ed00e4115b1cae8aa85d5f760f89c473fe67b0bcd",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "e0d357a883488ced199707985fa9a4fd006dba28848224c6f7b05801d190cafa",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": true,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FT",
+        "group": "C20_outlier",
+        "hash": "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c",
+        "legal_ells": [
+          0
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": null,
+        "b1_raw_target_visited_at_ell4": true,
+        "combo_key": "NF",
+        "group": "C20",
+        "hash": "e59ee0038f2580e65cd7a6c2da142c607eba3fa27dd33692f14a5558601b86cd",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "eb2784716137d85ebb0d427cc7ebc2acc908de389819be289ff22d6bc60abaab",
+        "legal_ells": [
+          1
+        ]
+      },
+      {
+        "b120_existing_orbit120_at_ell0": false,
+        "b1_existing_orbit1_at_ell4": false,
+        "b1_raw_target_visited_at_ell4": false,
+        "combo_key": "FF",
+        "group": "C20",
+        "hash": "f26bef32aab7e9cd71499df08a8931353e92c1ec4a7bf0526cb7a2d3cd4b9ad2",
+        "legal_ells": [
+          1
+        ]
+      }
+    ]
+  }
+}

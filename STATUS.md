@@ -780,6 +780,71 @@ untouched. Two real bugs were found and fixed mid-round (see below).
   project's repeated "non-observation is not impossibility" lesson from
   A2R and ell_A2=2 applies here too).
 
+## Tenth follow-up round: unique weight-2 move proof, H_A2 necessity, and an A3R falsification
+
+Tenth follow-up round. Explicitly told not to repeat the i_min(A2)=4
+direct-proof attempt again; redirected toward (a) a genuine
+group-theoretic proof of why there is exactly one weight-2 move, and
+(b) the two-orbit occupancy structure behind A2 legality and U4. No new
+large-scale search; N=0 untouched.
+
+- **Genuinely proved (not enumerated) that `tail_permutations(2)` has
+  exactly one element for ANY width-2 tail** (general fact, not
+  n=6-specific): from the `is_indecomposable` definition, w=2 only
+  checks one prefix condition (`pi(0)=0`), which exactly one of the two
+  length-2 permutations violates. Also derived and verified (11 sampled
+  p0 values) the closed form `target(ell) = compose(p0, Sigma^ell *
+  action)` -- the six A2 candidates are p0 composed with 6 FIXED,
+  p0-independent group elements. `research/UNIQUE_WEIGHT2_MOVE_THEOREM.md`.
+- **H_A2 sufficiency proved by construction; necessity only 1/3
+  confirmed by exact witness:** the `existing`-bit's necessity has a
+  real witness pair (U4 vs the C20 outlier, identical `visited` status,
+  differing `existing` status, differing legality); the `visited`-bit
+  and `S.p` component necessity remain deductive-only, no exact witness
+  pair found this round. `research/A2_MINIMAL_SUFFICIENT_HISTORY.md`.
+- **Orbit 1 / orbit 120 given coordinate-invariant names:** orbit 120 is
+  literally the E-orbit of the unique weight-2 action itself (its
+  canonical rep equals SIGMA); orbit 1 is the ell=4 candidate's own
+  fixed group element, sharing exactly one hexagon (hex 0) with orbit
+  120. The two-bit table across all 24 RA2 witnesses shows
+  `(existing(ell=4 cand)=T, existing(ell=0 cand)=F)` exactly
+  characterizes U4 (4/4) and the reverse exactly characterizes the
+  outlier (1/1) -- but the 4th combination `(T,T)` is unobserved (0/24)
+  and `(F,F)` doesn't uniquely determine the legal ell by itself, so
+  this stays a corpus exact observation, not a general theorem.
+  `research/A2_TWO_ORBIT_CAUSAL_THEOREM.md`.
+- **Unexpected structural finding:** replaying all 5 focus witnesses
+  (U4 x4 + outlier) in a fixed, never-canonicalized frame shows NEITHER
+  candidate orbit ever "opens" during the tracked pre-A2 history -- one
+  of the two bits is already true from the word's absolute start
+  (literally equal to orbit 0, the E-orbit of the starting identity
+  permutation itself) and the other stays false the entire time. The
+  requested opening-history counterfactual analysis doesn't apply to
+  this corpus for that reason; the occupancy automaton built from these
+  5 exact traces is consequently degenerate (zero transitions), so it
+  cannot be promoted to an i_min(A2)=4 lower bound (would require the
+  full state-space search this round was told not to repeat).
+  `research/A2_OCCUPANCY_AUTOMATON.md`, `research/U4_ORBIT_HISTORY_CONFLICT.md`.
+- A bounded post-A2 depth<=3 tree comparison (all 5 focus witnesses,
+  frontier fully consumed) found no controlled way to test "same history
+  delays capacity failure" (U4 and the outlier fire A2 at different ell,
+  so it's cross-sectional, not controlled) -- reported inconclusive
+  rather than confirmed. Of the four candidate U4-closure obstructions
+  (O1-O4), only O1 was clearly refuted by this round's data; O2-O4
+  stayed undecided for lack of evidence.
+- **A3R reuse-impossibility hypothesis falsified:** a small bounded
+  (depth=1, one `macro_edges()` call per state) search over the FULL
+  298-witness A3R corpus found that a legal, unpruned R-kind joint
+  reusing A3's own just-opened target orbit exists at depth 1 for
+  298/298 witnesses. This means the earlier round's "0/298 no reuse"
+  fact was about which specific path each stored witness's own recorded
+  macro_path happens to take, not a structural endpoint/phase
+  impossibility -- immediate reuse is trivially reachable everywhere it
+  was checked. `research/A3R_TARGET_REUSE_STATUS.md`.
+- The i_min(A2)=4 direct-proof attempt was NOT repeated this round, per
+  explicit instruction; its status is unchanged from the ninth round
+  (exhaustive-search-verified, not deductively proven).
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
