@@ -1,0 +1,65 @@
+{
+  "conclusion": "SAME-COMPONENT NON-CHAINING COUNTEREXAMPLE CONSTRUCTED (abstract, graph-axioms only)",
+  "countermodel": {
+    "chaining": false,
+    "forest_respected": true,
+    "log": [
+      {
+        "edge": [
+          "qB",
+          "hX"
+        ],
+        "event": "event0_open_B",
+        "redundant_so_far": 0,
+        "roots_before": [
+          null,
+          null
+        ]
+      },
+      {
+        "edge": [
+          "qA",
+          "hY"
+        ],
+        "event": "event1_R1_A_to_B_via_hY",
+        "redundant_so_far": 0,
+        "roots_before": [
+          null,
+          null
+        ]
+      },
+      {
+        "edge": [
+          "qB",
+          "hY"
+        ],
+        "event": "event1_R1_target_B_via_hY",
+        "redundant_so_far": 0,
+        "roots_before": [
+          "qB",
+          "qA"
+        ]
+      },
+      {
+        "edge": [
+          "qC",
+          "hX"
+        ],
+        "event": "event2_reuse_B_target_C_via_hX",
+        "redundant_so_far": 0,
+        "roots_before": [
+          null,
+          "qB"
+        ]
+      }
+    ],
+    "r1_target_orbit": "B",
+    "r2_same_component": true,
+    "r2_source_orbit": "C",
+    "r2_source_root": "qC",
+    "r2_target_orbit": "B",
+    "r2_target_root": "qC"
+  },
+  "interpretation": "The bipartite/forest/degree axioms ALONE do not force 'same-component (R2) implies chaining' -- this abstract model satisfies forest-ness, respects an orbit having several distinct-hexagon ports, and respects R2 firing on an EXISTING (already-registered) target, yet produces same-component with R2's source (C) different from R1's target (B). Therefore the real corpus's 4,470/4,470 exact implication (see RR_SAME_COMPONENT_CHAINING_THEOREM.md) is NOT a pure graph theorem -- it requires a permutation-level fact absent from this toy model. See research/RR_ABSTRACT_COUNTERMODEL_STATUS.md section 9 for the identified candidate hidden axiom (hex 0 -- the word's own starting hexagon -- being the unique node pre-registered from initial_state(), combined with the short (depth<=6) event budget making a 'C bridges to B's OTHER port' detour like event2 above exponentially rarer than the direct hex-0 bridge actually observed in all 10/10 same-component corpus witnesses).",
+  "schema": "rr-abstract-models-v1"
+}

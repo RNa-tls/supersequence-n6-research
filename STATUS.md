@@ -845,6 +845,55 @@ large-scale search; N=0 untouched.
   explicit instruction; its status is unchanged from the ninth round
   (exhaustive-search-verified, not deductively proven).
 
+## Eleventh follow-up round: RR same-component vs chaining, full 4,470-witness literal recovery
+
+Eleventh follow-up round. Moved from the A2/U4 local-history axis (closed
+out for this round per explicit instruction) to RR's open "two R events in
+the same incidence component implies chaining" question. No new
+large-scale search; N=0 untouched. Reused the existing depth<=6,
+node_limit=20,000 J-witness recovery search (same bound as prior rounds)
+to literally recover the FULL 4,470-witness RR corpus for the first time
+in this session (previously only a 300-witness sample was available).
+
+- **Full literal recovery**: all 4,470 RR witnesses (not a sample) now
+  have complete macro_path replays in `outputs/rr_literal_witnesses.json`
+  (12MB). This let every claim below be checked by independent literal
+  replay, not just by cross-referencing the corpus's own precomputed
+  fields.
+- **same-component (R2's own source/target orbit roots equal) implies
+  chaining (R1's target orbit == R2's source orbit): re-confirmed over
+  the full 4,470, zero counterexamples, verified by two independent
+  scripts** (`analyze_rr_chaining.py`'s own aggregation and
+  `verify_rr_chaining_theorem.py`'s separate re-derivation from the raw
+  per-witness rows).
+- **New mechanism found and exhaustively verified (75/75, the full
+  chaining subset): within the chaining witnesses, R2's own
+  component_relation is "same" if and only if hex 0 -- the hexagon
+  containing the WORD'S OWN STARTING PERMUTATION, uniquely registered
+  from `initial_state()` itself -- was touched by some event before R2
+  fires.** The sufficiency direction is fully deductive (plain
+  union-find semantics once hex 0's special pre-registration is
+  granted); the necessity direction is exhaustively verified over the
+  full corpus but not proved as a fully general law.
+- **Incidence forest property re-confirmed exhaustively**: across every
+  pre-joint and post-joint state in all 4,470 RR witnesses (53,054 state
+  checks) plus a broader 85,238-state depth<=6 sample, zero
+  redundant/cycle-closing union-find merges were ever found.
+- **Abstract countermodel constructed**: a small hand-built bipartite
+  incidence model, respecting every graph-level axiom the corpus obeys
+  (bipartite, degree caps, forest, R-legality) but NOT the specific
+  permutation-level fact about hex 0, produces same-component with
+  non-chaining -- proving the corpus's exact implication is not a pure
+  graph theorem and requires the hex-0 pre-registration fact
+  specifically.
+- **One incidental correction**: literal replay showed RR words can
+  contain a hidden zero-charge `Z2_abandon_w2_new` event that flips F
+  from 0 to 1 partway through -- so the earlier "F=0 regime forces every
+  joint's target hex fresh" theorem (proved for the strictly-before-A2
+  window) does NOT generalize to all of RR as such; this round's own
+  results do not depend on that theorem and were obtained by direct
+  literal replay instead.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
