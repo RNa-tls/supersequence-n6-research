@@ -1,0 +1,4032 @@
+{
+  "key_simplifying_fact": "there is exactly one weight-2 move in the entire model (w2:10) -- A2 legality reduces to this single move's behavior at each rotation offset",
+  "prefix_divergence_five_state": {
+    "last_common_step_index": 0,
+    "step_lengths": {
+      "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": 6,
+      "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": 7,
+      "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": 7,
+      "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": 6,
+      "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c": 7
+    }
+  },
+  "schema": "a2-rotation-candidate-tables-v1",
+  "tables_by_witness": {
+    "10e9ab488d6c2cf5cadf625867f389acf85d12e741d1e47a46a1bcade42b574c": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "13ae04d9f7a5a95a9ae29a72e158537fc0e69d303b6bd26be300134a3836b1e5": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "15186b558afe45e7e400cb931a01dd7d60f557dbefb478f6ee496afcc1b9f076": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "17a42b24ccfb84e90762e3e20e0bce201e745121336c8c899bee6d12c683b870": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": false,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": true,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "U4",
+      "legal_ells": [
+        4
+      ]
+    },
+    "1d8b48ab7d56ddf782592f86dd50f91c5a4325c09186bd5b4aabaf30c3978e4b": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": false,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": true,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "U4",
+      "legal_ells": [
+        4
+      ]
+    },
+    "24378473d5993fbc8e1e81f77819954e8645f4cb6d2daf364dd6cd82a4d695c4": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "29f6af1e8aee1bf776b8f8d5dc1ad82b2111df9993705086ab22bc945d3ce00e": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": false,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": true,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "U4",
+      "legal_ells": [
+        4
+      ]
+    },
+    "2d8f56bd04e05608bd7a58a5884d448db74dc6a5ed704d95f9b2e33730a867b4": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "4797a8e815cc5c7c4403f5c577b5faab198052ab734687904d77d398bf9c338a": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "528ceea70a6d780c625891d0cc06127a0619af9dbe17b2118a91d09ed8dd3525": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "587d7a77e0effc788602cd605af4805d9e3340bc42bfd4ca9a291e4efef80b9b": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "6ebc7a68a8ec6c3ee3ce1a673730123640bb37872554565f29068c15645ad1a5": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "86ec22eaaba4d52e04d3cac623464de8ad443133e4b6d2f5330168db55af3658": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": false,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": true,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "U4",
+      "legal_ells": [
+        4
+      ]
+    },
+    "a8185d5454429afeaa56b859c563c63e538a6841dc9ea373485244e3b1b35102": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "c3b4910cfb74a1cb46896f98af8efeaae6469feabd82a94b976dac5c6d483909": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "d5ab8253bc8d1b0b263bf771f030151ee7743bfc2002542754cff425e5c62e27": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "d92abc8c8e611b89796c856b7a9f66a0ec095d6e1572608ef9c4217a2a9a99d2": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": false,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": true,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        3
+      ]
+    },
+    "da5660ec66fd9ffbd6d6ab1d1bc7c3f42652f7500bb84e7f80487e0583021d1a": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "dc4809339635040acc30886ed00e4115b1cae8aa85d5f760f89c473fe67b0bcd": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "e0d357a883488ced199707985fa9a4fd006dba28848224c6f7b05801d190cafa": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "e2b44997e7838537176bd6e0e72ea41df259f429863731b696dc76692beeb98c": {
+      "candidate_table": [
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": true,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": false,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        }
+      ],
+      "group": "C20_outlier",
+      "legal_ells": [
+        0
+      ]
+    },
+    "e59ee0038f2580e65cd7a6c2da142c607eba3fa27dd33692f14a5558601b86cd": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_already_visited",
+          "target_visited": true
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "eb2784716137d85ebb0d427cc7ebc2acc908de389819be289ff22d6bc60abaab": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    },
+    "f26bef32aab7e9cd71499df08a8931353e92c1ec4a7bf0526cb7a2d3cd4b9ad2": {
+      "candidate_table": [
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 0,
+          "endpoint": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            2,
+            3,
+            4,
+            5,
+            1,
+            0
+          ],
+          "target_existing": false,
+          "target_orbit_q": 120,
+          "target_phase": 1,
+          "target_visited": false
+        },
+        {
+          "a2_legal": true,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 1,
+          "endpoint": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "fail_reason": null,
+          "new_orbit_flag": false,
+          "target": [
+            3,
+            4,
+            5,
+            0,
+            2,
+            1
+          ],
+          "target_existing": true,
+          "target_orbit_q": 33,
+          "target_phase": 2,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 2,
+          "endpoint": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            4,
+            5,
+            0,
+            1,
+            3,
+            2
+          ],
+          "target_existing": false,
+          "target_orbit_q": 9,
+          "target_phase": 3,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 3,
+          "endpoint": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            5,
+            0,
+            1,
+            2,
+            4,
+            3
+          ],
+          "target_existing": false,
+          "target_orbit_q": 3,
+          "target_phase": 4,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": true,
+          "abandonment_possible": true,
+          "ell": 4,
+          "endpoint": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "fail_reason": "target_orbit_fresh_not_existing",
+          "new_orbit_flag": true,
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            4
+          ],
+          "target_existing": false,
+          "target_orbit_q": 1,
+          "target_phase": 0,
+          "target_visited": false
+        },
+        {
+          "a2_legal": false,
+          "abandonment_flag": false,
+          "abandonment_possible": false,
+          "ell": 5,
+          "endpoint": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "fail_reason": "abandonment_false_hex_already_full_or_blocked",
+          "new_orbit_flag": false,
+          "target": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5
+          ],
+          "target_existing": true,
+          "target_orbit_q": 0,
+          "target_phase": 1,
+          "target_visited": false
+        }
+      ],
+      "group": "C20",
+      "legal_ells": [
+        1
+      ]
+    }
+  }
+}

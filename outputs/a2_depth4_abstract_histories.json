@@ -1,0 +1,58 @@
+{
+  "method": "exact exhaustive raw BFS (not a true state-abstraction) -- see note",
+  "note": "Section 8 asked for an ABSTRACT (reduced-statistic) enumeration of depth 0..4 histories, distinct from full exhaustive BFS. This was attempted using orbit-history SIZE (state.O) as the abstract statistic, but O alone does not determine A2 legality (which specific orbits are touched matters, not just how many) -- so the abstraction is not sound for deciding legality by itself, and this script falls back to exact exhaustive BFS (still bounded, still no new large-scale search -- reuses the same depth<=5 bound as A2R_MINIMUM_DEPTH.md). Reported honestly as exact search, not as the abstract lower-bound proof requested.",
+  "result": {
+    "a2_first_legal_at_depth_index": 4,
+    "exhaustive": true,
+    "frontier_remaining": 0,
+    "nodes_expanded": 786,
+    "per_depth": {
+      "0": {
+        "a2_legal_found": false,
+        "orbit_history_sizes": [
+          1
+        ],
+        "states_expanded": 1
+      },
+      "1": {
+        "a2_legal_found": false,
+        "orbit_history_sizes": [
+          1,
+          2
+        ],
+        "states_expanded": 8
+      },
+      "2": {
+        "a2_legal_found": false,
+        "orbit_history_sizes": [
+          1,
+          2,
+          3
+        ],
+        "states_expanded": 38
+      },
+      "3": {
+        "a2_legal_found": false,
+        "orbit_history_sizes": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "states_expanded": 155
+      },
+      "4": {
+        "a2_legal_found": true,
+        "orbit_history_sizes": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "states_expanded": 584
+      }
+    }
+  },
+  "schema": "a2-depth4-abstract-histories-v1"
+}

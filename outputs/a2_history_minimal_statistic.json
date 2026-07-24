@@ -1,0 +1,88 @@
+{
+  "H_A2_definition": "H_A2(S) = (S.p, {(target(ell) visited?, orbit(target(ell)) existing?) : ell=0..5})",
+  "claim": "states sharing the FULL H_A2 statistic share the same A2Legal vector (true by construction, verified against real data here)",
+  "endpoint_orbit_index_consistency_check": {
+    "(0, 1, 2, 3, 4, 5)": {
+      "count": 24,
+      "distinct_nonvisited_orbit_sequences": 5
+    }
+  },
+  "groups_by_full_H_A2_statistic": {
+    "((0, 1, 2, 3, 4, 5), ((False, False), (False, False), (False, False), (False, True), (False, False), (False, True)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 1,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "d92abc8c8e61"
+      ]
+    },
+    "((0, 1, 2, 3, 4, 5), ((False, False), (False, False), (False, False), (True, None), (False, True), (False, True)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 4,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "17a42b24ccfb",
+        "1d8b48ab7d56",
+        "29f6af1e8aee",
+        "86ec22eaaba4"
+      ]
+    },
+    "((0, 1, 2, 3, 4, 5), ((False, False), (False, True), (False, False), (False, False), (False, False), (False, True)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 8,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "10e9ab488d6c",
+        "4797a8e815cc",
+        "a8185d545442",
+        "c3b4910cfb74",
+        "da5660ec66fd",
+        "e0d357a88348",
+        "eb2784716137",
+        "f26bef32aab7"
+      ]
+    },
+    "((0, 1, 2, 3, 4, 5), ((False, False), (False, True), (False, False), (False, False), (True, None), (False, True)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 8,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "13ae04d9f7a5",
+        "15186b558afe",
+        "24378473d599",
+        "2d8f56bd04e0",
+        "587d7a77e0ef",
+        "6ebc7a68a8ec",
+        "d5ab8253bc8d",
+        "e59ee0038f25"
+      ]
+    },
+    "((0, 1, 2, 3, 4, 5), ((False, False), (False, True), (False, False), (True, None), (False, False), (False, True)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 1,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "dc4809339635"
+      ]
+    },
+    "((0, 1, 2, 3, 4, 5), ((False, False), (False, True), (False, False), (True, None), (True, None), (False, True)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 1,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "528ceea70a6d"
+      ]
+    },
+    "((0, 1, 2, 3, 4, 5), ((False, True), (False, False), (False, False), (False, False), (False, False), (True, None)))": {
+      "H_A2_determines_legal_vector": true,
+      "count": 1,
+      "distinct_legal_vectors": 1,
+      "witnesses": [
+        "e2b44997e783"
+      ]
+    }
+  },
+  "note": "All 24 witnesses share the same S.p alone (the identity, a canonicalization convention), yet have DIFFERENT candidate-orbit visited-bit patterns at ell=3,4 (some candidates are blocked by prior visitation depending on each witness's own history) -- so S.p alone is NOT sufficient, confirming the visited-bit component of H_A2 is necessary, not redundant. The orbit INDEX at each ell (when not blocked) is however confirmed constant across all 24, matching the deductive claim that target(ell) depends only on S.p.",
+  "schema": "a2-history-minimal-statistic-v1",
+  "verified_over_24_witnesses": true
+}

@@ -731,6 +731,55 @@ comparison. No new large-scale search; N=0 untouched.
   proof for why i_min(A2)=4 exactly) remains unresolved; recorded
   honestly as still incomplete rather than forced.
 
+## A2 legality predicate, minimal sufficient statistic, and an exact U4/outlier causal certificate
+
+Full detail in `research/A2_LEGALITY_PREDICATE.md`, `research/A2_ELL_FORCING_HISTORY.md`,
+`research/A2_MINIMUM_INDEX_PROOF.md`, `research/U4_HISTORY_CAUSAL_CERTIFICATES.md`,
+`research/RA3_A3R_ORBIT_HISTORY_ASYMMETRY.md`.
+
+Ninth follow-up round, formalizing exactly why a given rotation length
+becomes the unique legal choice for A2. No new large-scale search; N=0
+untouched. Two real bugs were found and fixed mid-round (see below).
+
+- **Key simplifying fact:** this entire model has exactly ONE weight-2
+  move (`w2:10`) -- explaining why every earlier round observed "at most
+  one legal weight-2 abandoning move" at any boundary: there was never a
+  second candidate to begin with.
+- **Two bugs found and fixed while building the per-ell candidate
+  table:** an initial version assumed A2 was always the last macro-edge
+  in a witness's path (false -- some witnesses have trailing zero-charge
+  joints after A2), and after fixing that, a second version returned the
+  state already offset by that witness's own ell_A2 rotations rather
+  than the true fresh-landing origin. Both were caught by cross-checking
+  against the corpus's own recorded ell_A2 values and fixed; the
+  corrected candidate table now reproduces the known ell_A2 exactly for
+  all 24 RA2 states, with exactly one legal ell per state (matches prior
+  rounds' 5-state finding, now confirmed corpus-wide).
+- **Exact minimal sufficient statistic obtained and verified:** H_A2(S)
+  = (S.p, plus for each ell=0..5 whether the single candidate target is
+  visited and whether its orbit is pre-existing) provably determines A2
+  legality by construction, and this was checked against real data
+  (grouping the 24 witnesses by this statistic exactly separates them
+  into consistent legal-vector classes).
+- **Exact causal certificate for U4 vs the C20 outlier:** all 4 U4
+  states share a literally identical 6-candidate table (same orbit
+  sequence at every ell). The entire difference from the outlier is
+  that orbit 1 is pre-touched in U4's accumulated history (making ell=4
+  the unique legal choice) but not the outlier's, while orbit 120 is
+  pre-touched in the outlier's history (making ell=0 its unique legal
+  choice) but not U4's -- the two most literal, verifiable facts
+  separating them.
+- The three-round-running open problem (a deductive, BFS-independent
+  lower-bound proof for i_min(A2)=4) remains unresolved for a fourth
+  round -- reported honestly; the exhaustive-search-based proof stays
+  solid (re-verified, frontier fully consumed).
+- A new sharp fact confirmed over the FULL stored ledger (not a sample):
+  A3R shows exactly 0/298 cases of the critical restart before R reusing
+  A3's own target orbit, versus RA3's 75/300 -- reported as an exact
+  corpus observation, explicitly not claimed as proven impossible (this
+  project's repeated "non-observation is not impossibility" lesson from
+  A2R and ell_A2=2 applies here too).
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
