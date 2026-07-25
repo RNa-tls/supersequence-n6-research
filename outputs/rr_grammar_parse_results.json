@@ -1,0 +1,266 @@
+{
+  "P0_is_Rh_free_subset_of_P4": true,
+  "all_P_even_length": true,
+  "all_parses_unique": true,
+  "completeness_note": "bounded coverage within the naturally-exhausted depth range; NOT global completeness -- new P lengths keep appearing as depth grows",
+  "depth_scopes": {
+    "ell0": "word_start<=8 (root<=7); a separate depth-9 verification run is recorded in the log and summarized below",
+    "ell4": "word_start<=9 (root<=8)"
+  },
+  "grammar": "A_ell . P . C . T_ell . R2  with T_4 = empty, T_{ell!=4} = Xh",
+  "parse_rows": [
+    {
+      "C": "C",
+      "P": [
+        "E",
+        "E"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [
+        "Xh"
+      ],
+      "abandonment_ell": 0,
+      "depth_from_abandonment_root": 5,
+      "depth_from_word_start": 6,
+      "parse_ok": true,
+      "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "F",
+        "E",
+        "F",
+        "E"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [
+        "Xh"
+      ],
+      "abandonment_ell": 0,
+      "depth_from_abandonment_root": 7,
+      "depth_from_word_start": 8,
+      "parse_ok": true,
+      "raw_state_hash": "4355122f1ad249f49d2225419e0bdd0903a890b175ed45f55f9a1c0019146c13",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "F",
+        "F",
+        "E",
+        "F"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [
+        "Xh"
+      ],
+      "abandonment_ell": 0,
+      "depth_from_abandonment_root": 7,
+      "depth_from_word_start": 8,
+      "parse_ok": true,
+      "raw_state_hash": "eb4da81d5a4a4dae97692e80c6aa58cff997241117a6218887aa7c5a97082eed",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "Rh",
+        "E"
+      ],
+      "P_has_Rh": true,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 4,
+      "depth_from_word_start": 5,
+      "parse_ok": true,
+      "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "E",
+        "Rh"
+      ],
+      "P_has_Rh": true,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 4,
+      "depth_from_word_start": 5,
+      "parse_ok": true,
+      "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "E",
+        "E"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 4,
+      "depth_from_word_start": 5,
+      "parse_ok": true,
+      "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "F",
+        "E",
+        "F",
+        "E"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 6,
+      "depth_from_word_start": 7,
+      "parse_ok": true,
+      "raw_state_hash": "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "F",
+        "F",
+        "E",
+        "F"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 6,
+      "depth_from_word_start": 7,
+      "parse_ok": true,
+      "raw_state_hash": "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "F",
+        "E",
+        "E",
+        "E",
+        "Rh",
+        "E"
+      ],
+      "P_has_Rh": true,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 8,
+      "depth_from_word_start": 9,
+      "parse_ok": true,
+      "raw_state_hash": "9bd7590e3ceda28ade4261ef4974c48c747c18e4f99eb66ec749993037edb4fa",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "E",
+        "E",
+        "F",
+        "E",
+        "E",
+        "E"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 8,
+      "depth_from_word_start": 9,
+      "parse_ok": true,
+      "raw_state_hash": "cbfdf11e4a797452ee54f68e42c44539d7b2cdea5240dd052dc865923126cbde",
+      "trailing_edge_count": 2
+    },
+    {
+      "C": "C",
+      "P": [
+        "F",
+        "F",
+        "F",
+        "E",
+        "F",
+        "F"
+      ],
+      "P_has_Rh": false,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 8,
+      "depth_from_word_start": 9,
+      "parse_ok": true,
+      "raw_state_hash": "d408ede448259269be44bfb155b2982fa21d84b2561a560f706634effc9648d1",
+      "trailing_edge_count": 3
+    },
+    {
+      "C": "C",
+      "P": [
+        "E",
+        "F",
+        "E",
+        "E",
+        "E",
+        "Rh"
+      ],
+      "P_has_Rh": true,
+      "P_length_even": true,
+      "T": [],
+      "abandonment_ell": 4,
+      "depth_from_abandonment_root": 8,
+      "depth_from_word_start": 9,
+      "parse_ok": true,
+      "raw_state_hash": "ec9025e8706ba0ddac7c3fa2cc03d8bbe30608658abaf3c321a57dd8493698e5",
+      "trailing_edge_count": 3
+    }
+  ],
+  "parse_success_count": 12,
+  "parse_total": 12,
+  "prediction_test": {
+    "observed_in_depth9_run": [
+      "33d70b4249b7 |W|=4 C@3 before_C=2 C->R2=2 sym=EECXh ells=[5, 5, 5, 4, 5] phi=0 trail=3",
+      "4355122f1ad2 |W|=6 C@5 before_C=4 C->R2=2 sym=FEFECXh ells=[5, 5, 5, 5, 5, 4, 5] phi=0 trail=3",
+      "eb4da81d5a4a |W|=6 C@5 before_C=4 C->R2=2 sym=FFEFCXh ells=[5, 5, 5, 5, 5, 4, 5] phi=0 trail=3",
+      "4cb55a304905 |W|=8 C@7 before_C=6 C->R2=2 sym=EEFEEECXh ells=[5, 5, 5, 5, 5, 5, 5, 4, 5] phi=0 trail=2",
+      "ff3c1656c66d |W|=8 C@7 before_C=6 C->R2=2 sym=FFFEFFCXh ells=[5, 5, 5, 5, 5, 5, 5, 4, 5] phi=0 trail=3"
+    ],
+    "prediction": "ell=0 at depth 9 should gain exactly the Rh-free members of ell=4's |P|=6 set, namely EEFEEE and FFFEFF",
+    "proof_status": "root-local exhaustive prediction-then-test",
+    "verdict": "CONFIRMED -- the depth-9 ell=0 run produced exactly 5 same-component states, the 3 previously known plus EEFEEECXh and FFFEFFCXh"
+  },
+  "schema": "rr-grammar-parse-results-v1",
+  "trailing_correlation": {
+    "P_words_with_trailing_2": [
+      "EEFEEE"
+    ],
+    "P_words_with_trailing_3": [
+      "EE",
+      "EFEEERh",
+      "ERh",
+      "FEEERhE",
+      "FEFE",
+      "FFEF",
+      "FFFEFF",
+      "RhE"
+    ],
+    "disjoint": true
+  }
+}

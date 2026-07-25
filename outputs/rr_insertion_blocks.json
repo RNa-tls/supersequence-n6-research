@@ -1,0 +1,997 @@
+{
+  "P_sets_by_ell_and_length": {
+    "0": {
+      "2": [
+        [
+          "E",
+          "E"
+        ]
+      ],
+      "4": [
+        [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        [
+          "F",
+          "F",
+          "E",
+          "F"
+        ]
+      ]
+    },
+    "4": {
+      "2": [
+        [
+          "E",
+          "E"
+        ],
+        [
+          "E",
+          "Rh"
+        ],
+        [
+          "Rh",
+          "E"
+        ]
+      ],
+      "4": [
+        [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        [
+          "F",
+          "F",
+          "E",
+          "F"
+        ]
+      ],
+      "6": [
+        [
+          "E",
+          "E",
+          "F",
+          "E",
+          "E",
+          "E"
+        ],
+        [
+          "E",
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh"
+        ],
+        [
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh",
+          "E"
+        ],
+        [
+          "F",
+          "F",
+          "F",
+          "E",
+          "F",
+          "F"
+        ]
+      ]
+    }
+  },
+  "deletion_theorem_test": {
+    "counterexamples": [
+      {
+        "P": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "ell": "0"
+      },
+      {
+        "P": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "ell": "0"
+      },
+      {
+        "P": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "ell": "4"
+      },
+      {
+        "P": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "ell": "4"
+      },
+      {
+        "P": [
+          "E",
+          "E",
+          "F",
+          "E",
+          "E",
+          "E"
+        ],
+        "ell": "4"
+      },
+      {
+        "P": [
+          "E",
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh"
+        ],
+        "ell": "4"
+      },
+      {
+        "P": [
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh",
+          "E"
+        ],
+        "ell": "4"
+      },
+      {
+        "P": [
+          "F",
+          "F",
+          "F",
+          "E",
+          "F",
+          "F"
+        ],
+        "ell": "4"
+      }
+    ],
+    "holds": false,
+    "results": [
+      {
+        "P": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E"
+            ]
+          }
+        ],
+        "ell": "0",
+        "length": 4,
+        "shorter_set": [
+          [
+            "E",
+            "E"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "F",
+              "F"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F"
+            ]
+          }
+        ],
+        "ell": "0",
+        "length": 4,
+        "shorter_set": [
+          [
+            "E",
+            "E"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E"
+            ]
+          }
+        ],
+        "ell": "4",
+        "length": 4,
+        "shorter_set": [
+          [
+            "E",
+            "E"
+          ],
+          [
+            "E",
+            "Rh"
+          ],
+          [
+            "Rh",
+            "E"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "F",
+              "F"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F"
+            ]
+          }
+        ],
+        "ell": "4",
+        "length": 4,
+        "shorter_set": [
+          [
+            "E",
+            "E"
+          ],
+          [
+            "E",
+            "Rh"
+          ],
+          [
+            "Rh",
+            "E"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "E",
+          "E",
+          "F",
+          "E",
+          "E",
+          "E"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "E",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "E",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "E",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 3,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "F",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 4,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "F",
+              "E"
+            ]
+          }
+        ],
+        "ell": "4",
+        "length": 6,
+        "shorter_set": [
+          [
+            "F",
+            "E",
+            "F",
+            "E"
+          ],
+          [
+            "F",
+            "F",
+            "E",
+            "F"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "E",
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "E",
+              "Rh"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "E",
+              "Rh"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "F",
+              "E",
+              "Rh"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 3,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "F",
+              "E",
+              "Rh"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "Rh"
+            ],
+            "delete_at": 4,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "F",
+              "E",
+              "E"
+            ]
+          }
+        ],
+        "ell": "4",
+        "length": 6,
+        "shorter_set": [
+          [
+            "F",
+            "E",
+            "F",
+            "E"
+          ],
+          [
+            "F",
+            "F",
+            "E",
+            "F"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh",
+          "E"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "E",
+              "E",
+              "Rh",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "Rh",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "E"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "Rh",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "Rh"
+            ],
+            "delete_at": 3,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "E",
+              "E"
+            ]
+          },
+          {
+            "block": [
+              "Rh",
+              "E"
+            ],
+            "delete_at": 4,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "E",
+              "E"
+            ]
+          }
+        ],
+        "ell": "4",
+        "length": 6,
+        "shorter_set": [
+          [
+            "F",
+            "E",
+            "F",
+            "E"
+          ],
+          [
+            "F",
+            "F",
+            "E",
+            "F"
+          ]
+        ]
+      },
+      {
+        "P": [
+          "F",
+          "F",
+          "F",
+          "E",
+          "F",
+          "F"
+        ],
+        "any_valid_deletion": false,
+        "deletions": [
+          {
+            "block": [
+              "F",
+              "F"
+            ],
+            "delete_at": 0,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "F",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "F"
+            ],
+            "delete_at": 1,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "E",
+              "F",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "E"
+            ],
+            "delete_at": 2,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F",
+              "F",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "E",
+              "F"
+            ],
+            "delete_at": 3,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F",
+              "F",
+              "F"
+            ]
+          },
+          {
+            "block": [
+              "F",
+              "F"
+            ],
+            "delete_at": 4,
+            "is_valid_shorter_P": false,
+            "result": [
+              "F",
+              "F",
+              "F",
+              "E"
+            ]
+          }
+        ],
+        "ell": "4",
+        "length": 6,
+        "shorter_set": [
+          [
+            "F",
+            "E",
+            "F",
+            "E"
+          ],
+          [
+            "F",
+            "F",
+            "E",
+            "F"
+          ]
+        ]
+      }
+    ],
+    "statement": "every non-minimal preparation P contains a removable contiguous 2-block yielding a valid shorter P"
+  },
+  "insertion_test": {
+    "counterexamples": [
+      {
+        "ell": "0",
+        "target": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ]
+      },
+      {
+        "ell": "0",
+        "target": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "ell": "4",
+        "target": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ]
+      },
+      {
+        "ell": "4",
+        "target": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "ell": "4",
+        "target": [
+          "E",
+          "E",
+          "F",
+          "E",
+          "E",
+          "E"
+        ]
+      },
+      {
+        "ell": "4",
+        "target": [
+          "E",
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh"
+        ]
+      },
+      {
+        "ell": "4",
+        "target": [
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh",
+          "E"
+        ]
+      },
+      {
+        "ell": "4",
+        "target": [
+          "F",
+          "F",
+          "F",
+          "E",
+          "F",
+          "F"
+        ]
+      }
+    ],
+    "holds": false,
+    "results": [
+      {
+        "ell": "0",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "0",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "4",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "4",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "4",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "E",
+          "E",
+          "F",
+          "E",
+          "E",
+          "E"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "4",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "E",
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "4",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh",
+          "E"
+        ],
+        "witness": null
+      },
+      {
+        "ell": "4",
+        "reachable_by_single_2block_insertion": false,
+        "target": [
+          "F",
+          "F",
+          "F",
+          "E",
+          "F",
+          "F"
+        ],
+        "witness": null
+      }
+    ],
+    "statement": "every longer P is obtained from a shorter valid P by inserting one contiguous 2-block"
+  },
+  "proof_status": "exact counterexample (symbolic level, over the root-local exhaustive P sets)",
+  "schema": "rr-insertion-blocks-v1",
+  "verdict": "\ubc18\uc99d\ub428 -- neither the deletion theorem nor the single-2-block insertion generation holds; every observed P is irreducible"
+}

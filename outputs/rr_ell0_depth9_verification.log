@@ -1,0 +1,32 @@
+ell=0 (O*=120, depth<=9): same=5
+   33d70b4249b7 |W|=4 C@3 before_C=2 C->R2=2 sym=EECXh ells=[5, 5, 5, 4, 5] phi=0 trail=3
+   4355122f1ad2 |W|=6 C@5 before_C=4 C->R2=2 sym=FEFECXh ells=[5, 5, 5, 5, 5, 4, 5] phi=0 trail=3
+   eb4da81d5a4a |W|=6 C@5 before_C=4 C->R2=2 sym=FFEFCXh ells=[5, 5, 5, 5, 5, 4, 5] phi=0 trail=3
+   4cb55a304905 |W|=8 C@7 before_C=6 C->R2=2 sym=EEFEEECXh ells=[5, 5, 5, 5, 5, 5, 5, 4, 5] phi=0 trail=2
+   ff3c1656c66d |W|=8 C@7 before_C=6 C->R2=2 sym=FFFEFFCXh ells=[5, 5, 5, 5, 5, 5, 5, 4, 5] phi=0 trail=3
+ell=1 (O*=33, depth<=9): same=0
+ell=2 (O*=9, depth<=9): same=0
+ell=3 (O*=3, depth<=9): same=0
+ell=4 (O*=1, depth<=8): same=9
+   5d3f8cb9fdd4 |W|=3 C@3 before_C=2 C->R2=1 sym=RhEC ells=[5, 5, 5, 0] phi=0 trail=3
+   6f1ed828b231 |W|=3 C@3 before_C=2 C->R2=1 sym=ERhC ells=[5, 5, 5, 0] phi=0 trail=3
+   fe82b0cdb512 |W|=3 C@3 before_C=2 C->R2=1 sym=EEC ells=[5, 5, 5, 0] phi=0 trail=3
+   86195429f1c6 |W|=5 C@5 before_C=4 C->R2=1 sym=FEFEC ells=[5, 5, 5, 5, 5, 0] phi=0 trail=3
+   b2898cc223e9 |W|=5 C@5 before_C=4 C->R2=1 sym=FFEFC ells=[5, 5, 5, 5, 5, 0] phi=0 trail=3
+   9bd7590e3ced |W|=7 C@7 before_C=6 C->R2=1 sym=FEEERhEC ells=[5, 5, 5, 5, 5, 5, 5, 0] phi=0 trail=3
+   cbfdf11e4a79 |W|=7 C@7 before_C=6 C->R2=1 sym=EEFEEEC ells=[5, 5, 5, 5, 5, 5, 5, 0] phi=0 trail=2
+   d408ede44825 |W|=7 C@7 before_C=6 C->R2=1 sym=FFFEFFC ells=[5, 5, 5, 5, 5, 5, 5, 0] phi=0 trail=3
+   ec9025e8706b |W|=7 C@7 before_C=6 C->R2=1 sym=EFEEERhC ells=[5, 5, 5, 5, 5, 5, 5, 0] phi=0 trail=3
+
+=== parity, BOTH conventions ===
+  ell=0: word_start=[6, 8, 10] (parity [0]) | root=[5, 7, 9] (parity [1])
+          |W|=[4, 6, 8] (parity [0]) | before_C=[2, 4, 6] (parity [0]) | C->R2=[2] | C_is_last=[False]
+          nonzero phi-cost edges: [(1,)]
+  ell=1: no same-component states
+  ell=2: no same-component states
+  ell=3: no same-component states
+  ell=4: word_start=[5, 7, 9] (parity [1]) | root=[4, 6, 8] (parity [0])
+          |W|=[3, 5, 7] (parity [1]) | before_C=[2, 4, 6] (parity [0]) | C->R2=[1] | C_is_last=[True]
+          nonzero phi-cost edges: [(5,)]
+
+wrote outputs/rr_grammar_parse_results.json

@@ -1453,6 +1453,78 @@ is claimed as a global RR theorem.
   continuation tree -- is VACUOUS here, since no two histories reach the
   same decorated state. Left as 미완료.
 
+## Twenty-first follow-up round: the preparation grammar, a parity proof, and three corrections
+
+Twenty-first follow-up round. No completion search; N=0 untouched. The
+one deep run (ell=0 at depth 9) was a grammar *prediction test*, run
+only after the grammar candidate existed, to a separate output path.
+
+- **Depth convention fixed and both stored everywhere.** Round 20's
+  "ell=0 is odd depth" was in the abandonment-root convention. In the
+  word-start convention (abandonment counted as edge 1) it is the
+  reverse: ell=4 is ODD (5,7,9), ell=0 is EVEN (6,8,10). Not a
+  contradiction, but it needed stating, and both fields are now on every
+  record.
+- **Parity is now largely hand-proved.** Decomposing each witness as
+  `A_ell · P · C · T_ell · R2`, Lemma P1 proves the branch difference
+  outright: the hub's only exit position is position 5 (orbit 1, by the
+  Hub Exit Source Lemma), and chaining needs R2's source to be the
+  nearest-residual orbit O*. For ell=4, O* IS orbit 1, so the hub-exit
+  edge can be R2 itself, giving tail length 0; for ell != 4 it cannot,
+  forcing one extra `Xh` edge, tail length 1. That single difference
+  produces the whole parity split. The remaining gap is that `|P|` is
+  even, which is observed (14/14) but not proved -- and is specifically a
+  same-component phenomenon, since over ALL hub completions odd values
+  genuinely occur.
+- **Phi=0 upgraded from arithmetic coincidence to a consequence of the
+  normal form.** A contributes (5-ell); the hub-exit edge fires after
+  rotating from position ell+1 to position 5, so it contributes
+  (1+ell); the sum is 6 for EVERY ell, which is exactly the Phi=0
+  condition. All other preparation edges are ell=5 and contribute 0.
+  This closes a question left open since Round 15.
+- **A grammar relation was predicted and then confirmed.** The
+  before-completer words satisfy `P(ell=0) = the Rh-free members of
+  P(ell=4)`, at every length. Having seen this at lengths 2 and 4, the
+  round predicted that ell=0 at depth 9 would gain exactly `EEFEEE` and
+  `FFFEFF` -- and the run produced exactly those two, nothing else.
+  The structural reason: at ell=0 the completer must BE R1, so no
+  earlier Rh can exist.
+- **The insertion/deletion theorem is FALSIFIED, 8/8 counterexamples
+  each way.** No observed preparation word reduces to a shorter valid
+  one by deleting a contiguous 2-block, and none is obtained from a
+  shorter one by inserting a single contiguous 2-block (`FEFE` cannot
+  come from `EE` -- it needs two separated insertions). Every observed
+  P is irreducible, so the "finite base forms + repeated insertion
+  block" grammar the round aimed for **does not exist** for this data.
+  What survives is a hand-proved `T_ell` rule plus a per-length list of
+  P words -- honestly graded bounded observation, not an exact grammar.
+- **No nontrivial preparation-depth bound was found.** The obstruction
+  is concrete: `E` edges (existing-orbit zero-charge transitions)
+  consume no monotone resource at all -- O unchanged, no fresh orbit, no
+  Phi cost -- and a length-7 preparation exists using only ONE fresh
+  opening. Only the trivial finite-state-space bound remains, which the
+  round explicitly excluded. Reported as 미완료.
+- **The 2-vs-3 trailing predicate is found**: it is a single occupancy
+  bit -- whether `w3:210`'s ell=5 target permutation is already visited
+  -- and it is predicted exactly by the symbolic word `P = EEFEEE`
+  (2/2 with, 12/12 without), across BOTH branches.
+
+Three corrections to earlier rounds, all from this round's checks:
+- **Round 20's "the hub completer is the last preparation edge (12/12)"
+  is refuted**: true for ell=4 (9/9), false for ell=0 (0/5), where the
+  completer is second-to-last. Round 20 generalized an ell=4 pattern to
+  ell=0 without checking it.
+- **Round 19/20's "w3:120 is removed by F_exceeded" is wrong**: no
+  ell=5 RR joint is ever F_exceeded at these states (14/14); w3:120 is
+  removed by a literal visited-collision. So the hand-proved trailing
+  upper bound is 4 (the joint count), not 3.
+- **Round 20's "the ancestry theorem follows from the Unique Hub
+  Hexagon lemma" was an overclaim**: that lemma gives uniqueness of the
+  twice-touched hexagon, but a once-touched hexagon can still hold two
+  orbits, so "the hub is the only junction" does not follow. Two of the
+  four directions are hand-proved; the other two are downgraded to
+  root-local exhaustive with the missing assumption named.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

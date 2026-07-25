@@ -1,0 +1,1986 @@
+{
+  "depth_convention": {
+    "depth_from_abandonment_root": "macro-edges strictly after the abandonment",
+    "depth_from_word_start": "total macro-edges including the abandonment edge",
+    "relation": "word_start = root + 1"
+  },
+  "hub_id": 0,
+  "parity_measurements": {
+    "0": {
+      "completer_is_last_prep_edge": [
+        false
+      ],
+      "completer_to_r2_macro_distance": [
+        2
+      ],
+      "depth_from_abandonment_root": [
+        5,
+        7
+      ],
+      "depth_from_abandonment_root_parity": [
+        1
+      ],
+      "depth_from_word_start": [
+        6,
+        8
+      ],
+      "depth_from_word_start_parity": [
+        0
+      ],
+      "edges_before_completer": [
+        2,
+        4
+      ],
+      "edges_before_completer_parity": [
+        0
+      ],
+      "n": 3,
+      "nonzero_phi_cost_edges": [
+        [
+          1
+        ]
+      ],
+      "phi": [
+        0
+      ],
+      "preparation_length": [
+        4,
+        6
+      ],
+      "preparation_length_parity": [
+        0
+      ]
+    },
+    "1": {
+      "n": 0
+    },
+    "2": {
+      "n": 0
+    },
+    "3": {
+      "n": 0
+    },
+    "4": {
+      "completer_is_last_prep_edge": [
+        true
+      ],
+      "completer_to_r2_macro_distance": [
+        1
+      ],
+      "depth_from_abandonment_root": [
+        4,
+        6,
+        8
+      ],
+      "depth_from_abandonment_root_parity": [
+        0
+      ],
+      "depth_from_word_start": [
+        5,
+        7,
+        9
+      ],
+      "depth_from_word_start_parity": [
+        1
+      ],
+      "edges_before_completer": [
+        2,
+        4,
+        6
+      ],
+      "edges_before_completer_parity": [
+        0
+      ],
+      "n": 9,
+      "nonzero_phi_cost_edges": [
+        [
+          5
+        ]
+      ],
+      "phi": [
+        0
+      ],
+      "preparation_length": [
+        3,
+        5,
+        7
+      ],
+      "preparation_length_parity": [
+        1
+      ]
+    }
+  },
+  "results_by_ell": {
+    "0": {
+      "abandonment_ell": 0,
+      "depth_ceiling": 7,
+      "expanded": 12957,
+      "frontier_empty": true,
+      "o_star": 120,
+      "preparations": [
+        {
+          "O": 2,
+          "S": 3,
+          "abandonment_ell": 0,
+          "chaining": true,
+          "completer_index_within_preparation": 3,
+          "completer_is_last_preparation_edge": false,
+          "completer_to_r2_macro_distance": 2,
+          "depth_from_abandonment_root": 5,
+          "depth_from_word_start": 6,
+          "edges_after_completer_within_preparation": 1,
+          "edges_before_completer": 2,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            4,
+            5
+          ],
+          "fresh_orbit_openings": 0,
+          "kind_signature": [
+            "Z2",
+            "Z2",
+            "R",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 120,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "preparation_length": 4,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                33,
+                0
+              ],
+              "src_hex": 33,
+              "tgt": [
+                120,
+                2
+              ],
+              "tgt_hex": 64
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                64,
+                0
+              ],
+              "src_hex": 64,
+              "tgt": [
+                120,
+                3
+              ],
+              "tgt_hex": 90
+            },
+            {
+              "ell": 5,
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "new_orbit": false,
+              "src": [
+                90,
+                0
+              ],
+              "src_hex": 90,
+              "tgt": [
+                120,
+                0
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "ell": 4,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^4;w2:10",
+              "new_orbit": false,
+              "src": [
+                1,
+                4
+              ],
+              "src_hex": 0,
+              "tgt": [
+                0,
+                1
+              ],
+              "tgt_hex": 96
+            }
+          ],
+          "r1_target_orbit": 120,
+          "r2_source_orbit": 120,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 3,
+          "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+          "symbolic_preparation_word": [
+            "E",
+            "E",
+            "C",
+            "Xh"
+          ]
+        },
+        {
+          "O": 4,
+          "S": 5,
+          "abandonment_ell": 0,
+          "chaining": true,
+          "completer_index_within_preparation": 5,
+          "completer_is_last_preparation_edge": false,
+          "completer_to_r2_macro_distance": 2,
+          "depth_from_abandonment_root": 7,
+          "depth_from_word_start": 8,
+          "edges_after_completer_within_preparation": 1,
+          "edges_before_completer": 4,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            4,
+            5
+          ],
+          "fresh_orbit_openings": 2,
+          "kind_signature": [
+            "Z3",
+            "Z2",
+            "Z3",
+            "Z2",
+            "R",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 120,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "preparation_length": 6,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                33,
+                0
+              ],
+              "src_hex": 33,
+              "tgt": [
+                91,
+                1
+              ],
+              "tgt_hex": 40
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                126,
+                2
+              ],
+              "src_hex": 40,
+              "tgt": [
+                91,
+                2
+              ],
+              "tgt_hex": 82
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                42,
+                1
+              ],
+              "src_hex": 82,
+              "tgt": [
+                72,
+                4
+              ],
+              "tgt_hex": 73
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                77,
+                3
+              ],
+              "src_hex": 73,
+              "tgt": [
+                72,
+                0
+              ],
+              "tgt_hex": 72
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "R",
+              "label": "rot^5;w3:201",
+              "new_orbit": false,
+              "src": [
+                73,
+                4
+              ],
+              "src_hex": 72,
+              "tgt": [
+                120,
+                0
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "ell": 4,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^4;w2:10",
+              "new_orbit": false,
+              "src": [
+                1,
+                4
+              ],
+              "src_hex": 0,
+              "tgt": [
+                0,
+                1
+              ],
+              "tgt_hex": 96
+            }
+          ],
+          "r1_target_orbit": 120,
+          "r2_source_orbit": 120,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 3,
+          "raw_state_hash": "4355122f1ad249f49d2225419e0bdd0903a890b175ed45f55f9a1c0019146c13",
+          "symbolic_preparation_word": [
+            "F",
+            "E",
+            "F",
+            "E",
+            "C",
+            "Xh"
+          ]
+        },
+        {
+          "O": 5,
+          "S": 6,
+          "abandonment_ell": 0,
+          "chaining": true,
+          "completer_index_within_preparation": 5,
+          "completer_is_last_preparation_edge": false,
+          "completer_to_r2_macro_distance": 2,
+          "depth_from_abandonment_root": 7,
+          "depth_from_word_start": 8,
+          "edges_after_completer_within_preparation": 1,
+          "edges_before_completer": 4,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            4,
+            5
+          ],
+          "fresh_orbit_openings": 3,
+          "kind_signature": [
+            "Z3",
+            "Z3",
+            "Z2",
+            "Z3",
+            "R",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 120,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "preparation_length": 6,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                33,
+                0
+              ],
+              "src_hex": 33,
+              "tgt": [
+                126,
+                3
+              ],
+              "tgt_hex": 91
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                91,
+                0
+              ],
+              "src_hex": 91,
+              "tgt": [
+                127,
+                0
+              ],
+              "tgt_hex": 7
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                7,
+                0
+              ],
+              "src_hex": 7,
+              "tgt": [
+                127,
+                1
+              ],
+              "tgt_hex": 59
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                59,
+                0
+              ],
+              "src_hex": 59,
+              "tgt": [
+                121,
+                3
+              ],
+              "tgt_hex": 114
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "R",
+              "label": "rot^5;w3:210",
+              "new_orbit": false,
+              "src": [
+                114,
+                0
+              ],
+              "src_hex": 114,
+              "tgt": [
+                120,
+                0
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "ell": 4,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^4;w2:10",
+              "new_orbit": false,
+              "src": [
+                1,
+                4
+              ],
+              "src_hex": 0,
+              "tgt": [
+                0,
+                1
+              ],
+              "tgt_hex": 96
+            }
+          ],
+          "r1_target_orbit": 120,
+          "r2_source_orbit": 120,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 3,
+          "raw_state_hash": "eb4da81d5a4a4dae97692e80c6aa58cff997241117a6218887aa7c5a97082eed",
+          "symbolic_preparation_word": [
+            "F",
+            "F",
+            "E",
+            "F",
+            "C",
+            "Xh"
+          ]
+        }
+      ],
+      "same_component_count": 3
+    },
+    "1": {
+      "abandonment_ell": 1,
+      "depth_ceiling": 7,
+      "expanded": 12367,
+      "frontier_empty": true,
+      "o_star": 33,
+      "preparations": [],
+      "same_component_count": 0
+    },
+    "2": {
+      "abandonment_ell": 2,
+      "depth_ceiling": 7,
+      "expanded": 13103,
+      "frontier_empty": true,
+      "o_star": 9,
+      "preparations": [],
+      "same_component_count": 0
+    },
+    "3": {
+      "abandonment_ell": 3,
+      "depth_ceiling": 7,
+      "expanded": 13029,
+      "frontier_empty": true,
+      "o_star": 3,
+      "preparations": [],
+      "same_component_count": 0
+    },
+    "4": {
+      "abandonment_ell": 4,
+      "depth_ceiling": 8,
+      "expanded": 43459,
+      "frontier_empty": true,
+      "o_star": 1,
+      "preparations": [
+        {
+          "O": 2,
+          "S": 3,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 3,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 4,
+          "depth_from_word_start": 5,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 2,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 0,
+          "kind_signature": [
+            "R",
+            "Z2",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 3,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "new_orbit": false,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                81,
+                1
+              ],
+              "src_hex": 12,
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                15,
+                2
+              ],
+              "src_hex": 2,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+          "symbolic_preparation_word": [
+            "Rh",
+            "E",
+            "C"
+          ]
+        },
+        {
+          "O": 2,
+          "S": 3,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 3,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 4,
+          "depth_from_word_start": 5,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 2,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 0,
+          "kind_signature": [
+            "Z2",
+            "R",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 3,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                1,
+                1
+              ],
+              "tgt_hex": 72
+            },
+            {
+              "ell": 5,
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "new_orbit": false,
+              "src": [
+                121,
+                4
+              ],
+              "src_hex": 72,
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                15,
+                2
+              ],
+              "src_hex": 2,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+          "symbolic_preparation_word": [
+            "E",
+            "Rh",
+            "C"
+          ]
+        },
+        {
+          "O": 2,
+          "S": 3,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 3,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 4,
+          "depth_from_word_start": 5,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 2,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 0,
+          "kind_signature": [
+            "Z2",
+            "Z2",
+            "R"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 3,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                1,
+                1
+              ],
+              "tgt_hex": 72
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                121,
+                4
+              ],
+              "src_hex": 72,
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "ell": 5,
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "new_orbit": false,
+              "src": [
+                81,
+                1
+              ],
+              "src_hex": 12,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+          "symbolic_preparation_word": [
+            "E",
+            "E",
+            "C"
+          ]
+        },
+        {
+          "O": 4,
+          "S": 5,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 5,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 6,
+          "depth_from_word_start": 7,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 4,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 2,
+          "kind_signature": [
+            "Z3",
+            "Z2",
+            "Z3",
+            "Z2",
+            "R"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 5,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                132,
+                2
+              ],
+              "tgt_hex": 34
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                34,
+                0
+              ],
+              "src_hex": 34,
+              "tgt": [
+                132,
+                3
+              ],
+              "tgt_hex": 67
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                67,
+                0
+              ],
+              "src_hex": 67,
+              "tgt": [
+                13,
+                1
+              ],
+              "tgt_hex": 50
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                133,
+                4
+              ],
+              "src_hex": 50,
+              "tgt": [
+                13,
+                2
+              ],
+              "tgt_hex": 8
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "R",
+              "label": "rot^5;w3:201",
+              "new_orbit": false,
+              "src": [
+                63,
+                1
+              ],
+              "src_hex": 8,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc",
+          "symbolic_preparation_word": [
+            "F",
+            "E",
+            "F",
+            "E",
+            "C"
+          ]
+        },
+        {
+          "O": 5,
+          "S": 6,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 5,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 6,
+          "depth_from_word_start": 7,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 4,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 3,
+          "kind_signature": [
+            "Z3",
+            "Z3",
+            "Z2",
+            "Z3",
+            "R"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 5,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                34,
+                1
+              ],
+              "tgt_hex": 81
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                132,
+                1
+              ],
+              "src_hex": 81,
+              "tgt": [
+                58,
+                3
+              ],
+              "tgt_hex": 57
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                64,
+                2
+              ],
+              "src_hex": 57,
+              "tgt": [
+                58,
+                4
+              ],
+              "tgt_hex": 59
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                56,
+                3
+              ],
+              "src_hex": 59,
+              "tgt": [
+                7,
+                2
+              ],
+              "tgt_hex": 14
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "R",
+              "label": "rot^5;w3:210",
+              "new_orbit": false,
+              "src": [
+                87,
+                1
+              ],
+              "src_hex": 14,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c",
+          "symbolic_preparation_word": [
+            "F",
+            "F",
+            "E",
+            "F",
+            "C"
+          ]
+        },
+        {
+          "O": 3,
+          "S": 4,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 7,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 8,
+          "depth_from_word_start": 9,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 6,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 1,
+          "kind_signature": [
+            "Z3",
+            "Z2",
+            "Z2",
+            "Z2",
+            "R",
+            "Z2",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 7,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                34,
+                1
+              ],
+              "tgt_hex": 81
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                132,
+                1
+              ],
+              "src_hex": 81,
+              "tgt": [
+                34,
+                2
+              ],
+              "tgt_hex": 39
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                88,
+                1
+              ],
+              "src_hex": 39,
+              "tgt": [
+                34,
+                3
+              ],
+              "tgt_hex": 33
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                40,
+                2
+              ],
+              "src_hex": 33,
+              "tgt": [
+                34,
+                4
+              ],
+              "tgt_hex": 35
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "R",
+              "label": "rot^5;w3:210",
+              "new_orbit": false,
+              "src": [
+                32,
+                3
+              ],
+              "src_hex": 35,
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                81,
+                1
+              ],
+              "src_hex": 12,
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                15,
+                2
+              ],
+              "src_hex": 2,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "9bd7590e3ceda28ade4261ef4974c48c747c18e4f99eb66ec749993037edb4fa",
+          "symbolic_preparation_word": [
+            "F",
+            "E",
+            "E",
+            "E",
+            "Rh",
+            "E",
+            "C"
+          ]
+        },
+        {
+          "O": 3,
+          "S": 4,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 7,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 8,
+          "depth_from_word_start": 9,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 6,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 1,
+          "kind_signature": [
+            "Z2",
+            "Z2",
+            "Z3",
+            "Z2",
+            "Z2",
+            "Z2",
+            "R"
+          ],
+          "legal_trailing_edge_count": 2,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 7,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                1,
+                1
+              ],
+              "tgt_hex": 72
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                121,
+                4
+              ],
+              "src_hex": 72,
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                81,
+                1
+              ],
+              "src_hex": 12,
+              "tgt": [
+                7,
+                4
+              ],
+              "tgt_hex": 6
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                9,
+                3
+              ],
+              "src_hex": 6,
+              "tgt": [
+                7,
+                0
+              ],
+              "tgt_hex": 7
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                6,
+                4
+              ],
+              "src_hex": 7,
+              "tgt": [
+                7,
+                1
+              ],
+              "tgt_hex": 74
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                127,
+                4
+              ],
+              "src_hex": 74,
+              "tgt": [
+                7,
+                2
+              ],
+              "tgt_hex": 14
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "R",
+              "label": "rot^5;w3:210",
+              "new_orbit": false,
+              "src": [
+                87,
+                1
+              ],
+              "src_hex": 14,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "cbfdf11e4a797452ee54f68e42c44539d7b2cdea5240dd052dc865923126cbde",
+          "symbolic_preparation_word": [
+            "E",
+            "E",
+            "F",
+            "E",
+            "E",
+            "E",
+            "C"
+          ]
+        },
+        {
+          "O": 7,
+          "S": 8,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 7,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 8,
+          "depth_from_word_start": 9,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 6,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 5,
+          "kind_signature": [
+            "Z3",
+            "Z3",
+            "Z3",
+            "Z2",
+            "Z3",
+            "Z3",
+            "R"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 7,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                132,
+                2
+              ],
+              "tgt_hex": 34
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                34,
+                0
+              ],
+              "src_hex": 34,
+              "tgt": [
+                134,
+                4
+              ],
+              "tgt_hex": 101
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                101,
+                0
+              ],
+              "src_hex": 101,
+              "tgt": [
+                86,
+                1
+              ],
+              "tgt_hex": 119
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                143,
+                1
+              ],
+              "src_hex": 119,
+              "tgt": [
+                86,
+                2
+              ],
+              "tgt_hex": 95
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "new_orbit": true,
+              "src": [
+                110,
+                1
+              ],
+              "src_hex": 95,
+              "tgt": [
+                82,
+                4
+              ],
+              "tgt_hex": 83
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                80,
+                3
+              ],
+              "src_hex": 83,
+              "tgt": [
+                13,
+                2
+              ],
+              "tgt_hex": 8
+            },
+            {
+              "ell": 5,
+              "joint": "w3:201",
+              "kind": "R",
+              "label": "rot^5;w3:201",
+              "new_orbit": false,
+              "src": [
+                63,
+                1
+              ],
+              "src_hex": 8,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "d408ede448259269be44bfb155b2982fa21d84b2561a560f706634effc9648d1",
+          "symbolic_preparation_word": [
+            "F",
+            "F",
+            "F",
+            "E",
+            "F",
+            "F",
+            "C"
+          ]
+        },
+        {
+          "O": 3,
+          "S": 4,
+          "abandonment_ell": 4,
+          "chaining": true,
+          "completer_index_within_preparation": 7,
+          "completer_is_last_preparation_edge": true,
+          "completer_to_r2_macro_distance": 1,
+          "depth_from_abandonment_root": 8,
+          "depth_from_word_start": 9,
+          "edges_after_completer_within_preparation": 0,
+          "edges_before_completer": 6,
+          "ell_profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            0
+          ],
+          "fresh_orbit_openings": 1,
+          "kind_signature": [
+            "Z2",
+            "Z3",
+            "Z2",
+            "Z2",
+            "Z2",
+            "R",
+            "Z2"
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "o_star": 1,
+          "phi": 0,
+          "phi_cost_profile": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5
+          ],
+          "preparation_length": 7,
+          "preparation_trace": [
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                0,
+                4
+              ],
+              "src_hex": 1,
+              "tgt": [
+                1,
+                1
+              ],
+              "tgt_hex": 72
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "new_orbit": true,
+              "src": [
+                121,
+                4
+              ],
+              "src_hex": 72,
+              "tgt": [
+                25,
+                3
+              ],
+              "tgt_hex": 26
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                39,
+                2
+              ],
+              "src_hex": 26,
+              "tgt": [
+                25,
+                4
+              ],
+              "tgt_hex": 24
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                27,
+                3
+              ],
+              "src_hex": 24,
+              "tgt": [
+                25,
+                0
+              ],
+              "tgt_hex": 25
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                24,
+                4
+              ],
+              "src_hex": 25,
+              "tgt": [
+                25,
+                1
+              ],
+              "tgt_hex": 78
+            },
+            {
+              "ell": 5,
+              "joint": "w3:210",
+              "kind": "R",
+              "label": "rot^5;w3:210",
+              "new_orbit": false,
+              "src": [
+                131,
+                3
+              ],
+              "src_hex": 78,
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "ell": 5,
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "new_orbit": false,
+              "src": [
+                15,
+                2
+              ],
+              "src_hex": 2,
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            }
+          ],
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "ec9025e8706ba0ddac7c3fa2cc03d8bbe30608658abaf3c321a57dd8493698e5",
+          "symbolic_preparation_word": [
+            "E",
+            "F",
+            "E",
+            "E",
+            "E",
+            "Rh",
+            "C"
+          ]
+        }
+      ],
+      "same_component_count": 9
+    }
+  },
+  "schema": "rr-preparation-words-v1",
+  "symbolic_alphabet": {
+    "C": "the hub completer edge (whatever its kind)",
+    "E": "existing-orbit zero-charge transition, source outside the hub",
+    "F": "fresh Z3 orbit opening",
+    "Rh": "R event whose target orbit is O* (the nearest residual orbit)",
+    "Rx": "R event targeting some other orbit",
+    "Xh": "zero-charge transition whose SOURCE lies in the hub (hub-exit edge)"
+  },
+  "word_decomposition": "A_ell W R2 ; the hub completer C is an edge inside W"
+}

@@ -17,8 +17,14 @@
 > 1. **R1이 \(O_*\)를 target한다.**
 > 2. **hub 완성 사건이 \(O_*\)의 어떤 phase에 착지해 hub를 닫는다**
 >    (`ell=4`: phase 4 = 위치 5; `ell=0`: phase 0 = 위치 1).
-> 3. **hub 완성 사건은 준비 구간의 마지막 macro-edge**이다
->    (`hub_completer_macro_index == preparation_length`, 12/12).
+> 3. ~~**hub 완성 사건은 준비 구간의 마지막 macro-edge**이다
+>    (`hub_completer_macro_index == preparation_length`, 12/12).~~
+>    **[라운드21에서 반증됨]** 이는 `ell=4`에서만 참(9/9)이고
+>    `ell=0`에서는 **거짓**(0/5) — completer는 끝에서 두 번째이고
+>    마지막은 hub-exit edge `Xh`다. 라운드20이 `ell=4` 패턴을
+>    `ell=0`에 검증 없이 일반화한 오류였다. 정확한 규칙은
+>    `RR_PREPARATION_PARITY_THEOREM.md` §2 Lemma P1(손증명):
+>    completer 이후 tail 길이는 `ell=4`에서 0, `ell≠4`에서 1이다.
 > 4. **R2의 source는 \(O_*\)의 phase 4**이고 **target은 초기 orbit
 >    0**이다(두 분기 공통).
 > 5. **Φ = 0.**

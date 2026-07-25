@@ -110,3 +110,16 @@ permutation이 이미 방문된 결과다.
 **정정된 명제**: 위 1-6단계 논증은 **상한(최대 3개)의 손증명**으로는
 그대로 유효하지만, "정확히 3개"는 **반증됨**(exact counterexample:
 `cbfdf11e4a79`). `RR_TERMINAL_NORMAL_FORM_THEOREM.md` §10 참고.
+
+
+## 라운드21 추가 정정 — `w3:120` 제거 사유는 F_exceeded가 아니다
+
+위 5단계는 "`w3:120`은 이 상태들에서 여전히 abandonment여서
+`F_exceeded`로 제거된다"고 했다. 라운드21이 모든 후보 조인트를 직접
+검사한 결과 **terminal 상태에서 `ell=5`인 RR 조인트 중 `F_exceeded`로
+제거되는 것은 하나도 없다**(14/14). `w3:120`이 빠지는 진짜 이유는
+**target permutation이 이미 방문됨(literal collision)** 이다.
+
+따라서 손증명 가능한 상한은 **3이 아니라 4**(= 조인트 개수)이고,
+"≤3"은 `w3:120` 충돌에 의존하는 관측이다.
+`RR_TRAILING_EDGE_PREDICATE.md` 참고.
