@@ -1,0 +1,82 @@
+{
+  "abandonment_roots": {
+    "0": {
+      "F": 1,
+      "O": 2,
+      "O_star": 120,
+      "P": 2,
+      "S": 1,
+      "endpoint_hexagon": 33,
+      "endpoint_orbit_phase": [
+        120,
+        1
+      ],
+      "touched_hexagons": 2,
+      "visited_count": 2
+    },
+    "1": {
+      "F": 1,
+      "O": 2,
+      "O_star": 33,
+      "P": 2,
+      "S": 1,
+      "endpoint_hexagon": 24,
+      "endpoint_orbit_phase": [
+        33,
+        2
+      ],
+      "touched_hexagons": 2,
+      "visited_count": 3
+    },
+    "2": {
+      "F": 1,
+      "O": 2,
+      "O_star": 9,
+      "P": 2,
+      "S": 1,
+      "endpoint_hexagon": 6,
+      "endpoint_orbit_phase": [
+        9,
+        3
+      ],
+      "touched_hexagons": 2,
+      "visited_count": 4
+    },
+    "3": {
+      "F": 1,
+      "O": 2,
+      "O_star": 3,
+      "P": 2,
+      "S": 1,
+      "endpoint_hexagon": 2,
+      "endpoint_orbit_phase": [
+        3,
+        4
+      ],
+      "touched_hexagons": 2,
+      "visited_count": 5
+    },
+    "4": {
+      "F": 1,
+      "O": 2,
+      "O_star": 1,
+      "P": 2,
+      "S": 1,
+      "endpoint_hexagon": 1,
+      "endpoint_orbit_phase": [
+        1,
+        0
+      ],
+      "touched_hexagons": 2,
+      "visited_count": 6
+    }
+  },
+  "consequence_for_reverse_inclusion": "Round 22 left P4 INTERSECT {E,F}* SUBSET P0 open pending a transport map. This round shows the intended route is closed: no exact state-level transport exists. The inclusion remains root-local exhaustive (verified for lengths 2, 4, 6) with no general proof. \ubbf8\uc644\ub8cc.",
+  "exact_state_level_transport": {
+    "possible": false,
+    "proof": "The abandonment root for offset ell has visited_count = ell + 2 (the hub's positions 0..ell, plus the abandonment target). So root(0) has 2 visited permutations and root(4) has 6. Any map that preserves exact legality must preserve the visited set's cardinality, since legality of every subsequent joint is decided by whether its target permutation is already visited. Hence NO bijection tau : Q_4 -> Q_0 preserving exact legality can exist at the state level. \uc190\uc99d\uba85.",
+    "verdict": "\ubc18\uc99d\ub428"
+  },
+  "schema": "rr-branch-transport-map-v1",
+  "what_survives": "Transport is possible only at the SYMBOLIC/quotient level: the two branches share the E/F alphabet, the |P|-even constraint, the requirement that the completer targets O*, and Phi=0 (proved ell-independently in Round 21). The Rh-free language equality is a statement about those symbolic words, not about states, and this round's obstruction shows it CANNOT be proved by exhibiting a state bijection -- a different argument is required. \ubbf8\uc644\ub8cc."
+}

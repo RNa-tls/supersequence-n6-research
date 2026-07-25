@@ -1,0 +1,96 @@
+{
+  "admissibility_verdict": {
+    "0": {
+      "even_admissible_completions": 5,
+      "odd_admissible_completions": 0
+    },
+    "4": {
+      "even_admissible_completions": 5,
+      "odd_admissible_completions": 0
+    }
+  },
+  "by_ell": {
+    "0": {
+      "cells": [
+        {
+          "P_parity": 0,
+          "R1_targets_O_star": true,
+          "count": 5,
+          "example": {
+            "completer_kind": "R",
+            "edges_before_C": 2,
+            "r_count_including_completer": 1
+          },
+          "total_R_through_completer": 1
+        },
+        {
+          "P_parity": 1,
+          "R1_targets_O_star": false,
+          "count": 1,
+          "example": {
+            "completer_kind": "Z2",
+            "edges_before_C": 3,
+            "r_count_including_completer": 0
+          },
+          "total_R_through_completer": 0
+        },
+        {
+          "P_parity": 1,
+          "R1_targets_O_star": true,
+          "count": 5,
+          "example": {
+            "completer_kind": "R",
+            "edges_before_C": 1,
+            "r_count_including_completer": 2
+          },
+          "total_R_through_completer": 2
+        }
+      ],
+      "ell": 0,
+      "o_star": 120
+    },
+    "4": {
+      "cells": [
+        {
+          "P_parity": 0,
+          "R1_targets_O_star": true,
+          "count": 5,
+          "example": {
+            "completer_kind": "R",
+            "edges_before_C": 2,
+            "r_count_including_completer": 1
+          },
+          "total_R_through_completer": 1
+        },
+        {
+          "P_parity": 1,
+          "R1_targets_O_star": false,
+          "count": 1,
+          "example": {
+            "completer_kind": "Z2",
+            "edges_before_C": 3,
+            "r_count_including_completer": 0
+          },
+          "total_R_through_completer": 0
+        },
+        {
+          "P_parity": 1,
+          "R1_targets_O_star": true,
+          "count": 5,
+          "example": {
+            "completer_kind": "R",
+            "edges_before_C": 1,
+            "r_count_including_completer": 2
+          },
+          "total_R_through_completer": 2
+        }
+      ],
+      "ell": 4,
+      "o_star": 1
+    }
+  },
+  "grade": "root-local exhaustive within the stated depth ceiling",
+  "ruled_out_obstruction_1": "the preparation Cayley graph is NOT bipartite (explicit odd closed walk), so no group-level parity argument exists",
+  "ruled_out_obstruction_2": "hub completions onto the O* position occur at BOTH |P| parities at every ell",
+  "schema": "rr-odd-length-countermodels-v1"
+}

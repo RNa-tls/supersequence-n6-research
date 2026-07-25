@@ -1,0 +1,113 @@
+{
+  "by_ell": {
+    "0": [
+      {
+        "resources": [],
+        "state_count": 26,
+        "transition_count": 97
+      },
+      {
+        "resources": [
+          "r_count"
+        ],
+        "state_count": 26,
+        "transition_count": 97
+      },
+      {
+        "resources": [
+          "fresh_count"
+        ],
+        "state_count": 66,
+        "transition_count": 207
+      },
+      {
+        "resources": [
+          "o_star_phase_mask"
+        ],
+        "state_count": 42,
+        "transition_count": 127
+      },
+      {
+        "resources": [
+          "hub_residual"
+        ],
+        "state_count": 26,
+        "transition_count": 97
+      },
+      {
+        "resources": [
+          "r_count",
+          "o_star_phase_mask"
+        ],
+        "state_count": 42,
+        "transition_count": 127
+      },
+      {
+        "resources": [
+          "r_count",
+          "fresh_count",
+          "o_star_phase_mask",
+          "hub_residual"
+        ],
+        "state_count": 98,
+        "transition_count": 243
+      }
+    ],
+    "4": [
+      {
+        "resources": [],
+        "state_count": 26,
+        "transition_count": 87
+      },
+      {
+        "resources": [
+          "r_count"
+        ],
+        "state_count": 26,
+        "transition_count": 87
+      },
+      {
+        "resources": [
+          "fresh_count"
+        ],
+        "state_count": 62,
+        "transition_count": 161
+      },
+      {
+        "resources": [
+          "o_star_phase_mask"
+        ],
+        "state_count": 40,
+        "transition_count": 108
+      },
+      {
+        "resources": [
+          "hub_residual"
+        ],
+        "state_count": 26,
+        "transition_count": 87
+      },
+      {
+        "resources": [
+          "r_count",
+          "o_star_phase_mask"
+        ],
+        "state_count": 40,
+        "transition_count": 108
+      },
+      {
+        "resources": [
+          "r_count",
+          "fresh_count",
+          "o_star_phase_mask",
+          "hub_residual"
+        ],
+        "state_count": 84,
+        "transition_count": 184
+      }
+    ]
+  },
+  "grade": "sound over-approximation (all combinations)",
+  "note": "Adding resource coordinates refines the quotient monotonically. None of these coordinates encodes the full visited mask, so the product remains a sound over-approximation -- refining it does NOT make it exact, it only shrinks the false-positive set. No coordinate combination tested here achieved exactness, and exactness was not claimed.",
+  "schema": "rr-automaton-resource-states-v1"
+}

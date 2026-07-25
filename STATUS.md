@@ -1586,6 +1586,63 @@ new depth runs -- everything reuses the naturally-exhausted ranges.
   their primary sites in Round 21; this round scoped two residual
   occurrences and fixed one new Round-21 error.
 
+## Twenty-third follow-up round: the parity source located, and three proposed routes closed
+
+Twenty-third follow-up round. No completion search; N=0 untouched. No new
+depth runs.
+
+- **The source of |P| evenness is located.** Enumerating every hub
+  completion that lands on the O* position gives a table identical in
+  both branches: even |P| always has exactly ONE R event through the
+  completer, while odd |P| has either zero or two. Since an RR
+  same-component witness needs exactly one R through the completer (R1
+  must target O* for chaining, R2 fires strictly after, and an RR word
+  has exactly two R events -- a hand proof), the R-count is pinned to 1,
+  which forces |P| even. The parity is therefore a consequence of the
+  R-placement, not of any graph or counter structure.
+  The remaining gap is one measured relation: |P| + #R(through C) is odd
+  in every case (all five ell branches, root-local exhaustive),
+  equivalently the number of zero-charge edges through the completer is
+  even. That relation is not yet hand-proved.
+- **Three proposed proof routes are closed, each by a hand proof or an
+  explicit counterexample:**
+  - *Group-level parity*: all preparation edges are forced to ell=5, so
+    the transition graph is the Cayley graph of the four generators
+    Sigma^5·action_j. Their signs are (+1,+1,+1,-1) -- not all in one
+    coset of A6 -- and an explicit odd closed walk was found. The graph
+    is **not bipartite**, so no such argument can exist.
+  - *Completer-target constraint*: O*-landing completions occur at BOTH
+    |P| parities (9 even, 10 odd) at every ell, so requiring the
+    completer to hit O* does not force parity.
+  - *Degree / handshake / forest*: every preparation edge makes the same
+    degree change, so any degree-based quantity is a linear function of
+    the edge count. The forest identity degenerates to n_O = c with k
+    cancelling.
+- **A second self-correction, caught by measurement.** This round first
+  predicted the incidence graph would give each traversed hexagon degree
+  6 (from the ell=5 sweep). Measurement refuted it: orbit_masks records
+  only JOINT targets, not rotation steps, so every touched hexagon has
+  degree exactly 1 and |E| = k+2. The corrected ledger is what the
+  document and certificate now carry.
+- **An exact branch transport map is proved IMPOSSIBLE.** The
+  abandonment root at offset ell has visited_count = ell + 2 exactly, so
+  root(0) has 2 visited permutations and root(4) has 6. Any map
+  preserving exact legality must preserve the visited set's cardinality,
+  since legality of every later joint is decided by whether its target is
+  already visited. Hence no state-level bijection Q_4 -> Q_0 exists, and
+  the route Round 22 left open for the Rh-free reverse inclusion is
+  closed -- that inclusion stays root-local exhaustive with no general
+  proof.
+- **Automaton x resource ablation**: `r_count` and `hub_residual` refine
+  the quotient not at all (state and transition counts unchanged), so
+  both are removable; only `fresh_count` and `o_star_phase_mask` refine
+  it. No combination reaches exactness, since none encodes the visited
+  mask -- all graded sound over-approximation, as instructed.
+- **m(S)=4 is not ruled out.** w3:120 is blocked in all 12 terminal
+  states, but by a visited-target collision rather than
+  area_a_prune_reason, which is state-dependent. So m(S)<=3 is
+  root-local exhaustive only; the hand-proved bound stays at 4.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

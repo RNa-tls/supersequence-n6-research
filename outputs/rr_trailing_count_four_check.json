@@ -1,0 +1,13 @@
+{
+  "always_blocked_joints": [
+    "w3:120"
+  ],
+  "blocked_frequency": {
+    "w3:120": 12,
+    "w3:210": 1
+  },
+  "m_equals_4_observed": false,
+  "schema": "rr-trailing-count-four-check-v1",
+  "terminal_states_examined": 12,
+  "verdict": "w3:120 is blocked in all 12 terminal states, so m(S)<=3 holds throughout the root-local exhaustive range. But the blocking is a VISITED-TARGET COLLISION, not an area_a_prune_reason, so it is a state-dependent fact rather than a structural one. m(S)=4 is therefore NOT ruled out: no proof that w3:120's ell=5 target must already be visited was found. The hand-proved bound stays at 4; m(S)<=3 is root-local exhaustive only. \ubbf8\uc644\ub8cc."
+}

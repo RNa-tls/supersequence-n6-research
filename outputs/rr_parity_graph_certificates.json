@@ -1,0 +1,566 @@
+{
+  "grade": "root-local exhaustive reduction + two hand-proved eliminations",
+  "per_edge_phase_deltas": {
+    "R": {
+      "2": 137,
+      "3": 2
+    },
+    "Z2": {
+      "1": 145
+    },
+    "Z3": {
+      "0": 14,
+      "1": 53,
+      "2": 151,
+      "3": 50,
+      "4": 20
+    }
+  },
+  "reduction": "|P| even  <=>  #R(through the completer) = 1, given the measured relation |P| + #R = odd",
+  "remaining_gap": "the measured relation |P| + #R odd (equivalently: an even number of zero-charge edges through the completer) is root-local exhaustive, not hand-proved. The phase-delta table shows E always advances the endpoint phase by exactly +1 (145/145) and R by +2 (137/139), but F varies over all five values, so no mod-5 phase argument closes it.",
+  "ruled_out_obstruction_cayley": {
+    "claim": "a group-level parity argument on the preparation transition graph",
+    "detail": "All preparation edges are forced to ell=5 (after F=1 is spent any ell<5 edge is an abandonment), so the transition graph is the Cayley graph of the four generators Sigma^5*action_j. Their signs are (+1,+1,+1,-1): not all in one coset of A6, and an explicit odd closed walk was found. The graph is NOT bipartite.",
+    "generator_signs": {
+      "w2:10": 1,
+      "w3:120": 1,
+      "w3:201": 1,
+      "w3:210": -1
+    },
+    "generators": {
+      "w2:10": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        5
+      ],
+      "w3:120": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "w3:201": [
+        2,
+        3,
+        4,
+        1,
+        5,
+        0
+      ],
+      "w3:210": [
+        2,
+        3,
+        4,
+        1,
+        0,
+        5
+      ]
+    },
+    "odd_walk_witness": [
+      [
+        1,
+        2,
+        3,
+        4,
+        0,
+        5
+      ],
+      "w2:10",
+      [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ]
+    ],
+    "verdict": "반증됨"
+  },
+  "ruled_out_obstruction_completer_target": {
+    "by_ell": {
+      "0": {
+        "completions_by_hub_position": {
+          "1": 19,
+          "2": 12,
+          "3": 9,
+          "4": 3,
+          "5": 11
+        },
+        "edges_before_C_parity_O_star_only": {
+          "0": 9,
+          "1": 10
+        },
+        "edges_before_C_parity_any_hub_position": {
+          "0": 13,
+          "1": 41
+        },
+        "ell": 0,
+        "o_star": 120,
+        "target_position": 1
+      },
+      "1": {
+        "completions_by_hub_position": {
+          "2": 19,
+          "3": 12,
+          "4": 9,
+          "5": 3
+        },
+        "edges_before_C_parity_O_star_only": {
+          "0": 9,
+          "1": 10
+        },
+        "edges_before_C_parity_any_hub_position": {
+          "0": 10,
+          "1": 33
+        },
+        "ell": 1,
+        "o_star": 33,
+        "target_position": 2
+      },
+      "2": {
+        "completions_by_hub_position": {
+          "3": 19,
+          "4": 12,
+          "5": 9
+        },
+        "edges_before_C_parity_O_star_only": {
+          "0": 9,
+          "1": 10
+        },
+        "edges_before_C_parity_any_hub_position": {
+          "0": 10,
+          "1": 30
+        },
+        "ell": 2,
+        "o_star": 9,
+        "target_position": 3
+      },
+      "3": {
+        "completions_by_hub_position": {
+          "4": 19,
+          "5": 12
+        },
+        "edges_before_C_parity_O_star_only": {
+          "0": 9,
+          "1": 10
+        },
+        "edges_before_C_parity_any_hub_position": {
+          "0": 9,
+          "1": 22
+        },
+        "ell": 3,
+        "o_star": 3,
+        "target_position": 4
+      },
+      "4": {
+        "completions_by_hub_position": {
+          "5": 19
+        },
+        "edges_before_C_parity_O_star_only": {
+          "0": 9,
+          "1": 10
+        },
+        "edges_before_C_parity_any_hub_position": {
+          "0": 9,
+          "1": 10
+        },
+        "ell": 4,
+        "o_star": 1,
+        "target_position": 5
+      }
+    },
+    "claim": "the requirement that the completer land on the O* position forces parity",
+    "detail": "O*-landing completions occur at BOTH |P| parities (9 even, 10 odd) at every one of the five ell branches.",
+    "verdict": "반증됨"
+  },
+  "schema": "rr-parity-graph-certificates-v1",
+  "section1_5_degree_ledger": {
+    "corrected_edge_count_formula": "|E| = k + 2 (one incidence edge per joint fired)",
+    "corrected_hexagon_degree": 1,
+    "current_hexagon_degree": 1,
+    "edge_count_formula": "|E| = ell + 6k + 2",
+    "edge_parity": "|E| = ell (mod 2), independent of k",
+    "forced_by": "every preparation edge is ell=5 (F=1 spent => ell<5 is an abandonment)",
+    "forest_at_every_boundary": true,
+    "forest_identity": "5k = n_O - c - ell",
+    "forest_identity_degenerates_to": "n_O = c (k cancels), giving no parity information",
+    "forest_identity_holds": false,
+    "handshake_gives_parity": false,
+    "hub_degree": "ell+1",
+    "per_witness": [
+      {
+        "P_length": 2,
+        "ell": 0,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 2,
+          "edges": 4,
+          "hex_degrees": {
+            "0": 1,
+            "33": 1,
+            "64": 1,
+            "90": 1
+          },
+          "hexagon_count": 4,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            33,
+            64,
+            90
+          ],
+          "orbit_count": 2,
+          "vertices": 6
+        },
+        "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+      },
+      {
+        "P_length": 4,
+        "ell": 0,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 4,
+          "edges": 6,
+          "hex_degrees": {
+            "0": 1,
+            "33": 1,
+            "40": 1,
+            "72": 1,
+            "73": 1,
+            "82": 1
+          },
+          "hexagon_count": 6,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            33,
+            40,
+            72,
+            73,
+            82
+          ],
+          "orbit_count": 4,
+          "vertices": 10
+        },
+        "raw_state_hash": "4355122f1ad249f49d2225419e0bdd0903a890b175ed45f55f9a1c0019146c13"
+      },
+      {
+        "P_length": 4,
+        "ell": 0,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 5,
+          "edges": 6,
+          "hex_degrees": {
+            "0": 1,
+            "114": 1,
+            "33": 1,
+            "59": 1,
+            "7": 1,
+            "91": 1
+          },
+          "hexagon_count": 6,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            7,
+            33,
+            59,
+            91,
+            114
+          ],
+          "orbit_count": 5,
+          "vertices": 11
+        },
+        "raw_state_hash": "eb4da81d5a4a4dae97692e80c6aa58cff997241117a6218887aa7c5a97082eed"
+      },
+      {
+        "P_length": 2,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 2,
+          "edges": 4,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "12": 1,
+            "2": 1
+          },
+          "hexagon_count": 4,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            2,
+            12
+          ],
+          "orbit_count": 2,
+          "vertices": 6
+        },
+        "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e"
+      },
+      {
+        "P_length": 2,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 2,
+          "edges": 4,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "72": 1
+          },
+          "hexagon_count": 4,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            2,
+            72
+          ],
+          "orbit_count": 2,
+          "vertices": 6
+        },
+        "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f"
+      },
+      {
+        "P_length": 2,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 2,
+          "edges": 4,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "12": 1,
+            "72": 1
+          },
+          "hexagon_count": 4,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            12,
+            72
+          ],
+          "orbit_count": 2,
+          "vertices": 6
+        },
+        "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+      },
+      {
+        "P_length": 4,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 4,
+          "edges": 6,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "34": 1,
+            "50": 1,
+            "67": 1,
+            "8": 1
+          },
+          "hexagon_count": 6,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            8,
+            34,
+            50,
+            67
+          ],
+          "orbit_count": 4,
+          "vertices": 10
+        },
+        "raw_state_hash": "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc"
+      },
+      {
+        "P_length": 4,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 5,
+          "edges": 6,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "14": 1,
+            "57": 1,
+            "59": 1,
+            "81": 1
+          },
+          "hexagon_count": 6,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            14,
+            57,
+            59,
+            81
+          ],
+          "orbit_count": 5,
+          "vertices": 11
+        },
+        "raw_state_hash": "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c"
+      },
+      {
+        "P_length": 6,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 3,
+          "edges": 8,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "12": 1,
+            "2": 1,
+            "33": 1,
+            "35": 1,
+            "39": 1,
+            "81": 1
+          },
+          "hexagon_count": 8,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            2,
+            12,
+            33,
+            35,
+            39,
+            81
+          ],
+          "orbit_count": 3,
+          "vertices": 11
+        },
+        "raw_state_hash": "9bd7590e3ceda28ade4261ef4974c48c747c18e4f99eb66ec749993037edb4fa"
+      },
+      {
+        "P_length": 6,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 3,
+          "edges": 8,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "12": 1,
+            "14": 1,
+            "6": 1,
+            "7": 1,
+            "72": 1,
+            "74": 1
+          },
+          "hexagon_count": 8,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            6,
+            7,
+            12,
+            14,
+            72,
+            74
+          ],
+          "orbit_count": 3,
+          "vertices": 11
+        },
+        "raw_state_hash": "cbfdf11e4a797452ee54f68e42c44539d7b2cdea5240dd052dc865923126cbde"
+      },
+      {
+        "P_length": 6,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 7,
+          "edges": 8,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "101": 1,
+            "119": 1,
+            "34": 1,
+            "8": 1,
+            "83": 1,
+            "95": 1
+          },
+          "hexagon_count": 8,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            8,
+            34,
+            83,
+            95,
+            101,
+            119
+          ],
+          "orbit_count": 7,
+          "vertices": 15
+        },
+        "raw_state_hash": "d408ede448259269be44bfb155b2982fa21d84b2561a560f706634effc9648d1"
+      },
+      {
+        "P_length": 6,
+        "ell": 4,
+        "forest_identity_5k_eq_nO_minus_c_minus_ell": false,
+        "graph": {
+          "components": 3,
+          "edges": 8,
+          "hex_degrees": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "72": 1,
+            "78": 1
+          },
+          "hexagon_count": 8,
+          "is_forest": true,
+          "odd_degree_hexagons": [
+            0,
+            1,
+            2,
+            24,
+            25,
+            26,
+            72,
+            78
+          ],
+          "orbit_count": 3,
+          "vertices": 11
+        },
+        "raw_state_hash": "ec9025e8706ba0ddac7c3fa2cc03d8bbe30608658abaf3c321a57dd8493698e5"
+      }
+    ],
+    "self_correction": "this round first PREDICTED degree 6 per traversed hexagon (assuming the ell=5 sweep registers all six positions). Measurement refuted it: orbit_masks records only JOINT targets, not rotation steps, so every touched hexagon has degree exactly 1 and |E| = k+2. The corrected ledger is recorded above.",
+    "traversed_hexagon_degree": 6,
+    "verdict": "반증됨 -- every preparation edge produces the SAME degree change, so any degree-based quantity is a linear function of the edge count and carries no parity information. Handshake, odd-degree and forest routes all fail."
+  },
+  "step1_hand_proof": "An RR same-component witness needs EXACTLY ONE R through the completer: R1 must target O* (chaining), R2 fires strictly after the completer, and an RR word has exactly two R events. 손증명.",
+  "step2_data": true,
+  "step2_measured": "|P| + #R(through C) is ODD at every O*-landing hub completion, all five ell branches, root-local exhaustive to depth 6. Equivalently the number of zero-charge edges (E and F) through the completer is even.",
+  "step3": "Therefore #R = 1 forces |P| even."
+}
