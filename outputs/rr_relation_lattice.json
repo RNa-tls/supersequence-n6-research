@@ -1,0 +1,75 @@
+{
+  "implications": {
+    "chaining_implies_not_unresolved": {
+      "antecedent_count": 75,
+      "counterexample_count": 0,
+      "example_counterexamples": [],
+      "holds_count": 75,
+      "holds_exactly": true
+    },
+    "chaining_implies_same_component": {
+      "antecedent_count": 75,
+      "counterexample_count": 65,
+      "example_counterexamples": [
+        "cec81c6d169c07f942ee966fd159c2e22218d0c3dec200390f1651a4e2ef54e3",
+        "ddc65f0593f4630f1b32ab21f64d79c7a0f7a0723300c945e2f9e86171980bcd",
+        "d48baf3d6806b86009921060b344762c5e509406884f3df6ee5c3e022451c332"
+      ],
+      "holds_count": 10,
+      "holds_exactly": false
+    },
+    "hub_exists_and_chaining_implies_completer_matches_r1_target": {
+      "antecedent_count": 15,
+      "counterexample_count": 5,
+      "example_counterexamples": [
+        "d8977376c59fc6e5e5bea0d670b496a4ce4a4c74bdbcfa0b83693c3922746dbb",
+        "67ac3b50c5aea2f12d16e818baf7d66eedbb6b0ee586cf17a796c6399a8764c8",
+        "8f7fa41700ed8b7c62a9ac082b3ac706f0533ffc29d444fafea0d3cf40ccd6cb"
+      ],
+      "holds_count": 10,
+      "holds_exactly": false
+    },
+    "hub_exists_and_completer_matches_r1_target_implies_same": {
+      "antecedent_count": 426,
+      "counterexample_count": 416,
+      "example_counterexamples": [
+        "5e7d7d8bd9cc7fb6bdf740574a0e69315b77d853bf0499677af8082b1d2fc653",
+        "686265580ce1e7cafc2a0ead3d13069c755a1c0dab3f4f391a5f7a139c793562",
+        "de136ea4985a5e70f5b6279bde8f45a11a3524654654643954cf4fde46738495"
+      ],
+      "holds_count": 10,
+      "holds_exactly": false
+    },
+    "hub_touched_implies_chaining": {
+      "antecedent_count": 526,
+      "counterexample_count": 511,
+      "example_counterexamples": [
+        "5e7d7d8bd9cc7fb6bdf740574a0e69315b77d853bf0499677af8082b1d2fc653",
+        "686265580ce1e7cafc2a0ead3d13069c755a1c0dab3f4f391a5f7a139c793562",
+        "de136ea4985a5e70f5b6279bde8f45a11a3524654654643954cf4fde46738495"
+      ],
+      "holds_count": 15,
+      "holds_exactly": false
+    },
+    "same_component_implies_chaining": {
+      "antecedent_count": 10,
+      "counterexample_count": 0,
+      "example_counterexamples": [],
+      "holds_count": 10,
+      "holds_exactly": true
+    },
+    "same_target_orbit_implies_chaining": {
+      "antecedent_count": 1200,
+      "counterexample_count": 1200,
+      "example_counterexamples": [
+        "5e7d7d8bd9cc7fb6bdf740574a0e69315b77d853bf0499677af8082b1d2fc653",
+        "686265580ce1e7cafc2a0ead3d13069c755a1c0dab3f4f391a5f7a139c793562",
+        "de136ea4985a5e70f5b6279bde8f45a11a3524654654643954cf4fde46738495"
+      ],
+      "holds_count": 0,
+      "holds_exactly": false
+    }
+  },
+  "schema": "rr-relation-lattice-v1",
+  "total_rr_witnesses": 4470
+}

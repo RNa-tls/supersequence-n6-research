@@ -1,0 +1,200 @@
+{
+  "families_by_r1_completer_gap": {
+    "r1_completer_gap=0_intervening=()": [
+      "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+      "789ecdd7355592be1222f2ffe7a16352846f722edf2d338e7d7e95eb857d2ffb",
+      "2d88642a051ceb89db758fdd1585742d781b633540604c1335911ca2e713ba1c",
+      "49caddbf42cd28d0d9134622d5f6c682e87286cb3569d1252dc263a4b750a759"
+    ],
+    "r1_completer_gap=1_intervening=()": [
+      "3d74b38661bb742105bb60d6e6ea3d12692f2cb0798909fe288fafcaeb85b950",
+      "9a31f2046d125ba260268a4ef01399dc26ea10561728252ae879bf6b65af1484",
+      "941ba3fda981a44abdcde7b0534600062061b94ad37cd2ecebbc0845c5dc5ede"
+    ],
+    "r1_completer_gap=2_intervening=('Z2',)": [
+      "8b4108376fde37637fb5b6c948aa4ea861e9c1e3814d69aecdb68263220763f4",
+      "e2c28bc2293c49e32e3d4ce9bd6e9d39b891325d6f44411ee515023b3a8f5ce7",
+      "87fd092184b765d539357b97d1fec5303b04b3aab761f2b034997d8274f4b31d"
+    ]
+  },
+  "note": "6/10 same-component witnesses have a hub completer event that is NOT R1 itself (round-13/14 correction of round 12's false claim). All 6 share one general 'same-orbit delayed completer' family: R1 and the completer are distinct events that both target the SAME orbit via different phases.",
+  "per_witness": {
+    "2d88642a051ceb89db758fdd1585742d781b633540604c1335911ca2e713ba1c": {
+      "completer_index": 3,
+      "completer_is_r1_itself": true,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "Z2",
+        "R",
+        "R",
+        "Z3"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 3,
+      "r1_target_orbit": 1
+    },
+    "3d74b38661bb742105bb60d6e6ea3d12692f2cb0798909fe288fafcaeb85b950": {
+      "completer_index": 3,
+      "completer_is_r1_itself": false,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "R",
+        "Z2",
+        "R",
+        "Z2"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 2,
+      "r1_target_orbit": 1
+    },
+    "49caddbf42cd28d0d9134622d5f6c682e87286cb3569d1252dc263a4b750a759": {
+      "completer_index": 3,
+      "completer_is_r1_itself": true,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "Z2",
+        "R",
+        "R",
+        "Z3"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 3,
+      "r1_target_orbit": 1
+    },
+    "789ecdd7355592be1222f2ffe7a16352846f722edf2d338e7d7e95eb857d2ffb": {
+      "completer_index": 3,
+      "completer_is_r1_itself": true,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "Z2",
+        "R",
+        "R",
+        "Z2"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 3,
+      "r1_target_orbit": 1
+    },
+    "87fd092184b765d539357b97d1fec5303b04b3aab761f2b034997d8274f4b31d": {
+      "completer_index": 3,
+      "completer_is_r1_itself": false,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "R",
+        "Z2",
+        "Z2",
+        "R",
+        "Z3"
+      ],
+      "intervening_events_between_r1_and_completer": [
+        "Z2"
+      ],
+      "orbit_match": true,
+      "r1_index": 1,
+      "r1_target_orbit": 1
+    },
+    "8b4108376fde37637fb5b6c948aa4ea861e9c1e3814d69aecdb68263220763f4": {
+      "completer_index": 3,
+      "completer_is_r1_itself": false,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "R",
+        "Z2",
+        "Z2",
+        "R",
+        "Z2"
+      ],
+      "intervening_events_between_r1_and_completer": [
+        "Z2"
+      ],
+      "orbit_match": true,
+      "r1_index": 1,
+      "r1_target_orbit": 1
+    },
+    "941ba3fda981a44abdcde7b0534600062061b94ad37cd2ecebbc0845c5dc5ede": {
+      "completer_index": 3,
+      "completer_is_r1_itself": false,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "R",
+        "Z2",
+        "R",
+        "Z3"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 2,
+      "r1_target_orbit": 1
+    },
+    "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa": {
+      "completer_index": 3,
+      "completer_is_r1_itself": true,
+      "completer_target_orbit": 120,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "Z2",
+        "R",
+        "Z2",
+        "R"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 3,
+      "r1_target_orbit": 120
+    },
+    "9a31f2046d125ba260268a4ef01399dc26ea10561728252ae879bf6b65af1484": {
+      "completer_index": 3,
+      "completer_is_r1_itself": false,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "Z2",
+        "R",
+        "Z2",
+        "R",
+        "Z3"
+      ],
+      "intervening_events_between_r1_and_completer": [],
+      "orbit_match": true,
+      "r1_index": 2,
+      "r1_target_orbit": 1
+    },
+    "e2c28bc2293c49e32e3d4ce9bd6e9d39b891325d6f44411ee515023b3a8f5ce7": {
+      "completer_index": 3,
+      "completer_is_r1_itself": false,
+      "completer_target_orbit": 1,
+      "full_event_sequence": [
+        "Z2abandon",
+        "R",
+        "Z2",
+        "Z2",
+        "R",
+        "Z3"
+      ],
+      "intervening_events_between_r1_and_completer": [
+        "Z2"
+      ],
+      "orbit_match": true,
+      "r1_index": 1,
+      "r1_target_orbit": 1
+    }
+  },
+  "schema": "rr-delayed-completer-normal-forms-v1"
+}

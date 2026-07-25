@@ -983,6 +983,58 @@ new large-scale search; N=0 untouched.
   ~23) resists small bounded searches (cf. RA2's U4 states, unresolved
   even at depth<=18/edge_cap=1.5M).
 
+## Fourteenth follow-up round: hub completer orbit theorem refined and falsified as originally posed
+
+Fourteenth follow-up round, explicitly told not to reuse the false
+"completer=R1" claim and to track orbit identity, not event identity.
+No new large-scale search; N=0 untouched.
+
+- **The round's originally-posed target theorem ("O != R1's target
+  orbit candidates all violate some exact legality condition") is
+  FALSIFIED by direct exhaustive enumeration**: from the one
+  same-component witness whose abandonment leaves multiple hex-0
+  positions open (`989d2261b458`, abandon at ell=0), all 5 remaining
+  positions' orbits (1, 3, 9, 33, 120) are legally reachable hub
+  completers -- via R, Z2, and even Z3 (fresh) events. Hub completer
+  choice is NOT uniquely forced in general.
+- **Sharper replacement discovered and proved for the dominant
+  sub-case**: whenever the word's one abandonment fires at ell=4
+  (9/10 same-component witnesses, and 206/4,470 of the full corpus),
+  hex 0 has exactly ONE unvisited position left, so the hub completer
+  orbit is uniquely forced by pure combinatorics (the position-orbit
+  correspondence on hex 0, already established) -- no legality
+  argument needed, the alternative candidates simply don't exist. This
+  is a genuine, general, depth-independent proof for this sub-case.
+  New corpus-exact finding: same-component NEVER occurs at abandon
+  ell=1,2,3 (0/617), only at ell=4 (9/206) and ell=0 (1/200).
+  The `ell<4` general case (besides the single ell=0 exception) remains
+  open with no corpus data to test it.
+- **Classified all 6 non-R1-completer same-component witnesses as one
+  "same-orbit delayed completer" family**: R1 and the separate
+  completer event always target the same orbit via different phases,
+  confirming they are not exceptions but instances of a single pattern
+  (2 sub-variants: R1-completer gap of 1 or 2 intervening zero-charge
+  events).
+- **Built the full RR relation implication lattice** (7 implications
+  tested exhaustively over all 4,470 witnesses): only `same-component
+  => chaining` and the pre-existing `chaining => not unresolved` hold
+  without exception; every proposed generalization or strengthening
+  (hub existence alone, same-target-orbit, hub+chaining together, or
+  hub+orbit-match alone) is falsified with concrete counterexamples --
+  showing the original theorem is already maximally tight.
+- **Separated Phi=0 from the chaining argument**: confirmed Phi=0 is
+  an independent arithmetic consequence of the specific macro-edge
+  length/ell-sequence these witnesses share (traced exactly: Phi_initial=6,
+  sum(5-ell)=6 for all 10), not a logical consequence of chaining or
+  same-component -- avoiding the circular-argument risk the round
+  explicitly warned against.
+- Completion search was NOT expanded per instructions; a deep
+  150,000-node targeted search (from the one multi-candidate witness,
+  looking specifically for a same-component non-chaining pair with a
+  non-R1 completer whose orbit differs from R1's target) found none,
+  but the frontier did not empty (287,322 remaining) -- reported as
+  additional local evidence, not proof.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
