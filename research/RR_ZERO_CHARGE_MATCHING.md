@@ -36,3 +36,20 @@ perfect matching이 존재한다).
 
 **등급**: 네 규칙은 **반증됨**(exact counterexample),
 \(O_*\)-이분은 **root-local exhaustive**.
+
+## 살아남은 분할의 구조적 원인 (라운드25 추가)
+
+\(O_*\)-이분이 왜 짝수 블록을 주는지는
+`RR_ORDERED_PHASE_PARITY.md`의 \(O_*\) phase walk가 설명한다:
+
+- F는 절대 \(O_*\)를 target하지 않으므로 \(\#Z_{\to O_*} =
+  \#E_{\to O_*}\) (손증명, 실측 0/95 예외).
+- E는 \(O_*\) phase를 +1, R은 짝수만큼 전진시키고, 총 전진량은
+  모든 \(\ell\)에서 4 (mod 5)이므로
+  \(\#Z_{\to O_*}\equiv k \pmod 2\) (winding number \(k\)).
+- phase injectivity와 "R 걸음 \(\le2\)"로 \(k=0\)이 강제된다.
+
+즉 \(O_*\) 블록의 짝수성은 **matching이 아니라 phase 회전수**에서
+온다 — §14가 찾던 짝짓기 규칙은 존재하지 않아도 된다. 다만 알파벳
+전제가 아직 측정값이므로 전체는 **미완료**이고, 나머지 블록
+\(\#Z_{\to\text{other}}\)의 짝수성에는 아직 대응하는 논증이 없다.

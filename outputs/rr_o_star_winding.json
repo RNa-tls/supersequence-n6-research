@@ -1,0 +1,3424 @@
+{
+  "F_events_targeting_O_star": 0,
+  "all_E_deltas_are_plus_one": true,
+  "all_R_deltas_even": true,
+  "alphabet_only_k_ge_1_witnesses": [
+    {
+      "deltas": [
+        1,
+        2,
+        4,
+        2
+      ],
+      "n_E": 1,
+      "n_E_parity": 1,
+      "symbols": [
+        "E",
+        "R",
+        "R",
+        "R"
+      ],
+      "visited_phases": [
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "winding_k": 1
+    },
+    {
+      "deltas": [
+        2,
+        4,
+        2,
+        1
+      ],
+      "n_E": 1,
+      "n_E_parity": 1,
+      "symbols": [
+        "R",
+        "R",
+        "R",
+        "E"
+      ],
+      "visited_phases": [
+        0,
+        2,
+        1,
+        3,
+        4
+      ],
+      "winding_k": 1
+    }
+  ],
+  "completions_revisiting_an_O_star_phase": 0,
+  "finite_case_analysis_k_equals_zero": "Given (i) step alphabet {E:+1, R:+2, R:+4}, (ii) the five O* phases are pairwise distinct along the walk so the walk has at most 4 steps, (iii) the total advance is 4 (mod 5), and (iv) an RR word has exactly two R events so at most 2 steps are R: sum(deltas) = 4 + 5k with all deltas positive forces k >= 0; k >= 2 needs sum >= 14 while the maximum is 4+4+1+1 = 10, so k <= 1; and k = 1 needs sum = 9, whose only multiset over {1} u {2,4} with at most two non-1 entries and at most four entries is {4,4,1} -- all three orderings revisit a phase (4,4,1: 0->4->3->4; 4,1,4: 0->4->0; 1,4,4: 0->1->0). Hence k = 0 and #E_{->O*} = sum - (even) == 4 == 0 (mod 2). The exhaustive search k_ge_1_witnesses_under_R_le_2 confirms this mechanically (0 witnesses). This step is a 손증명; the residual gap is premise (i).",
+  "first_last_symbol_histogram": {
+    "E..E": 20,
+    "E..R": 15,
+    "F..E": 10,
+    "F..R": 25,
+    "R..E": 5,
+    "R..R": 20
+  },
+  "first_last_zero_charge_histogram": {
+    "E..E": 40,
+    "F..E": 45,
+    "F..F": 5
+  },
+  "grade": "손증명 for fragments (a),(d) and for the finite case analysis k=0; root-local exhaustive for the step alphabet (b),(c) and phase injectivity; 미완료 overall, because (b) and (c) are measured, not proved",
+  "hand_proof_fragment": "(a) F never targets O*: an F event opens a NEW orbit, but O* is already open because the abandonment joint registered it; therefore the zero-charge events touching O* are exactly the E events. (b) E advances the O* phase by exactly +1 (a zero-charge Z2 steps to the adjacent phase of the orbit it is already inside). (c) every R step advances it by an even amount. (d) the total advance is 4 (mod 5) for EVERY ell: the hub position j has phase j-1 while the abandonment phase is j mod 5. Hence #E_{->O*} == 4 + 5k == k (mod 2): the parity of the zero-charge events targeting O* IS the parity of the winding number k.",
+  "interval_structure_histogram": {
+    "nF=0,closed=0,unclosed=0": 25,
+    "nF=1,closed=1,unclosed=0": 60,
+    "nF=2,closed=2,unclosed=0": 5,
+    "nF=3,closed=1,unclosed=2": 5
+  },
+  "k_ge_1_witnesses_under_R_le_2": [],
+  "n_O_star_completions": 95,
+  "n_R_steps_targeting_O_star_histogram": {
+    "0": 5,
+    "1": 55,
+    "2": 35
+  },
+  "o_star_step_delta_by_symbol": {
+    "E:+1": 110,
+    "R:+2": 115,
+    "R:+4": 10
+  },
+  "o_star_walk_length_histogram": {
+    "1": 10,
+    "2": 35,
+    "3": 45,
+    "4": 5
+  },
+  "open_step": "The alphabet alone does not exclude k>=1 (see alphabet_only_k_ge_1_witnesses: delta sequences with distinct visited phases, winding k=1 and ODD #E). Adding the RR structural bound '#R steps targeting O* <= 2' -- an RR word has exactly two R events, R1 inside the word and R2 strictly after the completer, so at most R1 and an R-completer can target O* -- kills every remaining witness, see k_ge_1_witnesses_under_R_le_2. THIS IS NOT YET A PROOF: the search is over delta sequences, and it has not been shown that every legal word's O*-walk is realizable as such a sequence and conversely. Stated as a candidate closure, graded 미완료.",
+  "per_completion": [
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 0,
+      "ordered_word": "RR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "EER",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "ERE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "REE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 4,
+      "n_zero_charge": 4,
+      "ordered_word": "EEEE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFERR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFRER",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 2,
+        "n_closed": 2,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEFER",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 1,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FERRR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FRERR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 3,
+        "n_closed": 1,
+        "n_unclosed": 2
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FFEFR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 1,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFERR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFRER",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFERRE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFRERE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "RFEEER",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEEERR",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FERREE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 0,
+      "advance": 4,
+      "end_phase": 0,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FREREE",
+      "start_phase": 1,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 0,
+      "ordered_word": "RR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "EER",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "ERE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "REE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 4,
+      "n_zero_charge": 4,
+      "ordered_word": "EEEE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFERR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFRER",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 2,
+        "n_closed": 2,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEFER",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 2,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FERRR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FRERR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 3,
+        "n_closed": 1,
+        "n_unclosed": 2
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FFEFR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 2,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFERR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFRER",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFERRE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFRERE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "RFEEER",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEEERR",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FERREE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 1,
+      "advance": 4,
+      "end_phase": 1,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FREREE",
+      "start_phase": 2,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 0,
+      "ordered_word": "RR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "EER",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "ERE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "REE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 4,
+      "n_zero_charge": 4,
+      "ordered_word": "EEEE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFERR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFRER",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 2,
+        "n_closed": 2,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEFER",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 3,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FERRR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FRERR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 3,
+        "n_closed": 1,
+        "n_unclosed": 2
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FFEFR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 3,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFERR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFRER",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFERRE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFRERE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        },
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "RFEEER",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEEERR",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FERREE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 2,
+      "advance": 4,
+      "end_phase": 2,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FREREE",
+      "start_phase": 3,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 3,
+          "sym": "R",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 0,
+      "ordered_word": "RR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "EER",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "ERE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "REE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 4,
+      "n_zero_charge": 4,
+      "ordered_word": "EEEE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFERR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFRER",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 2,
+        "n_closed": 2,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEFER",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 4,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FERRR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FRERR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 3,
+        "n_closed": 1,
+        "n_unclosed": 2
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FFEFR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 4,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFERR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFRER",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFERRE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFRERE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 4,
+          "sym": "E",
+          "to": 0
+        },
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "RFEEER",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEEERR",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FERREE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 3,
+      "advance": 4,
+      "end_phase": 3,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FREREE",
+      "start_phase": 4,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 4,
+          "sym": "R",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 0,
+      "ordered_word": "RR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "EER",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "ERE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 2,
+      "ordered_word": "REE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 0,
+        "n_closed": 0,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 4,
+      "n_zero_charge": 4,
+      "ordered_word": "EEEE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFERR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "RFRER",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 2,
+        "n_closed": 2,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEFER",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 0,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FERRR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 2,
+      "ordered_word": "FRERR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 3,
+        "n_closed": 1,
+        "n_unclosed": 2
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FFEFR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 4,
+          "from": 0,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFERR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EEFRER",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 1,
+          "from": 1,
+          "sym": "E",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFERRE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "EFRERE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 1,
+          "from": 0,
+          "sym": "E",
+          "to": 1
+        },
+        {
+          "delta": 2,
+          "from": 1,
+          "sym": "R",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "RFEEER",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 0,
+      "n_zero_charge": 4,
+      "ordered_word": "FEEERR",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 2,
+          "from": 2,
+          "sym": "R",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FERREE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    },
+    {
+      "abandonment_ell": 4,
+      "advance": 4,
+      "end_phase": 4,
+      "interval": {
+        "n_F": 1,
+        "n_closed": 1,
+        "n_unclosed": 0
+      },
+      "n_E_parity": 0,
+      "n_E_to_O_star": 2,
+      "n_zero_charge": 4,
+      "ordered_word": "FREREE",
+      "start_phase": 0,
+      "steps": [
+        {
+          "delta": 2,
+          "from": 0,
+          "sym": "R",
+          "to": 2
+        },
+        {
+          "delta": 1,
+          "from": 2,
+          "sym": "E",
+          "to": 3
+        },
+        {
+          "delta": 1,
+          "from": 3,
+          "sym": "E",
+          "to": 4
+        }
+      ],
+      "sum_deltas": 4,
+      "winding_k": 0,
+      "zero_charge_parity": 0
+    }
+  ],
+  "question": "reduce '#zero-charge events targeting O* is even' to an ordered quantity, per Round 24's additive-impossibility theorem",
+  "schema": "rr-o-star-winding-v1",
+  "total_advance_by_ell_and_advance": {
+    "ell=0,advance=4": 19,
+    "ell=1,advance=4": 19,
+    "ell=2,advance=4": 19,
+    "ell=3,advance=4": 19,
+    "ell=4,advance=4": 19
+  },
+  "winding_number_histogram": {
+    "0": 95
+  },
+  "winding_vs_E_parity": {
+    "k=0,E_parity=0": 95
+  }
+}

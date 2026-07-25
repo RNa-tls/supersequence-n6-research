@@ -1739,6 +1739,71 @@ provably order-determined", and found the first structural refinement
 (the O*-targeting split into two even blocks) that is specific to the
 landing class where the parity holds.
 
+### The O* phase walk — the surviving partition explained, and the gap narrowed to one lemma
+
+`src/analyze_rr_o_star_winding.py` -> `outputs/rr_o_star_winding.json`,
+written up in `research/RR_ORDERED_PHASE_PARITY.md`. No new search: this
+is a re-reading of the ordered-word ledger as a walk on the five phases
+of the single orbit O* (the nearest residual orbit the abandonment
+leaves open).
+
+Six premises, with their grades:
+
+- **(a) F never targets O*** — 손증명. An F event opens a NEW orbit, and
+  O* is already open (the abandonment registered it). So the zero-charge
+  events touching O* are exactly the E events. Measured: 0 exceptions
+  in 95 O*-landing completions.
+- **(b) every E step advances the O* phase by exactly +1** — measured,
+  110/110. Not proved.
+- **(c) every R step advances it by an even amount** — measured, +2
+  115 times and +4 10 times, 125/125. Not proved.
+- **(d) the total advance is 4 (mod 5) for every ell** — 손증명: hub
+  position j has phase j-1 while the abandonment phase is j mod 5.
+  Measured: advance = 4 in all 19 completions at each of ell=0..4.
+- **(e) the five O* phases are pairwise distinct along the walk**, so
+  the walk has at most 4 steps — 손증명 from `orbit_masks` (a visited
+  (orbit,phase) cannot be revisited). Measured: 0/95 revisits, walk
+  length histogram {1:10, 2:35, 3:45, 4:5}.
+- **(f) at most 2 steps are R** — 손증명 from the RR definition (exactly
+  two R events in the word). Measured: {0:5, 1:55, 2:35}.
+
+From (a)-(d), with k the winding number of the phase walk
+(`sum(deltas) = 4 + 5k`):
+
+> **#Z_{->O*} ≡ k (mod 2)** — the evenness of the zero-charge events
+> targeting O* IS the evenness of the winding number.
+
+From (e),(f) a finite case analysis forces **k = 0**: all deltas are
+positive and the sum is ≡ 4, so k ≥ 0; the maximum sum is 4+4+1+1 = 10
+< 14, so k ≤ 1; and k = 1 needs sum = 9, whose only multiset over
+{1} ∪ {2,4} with ≤ 4 entries and ≤ 2 non-1 entries is {4,4,1}, all three
+orderings of which revisit a phase. An exhaustive alphabet search
+confirms it mechanically: 0 witnesses under #R ≤ 2, and exactly 2
+witnesses ((1,2,4,2) and (2,4,2,1), both with odd #E) once that bound is
+dropped — so premise (f) is doing real work, not decoration.
+
+Measured k across all 95 O*-landing completions: **k = 0 in every case**,
+and (k, #E parity) = (0, 0) in every case. This is the structural cause
+of the O*-targeting partition that survived section 14 — the evenness
+comes from a phase winding number, not from any pairing rule, which is
+why no matching rule needed to exist.
+
+**What is still missing, precisely**: premises (b) and (c). The delta of
+a step is measured relative to the previously visited O* phase, not a
+local property of the event, so proving "E always lands on the phase
+immediately after the last-visited one" needs its own lemma. Until then
+the chain is 미완료 and `|P| + #R_{<=C} ≡ 1 (mod 2)` remains unproved.
+Two further honest limits: this closes only the O*-targeting block, with
+no argument yet for the evenness of #Z_{->other}; and the interval and
+first/last-symbol routes were both **refuted** this round (5 of 95
+completions leave two F's unclosed; 5 of 95 end their zero-charge run
+on F rather than E).
+
+The practical effect is a real narrowing: the parity problem went from
+"find an additive invariant" (proved impossible in Round 24) to "prove
+the O*-step alphabet is exactly {E:+1, R:even}" — a single local lemma,
+after which the finite case analysis above closes #Z_{->O*} immediately.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
