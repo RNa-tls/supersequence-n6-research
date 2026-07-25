@@ -1,0 +1,30 @@
+{
+  "schema": "rr-correction-log-v1",
+  "round": 22,
+  "corrections": [
+    {
+      "file": "research/RR_H3_PREPARATION_NORMAL_FORM.md",
+      "before": "- `hub_completer_macro_index = 3` = **준비 구간의 마지막 edge**",
+      "after": "same + explicit ell=4 scope note",
+      "reason": "the statement is true only at ell=4; Round 20 over-generalized it"
+    },
+    {
+      "file": "research/RR_WORD_STATE_MULTIPLICITY.md",
+      "before": "pruned 19 F_exceeded; w3:120 omitted",
+      "after": "+ inline correction that w3:120 is a visited-collision, not F_exceeded",
+      "reason": "Round 22 enumerated all four ell=5 candidates: 0 are F_exceeded"
+    },
+    {
+      "file": "research/RR_PREPARATION_DEPTH_BOUND.md",
+      "before": "E edge consumes no monotone resource at all",
+      "after": "E consumes no ORBIT-level resource; it does consume hexagons (+1) and permutations (+6), but the resulting bounds are trivial",
+      "reason": "Round 22 measured all 48 preparation-edge increments directly"
+    }
+  ],
+  "statements_searched": [
+    "completer is the last preparation edge in all branches",
+    "w3:120 is removed by F_exceeded",
+    "Unique Hub lemma alone implies the full ancestry IFF"
+  ],
+  "search_result": "the first two were already corrected in Round 21 at their primary sites; this round scoped two residual occurrences and corrected one NEW Round-21 error (the E-resource claim). The third statement no longer occurs anywhere -- Round 21 already replaced it."
+}

@@ -1,0 +1,148 @@
+{
+  "E_runs": {
+    "E_run_length_distribution": {
+      "1": 11,
+      "2": 3,
+      "3": 3
+    },
+    "max_E_run": 3,
+    "per_word": [
+      {
+        "E_count": 2,
+        "F_count": 0,
+        "P": [
+          "E",
+          "E"
+        ],
+        "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+      },
+      {
+        "E_count": 2,
+        "F_count": 2,
+        "P": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "raw_state_hash": "4355122f1ad249f49d2225419e0bdd0903a890b175ed45f55f9a1c0019146c13"
+      },
+      {
+        "E_count": 1,
+        "F_count": 3,
+        "P": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "raw_state_hash": "eb4da81d5a4a4dae97692e80c6aa58cff997241117a6218887aa7c5a97082eed"
+      },
+      {
+        "E_count": 1,
+        "F_count": 0,
+        "P": [
+          "Rh",
+          "E"
+        ],
+        "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e"
+      },
+      {
+        "E_count": 1,
+        "F_count": 0,
+        "P": [
+          "E",
+          "Rh"
+        ],
+        "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f"
+      },
+      {
+        "E_count": 2,
+        "F_count": 0,
+        "P": [
+          "E",
+          "E"
+        ],
+        "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+      },
+      {
+        "E_count": 2,
+        "F_count": 2,
+        "P": [
+          "F",
+          "E",
+          "F",
+          "E"
+        ],
+        "raw_state_hash": "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc"
+      },
+      {
+        "E_count": 1,
+        "F_count": 3,
+        "P": [
+          "F",
+          "F",
+          "E",
+          "F"
+        ],
+        "raw_state_hash": "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c"
+      },
+      {
+        "E_count": 4,
+        "F_count": 1,
+        "P": [
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh",
+          "E"
+        ],
+        "raw_state_hash": "9bd7590e3ceda28ade4261ef4974c48c747c18e4f99eb66ec749993037edb4fa"
+      },
+      {
+        "E_count": 5,
+        "F_count": 1,
+        "P": [
+          "E",
+          "E",
+          "F",
+          "E",
+          "E",
+          "E"
+        ],
+        "raw_state_hash": "cbfdf11e4a797452ee54f68e42c44539d7b2cdea5240dd052dc865923126cbde"
+      },
+      {
+        "E_count": 1,
+        "F_count": 5,
+        "P": [
+          "F",
+          "F",
+          "F",
+          "E",
+          "F",
+          "F"
+        ],
+        "raw_state_hash": "d408ede448259269be44bfb155b2982fa21d84b2561a560f706634effc9648d1"
+      },
+      {
+        "E_count": 4,
+        "F_count": 1,
+        "P": [
+          "E",
+          "F",
+          "E",
+          "E",
+          "E",
+          "Rh"
+        ],
+        "raw_state_hash": "ec9025e8706ba0ddac7c3fa2cc03d8bbe30608658abaf3c321a57dd8493698e5"
+      }
+    ]
+  },
+  "bound_obtained": "The hexagon/permutation resources give |P| <= 118 and |P| <= 119 respectively -- both still essentially the trivial state-space bound, so a SMALL structural bound remains \ubbf8\uc644\ub8cc.",
+  "monotone_resource_finding": "Each preparation edge, E included, increments the touched-hexagon count by exactly 1 (measured: +1 on every one of the 48 preparation edges) and the visited-permutation count by exactly 6. So E DOES consume a monotone resource after all -- untouched hexagons (120 total) and unvisited permutations (720 total) -- contradicting Round 21's statement that E consumes nothing. What is true is only that E consumes no ORBIT-level resource (O and the fresh count are unchanged).",
+  "question": "why can an E-run not repeat indefinitely?",
+  "schema": "rr-e-edge-analysis-v1"
+}

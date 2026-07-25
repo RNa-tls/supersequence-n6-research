@@ -30,6 +30,8 @@
 
 - `fresh_orbit_openings = 0` — **Z3를 한 번도 쓰지 않는다**, `O=2` 고정
 - `hub_completer_macro_index = 3` = **준비 구간의 마지막 edge**
+  (**이 문서는 ell=4 전용이므로 유효**; ell=0에서는 거짓이다 —
+  `RR_PREPARATION_PARITY_THEOREM.md` §2 Lemma P1)
 - `r1_r2_macro_distance = 1` — R2는 hub 완성 **직후** edge에서 발동
 - completer 착지점 = `(orbit 1, phase 4)`, R2 source = `(1,4)`,
   R2 target = `(0,2)`, Φ=0

@@ -1,0 +1,112 @@
+{
+  "P_ell0": [
+    "EE",
+    "FEFE",
+    "FFEF"
+  ],
+  "P_ell4": [
+    "EE",
+    "EEFEEE",
+    "EFEEERh",
+    "ERh",
+    "FEEERhE",
+    "FEFE",
+    "FFEF",
+    "FFFEFF",
+    "RhE"
+  ],
+  "Rh_free_P_ell4": [
+    "EE",
+    "EEFEEE",
+    "FEFE",
+    "FFEF",
+    "FFFEFF"
+  ],
+  "grade": "exact language identity within the naturally-exhausted lengths (2,4,6); \ubbf8\uc644\ub8cc beyond",
+  "inclusion_1_P0_subset_RhfreeP4": true,
+  "inclusion_2_restricted_to_P0_lengths": true,
+  "inclusion_2_unrestricted": "\ubbf8\uc644\ub8cc -- ell=4 has Rh-free words of length 6 that ell=0 only reaches at depth 9; verified there in Round 21, but longer lengths untested",
+  "schema": "rr-rh-free-language-check-v1",
+  "section8_rh_local_legality": {
+    "ell0_examples": [
+      {
+        "depth": 1,
+        "joint": "w3:120",
+        "target_hexagon": 90,
+        "target_orbit": 120,
+        "target_phase": 3
+      },
+      {
+        "depth": 2,
+        "joint": "w3:120",
+        "target_hexagon": 96,
+        "target_orbit": 120,
+        "target_phase": 4
+      },
+      {
+        "depth": 4,
+        "joint": "w3:210",
+        "target_hexagon": 90,
+        "target_orbit": 120,
+        "target_phase": 3
+      },
+      {
+        "depth": 4,
+        "joint": "w3:210",
+        "target_hexagon": 90,
+        "target_orbit": 120,
+        "target_phase": 3
+      },
+      {
+        "depth": 5,
+        "joint": "w3:210",
+        "target_hexagon": 96,
+        "target_orbit": 120,
+        "target_phase": 4
+      }
+    ],
+    "ell4_examples": [
+      {
+        "depth": 1,
+        "joint": "w3:120",
+        "target_hexagon": 12,
+        "target_orbit": 1,
+        "target_phase": 2
+      },
+      {
+        "depth": 2,
+        "joint": "w3:120",
+        "target_hexagon": 2,
+        "target_orbit": 1,
+        "target_phase": 3
+      },
+      {
+        "depth": 4,
+        "joint": "w3:210",
+        "target_hexagon": 12,
+        "target_orbit": 1,
+        "target_phase": 2
+      },
+      {
+        "depth": 4,
+        "joint": "w3:210",
+        "target_hexagon": 12,
+        "target_orbit": 1,
+        "target_phase": 2
+      },
+      {
+        "depth": 5,
+        "joint": "w3:210",
+        "target_hexagon": 2,
+        "target_orbit": 1,
+        "target_phase": 3
+      }
+    ]
+  },
+  "section8_verdicts": {
+    "R1_exhausts_ancestry_too_early": "\ubbf8\uc644\ub8cc (not tested directly)",
+    "R2_orbit1_target_R_cannot_enter_preparation_at_ell0": "\ubc18\uc99d\ub428 -- Rh edges are locally legal in ell=0 preparation prefixes",
+    "R3_Rh_only_compatible_with_O_star_equals_1": "\ubc18\uc99d\ub428 -- same evidence as R2",
+    "R4_locally_legal_but_incompatible_with_terminal_normal_form": "\uc9c0\uc9c0\ub428 -- Rh is locally legal at ell=0 yet appears in NO same-component witness, so the obstruction lies in the terminal form, not in local legality"
+  }
+}

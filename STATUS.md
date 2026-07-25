@@ -1525,6 +1525,67 @@ Three corrections to earlier rounds, all from this round's checks:
   four directions are hand-proved; the other two are downgraded to
   root-local exhaustive with the missing assumption named.
 
+## Twenty-second follow-up round: the parity route refuted, an automaton built, and two of my own claims corrected
+
+Twenty-second follow-up round. No completion search; N=0 untouched. No
+new depth runs -- everything reuses the naturally-exhausted ranges.
+
+- **A self-correction found mid-round, before it reached any
+  conclusion.** The first invariant search reported four functionals
+  flipping on every preparation edge. It was measuring the wrong
+  boundary -- comparing the post-rotation state with the post-joint
+  state, i.e. only the joint, not the full macro-edge. Re-measured
+  correctly over all 48 preparation edges: visited_count increments by
+  6 (even, does NOT flip), n_hexes by 1, P by 1, and ell is always 5.
+- **The proposed parity proof route is REFUTED.** Of 15 candidate mod-2
+  functionals (permutation sign, hexagon/orbit/phase parities, endpoint
+  coordinates, incidence-graph distances to the hub, and sums thereof),
+  the only ones flipping on every preparation macro-edge are `n_hexes`
+  and `P` -- and both are pure per-edge counters (+1 each). So "start
+  and completer-ready have the same colour" is a restatement of "the
+  edge count is even", and the argument is circular. The bipartite
+  formulation of section 4 fails for the same reason: the transition
+  graph is graded by n_hexes, hence trivially bipartite. |P| evenness is
+  now reduced to the exactly equivalent statement "the touched-hexagon
+  count at the completer-ready boundary is even", which was not
+  independently characterized. **Success criterion 1: not achieved**,
+  with the reason the proposed route cannot work now precisely
+  identified.
+- **A symbolic preparation automaton was built** (26 states in each
+  branch, 97-104 transitions, alphabet E/F/Rh/Rx). Every transition is
+  induced by a real exact edge, but the boundary state carries no
+  visited mask, so accepted symbolic words are not guaranteed
+  realizable. Graded honestly as a **sound over-approximation /
+  necessary-condition automaton**, not an exact automaton. All 14 known
+  preparation words parse, uniquely -- bounded coverage only.
+- **Why Rh is absent at ell=0 is now settled, and two of the four
+  proposed reasons are refuted.** Rh edges ARE locally legal in ell=0
+  preparation prefixes (concrete witnesses found), which refutes
+  candidates R2 and R3. The real reason (R4) is structural: at ell=0 the
+  completer must BE R1, since the completer targets O* and chaining
+  requires R1 to target O*, and an RR word has only two R events. Hence
+  no earlier Rh can exist. That is a hand proof of Inclusion 1 of the
+  Rh-free sublanguage identity; Inclusion 2 remains observation-grade
+  because no branch transport map was constructed (**criterion 4: not
+  achieved**).
+- **The exact trailing-edge formula is established**: m(S) = 4 - #blocked
+  candidates, holding 12/12, with zero duplicate targets so the
+  correction section 17 asked about is unnecessary here. All four
+  candidates legal was never observed but is not ruled out, since
+  w3:120's blocking is a state-dependent visited-collision rather than
+  a structural fact. **Criterion 6: achieved.**
+- **Round 21's claim that E edges consume no monotone resource is
+  WRONG, corrected here.** Direct measurement shows every preparation
+  edge -- E included -- consumes one hexagon and six permutations. The
+  accurate statement is that E consumes no ORBIT-level resource. The
+  resulting bounds (|P| <= 118 or 119) are still essentially the trivial
+  state-space bound, so the conclusion "no small structural bound"
+  stands, but for a different reason than Round 21 gave.
+- Correction log written to `outputs/rr_round22_correction_log.json`.
+  The three statements section 18 asked to purge were already fixed at
+  their primary sites in Round 21; this round scoped two residual
+  occurrences and fixed one new Round-21 error.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

@@ -1,0 +1,876 @@
+{
+  "all_four_legal_ever_observed": false,
+  "duplicate_target_correction_needed": false,
+  "formula": "m(S) = 4 - #{blocked candidates}, where a candidate is blocked by a visited-target collision or by area_a_prune_reason",
+  "formula_holds": true,
+  "legal_count_distribution": {
+    "2": 1,
+    "3": 11
+  },
+  "rows": [
+    {
+      "abandonment_ell": 0,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            0,
+            1,
+            2,
+            4,
+            3,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "E",
+        "E"
+      ],
+      "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+    },
+    {
+      "abandonment_ell": 0,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            0,
+            1,
+            2,
+            4,
+            3,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "F",
+        "E",
+        "F",
+        "E"
+      ],
+      "raw_state_hash": "4355122f1ad249f49d2225419e0bdd0903a890b175ed45f55f9a1c0019146c13"
+    },
+    {
+      "abandonment_ell": 0,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            3
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            0,
+            1,
+            2,
+            4,
+            3,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "F",
+        "F",
+        "E",
+        "F"
+      ],
+      "raw_state_hash": "eb4da81d5a4a4dae97692e80c6aa58cff997241117a6218887aa7c5a97082eed"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "Rh",
+        "E"
+      ],
+      "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "E",
+        "Rh"
+      ],
+      "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "E",
+        "E"
+      ],
+      "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "F",
+        "E",
+        "F",
+        "E"
+      ],
+      "raw_state_hash": "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "F",
+        "F",
+        "E",
+        "F"
+      ],
+      "raw_state_hash": "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "F",
+        "E",
+        "E",
+        "E",
+        "Rh",
+        "E"
+      ],
+      "raw_state_hash": "9bd7590e3ceda28ade4261ef4974c48c747c18e4f99eb66ec749993037edb4fa"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 2,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "joint": "w3:210",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 2,
+      "legal_count": 2,
+      "preparation_word": [
+        "E",
+        "E",
+        "F",
+        "E",
+        "E",
+        "E"
+      ],
+      "raw_state_hash": "cbfdf11e4a797452ee54f68e42c44539d7b2cdea5240dd052dc865923126cbde"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "F",
+        "F",
+        "F",
+        "E",
+        "F",
+        "F"
+      ],
+      "raw_state_hash": "d408ede448259269be44bfb155b2982fa21d84b2561a560f706634effc9648d1"
+    },
+    {
+      "abandonment_ell": 4,
+      "blocked_count": 1,
+      "candidates": [
+        {
+          "abandonment": false,
+          "joint": "w2:10",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "joint": "w3:120",
+          "legal": false,
+          "status": "visited-collision",
+          "target": [
+            4,
+            0,
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:201",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            5,
+            2
+          ]
+        },
+        {
+          "abandonment": false,
+          "joint": "w3:210",
+          "legal": true,
+          "status": "LEGAL",
+          "target": [
+            4,
+            0,
+            1,
+            3,
+            2,
+            5
+          ]
+        }
+      ],
+      "distinct_targets": 4,
+      "duplicate_targets": 0,
+      "formula_4_minus_blocked": 3,
+      "legal_count": 3,
+      "preparation_word": [
+        "E",
+        "F",
+        "E",
+        "E",
+        "E",
+        "Rh"
+      ],
+      "raw_state_hash": "ec9025e8706ba0ddac7c3fa2cc03d8bbe30608658abaf3c321a57dd8493698e5"
+    }
+  ],
+  "schema": "rr-trailing-edge-exact-counts-v1"
+}

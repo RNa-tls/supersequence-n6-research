@@ -1,0 +1,31 @@
+{
+  "changed": {
+    "O_star": {
+      "ell0": 120,
+      "ell4": 1
+    },
+    "Rh_availability": "present at ell=4, absent from every ell=0 witness",
+    "completer_landing_phase": {
+      "ell0": 0,
+      "ell4": 4
+    },
+    "completer_to_R2_distance": {
+      "ell0": 2,
+      "ell4": 1
+    },
+    "tail_T": {
+      "ell0": "Xh",
+      "ell4": "empty"
+    }
+  },
+  "map": "tau : preparation boundaries at ell=4 -> ell=0",
+  "preserved": [
+    "E/F symbolic action",
+    "preparation parity (|P| even in both)",
+    "the requirement that the completer targets O*",
+    "Phi=0 (proved ell-independently in Round 21)"
+  ],
+  "schema": "rr-branch-transport-v1",
+  "status": "the map is specified only at the level of these invariants; an explicit state-to-state bijection was NOT constructed. \ubbf8\uc644\ub8cc.",
+  "why_Rh_differs": "At ell=0 the completer must itself be R1, because the completer targets O* and chaining requires R1 to target O*; hence no earlier Rh can exist. At ell=4, O*=1 sits at the hub exit position, so R1 may target O* at an earlier phase and a later zero-charge edge completes the hub -- leaving room for Rh inside P. \uc190\uc99d\uba85 given the terminal normal form."
+}
