@@ -1,0 +1,145 @@
+{
+  "arithmetic_exact": true,
+  "continuation_arithmetic": {
+    "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e": {
+      "accounts_for_all_words": true,
+      "continuation_count": 3,
+      "historical_words_sharing_this_state": [
+        "87fd092184b765d539357b97d1fec5303b04b3aab761f2b034997d8274f4b31d",
+        "8b4108376fde37637fb5b6c948aa4ea861e9c1e3814d69aecdb68263220763f4",
+        "e2c28bc2293c49e32e3d4ce9bd6e9d39b891325d6f44411ee515023b3a8f5ce7"
+      ],
+      "legal_continuation_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "word_count": 3
+    },
+    "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f": {
+      "accounts_for_all_words": true,
+      "continuation_count": 3,
+      "historical_words_sharing_this_state": [
+        "3d74b38661bb742105bb60d6e6ea3d12692f2cb0798909fe288fafcaeb85b950",
+        "941ba3fda981a44abdcde7b0534600062061b94ad37cd2ecebbc0845c5dc5ede",
+        "9a31f2046d125ba260268a4ef01399dc26ea10561728252ae879bf6b65af1484"
+      ],
+      "legal_continuation_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "word_count": 3
+    },
+    "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354": {
+      "accounts_for_all_words": true,
+      "continuation_count": 3,
+      "historical_words_sharing_this_state": [
+        "2d88642a051ceb89db758fdd1585742d781b633540604c1335911ca2e713ba1c",
+        "49caddbf42cd28d0d9134622d5f6c682e87286cb3569d1252dc263a4b750a759",
+        "789ecdd7355592be1222f2ffe7a16352846f722edf2d338e7d7e95eb857d2ffb"
+      ],
+      "legal_continuation_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "word_count": 3
+    }
+  },
+  "continuation_total": 9,
+  "corrected_statement": "Option B/E refined: the historical bounded corpus contains 9 complete ell=4 same-component WORDS, which collapse onto exactly 3 distinct post-R2 STATES (3 states x 3 legal continuation macro-edges = 9 words). All 3 states are present in the fresh root-local exhaustive set L5. L5's remaining 2 states lie at depth 6 past abandonment (7 total macro-edges), strictly outside the historical corpus's depth<=6 word scope. Neither set is missing anything the other contains within their common scope.",
+  "engine_sha256": {
+    "superperm_partial_f1.py": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+    "superperm_partial_f1_macro.py": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+    "superperm_port_lift.py": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60"
+  },
+  "h9_distinct_post_r2_states": 3,
+  "h9_word_count": 9,
+  "l5_state_count": 5,
+  "proof_status": "exact replay (all 9 historical witnesses replayed step-by-step through the current engine; all legal, all reproduce same-component and ell=4)",
+  "schema": "rr-ell4-discrepancy-audit-v1",
+  "section10_cause_codes": {
+    "2d88642a051ceb89db758fdd1585742d781b633540604c1335911ca2e713ba1c": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+    },
+    "3d74b38661bb742105bb60d6e6ea3d12692f2cb0798909fe288fafcaeb85b950": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f"
+    },
+    "49caddbf42cd28d0d9134622d5f6c682e87286cb3569d1252dc263a4b750a759": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+    },
+    "789ecdd7355592be1222f2ffe7a16352846f722edf2d338e7d7e95eb857d2ffb": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+    },
+    "87fd092184b765d539357b97d1fec5303b04b3aab761f2b034997d8274f4b31d": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e"
+    },
+    "8b4108376fde37637fb5b6c948aa4ea861e9c1e3814d69aecdb68263220763f4": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e"
+    },
+    "941ba3fda981a44abdcde7b0534600062061b94ad37cd2ecebbc0845c5dc5ede": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f"
+    },
+    "9a31f2046d125ba260268a4ef01399dc26ea10561728252ae879bf6b65af1484": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f"
+    },
+    "e2c28bc2293c49e32e3d4ce9bd6e9d39b891325d6f44411ee515023b3a8f5ce7": {
+      "cause_code": "EXACT_REPLAY_PRESENT_IN_L5",
+      "explanation": "This historical word's post-R2 state IS present in the fresh L5 set. The apparent 9-vs-5 gap is a COUNTING-UNIT difference (historical unit = complete word; fresh unit = distinct post-R2 state), not a missing witness.",
+      "post_r2_state": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e"
+    }
+  },
+  "section3_replay": {
+    "all_abandon_ell_4": true,
+    "all_replay_fully_legal": true,
+    "all_same_component_reproduced": true
+  },
+  "section9_depth_semantics": {
+    "conversion": "fresh_depth = historical_total_macro_edges_up_to_R2 - 1 (abandonment is edge idx 0 for all H9)",
+    "fresh_depth_unit": "macro-edges PAST the abandonment root (root = post-abandonment state)",
+    "h9_r2_depth_past_abandonment": [
+      4
+    ],
+    "h9_total_macro_edges": [
+      6
+    ],
+    "historical_depth_unit": "total macro-edges in the word (corpus scope: depth<=6)",
+    "l5_depth6_implies_total_macro_edges": 7,
+    "l5_depth6_outside_historical_scope": true,
+    "l5_depths": [
+      4,
+      6
+    ]
+  },
+  "set_relations": {
+    "h9_states_intersect_l5": [
+      "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+      "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+      "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354"
+    ],
+    "h9_states_minus_l5": [],
+    "h9_subset_of_l5": true,
+    "l5_minus_h9_states": [
+      "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc",
+      "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c"
+    ]
+  },
+  "verdict": "SCOPE \ucc28\uc774 + \uacc4\uc218 \ub2e8\uc704 \ucc28\uc774 (no missing witness in either direction)"
+}

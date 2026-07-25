@@ -29,7 +29,8 @@
 7. **deterministic replay**: 저장된 parent pointer로부터 root부터
    해당 상태까지 재생 가능해야 한다.
 8. **certificate 생성**: root count, expanded count, generated
-   edges, unique canonical states, duplicate count, frontier empty,
+   edges, unique states (**raw인지 canonical인지 반드시 명시** —
+   라운드18 정정 사항), duplicate count, frontier empty,
    max depth, engine SHA-256를 전부 출력.
 9. **independent verifier 통과**: 구조적으로 다른 순회 방법(이번
    라운드는 역순 DFS)으로 같은 수치가 재현되는지 확인.

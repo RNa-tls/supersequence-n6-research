@@ -198,7 +198,13 @@ def enumerate_uncapped(root_state, hex0: int, max_r_events: int = 2, no_depth_ca
         "root_hash": macro.stable_hash(root_state),
         "expanded_count": expanded,
         "generated_edges": generated_edges,
-        "unique_canonical_states": len(parents),
+        # NOTE (Round 18 correction): this dedups on the RAW state.stable_key(),
+        # NOT on exact.canonicalize(state). Raw dedup is SAFE for completeness
+        # (it can only re-expand left-S6-relabeled duplicates, never skip a
+        # reachable state), but the count is of RAW states. Round 17 mislabeled
+        # this field "unique_canonical_states"; see outputs/rr_generator_diff.json.
+        "unique_raw_states": len(parents),
+        "dedup_key": "state.stable_key() (raw, uncanonicalized)",
         "duplicate_count": duplicate_count,
         "frontier_empty": len(frontier) == 0,
         "depth_ceiling_applied": depth_ceiling,
@@ -227,7 +233,7 @@ def main() -> None:
         root_state = abandonment_root(init, ell)
         r = enumerate_uncapped(root_state, hex0, max_r_events=2, depth_ceiling=args.depth_ceiling)
         results[str(ell)] = r
-        print(f"ell={ell}: expanded={r['expanded_count']} unique={r['unique_canonical_states']} "
+        print(f"ell={ell}: expanded={r['expanded_count']} unique_raw={r['unique_raw_states']} "
               f"frontier_empty={r['frontier_empty']} max_depth={r['max_depth_seen']} "
               f"same={r['same_component_count']} completer_dist={r['hub_completer_orbit_distribution']}")
 

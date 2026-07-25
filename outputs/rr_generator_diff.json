@@ -1,0 +1,93 @@
+{
+  "overall_verdict": "No generator omission, no prune mismatch, and no canonicalization bug. The only real difference is that the historical generator canonicalizes while Round 17's does not -- which affects hash identity and dedup granularity (raw dedup over-expands, never under-expands) but not reachability or legality. The ell=4 9-vs-5 count gap is therefore NOT caused by any of sections 6-8; its cause is the counting-unit and depth-scope difference established in src/audit_rr_ell4_discrepancy.py.",
+  "proof_status": "exact replay (9/9 historical witnesses re-derived through the current engine along all three axes)",
+  "schema": "rr-generator-diff-v1",
+  "section6_canonicalization": {
+    "canonicalized_replay_matches_corpus_hash": "9/9",
+    "h9_post_r2_distinct_canonical": 3,
+    "h9_post_r2_distinct_raw": 3,
+    "historical_generator": "hashes exact.canonicalize(state) -- see analyze_f1_n2_defects.py line ~484, 501",
+    "labeling_error_found_in_round17_output": "outputs/rr_uncapped_local_universe.json's field 'unique_canonical_states' actually counts RAW (uncanonicalized) states. Raw dedup is SAFE for completeness -- it can only over-expand left-relabeled duplicates, never skip a reachable state -- so no Round 17 result is invalidated, but the field name is wrong. Corrected label: 'unique_raw_states'.",
+    "per_witness": [
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "2d88642a051ceb89db758fdd1585742d781b633540604c1335911ca2e713ba1c",
+        "corpus_hash": "2d88642a051ceb89db758fdd1585742d781b633540604c1335911ca2e713ba1c",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "d81006f725c2f12b09d918b4e80f52058ae27aa9982a31fd5527d1cf8948638b"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "3d74b38661bb742105bb60d6e6ea3d12692f2cb0798909fe288fafcaeb85b950",
+        "corpus_hash": "3d74b38661bb742105bb60d6e6ea3d12692f2cb0798909fe288fafcaeb85b950",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "863068358b6889eb169945fd8469dfdcd0dc1b747eb4b0e8711d823efb41b926"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "49caddbf42cd28d0d9134622d5f6c682e87286cb3569d1252dc263a4b750a759",
+        "corpus_hash": "49caddbf42cd28d0d9134622d5f6c682e87286cb3569d1252dc263a4b750a759",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "9e2a254b2fd38b3bc4d335dec909e463b82e87d466b8898ed32a22fadf92f9f2"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "789ecdd7355592be1222f2ffe7a16352846f722edf2d338e7d7e95eb857d2ffb",
+        "corpus_hash": "789ecdd7355592be1222f2ffe7a16352846f722edf2d338e7d7e95eb857d2ffb",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "240a5359fc9c2e5d491395ae6c5fde61049cf9263f5172bf1e45dfa60ad348d6"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "87fd092184b765d539357b97d1fec5303b04b3aab761f2b034997d8274f4b31d",
+        "corpus_hash": "87fd092184b765d539357b97d1fec5303b04b3aab761f2b034997d8274f4b31d",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "a9b959fec0f1b84c5768f504b98cdd84aae23c1429aa258cd59f4789f6b760f3"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "8b4108376fde37637fb5b6c948aa4ea861e9c1e3814d69aecdb68263220763f4",
+        "corpus_hash": "8b4108376fde37637fb5b6c948aa4ea861e9c1e3814d69aecdb68263220763f4",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "155bfbf163b1cd09a35c160ea7797e71ad6d2845d208ac03ed3a028488765ebf"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "941ba3fda981a44abdcde7b0534600062061b94ad37cd2ecebbc0845c5dc5ede",
+        "corpus_hash": "941ba3fda981a44abdcde7b0534600062061b94ad37cd2ecebbc0845c5dc5ede",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "37ad46fc705ef1a16ec84e86bf3a77b716fcc20ae6639f6db19bd5456678e167"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "9a31f2046d125ba260268a4ef01399dc26ea10561728252ae879bf6b65af1484",
+        "corpus_hash": "9a31f2046d125ba260268a4ef01399dc26ea10561728252ae879bf6b65af1484",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "10041300c5705d60abc05df63bc3ca68013822e81e7f35c69987021fbda332ef"
+      },
+      {
+        "canonicalized_matches_corpus": true,
+        "canonicalized_replay_hash": "e2c28bc2293c49e32e3d4ce9bd6e9d39b891325d6f44411ee515023b3a8f5ce7",
+        "corpus_hash": "e2c28bc2293c49e32e3d4ce9bd6e9d39b891325d6f44411ee515023b3a8f5ce7",
+        "raw_matches_corpus": false,
+        "raw_replay_hash": "dd6e19a895605d0b0cf17bce6442c976ecb91db6240e76daa1206430721f32d5"
+      }
+    ],
+    "raw_replay_matches_corpus_hash": "0/9",
+    "round17_enumerator": "hashes/dedups the RAW state.stable_key(), no canonicalize() call",
+    "verdict": "scope \ucc28\uc774 (benign, fully explained)"
+  },
+  "section7_transition_generator": {
+    "both_use": "macro.macro_edges()",
+    "child_label_set_mismatches_found": 0,
+    "difference": "historical canonicalizes AFTER generate+prune; Round 17 never canonicalizes",
+    "mismatch_detail": [],
+    "verdict": "\ub3d9\uc77c (no generator omission found)"
+  },
+  "section8_prune": {
+    "both_use": "macro.area_a_prune_reason(state, macro.AREA_A)",
+    "divergences": [],
+    "h9_witnesses_failing_current_prune": 0,
+    "verdict": "\ub3d9\uc77c (no prune mismatch; all 9 historical witnesses pass the current prune at every step)"
+  }
+}

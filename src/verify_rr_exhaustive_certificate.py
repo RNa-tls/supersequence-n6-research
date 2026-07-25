@@ -3,7 +3,8 @@
 outputs/rr_uncapped_local_universe.json -- re-derives the same root-local
 state counts via a structurally different traversal (DFS with an
 explicit visited set, moves tried in a different order than the BFS
-enumerator) and cross-checks unique_canonical_states, same_component_count,
+enumerator) and cross-checks unique_raw_states (raw stable_key dedup, see
+outputs/rr_generator_diff.json for why raw dedup is safe), same_component_count,
 and hub_completer_orbit_distribution per ell. A mismatch would mean the
 original enumerator (or this verifier) has a bug; agreement is the
 "independent verifier passed" certificate the exhaustiveness standard
@@ -121,7 +122,7 @@ def dfs_count(root_state, hex0: int, depth_ceiling: int, max_r_events: int = 2) 
             stack.append((tr.state, new_r_count, new_r1_target_q, depth + 1))
 
     return {
-        "unique_canonical_states": len(seen),
+        "unique_raw_states": len(seen),
         "same_component_count": len(same_hits),
         "hub_completer_orbit_distribution": dict(completer_orbit_counter),
         "chaining_count": nonlocal_chaining[0],
@@ -153,7 +154,7 @@ def main() -> None:
         result = dfs_count(root_state, hex0, args.depth_ceiling)
 
         orig = original["results_by_ell"][str(ell)]
-        match_states = result["unique_canonical_states"] == orig["unique_canonical_states"]
+        match_states = result["unique_raw_states"] == orig["unique_raw_states"]
         match_same = result["same_component_count"] == orig["same_component_count"]
         norm_result_dist = {str(k): v for k, v in result["hub_completer_orbit_distribution"].items()}
         norm_orig_dist = {str(k): v for k, v in orig["hub_completer_orbit_distribution"].items()}
@@ -162,13 +163,13 @@ def main() -> None:
         all_match = all_match and ok
         comparison[str(ell)] = {
             "dfs_result": result, "bfs_original": {
-                "unique_canonical_states": orig["unique_canonical_states"],
+                "unique_raw_states": orig["unique_raw_states"],
                 "same_component_count": orig["same_component_count"],
                 "hub_completer_orbit_distribution": orig["hub_completer_orbit_distribution"],
             },
             "match_states": match_states, "match_same": match_same, "match_dist": match_dist, "all_match": ok,
         }
-        print(f"ell={ell}: DFS unique={result['unique_canonical_states']} (BFS {orig['unique_canonical_states']}) "
+        print(f"ell={ell}: DFS unique={result['unique_raw_states']} (BFS {orig['unique_raw_states']}) "
               f"same={result['same_component_count']} (BFS {orig['same_component_count']}) match={ok}")
 
     print("\nINDEPENDENT VERIFIER RESULT:", "PASSED (all ell match)" if all_match else "FAILED (mismatch found)")

@@ -1219,19 +1219,12 @@ new large-scale search; N=0 untouched.
   (using abandonment move w3:210 instead of the real w2:10 gives
   cost 5 to the same nearest orbit) but TRUE when conditioned on the
   real historical abandonment convention (w2:10, verified 4,470/4,470).
-- **An unresolved discrepancy found and reported, not papered over**:
-  at ell=4, the historical capped corpus reports 9 same-component
-  witnesses, but the fresh uncapped-local universe finds only 5 (and
-  an earlier Round 16 run at a different depth ceiling found only 3).
-  This is the opposite of the expected direction (a less-capped search
-  should find at least as many, not fewer). One of the 9 historical
-  witnesses was traced step-by-step and very likely matches one of the
-  5 fresh hits exactly; the remaining gap's cause (a same-component
-  definition mismatch between this round's reimplementation and the
-  historical generator, versus a genuinely deeper/different macro-edge
-  pattern outside this round's depth ceiling) was NOT resolved this
-  round -- reported honestly as open rather than assumed in either
-  direction. `outputs/rr_old_new_corpus_diff.json`.
+- **An unresolved discrepancy found and reported, not papered over**
+  (**RESOLVED in Round 18 -- see that section below**): at ell=4, the
+  historical capped corpus reports 9 same-component witnesses, but the
+  fresh uncapped-local universe finds only 5. Round 17 flagged this as
+  open rather than assuming a cause in either direction.
+  `outputs/rr_old_new_corpus_diff.json`.
 - **Phi=0 further quantified**: in the fresh local universe, hub-touched
   RR-final states reach Phi=0 in 283/290 (97.6%) of cases, not
   universally; the reverse direction (no hub touch implies Phi!=0) held
@@ -1250,6 +1243,63 @@ new large-scale search; N=0 untouched.
   (`research/RR_LOCAL_UNIVERSE.md`) but NOT implemented as separate
   enumerations this round -- flagged as the most direct next-round task
   rather than silently skipped.
+
+## Eighteenth follow-up round: the ell=4 9-vs-5 discrepancy fully resolved (counting unit, not a missing witness)
+
+Eighteenth follow-up round, tasked with resolving Round 17's one
+outstanding discrepancy before proposing any new RR theorem. No new
+search of any kind; N=0 untouched. Every number below comes from exact
+replay of the 9 historical witnesses through the current engine.
+
+- **RESOLVED: the gap was a counting-unit plus depth-scope difference,
+  with no missing witness in either direction.** The historical
+  corpus's unit is a complete 6-macro-edge WORD; the fresh enumerator's
+  unit is a distinct post-R2 STATE. Replaying all 9 historical ell=4
+  same-component witnesses shows they collapse onto exactly **3**
+  distinct post-R2 states, and each of those 3 states has exactly **3**
+  legal continuation macro-edges -- 3 x 3 = 9, matching the historical
+  count exactly. All 3 states are present in the fresh 5-state set;
+  the fresh set's other 2 sit at depth 6 past abandonment (7 total
+  macro-edges), strictly outside the historical depth<=6 word scope.
+  As post-R2 states, **H9 is a subset of L5** (H9 \ L5 = empty), so the
+  direction is normal, not reversed as Round 17 feared.
+  `research/RR_ELL4_DISCREPANCY_AUDIT.md`.
+- **All 9 historical witnesses replay cleanly in the current engine**:
+  every move legal, every step passing the current
+  `area_a_prune_reason`, same-component reproduced 9/9, ell=4
+  reproduced 9/9, zero divergences. So `HISTORICAL_RECORD_INVALID` and
+  `CURRENT_ENGINE_DRIFT` are both ruled out by direct evidence.
+- **The specific bug hypothesis raised when the gap appeared was tested
+  and REFUTED**: re-running every root-local enumeration with the dedup
+  key widened from `state.stable_key()` to `(state.stable_key(),
+  r_count, r1_target_orbit)` changes nothing on any ell. A diagnostic
+  counter shows **no state in this universe is ever reached with two
+  different histories at all**, so the representation is Markov-complete
+  for the same-component question here (a finite check over this
+  universe, not a general proof).
+  `research/RR_LOCAL_STATE_COMPLETENESS.md`.
+- **Canonicalization / generator / prune all cleanly reconciled**: the
+  historical generator hashes `exact.canonicalize(state)` while the
+  Round 17 enumerator hashes the raw state -- canonicalizing this
+  round's raw replays reproduces all 9 historical hashes exactly
+  (9/9, raw 0/9). Both pipelines use the same child generator
+  (`macro.macro_edges()`) and the same prune (`area_a_prune_reason`
+  with `macro.AREA_A`); raw vs canonicalized child-label sets differ at
+  0 states checked. `research/RR_SEARCH_SCOPE_RECONCILIATION.md`.
+- **A real labeling error in Round 17's own output was found and
+  fixed**: `outputs/rr_uncapped_local_universe.json`'s field
+  `unique_canonical_states` actually counted RAW (uncanonicalized)
+  states. Raw dedup is *safe* for completeness -- it can only
+  re-expand left-S6-relabeled duplicates, never skip a reachable state
+  -- so no Round 17 numeric result is invalidated, but the field is
+  renamed `unique_raw_states` with an explicit `dedup_key` field, both
+  scripts re-run, and the independent DFS cross-check still matches
+  5/5 ell. Seven affected statements across STATUS.md, two research
+  documents, two outputs, and two scripts were corrected, with a
+  before/after/reason table in `RR_ELL4_DISCREPANCY_AUDIT.md` section
+  13. No theorem was overturned by any of these corrections.
+- Per the round's instruction, **no new general RR theorem is proposed
+  here** -- the discrepancy had to be closed first, and it now is.
 
 ## Open problems (genuinely open, not resolved by this repository)
 

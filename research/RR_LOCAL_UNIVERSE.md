@@ -26,7 +26,7 @@
 
 ## 측정치 (root class 1)
 
-| ell | expanded | unique canonical states | duplicate | frontier_empty | max_depth | RR-final | same-component |
+| ell | expanded | unique **raw** states | duplicate | frontier_empty | max_depth | RR-final | same-component |
 |---:|---:|---:|---:|:---:|---:|---:|---:|
 | 0 | 3,814 | 3,814 | (아래 참고) | True | 6 | 455 | 1 |
 | 1 | 3,657 | 3,657 | | True | 6 | 415 | 0 |
