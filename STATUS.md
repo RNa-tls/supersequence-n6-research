@@ -1643,6 +1643,55 @@ depth runs.
   area_a_prune_reason, which is state-dependent. So m(S)<=3 is
   root-local exhaustive only; the hand-proved bound stays at 4.
 
+## Twenty-fourth follow-up round: why the parity cannot be proved additively
+
+Twenty-fourth follow-up round, aimed at the single open proposition
+|P| + #R = 1 (mod 2). No completion search; N=0 untouched.
+
+- **Round 23's table was checked for an artifact, and survives.** That
+  scan capped the R count at 2, so its "odd |P| has #R in {0,2}" could
+  have been an artifact of the cap. The cap is removed here and the
+  relation still holds, at every ell.
+- **The relation is SHARP, and that is new information.** Classifying
+  every hub completion by landing position shows |P| + #R is purely odd
+  at the O* position (j = ell+1) and at j = ell+2, but MIXED at
+  j >= ell+3. So it is not a property of hub completion in general -- it
+  is tied to landing on the near residual positions, which points at
+  where a real proof would have to come from.
+- **The equivalence asked for is proved.** Through the completer there
+  are |P|+1 events, split as #R + #zero, so |P| + #R = #zero - 1 (mod 2).
+  Hence |P| + #R odd <=> #zero even. Pure arithmetic, hand proof.
+- **A genuine impossibility theorem, which explains every failure of
+  Rounds 22-24 at once.** Measuring the per-event increment of every
+  ExactState field gives a constant per event kind (S: +1/0/+1, O:
+  0/0/+1, P: +1/+1/+1, D: -1/-1/+4, Ndef: +1/0/0, visited: +6/+6/+6),
+  and D = 5*O - P is an exact identity (0 violations / 1,399 states).
+  Therefore every additive field is a fixed linear form in (#R, #E, #F),
+  every Z/2 functional built from additive fields is a linear form in
+  those counts, and such a form certifies "#E + #F even" only if it IS
+  that statement -- circular. **No additive invariant can prove the
+  parity.** This subsumes Round 22's 15 mod-2 candidates, Round 23's
+  handshake/odd-degree/forest routes and n_hexes/P counters, the Cayley
+  sign argument, and this round's own field ledger.
+- **The endpoint-role route (section 3) is refuted by the same theorem.**
+  A role whose transition depends only on the event kind is an additive
+  invariant, so no such role can work; a richer role (hub membership,
+  O*-membership, revisit status, O* phase count) was built and does not
+  flip consistently either.
+- **The odd-preparation exclusion is recorded but rests on the unproved
+  relation.** At the O* position with odd |P|, #R is always even (0 or
+  2): #R=0 makes chaining impossible, #R=2 makes R2 a third R event. So
+  odd |P| is incompatible with same-component RR -- root-local
+  exhaustive, not a hand proof, since it uses the relation itself.
+- Per the round's instruction, the word-level branch relation (section
+  10) was left untouched while the parity remains open.
+
+**Net position on the parity**: still 미완료, but the search space is now
+sharply cut. A proof must use a non-additive constraint -- the
+orbit/position combinatorics that decide which hub position the completer
+may land on -- and the sharpness result localizes exactly where that
+constraint bites.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

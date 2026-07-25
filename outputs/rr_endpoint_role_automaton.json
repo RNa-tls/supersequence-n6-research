@@ -1,0 +1,33 @@
+{
+  "by_ell": {
+    "0": {
+      "role_definition": "(in_hub, orbit_is_O_star, orbit_multiply_visited, O_star_phase_count)",
+      "roles_flip_exactly_on_zero_charge": false,
+      "start_role": [
+        false,
+        true,
+        false,
+        1
+      ],
+      "state_count": 19,
+      "transition_count": 46
+    },
+    "4": {
+      "role_definition": "(in_hub, orbit_is_O_star, orbit_multiply_visited, O_star_phase_count)",
+      "roles_flip_exactly_on_zero_charge": false,
+      "start_role": [
+        false,
+        true,
+        false,
+        1
+      ],
+      "state_count": 16,
+      "transition_count": 39
+    }
+  },
+  "grade": "손증명 (impossibility) + root-local exhaustive (the specific role tried)",
+  "schema": "rr-endpoint-role-automaton-v1",
+  "section3_hypothesis": "zero-charge events flip an endpoint role while R events preserve it; the role is equal at the abandonment and completer-ready boundaries; hence the zero-charge count is even",
+  "verdict": "반증됨 -- no such role was found, and none can exist among kind-determined roles",
+  "why_none_can_exist": "A role whose transition depends only on the event kind induces an additive Z/2 invariant, and analyze_rr_r_parity.py proves no additive invariant can certify the parity without circularity. A role would have to depend on more than the kind; the richer role tried here (hub membership, O*-membership, revisit status, O* phase count) does not flip consistently either."
+}

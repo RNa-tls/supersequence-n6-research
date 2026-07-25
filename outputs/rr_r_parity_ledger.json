@@ -1,0 +1,95 @@
+{
+  "all_increments_constant": true,
+  "count_identity": {
+    "grade": "손증명",
+    "proof": "Through the completer there are |P|+1 events, split as #R + #zero. So |P| + #R = (#R + #zero - 1) + #R = 2#R + #zero - 1 = #zero - 1 (mod 2). Hence |P| + #R is odd iff #zero is even. 손증명 (pure arithmetic).",
+    "statement": "|P| + #R_{<=C} = 1 (mod 2)  <=>  #zero-charge events through C = 0 (mod 2)"
+  },
+  "impossibility_theorem": {
+    "explains": [
+      "Round 22's 15 mod-2 feature candidates",
+      "Round 23's handshake / odd-degree / forest routes",
+      "Round 23's n_hexes and P counters",
+      "this round's full field ledger"
+    ],
+    "grade": "손증명",
+    "proof": "Each ExactState field changes by a fixed constant per event kind (verified above), so every additive field equals its root value plus a fixed linear form in (#R, #E, #F). Moreover D = 5O - P identically, so the fields span no more than the counts themselves. Any Z/2 functional built from additive fields is therefore a linear form a*#R + b*#E + c*#F (mod 2). Such a form certifies '#E + #F = 0 (mod 2)' only if (a,b,c) = (0,1,1), i.e. only if it IS the target statement -- circular. 손증명.",
+    "statement": "No additive per-event invariant can prove #zero even without circularity."
+  },
+  "per_event_field_increments": {
+    "D": {
+      "E": {
+        "-1": 361
+      },
+      "F": {
+        "4": 715
+      },
+      "R": {
+        "-1": 350
+      }
+    },
+    "Ndef": {
+      "E": {
+        "0": 361
+      },
+      "F": {
+        "0": 715
+      },
+      "R": {
+        "1": 350
+      }
+    },
+    "O": {
+      "E": {
+        "0": 361
+      },
+      "F": {
+        "1": 715
+      },
+      "R": {
+        "0": 350
+      }
+    },
+    "P": {
+      "E": {
+        "1": 361
+      },
+      "F": {
+        "1": 715
+      },
+      "R": {
+        "1": 350
+      }
+    },
+    "S": {
+      "E": {
+        "0": 361
+      },
+      "F": {
+        "1": 715
+      },
+      "R": {
+        "1": 350
+      }
+    },
+    "visited_count": {
+      "E": {
+        "6": 361
+      },
+      "F": {
+        "6": 715
+      },
+      "R": {
+        "6": 350
+      }
+    }
+  },
+  "schema": "rr-r-parity-ledger-v1",
+  "state_identity_D_equals_5O_minus_P": {
+    "grade": "root-local exhaustive",
+    "holds": true,
+    "states_checked": 1399,
+    "violations": 0
+  },
+  "what_this_leaves": "A proof must use a NON-additive constraint -- specifically the orbit/position combinatorics deciding which hub position the completer may land on. 미완료."
+}

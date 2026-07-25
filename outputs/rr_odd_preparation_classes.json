@@ -1,0 +1,126 @@
+{
+  "by_ell": {
+    "0": {
+      "O_star_position": 1,
+      "by_landing_position": {
+        "1": {
+          "1": 19
+        },
+        "2": {
+          "1": 12
+        },
+        "3": {
+          "0": 1,
+          "1": 8
+        },
+        "4": {
+          "0": 2,
+          "1": 1
+        },
+        "5": {
+          "0": 4,
+          "1": 7
+        }
+      },
+      "odd_P_R_count_classes_at_O_star": {
+        "0": 1,
+        "2": 9
+      },
+      "pure_parity_1_positions": [
+        1,
+        2
+      ]
+    },
+    "1": {
+      "O_star_position": 2,
+      "by_landing_position": {
+        "2": {
+          "1": 19
+        },
+        "3": {
+          "1": 12
+        },
+        "4": {
+          "0": 3,
+          "1": 6
+        },
+        "5": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      "odd_P_R_count_classes_at_O_star": {
+        "0": 1,
+        "2": 9
+      },
+      "pure_parity_1_positions": [
+        2,
+        3
+      ]
+    },
+    "2": {
+      "O_star_position": 3,
+      "by_landing_position": {
+        "3": {
+          "1": 19
+        },
+        "4": {
+          "1": 12
+        },
+        "5": {
+          "0": 1,
+          "1": 8
+        }
+      },
+      "odd_P_R_count_classes_at_O_star": {
+        "0": 1,
+        "2": 9
+      },
+      "pure_parity_1_positions": [
+        3,
+        4
+      ]
+    },
+    "3": {
+      "O_star_position": 4,
+      "by_landing_position": {
+        "4": {
+          "1": 19
+        },
+        "5": {
+          "1": 12
+        }
+      },
+      "odd_P_R_count_classes_at_O_star": {
+        "0": 1,
+        "2": 9
+      },
+      "pure_parity_1_positions": [
+        4,
+        5
+      ]
+    },
+    "4": {
+      "O_star_position": 5,
+      "by_landing_position": {
+        "5": {
+          "1": 19
+        }
+      },
+      "odd_P_R_count_classes_at_O_star": {
+        "0": 1,
+        "2": 9
+      },
+      "pure_parity_1_positions": [
+        5
+      ]
+    }
+  },
+  "grade": "root-local exhaustive",
+  "holds_at_O_star_all_branches": true,
+  "odd_preparation_classification": "At the O* position with odd |P|, the R count through the completer is always EVEN (0 or 2 in the observed range). #R=0 makes chaining impossible (no R targets O*); #R=2 would make R2 a third R event, violating the RR word structure. Either way an odd-|P| same-component RR witness cannot exist. This is the branch-exclusion form requested in section 8 -- root-local exhaustive, resting on the unproved parity relation.",
+  "relation": "|P| + #R_{<=C} = 1 (mod 2) at completions landing on the O* position",
+  "round23_cap_removed": "Round 23's scan capped the R count at 2, so its table could have been an artifact. The cap is removed here and the relation SURVIVES.",
+  "schema": "rr-odd-preparation-classes-v1",
+  "sharpness": "The relation is SHARP: it also holds at j = ell+2, but FAILS at j >= ell+3, where both parities occur. So it is not a property of hub completion in general -- it is tied to landing on the near residual positions."
+}
