@@ -1,0 +1,81 @@
+{
+  "counterexample": {
+    "D": 9,
+    "F": 1,
+    "H": 0,
+    "O": 3,
+    "P": 6,
+    "S": 4,
+    "final_state_area_a_prune_reason": null,
+    "final_state_legal": true,
+    "present_in_historical_bounded_corpus": false,
+    "steps": [
+      {
+        "idx": 0,
+        "kind": "Z2abandon",
+        "move": "w2:10"
+      },
+      {
+        "idx": 1,
+        "kind": "R",
+        "move": "w3:120",
+        "target_hexagon": 90,
+        "target_orbit": 120,
+        "target_phase": 3
+      },
+      {
+        "idx": 2,
+        "kind": "Z3",
+        "move": "w3:201",
+        "target_hexagon": 72,
+        "target_orbit": 1,
+        "target_phase": 1
+      },
+      {
+        "idx": 3,
+        "kind": "Z2",
+        "move": "w2:10",
+        "target_hexagon": 12,
+        "target_orbit": 1,
+        "target_phase": 2
+      },
+      {
+        "idx": 4,
+        "kind": "R",
+        "move": "w3:120",
+        "target_hexagon": 0,
+        "target_orbit": 1,
+        "target_phase": 4
+      }
+    ]
+  },
+  "honest_conclusion": "A legal, area_a-passing, RR-structured (2 R events, F=1, H=0) state exists where the completer lands on hex 0's FARTHEST (non-nearest) residual position -- and it is genuinely absent from the historical bounded RR corpus. None of the S1-S5 obstruction candidates explains this absence for this specific witness (S1, S2, S5 directly falsified; S3 inconclusive; S4 not applicable to this witness's structure). The most likely explanation is that the historical corpus's capped/bounded frontier search (65,340 states) simply did not reach this branch before its cap -- not a deeper mathematical obstruction. This remains an open question: a full account of exactly why the historical corpus omitted it (search order? a stricter internal pruning rule this analysis has not identified?) is NOT resolved this round.",
+  "obstruction_candidates": {
+    "S1_existing_target_removed": {
+      "detail": "The constructed counterexample has TWO R events (idx1, idx4); the second one IS the hub completer, landing on orbit 1 (the farthest residual position at ell=0) -- both R1 and R2 fire successfully, R2 being the completer itself. No slot is lost.",
+      "tested": true,
+      "verdict": "\ubc18\uc99d\ub428 (falsified for this witness)"
+    },
+    "S2_hub_exit_source_endpoint_mismatch": {
+      "detail": "area_a_prune_reason(final_state) = None; F=1, H=0",
+      "tested": true,
+      "verdict": "\ubc18\uc99d\ub428 (falsified for this witness)"
+    },
+    "S3_phi_exhausted_too_early": {
+      "phi_at_final_state": 1,
+      "tested": true,
+      "verdict": "\ubbf8\uc644\ub8cc (Phi computed, not negative or otherwise obstructive at this state)"
+    },
+    "S4_ancestry_fixed_non_chaining": {
+      "detail": "This witness's R1 is NOT the completer (R2 is), so S4 as literally stated does not apply to this specific counterexample; a separate witness with R1-as-completer would be needed to test S4 directly. Not constructed this round due to time; left open.",
+      "tested": true,
+      "verdict": "\ubbf8\uc644\ub8cc"
+    },
+    "S5_ell0_only_phase_saturation_escape": {
+      "detail": "The constructed counterexample is a DIFFERENT, non-saturating mechanism (a direct 4-macro-edge chain landing R2 on the far residual orbit 1, no phase-exhaustion pattern involved) -- yet it is area_a-legal and structurally RR-shaped (2 R events, F=1, H=0). It demonstrates that saturated-phase is not the ONLY way to reach a non-nearest completion; it is simply the only one the historical (incomplete) corpus happened to record.",
+      "tested": true,
+      "verdict": "\ubc18\uc99d\ub428 (falsified)"
+    }
+  },
+  "schema": "rr-self-completion-cases-v1"
+}

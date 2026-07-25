@@ -1,0 +1,152 @@
+{
+  "abandonment_always_w2_10_in_historical_corpus": true,
+  "cost1_cost2_exhaustive_case_check": {
+    "cost1_hits": 0,
+    "cost1_impossible": true,
+    "cost2_always_nearest": true,
+    "cost2_hits": 15,
+    "cost2_non_nearest_hits": 0,
+    "total_branches": 320
+  },
+  "note": "All numbers below are freshly computed from exact.extend()/area_a_prune_reason(), independent of the historical bounded RR corpus (outputs/rr_literal_witnesses.json). See RR_NEAREST_RESIDUAL_THEOREM.md for the proof-status discussion and the critical correction this round found: the historical corpus is a capped/bounded frontier replay, not a proven-complete enumeration.",
+  "residual_position_geometry": {
+    "0": {
+      "nearest_orbit": 120,
+      "residual_orbits": [
+        120,
+        33,
+        9,
+        3,
+        1
+      ],
+      "residual_positions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "1": {
+      "nearest_orbit": 33,
+      "residual_orbits": [
+        33,
+        9,
+        3,
+        1
+      ],
+      "residual_positions": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "2": {
+      "nearest_orbit": 9,
+      "residual_orbits": [
+        9,
+        3,
+        1
+      ],
+      "residual_positions": [
+        3,
+        4,
+        5
+      ]
+    },
+    "3": {
+      "nearest_orbit": 3,
+      "residual_orbits": [
+        3,
+        1
+      ],
+      "residual_positions": [
+        4,
+        5
+      ]
+    },
+    "4": {
+      "nearest_orbit": 1,
+      "residual_orbits": [
+        1
+      ],
+      "residual_positions": [
+        5
+      ]
+    },
+    "5": {
+      "nearest_orbit": null,
+      "residual_orbits": [],
+      "residual_positions": []
+    }
+  },
+  "schema": "rr-residual-cost-table-v2",
+  "w2_10_conditioned_cost_table": {
+    "0": {
+      "cost_by_orbit": {
+        "1": 4,
+        "120": 2,
+        "3": null,
+        "33": 4,
+        "9": 5
+      },
+      "nearest_orbit": 120,
+      "residual_orbits": [
+        120,
+        33,
+        9,
+        3,
+        1
+      ]
+    },
+    "1": {
+      "cost_by_orbit": {
+        "1": null,
+        "3": 5,
+        "33": 2,
+        "9": 4
+      },
+      "nearest_orbit": 33,
+      "residual_orbits": [
+        33,
+        9,
+        3,
+        1
+      ]
+    },
+    "2": {
+      "cost_by_orbit": {
+        "1": 5,
+        "3": 4,
+        "9": 2
+      },
+      "nearest_orbit": 9,
+      "residual_orbits": [
+        9,
+        3,
+        1
+      ]
+    },
+    "3": {
+      "cost_by_orbit": {
+        "1": 4,
+        "3": 2
+      },
+      "nearest_orbit": 3,
+      "residual_orbits": [
+        3,
+        1
+      ]
+    },
+    "4": {
+      "cost_by_orbit": {
+        "1": 2
+      },
+      "nearest_orbit": 1,
+      "residual_orbits": [
+        1
+      ]
+    }
+  }
+}

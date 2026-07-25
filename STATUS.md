@@ -1104,6 +1104,67 @@ untouched.
   pattern (only one instance exists in the corpus, no second case to
   confirm generality) all remain unresolved.
 
+## Sixteenth follow-up round: a major corpus-completeness correction, plus a genuine minimum-cost theorem
+
+Sixteenth follow-up round, attempting to prove the "nearest residual
+completer" theorem Round 15 proposed. While trying to prove it, this
+round found and confirmed a significant error in how Rounds 11-15
+described the RR corpus. No new large-scale search; N=0 untouched.
+
+- **Central finding: the RR corpus is a capped/bounded frontier
+  replay, not a complete enumeration.** `legacy_research/work/
+  analyze_f1_n2_defects.py`'s own docstring says its only exploration
+  is "a capped continuation," and its scope note reads "finite
+  complete replay of an existing bounded Area-A frontier; not an N=2
+  enumeration." The underlying checkpoint
+  (`A_F1_H0_Nle3_macro_depth6.checkpoint.json`) was capped at 65,340
+  frontier states by some earlier round's search. This means every
+  "finite complete verification" claim in Rounds 11-15 that relied on
+  "the corpus is an exhaustive census of depth<=6 RR words" was an
+  overclaim: the claims are true *within the 4,470-witness corpus*,
+  but that corpus itself is not proven to cover all legal depth<=6
+  states. A concrete counterexample state was constructed (weight
+  sequence Z2abandon,R,Z3,Z2,R from the ell=0 abandonment root,
+  landing R2 on hex 0's farthest residual position) that passes
+  `area_a_prune_reason` (fully legal) and structurally matches "RR"
+  (2 R events, F=1, H=0), yet is verifiably absent from the historical
+  corpus by hash lookup.
+- **Round 15's "nearest-only completer" claim is falsified** by a
+  fresh, genuinely exhaustive re-derivation (BFS via
+  `macro.macro_edges()`/`area_a_prune_reason()` from each abandonment
+  root, independent of the historical corpus, frontier fully empties
+  every time -- these state spaces are small, ~1,100-3,900 states):
+  legal non-nearest hub completions occur at every ell<4, roughly as
+  often as nearest ones.
+- **What survives, reproven from scratch**: (1) a genuine, corpus-independent
+  proof, via complete case enumeration over the model's only 4 joint
+  moves (320 branches total), that cost=1 hub re-completion is
+  impossible and cost=2 hub re-completion -- when legal -- always lands
+  on the nearest residual position; (2) the same-component dichotomy
+  (only ell in {0,4}, never {1,2,3}) is RECONFIRMED by the fresh,
+  corpus-independent exhaustive search; (3) the ell=0 branch's
+  single same-component exception is RECONFIRMED as unique via a
+  fresh, genuinely exhaustive (frontier-emptying) search from the
+  ell=0 abandonment root -- this conclusion holds even though the
+  "nearest-only" premise it was partly built on did not.
+- **Phi=0 refined**: a fresh exhaustive check finds hub-touched RR-final
+  states reach Phi=0 in ~98% of cases (293/300), not 100% as Round 15
+  claimed from the historical corpus -- 7 genuine counterexamples
+  exist. The reverse direction (no hub touch implies Phi!=0) held
+  300/300 in the same fresh sample.
+- **R1/R2 self-completion**: constructed a concrete, legal,
+  non-saturated-phase self-completion witness reaching a non-nearest
+  orbit; 3 of 5 proposed obstruction candidates (S1, S2, S5) are
+  directly falsified by it, 2 (S3, S4) remain untested. No clean
+  obstruction theorem or normal form was established.
+- **Methodological takeaway for future rounds**: claims resting on
+  `legacy_research/outputs/f1_n2_defect_words.json` or
+  `outputs/rr_literal_witnesses.json` should be labeled "within the
+  historical bounded corpus" rather than "finite complete
+  verification" unless independently reconfirmed via a fresh,
+  corpus-independent exhaustive search the way this round did for the
+  dichotomy and the ell=0 uniqueness result.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

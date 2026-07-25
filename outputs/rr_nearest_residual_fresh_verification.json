@@ -1,0 +1,238 @@
+{
+  "central_finding": "Round 15's 'always nearest completer' claim, based on the historical bounded/capped RR corpus (65,340-state frontier, not proven complete), is FALSIFIED by fresh exhaustive search: legal non-nearest hub completions exist at every ell<4. The same-component dichotomy (only ell in {0,4}) is, however, RECONFIRMED independently by this fresh search.",
+  "depth5_after_abandonment": {
+    "0": {
+      "chaining_count": 1,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 6,
+        "9": 1,
+        "33": 1,
+        "120": 11
+      },
+      "max_depth_after_abandonment": 5,
+      "nearest_orbit": 120,
+      "nodes_expanded": 1093,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 118,
+      "same_component_count": 1,
+      "same_component_hits": [
+        {
+          "chaining": true,
+          "depth": 5,
+          "r1_target_q": 120,
+          "r2_source_q": 120
+        }
+      ]
+    },
+    "1": {
+      "chaining_count": 0,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "3": 1,
+        "9": 1,
+        "33": 11
+      },
+      "max_depth_after_abandonment": 5,
+      "nearest_orbit": 33,
+      "nodes_expanded": 1050,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 112,
+      "same_component_count": 0,
+      "same_component_hits": []
+    },
+    "2": {
+      "chaining_count": 0,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 1,
+        "3": 1,
+        "9": 11
+      },
+      "max_depth_after_abandonment": 5,
+      "nearest_orbit": 9,
+      "nodes_expanded": 1100,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 120,
+      "same_component_count": 0,
+      "same_component_hits": []
+    },
+    "3": {
+      "chaining_count": 0,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 1,
+        "3": 11
+      },
+      "max_depth_after_abandonment": 5,
+      "nearest_orbit": 3,
+      "nodes_expanded": 1100,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 119,
+      "same_component_count": 0,
+      "same_component_hits": []
+    },
+    "4": {
+      "chaining_count": 3,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 11
+      },
+      "max_depth_after_abandonment": 5,
+      "nearest_orbit": 1,
+      "nodes_expanded": 1100,
+      "non_nearest_completions_occur": false,
+      "rr_final_states": 119,
+      "same_component_count": 3,
+      "same_component_hits": [
+        {
+          "chaining": true,
+          "depth": 4,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        },
+        {
+          "chaining": true,
+          "depth": 4,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        },
+        {
+          "chaining": true,
+          "depth": 4,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        }
+      ]
+    }
+  },
+  "depth6_after_abandonment": {
+    "0": {
+      "chaining_count": 2,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 10,
+        "3": 3,
+        "9": 9,
+        "33": 12,
+        "120": 19
+      },
+      "max_depth_after_abandonment": 6,
+      "nearest_orbit": 120,
+      "nodes_expanded": 3814,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 455,
+      "same_component_count": 1,
+      "same_component_hits": [
+        {
+          "chaining": true,
+          "depth": 5,
+          "r1_target_q": 120,
+          "r2_source_q": 120
+        }
+      ]
+    },
+    "1": {
+      "chaining_count": 0,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 3,
+        "3": 8,
+        "9": 12,
+        "33": 19
+      },
+      "max_depth_after_abandonment": 6,
+      "nearest_orbit": 33,
+      "nodes_expanded": 3657,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 415,
+      "same_component_count": 0,
+      "same_component_hits": []
+    },
+    "2": {
+      "chaining_count": 1,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 9,
+        "3": 12,
+        "9": 19
+      },
+      "max_depth_after_abandonment": 6,
+      "nearest_orbit": 9,
+      "nodes_expanded": 3858,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 464,
+      "same_component_count": 0,
+      "same_component_hits": []
+    },
+    "3": {
+      "chaining_count": 1,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 12,
+        "3": 19
+      },
+      "max_depth_after_abandonment": 6,
+      "nearest_orbit": 3,
+      "nodes_expanded": 3840,
+      "non_nearest_completions_occur": true,
+      "rr_final_states": 450,
+      "same_component_count": 0,
+      "same_component_hits": []
+    },
+    "4": {
+      "chaining_count": 6,
+      "frontier_exhausted": true,
+      "hub_completer_orbit_distribution": {
+        "1": 19
+      },
+      "max_depth_after_abandonment": 6,
+      "nearest_orbit": 1,
+      "nodes_expanded": 3834,
+      "non_nearest_completions_occur": false,
+      "rr_final_states": 450,
+      "same_component_count": 5,
+      "same_component_hits": [
+        {
+          "chaining": true,
+          "depth": 4,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        },
+        {
+          "chaining": true,
+          "depth": 4,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        },
+        {
+          "chaining": true,
+          "depth": 4,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        },
+        {
+          "chaining": true,
+          "depth": 6,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        },
+        {
+          "chaining": true,
+          "depth": 6,
+          "r1_target_q": 1,
+          "r2_source_q": 1
+        }
+      ]
+    }
+  },
+  "dichotomy_holds": {
+    "depth5": true,
+    "depth6": true
+  },
+  "nearest_only_claim_holds": {
+    "depth5": false,
+    "depth6": false
+  },
+  "schema": "rr-nearest-residual-verification-v1"
+}
