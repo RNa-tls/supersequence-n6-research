@@ -1,0 +1,144 @@
+{
+  "count_unit_legend": {
+    "decorated-boundary-level": "one canonical (state, decoration) pair",
+    "event-level": "one R2 boundary occurrence",
+    "post-R2-state-level": "one distinct ExactState at the instant R2 fires",
+    "word-level": "one complete macro-edge word"
+  },
+  "implications": [
+    {
+      "antecedent_count": 6,
+      "count_unit": "event-level",
+      "implication": "same-component => chaining",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local, ell=0..4, depth<=6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 10,
+      "count_unit": "event-level",
+      "counterexample": "4 chaining boundaries are not same-component",
+      "implication": "chaining => same-component",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local, ell=0..4, depth<=6",
+      "violations": 4
+    },
+    {
+      "antecedent_count": 6,
+      "count_unit": "event-level",
+      "implication": "same-component <=> r2_meet_is_hub (LCA form)",
+      "note": "IFF: tp=6, fp=0, fn=0 -- section 6's target predicate CONFIRMED",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local, ell=0..4, depth<=6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 6,
+      "count_unit": "event-level",
+      "implication": "same-component <=> both endpoints in hub component",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local, ell=0..4, depth<=6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 6,
+      "count_unit": "event-level",
+      "implication": "r1_target_hub_distance==r2_source_hub_distance==1 => chaining",
+      "note": "sufficient, NOT necessary (fn=4); the best non-trivial chaining predicate found",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local, depth<=6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 193,
+      "count_unit": "event-level",
+      "counterexample": "187 counterexamples",
+      "implication": "hub_completer_orbit==r1_target_orbit => chaining",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local, depth<=6",
+      "violations": 187
+    },
+    {
+      "antecedent_count": 2234,
+      "count_unit": "decorated-boundary-level",
+      "implication": "full decoration determines chaining / same-component / trailing signature",
+      "note": "2,216 distinct decoration keys over 2,234 boundaries, 0 conflicting groups -- the decoration ALONE suffices, without the ExactState",
+      "proof_status": "exact decorated quotient",
+      "scope": "root-local, ell=0..4, depth<=6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 5,
+      "count_unit": "post-R2-state-level",
+      "counterexample": "4 further states appear at depth 8 (preparation length 7)",
+      "implication": "ell=4 same-component set is closed at 5 states",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local, depth<=8",
+      "violations": 4
+    },
+    {
+      "antecedent_count": 9,
+      "count_unit": "post-R2-state-level",
+      "counterexample": "state cbfdf11e4a79 at depth 8 has only 2 (w3:210 removed by a visited-collision)",
+      "implication": "ell=4 terminal normal form has exactly 3 trailing edges",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local, depth<=8",
+      "violations": 1
+    },
+    {
+      "antecedent_count": null,
+      "count_unit": "post-R2-state-level",
+      "implication": "same-component => abandonment ell in {0,4}",
+      "note": "unchanged from Round 19",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local, depth<=7",
+      "violations": 0
+    }
+  ],
+  "schema": "rr-decorated-implication-lattice-v1",
+  "section2_ablation_summary": {
+    "design_note": "The ExactState is deliberately EXCLUDED from every key. Including it would make the ablation vacuous, because in this universe each of the 2,234 post-R2 ExactStates is reached by exactly one boundary, so any key containing the state separates everything regardless of decoration.",
+    "fields_necessity_undetermined": [
+      "abandonment_ell",
+      "hub_completer_hexagon",
+      "hub_completer_is_r1",
+      "hub_completer_kind",
+      "hub_completer_macro_index",
+      "hub_completer_orbit",
+      "hub_completer_phase",
+      "hub_id",
+      "preparation_family",
+      "r1_boundary_orientation",
+      "r1_macro_index",
+      "r1_source_orbit",
+      "r1_source_phase",
+      "r1_target_hexagon",
+      "r1_target_hub_distance",
+      "r1_target_orbit",
+      "r1_target_phase",
+      "r2_macro_index",
+      "r2_meet_is_hub",
+      "r2_source_hub_distance",
+      "r2_source_orbit",
+      "r2_source_phase",
+      "r2_target_hexagon",
+      "r2_target_hub_distance",
+      "r2_target_orbit",
+      "r2_target_phase"
+    ],
+    "fields_proved_necessary": [
+      "fresh_orbit_openings"
+    ],
+    "full_decoration_determines_all_targets": true,
+    "greedy_caveat": "The greedy subset SEPARATES this finite universe's boundaries into relation-homogeneous groups; it does NOT let one COMPUTE the relations from their definitions. Chaining is defined as r1_target_orbit == r2_source_orbit, so both of those fields are structurally required even though the greedy search drops r1_target_orbit. Separating-minimality and structural-minimality are different notions and the greedy result is the weaker one.",
+    "greedy_minimal_separating_subset": [
+      "r1_target_hexagon",
+      "r2_source_phase",
+      "r2_target_phase",
+      "r2_target_hexagon",
+      "r2_macro_index",
+      "hub_completer_phase",
+      "fresh_orbit_openings"
+    ]
+  }
+}

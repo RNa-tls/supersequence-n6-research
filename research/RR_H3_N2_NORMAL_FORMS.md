@@ -105,3 +105,16 @@ macro-edge가 되어 역사적 depth≤6 scope를 넘어선다.
 요구한다"는 하한(lower bound)은 **증명하지 않았다** — depth 6
 universe에서 N2형이 하나도 나타나지 않았다는 사실이 강한 증거이나,
 일반 하한 논증은 **미완료**.
+
+
+## 라운드20 정정 — fresh-opening 이분법은 depth 8에서 무너진다
+
+위 분류는 "H3는 Z3를 전혀 안 쓴다(fresh=0) / N2는 쓴다(fresh=2~3)"를
+축으로 삼았다. depth ceiling 8까지 확장하면 preparation length 7인
+state가 4개 더 나타나는데, 그중 **3개가 fresh=1**이라 이 이분법에
+깔끔히 들어맞지 않는다.
+
+**더 안정적인 분류 축은 preparation length**(관측값 3, 5, 7 — 전부
+홀수)이며, 각 길이 안에서 Z3 개수가 다양하게 나타난다. 자세한 내용은
+`RR_N2_PREPARATION_NORMAL_FORM.md`와
+`RR_TERMINAL_NORMAL_FORM_THEOREM.md` §12 참고.

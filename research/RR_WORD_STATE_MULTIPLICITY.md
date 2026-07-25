@@ -69,7 +69,8 @@ continuation"으로 읽으면 집합이 더 커져 항등식은 깨진다 — �
 
 ## N2에도 같은 multiplicity가 있는가
 
-**있다.** `outputs/rr_l5_state_ledger.json`의 L5 ledger에서 다섯
+**있다(단, 라운드20 정정: "항상 정확히 3개"는 반증됨 — 아래
+참고).** `outputs/rr_l5_state_ledger.json`의 L5 ledger에서 다섯
 상태 전부 `legal_trailing_edge_count = 3`이다 — H3의 3개뿐 아니라
 N2의 2개도 정확히 3개의 trailing edge를 갖는다. 위 1-6단계 논증이
 `F=1` 소진 이후의 임의의 post-R2 상태에 대해 동일하게 적용되므로
@@ -96,3 +97,16 @@ scope를 함께 바꿔 명시해야 한다.
 - "왜 3인가"의 1-6단계: **손증명**(F 예산과 조인트 유일성만 사용,
   코퍼스 무관).
 - "N2도 3개": **root-local exhaustive**.
+
+
+## 라운드20 정정 — "항상 정확히 3개"는 반증됨
+
+depth ceiling 8까지 확장하면 `ell=4` same-component state가 9개가
+되는데, 그중 `cbfdf11e4a79`는 trailing edge가 **2개**뿐이다
+(`rot^5;w3:210`이 추가로 사라진다). 원인은 `F_exceeded`가 아니라
+**방문 충돌(visited collision)** — 준비 구간이 길어져 더 많은
+permutation이 이미 방문된 결과다.
+
+**정정된 명제**: 위 1-6단계 논증은 **상한(최대 3개)의 손증명**으로는
+그대로 유효하지만, "정확히 3개"는 **반증됨**(exact counterexample:
+`cbfdf11e4a79`). `RR_TERMINAL_NORMAL_FORM_THEOREM.md` §10 참고.

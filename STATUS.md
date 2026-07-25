@@ -1372,6 +1372,87 @@ claimed as a global RR theorem.
   11-18 for the affected phrasings found **no corrections needed beyond
   the 7 already made in Round 18**.
 
+## Twentieth follow-up round: the decorated boundary state, and a refutation of Round 19's stability claim
+
+Twentieth follow-up round. No completion search; N=0 untouched. Nothing
+is claimed as a global RR theorem.
+
+- **The decoration alone determines the relations.** Round 19 proved
+  deductively that a post-R2 ExactState cannot decide chaining. This
+  round defines the decoration to carry alongside (5 orbit-transported
+  fields, 4 hexagon-transported, 18 left-S6-invariant), and finds the
+  reverse: over all 2,234 R2 boundaries, the decoration WITHOUT the
+  ExactState determines chaining, same-component, and the trailing-edge
+  signature -- 2,216 distinct keys, zero conflicting groups.
+  Grade: exact decorated quotient. `research/RR_DECORATED_BOUNDARY_STATE.md`.
+- **The ablation was designed to avoid being vacuous, and its greedy
+  result is reported with its caveat.** Including the ExactState in any
+  key would separate every boundary (each state is reached once), making
+  "drop a field, look for collisions" report every field as unnecessary.
+  So the ExactState is excluded. Only `fresh_orbit_openings` is provably
+  necessary; the other 26 fields are labeled "necessity undetermined",
+  never "unnecessary". The greedy 7-field subset SEPARATES this finite
+  universe but does not let one COMPUTE the relations from their
+  definitions -- it omits `r1_target_orbit`, which chaining is defined
+  in terms of. Separating-minimality and structural-minimality are
+  different notions and the weaker one is flagged as such.
+- **Same-component has an exact ancestry characterization.** Three
+  predicates are all IFF (tp=6, fp=0, fn=0): the LCA form
+  (`every shortest path between R2's endpoints passes through the hub`),
+  `both endpoints at finite hub distance`, and Round 19's
+  `both roots in the hub component`. The graph reason is the already-proved
+  Unique Hub Hexagon lemma -- the hub is the only possible junction.
+- **Chaining still has no non-trivial iff predicate** -- reported as
+  open again. The best sufficient one improved from Round 19's
+  `same_component` (a relation) to `r1_target_hub_distance ==
+  r2_source_hub_distance == 1` (pure hub geometry), same confusion
+  matrix, still not necessary (fn=4). `hub_completer_orbit ==
+  r1_target_orbit` alone is falsified outright (fp=187).
+- **Round 19's "the ell=4 set is completely stable" is REFUTED.** A
+  depth-8 coverage run (root-local, no cap, frontier exhausted, 43,459
+  nodes) grows the ell=4 same-component set from 5 to **9** states. The
+  reason depth 6->7 showed no change is **parity**, not closure: ell=4
+  boundaries occur only at EVEN depth from the abandonment root (4, 6,
+  8) and ell=0 only at ODD depth (5, 7). Raising the ceiling to an odd
+  number could not add anything at ell=4. No upper bound on preparation
+  depth is established, and fresh-opening blocks can be inserted
+  repeatedly (one state uses 5). `research/RR_TERMINAL_NORMAL_FORM_THEOREM.md`.
+- **Round 19's "exactly 3 trailing edges" is also refuted, and replaced
+  by a proved upper bound.** The F-exhaustion argument proves *at most*
+  3 (ell<5 edges are all abandonments; the model has 4 joints; `w3:120`
+  is still abandoning). 11 of the 12 states have exactly 3, but
+  `cbfdf11e4a79` at depth 8 has only 2 -- an extra visited-collision, not
+  `F_exceeded`.
+- **A common terminal normal form holds across both branches** (12/12
+  states, ell=0 and ell=4): R1 targets the nearest-residual orbit O*,
+  the hub completer is the LAST preparation edge and lands on O*, R2's
+  source is O* at phase 4 and its target is the initial orbit 0, Phi=0,
+  and chaining is therefore forced. The branches differ only in O*
+  (1 vs 120), the completer's landing phase (4 vs 0), the
+  completer-to-R2 distance (1 vs 2), and depth parity.
+- **H3 has a clean parameterized normal form**: preparation is exactly
+  3 macro-edges, exactly one of which is R, and the three states are
+  precisely the three placements of that R. Whether the completer is R1
+  is not separate structure -- it is the i=3 case.
+  `research/RR_H3_PREPARATION_NORMAL_FORM.md`.
+- **N2 is NOT established as a single parameterized family** (2
+  instances, differing Z3 counts and placements), and Round 19's
+  "fresh-opening vs no-fresh-opening" dichotomy breaks at depth 8, where
+  3 of the 4 new states have exactly one fresh opening. Preparation
+  length (3, 5, 7 -- all odd) is the more stable classification axis.
+- **The ell=0 family growth is characterized but its finiteness is
+  NOT decided** -- reported as open. The 3 ell=0 states share a fully
+  identical terminal signature and differ only in preparation length
+  (4 vs 6) and Z3 count (0, 2, 3). Given that ell=4 gained a whole new
+  preparation length at depth 8, unbounded growth is the better-supported
+  expectation, and no evidence for finiteness exists.
+  `research/RR_ELL0_FAMILY_GROWTH.md`.
+- **Decorated Markov-completeness is partial, honestly.** Child legality
+  is a pure function of the ExactState and decoration updates are local
+  (both 손증명), but the strong form -- same decorated state implies same
+  continuation tree -- is VACUOUS here, since no two histories reach the
+  same decorated state. Left as 미완료.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

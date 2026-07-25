@@ -146,8 +146,13 @@ depth 7에서도 **자연소진**됐다(cap 사용 없음).
 
 **세 가지 안정성 결과**:
 
-1. **ell=4의 L5는 완전히 안정적**이다 — depth 7에서도 정확히 5개,
-   H3/N2 분할도 동일. **L5는 depth 6의 인위적 산물이 아니다.**
+1. ~~**ell=4의 L5는 완전히 안정적**이다 — depth 7에서도 정확히 5개,
+   H3/N2 분할도 동일.~~ **[라운드20에서 반증됨]** depth ceiling 8로
+   올리면 preparation length 7짜리 state가 **4개 더** 나타나
+   5→9가 된다. depth 6→7에서 변화가 없었던 이유는 안정성이 아니라
+   **parity**다: `ell=4`의 same-component boundary는 abandonment
+   root로부터 **짝수 depth**에서만 발생하므로 홀수인 7에서는 아무것도
+   추가되지 않는다. `RR_TERMINAL_NORMAL_FORM_THEOREM.md` §12 참고.
 2. **ell∈{0,4} 이분법이 depth 7에서도 유지**된다(ell=1,2,3에서
    여전히 0). ell=0만 1→3으로 늘어난다.
 3. **same-component ⟹ chaining이 depth 7에서도 반례 0**

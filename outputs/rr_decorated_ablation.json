@@ -1,0 +1,908 @@
+{
+  "ablation_design_note": "The ExactState is deliberately EXCLUDED from every key. Including it would make the ablation vacuous, because in this universe each of the 2,234 post-R2 ExactStates is reached by exactly one boundary, so any key containing the state separates everything regardless of decoration.",
+  "boundary_count_event_level": 2234,
+  "full_decoration_determination": {
+    "chaining": {
+      "conflicting_key_count": 0,
+      "determined": true,
+      "distinct_keys": 2216,
+      "exact_counterexample": null
+    },
+    "same_component": {
+      "conflicting_key_count": 0,
+      "determined": true,
+      "distinct_keys": 2216,
+      "exact_counterexample": null
+    },
+    "trailing_edge_signature": {
+      "conflicting_key_count": 0,
+      "determined": true,
+      "distinct_keys": 2216,
+      "exact_counterexample": null
+    }
+  },
+  "greedy_minimal_determination": {
+    "chaining": {
+      "conflicting_key_count": 0,
+      "determined": true,
+      "distinct_keys": 2214,
+      "exact_counterexample": null
+    },
+    "same_component": {
+      "conflicting_key_count": 0,
+      "determined": true,
+      "distinct_keys": 2214,
+      "exact_counterexample": null
+    },
+    "trailing_edge_signature": {
+      "conflicting_key_count": 0,
+      "determined": true,
+      "distinct_keys": 2214,
+      "exact_counterexample": null
+    }
+  },
+  "greedy_minimal_subset": [
+    "r1_target_hexagon",
+    "r2_source_phase",
+    "r2_target_phase",
+    "r2_target_hexagon",
+    "r2_macro_index",
+    "hub_completer_phase",
+    "fresh_orbit_openings"
+  ],
+  "per_field_ablation": {
+    "abandonment_ell": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "fresh_orbit_openings": {
+      "broke_targets": [
+        "trailing_edge_signature"
+      ],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2211,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2211,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 5,
+          "determined": false,
+          "distinct_keys": 2211,
+          "exact_counterexample": {
+            "boundary_a": {
+              "path": [
+                "rot^5;w3:120",
+                "rot^5;w2:10",
+                "rot^5;w3:210",
+                "rot^5;w3:210",
+                "rot^5;w2:10",
+                "rot^5;w3:120"
+              ],
+              "raw_state_hash": "205a9c60620889e8bff8c1f04a3ed5c862be2219a9d25b55e9a42355fb954002",
+              "trailing_edge_signature": "('rot^5;w2:10', 'rot^5;w3:201', 'rot^5;w3:210')"
+            },
+            "boundary_b": {
+              "path": [
+                "rot^5;w3:120",
+                "rot^5;w3:201",
+                "rot^5;w3:210",
+                "rot^5;w3:210",
+                "rot^5;w3:201",
+                "rot^5;w3:120"
+              ],
+              "raw_state_hash": "666050df63c7f890c1ecd3b8f79a880309d66155d68cbd48d6e4fc475c9e2930",
+              "trailing_edge_signature": "('rot^5;w2:10', 'rot^5;w3:120', 'rot^5;w3:201', 'rot^5;w3:210')"
+            },
+            "conflicting_values": [
+              "('rot^5;w2:10', 'rot^5;w3:120', 'rot^5;w3:201', 'rot^5;w3:210')",
+              "('rot^5;w2:10', 'rot^5;w3:201', 'rot^5;w3:210')"
+            ],
+            "reduced_key": [
+              0,
+              0,
+              33,
+              0,
+              120,
+              3,
+              90,
+              1,
+              20,
+              0,
+              140,
+              2,
+              56,
+              6,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              false,
+              0,
+              "fresh-opening"
+            ]
+          }
+        }
+      }
+    },
+    "hub_completer_hexagon": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "hub_completer_is_r1": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "hub_completer_kind": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "hub_completer_macro_index": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "hub_completer_orbit": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "hub_completer_phase": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "hub_id": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "preparation_family": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_boundary_orientation": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_macro_index": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_source_orbit": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_source_phase": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_target_hexagon": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_target_hub_distance": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_target_orbit": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r1_target_phase": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_macro_index": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_meet_is_hub": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_source_hub_distance": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_source_orbit": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_source_phase": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_target_hexagon": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_target_hub_distance": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_target_orbit": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    },
+    "r2_target_phase": {
+      "broke_targets": [],
+      "detail": {
+        "chaining": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "same_component": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        },
+        "trailing_edge_signature": {
+          "conflicting_key_count": 0,
+          "determined": true,
+          "distinct_keys": 2216,
+          "exact_counterexample": null
+        }
+      }
+    }
+  },
+  "schema": "rr-decorated-ablation-v1",
+  "section5_chaining_predicates": [
+    {
+      "false_negative": 0,
+      "false_negative_example": null,
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": true,
+      "necessary": true,
+      "predicate": "DEFINITION r1_target==r2_source (excluded as trivial)",
+      "sufficient": true,
+      "true_negative": 2224,
+      "true_positive": 10
+    },
+    {
+      "false_negative": 5,
+      "false_negative_example": {
+        "path": [
+          "rot^5;w2:10",
+          "rot^5;w2:10",
+          "rot^5;w3:120",
+          "rot^4;w2:10",
+          "rot^5;w3:120"
+        ],
+        "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+      },
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": false,
+      "necessary": false,
+      "predicate": "completer_orbit==r1_target AND r2 fires at completion point",
+      "sufficient": true,
+      "true_negative": 2224,
+      "true_positive": 5
+    },
+    {
+      "false_negative": 4,
+      "false_negative_example": {
+        "path": [
+          "rot^5;w3:120",
+          "rot^5;w3:201",
+          "rot^5;w3:201",
+          "rot^5;w3:201",
+          "rot^5;w3:210",
+          "rot^5;w3:120"
+        ],
+        "raw_state_hash": "3da83e07d291c2ed0089d569ce3b34a31ce589731bd1e0cdacbc09aab51023ed"
+      },
+      "false_positive": 187,
+      "false_positive_example": {
+        "path": [
+          "rot^5;w3:120",
+          "rot^5;w3:120"
+        ],
+        "raw_state_hash": "c45f05f56ec73c93ace3ac4072b33fd1ff42d3cb36f2e6a52d0d4528388c6ca5"
+      },
+      "iff": false,
+      "necessary": false,
+      "predicate": "completer_orbit == r1_target_orbit",
+      "sufficient": false,
+      "true_negative": 2037,
+      "true_positive": 6
+    },
+    {
+      "false_negative": 5,
+      "false_negative_example": {
+        "path": [
+          "rot^5;w2:10",
+          "rot^5;w2:10",
+          "rot^5;w3:120",
+          "rot^4;w2:10",
+          "rot^5;w3:120"
+        ],
+        "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+      },
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": false,
+      "necessary": false,
+      "predicate": "r2 source is the hub completion point",
+      "sufficient": true,
+      "true_negative": 2224,
+      "true_positive": 5
+    },
+    {
+      "false_negative": 4,
+      "false_negative_example": {
+        "path": [
+          "rot^5;w3:120",
+          "rot^5;w3:201",
+          "rot^5;w3:201",
+          "rot^5;w3:201",
+          "rot^5;w3:210",
+          "rot^5;w3:120"
+        ],
+        "raw_state_hash": "3da83e07d291c2ed0089d569ce3b34a31ce589731bd1e0cdacbc09aab51023ed"
+      },
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": false,
+      "necessary": false,
+      "predicate": "r1_target_hub_distance == r2_source_hub_distance == 1",
+      "sufficient": true,
+      "true_negative": 2224,
+      "true_positive": 6
+    },
+    {
+      "false_negative": 4,
+      "false_negative_example": {
+        "path": [
+          "rot^5;w3:120",
+          "rot^5;w3:201",
+          "rot^5;w3:201",
+          "rot^5;w3:201",
+          "rot^5;w3:210",
+          "rot^5;w3:120"
+        ],
+        "raw_state_hash": "3da83e07d291c2ed0089d569ce3b34a31ce589731bd1e0cdacbc09aab51023ed"
+      },
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": false,
+      "necessary": false,
+      "predicate": "same_component (Round 19 result, for comparison)",
+      "sufficient": true,
+      "true_negative": 2224,
+      "true_positive": 6
+    }
+  ],
+  "section6_same_component_predicates": [
+    {
+      "false_negative": 0,
+      "false_negative_example": null,
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": true,
+      "necessary": true,
+      "predicate": "r2_meet_is_hub (LCA form)",
+      "sufficient": true,
+      "true_negative": 2228,
+      "true_positive": 6
+    },
+    {
+      "false_negative": 0,
+      "false_negative_example": null,
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": true,
+      "necessary": true,
+      "predicate": "both hub distances finite",
+      "sufficient": true,
+      "true_negative": 2228,
+      "true_positive": 6
+    },
+    {
+      "false_negative": 0,
+      "false_negative_example": null,
+      "false_positive": 0,
+      "false_positive_example": null,
+      "iff": true,
+      "necessary": true,
+      "predicate": "both roots are hub component (Round 19)",
+      "sufficient": true,
+      "true_negative": 2228,
+      "true_positive": 6
+    }
+  ],
+  "stabilizer_sizes": {
+    "1": 2234
+  },
+  "transported_variant_counts": {
+    "1": 2234
+  }
+}
