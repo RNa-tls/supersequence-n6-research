@@ -1,0 +1,414 @@
+{
+  "ablation": null,
+  "dedup": "canonical (state, history) pair -- see module docstring for the tied-alpha transport argument",
+  "depth_ceiling": 6,
+  "engine_sha256": {
+    "superperm_partial_f1.py": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+    "superperm_partial_f1_macro.py": "b02d3985d3672c24efdc197777cc25080fc9cb3846545db240ceacd649485049",
+    "superperm_port_lift.py": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60"
+  },
+  "engine_version": "rr-canonical-local-enumerator-v1",
+  "no_edge_cap": true,
+  "no_node_cap": true,
+  "results_by_ell": {
+    "0": {
+      "chaining_count": 2,
+      "dedup_key": "canonical (state, history) pair; history=(r_count, r1_target_orbit) transported through tied alphas",
+      "depth_ceiling_applied": 6,
+      "distinct_same_component_canonical_states": 1,
+      "duplicate_count": 0,
+      "expanded_count": 3814,
+      "frontier_empty": true,
+      "generated_edges": 24072,
+      "hub_completer_orbit_distribution": {
+        "1": 10,
+        "3": 3,
+        "9": 9,
+        "33": 12,
+        "120": 19
+      },
+      "max_depth_seen": 6,
+      "root_canonical_hash": "e4bfef9c89c7b9e672318081d2e129c397b8aa4b079448c9aed0852a8892f781",
+      "root_raw_hash": "35e9155eda0e933da008cb9e01c93d49ae8fb0a65aa122dac5a48345b0bf83a4",
+      "rr_final_count": 455,
+      "same_component_count": 1,
+      "same_component_states": [
+        {
+          "D": 3,
+          "F": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 7,
+          "S": 3,
+          "canonical_pair_hash": "b2598e8044d46d7ff488f76d7247006ca51f8202b55a05b269281d2d841521ec",
+          "canonical_state_hash": "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+          "chaining": true,
+          "depth_from_abandonment_root": 5,
+          "depth_from_word_start": 6,
+          "endpoint": [
+            3,
+            4,
+            0,
+            1,
+            2,
+            5
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "literal_multiplicity": 1,
+          "phi": 0,
+          "r1_target_orbit": 120,
+          "r2_source_orbit": 120,
+          "r2_source_phase": 4,
+          "r2_target_hexagon": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 3,
+          "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+          "same_component": true,
+          "stabilizer_tie_count": 1,
+          "visited_count": 31
+        }
+      ],
+      "stabilizer_tie_histogram": {
+        "1": 3814
+      },
+      "terminal_reasons": {
+        "F_exceeded": 20000,
+        "depth_ceiling_reached": 2721,
+        "r_event_count_exceeds_scope": 228,
+        "remaining_cover_capacity_impossible": 31
+      },
+      "unique_canonical_pair_keys": 3814
+    },
+    "1": {
+      "chaining_count": 0,
+      "dedup_key": "canonical (state, history) pair; history=(r_count, r1_target_orbit) transported through tied alphas",
+      "depth_ceiling_applied": 6,
+      "distinct_same_component_canonical_states": 0,
+      "duplicate_count": 0,
+      "expanded_count": 3657,
+      "frontier_empty": true,
+      "generated_edges": 23149,
+      "hub_completer_orbit_distribution": {
+        "1": 3,
+        "3": 8,
+        "9": 12,
+        "33": 19
+      },
+      "max_depth_seen": 6,
+      "root_canonical_hash": "3d63ef096ea32c943aa37871a4d2a8effbc2fdd109aaa2ab767e8690b02c4e42",
+      "root_raw_hash": "fc104ccf91e6dc40312dbd8cd08009b473b5ff1fef2f62b4d39d1b76052b6bd1",
+      "rr_final_count": 415,
+      "same_component_count": 0,
+      "same_component_states": [],
+      "stabilizer_tie_histogram": {
+        "1": 3657
+      },
+      "terminal_reasons": {
+        "F_exceeded": 19258,
+        "depth_ceiling_reached": 2607,
+        "r_event_count_exceeds_scope": 227,
+        "remaining_cover_capacity_impossible": 8
+      },
+      "unique_canonical_pair_keys": 3657
+    },
+    "2": {
+      "chaining_count": 1,
+      "dedup_key": "canonical (state, history) pair; history=(r_count, r1_target_orbit) transported through tied alphas",
+      "depth_ceiling_applied": 6,
+      "distinct_same_component_canonical_states": 0,
+      "duplicate_count": 0,
+      "expanded_count": 3858,
+      "frontier_empty": true,
+      "generated_edges": 24233,
+      "hub_completer_orbit_distribution": {
+        "1": 9,
+        "3": 12,
+        "9": 19
+      },
+      "max_depth_seen": 6,
+      "root_canonical_hash": "47ba705e7069be302e365b0090aa0912874dd5406c588b3d09baef2a6e8d3b6b",
+      "root_raw_hash": "370831e8a0eb811fe5a504d1b7073546c39f31ef2fd18d2e7ad3de6541fe1ad4",
+      "rr_final_count": 464,
+      "same_component_count": 0,
+      "same_component_states": [],
+      "stabilizer_tie_histogram": {
+        "1": 3858
+      },
+      "terminal_reasons": {
+        "F_exceeded": 20142,
+        "depth_ceiling_reached": 2758,
+        "r_event_count_exceeds_scope": 226,
+        "remaining_cover_capacity_impossible": 8
+      },
+      "unique_canonical_pair_keys": 3858
+    },
+    "3": {
+      "chaining_count": 1,
+      "dedup_key": "canonical (state, history) pair; history=(r_count, r1_target_orbit) transported through tied alphas",
+      "depth_ceiling_applied": 6,
+      "distinct_same_component_canonical_states": 0,
+      "duplicate_count": 0,
+      "expanded_count": 3840,
+      "frontier_empty": true,
+      "generated_edges": 24203,
+      "hub_completer_orbit_distribution": {
+        "1": 12,
+        "3": 19
+      },
+      "max_depth_seen": 6,
+      "root_canonical_hash": "55a6228f86199c52684f7ef504f7fe53eca9bc6b062228efaa33e1854c005395",
+      "root_raw_hash": "89615cac08fafef0edbec32d3ecaff5916f3dcaff667167da177abc73bce74c4",
+      "rr_final_count": 450,
+      "same_component_count": 0,
+      "same_component_states": [],
+      "stabilizer_tie_histogram": {
+        "1": 3840
+      },
+      "terminal_reasons": {
+        "F_exceeded": 20131,
+        "depth_ceiling_reached": 2740,
+        "r_event_count_exceeds_scope": 229,
+        "remaining_cover_capacity_impossible": 4
+      },
+      "unique_canonical_pair_keys": 3840
+    },
+    "4": {
+      "chaining_count": 6,
+      "dedup_key": "canonical (state, history) pair; history=(r_count, r1_target_orbit) transported through tied alphas",
+      "depth_ceiling_applied": 6,
+      "distinct_same_component_canonical_states": 5,
+      "duplicate_count": 0,
+      "expanded_count": 3834,
+      "frontier_empty": true,
+      "generated_edges": 24134,
+      "hub_completer_orbit_distribution": {
+        "1": 19
+      },
+      "max_depth_seen": 6,
+      "root_canonical_hash": "5b7de878e27f82eb6a0066e648894df3ae0de32b4af38ebfc9a376e7a7b3f438",
+      "root_raw_hash": "fb1b213f7e6fe18c8e022a25ca42b46a9c0768350393d2544044e0f246e132bd",
+      "rr_final_count": 450,
+      "same_component_count": 5,
+      "same_component_states": [
+        {
+          "D": 4,
+          "F": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 6,
+          "S": 3,
+          "canonical_pair_hash": "db72012e74cc8df25a960be084600f9a3c19fc174e2d48ba15f56cf266e09bf7",
+          "canonical_state_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616",
+          "chaining": true,
+          "depth_from_abandonment_root": 4,
+          "depth_from_word_start": 5,
+          "endpoint": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "literal_multiplicity": 1,
+          "phi": 0,
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_hexagon": 18,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+          "same_component": true,
+          "stabilizer_tie_count": 1,
+          "visited_count": 25
+        },
+        {
+          "D": 4,
+          "F": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 6,
+          "S": 3,
+          "canonical_pair_hash": "79d04c878eb4d039bcb0375f45707a65cbd9622174eadb5270f74812cd1a818a",
+          "canonical_state_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4",
+          "chaining": true,
+          "depth_from_abandonment_root": 4,
+          "depth_from_word_start": 5,
+          "endpoint": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "literal_multiplicity": 1,
+          "phi": 0,
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_hexagon": 18,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+          "same_component": true,
+          "stabilizer_tie_count": 1,
+          "visited_count": 25
+        },
+        {
+          "D": 4,
+          "F": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 6,
+          "S": 3,
+          "canonical_pair_hash": "134102cf4a4b417933e613c310a6a8b40fe4802a31a58d97882194ffe08de42a",
+          "canonical_state_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9",
+          "chaining": true,
+          "depth_from_abandonment_root": 4,
+          "depth_from_word_start": 5,
+          "endpoint": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "literal_multiplicity": 1,
+          "phi": 0,
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_hexagon": 18,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+          "same_component": true,
+          "stabilizer_tie_count": 1,
+          "visited_count": 25
+        },
+        {
+          "D": 12,
+          "F": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 4,
+          "P": 8,
+          "S": 5,
+          "canonical_pair_hash": "72b24f35dd9facb54cc42dfe103f75e9b192f52d18f695a13c24380e3539f949",
+          "canonical_state_hash": "45ffd9e6f52662279f067932d1d01d41e9296d522f3c96bd6740c7a8777a5a4e",
+          "chaining": true,
+          "depth_from_abandonment_root": 6,
+          "depth_from_word_start": 7,
+          "endpoint": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "literal_multiplicity": 1,
+          "phi": 0,
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_hexagon": 18,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "86195429f1c6a43182501eecc624bb35da1095611c35628fb434bfcbd848bcfc",
+          "same_component": true,
+          "stabilizer_tie_count": 1,
+          "visited_count": 37
+        },
+        {
+          "D": 17,
+          "F": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 5,
+          "P": 8,
+          "S": 6,
+          "canonical_pair_hash": "947ae17c93488b022a06b15ef63d992f1f3f19e5583474c61d05156bddce8a5e",
+          "canonical_state_hash": "4a5b9010f1732c39cba54b7a7d4e49b9fd4885e340d5109dd7c587942918e0cc",
+          "chaining": true,
+          "depth_from_abandonment_root": 6,
+          "depth_from_word_start": 7,
+          "endpoint": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "legal_trailing_edge_count": 3,
+          "legal_trailing_edges": [
+            "rot^5;w2:10",
+            "rot^5;w3:201",
+            "rot^5;w3:210"
+          ],
+          "literal_multiplicity": 1,
+          "phi": 0,
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_hexagon": 18,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2,
+          "raw_state_hash": "b2898cc223e9851c6c02f9d489a3e8444e77edc332500e83ed317b154ddb4a6c",
+          "same_component": true,
+          "stabilizer_tie_count": 1,
+          "visited_count": 37
+        }
+      ],
+      "stabilizer_tie_histogram": {
+        "1": 3834
+      },
+      "terminal_reasons": {
+        "F_exceeded": 20079,
+        "depth_ceiling_reached": 2734,
+        "r_event_count_exceeds_scope": 222
+      },
+      "unique_canonical_pair_keys": 3834
+    }
+  },
+  "root_class": "abandonment-instant state (root class 1), real w2:10 abandonment move, ell=0..4",
+  "schema": "rr-canonical-local-universe-v1",
+  "termination": "frontier empty within the declared depth ceiling"
+}

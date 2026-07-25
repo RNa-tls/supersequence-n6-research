@@ -1,0 +1,180 @@
+{
+  "count_unit_legend": {
+    "event-level": "one R2 boundary occurrence (a state may be reached by several, though in this universe none is)",
+    "history-level": "one (state, history) pair",
+    "post-R2-state-level": "one distinct ExactState at the instant R2 fires",
+    "word-level": "one complete macro-edge word (the historical corpus's unit)"
+  },
+  "implications": [
+    {
+      "antecedent_count": 6,
+      "count_unit": "event-level",
+      "counterexample": null,
+      "implication": "same-component => chaining",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local universe, ell=0..4, depth ceiling 6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 6,
+      "count_unit": "post-R2-state-level",
+      "counterexample": null,
+      "implication": "same-component => chaining",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local universe, ell=0..4, depth ceiling 6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 8,
+      "count_unit": "event-level",
+      "counterexample": null,
+      "implication": "same-component => chaining",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local universe, depth ceiling 7",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 10,
+      "count_unit": "event-level",
+      "counterexample": "23 chaining boundaries at depth 6 are NOT same-component",
+      "implication": "chaining => same-component",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local universe, depth ceiling 6",
+      "violations": 4
+    },
+    {
+      "antecedent_count": 37,
+      "count_unit": "event-level",
+      "counterexample": "31 boundaries with r2 source orbit 1 are not chaining",
+      "implication": "r2_source_orbit==1 => chaining",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local universe, depth ceiling 6",
+      "violations": 31
+    },
+    {
+      "antecedent_count": 449,
+      "count_unit": "event-level",
+      "counterexample": "449 counterexamples; same_target and chaining are disjoint (tp=0)",
+      "implication": "r1_target==r2_target => chaining",
+      "proof_status": "\ubc18\uc99d\ub428",
+      "scope": "root-local universe, depth ceiling 6",
+      "violations": 449
+    },
+    {
+      "antecedent_count": 6,
+      "count_unit": "event-level",
+      "implication": "same-component <=> (r2 source root == hub component AND r2 target root == hub component)",
+      "note": "identical confusion matrix to same_component itself (tp/fp/fn all equal), i.e. the two predicates coincide exactly in this universe",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local universe, depth ceiling 6",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 6,
+      "count_unit": "post-R2-state-level",
+      "implication": "same-component => abandonment ell in {0,4}",
+      "note": "also 0 at depth ceiling 7: {'0': 3, '1': 0, '2': 0, '3': 0, '4': 5}",
+      "proof_status": "root-local exhaustive",
+      "scope": "root-local universe, depth ceiling 6 AND 7",
+      "violations": 0
+    },
+    {
+      "antecedent_count": 9,
+      "count_unit": "word-level and post-R2-state-level jointly",
+      "implication": "#words = SUM over post-R2 states of #trailing completions",
+      "note": "9 = 3+3+3",
+      "proof_status": "exact counting identity",
+      "scope": "historical ell=4 same-component set",
+      "violations": 0
+    }
+  ],
+  "per_ell_state_level_counts_depth6": {
+    "0": {
+      "chaining_states": 2,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 455,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 1
+    },
+    "1": {
+      "chaining_states": 0,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 415,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 0
+    },
+    "2": {
+      "chaining_states": 1,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 464,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 0
+    },
+    "3": {
+      "chaining_states": 1,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 450,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 0
+    },
+    "4": {
+      "chaining_states": 6,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 450,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 5
+    }
+  },
+  "per_ell_state_level_counts_depth7": {
+    "0": {
+      "chaining_states": 7,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 1572,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 3
+    },
+    "1": {
+      "chaining_states": 4,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 1433,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 0
+    },
+    "2": {
+      "chaining_states": 5,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 1587,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 0
+    },
+    "3": {
+      "chaining_states": 5,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 1560,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 0
+    },
+    "4": {
+      "chaining_states": 10,
+      "frontier_empty": true,
+      "post_r2_states_rr_final": 1572,
+      "same_and_nonchaining_states": 0,
+      "same_component_states": 5
+    }
+  },
+  "schema": "rr-local-implication-lattice-v1",
+  "scope": "POST-R2 STATE (never word) unless a field name says otherwise",
+  "section5_markov_analysis": {
+    "consequence": "The enumerator MUST carry (r_count, r1_target_orbit) in its search state, as both the Round 17 raw enumerator and the Round 19 canonical enumerator do. That this universe happens to have zero collisions is a fact about the universe, not a license to drop the fields.",
+    "empirical": {
+      "different_r1_target": 0,
+      "disagree_chaining": 0,
+      "disagree_same": 0,
+      "examples": [],
+      "multi_boundary_states": 0,
+      "total_post_r2_states": 2234
+    },
+    "verdict_deductive": "\uc190\uc99d\uba85 that the history field IS required: chaining is defined as (R1 target orbit == R2 source orbit). A post-R2 ExactState is (p, hex_masks, orbit_masks, F, S, H). orbit_masks records WHICH (orbit,phase) pairs are visited but carries no record of WHICH edge was R1. Therefore r1_target_orbit is not a function of the post-R2 state, and chaining cannot be decided from the post-R2 state alone. same-component is likewise computed on the PRE-R2 component map, which the post-R2 state has already modified by merging R2's own target. Both relations are boundary (edge) data, not state data.",
+    "verdict_empirical": "VACUOUS -- all 2,234 distinct post-R2 states at depth 6 are reached by exactly ONE R2 boundary, so no two histories can be compared; the check can neither confirm nor refute Markov-completeness."
+  }
+}

@@ -1301,6 +1301,77 @@ replay of the 9 historical witnesses through the current engine.
 - Per the round's instruction, **no new general RR theorem is proposed
   here** -- the discrepancy had to be closed first, and it now is.
 
+## Nineteenth follow-up round: the L5 local universe classified, and a real canonical enumerator
+
+Nineteenth follow-up round. With the Round 18 discrepancy audit closed,
+this round classifies the corrected root-local universe. No completion
+search; N=0 untouched. Per the round's instruction, nothing here is
+claimed as a global RR theorem.
+
+- **A genuinely canonical enumerator was built** (Round 17's deduped on
+  raw states, a labeling error Round 18 corrected). The real difficulty
+  it had to solve: `exact.canonicalize()` returns the least left-S6
+  translate but not the alpha achieving it, while history fields like
+  "R1's target orbit" are raw orbit ids -- so the *pair* must be
+  canonicalized, transporting history orbit ids through every tied alpha
+  via `LEFT_ORBIT_ACTION` and taking the minimum. Result: duplicate
+  count 0, every stabilizer tie count 1, and **every number identical to
+  the raw enumerator**. So Round 17's raw dedup was not merely "safe" --
+  in this universe it was exactly right, because the universe contains
+  no two states that are left-S6 translates of each other.
+- **The five ell=4 post-R2 states share one identical terminal
+  signature** with no exceptions: R1 targets orbit 1, the hub completer
+  lands precisely on (orbit 1, phase 4) = hex 0's position 5, R2 then
+  fires immediately via `rot^0;w3:120` with source orbit 1 and target
+  orbit 0, Phi=0, exactly 3 legal trailing edges, reached by exactly 1
+  path. `research/RR_L5_LOCAL_UNIVERSE.md`.
+- **The counting identity is exact**: 9 = 3 + 3 + 3, and *why* each
+  state admits exactly 3 trailing edges is fully explained rather than
+  observed -- once F=1 is spent, every ell<5 edge would be an
+  abandonment (pruned `F_exceeded`), leaving only ell=5; there are only
+  4 joints in the model; and one of them (`w3:120`) is still abandoning
+  here. `research/RR_WORD_STATE_MULTIPLICITY.md`.
+- **The proposed N2 theorem is FALSIFIED as stated.** N2 is not "H3 plus
+  one inserted zero-charge block": it has two more preparation edges,
+  its extra edges are Z3 fresh-orbit openings that H3 never uses at all
+  (H3 holds O=2, N2 reaches O=4-5), and its hub completer is always R1
+  while H3 contains both the R1-completer and Z2-completer variants. The
+  corrected picture is **one shared terminal normal form reached by two
+  structurally independent preparation families**.
+  `research/RR_H3_N2_NORMAL_FORMS.md`.
+- **No nontrivial necessary-and-sufficient chaining predicate was
+  found** -- reported as 미완료 rather than dressed up: the only IFF
+  predicate is `r1_target == r2_source`, which is chaining's own
+  definition. What the ablation did establish: `same_component` is
+  strictly sufficient but not necessary (fp=0, fn=23); it coincides
+  exactly with "both R2 roots in the hub component"; `r2_source_orbit==1`
+  alone is falsified as a predicate (fp=31); and `same_target` is
+  disjoint from chaining (tp=0, 449 counterexamples), independently
+  reconfirming a Round 14 corpus observation in a corpus-free setting.
+  `research/RR_LOCAL_CHAINING_PREDICATE.md`.
+- **Markov-completeness: the empirical check is VACUOUS, and the
+  deductive answer is "no".** All 2,234 distinct post-R2 states at depth
+  6 are reached by exactly one R2 boundary, so there are no two
+  histories to compare -- the zero-collision fact proves nothing. The
+  real answer is deductive: a post-R2 `ExactState` records which
+  (orbit,phase) pairs are visited but not which edge was R1, so
+  `r1_target_orbit` is not a function of it and chaining cannot be
+  decided from the state alone. Both relations are boundary data, not
+  state data, and the enumerator must carry the history fields.
+- **Depth-7 stability check** (coverage confirmation, not a completion
+  search; frontier exhausted naturally, no cap): the ell=4 five-state
+  set is **completely stable** (still exactly 5, same H3/N2 split), the
+  ell in {0,4} dichotomy still holds (ell=1,2,3 remain 0), and
+  same-component => chaining still has 0 violations. Only ell=0 grows,
+  1 -> 3.
+- **A permanent counting-unit standard** was written to prevent the
+  Round 18 confusion from recurring: four units (word / post-R2-state /
+  event / history), mandatory unit-bearing field names, and the exact
+  conversion identity between them.
+  `research/RR_COUNTING_UNIT_STANDARD.md`. A full re-scan of Rounds
+  11-18 for the affected phrasings found **no corrections needed beyond
+  the 7 already made in Round 18**.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

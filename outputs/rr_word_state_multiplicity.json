@@ -1,0 +1,504 @@
+{
+  "counting_identity": {
+    "exact": true,
+    "formula": "#words = SUM_{S in post-R2 states} #allowed_trailing_completions(S)",
+    "historical_word_count": 9,
+    "instance": "9 = 3 + 3 + 3",
+    "sum_of_trailing_completions": 9
+  },
+  "definition_of_trailing_completion": "a legal macro-edge out of the post-R2 state whose child passes area_a_prune_reason, bringing the word to the historical corpus's 6-macro-edge length. NOT 'any legal continuation of any length'.",
+  "post_r2_states": {
+    "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e": {
+      "edges_up_to_and_including_r2": 5,
+      "every_trailing_edge_realized_as_a_word": true,
+      "historical_tails": [
+        [
+          "rot^5;w3:210"
+        ],
+        [
+          "rot^5;w2:10"
+        ],
+        [
+          "rot^5;w3:201"
+        ]
+      ],
+      "historical_tails_used": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "historical_words": [
+        "87fd092184b7",
+        "8b4108376fde",
+        "e2c28bc2293c"
+      ],
+      "post_r2_canonical_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9",
+      "post_r2_raw_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+      "total_word_macro_edges": 6,
+      "trailing_edge_labels": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "trailing_edges": [
+        {
+          "child_new_orbit": false,
+          "ell": 5,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "target_hexagon": 4,
+          "target_orbit": 0,
+          "target_phase": 3
+        },
+        {
+          "child_new_orbit": true,
+          "ell": 5,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "target_hexagon": 10,
+          "target_orbit": 11,
+          "target_phase": 4
+        },
+        {
+          "child_new_orbit": true,
+          "ell": 5,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "target_hexagon": 7,
+          "target_orbit": 6,
+          "target_phase": 4
+        }
+      ]
+    },
+    "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f": {
+      "edges_up_to_and_including_r2": 5,
+      "every_trailing_edge_realized_as_a_word": true,
+      "historical_tails": [
+        [
+          "rot^5;w2:10"
+        ],
+        [
+          "rot^5;w3:210"
+        ],
+        [
+          "rot^5;w3:201"
+        ]
+      ],
+      "historical_tails_used": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "historical_words": [
+        "3d74b38661bb",
+        "941ba3fda981",
+        "9a31f2046d12"
+      ],
+      "post_r2_canonical_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4",
+      "post_r2_raw_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+      "total_word_macro_edges": 6,
+      "trailing_edge_labels": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "trailing_edges": [
+        {
+          "child_new_orbit": false,
+          "ell": 5,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "target_hexagon": 4,
+          "target_orbit": 0,
+          "target_phase": 3
+        },
+        {
+          "child_new_orbit": true,
+          "ell": 5,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "target_hexagon": 10,
+          "target_orbit": 11,
+          "target_phase": 4
+        },
+        {
+          "child_new_orbit": true,
+          "ell": 5,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "target_hexagon": 7,
+          "target_orbit": 6,
+          "target_phase": 4
+        }
+      ]
+    },
+    "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354": {
+      "edges_up_to_and_including_r2": 5,
+      "every_trailing_edge_realized_as_a_word": true,
+      "historical_tails": [
+        [
+          "rot^5;w3:201"
+        ],
+        [
+          "rot^5;w3:210"
+        ],
+        [
+          "rot^5;w2:10"
+        ]
+      ],
+      "historical_tails_used": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "historical_words": [
+        "2d88642a051c",
+        "49caddbf42cd",
+        "789ecdd73555"
+      ],
+      "post_r2_canonical_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616",
+      "post_r2_raw_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+      "total_word_macro_edges": 6,
+      "trailing_edge_labels": [
+        "rot^5;w2:10",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "trailing_edges": [
+        {
+          "child_new_orbit": false,
+          "ell": 5,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "target_hexagon": 4,
+          "target_orbit": 0,
+          "target_phase": 3
+        },
+        {
+          "child_new_orbit": true,
+          "ell": 5,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "target_hexagon": 10,
+          "target_orbit": 11,
+          "target_phase": 4
+        },
+        {
+          "child_new_orbit": true,
+          "ell": 5,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "target_hexagon": 7,
+          "target_orbit": 6,
+          "target_phase": 4
+        }
+      ]
+    }
+  },
+  "proof_status": "exact counting identity (exact replay of all 9 historical witnesses + direct enumeration of every legal macro-edge out of each of the 3 post-R2 states)",
+  "pruned_edges_per_state": {
+    "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e": [
+      {
+        "label": "rot^0;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:210",
+        "prune_reason": "F_exceeded"
+      }
+    ],
+    "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f": [
+      {
+        "label": "rot^0;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:210",
+        "prune_reason": "F_exceeded"
+      }
+    ],
+    "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354": [
+      {
+        "label": "rot^0;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^0;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^1;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^2;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^3;w3:210",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w2:10",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:120",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:201",
+        "prune_reason": "F_exceeded"
+      },
+      {
+        "label": "rot^4;w3:210",
+        "prune_reason": "F_exceeded"
+      }
+    ]
+  },
+  "schema": "rr-word-state-multiplicity-v1",
+  "why_exactly_three": {
+    "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e": {
+      "all_same_ell": true,
+      "ell_distribution": {
+        "5": 3
+      },
+      "joints_are_a_proper_subset_of_all_four": true,
+      "joints_used": [
+        "w2:10",
+        "w3:201",
+        "w3:210"
+      ],
+      "kind_distribution": {
+        "Z2": 1,
+        "Z3": 2
+      },
+      "missing_joints": [
+        "w3:120"
+      ]
+    },
+    "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f": {
+      "all_same_ell": true,
+      "ell_distribution": {
+        "5": 3
+      },
+      "joints_are_a_proper_subset_of_all_four": true,
+      "joints_used": [
+        "w2:10",
+        "w3:201",
+        "w3:210"
+      ],
+      "kind_distribution": {
+        "Z2": 1,
+        "Z3": 2
+      },
+      "missing_joints": [
+        "w3:120"
+      ]
+    },
+    "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354": {
+      "all_same_ell": true,
+      "ell_distribution": {
+        "5": 3
+      },
+      "joints_are_a_proper_subset_of_all_four": true,
+      "joints_used": [
+        "w2:10",
+        "w3:201",
+        "w3:210"
+      ],
+      "kind_distribution": {
+        "Z2": 1,
+        "Z3": 2
+      },
+      "missing_joints": [
+        "w3:120"
+      ]
+    }
+  }
+}
