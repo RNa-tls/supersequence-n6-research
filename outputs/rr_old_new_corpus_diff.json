@@ -1,0 +1,68 @@
+{
+  "UNRESOLVED_DISCREPANCY": "At ell=4, the historical corpus reports 9 same-component witnesses, but the fresh uncapped-local universe (depth ceiling 6 past abandonment) finds only 5, and an earlier Round 16 depth-5-past-abandonment run found only 3. This is the OPPOSITE of the expected direction (a fresh, less-capped search should find AT LEAST as many legal witnesses as a capped historical corpus, not fewer). Possible causes, NONE confirmed this round: (a) a depth-ceiling/macro-edge-count convention mismatch between this enumerators depth counting and the historical corpus generators depth counting; (b) a subtle difference in how r1_target_q / same-component are tracked across complex branches in this script vs the historical generator; (c) the historical corpus generator used a different config or an earlier, possibly-different version of area_a_prune_reason. This discrepancy is reported honestly as UNRESOLVED rather than silently ignored or arbitrarily resolved in either directions favor -- do not treat either the historical count (9) or the fresh count (5 or 3) as authoritative until reconciled.",
+  "ell4_discrepancy_deeper_trace": "Traced witness 2d88642a051c (one of the historical corpus 9 ell=4 same-component witnesses) step by step: idx0=Z2abandon(ell=4), idx1=Z2, idx2=Z2, idx3=R1(ell=5, lands on hex0s last residual position, orbit1 -- this IS the hub completer), idx4=R2(ell=0, fires immediately, sourcing directly from orbit1) -- exactly the direct ell=4 mechanism (r1_target_q=1, r2_source_q=1) that 3 of the fresh universes 5 hits also show, at the SAME depth (4 macro-edges past abandonment). This specific witness is very likely one of the 5 the fresh search DID find. The independent DFS cross-check (verify_rr_exhaustive_certificate.py) confirms this scripts own BFS is internally self-consistent (both traversals agree exactly). The remaining gap (9 vs 5) is therefore most likely NOT a bug in this rounds enumerator logic itself, but either: a difference in how same-component/chaining is computed by the historical generator (this rounds reimplementation of component_map/same-component, modeled on analyze_rr_chaining.pys literal_analysis, may not be byte-for-byte identical to whatever the historical f1_n2_defect_words.json generator used), or a small number of the 9 historical witnesses using a structurally different, longer-macro-edge pattern this rounds depth-6 ceiling does not reach. NOT fully resolved this round -- reported honestly rather than assumed.",
+  "note": "The historical corpus (rr_abandonment_ell_table.json, derived from the capped 65,340-state frontier) and the fresh uncapped-local universe (rr_uncapped_local_universe.json, root class 1 = abandonment-instant state, depth ceiling 6, frontier fully empty) are NOT directly comparable in raw counts: the historical corpus's 'witness_count' is the number of FULL RR words (2 R events forming a complete word starting from the ORIGINAL initial_state(), i.e. restricted to whatever the historical bounded search happened to reach), while the fresh universe's 'unique_canonical_states' counts EVERY legal state reachable within the depth ceiling from the abandonment root, including non-RR-final intermediate states. The directly comparable, apples-to-apples numbers are same_component_count (both count the number of DISTINCT 2-R-event, F=1,H=0, same-component-relation final states) and the hub_completer_orbit_distribution (both count DISTINCT hub-completion events by target orbit).",
+  "per_ell": {
+    "0": {
+      "fresh_local_universe_hub_completer_distribution": {
+        "1": 10,
+        "120": 19,
+        "3": 3,
+        "33": 12,
+        "9": 9
+      },
+      "fresh_local_universe_rr_final_count": 455,
+      "fresh_local_universe_same_component_count": 1,
+      "fresh_local_universe_state_count": 3814,
+      "historical_corpus_same_component_count": 1,
+      "historical_corpus_witness_count": 926
+    },
+    "1": {
+      "fresh_local_universe_hub_completer_distribution": {
+        "1": 3,
+        "3": 8,
+        "33": 19,
+        "9": 12
+      },
+      "fresh_local_universe_rr_final_count": 415,
+      "fresh_local_universe_same_component_count": 0,
+      "fresh_local_universe_state_count": 3657,
+      "historical_corpus_same_component_count": 0,
+      "historical_corpus_witness_count": 923
+    },
+    "2": {
+      "fresh_local_universe_hub_completer_distribution": {
+        "1": 9,
+        "3": 12,
+        "9": 19
+      },
+      "fresh_local_universe_rr_final_count": 464,
+      "fresh_local_universe_same_component_count": 0,
+      "fresh_local_universe_state_count": 3858,
+      "historical_corpus_same_component_count": 0,
+      "historical_corpus_witness_count": 940
+    },
+    "3": {
+      "fresh_local_universe_hub_completer_distribution": {
+        "1": 12,
+        "3": 19
+      },
+      "fresh_local_universe_rr_final_count": 450,
+      "fresh_local_universe_same_component_count": 0,
+      "fresh_local_universe_state_count": 3840,
+      "historical_corpus_same_component_count": 0,
+      "historical_corpus_witness_count": 914
+    },
+    "4": {
+      "fresh_local_universe_hub_completer_distribution": {
+        "1": 19
+      },
+      "fresh_local_universe_rr_final_count": 450,
+      "fresh_local_universe_same_component_count": 5,
+      "fresh_local_universe_state_count": 3834,
+      "historical_corpus_same_component_count": 9,
+      "historical_corpus_witness_count": 767
+    }
+  },
+  "schema": "rr-old-new-corpus-diff-v1"
+}

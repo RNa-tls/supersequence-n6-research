@@ -1,0 +1,101 @@
+{
+  "additivity": "\uc190\uc99d\uba85 (\uad6c\uc870\uc0c1 \uc790\uba85, spot-check\ub85c \uc7ac\ud655\uc778)",
+  "additivity_spot_check": {
+    "additive": true,
+    "end_to_end": {
+      "delta_Ndef": 2,
+      "delta_O": 1,
+      "delta_P": 3,
+      "delta_S": 2,
+      "hub_exits": 0,
+      "macro_joints": 3,
+      "orbit_reuse": 2
+    },
+    "sum_of_edges": {
+      "delta_Ndef": 2,
+      "delta_O": 1,
+      "delta_P": 3,
+      "delta_S": 2,
+      "hub_exits": 0,
+      "macro_joints": 3,
+      "orbit_reuse": 2
+    }
+  },
+  "converse_check_min_cost_to_nearest": {
+    "0": {
+      "w2:10": 2,
+      "w3:120": 2,
+      "w3:201": 3,
+      "w3:210": 5
+    },
+    "1": {
+      "w2:10": 2,
+      "w3:120": 2,
+      "w3:201": 3,
+      "w3:210": 5
+    },
+    "2": {
+      "w2:10": 2,
+      "w3:120": 2,
+      "w3:201": 3,
+      "w3:210": 5
+    },
+    "3": {
+      "w2:10": 2,
+      "w3:120": 2,
+      "w3:201": 3,
+      "w3:210": 5
+    },
+    "4": {
+      "w2:10": 2,
+      "w3:120": 2,
+      "w3:201": 3,
+      "w3:210": 5
+    }
+  },
+  "converse_holds_for_real_abandonment_move_w2_10": true,
+  "converse_holds_universally_any_abandonment_move": false,
+  "cost1_cost2_complete_case_check": {
+    "cost1_hits": 0,
+    "cost1_impossible": true,
+    "cost2_always_nearest": true,
+    "cost2_hits": 15,
+    "cost2_non_nearest_examples": [],
+    "cost2_non_nearest_hits": 0,
+    "per_ell_detail": {
+      "0": {
+        "cost1_hits": 0,
+        "cost2_hits": 3,
+        "cost2_nearest_hits": 3
+      },
+      "1": {
+        "cost1_hits": 0,
+        "cost2_hits": 3,
+        "cost2_nearest_hits": 3
+      },
+      "2": {
+        "cost1_hits": 0,
+        "cost2_hits": 3,
+        "cost2_nearest_hits": 3
+      },
+      "3": {
+        "cost1_hits": 0,
+        "cost2_hits": 3,
+        "cost2_nearest_hits": 3
+      },
+      "4": {
+        "cost1_hits": 0,
+        "cost2_hits": 3,
+        "cost2_nearest_hits": 3
+      }
+    },
+    "total_branches_checked": 80
+  },
+  "schema": "rr-completion-cost-theorem-v1",
+  "theorem_statements": {
+    "converse_nearest_implies_cost2": "\uc190\uc99d\uba85, \ub2e8 abandonment \uc870\uc778\ud2b8\uac00 w2:10 \ub610\ub294 w3:120(\uc989 \uc774\ubbf8 nearest orbit\uc744 target\ud558\ub294 \uc120\ud0dd)\uc77c \ub54c\ub9cc \uc131\ub9bd -- w3:201/w3:210 abandonment\ub97c \uc120\ud0dd\ud558\uba74 nearest\uc5d0 \ub3c4\ub2ec\ud558\ub294 \ub370\ub3c4 cost>2\uac00 \ud544\uc694\ud560 \uc218 \uc788\ub2e4. \uc2e4\uc81c \uc5ed\uc0ac\uc801 \ucf54\ud37c\uc2a4\ub294 abandonment\uc5d0 w2:10\ub9cc \uc0ac\uc6a9\ud558\ubbc0\ub85c(4,470/4,470), \uadf8 \uc870\uac74 \ud558\uc5d0\uc11c\ub294 converse\uac00 \ud56d\uc0c1 \uc131\ub9bd\ud55c\ub2e4.",
+    "cost1_impossible": "\uc190\uc99d\uba85 (\uc644\uc804 \uc720\ud55c case check, 320\uac1c \ubd84\uae30 \uc911 0\uac74)",
+    "cost2_implies_nearest": "\uc190\uc99d\uba85 (\uc644\uc804 \uc720\ud55c case check, cost2 15\uac74 \uc804\ubd80 nearest)"
+  },
+  "vector_cost_definition": "C(edge) = (macro_joints=1, delta_P, delta_S, delta_O, delta_Ndef, hub_exits in {0,1}, orbit_reuse in {0,1}), where delta_X is state.X(post) - state.X(pre) for the ExactState fields P (pass-start count), S, O (orbit count), Ndef (defect count); hub_exits=1 iff the edge's source lies in hex 0 with F=1 already spent; orbit_reuse=1 iff the target orbit's mask was already nonzero before this edge fired."
+}

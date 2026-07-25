@@ -1,0 +1,65 @@
+{
+  "aggregate": {
+    "hub_touched_phi_zero": 283,
+    "hub_touched_phi_zero_fraction": 0.9759,
+    "hub_touched_total": 290,
+    "no_hub_touch_phi_zero": 0,
+    "no_hub_touch_total": 991
+  },
+  "by_ell": {
+    "0": {
+      "hub_touched": {
+        "0": 58,
+        "1": 3
+      },
+      "no_hub_touch": {
+        "1": 191
+      }
+    },
+    "1": {
+      "hub_touched": {
+        "0": 45,
+        "2": 1
+      },
+      "no_hub_touch": {
+        "2": 213
+      }
+    },
+    "2": {
+      "hub_touched": {
+        "0": 60,
+        "3": 1
+      },
+      "no_hub_touch": {
+        "3": 194
+      }
+    },
+    "3": {
+      "hub_touched": {
+        "0": 60,
+        "4": 1
+      },
+      "no_hub_touch": {
+        "4": 198
+      }
+    },
+    "4": {
+      "hub_touched": {
+        "0": 60,
+        "5": 1
+      },
+      "no_hub_touch": {
+        "5": 195
+      }
+    }
+  },
+  "corrected_claims": {
+    "hub_touched_implies_phi_zero": "REFUTED as a universal claim -- holds in 283/290 = 97.6% of fresh-universe cases, not 100%",
+    "phi_zero_implies_hub_touched": "holds 991/991 = 100% in this fresh sample (bounded observation, not a proof)"
+  },
+  "note": "Splits RR-final (2 R events, F=1, H=0) states by whether hex0 was touched a second time (hub-completed) or not, and reports the Phi distribution within each class. Phi(S) = 5 + 6*(TARGET_P-S.P) - (720-S.visited_count).",
+  "proof_status": "uncapped local exhaustive (root class 1, depth ceiling 5, frontier fully empty) for the bounded_observation-grade fraction reported; no general algebraic proof attempted this round",
+  "schema": "rr-corrected-phi-distributions-v1",
+  "source": "fresh exhaustive local search, depth<=5 past abandonment (6 total macro-edges), root class 1, all 5 ell branches",
+  "why_the_212_212_capped_corpus_claim_broke": "The capped historical corpus only ever realized states along the specific macro-edge patterns its capped search happened to reach; those patterns all coincidentally satisfied Phi=0 whenever hub-touched. The fresh, less-restricted local universe reaches additional hub-touched RR-final states via macro-edge patterns the capped search never explored, 7 of which have Phi=ell+1 instead of 0. The 7 counterexamples were not individually traced back to a specific structural cause this round -- left open (see RR_EVIDENCE_AUDIT.md section 14)."
+}

@@ -1,0 +1,180 @@
+{
+  "claims": [
+    {
+      "cap_present": true,
+      "claim": "same-component RR \u27f9 chaining",
+      "corpus_dependent": true,
+      "corrected_statement": "same-component RR \u27f9 chaining holds without exception in the 4,470-witness capped corpus (capped-corpus exact); consistent with (not yet independently proven over) the fresh uncapped-local universe.",
+      "counterexample_found": false,
+      "current_status": "capped-corpus exact (10/10 within the capped corpus); NOT independently reverified this round over the full uncapped local universe for ALL ell -- only the narrower same_component_count vs chaining_count equality was spot-checked in the fresh universe (Round 16/17: at every ell, chaining_count == same_component_count exactly in the fresh sample, consistent with but not a full proof of the implication)",
+      "data_scope": "legacy_research/outputs/f1_n2_defect_words.json 'area_a_depth6' (25,660 records) filtered to word=='RR' (4,470)",
+      "first_appeared": "RR_SAME_COMPONENT_CHAINING_THEOREM.md (Round 11), reconfirmed RR_RELATION_LATTICE.md (Round 14)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (10/10, over the 4,470-witness corpus)"
+    },
+    {
+      "cap_present": true,
+      "claim": "chaining \u27f9 relation != unresolved",
+      "corpus_dependent": true,
+      "corrected_statement": "chaining \u27f9 not unresolved holds in the capped corpus (75/75); general status unknown.",
+      "counterexample_found": false,
+      "current_status": "capped-corpus exact; not reverified this round",
+      "data_scope": "capped corpus, 75 chaining witnesses out of 4,470",
+      "first_appeared": "Round 9 (pre-RR-specific work), reconfirmed RR_RELATION_LATTICE.md (Round 14, 75/75)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d"
+    },
+    {
+      "cap_present": true,
+      "claim": "hub completer orbit = R1's target orbit (general)",
+      "corpus_dependent": false,
+      "corrected_statement": "Falsified in Round 14 already; this audit found no reason to revisit the falsification.",
+      "counterexample_found": true,
+      "current_status": "\ubc18\uc99d\ub428 (unchanged) -- this was already correctly falsified before this audit; no correction needed",
+      "data_scope": "one manually-constructed synthetic state (ell=0), local bounded BFS depth<=6, node_cap=20000",
+      "first_appeared": "implicitly assumed through Round 13, explicitly tested and FALSIFIED in RR_HUB_COMPLETER_ORBIT_THEOREM.md (Round 14)",
+      "original_label": "\ubc18\uc99d\ub428 (already, by Round 14 itself)"
+    },
+    {
+      "cap_present": false,
+      "claim": "abandon_ell=4 \u27f9 hub completer orbit uniquely forced (=orbit 1)",
+      "corpus_dependent": false,
+      "corrected_statement": "Unchanged: a genuinely corpus-independent combinatorial fact.",
+      "counterexample_found": false,
+      "current_status": "\uc190\uc99d\uba85 (unchanged, reconfirmed this round -- see RR_COMPLETION_COST_THEOREM.md's cost table, ell=4 always has exactly 1 residual orbit regardless of corpus)",
+      "data_scope": "pure combinatorics (hex 0 has 6 positions total; ell=4 leaves exactly 1 residual) -- NOT corpus-dependent",
+      "first_appeared": "RR_HUB_COMPLETER_ORBIT_THEOREM.md (Round 14)",
+      "original_label": "\uc190\uc99d\uba85 (combinatorial, from the position-orbit bijection on hex 0)"
+    },
+    {
+      "cap_present": true,
+      "claim": "nearest-residual completer is the ONLY one realized (all ell)",
+      "corpus_dependent": true,
+      "corrected_statement": "FALSE as originally stated. Corrected: within the capped corpus specifically, 43/43 ell=0 completions happened to use the nearest orbit (capped-corpus exact, not a general fact). The TRUE general fact is narrower: cost=2 (the minimum possible) completions always land on the nearest residual position (uncapped local exhaustive, RR_COMPLETION_COST_THEOREM.md) -- but higher-cost non-nearest completions are also legal and do occur.",
+      "counterexample_found": true,
+      "current_status": "\ubc18\uc99d\ub428 (this round, via fresh uncapped-local exhaustive search: legal non-nearest completers occur at every ell<4, e.g. ell=0 distribution {120:19,1:10,33:12,9:9,3:3})",
+      "data_scope": "capped corpus (4,470 witnesses, 212 with hub_completer_found=True)",
+      "first_appeared": "RR_ABANDONMENT_ELL_DICHOTOMY.md, RR_ELL0_EXCEPTIONAL_BRANCH.md (Round 15)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (212/212 hub-completions, 'corpus is an exhaustive census of depth<=6 RR words')"
+    },
+    {
+      "cap_present": true,
+      "claim": "hub-completed \u27f9 Phi(final) = 0 (all ell)",
+      "corpus_dependent": true,
+      "corrected_statement": "hub-touched RR-final states reach Phi=0 in ~98% of cases in the fresh local universe (293/300), not universally. The reverse direction (no hub touch \u27f9 Phi != 0) held 300/300 in the same sample and is a stronger candidate for a general fact, though still only bounded-observation grade.",
+      "counterexample_found": true,
+      "current_status": "\ubc18\uc99d\ub428 (fresh exhaustive local search found 7 counterexamples out of 300 hub-touched RR-final states, ~98% not 100%)",
+      "data_scope": "capped corpus, 212 hub-completed witnesses",
+      "first_appeared": "RR_ELL_BRANCH_PHI / STATUS.md Round 15 section",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (212/212 hub-completed witnesses)"
+    },
+    {
+      "cap_present": true,
+      "claim": "same-component RR \u27f9 abandonment ell \u2208 {0,4}",
+      "corpus_dependent": true,
+      "corrected_statement": "Holds within the root-local exhaustive universe (root class 1, abandonment-instant state, depth ceiling 6, frontier empty, independently cross-checked). Still bounded by the depth-6 ceiling and by max_r_events=2 scope -- not a proof for arbitrary word length.",
+      "counterexample_found": false,
+      "current_status": "uncapped local exhaustive (reconfirmed independent of the capped corpus: same-component count is 0 at ell=1,2,3 in the fresh, frontier-empty local universe at depth ceiling 6, cross-checked by an independent DFS traversal, verify_rr_exhaustive_certificate.py -- ALL MATCH)",
+      "data_scope": "capped corpus (4,470 witnesses) originally; reverified Round 16/17 via fresh uncapped-local search from 5 independent abandonment roots",
+      "first_appeared": "RR_ABANDONMENT_ELL_DICHOTOMY.md (Round 15)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d ('\ucf54\ud37c\uc2a4\uac00 depth\u22646 RR word\uc758 \uc644\uc804\ud55c \uc804\uc218\uc870\uc0ac\uc774\ubbc0\ub85c')"
+    },
+    {
+      "cap_present": false,
+      "claim": "ell=0 same-component witness is unique",
+      "corpus_dependent": false,
+      "corrected_statement": "Exactly 1 same-component witness exists in the root-local exhaustive universe at depth ceiling 6 from the ell=0 abandonment root. Scope is explicitly bounded (depth<=6 past abandonment, max_r_events=2, root class 1 only) -- not proven for unbounded depth.",
+      "counterexample_found": false,
+      "current_status": "uncapped local exhaustive (within depth ceiling 6, root class 1) -- reconfirmed and cross-checked this round by an independent DFS traversal (exact match)",
+      "data_scope": "Round 16/17: fresh BFS from the ell=0 abandonment root, depth ceiling 5 AND 6, frontier fully empties both times, node cap never hit",
+      "first_appeared": "RR_ELL0_EXCEPTIONAL_BRANCH.md (Round 15), RR_ELL0_SATURATED_PHASE_NORMAL_FORM.md (Round 16)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (Round 15, capped corpus); then 'genuinely exhaustive, corpus-independent' (Round 16)"
+    },
+    {
+      "cap_present": true,
+      "claim": "the incidence graph is a forest (0 redundant unions) across the RR corpus",
+      "corpus_dependent": true,
+      "corrected_statement": "The forest property is capped-corpus exact only. The document itself already correctly noted this is not implied by pure graph axioms alone (an abstract countermodel with the same degree constraints was constructed). This audit found no independent, corpus-free re-derivation was attempted -- left open.",
+      "counterexample_found": false,
+      "current_status": "capped-corpus exact (unchanged this round -- NOT reverified against the fresh uncapped-local universe; see RR_EVIDENCE_AUDIT.md section 13 for the honest gap)",
+      "data_scope": "capped corpus (4,470 RR + 85,238 broader depth<=6 sample, all from the same capped 65,340-state frontier)",
+      "first_appeared": "RR_INCIDENCE_FOREST_LEMMA.md",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (0/53,054 pre/post-joint states across 4,470 RR witnesses; 0/85,238 broader depth<=6 sample)"
+    },
+    {
+      "cap_present": true,
+      "claim": "6 non-R1-completer same-component witnesses form one 'delayed same-orbit completer' family",
+      "corpus_dependent": true,
+      "corrected_statement": "capped-corpus exact classification of the capped corpus's 6 witnesses; NOT reverified against the fresh universe's own (smaller, 5-witness) same-component set this round.",
+      "counterexample_found": false,
+      "current_status": "capped-corpus exact -- since the base same-component COUNT itself is now known to be corpus-completeness-uncertain at ell=4 (9 in the capped corpus vs 5 in this round's fresh local universe, an unresolved discrepancy -- outputs/rr_old_new_corpus_diff.json), this classification's completeness is also uncertain",
+      "data_scope": "capped corpus, 6 of the 10 same-component witnesses",
+      "first_appeared": "STATUS.md Round 14 section, RR_DELAYED_COMPLETER_NORMAL_FORM.md (Round 15)",
+      "original_label": "corpus-exact classification (implicitly, not explicitly labeled)"
+    },
+    {
+      "cap_present": true,
+      "claim": "relation implication lattice (7 implications tested, only 2 hold)",
+      "corpus_dependent": true,
+      "corrected_statement": "The 5 FALSIFIED implications remain correctly falsified (a capped-corpus counterexample still disproves a universal claim). The 2 implications reported as HOLDING (same_component=>chaining, chaining=>not-unresolved) should be relabeled capped-corpus exact, not \uc720\ud55c \uc644\uc804 \uac80\uc99d.",
+      "counterexample_found": true,
+      "current_status": "capped-corpus exact (not reverified this round); the falsified implications remain falsified regardless of corpus completeness (a single concrete counterexample inside the capped corpus is still a valid counterexample against the corpus-independent universal claims)",
+      "data_scope": "capped corpus, all 7 implications",
+      "first_appeared": "RR_RELATION_LATTICE.md (Round 14)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (exhaustive over all 4,470 witnesses)"
+    },
+    {
+      "cap_present": true,
+      "claim": "abandonment event always uses move w2:10 (4,470/4,470)",
+      "corpus_dependent": true,
+      "corrected_statement": "capped-corpus exact (4,470/4,470); not independently reverified as a general necessity this round.",
+      "counterexample_found": false,
+      "current_status": "capped-corpus exact; NOT reverified against the fresh universe this round (though the fresh universe's root construction assumes it, matching the historical convention)",
+      "data_scope": "capped corpus, all 4,470 witnesses",
+      "first_appeared": "Round 16 (RR_NEAREST_RESIDUAL_THEOREM.md)",
+      "original_label": "\uc720\ud55c \uc644\uc804 \uac80\uc99d"
+    },
+    {
+      "cap_present": false,
+      "claim": "Unique Hub Hexagon (F<=1 budget \u27f9 at most one hexagon touched 2+ times)",
+      "corpus_dependent": false,
+      "corrected_statement": "Unchanged.",
+      "counterexample_found": false,
+      "current_status": "\uc190\uc99d\uba85 (unchanged, corpus-independent)",
+      "data_scope": "not corpus-dependent -- pure deduction from f1_normal_form's definition",
+      "first_appeared": "RR_HEX0_NECESSITY_THEOREM.md (Round 12)",
+      "original_label": "\uc190\uc99d\uba85 (from f1_normal_form's F+1 partial-hexagon invariant, a code-level deductive fact)"
+    },
+    {
+      "cap_present": false,
+      "claim": "Hub Touch Count <= 2",
+      "corpus_dependent": false,
+      "corrected_statement": "Unchanged.",
+      "counterexample_found": false,
+      "current_status": "\uc190\uc99d\uba85 (unchanged, corpus-independent)",
+      "data_scope": "not corpus-dependent",
+      "first_appeared": "RR_HUB_TOUCH_COUNT.md (Round 13)",
+      "original_label": "\uc190\uc99d\uba85 (deductive, from current_hex's code definition + F<=1 budget)"
+    },
+    {
+      "cap_present": true,
+      "claim": "Hub Exit Source Lemma (post-F1, any joint leaving hex0 sources orbit 1)",
+      "corpus_dependent": "partially -- the deductive core is corpus-independent; the 212/212 count is capped-corpus",
+      "corrected_statement": "The lemma's PROOF is corpus-independent (deductive from hex 0's structure). Its historical '212/212' verification count is capped-corpus exact, not a general enumeration -- though this does not weaken the deductive proof itself.",
+      "counterexample_found": false,
+      "current_status": "\uc190\uc99d\uba85 (the deductive argument itself is corpus-independent and unaffected by the capped-corpus discovery); the '212/212' verification count should be relabeled capped-corpus exact",
+      "data_scope": "deductive argument (hex0's fixed position order + F<=1) PLUS capped-corpus verification",
+      "first_appeared": "Round 15 (conversation), formalized in RR_ELL0_EXCEPTIONAL_BRANCH.md",
+      "original_label": "\uc190\uc99d\uba85 + 212/212 \uc720\ud55c \uc644\uc804 \uac80\uc99d (capped corpus)"
+    }
+  ],
+  "proof_status_vocabulary": {
+    "bounded observation": "verified only over a capped/sampled search, no completeness claim intended",
+    "capped-corpus exact": "true within legacy_research/outputs/f1_n2_defect_words.json's capped 65,340-state frontier replay; NOT proven complete beyond it",
+    "exact counterexample": "a single, concretely constructed, verified-legal state disproving a universal claim",
+    "uncapped local exhaustive": "verified via a genuinely uncapped (frontier-empty) BFS from a well-defined local root, independent of the historical corpus, but scoped to a declared depth ceiling and root class",
+    "\ubbf8\uc644\ub8cc": "open, not resolved",
+    "\ubc18\uc99d\ub428": "falsified by a concrete counterexample",
+    "\uc190\uc99d\uba85": "deductive proof from code-level definitions, corpus-independent",
+    "\uc720\ud55c \uc644\uc804 \uac80\uc99d": "RESERVED going forward for claims verified over a provably complete, corpus-independent state space (e.g. this round's frontier-empty local universes)"
+  },
+  "schema": "rr-claim-audit-v1"
+}

@@ -1,0 +1,135 @@
+{
+  "all_match": true,
+  "depth_ceiling": 6,
+  "method": "DFS with explicit stack, edges tried in reversed order vs the BFS enumerator -- structurally independent traversal",
+  "per_ell_comparison": {
+    "0": {
+      "all_match": true,
+      "bfs_original": {
+        "hub_completer_orbit_distribution": {
+          "1": 10,
+          "120": 19,
+          "3": 3,
+          "33": 12,
+          "9": 9
+        },
+        "same_component_count": 1,
+        "unique_canonical_states": 3814
+      },
+      "dfs_result": {
+        "chaining_count": 2,
+        "hub_completer_orbit_distribution": {
+          "1": 10,
+          "3": 3,
+          "9": 9,
+          "33": 12,
+          "120": 19
+        },
+        "same_component_count": 1,
+        "unique_canonical_states": 3814
+      },
+      "match_dist": true,
+      "match_same": true,
+      "match_states": true
+    },
+    "1": {
+      "all_match": true,
+      "bfs_original": {
+        "hub_completer_orbit_distribution": {
+          "1": 3,
+          "3": 8,
+          "33": 19,
+          "9": 12
+        },
+        "same_component_count": 0,
+        "unique_canonical_states": 3657
+      },
+      "dfs_result": {
+        "chaining_count": 0,
+        "hub_completer_orbit_distribution": {
+          "1": 3,
+          "3": 8,
+          "9": 12,
+          "33": 19
+        },
+        "same_component_count": 0,
+        "unique_canonical_states": 3657
+      },
+      "match_dist": true,
+      "match_same": true,
+      "match_states": true
+    },
+    "2": {
+      "all_match": true,
+      "bfs_original": {
+        "hub_completer_orbit_distribution": {
+          "1": 9,
+          "3": 12,
+          "9": 19
+        },
+        "same_component_count": 0,
+        "unique_canonical_states": 3858
+      },
+      "dfs_result": {
+        "chaining_count": 1,
+        "hub_completer_orbit_distribution": {
+          "1": 9,
+          "3": 12,
+          "9": 19
+        },
+        "same_component_count": 0,
+        "unique_canonical_states": 3858
+      },
+      "match_dist": true,
+      "match_same": true,
+      "match_states": true
+    },
+    "3": {
+      "all_match": true,
+      "bfs_original": {
+        "hub_completer_orbit_distribution": {
+          "1": 12,
+          "3": 19
+        },
+        "same_component_count": 0,
+        "unique_canonical_states": 3840
+      },
+      "dfs_result": {
+        "chaining_count": 1,
+        "hub_completer_orbit_distribution": {
+          "1": 12,
+          "3": 19
+        },
+        "same_component_count": 0,
+        "unique_canonical_states": 3840
+      },
+      "match_dist": true,
+      "match_same": true,
+      "match_states": true
+    },
+    "4": {
+      "all_match": true,
+      "bfs_original": {
+        "hub_completer_orbit_distribution": {
+          "1": 19
+        },
+        "same_component_count": 5,
+        "unique_canonical_states": 3834
+      },
+      "dfs_result": {
+        "chaining_count": 6,
+        "hub_completer_orbit_distribution": {
+          "1": 19
+        },
+        "same_component_count": 5,
+        "unique_canonical_states": 3834
+      },
+      "match_dist": true,
+      "match_same": true,
+      "match_states": true
+    }
+  },
+  "schema": "rr-exhaustive-certificate-verification-v1",
+  "verdict": "\ub3c5\ub9bd \uac80\uc99d \ud1b5\uacfc (independent verifier passed)",
+  "verified_against": "/home/user/supersequence-n6-research/outputs/rr_uncapped_local_universe.json"
+}

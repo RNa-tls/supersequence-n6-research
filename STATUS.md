@@ -1165,6 +1165,92 @@ described the RR corpus. No new large-scale search; N=0 untouched.
   corpus-independent exhaustive search the way this round did for the
   dichotomy and the ell=0 uniqueness result.
 
+## Seventeenth follow-up round: full evidence audit, a formal exhaustiveness standard, and a corrected theorem dependency graph
+
+Seventeenth follow-up round, explicitly tasked with auditing rather
+than extending: reclassify every RR claim's proof status, cleanly
+separate capped-corpus claims from genuinely corpus-independent ones,
+and formalize what "exhaustive" is allowed to mean going forward. No
+new large-scale search; N=0 untouched.
+
+- **Reclassified 15 core RR claims** (`outputs/rr_claim_audit.json`,
+  `research/RR_EVIDENCE_AUDIT.md`) into a standardized vocabulary:
+  4 remain fully deductive proofs unaffected by the corpus issue
+  (Unique Hub Hexagon, Hub Touch Count<=2, the Hub Exit Source Lemma's
+  deductive core, abandon_ell=4's combinatorial uniqueness); most
+  corpus-resting claims were downgraded from "finite complete
+  verification" to "capped-corpus exact"; 2 were explicitly reconfirmed
+  as falsified (nearest-only completer, hub-completed=>Phi=0
+  universally) and 2 were upgraded to a new, stronger, genuinely
+  corpus-independent category ("uncapped local exhaustive": the
+  ell-dichotomy and the ell=0 witness uniqueness, both cross-checked by
+  an independently-implemented DFS traversal that matches the BFS
+  enumerator exactly on every count, every ell).
+- **Formalized an exhaustiveness standard**
+  (`research/RR_EXHAUSTIVENESS_STANDARD.md`): 9 required conditions
+  (root-set completeness, transition-generator completeness, no
+  node/edge/time cap, frontier-empty termination, canonicalization and
+  prune soundness, deterministic replay, a full certificate, and an
+  independent verifier pass) and 6 distinct terms (corpus replay,
+  capped BFS, depth-bounded exhaustive, root-local exhaustive, globally
+  exhaustive, naturally exhausted) that must not be used
+  interchangeably going forward.
+- **Found that fully uncapped enumeration (no declared depth ceiling
+  at all) is NOT tractable here**: without a depth ceiling, the local
+  state space is bounded only by this project's much larger global
+  budgets (TARGET_P=121, TARGET_O=25), and a real attempt did not
+  terminate within 590 seconds. What Round 16 called a "naturally
+  small" state space was implicitly depth-capped all along; this round
+  makes that ceiling an explicit, disclosed parameter instead
+  (`--depth-ceiling`, reported in every certificate).
+- **Built a genuinely uncapped-within-ceiling local enumerator**
+  (`src/enumerate_rr_uncapped_local.py`) for root class 1
+  (abandonment-instant state, 5 roots for ell=0..4) with a full
+  certificate (expanded count, generated edges, unique canonical
+  states, duplicate count, frontier-empty flag, max depth reached,
+  engine SHA-256), cross-validated by an independently-coded DFS
+  verifier (`src/verify_rr_exhaustive_certificate.py`) that agrees
+  exactly on all 5 ell branches.
+- **A genuine, general minimum-cost theorem** (`RR_COMPLETION_COST_THEOREM.md`):
+  cost=1 hub re-completion is impossible and cost=2 always lands on
+  the nearest residual position, both proved via a complete (not
+  sampled) 320-branch case analysis over this model's only 4 joint
+  moves. The converse ("nearest implies cost 2") is FALSE in general
+  (using abandonment move w3:210 instead of the real w2:10 gives
+  cost 5 to the same nearest orbit) but TRUE when conditioned on the
+  real historical abandonment convention (w2:10, verified 4,470/4,470).
+- **An unresolved discrepancy found and reported, not papered over**:
+  at ell=4, the historical capped corpus reports 9 same-component
+  witnesses, but the fresh uncapped-local universe finds only 5 (and
+  an earlier Round 16 run at a different depth ceiling found only 3).
+  This is the opposite of the expected direction (a less-capped search
+  should find at least as many, not fewer). One of the 9 historical
+  witnesses was traced step-by-step and very likely matches one of the
+  5 fresh hits exactly; the remaining gap's cause (a same-component
+  definition mismatch between this round's reimplementation and the
+  historical generator, versus a genuinely deeper/different macro-edge
+  pattern outside this round's depth ceiling) was NOT resolved this
+  round -- reported honestly as open rather than assumed in either
+  direction. `outputs/rr_old_new_corpus_diff.json`.
+- **Phi=0 further quantified**: in the fresh local universe, hub-touched
+  RR-final states reach Phi=0 in 283/290 (97.6%) of cases, not
+  universally; the reverse direction (no hub touch implies Phi!=0) held
+  991/991 (100%) in the same sample. The 7 counterexamples were not
+  individually traced to a structural cause this round.
+  `outputs/rr_corrected_phi_distributions.json`.
+- **A corrected theorem dependency graph**
+  (`research/RR_CORRECTED_THEOREM_GRAPH.md`) separates results into
+  three tiers by evidence quality: a solid-line tier of pure deductive
+  proofs plus this round's cross-checked uncapped-local results (safe
+  to build on), a dashed-line tier of capped-corpus-exact observations
+  (not yet falsified but not proven general), and a blocked-off tier of
+  explicitly falsified claims that must not be reused as premises.
+- **Root classes 2-5** (hub-completion-instant state, R1-precedent
+  state, R2-precedent state) were defined conceptually
+  (`research/RR_LOCAL_UNIVERSE.md`) but NOT implemented as separate
+  enumerations this round -- flagged as the most direct next-round task
+  rather than silently skipped.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
