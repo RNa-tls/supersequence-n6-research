@@ -1692,6 +1692,53 @@ orbit/position combinatorics that decide which hub position the completer
 may land on -- and the sharpness result localizes exactly where that
 constraint bites.
 
+## Twenty-fifth follow-up round: order-dependence made explicit, and one surviving structural partition
+
+Twenty-fifth follow-up round, targeting the non-additive cause of the
+preparation parity. No completion search; N=0 untouched. No additive
+feature scans, per the round's instruction.
+
+- **Order-dependence is now demonstrated, not just argued.** Eleven
+  exact pairs exist whose additive event counts (ell, #R, #Z, #F) are
+  identical but whose landing class differs -- e.g. `FFEFR` lands on O*
+  while `EFFFR` lands far, with the same counts. So the landing position,
+  and hence the parity condition, is a function of the event ORDER, not
+  of the counts. This is the empirical complement to Round 24's
+  impossibility theorem.
+- **The parity is confirmed on a much larger set, with no R-cap**: the
+  zero-charge count is even in all 95 O*-landing completions and all 48
+  landings at j = ell+2, and MIXED at j >= ell+3 (31 even, 13 odd). So
+  the evenness belongs to the two nearest residual positions, and
+  degrades in stages as the landing moves away.
+- **One structural partition survives, and it is new.** Of five
+  candidate pairing rules, four are killed by exact counterexamples
+  (same target orbit: `FFEFR`; same target hexagon and same target
+  phase: `EER`; same symbol: `RFERR`). The survivor is the split by
+  "does this zero-charge event target O*": at O*-landing, BOTH blocks
+  have even size, 95/95. That refines the single evenness into two finer
+  ones. It fails at j = ell+2 (`ERFERF`) and beyond, so it is specific
+  to O*-landing.
+  Honest limit: even blocks are not an explicit matching, and the round
+  does not claim one -- section 14's target is 미완료.
+- **The minimal odd far-landing witnesses are exhibited** (section 11):
+  13 exist, the smallest being `EFRRFR` (#Z=3) and `FFRFFE` (#Z=5).
+  Why no analogue exists at the two near positions (0 out of 143) is
+  **not explained** -- none of section 12's six candidate obstructions
+  could be pinned to an exact transition-level contradiction.
+- **The ordered group equation is written down explicitly**: since every
+  preparation edge is forced to ell=5, landing at hub position j is
+  exactly `Sigma^ell · a_2 · g_{x_1}···g_{x_k} · Sigma^m · a_c = Sigma^j`
+  with non-commuting generators. A limitation worth recording: the
+  symbols F and R can share a move label (they differ only by
+  new_orbit), so a symbolic word does not determine the group product --
+  which caps how far a purely symbolic argument can go.
+
+**Net position on the parity**: still 미완료. This round did not prove
+it, but it converted "additive approaches fail" into "landing is
+provably order-determined", and found the first structural refinement
+(the O*-targeting split into two even blocks) that is specific to the
+landing class where the parity holds.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

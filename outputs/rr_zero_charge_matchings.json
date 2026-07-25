@@ -1,0 +1,228 @@
+{
+  "by_landing_class": {
+    "O_star": {
+      "rules": {
+        "_raw_zero_charge_count_even": {
+          "holds": true,
+          "note": "the COUNT being even does not by itself exhibit a matching"
+        },
+        "same_symbol_E_vs_F": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "E": 1,
+              "F": 1
+            },
+            "landing_position": 1,
+            "word": "RFERR"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_hexagon": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "64": 1,
+              "90": 1
+            },
+            "landing_position": 1,
+            "word": "EER"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_orbit": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "121": 1,
+              "126": 1,
+              "127": 2
+            },
+            "landing_position": 1,
+            "word": "FFEFR"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_phase": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "2": 1,
+              "3": 1
+            },
+            "landing_position": 1,
+            "word": "EER"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "targets_O_star_or_not": {
+          "exact_counterexample": null,
+          "perfect_matching_by_this_rule": true,
+          "verdict": "exact matching"
+        }
+      },
+      "witness_count": 95
+    },
+    "ell_plus_2": {
+      "rules": {
+        "_raw_zero_charge_count_even": {
+          "holds": true,
+          "note": "the COUNT being even does not by itself exhibit a matching"
+        },
+        "same_symbol_E_vs_F": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "E": 3,
+              "F": 3
+            },
+            "landing_position": 2,
+            "word": "EFEFEF"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_hexagon": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "0": 1,
+              "40": 1,
+              "105": 1,
+              "106": 1
+            },
+            "landing_position": 2,
+            "word": "FFFF"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_orbit": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "33": 1,
+              "91": 1,
+              "102": 1,
+              "105": 1
+            },
+            "landing_position": 2,
+            "word": "FFFF"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_phase": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "0": 1,
+              "1": 2,
+              "3": 1
+            },
+            "landing_position": 2,
+            "word": "FFFF"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "targets_O_star_or_not": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "false": 3,
+              "true": 1
+            },
+            "landing_position": 2,
+            "word": "ERFERF"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        }
+      },
+      "witness_count": 48
+    },
+    "far": {
+      "rules": {
+        "_raw_zero_charge_count_even": {
+          "holds": false,
+          "note": "the COUNT being even does not by itself exhibit a matching"
+        },
+        "same_symbol_E_vs_F": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "E": 1,
+              "F": 1
+            },
+            "landing_position": 5,
+            "word": "RFER"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_hexagon": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "12": 1,
+              "72": 1
+            },
+            "landing_position": 5,
+            "word": "RFER"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_orbit": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "1": 1,
+              "7": 2,
+              "126": 1
+            },
+            "landing_position": 5,
+            "word": "FFEF"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "same_target_phase": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "1": 1,
+              "2": 1
+            },
+            "landing_position": 5,
+            "word": "RFER"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        },
+        "targets_O_star_or_not": {
+          "exact_counterexample": {
+            "abandonment_ell": 0,
+            "group_sizes": {
+              "false": 3,
+              "true": 1
+            },
+            "landing_position": 3,
+            "word": "EFFFR"
+          },
+          "perfect_matching_by_this_rule": false,
+          "verdict": "반증됨"
+        }
+      },
+      "witness_count": 44
+    }
+  },
+  "schema": "rr-zero-charge-matchings-v1",
+  "section14_target": "O*-landing zero-charge events admit a perfect matching",
+  "verdict": "미완료 -- none of the five structural pairing rules yields a perfect matching on every O*-landing witness. The evenness of the count is confirmed root-local exhaustive, but no matching realizing it was found, so the matching route to the parity theorem is not closed."
+}
