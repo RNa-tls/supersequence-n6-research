@@ -1,0 +1,162 @@
+{
+  "ell0_exception_full_trace": {
+    "hash": "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+    "hex0": 0,
+    "mechanism": "R1 (idx3, kind R) is itself the hub completer, landing on hex0's position 1 (orbit 120, phase 0) -- reusing orbit 120, which was already touched three times before (idx0 abandonment target phase1, idx1 Z2 target phase2, idx2 Z2 target phase3, all in different hexagons). This registers hex0 into the same union-find component as those earlier hexagons. Because union-find nodes are keyed by orbit id only (phase-independent, RR_PHASE_FREEDOM.md), hex0 is now transitively connected to that whole chain. Hex0 then fully closes via forced pure rotation (Hub Touch Count<=2), and the very next joint (idx4, Z2) leaves hex0 from position 5 (orbit 1) per the Hub Exit Source Lemma, landing in hex96. R2 (idx5, kind R) then sources from hex96's own orbit-120 phase (phase 4) -- the fifth and last unvisited phase of orbit 120 -- which is the SAME phase-independent union-find node touched by R1's completion and by the idx0-2 chain. All 5 phases of orbit 120 end up visited across the word, and R2's source is the last one, so R2 is 'same' via orbit 120, not via orbit 1 directly -- a second, indirect mechanism distinct from the ell=4 branch's direct hex0-position5-exit mechanism.",
+    "reused_orbits": {
+      "0": 3,
+      "120": 5
+    },
+    "steps": [
+      {
+        "ell": 0,
+        "idx": 0,
+        "kind": "Z2abandon",
+        "move": "w2:10",
+        "src_hex": 0,
+        "src_orbit": 0,
+        "src_phase": 0,
+        "tgt_hex": 33,
+        "tgt_orbit": 120,
+        "tgt_phase": 1
+      },
+      {
+        "ell": 5,
+        "idx": 1,
+        "kind": "Z2",
+        "move": "w2:10",
+        "src_hex": 33,
+        "src_orbit": 33,
+        "src_phase": 0,
+        "tgt_hex": 64,
+        "tgt_orbit": 120,
+        "tgt_phase": 2
+      },
+      {
+        "ell": 5,
+        "idx": 2,
+        "kind": "Z2",
+        "move": "w2:10",
+        "src_hex": 64,
+        "src_orbit": 64,
+        "src_phase": 0,
+        "tgt_hex": 90,
+        "tgt_orbit": 120,
+        "tgt_phase": 3
+      },
+      {
+        "ell": 5,
+        "idx": 3,
+        "kind": "R",
+        "move": "w3:120",
+        "src_hex": 90,
+        "src_orbit": 90,
+        "src_phase": 0,
+        "tgt_hex": 0,
+        "tgt_orbit": 120,
+        "tgt_phase": 0
+      },
+      {
+        "ell": 4,
+        "idx": 4,
+        "kind": "Z2",
+        "move": "w2:10",
+        "src_hex": 0,
+        "src_orbit": 1,
+        "src_phase": 4,
+        "tgt_hex": 96,
+        "tgt_orbit": 0,
+        "tgt_phase": 1
+      },
+      {
+        "ell": 5,
+        "idx": 5,
+        "kind": "R",
+        "move": "w3:120",
+        "src_hex": 96,
+        "src_orbit": 120,
+        "src_phase": 4,
+        "tgt_hex": 4,
+        "tgt_orbit": 0,
+        "tgt_phase": 3
+      }
+    ]
+  },
+  "schema": "rr-ell0-branch-truth-table-v1",
+  "truth_table_by_ell": {
+    "0": {
+      "cross_tab": [
+        {
+          "chaining": false,
+          "completer_orbit": 120,
+          "count": 42,
+          "hex0_fully_closed": true,
+          "r2_relation": "unresolved"
+        },
+        {
+          "chaining": true,
+          "completer_orbit": 120,
+          "count": 1,
+          "hex0_fully_closed": true,
+          "r2_relation": "same"
+        }
+      ],
+      "hub_completed_total": 43
+    },
+    "1": {
+      "cross_tab": [
+        {
+          "chaining": false,
+          "completer_orbit": 33,
+          "count": 34,
+          "hex0_fully_closed": true,
+          "r2_relation": "unresolved"
+        }
+      ],
+      "hub_completed_total": 34
+    },
+    "2": {
+      "cross_tab": [
+        {
+          "chaining": false,
+          "completer_orbit": 9,
+          "count": 45,
+          "hex0_fully_closed": true,
+          "r2_relation": "unresolved"
+        }
+      ],
+      "hub_completed_total": 45
+    },
+    "3": {
+      "cross_tab": [
+        {
+          "chaining": false,
+          "completer_orbit": 3,
+          "count": 45,
+          "hex0_fully_closed": true,
+          "r2_relation": "unresolved"
+        }
+      ],
+      "hub_completed_total": 45
+    },
+    "4": {
+      "cross_tab": [
+        {
+          "chaining": false,
+          "completer_orbit": 1,
+          "count": 36,
+          "hex0_fully_closed": true,
+          "r2_relation": "unresolved"
+        },
+        {
+          "chaining": true,
+          "completer_orbit": 1,
+          "count": 9,
+          "hex0_fully_closed": true,
+          "r2_relation": "same"
+        }
+      ],
+      "hub_completed_total": 45
+    }
+  }
+}

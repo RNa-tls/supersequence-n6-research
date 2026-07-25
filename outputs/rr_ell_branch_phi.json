@@ -1,0 +1,55 @@
+{
+  "by_ell": {
+    "0": {
+      "phi_other_set": [
+        0
+      ],
+      "phi_same_all": [
+        0
+      ],
+      "phi_same_all_zero": true
+    },
+    "1": {
+      "phi_other_set": [
+        0
+      ],
+      "phi_same_all": [],
+      "phi_same_all_zero": null
+    },
+    "2": {
+      "phi_other_set": [
+        0
+      ],
+      "phi_same_all": [],
+      "phi_same_all_zero": null
+    },
+    "3": {
+      "phi_other_set": [
+        0
+      ],
+      "phi_same_all": [],
+      "phi_same_all_zero": null
+    },
+    "4": {
+      "phi_other_set": [
+        0
+      ],
+      "phi_same_all": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "phi_same_all_zero": true
+    }
+  },
+  "finding": "Phi(final)=0 for ALL 212 hub-completed RR witnesses (hex0 receives a second touch), independent of ell and independent of whether R2 achieves same-component/chaining or is unresolved. This makes Phi=0 a strictly more general fact than Round 14's same-component-only observation: it is fully determined by the macro-edge-count / visited-permutation-count structure of 'hub-completed' words (which Phi depends on exclusively), not by the union-find/component-identity structure that same-component and chaining depend on. This confirms, without circularity, that Phi=0 is NOT a logical consequence of chaining or same-component -- it is a separate arithmetic fact shared by a strictly larger witness class.",
+  "phi_initial": 6,
+  "proof_status": "\uc720\ud55c \uc644\uc804 \uac80\uc99d (exhaustive over all 212 hub-completed witnesses in the depth<=6 RR corpus)",
+  "schema": "rr-ell-branch-phi-v1"
+}

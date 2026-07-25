@@ -1,0 +1,94 @@
+{
+  "dichotomy_holds": true,
+  "nearest_residual_only_completer_holds": true,
+  "nearest_residual_only_exceptions": [],
+  "note": "RR words in this corpus have exactly 6 total macro-edges (depth<=6 exhaustive corpus, Round 11 recovery). The nearest residual position always costs exactly 2 macro-edges to reach as a hub completer; every other residual orbit costs 4 or more (verified locally via bounded BFS on real post-abandonment states, not a new large-scale search). This is a resource-budget explanation, not a full deductive impossibility proof: a cost-4 path could in principle still fit the depth-6 budget if the completer event coincided exactly with R1 itself, leaving only 1 edge for R2 -- but this combination is exhaustively absent from the corpus (0/4470), which the resource argument alone does not explain and which is left open.",
+  "resource_accounting_cost_tables": {
+    "0": {
+      "min_macro_edge_cost_by_orbit": {
+        "1": 4,
+        "3": 6,
+        "9": 5,
+        "33": 4,
+        "120": 2
+      },
+      "nearest_residual_cost": 2,
+      "nearest_residual_orbit": 120,
+      "next_cheapest_alternative_cost": 4,
+      "residual_orbits": [
+        120,
+        33,
+        9,
+        3,
+        1
+      ],
+      "witness": "02cdffe6bd9bb39c47c3d6618b6593268e2ef8ea649d32c2c781db669fd8de85"
+    },
+    "1": {
+      "min_macro_edge_cost_by_orbit": {
+        "1": 6,
+        "3": 5,
+        "9": 4,
+        "33": 2
+      },
+      "nearest_residual_cost": 2,
+      "nearest_residual_orbit": 33,
+      "next_cheapest_alternative_cost": 4,
+      "residual_orbits": [
+        33,
+        9,
+        3,
+        1
+      ],
+      "witness": "124e7e8cd177cbf9f2946917014ecd3d8fe2cb8ebc505aa9388d349378066416"
+    },
+    "2": {
+      "min_macro_edge_cost_by_orbit": {
+        "1": 5,
+        "3": 4,
+        "9": 2
+      },
+      "nearest_residual_cost": 2,
+      "nearest_residual_orbit": 9,
+      "next_cheapest_alternative_cost": 4,
+      "residual_orbits": [
+        9,
+        3,
+        1
+      ],
+      "witness": "057123d183137a235ce5744fd4a321a7eec5446fae08998f8a6d6a4b4df07b2d"
+    },
+    "3": {
+      "min_macro_edge_cost_by_orbit": {
+        "1": 4,
+        "3": 2
+      },
+      "nearest_residual_cost": 2,
+      "nearest_residual_orbit": 3,
+      "next_cheapest_alternative_cost": 4,
+      "residual_orbits": [
+        3,
+        1
+      ],
+      "witness": "03828f264f473578da53643a8e810bbf4371cc67b3a7d6e5fb3d628dafee0f47"
+    },
+    "4": {
+      "min_macro_edge_cost_by_orbit": {
+        "1": 2
+      },
+      "nearest_residual_cost": 2,
+      "nearest_residual_orbit": 1,
+      "next_cheapest_alternative_cost": null,
+      "residual_orbits": [
+        1
+      ],
+      "witness": "04c8dd1119f10852cabcee72583303fd21f41efe10de38a578a2bdc84890ea64"
+    }
+  },
+  "same_component_by_ell": {
+    "0": 1,
+    "4": 9
+  },
+  "schema": "rr-ell4-dichotomy-verification-v1",
+  "total_word_macro_edge_budget": 6
+}

@@ -1035,6 +1035,75 @@ No new large-scale search; N=0 untouched.
   but the frontier did not empty (287,322 remaining) -- reported as
   additional local evidence, not proof.
 
+## Fifteenth follow-up round: the abandonment-ell dichotomy, and why the "5-way ell=0 branch" is actually 1-way in practice
+
+Fifteenth follow-up round, decomposing the same-component branch by the
+abandonment event's rotation offset (ell) within hex 0. No new
+large-scale search (only small bounded local BFS from real corpus
+states, matching the scale of prior rounds' targeted checks); N=0
+untouched.
+
+- **Dichotomy theorem, finite complete verification**: replaying all
+  4,470 RR witnesses (this corpus is an exhaustive enumeration of
+  depth<=6 RR words, not a sample) confirms same-component occurs only
+  at abandonment ell=0 (1 witness) or ell=4 (9 witnesses), never at
+  ell=1,2,3 (0/2,777). `outputs/rr_abandonment_ell_table.json`.
+- **New general fact, exhaustively verified (212/212 hub-completions,
+  0 exceptions)**: whenever hex 0 receives a second touch at all
+  (regardless of ell), the completer orbit is always exactly the
+  *nearest* unvisited hex-0 position (position ell+1) -- never any
+  farther residual position, even though a prior round's manual/local
+  BFS had shown all 5 residual orbits are *legally* reachable at
+  ell=0. Legal-in-principle and realized-in-the-actual-corpus are
+  different questions. A bounded local-cost BFS from real
+  post-abandonment states shows why: the nearest position always costs
+  exactly 2 macro-edges to reach as completer, while every other
+  residual orbit costs 4 or more -- inconsistent with the corpus's
+  fixed 6-macro-edge total budget once R1 and R2 both still need to
+  fit, except for one edge case (completer coincides with R1 itself)
+  that the resource argument alone doesn't rule out but that never
+  occurs in the exhaustive corpus (0/4,470) -- left honestly open.
+- **New lemma, proved and exhaustively verified (212/212): Hub Exit
+  Source Lemma** -- once F=1 is exhausted, any joint whose source lies
+  within hex 0 must have source orbit exactly 1 (position 5, the only
+  hex-0 position whose rotation successor wraps to the always-visited
+  anchor). This is strictly stronger than the (already-falsified)
+  "completer orbit = R1 target orbit" claim from Round 14.
+  - Correction made mid-round: an initial buggy closure-tracking check
+    (an `if False else None` no-op) wrongly suggested hex 0 never
+    fully closes at ell<4; re-derived with the bug fixed, hex 0 in
+    fact *always* fully closes once hub-completed, at every ell --
+    this dead end was caught and discarded before being reported.
+- **The originally-envisioned "5-way ell=0 branch" collapses to 1-way
+  in the actual corpus**: all 43 ell=0 hub-completed witnesses use
+  completer orbit 120 (the nearest position); orbits 1, 3, 9, 33 never
+  occur as completers despite being legal in principle.
+  `outputs/rr_ell0_normal_forms.json`.
+- **Full exact trace of the single ell=0 same-component witness**
+  (`989d2261b458`) reveals a second, *indirect* mechanism distinct from
+  ell=4's direct one: R1 itself is the hub completer, reusing orbit
+  120 (already touched at 3 different phases via 3 prior full-hex
+  sweeps); after hex 0 forcibly closes and exits via orbit 1 (Hub Exit
+  Source Lemma), R2 achieves "same" not through orbit 1 but by reusing
+  orbit 120's fifth and final phase in a different hexagon -- all 5
+  phases of orbit 120 end up visited across the word.
+  `outputs/rr_ell0_completer_truth_table.json`.
+- **Phi=0 generalized and cleanly separated from chaining, finite
+  complete verification**: Phi(final)=0 holds for *all* 212
+  hub-completed witnesses, not just the 10 same-component ones -- since
+  Phi depends only on pass-count/visited-count (a pure macro-edge-count
+  fact), this proves Phi=0 is fully independent of the
+  union-find/component-identity structure that same-component and
+  chaining depend on, resolving Round 14's open question without
+  circularity. `outputs/rr_ell_branch_phi.json`.
+- **Honest gaps left open**: the ancestry invariant Gamma (why exactly
+  ell=1,2,3's 124 hub-completed witnesses never achieve same, beyond
+  the exhaustive corpus fact itself), the full resource-budget
+  impossibility proof (the R1-coincidence edge case), and
+  generalizing the ell=0 branch's single exact witness into a proven
+  pattern (only one instance exists in the corpus, no second case to
+  confirm generality) all remain unresolved.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
