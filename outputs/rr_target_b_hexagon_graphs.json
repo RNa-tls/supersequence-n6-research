@@ -1,0 +1,359 @@
+{
+  "generators": {
+    "w2:10": {
+      "E_power": 1,
+      "g": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        5
+      ],
+      "orbit_preserving": true,
+      "weight": 2
+    },
+    "w3:120": {
+      "E_power": 2,
+      "g": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "orbit_preserving": true,
+      "weight": 3
+    },
+    "w3:201": {
+      "E_power": null,
+      "g": [
+        2,
+        3,
+        4,
+        1,
+        5,
+        0
+      ],
+      "orbit_preserving": false,
+      "weight": 3
+    },
+    "w3:210": {
+      "E_power": null,
+      "g": [
+        2,
+        3,
+        4,
+        1,
+        0,
+        5
+      ],
+      "orbit_preserving": false,
+      "weight": 3
+    }
+  },
+  "graphs": [
+    {
+      "dropped_edge_reasons": {
+        "orbit already open at start -> would be an R": 32,
+        "target hexagon not untouched": 213,
+        "w3:120 is always an R": 607
+      },
+      "graph_sha256": "ce7c41859ed6215360df3403acff0e4a7e6477820bf9d5dfe1cb0052a6223f38",
+      "n_edges": 1789,
+      "n_ports": 660,
+      "open_orbits_at_start": 6,
+      "port_in_degree_histogram": {
+        "0": 8,
+        "1": 27,
+        "2": 113,
+        "3": 512
+      },
+      "port_out_degree_histogram": {
+        "0": 1,
+        "1": 33,
+        "2": 122,
+        "3": 504
+      },
+      "start_edges": [
+        {
+          "joint": "w2:10",
+          "target_hexagon": 4
+        },
+        {
+          "joint": "w3:201",
+          "target_hexagon": 10
+        },
+        {
+          "joint": "w3:210",
+          "target_hexagon": 7
+        }
+      ],
+      "start_hexagon": 18,
+      "start_out_degree": 3,
+      "start_permutation": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "untouched_hexagons": 110,
+      "witness_index": 0
+    },
+    {
+      "dropped_edge_reasons": {
+        "orbit already open at start -> would be an R": 33,
+        "target hexagon not untouched": 213,
+        "w3:120 is always an R": 607
+      },
+      "graph_sha256": "383614235edda8720a2a27fd67e8c74814d59894020b3babffd318fdeb330e79",
+      "n_edges": 1788,
+      "n_ports": 660,
+      "open_orbits_at_start": 6,
+      "port_in_degree_histogram": {
+        "0": 7,
+        "1": 30,
+        "2": 111,
+        "3": 512
+      },
+      "port_out_degree_histogram": {
+        "0": 1,
+        "1": 34,
+        "2": 121,
+        "3": 504
+      },
+      "start_edges": [
+        {
+          "joint": "w2:10",
+          "target_hexagon": 4
+        },
+        {
+          "joint": "w3:201",
+          "target_hexagon": 10
+        },
+        {
+          "joint": "w3:210",
+          "target_hexagon": 7
+        }
+      ],
+      "start_hexagon": 18,
+      "start_out_degree": 3,
+      "start_permutation": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "untouched_hexagons": 110,
+      "witness_index": 1
+    },
+    {
+      "dropped_edge_reasons": {
+        "orbit already open at start -> would be an R": 39,
+        "target hexagon not untouched": 249,
+        "w3:120 is always an R": 577
+      },
+      "graph_sha256": "7da4932400eb18f19664c9ae22fe55cb035a4a755ae2156b5f4593ba4afe4b99",
+      "n_edges": 1704,
+      "n_ports": 642,
+      "open_orbits_at_start": 8,
+      "port_in_degree_histogram": {
+        "0": 9,
+        "1": 49,
+        "2": 97,
+        "3": 487
+      },
+      "port_out_degree_histogram": {
+        "0": 5,
+        "1": 48,
+        "2": 111,
+        "3": 478
+      },
+      "start_edges": [
+        {
+          "joint": "w2:10",
+          "target_hexagon": 4
+        },
+        {
+          "joint": "w3:201",
+          "target_hexagon": 10
+        },
+        {
+          "joint": "w3:210",
+          "target_hexagon": 7
+        }
+      ],
+      "start_hexagon": 18,
+      "start_out_degree": 3,
+      "start_permutation": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "untouched_hexagons": 107,
+      "witness_index": 2
+    },
+    {
+      "dropped_edge_reasons": {
+        "orbit already open at start -> would be an R": 38,
+        "target hexagon not untouched": 255,
+        "w3:120 is always an R": 576
+      },
+      "graph_sha256": "c6b12da88f56dfe9eca1c122aae12d6af0637b9ec9e64aa6433d207b5903f17e",
+      "n_edges": 1700,
+      "n_ports": 642,
+      "open_orbits_at_start": 8,
+      "port_in_degree_histogram": {
+        "0": 10,
+        "1": 44,
+        "2": 108,
+        "3": 480
+      },
+      "port_out_degree_histogram": {
+        "0": 4,
+        "1": 48,
+        "2": 118,
+        "3": 472
+      },
+      "start_edges": [
+        {
+          "joint": "w2:10",
+          "target_hexagon": 4
+        },
+        {
+          "joint": "w3:201",
+          "target_hexagon": 10
+        },
+        {
+          "joint": "w3:210",
+          "target_hexagon": 7
+        }
+      ],
+      "start_hexagon": 18,
+      "start_out_degree": 3,
+      "start_permutation": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "untouched_hexagons": 107,
+      "witness_index": 3
+    },
+    {
+      "dropped_edge_reasons": {
+        "orbit already open at start -> would be an R": 42,
+        "target hexagon not untouched": 253,
+        "w3:120 is always an R": 577
+      },
+      "graph_sha256": "04a1bce3f8df3a7fa32b71bca3945bc731d3a90778f528c93bce64a8859ff6c9",
+      "n_edges": 1697,
+      "n_ports": 642,
+      "open_orbits_at_start": 8,
+      "port_in_degree_histogram": {
+        "0": 12,
+        "1": 41,
+        "2": 111,
+        "3": 478
+      },
+      "port_out_degree_histogram": {
+        "0": 5,
+        "1": 45,
+        "2": 124,
+        "3": 468
+      },
+      "start_edges": [
+        {
+          "joint": "w2:10",
+          "target_hexagon": 4
+        },
+        {
+          "joint": "w3:201",
+          "target_hexagon": 10
+        },
+        {
+          "joint": "w3:210",
+          "target_hexagon": 7
+        }
+      ],
+      "start_hexagon": 18,
+      "start_out_degree": 3,
+      "start_permutation": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "untouched_hexagons": 107,
+      "witness_index": 4
+    },
+    {
+      "dropped_edge_reasons": {
+        "orbit already open at start -> would be an R": 42,
+        "target hexagon not untouched": 255,
+        "w3:120 is always an R": 577
+      },
+      "graph_sha256": "6134343be321dcf9582f22f2db36ffeb6beda47ab8009e8aef9fd2fd16aca113",
+      "n_edges": 1695,
+      "n_ports": 642,
+      "open_orbits_at_start": 8,
+      "port_in_degree_histogram": {
+        "0": 13,
+        "1": 38,
+        "2": 116,
+        "3": 475
+      },
+      "port_out_degree_histogram": {
+        "0": 4,
+        "1": 45,
+        "2": 129,
+        "3": 464
+      },
+      "start_edges": [
+        {
+          "joint": "w2:10",
+          "target_hexagon": 4
+        },
+        {
+          "joint": "w3:201",
+          "target_hexagon": 10
+        },
+        {
+          "joint": "w3:210",
+          "target_hexagon": 7
+        }
+      ],
+      "start_hexagon": 18,
+      "start_out_degree": 3,
+      "start_permutation": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "untouched_hexagons": 107,
+      "witness_index": 5
+    }
+  ],
+  "model": {
+    "approximation": "safe OVER-approximation: an edge is dropped only when it is statically impossible, so any obstruction found is genuine",
+    "dynamics": "vertex deletion at hexagon level (a hexagon is used exactly once)",
+    "hexagon_graph": "the image of the port graph; NOT static -- reachable H' depends on which port of H was entered, which is why the port lift is required before calling anything Hamiltonian",
+    "port_graph": "static digraph p -> p.g_j on permutations"
+  },
+  "schema": "rr-target-b-hexagon-graphs-v1"
+}

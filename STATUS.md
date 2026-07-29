@@ -2260,6 +2260,90 @@ with slack already 0 a single weak extra obstruction — a degree-1 vertex
 or a disconnection in the hexagon graph — would settle it statically.
 Building that graph is the natural next step and was not done here.
 
+### Round 30 — Target B is IMPOSSIBLE from all six counterexample states
+
+`src/build_rr_target_b_hexagon_graph.py`,
+`src/analyze_rr_target_b_obstructions.py`, `src/analyze_rr_ch2_chaining.py`
+-> `outputs/rr_target_b_hexagon_graphs.json`,
+`outputs/rr_target_b_port_graphs.json`,
+`outputs/rr_target_b_obstruction_certificates.json`,
+`outputs/rr_ch2_witnesses.json`, `outputs/rr_orbit1_opener_ledger.json`.
+Six write-ups. **No DFS was run** — and for these six states none is
+needed, because the obstruction is a counting argument.
+
+**Part A. The counting obstruction (손증명).**
+
+> From a Phi=0 Target A state, a Target B continuation requires
+> **B ≤ 5·(O_capacity + R_capacity) + 4**.
+
+Proof: at Phi=0 every macro-edge has ell=5 (R29), and such an edge is
+right-multiplication by one of the composite generators (R26). E and E²
+preserve the E-orbit, so `w2:10` and `w3:120` can never open a new orbit
+— `w2:10` is a Z2 and `w3:120` (weight 3) is **always an R**.
+`w3:201`/`w3:210` leave the orbit, so each is a fresh opening (costing an
+O slot) or an R (costing an R slot). Crucially, **at most 4 consecutive
+orbit-preserving edges**: a run moves the entry port p → p·E^{s} with s a
+partial sum of 1s and 2s, the ports must be distinct, p·E^s = p·E^{s'}
+iff s ≡ s' (mod 5), and there are only 5 residues. Hence with m
+orbit-changing edges, B = (preserving) + m ≤ 4(m+1) + m = 5m + 4, and
+m ≤ O_capacity + R_capacity. ∎
+
+| # | B | O_cap | R_cap | m_max | B_max | margin |
+|---|---|---|---|---|---|---|
+| 0,1 | 110 | 19 | 1 | 20 | 104 | **+6** |
+| 2–5 | 107 | 17 | 1 | 18 | 94 | **+13** |
+
+All six verdicts are `BUDGET_OBSTRUCTION`. R_capacity was set to 1 — the
+*permissive* `AREA_A.n_limit = 3` — so the result does not depend on
+Target B's own no-extra-R clause.
+
+**Round 29's slack=0 was NOT used**, per the round's warning. The
+argument uses only B, O and N.
+
+**Scope, stated honestly**: the same inequality clears **9 of the 12**
+historical short-preparation boundaries (O = 2,3,4 there). In closed
+form the obstruction is `D = 5O − P > 13 − 5·R_cap`, so it is driven by
+how many fresh orbits the preparation opened — which is exactly what the
+long preparations did. **Target B remains open for short preparations.**
+
+**The graph model, stated precisely before using the word Hamiltonian**:
+the port graph p → p·g_j on permutations is **static**; the hexagon-level
+graph is **not** (which H' is reachable depends on the entry port), and
+legality is vertex deletion at hexagon level. A safe over-approximation
+was built (edges dropped only when statically impossible): 660/642 ports,
+~1,700 edges, out-degree ≤ 3 because `w3:120` is always an R. Terminal
+compatibility turned out to have **no discriminating power** — every
+untouched hexagon admits the 5-rotation suffix. SCC/cut tests were not
+run: after the counting obstruction there is nothing left to test.
+
+**Part B. CH2 chaining — the proposed architecture is refuted.**
+
+The round's Lemma CH2-B ("orbit 1's first opener is R1") is **반증됨**:
+at ell=4 the **abandonment joint itself** lands on (1,0) with
+`new_orbit=True`, so orbit 1's first opener is the abandonment. The
+first-opener route cannot give chaining, and §19's architecture must be
+replaced.
+
+The CH2 corpus is 10 cases (6 long + 4 historical), all with C =
+`rot^5;w2:10` and all with R1 target orbit 1 (phases 1, 2, 3). A
+root-local search over ell=5 preparations to depth 8 found **zero**
+counterexamples with C zero-charge and R1 target ≠ orbit 1 — but it did
+find **one legal completion with no R at all before C** (`#R_{<=C} = 0`).
+That is precisely the scenario that blocks the CH2 argument: the walk can
+reach (1,4) from the abandonment's (1,0) by pure E steps. Whether such a
+prefix extends to an RR word was not determined. Search status: **bounded
+incomplete** (frontier truncated at depth 8; real witnesses reach
+P_core = 10).
+
+**Terminal normal form status**: T2, T4a, T4b, T7 손증명 unconditionally;
+T5, T6, T8 손증명 given T3; T1 and T9 proved only via CH1 (5 of 15); T3
+remains an exact observation, not forced by legality.
+
+**NR6 impact**: none claimed. Target B failing at six boundaries says
+those six have no slab continuation; it says nothing about `L_6 ≥ 872`,
+about Target C, or about the short-preparation boundaries that pass the
+obstruction.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
