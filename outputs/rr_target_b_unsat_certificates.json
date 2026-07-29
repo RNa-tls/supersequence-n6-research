@@ -1,0 +1,120 @@
+{
+  "grade": "손증명 (the refinement) + bounded incomplete (every layer status)",
+  "initial_capacity_refinement": {
+    "effect": "the bound tightens by exactly 1 at all seven survivors (c0 = 3 -> true capacity 2), but no survivor is removed",
+    "grade": "손증명",
+    "rows": [
+      {
+        "B_plus_1": 115,
+        "P_core": 2,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 121,
+        "contradiction_C": false,
+        "margin_C": 6,
+        "port_availability_bound_c0": 3,
+        "root_ell": 0,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 113,
+        "P_core": 4,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 111,
+        "contradiction_C": true,
+        "margin_C": -2,
+        "port_availability_bound_c0": 3,
+        "root_ell": 0,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 116,
+        "P_core": 2,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 121,
+        "contradiction_C": false,
+        "margin_C": 5,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 116,
+        "P_core": 2,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 121,
+        "contradiction_C": false,
+        "margin_C": 5,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 116,
+        "P_core": 2,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 121,
+        "contradiction_C": false,
+        "margin_C": 5,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 114,
+        "P_core": 4,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 111,
+        "contradiction_C": true,
+        "margin_C": -3,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 112,
+        "P_core": 6,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 116,
+        "contradiction_C": false,
+        "margin_C": 4,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 112,
+        "P_core": 6,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 116,
+        "contradiction_C": false,
+        "margin_C": 4,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      },
+      {
+        "B_plus_1": 112,
+        "P_core": 6,
+        "best_initial_word": "E",
+        "bound_C_phase_walk_initial": 116,
+        "contradiction_C": false,
+        "margin_C": 4,
+        "port_availability_bound_c0": 3,
+        "root_ell": 4,
+        "true_phase_walk_capacity": 2
+      }
+    ],
+    "statement": "the first segment's capacity is bounded not by port availability c(q0)+1 but by the maximum legal PHASE WALK from the current phase: its covered phases are partial sums of a word over {+1,+2}, so an available port that the walk cannot reach does not count",
+    "survivors_removed": 2
+  },
+  "layer_status_audit": {
+    "R1_histogram": {
+      "INCOMPLETE": 7
+    },
+    "n_audited": 7,
+    "note": "no layer was exhausted, so this round issues NO UNSAT certificate; reporting a truncated search as infeasible is exactly the error this audit exists to catch",
+    "unsat_certificates_claimed": 0,
+    "violations": []
+  },
+  "schema": "rr-target-b-unsat-certificates-v1"
+}

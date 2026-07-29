@@ -2527,6 +2527,93 @@ budget ≤ M and total ports = B+1. That is an exact-cover/ILP, far smaller
 than a depth-100 DFS, but it cannot be fully encoded until the component
 condition is characterised.
 
+### Round 33 — the exact-cover relaxation has no power; the bottleneck is order
+
+`src/build_rr_target_b_exact_cover.py`,
+`src/solve_rr_target_b_relaxations.py`, `src/verify_rr_target_b_unsat.py`
+-> `outputs/rr_segment_options.json` (= `..._r33.json`),
+`outputs/rr_target_b_ilp_models.json`,
+`outputs/rr_target_b_relaxation_results.json` (=
+`rr_segment_relaxation_results_r33.json`),
+`outputs/rr_target_b_reconstructed_solutions.json`,
+`outputs/rr_target_b_unsat_certificates.json`. Seven write-ups. No
+permutation-level DFS; N=0 untouched; the long six were not re-searched;
+the full-block graph's degree/SCC was not re-analysed.
+
+**The model.** An ell=5 macro-edge completes exactly the hexagon it stands
+in, so the chosen segments must PARTITION the residual hexagons. Binary
+variable per option (orbit, entry phase, preserving word, exit type);
+constraints on hexagon coverage (= 1 each), port uniqueness, segment
+count, total capacity = B+1, R budget, O budget, exactly one initial
+segment, and defect ≤ M. Corpus: 8,811–9,529 options per survivor, **zero
+hexagons with no option**, and the residual hexagon count equals B+1
+exactly. The generator prediction p → p·g_j was checked against
+`macro.macro_edges()` at every survivor: **7/7 agree** (the corpus is not
+built on our own bookkeeping).
+
+No solver library exists here (`pulp`, `ortools`, `pysat`, `scipy` all
+missing), so every layer is decided by hand-rolled exact reasoning or
+marked bounded incomplete — nothing is delegated to an unverified oracle.
+
+**R2 follows from R1 (손증명)**: each option uses exactly one port per
+covered hexagon and an orbit's five ports lie in five distinct hexagons,
+so a hexagon partition forces port uniqueness. R2 is not a separate
+constraint.
+
+**New hand proof — the phase-walk initial capacity.** Rounds 31–32 bounded
+the first segment by `c(q₀)+1` = 3. That over-counts: the segment must be
+a legal **phase walk**, its covered phases being partial sums of a word
+over {+1,+2}. The true capacity is **2** (best initial word `E`) at all
+nine CAPACITY_SURVIVORs, tightening the bound by exactly 1. It removes no
+new survivor — but it **independently re-derives both Round-32 removals**
+(ell0 P_core=4: 111 < 113; ell4 P_core=4: 111 < 114) by a completely
+different route, so those two now have two independent proofs.
+
+**R1 results: FEASIBLE 4, INCOMPLETE 3, EXHAUSTED_INFEASIBLE 0.** The four
+feasible ones have explicit covers of 24–25 segments with total capacity
+exactly B+1, found by a partition-seeded construction (the deterministic
+greedy yields a perfect 24-orbit partition of all 120 hexagons; the
+leftover hexagons are finished by Algorithm X).
+
+**The round's real finding: the cover relaxation is powerless.** Looking
+at those four covers as flows:
+
+| survivor | segments | successor edges | segments with no successor | longest chain |
+|---|---|---|---|---|
+| ell0 P2 | 24 | **0** | 24 | **1** |
+| ell4 P2 ×3 | 25 | **1** | 24 | **1** |
+
+Among 24–25 segments there are **0 or 1** successor edges. Exact cover
+constrains hexagons only, so the segment sets it produces are almost
+completely disconnected as walks. **R1 discriminates nothing; the binding
+layer is R3 (flow/order).** The next model must be flow-first — grow an
+ordered path while consuming hexagon resources — not cover-first. Branching
+there is small (≤ 2 exits × ≤ 5 words) over depth 24–25, far smaller than
+a permutation-level depth-115 DFS.
+
+**A self-correction made mid-round.** The draft recorded
+`NO_HAMILTONIAN_ORDER` as `first_failing_layer = "R3"`. That is wrong: one
+unorderable cover does not make R3 infeasible, since another cover of the
+same state may be orderable. The status was renamed
+`NO_ORDER_FOR_THIS_COVER`, `first_failing_layer` was set back to `None`,
+and the note "only an exhaustive enumeration of covers could turn this
+into an R3 obstruction, and that was not done" is recorded in the output.
+`verify_rr_target_b_unsat.py` audits this mechanically: **7 statuses
+audited, 0 violations, 0 UNSAT certificates claimed.**
+
+**Component (R5) is not the bottleneck.** Round 29–32 repeatedly named it
+as the next obstacle. It is not: no survivor passes R0–R4, so the question
+"is component the real bottleneck?" has not yet become meaningful. R3
+comes first. Component labels (attach/extend/merge/revisit/isolate) are
+recorded but **never imposed**, because Target B's final component
+requirement is still uncharacterised — a fact now stated explicitly rather
+than deferred.
+
+**None of the seven survivors was removed this round.** Recorded as an
+honest result rather than forced: what was gained is four explicit R1
+covers, the quantitative demonstration that order is the bottleneck, one
+new hand proof, and independent confirmation of two earlier removals.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
