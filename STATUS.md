@@ -1804,6 +1804,74 @@ The practical effect is a real narrowing: the parity problem went from
 the O*-step alphabet is exactly {E:+1, R:even}" — a single local lemma,
 after which the finite case analysis above closes #Z_{->O*} immediately.
 
+### The O*-step lemma — premise (b) proved, premise (c) refuted in general, and a sharp threshold found
+
+`src/verify_rr_o_star_alphabet.py` -> `outputs/rr_o_star_alphabet.json`,
+`src/prove_rr_o_star_step_lemma.py` -> `outputs/rr_o_star_step_lemma.json`,
+written up in `research/RR_O_STAR_STEP_LEMMA.md`. The second script runs
+no search at all — it is a finite group computation in S_6.
+
+**The key structural fact.** Every preparation macro-edge is forced to
+ell=5, so each acts on the walk position by right-composition with one
+fixed element `g_j = Sigma^5 o action_j`. Computing all four:
+
+| joint | `Sigma^5 o action` | in `<E>`? |
+|---|---|---|
+| `w2:10` | (1,2,3,4,0,5) | **E** |
+| `w3:120` | (2,3,4,0,1,5) | **E²** |
+| `w3:201` | (2,3,4,1,5,0) | no |
+| `w3:210` | (2,3,4,1,0,5) | no |
+
+So the ell=5 `w2:10` edge *is* right-multiplication by the orbit
+generator E, and `w3:120` is right-multiplication by E². Two hand proofs
+follow immediately:
+
+- **F is never `w2:10` or `w3:120`** — an orbit-preserving edge cannot
+  open a new orbit. Measured: 4,629/4,629 and 4,283/4,283 have
+  `new_orbit=False`. So every F is `w3:201` or `w3:210`.
+- **Premise (b) is now 손증명, not measured**: from a port q of O*, a
+  `w2:10` edge lands at q∘E — phase +1 exactly; `w3:120` lands at q∘E².
+
+**Premise (c) in general is 반증됨.** The orbit-changing joints leave
+O*, so their displacement is the `<E>`-exponent of the whole intervening
+product, and the alphabet lemma becomes a free-monoid statement. An
+exhaustive first-return BFS over S_6 (716 non-`<E>` elements reached)
+finds **4 violations**: two first-return words of length 7 with exponent
+3, and two of length 8 with exponent 1. The alphabet is therefore **not**
+a pure group fact — it cannot be proved without legality constraints.
+
+**But the same computation gives a sharp threshold.** Every first-return
+word of length ≤ 6 has exponent 1 (single E), 2 (single E²), or even —
+exact group computation, no exceptions. The first odd exponent appears at
+length 7. Hence:
+
+> If consecutive O* visits are at most 6 preparation edges apart, the
+> alphabet lemma holds and the winding argument closes #Z_{->O*}
+> evenness.
+
+The observed first-return gaps in the local universe are 0 (for `w2:10`
+and `w3:120`, which land immediately), 4 (for `w3:201`) and 3 or 4 (for
+`w3:210`) — all below the threshold, which is *why* the alphabet holds
+there. This changes the status of the long-standing "small preparation
+depth bound" item: it is now known to be **sufficient**, and its needed
+form is pinned down precisely — not a bound on word length, but a bound
+of 6 on the O*-revisit gap.
+
+**Universe-wide verification.** `verify_rr_o_star_alphabet.py` checks
+every legal macro-edge from every reachable state at all five roots (not
+only hub-completing edges): 18,778 legal edges, 180 O*-steps, identical
+histograms at every ell (`E:+1` 14, `R:+2` 18, `R:+4` 4), and **0**
+violations of the E delta, **0** odd R deltas, **0** phase revisits, **0**
+F events targeting O*. That exhaustively confirms premises (a) and (e)
+as well.
+
+**Net**: the parity chain is now 손증명 at every step except one — the
+O*-revisit gap bound — and even that is reduced to a concrete finite
+threshold. Two honest limits remain: the gap bound itself is 미완료, and
+closing it would give only #Z_{->O*}; the evenness of #Z_{->other}
+(observed 95/95) still has no argument at all. So
+`|P| + #R_{<=C} ≡ 1 (mod 2)` remains **미완료**.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

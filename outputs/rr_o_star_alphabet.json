@@ -1,0 +1,195 @@
+{
+  "E_delta_violation_count": 0,
+  "R_parity_violation_count": 0,
+  "alphabet_holds_on_whole_local_universe": true,
+  "combined_step_histogram": {
+    "E:+1": 70,
+    "R:+2": 90,
+    "R:+4": 20
+  },
+  "grade": "root-local exhaustive over the whole universe (a strict strengthening of the 95-completion measurement); still NOT a 손증명, because the law is verified rather than derived",
+  "per_ell": [
+    {
+      "E_delta_violations": [],
+      "R_parity_violations": [],
+      "abandonment_ell": 0,
+      "legal_edges_examined": 3780,
+      "o_star": 120,
+      "o_star_steps": 36,
+      "phase_revisits": [],
+      "states_expanded": 3727,
+      "step_histogram": {
+        "E:+1": 14,
+        "R:+2": 18,
+        "R:+4": 4
+      }
+    },
+    {
+      "E_delta_violations": [],
+      "R_parity_violations": [],
+      "abandonment_ell": 1,
+      "legal_edges_examined": 3728,
+      "o_star": 33,
+      "o_star_steps": 36,
+      "phase_revisits": [],
+      "states_expanded": 3686,
+      "step_histogram": {
+        "E:+1": 14,
+        "R:+2": 18,
+        "R:+4": 4
+      }
+    },
+    {
+      "E_delta_violations": [],
+      "R_parity_violations": [],
+      "abandonment_ell": 2,
+      "legal_edges_examined": 3767,
+      "o_star": 9,
+      "o_star_steps": 36,
+      "phase_revisits": [],
+      "states_expanded": 3728,
+      "step_histogram": {
+        "E:+1": 14,
+        "R:+2": 18,
+        "R:+4": 4
+      }
+    },
+    {
+      "E_delta_violations": [],
+      "R_parity_violations": [],
+      "abandonment_ell": 3,
+      "legal_edges_examined": 3758,
+      "o_star": 3,
+      "o_star_steps": 36,
+      "phase_revisits": [],
+      "states_expanded": 3728,
+      "step_histogram": {
+        "E:+1": 14,
+        "R:+2": 18,
+        "R:+4": 4
+      }
+    },
+    {
+      "E_delta_violations": [],
+      "R_parity_violations": [],
+      "abandonment_ell": 4,
+      "legal_edges_examined": 3745,
+      "o_star": 1,
+      "o_star_steps": 36,
+      "phase_revisits": [],
+      "states_expanded": 3727,
+      "step_histogram": {
+        "E:+1": 14,
+        "R:+2": 18,
+        "R:+4": 4
+      }
+    }
+  ],
+  "phase_revisit_count": 0,
+  "port_structure": {
+    "O_star_candidates": {
+      "0": {
+        "phase_to_hex_position": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "phase_to_hexagon": [
+          0,
+          96,
+          18,
+          4,
+          1
+        ]
+      },
+      "1": {
+        "phase_to_hex_position": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "phase_to_hexagon": [
+          1,
+          72,
+          12,
+          2,
+          0
+        ]
+      },
+      "120": {
+        "phase_to_hex_position": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "phase_to_hexagon": [
+          0,
+          33,
+          64,
+          90,
+          96
+        ]
+      },
+      "3": {
+        "phase_to_hex_position": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "phase_to_hexagon": [
+          3,
+          48,
+          6,
+          0,
+          2
+        ]
+      },
+      "33": {
+        "phase_to_hex_position": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "phase_to_hexagon": [
+          33,
+          0,
+          24,
+          30,
+          32
+        ]
+      },
+      "9": {
+        "phase_to_hex_position": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "phase_to_hexagon": [
+          9,
+          24,
+          0,
+          6,
+          8
+        ]
+      }
+    },
+    "every_orbit_has_five_distinct_port_hexagons": true,
+    "n_orbits_checked": 144
+  },
+  "premise": "(ALPHABET) every E step advances the O* phase by exactly +1 and every R step advances it by an even amount",
+  "schema": "rr-o-star-alphabet-v1",
+  "scope": "every legal macro-edge from every state reachable in the root-local BFS from each of the five abandonment roots, depth ceiling 6, area_a prune, no R cap, no node/edge cap -- NOT only the edges that complete at the hub",
+  "what_would_close_it": "A derivation of the +1 law. The five phases of an E-orbit lie in five DIFFERENT hexagons, so 'the O* phase' and 'which port hexagon the walk enters' are the same datum; the +1 law says the walk enters the ports of O* in E-cyclic order. Deriving that from the macro-edge action (p -> p . SIGMA^5 . action) would upgrade the whole chain to a hand proof and, with the finite case analysis in rr_o_star_winding.json, close #Z_{->O*} evenness."
+}

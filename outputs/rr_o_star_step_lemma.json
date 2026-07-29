@@ -1,0 +1,198 @@
+{
+  "corollary_E_step": "If the walk sits at a port q of O*, a w2:10 edge lands at q o E (phase +1) and a w3:120 edge at q o E^2 (phase +2). This is premise (b) of rr_o_star_winding.json, now 손증명 rather than measured.",
+  "corollary_F_joints": "w2:10 and w3:120 have ell=5 composite E and E^2, which preserve every E-orbit, so neither can ever be a fresh orbit opening; every F event is w3:201 or w3:210. 손증명.",
+  "distinct_non_E_elements_reached": 716,
+  "first_return_histogram": {
+    "len=1,exponent=1": 1,
+    "len=1,exponent=2": 1,
+    "len=4,exponent=0": 1,
+    "len=4,exponent=2": 1,
+    "len=5,exponent=4": 2,
+    "len=6,exponent=0": 1,
+    "len=7,exponent=2": 1,
+    "len=7,exponent=3": 2,
+    "len=8,exponent=1": 2
+  },
+  "first_return_word_length_ceiling": 12,
+  "generators": {
+    "w2:10": {
+      "E_exponent": 1,
+      "generator": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        5
+      ],
+      "orbit_preserving": true
+    },
+    "w3:120": {
+      "E_exponent": 2,
+      "generator": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "orbit_preserving": true
+    },
+    "w3:201": {
+      "E_exponent": null,
+      "generator": [
+        2,
+        3,
+        4,
+        1,
+        5,
+        0
+      ],
+      "orbit_preserving": false
+    },
+    "w3:210": {
+      "E_exponent": null,
+      "generator": [
+        2,
+        3,
+        4,
+        1,
+        0,
+        5
+      ],
+      "orbit_preserving": false
+    }
+  },
+  "grade": "반증됨 over the free monoid: the lemma needs legality constraints",
+  "lemma_holds_over_free_monoid": false,
+  "lemma_proved_up_to_first_return_length": 6,
+  "lemma_violation_count": 4,
+  "lemma_violations": [
+    {
+      "exponent": 3,
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "word": [
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:120",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w2:10",
+        "w3:120",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w2:10",
+        "w3:120",
+        "w3:210",
+        "w3:201"
+      ]
+    }
+  ],
+  "odd_exponents_reachable": [
+    1,
+    3
+  ],
+  "orbit_preserving_joints": [
+    "w2:10",
+    "w3:120"
+  ],
+  "schema": "rr-o-star-step-lemma-v1",
+  "shortest_violating_first_return_length": 7,
+  "shortest_witnesses": {
+    "len=1,exponent=1": [
+      "w2:10"
+    ],
+    "len=1,exponent=2": [
+      "w3:120"
+    ],
+    "len=4,exponent=0": [
+      "w3:201",
+      "w3:201",
+      "w3:201",
+      "w3:201"
+    ],
+    "len=4,exponent=2": [
+      "w3:210",
+      "w2:10",
+      "w3:120",
+      "w3:210"
+    ],
+    "len=5,exponent=4": [
+      "w3:201",
+      "w2:10",
+      "w3:201",
+      "w2:10",
+      "w3:201"
+    ],
+    "len=6,exponent=0": [
+      "w3:201",
+      "w3:210",
+      "w3:210",
+      "w3:201",
+      "w3:210",
+      "w3:210"
+    ],
+    "len=7,exponent=2": [
+      "w3:201",
+      "w2:10",
+      "w3:120",
+      "w3:201",
+      "w2:10",
+      "w3:120",
+      "w3:201"
+    ],
+    "len=7,exponent=3": [
+      "w3:201",
+      "w3:201",
+      "w2:10",
+      "w3:210",
+      "w2:10",
+      "w3:210",
+      "w3:201"
+    ],
+    "len=8,exponent=1": [
+      "w3:201",
+      "w3:201",
+      "w3:120",
+      "w3:201",
+      "w2:10",
+      "w3:120",
+      "w3:210",
+      "w3:210"
+    ]
+  },
+  "statement": "If a product of the four ell=5 composite generators lies in <E> and no proper prefix does, its <E>-exponent is 1 (the single generator E), 2 (the single generator E^2), or even.",
+  "what_this_means": "(LEMMA) is FALSE as a free-monoid statement -- there are first-return words of length 7 with an ODD <E>-exponent, so the O*-step alphabet is not a pure group fact and cannot be proved without legality constraints. But (LEMMA) IS proved, as an exact group computation, for every first-return word of length <= 6. Consequently a bound of 6 on the number of preparation macro-edges between two consecutive O* visits would close the alphabet lemma, and with it the winding argument and the parity. That is exactly the long-standing open 'small preparation-depth bound' item: it is now known to be sufficient, not merely desirable."
+}
