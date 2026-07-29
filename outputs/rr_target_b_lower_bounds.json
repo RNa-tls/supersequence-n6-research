@@ -1,0 +1,274 @@
+{
+  "grade": "safe lower bound (permutation coverage) + 미완료 (phase and merge bounds)",
+  "per_witness": [
+    {
+      "B_available": 110,
+      "C_min": 110,
+      "component_merge_bound": {
+        "grade": "미완료",
+        "note": "not claimed: the required FINAL component structure for Target B is not characterised, so no deficit can be computed",
+        "value": 0
+      },
+      "exact_packing_identity": {
+        "6B_plus_5": 665,
+        "B": 110,
+        "U": 665,
+        "U_equals_6B_plus_5": true,
+        "meaning": "Phi = 0 says exactly U = 6B + 5. So the continuation must be a PERFECT packing: all B remaining macro-edges at ell=5, each covering 6 previously unvisited permutations, then a pure-rotation suffix of exactly 5, leaving nothing over."
+      },
+      "hexagon_reading": {
+        "hexagons_full": 9,
+        "hexagons_partial": 1,
+        "hexagons_untouched": 110,
+        "note": "an ell=5 macro-edge completes the hexagon the walk stands in (5 rotations) and steps into the next (1 joint target). So Target B is a walk that completes every remaining hexagon exactly once."
+      },
+      "orbit_phase_bound": {
+        "grade": "미완료",
+        "note": "not claimed: a joint target may land on an already-open orbit, so no nontrivial safe bound follows from phase demand alone",
+        "value": 0
+      },
+      "permutation_coverage_bound": {
+        "derivation": "at Phi=0 every future macro-edge has ell=5 (C1) and covers exactly 6 fresh permutations (C2); a final pure-rotation suffix covers at most 5 more. Hence #macro-edges >= ceil((U-5)/6).",
+        "grade": "safe lower bound (손증명)",
+        "value": 110
+      },
+      "pure_suffix_now": {
+        "needs": 5,
+        "rotations_available_now": 5,
+        "suffix_appendable_now": true
+      },
+      "slack": 0,
+      "witness_index": 0
+    },
+    {
+      "B_available": 110,
+      "C_min": 110,
+      "component_merge_bound": {
+        "grade": "미완료",
+        "note": "not claimed: the required FINAL component structure for Target B is not characterised, so no deficit can be computed",
+        "value": 0
+      },
+      "exact_packing_identity": {
+        "6B_plus_5": 665,
+        "B": 110,
+        "U": 665,
+        "U_equals_6B_plus_5": true,
+        "meaning": "Phi = 0 says exactly U = 6B + 5. So the continuation must be a PERFECT packing: all B remaining macro-edges at ell=5, each covering 6 previously unvisited permutations, then a pure-rotation suffix of exactly 5, leaving nothing over."
+      },
+      "hexagon_reading": {
+        "hexagons_full": 9,
+        "hexagons_partial": 1,
+        "hexagons_untouched": 110,
+        "note": "an ell=5 macro-edge completes the hexagon the walk stands in (5 rotations) and steps into the next (1 joint target). So Target B is a walk that completes every remaining hexagon exactly once."
+      },
+      "orbit_phase_bound": {
+        "grade": "미완료",
+        "note": "not claimed: a joint target may land on an already-open orbit, so no nontrivial safe bound follows from phase demand alone",
+        "value": 0
+      },
+      "permutation_coverage_bound": {
+        "derivation": "at Phi=0 every future macro-edge has ell=5 (C1) and covers exactly 6 fresh permutations (C2); a final pure-rotation suffix covers at most 5 more. Hence #macro-edges >= ceil((U-5)/6).",
+        "grade": "safe lower bound (손증명)",
+        "value": 110
+      },
+      "pure_suffix_now": {
+        "needs": 5,
+        "rotations_available_now": 5,
+        "suffix_appendable_now": true
+      },
+      "slack": 0,
+      "witness_index": 1
+    },
+    {
+      "B_available": 107,
+      "C_min": 107,
+      "component_merge_bound": {
+        "grade": "미완료",
+        "note": "not claimed: the required FINAL component structure for Target B is not characterised, so no deficit can be computed",
+        "value": 0
+      },
+      "exact_packing_identity": {
+        "6B_plus_5": 647,
+        "B": 107,
+        "U": 647,
+        "U_equals_6B_plus_5": true,
+        "meaning": "Phi = 0 says exactly U = 6B + 5. So the continuation must be a PERFECT packing: all B remaining macro-edges at ell=5, each covering 6 previously unvisited permutations, then a pure-rotation suffix of exactly 5, leaving nothing over."
+      },
+      "hexagon_reading": {
+        "hexagons_full": 12,
+        "hexagons_partial": 1,
+        "hexagons_untouched": 107,
+        "note": "an ell=5 macro-edge completes the hexagon the walk stands in (5 rotations) and steps into the next (1 joint target). So Target B is a walk that completes every remaining hexagon exactly once."
+      },
+      "orbit_phase_bound": {
+        "grade": "미완료",
+        "note": "not claimed: a joint target may land on an already-open orbit, so no nontrivial safe bound follows from phase demand alone",
+        "value": 0
+      },
+      "permutation_coverage_bound": {
+        "derivation": "at Phi=0 every future macro-edge has ell=5 (C1) and covers exactly 6 fresh permutations (C2); a final pure-rotation suffix covers at most 5 more. Hence #macro-edges >= ceil((U-5)/6).",
+        "grade": "safe lower bound (손증명)",
+        "value": 107
+      },
+      "pure_suffix_now": {
+        "needs": 5,
+        "rotations_available_now": 5,
+        "suffix_appendable_now": true
+      },
+      "slack": 0,
+      "witness_index": 2
+    },
+    {
+      "B_available": 107,
+      "C_min": 107,
+      "component_merge_bound": {
+        "grade": "미완료",
+        "note": "not claimed: the required FINAL component structure for Target B is not characterised, so no deficit can be computed",
+        "value": 0
+      },
+      "exact_packing_identity": {
+        "6B_plus_5": 647,
+        "B": 107,
+        "U": 647,
+        "U_equals_6B_plus_5": true,
+        "meaning": "Phi = 0 says exactly U = 6B + 5. So the continuation must be a PERFECT packing: all B remaining macro-edges at ell=5, each covering 6 previously unvisited permutations, then a pure-rotation suffix of exactly 5, leaving nothing over."
+      },
+      "hexagon_reading": {
+        "hexagons_full": 12,
+        "hexagons_partial": 1,
+        "hexagons_untouched": 107,
+        "note": "an ell=5 macro-edge completes the hexagon the walk stands in (5 rotations) and steps into the next (1 joint target). So Target B is a walk that completes every remaining hexagon exactly once."
+      },
+      "orbit_phase_bound": {
+        "grade": "미완료",
+        "note": "not claimed: a joint target may land on an already-open orbit, so no nontrivial safe bound follows from phase demand alone",
+        "value": 0
+      },
+      "permutation_coverage_bound": {
+        "derivation": "at Phi=0 every future macro-edge has ell=5 (C1) and covers exactly 6 fresh permutations (C2); a final pure-rotation suffix covers at most 5 more. Hence #macro-edges >= ceil((U-5)/6).",
+        "grade": "safe lower bound (손증명)",
+        "value": 107
+      },
+      "pure_suffix_now": {
+        "needs": 5,
+        "rotations_available_now": 5,
+        "suffix_appendable_now": true
+      },
+      "slack": 0,
+      "witness_index": 3
+    },
+    {
+      "B_available": 107,
+      "C_min": 107,
+      "component_merge_bound": {
+        "grade": "미완료",
+        "note": "not claimed: the required FINAL component structure for Target B is not characterised, so no deficit can be computed",
+        "value": 0
+      },
+      "exact_packing_identity": {
+        "6B_plus_5": 647,
+        "B": 107,
+        "U": 647,
+        "U_equals_6B_plus_5": true,
+        "meaning": "Phi = 0 says exactly U = 6B + 5. So the continuation must be a PERFECT packing: all B remaining macro-edges at ell=5, each covering 6 previously unvisited permutations, then a pure-rotation suffix of exactly 5, leaving nothing over."
+      },
+      "hexagon_reading": {
+        "hexagons_full": 12,
+        "hexagons_partial": 1,
+        "hexagons_untouched": 107,
+        "note": "an ell=5 macro-edge completes the hexagon the walk stands in (5 rotations) and steps into the next (1 joint target). So Target B is a walk that completes every remaining hexagon exactly once."
+      },
+      "orbit_phase_bound": {
+        "grade": "미완료",
+        "note": "not claimed: a joint target may land on an already-open orbit, so no nontrivial safe bound follows from phase demand alone",
+        "value": 0
+      },
+      "permutation_coverage_bound": {
+        "derivation": "at Phi=0 every future macro-edge has ell=5 (C1) and covers exactly 6 fresh permutations (C2); a final pure-rotation suffix covers at most 5 more. Hence #macro-edges >= ceil((U-5)/6).",
+        "grade": "safe lower bound (손증명)",
+        "value": 107
+      },
+      "pure_suffix_now": {
+        "needs": 5,
+        "rotations_available_now": 5,
+        "suffix_appendable_now": true
+      },
+      "slack": 0,
+      "witness_index": 4
+    },
+    {
+      "B_available": 107,
+      "C_min": 107,
+      "component_merge_bound": {
+        "grade": "미완료",
+        "note": "not claimed: the required FINAL component structure for Target B is not characterised, so no deficit can be computed",
+        "value": 0
+      },
+      "exact_packing_identity": {
+        "6B_plus_5": 647,
+        "B": 107,
+        "U": 647,
+        "U_equals_6B_plus_5": true,
+        "meaning": "Phi = 0 says exactly U = 6B + 5. So the continuation must be a PERFECT packing: all B remaining macro-edges at ell=5, each covering 6 previously unvisited permutations, then a pure-rotation suffix of exactly 5, leaving nothing over."
+      },
+      "hexagon_reading": {
+        "hexagons_full": 12,
+        "hexagons_partial": 1,
+        "hexagons_untouched": 107,
+        "note": "an ell=5 macro-edge completes the hexagon the walk stands in (5 rotations) and steps into the next (1 joint target). So Target B is a walk that completes every remaining hexagon exactly once."
+      },
+      "orbit_phase_bound": {
+        "grade": "미완료",
+        "note": "not claimed: a joint target may land on an already-open orbit, so no nontrivial safe bound follows from phase demand alone",
+        "value": 0
+      },
+      "permutation_coverage_bound": {
+        "derivation": "at Phi=0 every future macro-edge has ell=5 (C1) and covers exactly 6 fresh permutations (C2); a final pure-rotation suffix covers at most 5 more. Hence #macro-edges >= ceil((U-5)/6).",
+        "grade": "safe lower bound (손증명)",
+        "value": 107
+      },
+      "pure_suffix_now": {
+        "needs": 5,
+        "rotations_available_now": 5,
+        "suffix_appendable_now": true
+      },
+      "slack": 0,
+      "witness_index": 5
+    }
+  ],
+  "safety_note": "every bound here can only under-estimate; no heuristic estimate is used, and none of these may be used as a prune beyond what is proved",
+  "schema": "rr-target-b-lower-bounds-v1",
+  "static_contradiction_verdicts": [
+    {
+      "slack": 0,
+      "verdict": "lower bound incomplete (only the permutation-coverage bound is available)",
+      "witness_index": 0
+    },
+    {
+      "slack": 0,
+      "verdict": "lower bound incomplete (only the permutation-coverage bound is available)",
+      "witness_index": 1
+    },
+    {
+      "slack": 0,
+      "verdict": "lower bound incomplete (only the permutation-coverage bound is available)",
+      "witness_index": 2
+    },
+    {
+      "slack": 0,
+      "verdict": "lower bound incomplete (only the permutation-coverage bound is available)",
+      "witness_index": 3
+    },
+    {
+      "slack": 0,
+      "verdict": "lower bound incomplete (only the permutation-coverage bound is available)",
+      "witness_index": 4
+    },
+    {
+      "slack": 0,
+      "verdict": "lower bound incomplete (only the permutation-coverage bound is available)",
+      "witness_index": 5
+    }
+  ],
+  "summary": "Phi = 0 is exactly the identity U = 6B + 5, so Target B from these states demands a PERFECT packing with zero slack: every one of the B remaining macro-edges must have ell=5 and cover 6 previously unvisited permutations -- i.e. complete one whole hexagon -- and the walk must finish with a pure-rotation suffix of exactly 5. No immediate contradiction follows, and none is manufactured."
+}

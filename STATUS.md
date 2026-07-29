@@ -2157,6 +2157,109 @@ this session itself built in Rounds 24–26**. The U/J branches are
 untouched. The surviving RR routes are terminal-normal-form uniqueness
 and same-component ⇒ chaining.
 
+### Round 29 — the centre moves to terminal structure and Target B cost
+
+`src/verify_rr_terminal_normal_form.py`,
+`src/verify_rr_corrected_phase_identity.py`,
+`src/analyze_rr_target_b_remaining_cost.py` ->
+`outputs/rr_terminal_normal_form_ledger.json`,
+`outputs/rr_corrected_phase_identity.json`,
+`outputs/rr_target_b_transition_universe.json`,
+`outputs/rr_target_b_demand_vectors.json`,
+`outputs/rr_target_b_lower_bounds.json`. Six write-ups. No search of any
+kind was run; the N=0 checkpoint was not touched; no refuted parity claim
+was revived.
+
+**Three base computations, from the engine's own tables.**
+
+- (H1) hex0 position -> (orbit, phase): 0:(0,0) 1:(120,0) 2:(33,1)
+  3:(9,2) 4:(3,3) **5:(1,4)**.
+- (H2) a weight-1 rotation has dP=0, dvisited=1 (dPhi=+1); a joint has
+  dP=1, dvisited=1 (dPhi=-5). Hence **dPhi = ell - 5** for a macro-edge,
+  and Phi(initial) = 6.
+- (H3) `remaining_window_capacity_prune` is true **exactly when Phi < 0**
+  (400/400 agreement, and identical by definition). So **Phi >= 0 is Area
+  A's own capacity prune**, not an extra assumption.
+
+**Terminal normal form: 7 of 10 claims now hand-proved.**
+
+| claim | grade |
+|---|---|
+| T2 completer targets (orbit 1, phase 4) | **손증명** |
+| T4a the edge after C is forced to ell=0 | **손증명** |
+| T4b if that edge is an R it is `rot^0;w3:120` | **손증명** |
+| T5 R2 source orbit = 1 | 손증명 (given T3) |
+| T6 R2 target orbit = 0 | 손증명 (given T3, T4b) |
+| T7 Phi = 0 at the R2 boundary | **손증명** |
+| T8 the R2 boundary is same-component | 손증명 (given T3, T4b) |
+| T1, T3, T9 | **bounded observation 15/15 — not promoted** |
+
+T2: at ell=4 the abandonment's run visits hex0 positions 0..4, a rotation
+run moves only inside the current hexagon, so hex0 can be re-entered only
+as a joint target; the completer is the first such edge and cannot
+revisit, so it lands on the unique residual position 5 = (1,4).
+T4a: from position 5 a rotation would go to position 0, visited since the
+initial state. T4b: at that endpoint exactly one of the four joints is an
+R (`w2:10` is Z2, `w3:201`/`w3:210` are Z3).
+T7: 6 - 1 (A_4 at ell=4) - 0 (every preparation edge at ell=5) - 5 (R2 at
+ell=0) = 0 — **the preparation length cancels exactly**, which is why
+short and long preparations agree.
+T8: orbit 0 has a port at hex0 position 0 (visited initially) and the
+completer visits hex0 position 5, a port of orbit 1; both are incident to
+hexagon 0. **So same-component is automatic at ell=4 once C fires — it is
+not a constraint**, and chaining cannot follow from it.
+
+**Minimal axiom set**: T2, T4a, T4b, T8 use **ell=4 alone**. T7 adds the
+Phi slab and "every preparation edge is ell=5". The other eight candidate
+assumptions (RR, same-component, F_def, N=2, Unique Hub, Hub Touch,
+Hub Exit Source, R2 legality) are **all unnecessary**.
+
+**T3 is not forced by legality**: at the post-C endpoint all four joints
+are legal and three are not R. Six candidate obstructions were checked
+and all six fail. 미완료.
+
+**Chaining, partially proved.** CH1 (손증명): if the completer C is
+itself an R, then C = R1 (R2 comes after C), and C's target is (1,4) by
+T2, so R1's target orbit is 1 = R2's source orbit. That covers **5 of the
+15** ell=4 cases (C = `w3:120` once, `w3:201` twice, `w3:210` twice). The
+other 10 have C = `w2:10` and remain 미완료; the exact residue is CH2:
+"when C is zero-charge, P_core contains an R targeting orbit 1". Note
+CH1 uses no parity at all — only the R count and T2 — which is what the
+long family required, since it breaks parity while keeping chaining
+(preparation lengths 2–10, 15/15).
+
+**Corrected phase identity, formalised standalone** (deliberately not
+used by the terminal proof): `#Z_{->O*} ≡ k + #R_{odd-δ} (mod 2)`, 손증명,
+verified 95/95 historically (where #R_{odd-δ} = 0, which is why the
+collapsed form looked like a theorem) and 6/6 on the counterexamples
+(where the collapsed form fails every time).
+
+**Target B: exact reformulation.** The Phi=0 continuation theorem
+(손증명): at Phi=0 every admissible macro-edge has ell=5, since dPhi =
+ell-5 and Phi>=0 is the capacity prune. An ell=5 macro-edge completes the
+hexagon the walk stands in and steps into the next, covering exactly 6
+fresh permutations. The six post-R2 states have **one identical legal
+transition signature** — 3 legal edges each (`rot^5;w2:10`/Z2 and two
+Z3), everything else `F_exceeded`. Hexagon census: 1 partial hexagon and
+**untouched hexagons = B exactly** (110 and 107). Therefore
+
+> **Target B ≡ a Hamiltonian path on the remaining hexagons**, each
+> completed by one macro-edge, ending with a pure-rotation suffix of 5.
+
+**Remaining cost.** Phi = 0 is exactly the identity **U_perm = 6B + 5**
+(665 = 6·110+5; 647 = 6·107+5). So the continuation must be a **perfect
+packing with zero slack**. The permutation-coverage lower bound
+ceil((U-5)/6) equals B exactly, giving **slack 0**; the orbit/phase and
+component-merge bounds are 미완료 (no nontrivial safe bound follows).
+Verdict per state: **"lower bound incomplete"**, not "no contradiction" —
+slack 0 is neither a contradiction nor evidence of feasibility, and none
+was manufactured.
+
+**Why no search was run**: branching is at most 3 but depth is 110, and
+with slack already 0 a single weak extra obstruction — a degree-1 vertex
+or a disconnection in the hexagon graph — would settle it statically.
+Building that graph is the natural next step and was not done here.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

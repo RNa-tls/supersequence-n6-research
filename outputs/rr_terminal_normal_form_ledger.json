@@ -1,0 +1,539 @@
+{
+  "H1_hex0_position_table": [
+    {
+      "hex0_position": 0,
+      "orbit": 0,
+      "phase": 0
+    },
+    {
+      "hex0_position": 1,
+      "orbit": 120,
+      "phase": 0
+    },
+    {
+      "hex0_position": 2,
+      "orbit": 33,
+      "phase": 1
+    },
+    {
+      "hex0_position": 3,
+      "orbit": 9,
+      "phase": 2
+    },
+    {
+      "hex0_position": 4,
+      "orbit": 3,
+      "phase": 3
+    },
+    {
+      "hex0_position": 5,
+      "orbit": 1,
+      "phase": 4
+    }
+  ],
+  "H2_phi_increments": {
+    "joint": {
+      "dP": 1,
+      "dPhi": -5,
+      "dvisited": 1
+    },
+    "macro_edge_closed_form": "dPhi = ell - 5",
+    "phi_initial": 6,
+    "weight1_rotation": {
+      "dP": 0,
+      "dPhi": 1,
+      "dvisited": 1
+    }
+  },
+  "H3_capacity_prune_equals_phi_negative": {
+    "agree": 400,
+    "checked": 400,
+    "identical": true
+  },
+  "grade": "손증명 for T2/T4a/T4b/T7 unconditionally and T5/T6/T8 given T3; bounded observation for T1/T3/T9",
+  "hand_proved": [
+    "T2",
+    "T4a",
+    "T4b",
+    "T5",
+    "T6",
+    "T7",
+    "T8"
+  ],
+  "honest_note": "T3 and T9 are 15/15 observations and are NOT promoted. Every other claim that depends on T3 is marked '손증명 (given T3)' rather than 손증명.",
+  "lemmas": [
+    {
+      "claim": "R1 target orbit is O* = orbit 1",
+      "id": "T1",
+      "note": "follows from chaining plus T5, but chaining is itself unproved, so this is not independent. See RR_SAME_COMPONENT_CHAINING_LONG.md.",
+      "status": "bounded observation (15/15)"
+    },
+    {
+      "claim": "the hub completer targets (orbit 1, phase 4)",
+      "id": "T2",
+      "proof": "at ell=4 the abandonment's rotation run visits hex0 positions 0..4 and the joint leaves hex0, so position 5 is the UNIQUE unvisited hex0 position. A rotation run can only move inside the current hexagon, so hex0 can be re-entered only as a joint target; the completer is by definition the first such edge, and it cannot revisit, so its target is hex0 position 5. By (H1) that position is (orbit 1, phase 4).",
+      "status": "손증명"
+    },
+    {
+      "claim": "R2 fires on the very next macro-edge after C (tail = 0)",
+      "id": "T3",
+      "note": "the edge after C is forced to ell=0 (T4a), but all four joints are legal there and three of them are not R. Legality alone does not force the next edge to be R2.",
+      "status": "bounded observation (15/15) -- NOT proved"
+    },
+    {
+      "claim": "the macro-edge after C has rotation run ell = 0",
+      "id": "T4a",
+      "proof": "after C the walk stands on hex0 position 5; a weight-1 rotation would move to hex0 position 0, which is visited from the very first state, so exact.extend returns None. Hence ell = 0.",
+      "status": "손증명"
+    },
+    {
+      "claim": "if the edge after C is an R, that R is rot^0;w3:120",
+      "id": "T4b",
+      "proof": "at the post-C endpoint exactly one of the four joints is an R event: w2:10 is Z2, w3:201 and w3:210 are Z3 (fresh openings), and w3:120 is the only R. Combined with T4a the label is rot^0;w3:120.",
+      "status": "손증명 (given T4a)"
+    },
+    {
+      "claim": "R2 source orbit is orbit 1",
+      "id": "T5",
+      "proof": "by T2 the walk stands at (orbit 1, phase 4) when the next edge fires.",
+      "status": "손증명 (given T3)"
+    },
+    {
+      "claim": "R2 target orbit is the initial orbit 0",
+      "id": "T6",
+      "proof": "computed directly: rot^0;w3:120 from (1,4) lands in orbit 0.",
+      "status": "손증명 (given T3, T4b)"
+    },
+    {
+      "claim": "Phi = 0 at the R2 boundary",
+      "id": "T7",
+      "proof": "Phi(initial) = 6. By (H2) a macro-edge with rotation run ell changes Phi by ell-5. The word is A_4 (ell=4, dPhi=-1), then P_core edges all at ell=5 (dPhi=0 each), then C at ell=5 (dPhi=0), then R2 at ell=0 (dPhi=-5). Total: 6 - 1 - 5 = 0. The preparation length cancels exactly, which is why short and long preparations agree.",
+      "status": "손증명"
+    },
+    {
+      "claim": "the R2 boundary is same-component",
+      "id": "T8",
+      "proof": "orbit 0 has a port at hex0 position 0, visited in the initial state; by T2 the completer visits hex0 position 5, a port of orbit 1. Both orbits are therefore incident to hexagon 0 and lie in one component. R2's source orbit is 1 (T5) and its target orbit is 0 (T6), so the same-component test passes automatically -- it is not a constraint at ell=4 once C has fired.",
+      "status": "손증명 (given T3, T4b)"
+    },
+    {
+      "claim": "chaining (R1 target orbit = R2 source orbit)",
+      "id": "T9",
+      "note": "see RR_SAME_COMPONENT_CHAINING_LONG.md for how far the argument gets.",
+      "status": "bounded observation (15/15) -- NOT proved"
+    }
+  ],
+  "observed_only": [
+    "T1",
+    "T3",
+    "T9"
+  ],
+  "post_completer_analysis": [
+    {
+      "endpoint_hex_position": 5,
+      "endpoint_hexagon": 0,
+      "endpoint_orbit_phase": [
+        1,
+        4
+      ],
+      "joints": [
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 1
+        },
+        {
+          "dPhi": -5,
+          "is_R": true,
+          "joint": "w3:120",
+          "kind": "R",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 138,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 32,
+          "target_phase": 1
+        }
+      ],
+      "n_legal": 4,
+      "n_legal_R": 1,
+      "phi_after_C": 5,
+      "rotation_block_reason": "hex0 position 0 already visited",
+      "rotation_possible": false,
+      "unique_R_joint": [
+        "w3:120"
+      ]
+    },
+    {
+      "endpoint_hex_position": 5,
+      "endpoint_hexagon": 0,
+      "endpoint_orbit_phase": [
+        1,
+        4
+      ],
+      "joints": [
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 1
+        },
+        {
+          "dPhi": -5,
+          "is_R": true,
+          "joint": "w3:120",
+          "kind": "R",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 138,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 32,
+          "target_phase": 1
+        }
+      ],
+      "n_legal": 4,
+      "n_legal_R": 1,
+      "phi_after_C": 5,
+      "rotation_block_reason": "hex0 position 0 already visited",
+      "rotation_possible": false,
+      "unique_R_joint": [
+        "w3:120"
+      ]
+    },
+    {
+      "endpoint_hex_position": 5,
+      "endpoint_hexagon": 0,
+      "endpoint_orbit_phase": [
+        1,
+        4
+      ],
+      "joints": [
+        {
+          "joint": "w2:10",
+          "legal": false,
+          "reason": "target already visited"
+        },
+        {
+          "dPhi": -5,
+          "is_R": true,
+          "joint": "w3:120",
+          "kind": "R",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 138,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 32,
+          "target_phase": 1
+        }
+      ],
+      "n_legal": 3,
+      "n_legal_R": 1,
+      "phi_after_C": 5,
+      "rotation_block_reason": "hex0 position 0 already visited",
+      "rotation_possible": false,
+      "unique_R_joint": [
+        "w3:120"
+      ]
+    },
+    {
+      "endpoint_hex_position": 5,
+      "endpoint_hexagon": 0,
+      "endpoint_orbit_phase": [
+        1,
+        4
+      ],
+      "joints": [
+        {
+          "joint": "w2:10",
+          "legal": false,
+          "reason": "target already visited"
+        },
+        {
+          "dPhi": -5,
+          "is_R": true,
+          "joint": "w3:120",
+          "kind": "R",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 138,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 32,
+          "target_phase": 1
+        }
+      ],
+      "n_legal": 3,
+      "n_legal_R": 1,
+      "phi_after_C": 5,
+      "rotation_block_reason": "hex0 position 0 already visited",
+      "rotation_possible": false,
+      "unique_R_joint": [
+        "w3:120"
+      ]
+    },
+    {
+      "endpoint_hex_position": 5,
+      "endpoint_hexagon": 0,
+      "endpoint_orbit_phase": [
+        1,
+        4
+      ],
+      "joints": [
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 1
+        },
+        {
+          "dPhi": -5,
+          "is_R": true,
+          "joint": "w3:120",
+          "kind": "R",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 138,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 32,
+          "target_phase": 1
+        }
+      ],
+      "n_legal": 4,
+      "n_legal_R": 1,
+      "phi_after_C": 5,
+      "rotation_block_reason": "hex0 position 0 already visited",
+      "rotation_possible": false,
+      "unique_R_joint": [
+        "w3:120"
+      ]
+    },
+    {
+      "endpoint_hex_position": 5,
+      "endpoint_hexagon": 0,
+      "endpoint_orbit_phase": [
+        1,
+        4
+      ],
+      "joints": [
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w2:10",
+          "kind": "Z2",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 1
+        },
+        {
+          "dPhi": -5,
+          "is_R": true,
+          "joint": "w3:120",
+          "kind": "R",
+          "legal": true,
+          "prune": null,
+          "same_component": true,
+          "source_orbit": 1,
+          "target_is_initial_orbit": true,
+          "target_orbit": 0,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:201",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 138,
+          "target_phase": 2
+        },
+        {
+          "dPhi": -5,
+          "is_R": false,
+          "joint": "w3:210",
+          "kind": "Z3",
+          "legal": true,
+          "prune": null,
+          "same_component": false,
+          "source_orbit": 1,
+          "target_is_initial_orbit": false,
+          "target_orbit": 32,
+          "target_phase": 1
+        }
+      ],
+      "n_legal": 4,
+      "n_legal_R": 1,
+      "phi_after_C": 5,
+      "rotation_block_reason": "hex0 position 0 already visited",
+      "rotation_possible": false,
+      "unique_R_joint": [
+        "w3:120"
+      ]
+    }
+  ],
+  "schema": "rr-terminal-normal-form-ledger-v1",
+  "scope": "ell=4 RR root class, same-component R2 boundary"
+}
