@@ -2425,6 +2425,85 @@ continuation; 8 short survivors remain open. CH2 and T3 remain 미완료,
 with their obstructions now precisely located. Nothing here touches
 `L_6 ≥ 872`, Target C, or the U/J branches.
 
+### Round 32 — the orbit-reuse penalty; 7 survivors left
+
+`src/build_rr_target_b_segment_graph.py`,
+`src/analyze_rr_segment_capacity.py`,
+`src/verify_rr_segment_certificates.py` -> `outputs/rr_segment_graphs.json`,
+`outputs/rr_full_block_transitions.json`,
+`outputs/rr_short_survivor_ledger.json`,
+`outputs/rr_segment_defect_budgets.json`,
+`outputs/rr_segment_verdicts.json`. Six write-ups. **No permutation-level
+DFS**; the N=0 checkpoint was not touched; CH2 was not re-searched.
+
+**Segment model.** A Phi=0 continuation is S_0 X_1 S_1 ... X_m S_m with
+S_i a preserving run inside one E-orbit and X_i an orbit-changing edge.
+Preserving runs, exhaustively: lengths 0–4 have 1/2/4/5/3 legal words and
+length ≥5 has **none**, so capacity ≤ 5 and a capacity-5 segment needs
+exactly 4 preserving edges.
+
+**EEEE full-segment theorem (손증명).** The three length-4 saturating
+blocks are `EEEE`, `E2EEE2`, `E2E2E2E2`, with E² counts 0, 2, 4 — **always
+even**, so no saturating block uses exactly one E². Since `w3:120` = E² is
+always an R and R_cap = 1 everywhere, the last two are unaffordable:
+**`EEEE` is the only usable capacity-5 block.** The converse also holds —
+EEEE from any entry phase visits all five phases — *provided* the five
+ports' hexagons are free, which is exactly the distinct-hexagon condition.
+
+**The new ingredient: the orbit-reuse penalty (손증명).** A segment
+entered by an orbit-changing **R** lies in an already-open orbit — that is
+precisely what makes the edge an R rather than a fresh opening
+(`new_orbit=False`). An open orbit has at least one visited port, so such
+a segment has capacity **at most 4**. Hence the refined bound's `5·R_cap`
+term is an over-estimate and must be `4·R_cap`:
+
+> **B+1 ≤ c(q₀) + Σ(O_cap largest c(q)) + 4·R_cap**
+
+| ell | P_core | B+1 | (A) | (B) | (B+R) | verdict |
+|---|---|---|---|---|---|---|
+| 0 | 2 | 115 | 125 | 123 | 122 | survivor |
+| **0** | **4** | **113** | 115 | 113 | **112** | **removed — by the R penalty** |
+| 4 | 2 | 116 | 125 | 123 | 122 | survivor ×3 |
+| **4** | **4** | **114** | 115 | **113** | 112 | **removed — already by (B)** |
+| 4 | 6 | 112 | 120 | 118 | 117 | survivor ×3 |
+
+**7 SEGMENT_SURVIVORs remain** (verdicts: 7 survivor, 2
+SEGMENT_CAPACITY_IMPOSSIBLE, 0 incomplete). Cumulatively: 18 → 9 (R30) →
+8 (R31) → **7**.
+
+**The full-block graph gives nothing.** Nodes (orbit, entry phase) = 720,
+EEEE-then-exit transitions = 1,440, **out-degree exactly 2 at every node,
+zero dead ends**. Exactly half the transitions land in an orbit sharing no
+hexagon with the source. No degree, sink, or terminal obstruction exists —
+the graph is too regular to discriminate. That is itself informative:
+**Target B's obstructions come from capacity accounting, not graph
+topology**, now confirmed two rounds running. The "maximum realizable
+segment chain" was therefore not computed separately — over the
+over-approximation it is unbounded, and its finiteness *is* the capacity
+bound.
+
+**A methodology correction made mid-round.** The greedy hexagon-disjoint
+orbit family is a **lower** bound on the maximum, so it can never certify
+an obstruction. It initially appeared to block two survivors (greedy 20 <
+f_min 21, 22); that was replaced by the safe ceiling
+⌊#unvisited hexagons / 5⌋, which blocks **nothing**. Globally the maximum
+pairwise hexagon-disjoint family is exactly **24**, and a perfect
+partition of all 120 hexagons into 24 orbits exists — so no
+disjointness contradiction is available at all.
+
+**Still 미완료**: component-compatible capacity (the required *final*
+component structure is uncharacterised, and no heuristic was substituted);
+the 7 remaining survivors; CH2 (status fixed, not re-searched); T3
+(exact observation 15/15 — the segment structure gave no new route to it).
+
+**Next-round shape**: the full-block graph is small (720 nodes) but
+topologically useless. An exact DP/SAT should be posed over **resource
+allocation** — which unopened orbits are used, in what order, with how
+many ports each — subject to O/R slots, hexagon disjointness, defect
+budget ≤ M and total ports = B+1. That is an exact-cover/ILP, far smaller
+than a depth-100 DFS, but it cannot be fully encoded until the component
+condition is characterised.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

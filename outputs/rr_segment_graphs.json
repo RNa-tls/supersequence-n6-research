@@ -1,0 +1,306 @@
+{
+  "eeee_theorem": {
+    "E2_count_is_always_even": true,
+    "E2_counts_among_saturating_blocks": [
+      0,
+      2,
+      4
+    ],
+    "capacity5_requires_run_length_4": true,
+    "converse": "EEEE from entry phase phi visits phi, phi+1, ..., phi+4, i.e. all five phases, so it always attains capacity 5 -- PROVIDED all five ports are unvisited and their hexagons are still free. The converse therefore holds modulo hexagon availability, which is exactly the distinct-hexagon condition of section 10.",
+    "forward": "a capacity-5 segment uses all five ports, hence four preserving edges; with R_cap = 1 at most one E2 is affordable in the whole continuation, and no saturating block has E2 count 1 (the counts are [0, 2, 4], all even), so a capacity-5 segment must be EEEE",
+    "grade": "손증명",
+    "length4_words": [
+      "EEEE",
+      "E2EEE2",
+      "E2E2E2E2"
+    ],
+    "length5_words": 0,
+    "only_R_free_saturating_block": [
+      "EEEE"
+    ]
+  },
+  "exit_classification": [
+    {
+      "generator": [
+        2,
+        3,
+        4,
+        1,
+        5,
+        0
+      ],
+      "joint": "w3:201",
+      "note": "the landing orbit and phase depend on the departure port, so the entry phase into the next segment is NOT fixed by the joint alone; this is why the segment graph must carry the entry phase",
+      "orbit_preserving": false,
+      "roles": [
+        "fresh opening (Z3, costs an O slot)",
+        "R (target orbit already open, costs an R slot)"
+      ]
+    },
+    {
+      "generator": [
+        2,
+        3,
+        4,
+        1,
+        0,
+        5
+      ],
+      "joint": "w3:210",
+      "note": "the landing orbit and phase depend on the departure port, so the entry phase into the next segment is NOT fixed by the joint alone; this is why the segment graph must carry the entry phase",
+      "orbit_preserving": false,
+      "roles": [
+        "fresh opening (Z3, costs an O slot)",
+        "R (target orbit already open, costs an R slot)"
+      ]
+    }
+  ],
+  "orbit_hexagon_incidence": {
+    "ceiling": 24,
+    "grade": "exact segment graph",
+    "hexagons": 120,
+    "hexagons_per_orbit": 5,
+    "max_pairwise_hexagon_disjoint_orbits": 24,
+    "orbits": 144,
+    "orbits_per_hexagon": 6,
+    "perfect_partition_exists": true
+  },
+  "preserving_run_table": {
+    "0": [
+      {
+        "capacity": 1,
+        "n_E2": 0,
+        "phase_offsets": [
+          0
+        ],
+        "steps": [],
+        "word": ""
+      }
+    ],
+    "1": [
+      {
+        "capacity": 2,
+        "n_E2": 0,
+        "phase_offsets": [
+          0,
+          1
+        ],
+        "steps": [
+          1
+        ],
+        "word": "E"
+      },
+      {
+        "capacity": 2,
+        "n_E2": 1,
+        "phase_offsets": [
+          0,
+          2
+        ],
+        "steps": [
+          2
+        ],
+        "word": "E2"
+      }
+    ],
+    "2": [
+      {
+        "capacity": 3,
+        "n_E2": 0,
+        "phase_offsets": [
+          0,
+          1,
+          2
+        ],
+        "steps": [
+          1,
+          1
+        ],
+        "word": "EE"
+      },
+      {
+        "capacity": 3,
+        "n_E2": 1,
+        "phase_offsets": [
+          0,
+          1,
+          3
+        ],
+        "steps": [
+          1,
+          2
+        ],
+        "word": "EE2"
+      },
+      {
+        "capacity": 3,
+        "n_E2": 1,
+        "phase_offsets": [
+          0,
+          2,
+          3
+        ],
+        "steps": [
+          2,
+          1
+        ],
+        "word": "E2E"
+      },
+      {
+        "capacity": 3,
+        "n_E2": 2,
+        "phase_offsets": [
+          0,
+          2,
+          4
+        ],
+        "steps": [
+          2,
+          2
+        ],
+        "word": "E2E2"
+      }
+    ],
+    "3": [
+      {
+        "capacity": 4,
+        "n_E2": 0,
+        "phase_offsets": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "steps": [
+          1,
+          1,
+          1
+        ],
+        "word": "EEE"
+      },
+      {
+        "capacity": 4,
+        "n_E2": 1,
+        "phase_offsets": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "steps": [
+          1,
+          1,
+          2
+        ],
+        "word": "EEE2"
+      },
+      {
+        "capacity": 4,
+        "n_E2": 1,
+        "phase_offsets": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "steps": [
+          1,
+          2,
+          1
+        ],
+        "word": "EE2E"
+      },
+      {
+        "capacity": 4,
+        "n_E2": 1,
+        "phase_offsets": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "steps": [
+          2,
+          1,
+          1
+        ],
+        "word": "E2EE"
+      },
+      {
+        "capacity": 4,
+        "n_E2": 3,
+        "phase_offsets": [
+          0,
+          2,
+          4,
+          1
+        ],
+        "steps": [
+          2,
+          2,
+          2
+        ],
+        "word": "E2E2E2"
+      }
+    ],
+    "4": [
+      {
+        "capacity": 5,
+        "n_E2": 0,
+        "phase_offsets": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "steps": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "word": "EEEE"
+      },
+      {
+        "capacity": 5,
+        "n_E2": 2,
+        "phase_offsets": [
+          0,
+          2,
+          3,
+          4,
+          1
+        ],
+        "steps": [
+          2,
+          1,
+          1,
+          2
+        ],
+        "word": "E2EEE2"
+      },
+      {
+        "capacity": 5,
+        "n_E2": 4,
+        "phase_offsets": [
+          0,
+          2,
+          4,
+          1,
+          3
+        ],
+        "steps": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "word": "E2E2E2E2"
+      }
+    ]
+  },
+  "schema": "rr-segment-graphs-v1",
+  "segment_model": "S_0 X_1 S_1 ... X_m S_m; S_i a preserving run in one E-orbit, X_i an orbit-changing edge"
+}
