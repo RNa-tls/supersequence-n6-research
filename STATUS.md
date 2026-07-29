@@ -1872,6 +1872,84 @@ closing it would give only #Z_{->O*}; the evenness of #Z_{->other}
 (observed 95/95) still has no argument at all. So
 `|P| + #R_{<=C} ≡ 1 (mod 2)` remains **미완료**.
 
+### Round 26 — the O* revisit-gap bound is FALSE, and with it the alphabet route
+
+`src/enumerate_rr_first_return_words.py`, `src/analyze_rr_length7_obstructions.py`,
+`src/verify_rr_o_star_gap.py` -> `outputs/rr_first_return_table.json`,
+`outputs/rr_length7_counterexamples.json`, `outputs/rr_o_star_excursions.json`,
+`outputs/rr_gap_certificates.json`. Six write-ups, led by
+`research/RR_O_STAR_REVISIT_GAP.md`. No completion search; the N=0 search
+and checkpoint were not touched.
+
+**Counting convention, fixed and corrected.** L = first-return word
+length (macro-edges from the O* port up to and including the edge landing
+back in O*); G = L−1 = the gap. Round 25's write-up compared observed G
+values (0, 3, 4) against a group threshold stated in L (≤ 6) without
+saying so. The conclusion was unaffected — L = 1, 4, 5 are all ≤ 6 — but
+the units were mixed, and every table now carries both.
+
+**The target proposition is 반증됨.** Enumerating legal first-return
+excursions from all five abandonment roots to L ≤ 8 — a ceiling set
+deliberately past the group threshold 6, so that "nothing exceeds 6"
+would be a finding rather than an artifact — produces legal excursions of
+**L = 7 with ODD return exponent 3, at every one of the five roots**:
+
+```
+joints   = w3:201, w3:201, w2:10, w3:210, w2:10, w3:210, w3:201
+symbolic = F F E F E F R        (#R=1, #F=4, #E=2)
+```
+
+Enumerating every literal word of length 7 and 8 over the four ell=5
+generators (81,920 words) and replaying each through the engine: of the
+39 odd-exponent first-return words, **38 replay legally**. Exactly one is
+removed, by `N_exceeded_monotone`. Section 3's goal — find a common
+legality obstruction that kills all of them — has the opposite answer.
+
+**No budget coordinate separates them.** Excursion length fails (L = 7
+and 8 carry both odd and even). The R budget fails: the minimal
+counterexample needs only 1 R, inside RR's budget of 2. The F budget
+fails: odd excursions need #F ≥ 3, but a legal *even* excursion of length
+5 (`FFEFR`) already has #F = 3, and observed same-component words reach
+#F = 3 too — so no true F bound excludes them.
+
+**The legal length spectrum is not an interval**: {1, 4, 5, 7, 8}.
+L ∈ {2,3} are impossible group-theoretically; **L = 6 is
+group-theoretically possible but killed by legality**. Since L = 6 is
+impossible while L = 7 and 8 are legal, no monotone "longer ⟹ collision"
+argument (section 5's prefix collision theorem) can exist. The group
+graph and the legality-filtered graph differ in *both* directions.
+
+**Why Round 25 saw no exceptions.** Its universe was depth ≤ 6 after the
+abandonment, and a violating excursion needs L = 7 — there was no room
+for one. Round 25's "0 violations in 18,778 edges" was the shadow of the
+depth cap, not evidence for the alphabet. Using it to argue the alphabet
+would be circular, and the Round 25 documents are corrected accordingly.
+
+**What survives** (unchanged and still hand-proved): the four ell=5
+composite generators, `w2:10` → E and `w3:120` → E²; F is always `w3:201`
+or `w3:210`; from a port q, `w2:10` lands at q∘E (phase +1); the total
+advance 4 (mod 5); phase injectivity; the winding reduction
+#Z_{→O*} ≡ k (mod 2). What falls is the step that made k = 0 provable.
+
+**Lemma A, newly hand-proved**: any excursion with L ≥ 2 must begin with
+`w3:201` or `w3:210` — an orbit-preserving first edge would land back in
+O* immediately, giving L = 1.
+
+**Non-O* separation (kept strictly separate).** Across the 95 O*-landing
+completions the aggregate #Z_{→other} is even 95/95, but **5 of 95
+completions contain an individual orbit with an ODD zero-charge count**.
+So "every non-O* orbit is entered and exited in paired excursions" is
+**반증됨**; the aggregate evenness is not per-orbit and has no
+explanation.
+
+**Net**: `|P| + #R_{<=C} ≡ 1 (mod 2)` remains 미완료, and the O*
+half — which Round 25 had reduced to a single lemma — is now known not to
+follow from that lemma, because the lemma is false. One question is left
+undecided and is stated exactly: whether a preparation prefix containing
+an L ≥ 7 excursion extends to a completed same-component RR word.
+Settling it needs a completion search, which this round was told not to
+run.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

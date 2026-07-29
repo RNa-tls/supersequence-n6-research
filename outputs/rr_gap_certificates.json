@@ -1,0 +1,55 @@
+{
+  "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+  "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+  "frontier_exhausted_below_ceiling": false,
+  "grade": "root-local exhaustive",
+  "per_ell": [
+    {
+      "abandonment_ell": 0,
+      "dedup_states": 26415,
+      "excursions_found": 71,
+      "frontier_truncated_at_ceiling": true,
+      "nodes_expanded": 26415,
+      "o_star": 120
+    },
+    {
+      "abandonment_ell": 1,
+      "dedup_states": 26422,
+      "excursions_found": 71,
+      "frontier_truncated_at_ceiling": true,
+      "nodes_expanded": 26422,
+      "o_star": 33
+    },
+    {
+      "abandonment_ell": 2,
+      "dedup_states": 26392,
+      "excursions_found": 71,
+      "frontier_truncated_at_ceiling": true,
+      "nodes_expanded": 26392,
+      "o_star": 9
+    },
+    {
+      "abandonment_ell": 3,
+      "dedup_states": 26352,
+      "excursions_found": 67,
+      "frontier_truncated_at_ceiling": true,
+      "nodes_expanded": 26352,
+      "o_star": 3
+    },
+    {
+      "abandonment_ell": 4,
+      "dedup_states": 26336,
+      "excursions_found": 71,
+      "frontier_truncated_at_ceiling": true,
+      "nodes_expanded": 26336,
+      "o_star": 1
+    }
+  ],
+  "schema": "rr-gap-certificates-v1",
+  "scope_statement": "root-local excursion scope: the five abandonment roots obtained from exact.initial_state() by rot^ell (ell=0..4) followed by the unique abandonment joint w2:10; transitions are macro.macro_edges() filtered by macro.area_a_prune_reason(., macro.AREA_A); dedup key is (stable_key, depth); excursion length ceiling L <= 8; no node, edge or time cap. This is NOT 'the whole RR universe' and the phrase is not used.",
+  "totals": {
+    "excursions": 351,
+    "nodes": 131917
+  },
+  "transition_generator": "macro.macro_edges + area_a_prune_reason(AREA_A)"
+}

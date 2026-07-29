@@ -1,0 +1,1857 @@
+{
+  "first_failure_reason_histogram": {
+    "area_a prune: N_exceeded_monotone": 9
+  },
+  "first_failure_step_histogram": {
+    "6": 5,
+    "7": 4
+  },
+  "grade": "exact counterexample (legal replay through the engine) + exact group theorem (the free-monoid enumeration)",
+  "legally_realizable_count": 38,
+  "odd_exponent_group_word_count": 39,
+  "removed_by_legality_count": 1,
+  "schema": "rr-length7-counterexamples-v1",
+  "scope": "every literal word of length 7 and 8 over the four ell=5 generators (4^7 + 4^8 = 81,920), filtered to first-returns with odd <E>-exponent, then replayed through the engine from all five abandonment roots",
+  "separating_coordinate_search": {
+    "min_F_over_realizable_odd": 3,
+    "min_R_over_realizable_odd": 1,
+    "odd_lengths_realizable": [
+      7,
+      8
+    ],
+    "verdict": "No budget coordinate among {excursion length, R count, F count} separates the odd first-returns from the allowed ones: the minimal realizable odd word needs only 1 R, which is within the RR budget of 2, and its F count is matched by legally realizable EVEN first-returns of shorter length (see rr_o_star_excursions.json). 반증됨 for all three."
+  },
+  "verdict": "The round's target -- 'every legal first-return has gap <= 6' -- is 반증됨. Odd-exponent first-return words of length 7 are not merely group artifacts: they replay legally through the engine from real abandonment roots, with only 1 R event, which is inside the RR budget.",
+  "words": [
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 7,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 7,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFEFEFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": false,
+      "length": 7,
+      "per_ell": {
+        "0": {
+          "first_failure_step": 6,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FRFRFR"
+        },
+        "1": {
+          "first_failure_step": 6,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FRFRFR"
+        },
+        "2": {
+          "first_failure_step": 6,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FRFRFR"
+        },
+        "3": {
+          "first_failure_step": 6,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FRFRFR"
+        },
+        "4": {
+          "first_failure_step": 6,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FRFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:120",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w2:10",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:201",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w2:10",
+        "w3:120",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:120",
+        "w2:10",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:120",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w2:10",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        }
+      },
+      "word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w2:10",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEEFRFRR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEEFRFRR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEEFRFRR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEEFRFRR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEEFRFRR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w2:10",
+        "w2:10",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:120",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FEFRFFFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFEEFRR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFEEFRR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFEEFRR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFEEFRR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFEEFRR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w2:10",
+        "w2:10",
+        "w3:210",
+        "w3:120",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFRFEER"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFRFEER"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFRFEER"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFRFEER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FRFRFEER"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w2:10",
+        "w2:10",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        },
+        "3": {
+          "first_failure_step": 7,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FFRFERR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFERFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w2:10",
+        "w3:120",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        },
+        "3": {
+          "first_failure_step": 7,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FFRFRER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFREFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:120",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w2:10",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFRR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFEFFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w2:10",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        },
+        "3": {
+          "first_failure_step": 7,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FFERFRR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFERFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:120",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        },
+        "3": {
+          "first_failure_step": 7,
+          "legal": false,
+          "reason": "area_a prune: N_exceeded_monotone",
+          "symbolic_prefix": "FFREFRR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFREFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w2:10",
+        "w3:201",
+        "w3:120",
+        "w3:201",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:201",
+        "w3:120",
+        "w3:210",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFRFFRFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:120",
+        "w3:201",
+        "w2:10",
+        "w3:210"
+      ]
+    },
+    {
+      "exponent": 1,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFRR"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFEFFFR"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:201"
+      ]
+    },
+    {
+      "exponent": 3,
+      "legally_realizable_from_some_root": true,
+      "length": 8,
+      "per_ell": {
+        "0": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "1": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "2": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "3": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        },
+        "4": {
+          "first_failure_step": null,
+          "legal": true,
+          "reason": null,
+          "symbolic_prefix": "FFFFRFER"
+        }
+      },
+      "word": [
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w3:120",
+        "w3:210",
+        "w2:10",
+        "w3:210"
+      ]
+    }
+  ]
+}

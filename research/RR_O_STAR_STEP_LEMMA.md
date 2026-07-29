@@ -168,3 +168,47 @@ parity 사슬은 이제 다음과 같다:
 \(|P|+\#R_{\le C}\equiv1\)이 닫히지 않는다 —
 \(\#Z_{\to\text{other}}\) 짝수성(라운드25에서 95/95 관측되었으나
 설명되지 않음)에는 아직 대응하는 논증이 없다.
+
+---
+
+## [라운드26 정정] §5의 임계값 경로는 닫혔다
+
+위 §5는 "연속한 두 \(O_*\) 방문 사이 edge 수가 \(\le6\)이면 알파벳
+보조정리가 성립한다"를 근거로, preparation depth bound가 **충분조건**
+이라고 기록했다. 그 조건부 진술 자체는 여전히 옳지만 —
+
+> **그 전제가 라운드26에 반증됐다.**
+
+`src/verify_rr_o_star_gap.py`가 abandonment root에서 \(O_*\)에 착지하지
+않는 legal macro-edge만으로 first-return을 \(L\le8\)까지 전수 열거한
+결과, **길이 \(L=7\), return exponent 3(홀수)인 legal excursion이 다섯
+root 전부에 존재한다**(symbolic `FFEFEFR`, \(\#R=1\), \(\#F=4\)).
+리터럴 전수 열거에서 길이 7·8 홀수 지수 단어 39개 중 **38개가 엔진
+replay를 통과**한다(제거되는 1개의 사유는 `N_exceeded_monotone`).
+
+따라서:
+
+- **gap \(\le6\)은 거짓** — `RR_O_STAR_REVISIT_GAP.md` §3.
+- 알파벳 보조정리는 군론으로도, legality를 더해도 **성립하지 않는다**.
+- 길이·\(\#R\)·\(\#F\) 어느 budget 좌표로도 홀수 excursion이 분리되지
+  않는다 — `RR_LENGTH7_GROUP_COUNTEREXAMPLES.md` §5.
+
+**§6의 "0/18,778 위반"에 대한 정정**: 그 measurement의 scope는
+abandonment 이후 depth \(\le6\)이고 반례는 \(L=7\) excursion을
+요구하므로, 그 universe에는 반례가 **들어갈 자리가 없었다**. 즉 위반이
+0인 것은 알파벳의 증거가 아니라 **ceiling의 결과**다. §6 말미의
+"이것이 알파벳이 예외 없이 성립하는 이유"라는 서술은 **그 scope
+안에서만** 옳다.
+
+**살아남는 것**(라운드26에서도 그대로 유효):
+
+- \(g_j=\Sigma^5\circ a_j\)의 네 값과 `w2:10`\(\to E\), `w3:120`\(\to E^2\) —
+  **exact group computation**
+- F는 `w3:201`/`w3:210`뿐 — **손증명**
+- port \(q\)에서 `w2:10`은 \(qE\)(phase +1), `w3:120`은 \(qE^2\) —
+  **손증명**
+- 길이 \(\le6\) first-return의 지수가 1·2·짝수 — **exact group theorem**
+  (다만 이제 무해한 사실일 뿐, parity를 닫지 못한다)
+
+**무너지는 것**: §5의 임계값 논증, §8의 "남은 구멍은 정확히 하나"라는
+결론. 남은 구멍은 하나가 아니며, 그 하나조차 거짓이었다.
