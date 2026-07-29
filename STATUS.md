@@ -2344,6 +2344,87 @@ those six have no slab continuation; it says nothing about `L_6 ≥ 872`,
 about Target C, or about the short-preparation boundaries that pass the
 obstruction.
 
+### Round 31 — 10 of 18 Target A boundaries lose Target B; CH2 still open
+
+`src/analyze_rr_target_b_survivors.py`,
+`src/build_rr_refined_capacity_bound.py`,
+`src/analyze_rr_ch2_r_free_extension.py` ->
+`outputs/rr_target_b_survivors.json`,
+`outputs/rr_refined_phase_capacities.json`,
+`outputs/rr_saturating_blocks.json`, `outputs/rr_ch2_r_free_prefix.json`,
+`outputs/rr_ch2_extension_results.json`. Six write-ups. The long six were
+not re-searched; the N=0 checkpoint was not touched; no global NR6 search.
+
+**Cleaner derivation of the capacity theorem.** The continuation's entry
+ports p_0..p_B split into orbit segments, one per maximal run of
+orbit-preserving edges. There are at most m+1 segments and a segment uses
+at most 5 ports of its orbit, so **B+1 ≤ 5(m+1)**, i.e. B ≤ 5m+4 with
+m ≤ O_cap + R_cap. This needs only Phi=0 and the generator structure —
+**not ell=4** — so it applies to the ell=0 boundaries too.
+
+**Part A — the exact survivor set.** Over all 18 known Target A boundary
+*states* (not words):
+
+| class | states | CAPACITY_IMPOSSIBLE | survivors |
+|---|---|---|---|
+| long (P_core 7, 10) | 6 | **6** | 0 |
+| short (P_core 2, 4, 6) | 12 | **3** | 9 |
+
+The 9 survivors have 9 distinct canonical state hashes (no quotient
+reduction) and only 2 distinct legal outgoing signatures. Margin
+histogram `{1:1, 2:1, 8:3, 9:3, 10:1}` — **no equality case exists**; the
+tightest is M=1. Equality would force every segment to use all 5 ports,
+hence a strict alternation of length-4 saturating blocks and openings.
+
+**Part C — only one saturating block is usable.** Preserving runs over
+{E, E²} have 2/4/5/3/0 legal words at lengths 1..5, so length 4 is
+maximal and there are exactly **three** saturating blocks: `EEEE`,
+`E2EEE2`, `E2E2E2E2`. But `w3:120` = E² is *always* an R (orbit-preserving,
+weight 3), and R_cap = 1 everywhere, so the latter two need 2 and 4 R
+slots. **`EEEE` is the only usable saturating block** — 손증명. The
+block-transition graph was not built: with no M=0 survivor there is
+nothing it would apply to.
+
+**Part B — refined phase/port capacity.** With
+c(q) = #{ports of q whose hexagon is still unvisited}, the safe bound
+B+1 ≤ c(q₀) + (sum of the O_cap largest c over unopened orbits) + 5·R_cap
+removes **one more survivor** (ell=4, P_core=4, uniform margin +1). The
+improvement is exactly 2 at every survivor and comes entirely from
+c(q₀)=3; unopened orbits almost all still have all five ports, because
+only 4–9 hexagons are visited at these boundaries. **8 survivors remain.**
+Component-compatible capacity was *not* counted — the required final
+component structure is uncharacterised, so no heuristic was used.
+
+**Part D — the R-free-to-C prefix, pinned down.** It is startlingly
+simple and unique in scope: `rot^5;w2:10` four times, i.e. the pure E-walk
+climbing orbit 1 from the abandonment's (1,0) through (1,1), (1,2), (1,3)
+to (1,4) = the completer. P_core = 3, zero R before C, post-C Phi = 5,
+N = 0. **This is exactly what blocks CH2**: legality alone does not force
+an R targeting orbit 1 before C, because there need be no R at all.
+
+Section 18's hoped-for obstruction does **not** hold: after C the edge is
+forced to ell=0 (T4a), but **all four joints are legal** there and three
+are not R. Choosing `w3:120` would make R1 target orbit **0**, which with
+an R2 sourced in orbit 1 would be a genuine non-chaining counterexample.
+
+The extension search from the post-C state (extension depth ≤ 9, 64,500
+nodes, node cap not reached) found **0 Target A boundaries** and **0
+counterexamples**, but the frontier was **truncated by the depth
+ceiling** — reported as **INCOMPLETE**, not as absence.
+
+**Part E — T3's status sharpened.** T3 ("R2 fires on the edge right after
+C") is **not** a local legality statement — all four joints are legal
+there. Three derivation routes are now excluded: local legality
+(반증됨), Target B capacity (Target A does not require Target B — Round
+30 proved six boundaries have no continuation yet remain Target A), and
+the RR two-R constraint (the R-free prefix is not excluded). T3 remains
+**exact observation 15/15**.
+
+**Net**: 10 of 18 Target A boundaries provably have no Target B
+continuation; 8 short survivors remain open. CH2 and T3 remain 미완료,
+with their obstructions now precisely located. Nothing here touches
+`L_6 ≥ 872`, Target C, or the U/J branches.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

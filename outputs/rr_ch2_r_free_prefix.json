@@ -1,0 +1,83 @@
+{
+  "grade": "exact observation (the prefixes) + 손증명 (the ell=0 forcing)",
+  "n_prefixes": 1,
+  "post_c_hand_classification": {
+    "joints": [
+      {
+        "is_R": false,
+        "joint": "w2:10",
+        "kind": "Z2",
+        "legal": true,
+        "phi_after": 0,
+        "prune": null,
+        "target_orbit": 0,
+        "target_phase": 1
+      },
+      {
+        "is_R": true,
+        "joint": "w3:120",
+        "kind": "R",
+        "legal": true,
+        "phi_after": 0,
+        "prune": null,
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      {
+        "is_R": false,
+        "joint": "w3:201",
+        "kind": "Z3",
+        "legal": true,
+        "phi_after": 0,
+        "prune": null,
+        "target_orbit": 138,
+        "target_phase": 2
+      },
+      {
+        "is_R": false,
+        "joint": "w3:210",
+        "kind": "Z3",
+        "legal": true,
+        "phi_after": 0,
+        "prune": null,
+        "target_orbit": 32,
+        "target_phase": 1
+      }
+    ],
+    "phi_at_C": 5,
+    "rotation_possible": false
+  },
+  "prefixes": [
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target": [
+        1,
+        4
+      ],
+      "P_core": 3,
+      "R_count_before_C": 0,
+      "literal_word": [
+        "rot^5;w2:10",
+        "rot^5;w2:10",
+        "rot^5;w2:10",
+        "rot^5;w2:10"
+      ],
+      "post_C_F_def": 1,
+      "post_C_H": 0,
+      "post_C_N": 0,
+      "post_C_O": 2,
+      "post_C_P": 6,
+      "post_C_phi": 5,
+      "post_C_state_hash": "d0cdc31090e0098f",
+      "post_C_visited": 30,
+      "root_ell": 4
+    }
+  ],
+  "schema": "rr-ch2-r-free-prefix-v1",
+  "search": {
+    "depth_ceiling": 8,
+    "nodes": 7309,
+    "truncated": true
+  }
+}
