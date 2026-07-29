@@ -1950,6 +1950,107 @@ an L ≥ 7 excursion extends to a completed same-component RR word.
 Settling it needs a completion search, which this round was told not to
 run.
 
+### Round 27 — the preparation parity conjecture is REFUTED by exact witnesses
+
+`src/build_rr_long_excursion_roots.py`, `src/search_rr_long_prefix_extensions.py`,
+`src/verify_rr_long_extension_certificate.py` ->
+`outputs/rr_long_excursion_prefixes.json`, `outputs/rr_long_prefix_quotient.json`,
+`outputs/rr_long_prefix_extension_results.json`,
+`outputs/rr_long_prefix_certificates.json`. Five write-ups led by
+`research/RR_LONG_EXCURSION_EXTENSION.md`. No global RR search was
+restarted — only 28 targeted roots. The N=0 search and checkpoint were
+not touched.
+
+**Terminology fixed first (it was a real trap).** Two different things
+were called F: `F_def` = `ExactState.F`, the abandonment/defect counter
+with `TARGET_F = 1`; `F_sym` = the fresh-orbit-opening event symbol (a Z3
+joint), bounded only through `O <= TARGET_O = 25`. Round 26's "#F=4" is
+`F_sym = 4` and is **not** a violation of `F_def <= 1`. Verified: all 186
+prefixes have `F_def = 1`.
+
+**Corpus and quotient.** Round 26's "38" counts WORDS legal from at least
+one root; the unit that has a state is a (word, root ell) PAIR, of which
+there are **186**. All 186 are distinct exact states *and* distinct
+left-S6 canonical pairs (stabilizer ties all 1), so symmetry buys no
+reduction in search roots.
+
+**Hand-proved ledger obstruction removes 158 of 186.** An RR word has
+exactly two R events and R2 is the last event, so a prefix lying strictly
+before R2 carries at most one R. 106 prefixes already have three R's and
+52 have two, leaving **28**. Nothing else in the ledger removes any of
+them: Φ ∈ {1..5} all positive, hub touches 0, `O <= 8` against a budget
+of 25, `N_def = 1` with exactly one R to spare.
+
+**Target A** was fixed against the project's existing predicate (the one
+`analyze_rr_ell0_family.py` uses): the second R event, child state with
+`F_def = 1` and `H = 0`, and R2 source and target orbits in the same
+component. Targets B (terminal continuation) and C (full NR6 completion)
+were not attempted and nothing is claimed about them.
+
+**Result: 6 FOUND, 22 INCOMPLETE, 0 EXHAUSTED_IMPOSSIBLE.** All six
+witnesses were independently re-verified by literal edge-by-edge replay
+(6/6 agree). The minimal one reaches Target A **two macro-edges** after
+the prefix:
+
+```
+abandonment ell=4, rot^4;w2:10 -> (orbit 1, phase 0) = O*
+prep 0..6 : FFEFEFR   (L=7 excursion, return exponent 3 -- ODD)
+prep 7    : rot^5;w2:10  E -> (1,4) hex 0   <- HUB COMPLETER
+R2   8    : rot^0;w3:120 R -> (0,2)
+```
+
+That is the established terminal normal form exactly — completer landing
+on (orbit 1, phase 4) = hex0 position 5, last edge `rot^0;w3:120`,
+chaining true, Φ = 0, tail length 0 at ell=4. Only the preparation
+differs.
+
+**Four propositions are refuted**, with |P| counted the same way as
+`preparation_length` in `outputs/rr_preparation_words.json` (inclusive of
+the completer and any tail):
+
+| | historical ell=4 corpus (9 records) | the six witnesses |
+|---|---|---|
+| \|P\| | 3, 5, 7 — all **odd** | **8**, 11 |
+| #R_{<=C} | 1 | 1 |
+| (\|P\|+#R) mod 2 | **0** in 9/9 | **1** for the \|P\|=8 pair |
+| #Z_{->O*} | even (95/95 observed) | **1 or 3 — all ODD** |
+
+1. **#Z_{->O*} is even — 반증됨.** All six witnesses are odd.
+2. **The winding number k = 0 — 반증됨.** The hand-proved reduction
+   #Z_{->O*} ≡ k (mod 2) still holds, and now it is the *tool*: #Z odd
+   forces k odd, so k ≥ 1.
+3. **ell=4 preparation length is odd — 반증됨** by the two \|P\| = 8
+   witnesses.
+4. **\|P\| + #R_{<=C} invariant — 반증됨.**
+
+**What survives**: every hand proof from Rounds 25–26 is untouched — F
+never targets O*, the O* zero-charge events are exactly the E events, the
+total advance is 4 (mod 5), phases are not revisited, at most two R steps
+target O*, and #Z_{->O*} ≡ k (mod 2). The reduction was correct; the
+conclusion drawn from it was not, because the alphabet premise was false.
+
+**Why the earlier observations missed this.** A word containing an L = 7
+odd excursion needs at least 9 macro-edges (1 abandonment + 7 excursion +
+≥1 to R2), i.e. depth ≥ 8 after the abandonment. Every universe from
+Rounds 19–25 was capped at depth 6 (comparison runs 7, one at 8). The
+"95/95 even" and "0 violations in 18,778 edges" measurements were
+**exactly correct within their scope** and simply could not contain a
+counterexample. `research/RR_DEPTH_CAP_ARTIFACTS.md` lists every
+observation that was scope-limited in this way.
+
+**Honest limits**: the 22 INCOMPLETE roots were truncated at a node cap
+of 8,000 and are **not** evidence of impossibility — `EXHAUSTED_IMPOSSIBLE`
+was returned zero times. All six witnesses are at ell=4, consistent with
+the established ell dichotomy, and nothing is claimed about ell=0. And
+Target B/C remain untouched: these are same-component R2 boundaries, not
+full completions. The parity proposition was always evaluated at the R2
+boundary (the Round 18 counting-unit standard), so Target A is the right
+level for the refutation — but it does not make these into NR6 solutions.
+
+**Net**: the preparation parity conjecture, the target of Rounds 24–27,
+is **closed as false**. `#Z_{->other}` evenness remains a separate open
+question and is deliberately not combined with this result.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research

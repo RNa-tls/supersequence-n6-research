@@ -1,0 +1,1410 @@
+{
+  "extension_depth_ceiling": 12,
+  "grade": "exact exhaustive search where frontier_emptied_naturally, else bounded incomplete",
+  "no_empirical_prune_used": true,
+  "node_cap": 8000,
+  "node_cap_is_not_a_proof_condition": "a root is EXHAUSTED_IMPOSSIBLE only when its frontier empties naturally; any truncation yields INCOMPLETE",
+  "parity_ledger": {
+    "convention": "|P| = macro-edges after the abandonment and strictly before R2, INCLUSIVE of the hub completer C and of any tail -- the same convention as preparation_length in outputs/rr_preparation_words.json. #R_{<=C} counts R events at or before C.",
+    "grade": "exact witness (literal replay certified in rr_long_prefix_certificates.json)",
+    "historical_ell4_corpus": {
+      "all_odd": true,
+      "nR_le_C": 1,
+      "preparation_lengths": [
+        3,
+        5,
+        7
+      ],
+      "records": 9,
+      "sum_mod_2": 0
+    },
+    "refutations": {
+      "P_plus_R_le_C_invariant": "반증됨 -- the historical ell=4 corpus gives (|P|+#R_{<=C}) = 0 mod 2 in 9/9 records; the |P|=8 witnesses give 1",
+      "ell4_preparation_length_is_odd": "반증됨 -- two witnesses have |P| = 8",
+      "winding_number_k_is_zero": "반증됨 -- #Z_{->O*} = k (mod 2) with #Z odd forces k odd, so k >= 1",
+      "zero_charge_targeting_O_star_is_even": "반증됨 -- all six witnesses have #Z_{->O*} odd (1 or 3)"
+    },
+    "witnesses": [
+      {
+        "C_index": 7,
+        "L": 7,
+        "P": 8,
+        "chain": true,
+        "ell": 4,
+        "exp": 3,
+        "ext": 2,
+        "nR_le_C": 1,
+        "nZ_ostar": 1,
+        "nZ_par": 1,
+        "phi": 0,
+        "sum_par": 1,
+        "sym": "FFEFEFR",
+        "tail": 0,
+        "total_R": 2
+      },
+      {
+        "C_index": 7,
+        "L": 7,
+        "P": 8,
+        "chain": true,
+        "ell": 4,
+        "exp": 3,
+        "ext": 2,
+        "nR_le_C": 1,
+        "nZ_ostar": 1,
+        "nZ_par": 1,
+        "phi": 0,
+        "sum_par": 1,
+        "sym": "FFEFEFR",
+        "tail": 0,
+        "total_R": 2
+      },
+      {
+        "C_index": 10,
+        "L": 8,
+        "P": 11,
+        "chain": true,
+        "ell": 4,
+        "exp": 1,
+        "ext": 4,
+        "nR_le_C": 1,
+        "nZ_ostar": 3,
+        "nZ_par": 1,
+        "phi": 0,
+        "sum_par": 0,
+        "sym": "FFFFEFFR",
+        "tail": 0,
+        "total_R": 2
+      },
+      {
+        "C_index": 10,
+        "L": 8,
+        "P": 11,
+        "chain": true,
+        "ell": 4,
+        "exp": 1,
+        "ext": 4,
+        "nR_le_C": 1,
+        "nZ_ostar": 3,
+        "nZ_par": 1,
+        "phi": 0,
+        "sum_par": 0,
+        "sym": "FFFEFFFR",
+        "tail": 0,
+        "total_R": 2
+      },
+      {
+        "C_index": 10,
+        "L": 8,
+        "P": 11,
+        "chain": true,
+        "ell": 4,
+        "exp": 1,
+        "ext": 4,
+        "nR_le_C": 1,
+        "nZ_ostar": 3,
+        "nZ_par": 1,
+        "phi": 0,
+        "sum_par": 0,
+        "sym": "FFFFEFFR",
+        "tail": 0,
+        "total_R": 2
+      },
+      {
+        "C_index": 10,
+        "L": 8,
+        "P": 11,
+        "chain": true,
+        "ell": 4,
+        "exp": 1,
+        "ext": 4,
+        "nR_le_C": 1,
+        "nZ_ostar": 3,
+        "nZ_par": 1,
+        "phi": 0,
+        "sum_par": 0,
+        "sym": "FFFEFFFR",
+        "tail": 0,
+        "total_R": 2
+      }
+    ]
+  },
+  "results": [
+    {
+      "L": 7,
+      "dedup_states": 20434,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 0,
+      "prune_reason_histogram": {
+        "area_a": 135178,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7684
+      },
+      "r2_boundaries_reached": 7684,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 0,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 20359,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 1,
+      "prune_reason_histogram": {
+        "area_a": 135271,
+        "r2_boundary_not_same_component": 7706
+      },
+      "r2_boundaries_reached": 7706,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 1,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 20334,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 2,
+      "prune_reason_histogram": {
+        "area_a": 135160,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7728
+      },
+      "r2_boundaries_reached": 7728,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 2,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 20377,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 3,
+      "prune_reason_histogram": {
+        "area_a": 135142,
+        "r2_boundary_not_same_component": 7696
+      },
+      "r2_boundaries_reached": 7696,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 3,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 5,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": true,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 1,
+      "nodes_expanded": 2,
+      "prefix_index": 4,
+      "prune_reason_histogram": {
+        "area_a": 19
+      },
+      "r2_boundaries_reached": 1,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 4,
+      "same_component_witnesses": [
+        {
+          "chaining": true,
+          "extension_length": 2,
+          "extension_trace": [
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                15,
+                2
+              ],
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "kind": "R",
+              "label": "rot^0;w3:120",
+              "src": [
+                1,
+                4
+              ],
+              "tgt": [
+                0,
+                2
+              ],
+              "tgt_hex": 18
+            }
+          ],
+          "phi": 0,
+          "post_r2_state_hash": "f903e663bde5e14ff20a4dc5d1b0822464dcb86b0789d4020720cad85ac98002",
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2
+        }
+      ],
+      "status": "FOUND",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": false
+    },
+    {
+      "L": 7,
+      "dedup_states": 20311,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 5,
+      "prune_reason_histogram": {
+        "area_a": 134893,
+        "r2_boundary_not_same_component": 7687
+      },
+      "r2_boundaries_reached": 7687,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 0,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 20317,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 6,
+      "prune_reason_histogram": {
+        "area_a": 135055,
+        "r2_boundary_not_same_component": 7662
+      },
+      "r2_boundaries_reached": 7662,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 1,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 20272,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 7,
+      "prune_reason_histogram": {
+        "area_a": 134676,
+        "r2_boundary_not_same_component": 7676
+      },
+      "r2_boundaries_reached": 7676,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 2,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 20361,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 8,
+      "prune_reason_histogram": {
+        "area_a": 134992,
+        "r2_boundary_not_same_component": 7695
+      },
+      "r2_boundaries_reached": 7695,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 3,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 7,
+      "dedup_states": 5,
+      "f_sym_count": 4,
+      "frontier_emptied_naturally": true,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w2:10",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 1,
+      "nodes_expanded": 2,
+      "prefix_index": 9,
+      "prune_reason_histogram": {
+        "area_a": 18
+      },
+      "r2_boundaries_reached": 1,
+      "r_count": 1,
+      "return_exponent": 3,
+      "root_ell": 4,
+      "same_component_witnesses": [
+        {
+          "chaining": true,
+          "extension_length": 2,
+          "extension_trace": [
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                15,
+                2
+              ],
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "kind": "R",
+              "label": "rot^0;w3:120",
+              "src": [
+                1,
+                4
+              ],
+              "tgt": [
+                0,
+                2
+              ],
+              "tgt_hex": 18
+            }
+          ],
+          "phi": 0,
+          "post_r2_state_hash": "305ec3a20c421fcd6b018b82c056a2dfbddbd0611a2ed7dcfada55488ed95552",
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2
+        }
+      ],
+      "status": "FOUND",
+      "symbolic_word": "FFEFEFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": false
+    },
+    {
+      "L": 8,
+      "dedup_states": 20048,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 40,
+      "prune_reason_histogram": {
+        "area_a": 134091,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7749
+      },
+      "r2_boundaries_reached": 7749,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 0,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 19938,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 41,
+      "prune_reason_histogram": {
+        "area_a": 133686,
+        "dedup": 2,
+        "r2_boundary_not_same_component": 7825
+      },
+      "r2_boundaries_reached": 7825,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 1,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20079,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 42,
+      "prune_reason_histogram": {
+        "area_a": 133901,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7719
+      },
+      "r2_boundaries_reached": 7719,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 2,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20042,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 43,
+      "prune_reason_histogram": {
+        "area_a": 133796,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7733
+      },
+      "r2_boundaries_reached": 7733,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 3,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 36,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": true,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 1,
+      "nodes_expanded": 14,
+      "prefix_index": 44,
+      "prune_reason_histogram": {
+        "area_a": 229,
+        "r2_boundary_not_same_component": 13
+      },
+      "r2_boundaries_reached": 14,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 4,
+      "same_component_witnesses": [
+        {
+          "chaining": true,
+          "extension_length": 4,
+          "extension_trace": [
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                121,
+                4
+              ],
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                81,
+                1
+              ],
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                15,
+                2
+              ],
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "kind": "R",
+              "label": "rot^0;w3:120",
+              "src": [
+                1,
+                4
+              ],
+              "tgt": [
+                0,
+                2
+              ],
+              "tgt_hex": 18
+            }
+          ],
+          "phi": 0,
+          "post_r2_state_hash": "3d0c9ebe3b9b6f9559c0760f62e77d484b3886db57197f9231b6cba829687ac3",
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2
+        }
+      ],
+      "status": "FOUND",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": false
+    },
+    {
+      "L": 8,
+      "dedup_states": 20088,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 70,
+      "prune_reason_histogram": {
+        "area_a": 134163,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7706
+      },
+      "r2_boundaries_reached": 7706,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 0,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 19930,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 71,
+      "prune_reason_histogram": {
+        "area_a": 133921,
+        "r2_boundary_not_same_component": 7779
+      },
+      "r2_boundaries_reached": 7779,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 1,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20101,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 72,
+      "prune_reason_histogram": {
+        "area_a": 133914,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7707
+      },
+      "r2_boundaries_reached": 7707,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 2,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20058,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 73,
+      "prune_reason_histogram": {
+        "area_a": 133829,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7686
+      },
+      "r2_boundaries_reached": 7686,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 3,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 38,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": true,
+      "literal_joint_word": [
+        "w3:201",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:210"
+      ],
+      "n_same_component_witnesses": 1,
+      "nodes_expanded": 14,
+      "prefix_index": 74,
+      "prune_reason_histogram": {
+        "area_a": 227,
+        "r2_boundary_not_same_component": 12
+      },
+      "r2_boundaries_reached": 13,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 4,
+      "same_component_witnesses": [
+        {
+          "chaining": true,
+          "extension_length": 4,
+          "extension_trace": [
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                121,
+                4
+              ],
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                81,
+                1
+              ],
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                15,
+                2
+              ],
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "kind": "R",
+              "label": "rot^0;w3:120",
+              "src": [
+                1,
+                4
+              ],
+              "tgt": [
+                0,
+                2
+              ],
+              "tgt_hex": 18
+            }
+          ],
+          "phi": 0,
+          "post_r2_state_hash": "6763ba842c37d7ab99275834839683fdafe5a92753f54919719b26a12ebdd038",
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2
+        }
+      ],
+      "status": "FOUND",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": false
+    },
+    {
+      "L": 8,
+      "dedup_states": 20120,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 138,
+      "prune_reason_histogram": {
+        "area_a": 134022,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7733
+      },
+      "r2_boundaries_reached": 7733,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 0,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20068,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 139,
+      "prune_reason_histogram": {
+        "area_a": 133891,
+        "dedup": 2,
+        "r2_boundary_not_same_component": 7760
+      },
+      "r2_boundaries_reached": 7760,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 1,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20091,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 140,
+      "prune_reason_histogram": {
+        "area_a": 133893,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7766
+      },
+      "r2_boundaries_reached": 7766,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 2,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 37,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": true,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w2:10",
+        "w3:210",
+        "w3:210",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 1,
+      "nodes_expanded": 14,
+      "prefix_index": 142,
+      "prune_reason_histogram": {
+        "area_a": 234,
+        "r2_boundary_not_same_component": 12
+      },
+      "r2_boundaries_reached": 13,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 4,
+      "same_component_witnesses": [
+        {
+          "chaining": true,
+          "extension_length": 4,
+          "extension_trace": [
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                121,
+                4
+              ],
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                81,
+                1
+              ],
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                15,
+                2
+              ],
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "kind": "R",
+              "label": "rot^0;w3:120",
+              "src": [
+                1,
+                4
+              ],
+              "tgt": [
+                0,
+                2
+              ],
+              "tgt_hex": 18
+            }
+          ],
+          "phi": 0,
+          "post_r2_state_hash": "4f85ec5368a065cbeca0ca1aa07a2e1f08077a7f5cf54ac72ce974ede18494e5",
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2
+        }
+      ],
+      "status": "FOUND",
+      "symbolic_word": "FFFFEFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": false
+    },
+    {
+      "L": 8,
+      "dedup_states": 20147,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 176,
+      "prune_reason_histogram": {
+        "area_a": 134302,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7770
+      },
+      "r2_boundaries_reached": 7770,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 0,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 19992,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 177,
+      "prune_reason_histogram": {
+        "area_a": 134163,
+        "r2_boundary_not_same_component": 7824
+      },
+      "r2_boundaries_reached": 7824,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 1,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 20053,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": false,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 0,
+      "nodes_expanded": 8000,
+      "prefix_index": 178,
+      "prune_reason_histogram": {
+        "area_a": 134031,
+        "dedup": 1,
+        "r2_boundary_not_same_component": 7812
+      },
+      "r2_boundaries_reached": 7812,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 2,
+      "same_component_witnesses": [],
+      "status": "INCOMPLETE",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": true
+    },
+    {
+      "L": 8,
+      "dedup_states": 32,
+      "f_sym_count": 6,
+      "frontier_emptied_naturally": true,
+      "literal_joint_word": [
+        "w3:210",
+        "w3:210",
+        "w3:210",
+        "w2:10",
+        "w3:201",
+        "w3:210",
+        "w3:201",
+        "w3:201"
+      ],
+      "n_same_component_witnesses": 1,
+      "nodes_expanded": 12,
+      "prefix_index": 180,
+      "prune_reason_histogram": {
+        "area_a": 188,
+        "r2_boundary_not_same_component": 10
+      },
+      "r2_boundaries_reached": 11,
+      "r_count": 1,
+      "return_exponent": 1,
+      "root_ell": 4,
+      "same_component_witnesses": [
+        {
+          "chaining": true,
+          "extension_length": 4,
+          "extension_trace": [
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                121,
+                4
+              ],
+              "tgt": [
+                1,
+                2
+              ],
+              "tgt_hex": 12
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                81,
+                1
+              ],
+              "tgt": [
+                1,
+                3
+              ],
+              "tgt_hex": 2
+            },
+            {
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "src": [
+                15,
+                2
+              ],
+              "tgt": [
+                1,
+                4
+              ],
+              "tgt_hex": 0
+            },
+            {
+              "kind": "R",
+              "label": "rot^0;w3:120",
+              "src": [
+                1,
+                4
+              ],
+              "tgt": [
+                0,
+                2
+              ],
+              "tgt_hex": 18
+            }
+          ],
+          "phi": 0,
+          "post_r2_state_hash": "fd286587321ec83307d2e24207dc1fd643dd3ed01d81e0f8c603636ade95a6a1",
+          "r1_target_orbit": 1,
+          "r2_source_orbit": 1,
+          "r2_source_phase": 4,
+          "r2_target_orbit": 0,
+          "r2_target_phase": 2
+        }
+      ],
+      "status": "FOUND",
+      "symbolic_word": "FFFEFFFR",
+      "truncated_by_ceiling": false,
+      "truncated_by_node_cap": false
+    }
+  ],
+  "safe_prunes": [
+    {
+      "completeness_preserving": true,
+      "history_dependent": false,
+      "proof": "the engine refuses to revisit a permutation; such a state does not exist",
+      "prune": "exact.extend returns None",
+      "state_local": true,
+      "statement": "target permutation already visited"
+    },
+    {
+      "completeness_preserving": true,
+      "history_dependent": false,
+      "proof": "necessary condition on the child state; used identically in every round",
+      "prune": "area_a_prune_reason(child, AREA_A)",
+      "state_local": true,
+      "statement": "project necessary condition"
+    },
+    {
+      "completeness_preserving": true,
+      "history_dependent": true,
+      "proof": "definitional for RR; 손증명",
+      "prune": "a third R event",
+      "state_local": false,
+      "statement": "an RR word has exactly two R events"
+    }
+  ],
+  "schema": "rr-long-prefix-extension-results-v1",
+  "status_histogram": {
+    "FOUND": 6,
+    "INCOMPLETE": 22
+  },
+  "stop_on_first": true,
+  "target_A_definition": "a macro-edge whose joint is the SECOND R event of the word, whose child state has F_def == 1 and H == 0, and at which the R2 source orbit and R2 target orbit share a component of the orbit/hexagon incidence forest built from orbit_masks -- the same predicate analyze_rr_ell0_family.py uses",
+  "targets_B_and_C": "not attempted; no claim is made about them"
+}
