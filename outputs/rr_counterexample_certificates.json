@@ -1,0 +1,188 @@
+{
+  "conjectures": {
+    "A": {
+      "convention": "P_core = macro-edges strictly before the hub completer",
+      "historical_baseline": "1 in 12/12 records (both ell branches)",
+      "n_violating": 2,
+      "satisfying_witnesses": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "statement": "|P_core| + #R_{<=C} == 1 (mod 2)",
+      "verdict": "반증됨",
+      "violating_witnesses": [
+        0,
+        1
+      ]
+    },
+    "B": {
+      "historical_baseline": "even in all 95 O*-landing completions (depth<=6 scope)",
+      "n_violating": 6,
+      "satisfying_witnesses": [],
+      "statement": "#Z_{->O*} == 0 (mod 2)",
+      "verdict": "반증됨",
+      "violating_witnesses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "C": {
+      "historical_baseline": "k = 0 in all 95 completions (depth<=6 scope)",
+      "n_violating": 0,
+      "satisfying_witnesses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "statement": "winding number k == 0",
+      "verdict": "not refuted by these witnesses",
+      "violating_witnesses": []
+    },
+    "REDUCTION": {
+      "corrected_identity": "#Z_{->O*} == k + #R_{odd delta}  (mod 2), where #R_{odd delta} counts R steps into O* whose phase displacement is odd. Unconditional 손증명: F never targets O* so #Z = #E; every E step has delta 1; sum of deltas = 4 + 5k; reduce mod 2.",
+      "corrected_identity_holds_on_all_witnesses": true,
+      "historical_baseline": "holds in all 95 completions (depth<=6 scope)",
+      "n_violating": 6,
+      "satisfying_witnesses": [],
+      "statement": "#Z_{->O*} == k (mod 2)",
+      "status_claimed_in_round_27": "still valid",
+      "verdict": "반증됨",
+      "violating_witnesses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "why": "the reduction was never unconditional -- it needed every R step into O* to have EVEN phase displacement, which is exactly the alphabet premise refuted in Round 26. Round 27 recorded the reduction as surviving and inferred k >= 1 from it; that inference is WRONG and is corrected here."
+    }
+  },
+  "grade": "exact counterexample + exact replay + exact quotient",
+  "minimality": {
+    "fewest_F_sym": {
+      "value": 4,
+      "witnesses": [
+        0,
+        1
+      ]
+    },
+    "fewest_R_before_C": {
+      "value": 1,
+      "witnesses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "lexicographically_minimal_literal_word": {
+      "value": null,
+      "witnesses": [
+        0
+      ]
+    },
+    "shortest_long_excursion_L": {
+      "value": 7,
+      "witnesses": [
+        0,
+        1
+      ]
+    },
+    "shortest_total_extension": {
+      "value": 2,
+      "witnesses": [
+        0,
+        1
+      ]
+    },
+    "smallest_k": {
+      "value": 0,
+      "witnesses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "smallest_total_macro_depth": {
+      "value": 10,
+      "witnesses": [
+        0,
+        1
+      ]
+    }
+  },
+  "quotient": {
+    "decorated_boundary_classes": {
+      "(1, 1, 4, 0, 2, True, 0)": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "exact_post_r2_state_classes": 6,
+    "left_s6_canonical_classes": 6,
+    "phase_word_classes": {
+      "[0, 1, 2, 3, 4]": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "[0, 3, 4]": [
+        0,
+        1
+      ]
+    },
+    "resource_ledger_classes": {
+      "(10, 1, 6, 8, 14, 73, 0)": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "(7, 1, 4, 6, 11, 55, 0)": [
+        0,
+        1
+      ]
+    },
+    "stabilizer_tie_histogram": {
+      "1": 6
+    },
+    "symbolic_excursion_classes": {
+      "FFEFEFR": [
+        0,
+        1
+      ],
+      "FFFEFFFR": [
+        3,
+        5
+      ],
+      "FFFFEFFR": [
+        2,
+        4
+      ]
+    }
+  },
+  "schema": "rr-counterexample-certificates-v1",
+  "simultaneously_minimal_witnesses": [
+    0
+  ]
+}

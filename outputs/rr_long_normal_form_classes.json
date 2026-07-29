@@ -1,0 +1,778 @@
+{
+  "decomposition": "A_4 . U . X_long . V . C . R2",
+  "decompositions": [
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target_orbit": 1,
+      "C_target_phase": 4,
+      "R2_label": "rot^0;w3:120",
+      "R2_target_orbit": 0,
+      "R2_target_phase": 2,
+      "T_length": 0,
+      "T_symbolic": "",
+      "U_length": 0,
+      "U_symbolic": "",
+      "V_length": 0,
+      "V_symbolic": "",
+      "X_long_length": 7,
+      "X_long_symbolic": "FFEFEFR"
+    },
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target_orbit": 1,
+      "C_target_phase": 4,
+      "R2_label": "rot^0;w3:120",
+      "R2_target_orbit": 0,
+      "R2_target_phase": 2,
+      "T_length": 0,
+      "T_symbolic": "",
+      "U_length": 0,
+      "U_symbolic": "",
+      "V_length": 0,
+      "V_symbolic": "",
+      "X_long_length": 7,
+      "X_long_symbolic": "FFEFEFR"
+    },
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target_orbit": 1,
+      "C_target_phase": 4,
+      "R2_label": "rot^0;w3:120",
+      "R2_target_orbit": 0,
+      "R2_target_phase": 2,
+      "T_length": 0,
+      "T_symbolic": "",
+      "U_length": 0,
+      "U_symbolic": "",
+      "V_length": 2,
+      "V_symbolic": "EE",
+      "X_long_length": 8,
+      "X_long_symbolic": "FFFFEFFR"
+    },
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target_orbit": 1,
+      "C_target_phase": 4,
+      "R2_label": "rot^0;w3:120",
+      "R2_target_orbit": 0,
+      "R2_target_phase": 2,
+      "T_length": 0,
+      "T_symbolic": "",
+      "U_length": 0,
+      "U_symbolic": "",
+      "V_length": 2,
+      "V_symbolic": "EE",
+      "X_long_length": 8,
+      "X_long_symbolic": "FFFEFFFR"
+    },
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target_orbit": 1,
+      "C_target_phase": 4,
+      "R2_label": "rot^0;w3:120",
+      "R2_target_orbit": 0,
+      "R2_target_phase": 2,
+      "T_length": 0,
+      "T_symbolic": "",
+      "U_length": 0,
+      "U_symbolic": "",
+      "V_length": 2,
+      "V_symbolic": "EE",
+      "X_long_length": 8,
+      "X_long_symbolic": "FFFFEFFR"
+    },
+    {
+      "C_label": "rot^5;w2:10",
+      "C_sym": "E",
+      "C_target_orbit": 1,
+      "C_target_phase": 4,
+      "R2_label": "rot^0;w3:120",
+      "R2_target_orbit": 0,
+      "R2_target_phase": 2,
+      "T_length": 0,
+      "T_symbolic": "",
+      "U_length": 0,
+      "U_symbolic": "",
+      "V_length": 2,
+      "V_symbolic": "EE",
+      "X_long_length": 8,
+      "X_long_symbolic": "FFFEFFFR"
+    }
+  ],
+  "grade": "exact replay + exact quotient + bounded incomplete (section 12)",
+  "historical_short_witness_parity": {
+    "all_even": true,
+    "available": true,
+    "n_Z_to_O_star_histogram": {
+      "0": 45,
+      "2": 45,
+      "4": 5
+    },
+    "n_completions": 95,
+    "scope": "depth ceiling 6 after the abandonment -- cannot contain an L>=7 excursion"
+  },
+  "incomplete_classification": {
+    "all_share_symbolic_class_with_a_FOUND_root": true,
+    "by_root_ell": {
+      "0": 6,
+      "1": 6,
+      "2": 6,
+      "3": 4
+    },
+    "by_symbolic_word": {
+      "FFEFEFR": 8,
+      "FFFEFFFR": 7,
+      "FFFFEFFR": 7
+    },
+    "interpretation": "every INCOMPLETE root shares its symbolic excursion class with a FOUND root and differs only in the abandonment ell. All 22 hit the node cap; none exhausted its frontier. They are NOT evidence of impossibility and are not read as such. bounded incomplete.",
+    "n_incomplete": 22,
+    "r2_boundaries_reached_range": [
+      7662,
+      7825
+    ],
+    "rows": [
+      {
+        "L": 7,
+        "dedup_states": 20434,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 135178,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7684
+        },
+        "r2_boundaries_reached": 7684,
+        "return_exponent": 3,
+        "root_ell": 0,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20359,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 135271,
+          "r2_boundary_not_same_component": 7706
+        },
+        "r2_boundaries_reached": 7706,
+        "return_exponent": 3,
+        "root_ell": 1,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20334,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 135160,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7728
+        },
+        "r2_boundaries_reached": 7728,
+        "return_exponent": 3,
+        "root_ell": 2,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20377,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 135142,
+          "r2_boundary_not_same_component": 7696
+        },
+        "r2_boundaries_reached": 7696,
+        "return_exponent": 3,
+        "root_ell": 3,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20311,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134893,
+          "r2_boundary_not_same_component": 7687
+        },
+        "r2_boundaries_reached": 7687,
+        "return_exponent": 3,
+        "root_ell": 0,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20317,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 135055,
+          "r2_boundary_not_same_component": 7662
+        },
+        "r2_boundaries_reached": 7662,
+        "return_exponent": 3,
+        "root_ell": 1,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20272,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134676,
+          "r2_boundary_not_same_component": 7676
+        },
+        "r2_boundaries_reached": 7676,
+        "return_exponent": 3,
+        "root_ell": 2,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 7,
+        "dedup_states": 20361,
+        "dominant_prune": "area_a",
+        "f_sym_count": 4,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134992,
+          "r2_boundary_not_same_component": 7695
+        },
+        "r2_boundaries_reached": 7695,
+        "return_exponent": 3,
+        "root_ell": 3,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFEFEFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20048,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134091,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7749
+        },
+        "r2_boundaries_reached": 7749,
+        "return_exponent": 1,
+        "root_ell": 0,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 19938,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133686,
+          "dedup": 2,
+          "r2_boundary_not_same_component": 7825
+        },
+        "r2_boundaries_reached": 7825,
+        "return_exponent": 1,
+        "root_ell": 1,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20079,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133901,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7719
+        },
+        "r2_boundaries_reached": 7719,
+        "return_exponent": 1,
+        "root_ell": 2,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20042,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133796,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7733
+        },
+        "r2_boundaries_reached": 7733,
+        "return_exponent": 1,
+        "root_ell": 3,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20088,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134163,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7706
+        },
+        "r2_boundaries_reached": 7706,
+        "return_exponent": 1,
+        "root_ell": 0,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 19930,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133921,
+          "r2_boundary_not_same_component": 7779
+        },
+        "r2_boundaries_reached": 7779,
+        "return_exponent": 1,
+        "root_ell": 1,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20101,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133914,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7707
+        },
+        "r2_boundaries_reached": 7707,
+        "return_exponent": 1,
+        "root_ell": 2,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20058,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133829,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7686
+        },
+        "r2_boundaries_reached": 7686,
+        "return_exponent": 1,
+        "root_ell": 3,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20120,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134022,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7733
+        },
+        "r2_boundaries_reached": 7733,
+        "return_exponent": 1,
+        "root_ell": 0,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20068,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133891,
+          "dedup": 2,
+          "r2_boundary_not_same_component": 7760
+        },
+        "r2_boundaries_reached": 7760,
+        "return_exponent": 1,
+        "root_ell": 1,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20091,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 133893,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7766
+        },
+        "r2_boundaries_reached": 7766,
+        "return_exponent": 1,
+        "root_ell": 2,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFFEFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20147,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134302,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7770
+        },
+        "r2_boundaries_reached": 7770,
+        "return_exponent": 1,
+        "root_ell": 0,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 19992,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134163,
+          "r2_boundary_not_same_component": 7824
+        },
+        "r2_boundaries_reached": 7824,
+        "return_exponent": 1,
+        "root_ell": 1,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      },
+      {
+        "L": 8,
+        "dedup_states": 20053,
+        "dominant_prune": "area_a",
+        "f_sym_count": 6,
+        "nodes_expanded": 8000,
+        "prune_histogram": {
+          "area_a": 134031,
+          "dedup": 1,
+          "r2_boundary_not_same_component": 7812
+        },
+        "r2_boundaries_reached": 7812,
+        "return_exponent": 1,
+        "root_ell": 2,
+        "same_component_found": 0,
+        "same_symbolic_class_as_a_FOUND_root": true,
+        "symbolic_word": "FFFEFFFR",
+        "truncated_by_node_cap": true
+      }
+    ]
+  },
+  "parity_accounting": [
+    {
+      "corrected_identity_holds": true,
+      "n_R_steps_with_odd_delta": 1,
+      "n_Z_to_O_star_inside_excursion": 0,
+      "n_Z_to_O_star_outside_excursion": 1,
+      "n_Z_to_O_star_parity": 1,
+      "n_Z_to_O_star_total_in_PC": 1,
+      "n_Z_to_other": 6,
+      "n_Z_to_other_parity": 0,
+      "n_Z_total": 7,
+      "n_Z_total_parity": 1,
+      "winding_k": 0
+    },
+    {
+      "corrected_identity_holds": true,
+      "n_R_steps_with_odd_delta": 1,
+      "n_Z_to_O_star_inside_excursion": 0,
+      "n_Z_to_O_star_outside_excursion": 1,
+      "n_Z_to_O_star_parity": 1,
+      "n_Z_to_O_star_total_in_PC": 1,
+      "n_Z_to_other": 6,
+      "n_Z_to_other_parity": 0,
+      "n_Z_total": 7,
+      "n_Z_total_parity": 1,
+      "winding_k": 0
+    },
+    {
+      "corrected_identity_holds": true,
+      "n_R_steps_with_odd_delta": 1,
+      "n_Z_to_O_star_inside_excursion": 0,
+      "n_Z_to_O_star_outside_excursion": 3,
+      "n_Z_to_O_star_parity": 1,
+      "n_Z_to_O_star_total_in_PC": 3,
+      "n_Z_to_other": 7,
+      "n_Z_to_other_parity": 1,
+      "n_Z_total": 10,
+      "n_Z_total_parity": 0,
+      "winding_k": 0
+    },
+    {
+      "corrected_identity_holds": true,
+      "n_R_steps_with_odd_delta": 1,
+      "n_Z_to_O_star_inside_excursion": 0,
+      "n_Z_to_O_star_outside_excursion": 3,
+      "n_Z_to_O_star_parity": 1,
+      "n_Z_to_O_star_total_in_PC": 3,
+      "n_Z_to_other": 7,
+      "n_Z_to_other_parity": 1,
+      "n_Z_total": 10,
+      "n_Z_total_parity": 0,
+      "winding_k": 0
+    },
+    {
+      "corrected_identity_holds": true,
+      "n_R_steps_with_odd_delta": 1,
+      "n_Z_to_O_star_inside_excursion": 0,
+      "n_Z_to_O_star_outside_excursion": 3,
+      "n_Z_to_O_star_parity": 1,
+      "n_Z_to_O_star_total_in_PC": 3,
+      "n_Z_to_other": 7,
+      "n_Z_to_other_parity": 1,
+      "n_Z_total": 10,
+      "n_Z_total_parity": 0,
+      "winding_k": 0
+    },
+    {
+      "corrected_identity_holds": true,
+      "n_R_steps_with_odd_delta": 1,
+      "n_Z_to_O_star_inside_excursion": 0,
+      "n_Z_to_O_star_outside_excursion": 3,
+      "n_Z_to_O_star_parity": 1,
+      "n_Z_to_O_star_total_in_PC": 3,
+      "n_Z_to_other": 7,
+      "n_Z_to_other_parity": 1,
+      "n_Z_total": 10,
+      "n_Z_total_parity": 0,
+      "winding_k": 0
+    }
+  ],
+  "same_component_implies_chaining": {
+    "all_six_chain": true,
+    "grade": "exact replay",
+    "status": "same-component => chaining is NOT refuted by these witnesses; all six satisfy it, so they are six new confirming instances, not counterexamples"
+  },
+  "schema": "rr-long-normal-form-classes-v1",
+  "survival_ledgers": [
+    {
+      "C_lands_on_O_star_phase_4": true,
+      "O_star_phases_used_in_order": [
+        0,
+        3,
+        4
+      ],
+      "abandonment_phase": 0,
+      "chaining": true,
+      "distinct_O_star_phases_used": 3,
+      "n_components_at_R2": 5,
+      "o_star": 1,
+      "phase_4_still_available_when_C_fires": true,
+      "phi": 0,
+      "r1_target_orbit": 1,
+      "r2_source_orbit": 1,
+      "return_exponent_of_excursion": 3,
+      "winding_k": 0
+    },
+    {
+      "C_lands_on_O_star_phase_4": true,
+      "O_star_phases_used_in_order": [
+        0,
+        3,
+        4
+      ],
+      "abandonment_phase": 0,
+      "chaining": true,
+      "distinct_O_star_phases_used": 3,
+      "n_components_at_R2": 5,
+      "o_star": 1,
+      "phase_4_still_available_when_C_fires": true,
+      "phi": 0,
+      "r1_target_orbit": 1,
+      "r2_source_orbit": 1,
+      "return_exponent_of_excursion": 3,
+      "winding_k": 0
+    },
+    {
+      "C_lands_on_O_star_phase_4": true,
+      "O_star_phases_used_in_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "abandonment_phase": 0,
+      "chaining": true,
+      "distinct_O_star_phases_used": 5,
+      "n_components_at_R2": 7,
+      "o_star": 1,
+      "phase_4_still_available_when_C_fires": true,
+      "phi": 0,
+      "r1_target_orbit": 1,
+      "r2_source_orbit": 1,
+      "return_exponent_of_excursion": 1,
+      "winding_k": 0
+    },
+    {
+      "C_lands_on_O_star_phase_4": true,
+      "O_star_phases_used_in_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "abandonment_phase": 0,
+      "chaining": true,
+      "distinct_O_star_phases_used": 5,
+      "n_components_at_R2": 7,
+      "o_star": 1,
+      "phase_4_still_available_when_C_fires": true,
+      "phi": 0,
+      "r1_target_orbit": 1,
+      "r2_source_orbit": 1,
+      "return_exponent_of_excursion": 1,
+      "winding_k": 0
+    },
+    {
+      "C_lands_on_O_star_phase_4": true,
+      "O_star_phases_used_in_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "abandonment_phase": 0,
+      "chaining": true,
+      "distinct_O_star_phases_used": 5,
+      "n_components_at_R2": 7,
+      "o_star": 1,
+      "phase_4_still_available_when_C_fires": true,
+      "phi": 0,
+      "r1_target_orbit": 1,
+      "r2_source_orbit": 1,
+      "return_exponent_of_excursion": 1,
+      "winding_k": 0
+    },
+    {
+      "C_lands_on_O_star_phase_4": true,
+      "O_star_phases_used_in_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "abandonment_phase": 0,
+      "chaining": true,
+      "distinct_O_star_phases_used": 5,
+      "n_components_at_R2": 7,
+      "o_star": 1,
+      "phase_4_still_available_when_C_fires": true,
+      "phi": 0,
+      "r1_target_orbit": 1,
+      "r2_source_orbit": 1,
+      "return_exponent_of_excursion": 1,
+      "winding_k": 0
+    }
+  ],
+  "terminal_normal_form_scope": {
+    "C_target": [
+      [
+        1,
+        4
+      ]
+    ],
+    "R2_label": [
+      "rot^0;w3:120"
+    ],
+    "chaining_all": true,
+    "o_star_is_orbit_1": true,
+    "phi_all_zero": true,
+    "tail_lengths": [
+      0
+    ]
+  }
+}

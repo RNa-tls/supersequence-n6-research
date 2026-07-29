@@ -2016,9 +2016,16 @@ the completer and any tail):
 | #Z_{->O*} | even (95/95 observed) | **1 or 3 — all ODD** |
 
 1. **#Z_{->O*} is even — 반증됨.** All six witnesses are odd.
-2. **The winding number k = 0 — 반증됨.** The hand-proved reduction
+2. ~~**The winding number k = 0 — 반증됨.** The hand-proved reduction
    #Z_{->O*} ≡ k (mod 2) still holds, and now it is the *tool*: #Z odd
-   forces k odd, so k ≥ 1.
+   forces k odd, so k ≥ 1.~~ **[Round 28 correction: both halves of this
+   are wrong.]** All six witnesses have **k = 0**, so `k = 0` is *not*
+   refuted. What actually broke is the reduction itself: `#Z ≡ k` was
+   never unconditional — it assumed every R step into O* has even phase
+   displacement, which is exactly the alphabet premise refuted in Round
+   26. Witness 0's O* steps are `[R(δ=3), E(δ=1)]`. See
+   `research/RR_PARITY_CONJECTURE_REFUTATION.md` §1–2 and the corrected
+   unconditional identity in the Round 28 section below.
 3. **ell=4 preparation length is odd — 반증됨** by the two \|P\| = 8
    witnesses.
 4. **\|P\| + #R_{<=C} invariant — 반증됨.**
@@ -2050,6 +2057,105 @@ level for the refutation — but it does not make these into NR6 solutions.
 **Net**: the preparation parity conjecture, the target of Rounds 24–27,
 is **closed as false**. `#Z_{->other}` evenness remains a separate open
 question and is deliberately not combined with this result.
+
+### Round 28 — certificates, the corrected identity, and a Round 27 error fixed
+
+`src/verify_rr_counterexample_certificates.py`,
+`src/analyze_rr_long_normal_forms.py`, `src/build_rr_target_b_ledgers.py`
+-> `outputs/rr_six_counterexamples.json`,
+`outputs/rr_counterexample_certificates.json`,
+`outputs/rr_long_normal_form_classes.json`,
+`outputs/rr_target_b_static_ledgers.json`. Six write-ups led by
+`research/RR_PARITY_CONJECTURE_REFUTATION.md`. No global NR6 completion
+search was started; no Target B search was run; the N=0 checkpoint was
+not touched.
+
+**Two Round 27 errors corrected.**
+
+1. *The k claim.* Round 27 said the reduction `#Z_{->O*} ≡ k` survived
+   and now detected `k ≥ 1`. Both halves are wrong: **k = 0 in all six
+   witnesses**, so Conjecture C (`k = 0`) is **not refuted**. The
+   *reduction* is what broke — it always assumed every R step into O* has
+   even phase displacement, i.e. the alphabet premise refuted in Round 26.
+2. *The |P| convention.* Five different lengths were being written |P|.
+   Auditing the 12 historical records: `P_reported + #R_{<=C}` is 1 at
+   ell=0 and 0 at ell=4 (**not uniform**), while
+   `P_core + #R_{<=C}` is **1 in 12/12**. So Conjecture A is a statement
+   about `P_core` (edges strictly before the completer). Round 27 quoted
+   the baseline under the non-uniform convention; it identified the same
+   violating witnesses, but the baseline was wrong.
+
+**The corrected identity — unconditional, and the round's main survivor:**
+
+> **#Z_{->O\*} ≡ k + #R_{odd-δ} (mod 2)**, where #R_{odd-δ} counts R
+> steps into O* whose phase displacement is odd.
+
+손증명: F never targets O* so #Z = #E; every E step has δ = +1
+(Σ⁵∘τ = E); Σδ = 4 + 5k; reduce mod 2. Verified on all six witnesses
+(6/6). In the historical 95 completions #R_{odd-δ} = 0, which is why the
+identity *looked* like `#Z ≡ k` there.
+
+**Certificates.**
+
+| conjecture | baseline | violated by | verdict |
+|---|---|---|---|
+| A: `P_core + #R_{<=C} ≡ 1` | 1 in 12/12 | witnesses 0,1 (7+1=8) | **반증됨** |
+| B: `#Z_{->O*} ≡ 0` | even 95/95 | **all six** (1 or 3) | **반증됨** |
+| reduction `#Z ≡ k` | holds 95/95 | **all six** | **반증됨** |
+| C: `k = 0` | 0 in 95/95 | **none** | **not refuted** |
+
+**Minimality and quotient.** Witness 0 is minimal in *all seven*
+criteria simultaneously (shortest excursion L=7, shortest extension 2,
+fewest R before C, fewest F_sym=4, smallest k, smallest depth 10,
+lexicographically least) — fixed as the canonical minimal
+counterexample. At the **decorated R2 boundary** level all six collapse
+to **one class**: (r1tgt, r2src, r2tgt, chaining, Φ) = (1, (1,4), (0,2),
+True, 0). The counterexamples differ only in preparation, never in the
+terminal block. The coarsest meaningful split is two classes: I
+(witnesses 0,1; L=7, #Z=1, phase word [0,3,4]) and II (2–5; L=8, #Z=3,
+phase word [0,1,2,3,4]).
+
+**Parity accounting, measured and not assumed.** Zero-charge events
+targeting O* occur **entirely outside the excursion** (0/1 and 0/3 —
+none inside). And `#Z_{->other}` is **7 (odd)** in witnesses 2–5, so the
+"non-O* total is even" observation is refuted too. Total #Z is 7 in
+Class I and 10 in Class II — no conserved quantity was found, and no
+"compensation elsewhere" was assumed.
+
+**What got stronger.** Six witnesses all chain (r1tgt = r2src = 1), so
+**same-component ⇒ chaining is not refuted** — these are six new
+confirming instances at preparation lengths 7 and 10, well beyond the
+historical maximum of 6. And the terminal normal form held in all six:
+O* = orbit 1, completer at (1,4) = hex0 position 5, final edge
+`rot^0;w3:120`, chaining, Φ = 0, tail 0. Across 15 cases spanning
+preparation lengths 2–10 there are **zero exceptions** — this is now the
+strongest surviving candidate for promotion to a hand proof.
+
+**The 22 INCOMPLETE roots**, classified from the existing log only: all
+share a symbolic excursion class with a FOUND root and differ only in
+abandonment ell (FOUND all at ell=4, INCOMPLETE at ell∈{0,1,2,3}). Each
+reached 7,662–7,825 R2 boundaries with no same-component hit, but **none
+exhausted its frontier** — all hit the node cap. They remain **bounded
+incomplete** and are not read as impossibility.
+
+**Target B** was defined precisely (no further R, F_def = 1, H = 0,
+area_a throughout, ending at a state admitting a pure-rotation suffix)
+and kept strictly separate from Target C. Its static ledger at the six
+post-R2 states: **Φ = 0 everywhere** (zero slab slack), exactly 3 legal
+outgoing edges everywhere, 647–665 permutations still unvisited. **No
+immediate static contradiction** — reported as "none", not dressed up as
+a search failure, and explicitly not evidence that a continuation
+exists. Five safe prunes were hand-proved for a future search; three
+more (component merge deficit, terminal endpoint, remaining-cost bound)
+are 미완료, and the remaining-cost bound is what a Target B search would
+actually need.
+
+**NR6 impact.** None of this touches `L_6 ≥ 872` or `L_6 ≥ 867`: a Target
+A witness is a same-component R2 boundary, which has no logical
+connection to an NR6 completion. What closed is the **parity program
+this session itself built in Rounds 24–26**. The U/J branches are
+untouched. The surviving RR routes are terminal-normal-form uniqueness
+and same-component ⇒ chaining.
 
 ## Open problems (genuinely open, not resolved by this repository)
 
