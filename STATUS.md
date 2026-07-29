@@ -15,7 +15,7 @@ length of the shortest one. This repository's goal is to determine L(6).
 | 3 | 9  | exhaustive search, proven in this repo |
 | 4 | 33 | exhaustive search, proven in this repo (matches Ashlock & Tillotson) |
 | 5 | 153 | **not** re-proven here (see below); cited from Chaffin, Diehl, Johnston, Kuperberg (2014) |
-| 6 | **unknown**, in [867, 872] | see below |
+| 6 | **unknown**, in [867, 872]; upper bound 872 verified here, lower bound 867 | see below |
 
 `src/exact_solve.py` implements a plain IDA* search and, run with no special
 tricks, proves L(1)=1, L(2)=3, L(3)=9, L(4)=33 outright (`python -m
@@ -38,20 +38,43 @@ nodes.
   `src/lower_bound.py::houston_lower_bound`. For n=6 this evaluates to
   720+120+24+3 = **867**.
 
-- **Upper bound: 872.** An explicit superpermutation of length 872 is known
-  to exist (found via a TSP-solver-based search, associated with Greg Egan
-  and Robin Houston's 2014 work), improving on the naive recursive
-  ("sum of factorials") construction's length of 873. **This repository
-  does not reproduce or verify that specific 872-length string** — no such
-  string was available to independently check, and fabricating one would
-  be worse than not having it. `src/construct.py::greedy_construct` gives
-  this repo's own, from-scratch, self-verified upper-bound witness for
-  n=6: length **873** (matches the naive sum-of-factorials bound exactly;
-  see `experiments/n6_search_baseline.py` output).
+- **Upper bound: 872. Verified in this repository.** An explicit
+  length-872 n=6 superpermutation (first found by Robin Houston in 2014
+  with a TSP solver; archived at
+  [github.com/superpermutators/superperm](https://github.com/superpermutators/superperm)
+  under `superpermutations/6/`, which collects **44,120** distinct
+  length-872 examples — treelike 42,288, nonstandard 1,024, slack1 772,
+  slack2 36) has been checked directly here: all 720 length-6 windows are
+  present and pairwise distinct. The string is
+  `data/verified_872_witness.txt`; the replay check is
+  `tests/test_872_witness.py`, which runs it through
+  `src/verify.py::verify_superpermutation`, the same ground-truth checker
+  used for every other claim in this repository. Its walk-weight
+  fingerprint is 575 steps of weight 1, 141 of weight 2 and 3 of weight 3
+  (6 + 575 + 282 + 9 = 872). At least **four non-isomorphic structural
+  families** are known in the archive (treelike, nonstandard, slack1,
+  slack2), differing in fragment count F and E-orbit count O.
 
-- **Whether L(6) = 872, or something strictly between 867 and 872, appears
-  to be an open problem** in the sources available to this repository. No
-  citation found here closes that gap.
+- **This repository's own from-scratch search independently reaches 873.**
+  `src/construct.py::greedy_construct` gives a self-verified n=6 witness of
+  length **873**, matching the classical sum-of-factorials bound
+  (720+120+24+6+2+1); see `experiments/n6_search_baseline.py`. It has not
+  found the 872 improvement, which requires the non-greedy structure
+  documented in the archive. That baseline is honest and stands.
+
+- **The open problem is the LOWER bound, not the existence of 872.** A
+  length-872 superpermutation demonstrably exists — that is settled, and
+  verified above. What remains open is whether 872 is *minimal*, i.e.
+  whether `L(6) >= 872`. The only proved lower bound available here is
+  **867**. In this repository's coordinates `L = 867 + (k + N + H)`, the
+  verified witness sits at `872 = 867 + 5`.
+
+  A previous revision of this file recorded "no such string was available
+  to independently check, and fabricating one would be worse than not
+  having it", and described the *existence* of 872 as apparently open.
+  That conflated an environment access limitation with a mathematical
+  fact, and is **withdrawn**: the string above is a checkable element of a
+  public archive, not a fabrication, and this repository now verifies it.
 
 ## About the research summary this repository started from
 
@@ -2523,9 +2546,12 @@ condition is characterised.
    non-repeating walk visiting all 720 permutations exactly once) is even
    true is, per that same prompt, a separate open question — not
    addressed here.
-3. Producing and independently verifying an actual 872-length n=6 string
+3. ~~Producing and independently verifying an actual 872-length n=6 string
    would at least pin down the upper bound side concretely; this
-   repository does not have one to check.
+   repository does not have one to check.~~ **Done** — see the Upper bound
+   entry at the top of this file and `tests/test_872_witness.py`. The
+   upper-bound side is now pinned down concretely at 872; only the lower
+   bound remains open.
 4. Whether the F=1,H=0,N=2 slab's J-branch (or U-branch) can complete to a
    full walk — see "J-branch findings" above and `research/N2_CLOSURE_STRATEGY.md`.
    The overall conditional `L_6>=872` remains open regardless.
