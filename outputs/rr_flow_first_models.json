@@ -1,0 +1,174 @@
+{
+  "models": [
+    {
+      "H": 112,
+      "O_cap": 22,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell4_P6_9bd7590e",
+      "max_segments": 24,
+      "n_static_dead_entry_boundaries": 49,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    },
+    {
+      "H": 112,
+      "O_cap": 22,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell4_P6_cbfdf11e",
+      "max_segments": 24,
+      "n_static_dead_entry_boundaries": 49,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    },
+    {
+      "H": 112,
+      "O_cap": 22,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell4_P6_ec9025e8",
+      "max_segments": 24,
+      "n_static_dead_entry_boundaries": 49,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    },
+    {
+      "H": 116,
+      "O_cap": 23,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell4_P2_5d3f8cb9",
+      "max_segments": 25,
+      "n_static_dead_entry_boundaries": 25,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    },
+    {
+      "H": 116,
+      "O_cap": 23,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell4_P2_fe82b0cd",
+      "max_segments": 25,
+      "n_static_dead_entry_boundaries": 25,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    },
+    {
+      "H": 116,
+      "O_cap": 23,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell4_P2_6f1ed828",
+      "max_segments": 25,
+      "n_static_dead_entry_boundaries": 25,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    },
+    {
+      "H": 115,
+      "O_cap": 23,
+      "R_cap": 1,
+      "dp_state": [
+        "entry port",
+        "free-hexagon mask (120 bits)",
+        "per-orbit visited-port masks (144 x 5 bits)",
+        "O_used",
+        "R_used",
+        "segments_used",
+        "covered_count"
+      ],
+      "key": "ell0_P2_33d70b42",
+      "max_segments": 25,
+      "n_static_dead_entry_boundaries": 31,
+      "prunes": {
+        "capacity_O_R": "H - covered <= 5(O_cap - O_used) + 4(R_cap - R_used)",
+        "capacity_segments": "H - covered <= 5(max_segments - segments_used)",
+        "saturating_block": "capacity 5 forces the word EEEE, hence a fresh opening",
+        "static_forward_reachability": "entry ports whose own hexagon is already visited at the root can never begin a segment"
+      },
+      "transition": "entry port -> preserving word -> exit port -> g_{w3:201|w3:210}"
+    }
+  ],
+  "schema": "rr-flow-first-models-v1",
+  "shift": "cover-first exact cover (Round 33) -> flow-first segment path (Round 34): the walk is built first and coverage is maintained incrementally, so no unconnectable cover is ever considered"
+}

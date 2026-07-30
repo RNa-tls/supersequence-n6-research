@@ -135,7 +135,7 @@ repository changes that.
   bounded node budget.
 - `experiments/n6_search_baseline.py` — runs the above against n=6 and
   reports the (inconclusive) result plainly.
-- `tests/` — 14 passing tests (`python -m unittest discover -s tests`)
+- `tests/` — 38 passing tests (`python -m unittest discover -s tests`)
   covering all of the above, including independent verification of a
   literature-sourced n=4 witness string.
 - `legacy_research/` — the actual (much larger, much further along) local
@@ -2614,6 +2614,121 @@ honest result rather than forced: what was gained is four explicit R1
 covers, the quantitative demonstration that order is the bottleneck, one
 new hand proof, and independent confirmation of two earlier removals.
 
+### Round 34 — flow-first: all 18 known Target A boundaries lose Target B
+
+`src/build_rr_segment_successors.py`, `src/search_rr_target_b_flow.py`,
+`src/verify_rr_target_b_flow.py` -> `outputs/rr_segment_successor_index.json`,
+`outputs/rr_flow_first_models.json`, `outputs/rr_flow_search_results.json`,
+`outputs/rr_flow_certificates.json`. Five write-ups
+(`RR_TARGET_B_FLOW_FIRST_MODEL.md`, `RR_TARGET_B_SEGMENT_SUCCESSORS.md`,
+`RR_TARGET_B_MEET_IN_THE_MIDDLE.md`, `RR_TARGET_B_FLOW_RESULTS.md`,
+`RR_TARGET_B_R3_CERTIFICATES.md`) and `tests/test_rr_flow_first.py`.
+No permutation-level depth-100 DFS; the N=0 checkpoint untouched; no cover
+was built at any point.
+
+**The model changed from cover-first to flow-first.** Round 33's covers had
+0-1 successor edges among 24-25 segments. Round 34 measured the successor
+relation over the **whole** option universe instead of inside a cover:
+out-degree min/mean/max = **0 / ~26 / 30**, with 7,207 of 9,340 options at
+the structural ceiling 30 = 2 joints x 15 words. So the 0-1 figure was an
+artefact of the partition-seeded covers, and Round 33's refusal to call it
+an R3 obstruction (`NO_ORDER_FOR_THIS_COVER`) is confirmed by measurement,
+not merely by caution. Indexing is by exit/entry **port** — every
+permutation is a port of exactly one E-orbit, so boundary keys and
+permutations coincide, 720 slots, no O(n^2) pairwise comparison. Resources
+(`R_used`, `O_used`, `F_def`, coverage) are deliberately **excluded** from
+the key and enforced at traversal time.
+
+**Hexagon-disjointness theorem (손증명, exhaustively machine-checked).** The
+120 hexagons partition the 720 permutations into blocks of 6, and an ell=5
+run from a port visits exactly the 6 permutations of that port's hexagon
+(checked at all 720 ports). Therefore **hexagon-disjointness implies
+permutation-disjointness**: R4 is implied by R1, no permutation conflict
+mask is needed, and no counterexample exists. R2 follows too, since an
+orbit's five ports lie in five distinct hexagons (all 144 orbits checked).
+One exception keeps R4 alive: the initial partially visited hexagon, which
+has popcount **1** at all seven survivors — a measured property of these
+states, not an algebraic consequence, so it stays an engine-replay
+obligation.
+
+**Segment count is not forced but is pinned to two values (safe
+relaxation).** Enumerating every arithmetically consistent profile:
+`ell0_P2` in {24,25}, `ell4_P2` in {24,25}, `ell4_P6` in {23,24}; and every
+profile needs **at least 17-18 capacity-5 `EEEE` segments** on pairwise
+hexagon-disjoint orbits. This is the counting relaxation only — the
+geometry is not enforced, so realisability is not claimed.
+
+**Result: EXHAUSTED_NO_PATH at all 7, truncated=false at all 7.** Largest
+tree **1,499 nodes** against a 20,000,000 cap; deepest walk 10 segments and
+**42 of 116** hexagons. The dominant prune is the dynamic capacity bound
+(5,538 cut-offs vs 1,357 nodes at `ell0_P2`). The mechanism is the
+interaction of two facts never before combined: the segment count is
+capacity-bound from above (`Ndef = 2` everywhere, so R budget exactly 1,
+so the only usable capacity-5 word is `EEEE`), while the next segment's
+orbit is **flow-forced** to `p_exit·g_j` for one of two joints. After a few
+segments neither forced orbit still has five free hexagons, the defect
+budget (3 of 5-10 units spent by the initial segment, whose phase-walk
+capacity is only 2) runs out, and the bound closes.
+
+**Independently verified UNSAT, 7/7, zero contradictions.** A claim of a
+149-node tree is normally a bug, so it was re-run on the real engine
+(`macro.macro_edges` + `area_a_prune_reason(., AREA_A)`) with no knowledge
+of segments, options, or covers, plus the Round 32 (B+R) bound recomputed
+from `ExactState` fields alone: EXHAUSTED_NO_PATH at all seven, 281-3,558
+nodes, macro depth 27-41. Cross-check on a quantity the two searches do
+not share — engine macro depth (= completed hexagons) vs model covered
+hexagons — agrees to within **2** (six of seven within 1: 40/41, 33/32,
+36/37, 41/42, 28/29, 35/33, 27/28). Not exactly, because the model checks
+its bound at segment boundaries while the engine checks after every macro
+edge, and the two safe prunes differ by `used_ports - 2` on a re-entry;
+that is why the agreement is evidence rather than a tautology. **Surviving ell was {5} in all seven
+trees**, confirming from the engine side that Phi=0 forces full rotation
+runs. The engine's R charges were also re-derived from `Ndef = S + F - O`
+with `dS = [weight>=3]`, `dO = [new orbit]`, `dF = 0` after a full run:
+E costs 0, E^2 costs 1, fresh opening 0, re-entry 1 — exactly the model's
+budget, from the engine's arithmetic.
+
+A weaker **area_a-only** engine variant (no capacity bound) is **INCOMPLETE
+at all seven** (36,374-62,657 nodes, macro depth 70-79, 60s each) and is
+reported as such — not as agreement, not as disagreement. It is recorded
+because it isolates which prune does the work.
+
+**Three of the brief's five labels were left unused, deliberately.** No
+`SAT_MODEL_UNSAT_WITH_CERTIFICATE`, because **no SAT model was built** and a
+SAT certificate cannot be borrowed for a search that never ran through an
+encoding. No `FLOW_RELAXATION_FEASIBLE`, because no relaxed model was
+solved separately. No `FOUND_TARGET_B`. Likewise **no positional/subtour
+encoding** was written: in a flow-first model subtours are structurally
+impossible, and adding subtour elimination would reintroduce the cover-first
+failure. Meet-in-the-middle was **scoped, measured, and then correctly not
+built** — the forward frontier (deduplicated on the full DP key) peaks at a
+few hundred states around depth 5-6 and hits **exactly 0** by depth 8-11,
+so there is no layer 12 to meet. Backward terminal reachability is a
+**scope correction**: Target B's terminal condition is `covered = H`, a
+coverage predicate, so a boundary-only backward set excludes nothing and
+none was computed. Failure-driven cuts: **미완료**, deliberately — the
+largest tree is 1,499 nodes, so there is no cost to reduce.
+
+**Component (R5) was correctly never reached.** Every survivor fails at R3.
+Rounds 29-32 named the component condition as the next bottleneck three
+rounds running and were wrong each time; Round 33's correction stands.
+Target B's final component requirement remains uncharacterised and nothing
+here assumes anything about it.
+
+**Cumulative Target B ledger: 18 -> 9 (R30) -> 8 (R31) -> 7 (R32) -> 0
+(R34).**
+
+**Scope, stated so it cannot be over-read.** This is **not** "Target B is
+impossible". The 18 are the *known* Target A boundary states, from the
+Round 27 enumeration that returned **6 FOUND, 22 INCOMPLETE** at a node cap
+of 8,000; twenty-two truncated roots is a concrete reason the set may be
+incomplete. What is closed is Target B from these 18. It moves neither
+bound on `L_6`: verified upper bound **872**, proved lower bound **867**,
+open target lower bound **872**. It does **not** prove T3 (still exact
+observation 15/15 — Round 31 already excluded the "Target B capacity" route,
+since Target A does not require Target B), and says nothing about CH2
+(frozen), Target C, the U/J branches, or the N=0 checkpoint.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
@@ -2646,7 +2761,7 @@ new hand proof, and independent confirmation of two earlier removals.
 ## How to run everything
 
 ```
-python -m unittest discover -s tests -v   # 14 tests, ~0.4s
+python -m unittest discover -s tests -v   # 38 tests, ~4s
 python -m src.lower_bound                 # prints the bound table
 python -m src.construct                   # builds + verifies greedy witnesses n=1..6
 python -m src.exact_solve                 # proves L(2), L(3) from scratch
