@@ -1,0 +1,140 @@
+{
+  "formal_separation": {
+    "Q1_r": "exists b in Reach(r): TargetA(b)",
+    "Q2_r": "exists b in Reach(r): TargetA(b) AND CompletionCompatible(b) [capacity theorem not yet excluded]",
+    "Reach_r": "ExactStates reachable from root r by legal RR-alphabet macro edges (<=2 R events total)",
+    "TargetA_b": "b's generating edge is the SECOND R event; child F_def==1, H==0, same-component",
+    "converse_is_false": {
+      "counterexample_family": "all 28 of the 28 long-excursion Target A roots (6 known-FOUND + 22 previously-incomplete): Q1(r) is TRUE (1,398 literally replayed Target A boundaries across 26 of them, plus the envelope theorem in analyze_rr_root_capacity_envelopes.py additionally certifies existence-independent Q2(r)=FALSE for all 28, including the 2 that found zero boundaries within budget), while Q2(r) is FALSE for every one (0 of 1,398 boundaries are CompletionCompatible; the root-level envelope independently proves this without needing any of the 1,398)",
+      "grade": "exact counterexample family, cross-verified by exhibition (1,398 replayed boundaries) AND by an independent root-level theorem (no enumeration)",
+      "statement": "Q1(r) does NOT imply Q2(r)"
+    },
+    "theorem_Q2_implies_Q1": {
+      "grade": "손증명",
+      "proof": "Q2(r) asserts existence of b satisfying TargetA(b) AND CompletionCompatible(b), a conjunction. Any witness for the conjunction is a witness for its first conjunct alone, which is exactly Q1(r)'s existential statement. No engine computation is needed for this direction; it follows from the predicates' own logical form.",
+      "statement": "Q2(r) => Q1(r) for every root r"
+    }
+  },
+  "prune_ledger": {
+    "F1_fragment_normal_form_impossible": {
+      "is_q1_safe": true,
+      "is_q2_only": false,
+      "monotone": "not applicable -- it is a structural CONSISTENCY check on the current state, not a forward-looking feasibility test",
+      "monotone_proof": "f1_normal_form checks a necessary invariant of every F<=1 reachable prefix (at most one non-current partial hexagon, total fragment components <= F+1); its docstring states this is 'a necessary prefix invariant, not an unproved pruning heuristic'. It references no TARGET_P/TARGET_O/TARGET_D constant.",
+      "reason": "does not assume completion; it is a sanity/consistency check on the CURRENT state's geometry. It is expected to be vacuous downstream of F_exceeded (F<=1 states reachable via extend() should always satisfy it), and is kept for defensiveness rather than because it is expected to fire",
+      "target_A_requires": "nothing directly, but a state violating this invariant is not a genuinely reachable ExactState under F<=1 at all",
+      "test": "exact.f1_normal_form(state) is None",
+      "verdict": "Q1-SAFE"
+    },
+    "F_exceeded": {
+      "is_q1_safe": true,
+      "is_q2_only": false,
+      "monotone": true,
+      "monotone_proof": "dF = int(abandonment) in {0,1}; F never decreases along any macro edge",
+      "reason": "F_def > 1 can never return to 1 (monotone), and Target A's own recognizer requires the eventual boundary's child to have F_def == 1; so once F_def > 1 no descendant can ever be a Target A boundary",
+      "target_A_requires": "the R2-boundary CHILD has F_def == 1 exactly",
+      "test": "state.F > TARGET_F (i.e. F_def > 1)",
+      "verdict": "Q1-SAFE"
+    },
+    "H_positive": {
+      "is_q1_safe": true,
+      "is_q2_only": false,
+      "monotone": true,
+      "monotone_proof": "dH = max(weight - 3, 0) >= 0 always",
+      "reason": "H > 0 can never return to 0 (monotone), and Target A requires the child's H == 0; identical argument to F_exceeded. (Empirically vacuous within the RR alphabet actually explored here, since weight is 2 or 3 for every RR joint and dH = 0 for both -- but the argument does not depend on that, and is recorded for completeness.)",
+      "target_A_requires": "the R2-boundary CHILD has H == 0 exactly",
+      "test": "state.H > 0",
+      "verdict": "Q1-SAFE"
+    },
+    "N_exceeded_monotone": {
+      "is_q1_safe": true,
+      "is_q2_only": false,
+      "monotone": true,
+      "monotone_proof": "dNdef = dS + dF - dO in {0, +1} for every legal macro edge (dS = [weight>=3], dO = [new orbit], dF = [abandonment]; case analysis over the four RR joints shows dNdef is never negative)",
+      "reason": "monotone, so a valid prune for staying inside Area A. This is a SCOPE restriction, not a completeness claim: a Target A boundary with Ndef > 3 could exist outside Area A and is simply not explored by this search, exactly as it was not explored by any prior round's search either",
+      "target_A_requires": "nothing directly -- n_limit=3 defines AREA A, the disclosed search SCOPE this entire Target A/B corpus has operated within since Round 27 (every one of the 18 known boundaries has a child that passes this test)",
+      "test": "state.Ndef > n_limit (AREA_A.n_limit == 3)",
+      "verdict": "Q1-SAFE, WITHIN THE DISCLOSED AREA-A SCOPE"
+    },
+    "O_exceeded": {
+      "is_q1_safe": false,
+      "is_q2_only": true,
+      "minimal_counterexample": {
+        "finding": "this condition and remaining_cover_capacity_impossible are both gated on the same TARGET_P/TARGET_O/TARGET_D completion targets; the established counterexample for the capacity bound applies to the whole Q2-only family by the same argument (none of the 18 known boundaries' own definitions reference these constants)"
+      },
+      "monotone": true,
+      "monotone_proof": "O = count of nonzero orbit_masks entries; never decreases",
+      "reason": "identical argument to P_exceeded",
+      "target_A_requires": "nothing -- TARGET_O=25 is a full-completion target",
+      "test": "state.O > TARGET_O (== 25)",
+      "verdict": "Q2-ONLY"
+    },
+    "P_exceeded": {
+      "is_q1_safe": false,
+      "is_q2_only": true,
+      "minimal_counterexample": {
+        "finding": "this condition and remaining_cover_capacity_impossible are both gated on the same TARGET_P/TARGET_O/TARGET_D completion targets; the established counterexample for the capacity bound applies to the whole Q2-only family by the same argument (none of the 18 known boundaries' own definitions reference these constants)"
+      },
+      "monotone": true,
+      "monotone_proof": "P = sum of orbit_masks popcounts, incremented by exactly 1 per legal weight>=2 event; never decreases",
+      "reason": "Target A does not require P <= 121 at its boundary; a state with P > 121 could not be part of an eventual full completion, but could still be a genuine local Target A boundary (F_def==1, H==0, same-component) in isolation. Using this as a Q1 prune would silently restrict Q1 to 'boundaries reachable en route to completion', exactly the assumption the round prohibits.",
+      "target_A_requires": "nothing -- TARGET_P=121 is the pass-start count of a FULL Area-A NR6 completion, not a Target A condition",
+      "test": "state.P > TARGET_P (== 121)",
+      "verdict": "Q2-ONLY"
+    },
+    "final_D_impossible": {
+      "is_q1_safe": false,
+      "is_q2_only": true,
+      "minimal_counterexample": {
+        "finding": "this condition and remaining_cover_capacity_impossible are both gated on the same TARGET_P/TARGET_O/TARGET_D completion targets; the established counterexample for the capacity bound applies to the whole Q2-only family by the same argument (none of the 18 known boundaries' own definitions reference these constants)"
+      },
+      "monotone": "empirically an INVARIANT of the whole trajectory from the fixed initial state, verified by direct simulation: (TARGET_D - D + r) mod 5 stays constant (0) over a 4000-step random walk from the identity, because each weight>=2 event changes it by either -5 (new orbit, dD=+4) or 0 (old orbit, dD=-1), both preserving the residue mod 5",
+      "reason": "this is the subtle case: because the residue is an invariant of the entire trajectory (not just monotone), it can never actually change from state to state along a legal walk from the true root -- so classifying it Q1-safe or Q2-only makes no PRACTICAL difference for search correctness here. But the PROPERTY it tests -- reachability of TARGET_D at TARGET_P -- is a completion condition Target A does not require, so it is classified Q2-only on principle, not merely for safety margin",
+      "target_A_requires": "nothing -- it tests reachability of the EXACT pair (TARGET_P, TARGET_D), a full-completion condition",
+      "test": "not exact.arithmetic_D_reachable(state), i.e. (TARGET_D - D + r) is not a multiple of 5 in [0, 5r] where r = TARGET_P - P",
+      "verdict": "Q2-ONLY (despite being state-invariant)"
+    },
+    "insufficient_future_orbit_opening_credit": {
+      "is_q1_safe": false,
+      "is_q2_only": true,
+      "minimal_counterexample": {
+        "finding": "this condition and remaining_cover_capacity_impossible are both gated on the same TARGET_P/TARGET_O/TARGET_D completion targets; the established counterexample for the capacity bound applies to the whole Q2-only family by the same argument (none of the 18 known boundaries' own definitions reference these constants)"
+      },
+      "monotone": true,
+      "monotone_proof": "left side monotone nonincreasing complement, right side monotone nonincreasing; not needed for the classification",
+      "reason": "explicitly a completion-reachability test against TARGET_O, TARGET_P, TARGET_F",
+      "target_A_requires": "nothing -- directly compares remaining orbit-opening need to TARGET_O and remaining budget to TARGET_P/TARGET_F",
+      "test": "(TARGET_O - O) > (TARGET_P - P) + (TARGET_F - F)",
+      "verdict": "Q2-ONLY"
+    },
+    "remaining_cover_capacity_impossible": {
+      "is_q1_safe": false,
+      "is_q2_only": true,
+      "minimal_counterexample": {
+        "boundary": "ell=0, P_core=4, first of the two known such boundaries",
+        "finding": "the (B+R) capacity bound (of which this sub-condition is the Phi<0 special case) is already negative at the state the R2 edge departs from -- using it to prune Q1 search would have deleted this genuine, literally-replayed Target A boundary",
+        "verified_in": "outputs/rr_target_a_coverage_certificate.json (Round 35, check 1)"
+      },
+      "monotone": true,
+      "monotone_proof": "Phi is non-increasing along any walk with ell < 5 and constant under ell = 5 macro edges (established in Round 33-35)",
+      "reason": "this IS the Round 32/34/35 capacity bound in another guise, and it is EXACTLY the bound Round 35 proved unsound as a Target A prune: replayed along a known short boundary's own path it goes negative strictly before the R2 edge. Confirmed here, not merely inherited.",
+      "target_A_requires": "nothing -- Phi is defined entirely in terms of TARGET_P",
+      "test": "remaining_window_capacity_prune(state), i.e. Phi < 0 where Phi = 5 + 6*(TARGET_P - P) - (720 - visited_count)",
+      "verdict": "Q2-ONLY"
+    },
+    "remaining_pass_starts_exceed_remaining_windows": {
+      "is_q1_safe": false,
+      "is_q2_only": true,
+      "minimal_counterexample": {
+        "finding": "this condition and remaining_cover_capacity_impossible are both gated on the same TARGET_P/TARGET_O/TARGET_D completion targets; the established counterexample for the capacity bound applies to the whole Q2-only family by the same argument (none of the 18 known boundaries' own definitions reference these constants)"
+      },
+      "monotone": true,
+      "monotone_proof": "both sides move the same direction each edge in the relevant sense; not needed since the classification does not depend on monotonicity",
+      "reason": "explicitly a completion-reachability test against TARGET_P",
+      "target_A_requires": "nothing -- directly compares remaining windows to the remaining distance to TARGET_P",
+      "test": "720 - visited_count < TARGET_P - state.P",
+      "verdict": "Q2-ONLY"
+    }
+  },
+  "schema": "rr-q1-q2-prune-ledger-v1"
+}

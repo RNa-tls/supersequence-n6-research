@@ -1,0 +1,115 @@
+{
+  "adversarial_leakage_test": {
+    "caught_by_static_runtime_assertion": true,
+    "corrupted_hits_found": 25,
+    "corrupted_prune_actually_fired_n_times": 55,
+    "corrupted_search_missed_real_boundaries": false,
+    "grade": "exact adversarial test for the STATIC/RUNTIME defense (this is the load-bearing check: q1_forbidden_prune_check raises immediately and unconditionally the instant the corrupted reason string is produced, verified exhaustively over all 6 Q2-only reasons in section 17(b)); the EMPIRICAL divergence comparison is a secondary, budget-dependent check -- at the tested node budget the corrupted prune fired 55 times but happened not to change the found-boundary set within that budget, reported honestly rather than re-run until a difference appears",
+    "honest_and_corrupted_hit_sets_differ": false,
+    "honest_hits_found": 25
+  },
+  "frontier_empty_boolean_status": "RETIRED -- replaced by the 7-status vocabulary above; never reintroduced in this round's code",
+  "grade": "exact adversarial test + exact theorem (static+dynamic enumerator correctness)",
+  "runtime_assertion_check": {
+    "all_pass": true,
+    "rows": [
+      {
+        "actual": "raised",
+        "expected": "raise",
+        "ok": true,
+        "reason": "insufficient_future_orbit_opening_credit"
+      },
+      {
+        "actual": "raised",
+        "expected": "raise",
+        "ok": true,
+        "reason": "O_exceeded"
+      },
+      {
+        "actual": "raised",
+        "expected": "raise",
+        "ok": true,
+        "reason": "P_exceeded"
+      },
+      {
+        "actual": "raised",
+        "expected": "raise",
+        "ok": true,
+        "reason": "final_D_impossible"
+      },
+      {
+        "actual": "raised",
+        "expected": "raise",
+        "ok": true,
+        "reason": "remaining_pass_starts_exceed_remaining_windows"
+      },
+      {
+        "actual": "raised",
+        "expected": "raise",
+        "ok": true,
+        "reason": "remaining_cover_capacity_impossible"
+      },
+      {
+        "actual": "passed",
+        "expected": "pass",
+        "ok": true,
+        "reason": "H_positive"
+      },
+      {
+        "actual": "passed",
+        "expected": "pass",
+        "ok": true,
+        "reason": "F1_fragment_normal_form_impossible"
+      },
+      {
+        "actual": "passed",
+        "expected": "pass",
+        "ok": true,
+        "reason": "N_exceeded_monotone"
+      },
+      {
+        "actual": "passed",
+        "expected": "pass",
+        "ok": true,
+        "reason": "F_exceeded"
+      }
+    ]
+  },
+  "schema": "rr-enumerator-statuses-v1",
+  "static_allowlist_check": {
+    "forbidden_tokens_checked": [
+      "insufficient_future_orbit_opening_credit",
+      "O_exceeded",
+      "P_exceeded",
+      "final_D_impossible",
+      "remaining_pass_starts_exceed_remaining_windows",
+      "remaining_cover_capacity_impossible",
+      "TARGET_P",
+      "TARGET_O",
+      "TARGET_D",
+      "remaining_window_capacity_prune",
+      "arithmetic_D_reachable"
+    ],
+    "forbidden_tokens_found": [],
+    "passes": true,
+    "source_sha256": "a23daeae802cbde9"
+  },
+  "status_meanings": {
+    "EXHAUSTED_NO_TARGET_A": "queue emptied naturally (no cap/timeout/depth-drop/stop-on-first), zero found",
+    "FOUND_TARGET_A": "at least one Target A boundary found; queue may or may not be empty",
+    "INCOMPLETE_DEPTH_CEILING": "a depth ceiling dropped at least one state unexpanded",
+    "INCOMPLETE_NODE_CAP": "node budget exhausted first",
+    "INCOMPLETE_TIMEOUT": "wall-clock budget exhausted first",
+    "INVALID_ROOT": "the supplied root failed to replay or reconstruct",
+    "STOPPED_AFTER_FIRST": "witness mode (coverage=False): stopped at first hit by design"
+  },
+  "status_vocabulary": [
+    "FOUND_TARGET_A",
+    "EXHAUSTED_NO_TARGET_A",
+    "INCOMPLETE_NODE_CAP",
+    "INCOMPLETE_DEPTH_CEILING",
+    "INCOMPLETE_TIMEOUT",
+    "STOPPED_AFTER_FIRST",
+    "INVALID_ROOT"
+  ]
+}

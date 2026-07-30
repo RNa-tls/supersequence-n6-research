@@ -135,7 +135,7 @@ repository changes that.
   bounded node budget.
 - `experiments/n6_search_baseline.py` — runs the above against n=6 and
   reports the (inconclusive) result plainly.
-- `tests/` — 82 passing tests (`python -m unittest discover -s tests`)
+- `tests/` — 106 passing tests (`python -m unittest discover -s tests`)
   covering all of the above, including independent verification of a
   literature-sourced n=4 witness string.
 - `legacy_research/` — the actual (much larger, much further along) local
@@ -2952,6 +2952,94 @@ re-searched; the 1,398 new boundaries were correctly never handed to a
 Target B search either (0 capacity survivors). N=0 checkpoint, CH2, T3,
 Target C, U/J branches untouched.
 
+### Round 37 -- root-level Q2-impossibility certificate; 28 of 33 roots closed without enumeration
+
+`src/build_rr_1398_boundary_ledger.py`, `src/analyze_rr_root_capacity_envelopes.py`,
+`src/verify_rr_q1_enumerator.py`, `src/audit_rr_incomplete_roots.py` ->
+`outputs/rr_1398_boundary_capacity_ledger.json`, `outputs/rr_root_capacity_envelopes.json`,
+`outputs/rr_q1_q2_prune_ledger.json`, `outputs/rr_enumerator_statuses.json`,
+`outputs/rr_incomplete_root_audit.json`. Six write-ups
+(`RR_Q1_Q2_FORMAL_SEPARATION.md`, `RR_PRUNE_TAXONOMY.md`,
+`RR_TARGET_A_ABUNDANCE_VS_COMPLETION.md`, `RR_ROOT_LEVEL_CAPACITY_ENVELOPES.md`,
+`RR_INCOMPLETE_ROOT_AUDIT.md`, `RR_ENUMERATOR_CORRECTNESS.md`) and
+`tests/test_rr_root_capacity_envelopes.py` (24 tests). No Target B flow
+search; known-18 survivors not re-searched; no Q2-only prune used in Q1.
+
+**Q1/Q2 formalized as predicates and Q2=>Q1 proved (손증명, one line from
+the predicates' logical form).** The converse is refuted by an exact
+counterexample family: all 28 long-excursion Target A roots have Q1 TRUE
+(1,398 literally replayed boundaries) and Q2 FALSE (0 capacity-theorem
+survivors, now proved two independent ways -- see below).
+
+**The 1,398-boundary corpus fixed exactly.** 1,398 rows, 1,398 distinct raw
+states, 1,398 distinct full literal words (an early draft hashed only the
+extension and found spurious cross-root word collisions; fixed by hashing
+the full path from the true initial state). Three capacity theorems
+applied (coarse/Round 30, initial-phase-port/Round 31/34, true-phase-walk/
+Round 33/35): **all 1,398 fail at the coarsest theorem alone** -- one
+structural deficit, not several competing mechanisms. Smallest
+capacity-relevant quotient: 15 distinct `(O_cap,R_cap,c(q0))` profiles.
+
+**New hand proof: the conservation law.** M := P-5O; every macro edge has
+dM=+1 (Z2 preserving or R re-entry) or dM=-4 (Z3 fresh-opening), checked by
+assertion across a 3,000-node BFS sample from the true initial state.
+Combined with the exact fact that an R event costs Ndef +1 (so
+Ndef(boundary)=Ndef(root)+k exactly, k=1 or 2) and that no legal preserving
+run exceeds length 4 (occupancy-independent), this gives a provable
+ROOT-LEVEL ENVELOPE:
+`ENVELOPE(root) = M(root)+5k+7+5*max(n_limit-Ndef(root)-k,0)`, an upper
+bound on margin_1 for EVERY Target A boundary reachable from that root --
+requiring no enumeration at all.
+
+**A rejected refinement, found by testing the envelope against real data.**
+An attempt to tighten the bound using `true_phase_walk_capacity` (Round
+33's refinement) turned out UNSOUND for this purpose: at root
+`long_found_142` it predicts a maximum of 2 additional legal steps, but the
+engine literally executes 3 (a hexagon with 5 of 6 slots visited can still
+supply the one free slot a single joint-landing needs, which the
+refinement's occupancy check wrongly excludes). This does not retract
+Round 33-35's own use of the function (a different, correctly-posed
+question there); the occupancy-independent universal bound of 4 is used
+instead, verified against all 1,398 known boundaries with **zero
+violations**.
+
+**Result: 28 of 33 roots certified Q2-impossible directly from their own
+state, with zero enumeration.** This includes both `long_q1_140` and
+`long_q1_178`, which found zero boundaries within Round 36's search budget
+-- the envelope theorem now resolves them completely (converting 2 of the
+7 previously-INCOMPLETE roots into genuine Q2 closure). The 5 short-family
+roots' envelope is **positive** (+14, k=2) -- an honest, non-forced result:
+this particular theorem does not resolve them.
+
+**7-incomplete-root audit.** Full accounting (nodes/frontier/checkpoint
+size, 116-165MB each) with `interpreted_as_absence: false` on every row.
+Symmetry quotient attempt on the 5 short-family roots: resource-signature
+collapses all 5 to one class (expected, same P/O/Ndef counters) but raw and
+canonical state hashes stay fully distinct (5 classes each) -- no
+completeness-proved quotient found, none used to merge or prune, per the
+round's own discipline. Distance bounds separated: proved lower bound = k
+(1 or 2 macro edges); heuristic sibling-derived estimates explicitly NOT
+computed or used. Continuation decisions: 2 roots (`long_q1_140/178`) ->
+STRUCTURAL_ANALYSIS_FIRST (already resolved); 5 roots (`short_ell0-4`) ->
+FRONTIER_TOO_LARGE (queued frontier exceeds expanded nodes by >30% at
+cutoff). **No root marked RESUME_WORTHWHILE** -- simple timeout extension
+is not recommended anywhere.
+
+**Enumerator correctness re-certified.** Static source-level allowlist scan
+(0 forbidden tokens in `q1_safe_prune_reason`), exhaustive runtime
+assertion (10/10: all 6 Q2-only reasons raise, all 4 Q1-safe reasons pass),
+and an adversarial leakage test (a corrupted variant re-introducing the
+refuted capacity bound is caught immediately by the static/runtime check;
+empirically it fired 55 times in a live run on `long_q1_0` but happened not
+to change the found set within the tested budget -- reported honestly
+rather than re-run for a favorable result, since the static/runtime check
+is the actual load-bearing guarantee).
+
+**Scope.** This is Q2 machinery applied as pure post-processing; no new
+search was run to produce the 1,398-boundary results, and no Target B
+search touched the known 18. `L_6 <= 872` verified, `L_6 >= 867` proved,
+`L_6 >= 872` open -- unmoved. CH2, T3, Target C, U/J untouched.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
@@ -2984,7 +3072,7 @@ Target C, U/J branches untouched.
 ## How to run everything
 
 ```
-python -m unittest discover -s tests -v   # 82 tests, ~40s
+python -m unittest discover -s tests -v   # 106 tests, ~45s
 python -m src.lower_bound                 # prints the bound table
 python -m src.construct                   # builds + verifies greedy witnesses n=1..6
 python -m src.exact_solve                 # proves L(2), L(3) from scratch
