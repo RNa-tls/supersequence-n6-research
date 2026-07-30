@@ -129,3 +129,11 @@ Grade: **safe relaxation** — the enumeration enforces the counting
 constraints but not the geometry, so every genuinely feasible profile
 appears in the list while the converse is not claimed. It is emphatically
 *not* an exhaustive statement about which profiles are realisable.
+
+## Round 39 correction
+
+The quoted initial capacity `=2` came from the now-retracted generic
+phase-walk helper. The successor graph itself is geometric, but every
+profile bound using `initial_capacity_max=2` is historical metadata, not a
+current certificate. The all-18 helper-free engine re-audit does not rely
+on this profile layer.

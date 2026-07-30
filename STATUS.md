@@ -2718,6 +2718,16 @@ here assumes anything about it.
 **Cumulative Target B ledger: 18 -> 9 (R30) -> 8 (R31) -> 7 (R32) -> 0
 (R34).**
 
+### Round 39 correction: phase-capacity scope
+
+The generic interpretation of `true_phase_walk_capacity` is retracted:
+`long_found_142` has predicted capacity 2 but three exact legal macro
+edges. This does not reopen the historical 18 Target-B boundary states. A
+helper-free re-audit gives 9 coarse-capacity exclusions and 9 exact macro
+DFS exhaustions, including all seven Round-34 flow roots. The old
+phase-derived successor-profile metadata remains historical only. Details:
+`research/RR_TARGET_B_18_BOUNDARY_REAUDIT_CODEX.md`.
+
 **Scope, stated so it cannot be over-read.** This is **not** "Target B is
 impossible". The 18 are the *known* Target A boundary states, from the
 Round 27 enumeration that returned **6 FOUND, 22 INCOMPLETE** at a node cap

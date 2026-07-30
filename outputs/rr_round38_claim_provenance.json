@@ -39,6 +39,14 @@
       "origin_commit": "51dcab7",
       "verification": "CODEX_COUNTEREXAMPLE",
       "verification_commit": "Round 38 working tree"
+    },
+    {
+      "claim": "the seven Round-34 flow roots exhaust independently of phase capacity",
+      "exact_scope": "replayed among all 18 boundaries with exact macro DFS and Round-32 B+R only",
+      "origin": "HISTORICAL",
+      "origin_commit": "d664019",
+      "verification": "CODEX_VERIFIED",
+      "verification_commit": "Round 39 working tree"
     }
   ],
   "counterexample": {
@@ -126,18 +134,38 @@
     },
     {
       "classification": "RETRACTION_REQUIRED",
-      "historical_result": "Round 33 initial phase-walk refinement theorem",
+      "historical_result": "Round 33 generic initial phase-walk capacity theorem",
       "reason": "The published generic 'true capacity' wording is too broad: the replayed three-edge continuation exceeds value 2. Its seven-row numerical refinement removed zero survivors, so no earlier exclusion count changes, but the theorem needs a full-segment precondition or withdrawal."
     },
     {
-      "classification": "INCOMPLETE_AUDIT",
-      "historical_result": "Round 34 segment-successor static capacity profiles",
-      "reason": "build_rr_segment_successors.py imports the helper-derived capacity table. A new proof that its full-segment model excludes the counterexample's partial landing, or a rerun without that assumption, is required before retaining every profile conclusion."
+      "classification": "RETAINED_BY_INDEPENDENT_ARGUMENT",
+      "historical_result": "Round 31 port-count 9 -> 8 reduction",
+      "reason": "It uses c(q0), the count of unvisited-port hexagons, not the suspect ordered phase-walk helper; the corrected 18-ledger recomputes it."
     },
     {
-      "classification": "INCOMPLETE_AUDIT",
-      "historical_result": "Round 34 flow-first Target-B ordering/results",
-      "reason": "search_rr_target_b_flow.py reads the same table. It may be used only for ordering, but the audited artefact chain has not been recomputed with the narrowed theorem."
+      "classification": "RETAINED_BY_INDEPENDENT_ARGUMENT",
+      "historical_result": "Round 32 B+R 8 -> 7 reduction",
+      "reason": "The occupancy-independent re-entry penalty is recomputed directly from ExactState and independently closes the same ell0/P4 boundary."
+    },
+    {
+      "classification": "RETRACTION_REQUIRED",
+      "historical_result": "Round 33 phase-derived margin table and any 2-capacity pruning",
+      "reason": "The helper's value 2 cannot be published as a generic future macro capacity. It was redundant for the seven selected flow roots."
+    },
+    {
+      "classification": "RETRACTION_REQUIRED",
+      "historical_result": "Round 34 segment-successor metadata/capacity profiles",
+      "reason": "The serialized initial_capacity_max is helper-derived and must be marked descriptive/rebuilt. It is not used by the replacement proof."
+    },
+    {
+      "classification": "RETAINED_EXACTLY",
+      "historical_result": "Round 34 flow-first exact semantics and seven exhaustions",
+      "reason": "The helper was used only for processing order. Round 39 independently replays all 18 states and reruns exact macro DFS plus B+R; all seven historical roots again exhaust."
+    },
+    {
+      "classification": "RETAINED_EXACTLY",
+      "historical_result": "Round 34 area-A-only bounded runs",
+      "reason": "They are explicitly incomplete engine-only diagnostics and have no helper-derived prune or proof role."
     },
     {
       "classification": "NOT_AFFECTED",
@@ -155,8 +183,39 @@
       "reason": "The independent envelope uses only M=P\u22125O, k, Ndef, and the occupancy-independent four-preserving-run bound; it does not call the rejected helper."
     }
   ],
+  "indirect_dependency_inventory": {
+    "derived_capacity_profile": [
+      "src/build_rr_segment_successors.py",
+      "outputs/rr_segment_successor_index.json"
+    ],
+    "documentation_and_tests_with_phase_capacity_language": [
+      "51dcab7:outputs/rr_flow_search_results.json",
+      "51dcab7:outputs/rr_segment_successor_index.json",
+      "51dcab7:outputs/rr_target_b_unsat_certificates.json",
+      "51dcab7:research/RR_TARGET_B_ALLOCATION_HIERARCHY.md",
+      "51dcab7:research/RR_TARGET_B_FLOW_RESULTS.md",
+      "51dcab7:research/RR_TARGET_B_UNSAT_CERTIFICATES.md",
+      "51dcab7:src/build_rr_segment_successors.py",
+      "51dcab7:src/search_rr_target_b_flow.py",
+      "51dcab7:src/verify_rr_target_b_unsat.py"
+    ],
+    "engine_flow_certificate": [
+      "src/verify_rr_target_b_flow.py",
+      "outputs/rr_flow_certificates.json"
+    ],
+    "full_block_and_port_count_material": [
+      "research/RR_TARGET_B_FULL_BLOCK_THEOREM.md",
+      "research/RR_TARGET_B_REFINED_CAPACITY.md"
+    ],
+    "ordering_only_consumer": [
+      "src/search_rr_target_b_flow.py"
+    ],
+    "serialized_helper_table": [
+      "outputs/rr_target_b_unsat_certificates.json"
+    ]
+  },
   "required_action": "Do not use true_phase_walk_capacity as a generic future-macro capacity bound. Revalidate Round-34 full-segment consumers before relying on them.",
-  "schema": "rr-round38-phase-capacity-scope-audit-v1",
+  "schema": "rr-round39-phase-capacity-scope-audit-v2",
   "source_references": {
     "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84": [
       "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:STATUS.md:2995:An attempt to tighten the bound using `true_phase_walk_capacity` (Round",

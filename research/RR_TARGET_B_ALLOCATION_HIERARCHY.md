@@ -64,3 +64,10 @@ port 5개를 온전히 갖고 있다(라운드32 §4).
 
 **등급**: (A) **손증명**, (B) **safe capacity bound**,
 (B+R) **손증명**, (C) **손증명**.
+
+## Round 39 correction
+
+The generic phase-walk capacity claim is retracted. The retained `18 -> 9
+-> 8 -> 7` reduction uses only coarse capacity, the `c(q)` port-count bound,
+and B+R. No phase-walk capacity table is used in the corrected proof; see
+`RR_ROUND33_PHASE_CAPACITY_CORRECTION_CODEX.md`.

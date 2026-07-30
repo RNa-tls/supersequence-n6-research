@@ -151,3 +151,12 @@ flow layer. Rounds 29–32 repeatedly named the component condition as the
 next bottleneck; that was wrong three rounds running, and Round 34 confirms
 Round 33's correction. Target B's final component requirement remains
 uncharacterised, and nothing in this round assumes anything about it.
+
+## Round 39 correction
+
+The final seven exact macro/engine exhaustions have been independently
+replayed without `true_phase_walk_capacity`. That table influenced only the
+historical processing order. The mechanism sentence attributing defect
+consumption to a generic initial capacity of two is withdrawn. The corrected
+all-18 ledger is `9 coarse + 9 exact DFS = 18 closed`; see
+`RR_ROUND34_RETENTION_AUDIT_CODEX.md`.

@@ -192,3 +192,10 @@ because none was built.
 See `RR_TARGET_B_FLOW_RESULTS.md` for the measured outcome and
 `RR_TARGET_B_R3_CERTIFICATES.md` for the certificates and their exact
 scope.
+
+## Round 39 correction
+
+`FlowSearch` itself constructs its initial candidates from the exact state;
+the historical phase-capacity table was used for ordering only. The retained
+engine result is documented in `RR_ROUND34_RETENTION_AUDIT_CODEX.md`; old
+phase-derived profile metadata is not a proof dependency.

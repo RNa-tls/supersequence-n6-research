@@ -77,3 +77,11 @@ certificate는 생성할 수 없다. 대신 **독립 verifier**를 작성했고
 
 **등급**: refinement **손증명**, 층 감사 **exact replay**,
 UNSAT **미완료**(발급 없음).
+
+## Round 39 correction
+
+The phase-walk table is preserved as a historical calculation, but its
+generic upper-bound interpretation is withdrawn. It is not used by the
+corrected proof. The helper-free 18-boundary re-audit closes all states via
+coarse/B+R bounds and exact macro DFS; see
+`RR_TARGET_B_18_BOUNDARY_REAUDIT_CODEX.md`.
