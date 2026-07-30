@@ -1,0 +1,204 @@
+{
+  "claim_provenance": [
+    {
+      "claim": "28 long roots are Q2-impossible by root envelope",
+      "exact_scope": "Q2 / completion-compatible Target-A only",
+      "origin": "CLAUDE",
+      "origin_commit": "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84",
+      "verification": "CODEX_VERIFIED",
+      "verification_commit": "Round 38 working tree"
+    },
+    {
+      "claim": "all 28 long roots have Q1 witnesses",
+      "exact_scope": "1398 ledger witnesses only 26 roots; Q1 is not proved for long_q1_140 or long_q1_178",
+      "origin": "CLAUDE",
+      "origin_commit": "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84",
+      "verification": "CODEX_COUNTEREXAMPLE",
+      "verification_commit": "Round 38 working tree"
+    },
+    {
+      "claim": "true_phase_walk_capacity is a generic legal future capacity upper bound",
+      "exact_scope": "refuted by long_found_142 (2 predicted, 3 legal macro edges)",
+      "origin": "HISTORICAL",
+      "origin_commit": "a0ca357",
+      "verification": "CODEX_COUNTEREXAMPLE",
+      "verification_commit": "Round 38 working tree"
+    },
+    {
+      "claim": "all 1398 Round-37 stored boundaries fail the coarse theorem",
+      "exact_scope": "word-level 1398 row ledger; independent literal replay",
+      "origin": "CLAUDE",
+      "origin_commit": "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84",
+      "verification": "CODEX_VERIFIED",
+      "verification_commit": "Round 38 working tree"
+    },
+    {
+      "claim": "the 22 Round-35 long searches remain Q2-relevant",
+      "exact_scope": "obsolete for Q2 under the verified envelope; still meaningful only as Q1 enumeration infrastructure",
+      "origin": "HISTORICAL",
+      "origin_commit": "51dcab7",
+      "verification": "CODEX_COUNTEREXAMPLE",
+      "verification_commit": "Round 38 working tree"
+    }
+  ],
+  "counterexample": {
+    "boundary_path": [
+      "rot^5;w2:10",
+      "rot^5;w2:10",
+      "rot^5;w2:10",
+      "rot^0;w3:120"
+    ],
+    "boundary_raw_hash": "4f85ec5368a065cb",
+    "engine_realizable_legal_macro_edges": 3,
+    "extension": [
+      "rot^0;w3:120",
+      "rot^3;w2:10",
+      "rot^4;w2:10"
+    ],
+    "identifier": "long_found_142",
+    "old_prediction": 2,
+    "scope": "This refutes interpreting the helper as an upper bound on arbitrary future legal macro edges. It does not by itself refute a separately proved bound restricted to a full-hexagon segment model.",
+    "states": [
+      {
+        "Ndef": 3,
+        "O": 9,
+        "P": 15,
+        "current_permutation": [
+          0,
+          1,
+          5,
+          3,
+          4,
+          2
+        ],
+        "label": "rot^0;w3:120",
+        "landing_hex_mask": 1,
+        "landing_hex_popcount": 1,
+        "landing_hexagon": 21,
+        "orbit": 21,
+        "phase": 0
+      },
+      {
+        "Ndef": 3,
+        "O": 10,
+        "P": 16,
+        "current_permutation": [
+          2,
+          0,
+          1,
+          5,
+          4,
+          3
+        ],
+        "label": "rot^3;w2:10",
+        "landing_hex_mask": 32,
+        "landing_hex_popcount": 1,
+        "landing_hexagon": 23,
+        "orbit": 22,
+        "phase": 4
+      },
+      {
+        "Ndef": 3,
+        "O": 11,
+        "P": 17,
+        "current_permutation": [
+          2,
+          0,
+          1,
+          5,
+          3,
+          4
+        ],
+        "label": "rot^4;w2:10",
+        "landing_hex_mask": 47,
+        "landing_hex_popcount": 5,
+        "landing_hexagon": 21,
+        "orbit": 20,
+        "phase": 4
+      }
+    ]
+  },
+  "historical_assessment": [
+    {
+      "classification": "NOT_AFFECTED",
+      "historical_result": "Rounds 30\u201332 Target-B results",
+      "reason": "No direct true_phase_walk_capacity call exists before its Round-33 introduction."
+    },
+    {
+      "classification": "RETRACTION_REQUIRED",
+      "historical_result": "Round 33 initial phase-walk refinement theorem",
+      "reason": "The published generic 'true capacity' wording is too broad: the replayed three-edge continuation exceeds value 2. Its seven-row numerical refinement removed zero survivors, so no earlier exclusion count changes, but the theorem needs a full-segment precondition or withdrawal."
+    },
+    {
+      "classification": "INCOMPLETE_AUDIT",
+      "historical_result": "Round 34 segment-successor static capacity profiles",
+      "reason": "build_rr_segment_successors.py imports the helper-derived capacity table. A new proof that its full-segment model excludes the counterexample's partial landing, or a rerun without that assumption, is required before retaining every profile conclusion."
+    },
+    {
+      "classification": "INCOMPLETE_AUDIT",
+      "historical_result": "Round 34 flow-first Target-B ordering/results",
+      "reason": "search_rr_target_b_flow.py reads the same table. It may be used only for ordering, but the audited artefact chain has not been recomputed with the narrowed theorem."
+    },
+    {
+      "classification": "NOT_AFFECTED",
+      "historical_result": "Round 35 Target-A exact traversal",
+      "reason": "The Root-local Q1 traversal uses literal exact transitions and no true_phase_walk_capacity call."
+    },
+    {
+      "classification": "RETAINED_BY_INDEPENDENT_PROOF",
+      "historical_result": "Round 37 1,398 coarse boundary exclusions",
+      "reason": "Round-38 replays every boundary and recomputes bound_1 < B+1. Every row already fails the coarse theorem, independent of bound_3."
+    },
+    {
+      "classification": "RETAINED_BY_INDEPENDENT_PROOF",
+      "historical_result": "Round 37 root-level envelope theorem",
+      "reason": "The independent envelope uses only M=P\u22125O, k, Ndef, and the occupancy-independent four-preserving-run bound; it does not call the rejected helper."
+    }
+  ],
+  "required_action": "Do not use true_phase_walk_capacity as a generic future-macro capacity bound. Revalidate Round-34 full-segment consumers before relying on them.",
+  "schema": "rr-round38-phase-capacity-scope-audit-v1",
+  "source_references": {
+    "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84": [
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:STATUS.md:2995:An attempt to tighten the bound using `true_phase_walk_capacity` (Round",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:research/RR_ROOT_LEVEL_CAPACITY_ENVELOPES.md:83:`true_phase_walk_capacity` (Round 33's occupancy-aware initial-segment",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:research/RR_ROOT_LEVEL_CAPACITY_ENVELOPES.md:99:genuine, newly found scope caveat: **`true_phase_walk_capacity` is not a",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:research/RR_TARGET_A_ABUNDANCE_VS_COMPLETION.md:31:| 3. true phase-walk refinement | `true_phase_walk_capacity(q0,ph0) + 5\u00b7O_cap + 4\u00b7R_cap \u2265 B+1` (Round 33/35) | exact theorem, **scope-limited** (see `RR_ROOT_LEVEL_CAPACITY_ENVELOPES.md` \u00a75) |",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/analyze_rr_root_capacity_envelopes.py:56:to tighten the \"4k\" term using `true_phase_walk_capacity` (Round 33's",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/analyze_rr_root_capacity_envelopes.py:65:`true_phase_walk_capacity` predicts only 2. Using it here would have made",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/analyze_rr_root_capacity_envelopes.py:211:            \"rejected_refinement_note\": (\"true_phase_walk_capacity was tried and rejected for \"",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/build_rr_1398_boundary_ledger.py:24:      bound_3 = true_phase_walk_capacity(q0, phase0) + 5*O_cap + 4*R_cap",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/build_rr_1398_boundary_ledger.py:86:def true_phase_walk_capacity(st):",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/build_rr_1398_boundary_ledger.py:166:    c_q0_phase = true_phase_walk_capacity(st)",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/build_rr_1398_boundary_ledger.py:260:            \"3_true_phase_walk_refinement\": \"true_phase_walk_capacity(q0,ph0) + 5*O_cap + 4*R_cap >= B+1 (Round 33/35)\",",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/build_rr_segment_successors.py:254:    icap = {(r[\"root_ell\"], r[\"P_core\"]): r[\"true_phase_walk_capacity\"]",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/search_rr_target_b_flow.py:384:    icap = {(r[\"root_ell\"], r[\"P_core\"]): r[\"true_phase_walk_capacity\"]",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/verify_rr_target_b_unsat.py:110:            \"true_phase_walk_capacity\": best,",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/verify_rr_target_b_unsat.py:137:        newb = ic[\"true_phase_walk_capacity\"] + r[\"sum_top_O_cap\"] + 4 * r[\"R_cap\"]",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/verify_rr_target_b_unsat.py:143:              f\"          {ic['true_phase_walk_capacity']}         \"",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:src/verify_rr_target_b_unsat.py:174:                                        \"true_phase_walk_capacity\", \"best_initial_word\",",
+      "0dcde297a3d87686e0a6bb8dd0bbfceabca02d84:tests/test_rr_root_capacity_envelopes.py:7:(true_phase_walk_capacity is not a valid upper bound for this purpose)."
+    ],
+    "51dcab7": [
+      "51dcab7:src/build_rr_segment_successors.py:254:    icap = {(r[\"root_ell\"], r[\"P_core\"]): r[\"true_phase_walk_capacity\"]",
+      "51dcab7:src/search_rr_target_b_flow.py:384:    icap = {(r[\"root_ell\"], r[\"P_core\"]): r[\"true_phase_walk_capacity\"]",
+      "51dcab7:src/verify_rr_target_b_unsat.py:110:            \"true_phase_walk_capacity\": best,",
+      "51dcab7:src/verify_rr_target_b_unsat.py:137:        newb = ic[\"true_phase_walk_capacity\"] + r[\"sum_top_O_cap\"] + 4 * r[\"R_cap\"]",
+      "51dcab7:src/verify_rr_target_b_unsat.py:143:              f\"          {ic['true_phase_walk_capacity']}         \"",
+      "51dcab7:src/verify_rr_target_b_unsat.py:174:                                        \"true_phase_walk_capacity\", \"best_initial_word\","
+    ],
+    "a0ca357": [
+      "a0ca357:src/verify_rr_target_b_unsat.py:110:            \"true_phase_walk_capacity\": best,",
+      "a0ca357:src/verify_rr_target_b_unsat.py:137:        newb = ic[\"true_phase_walk_capacity\"] + r[\"sum_top_O_cap\"] + 4 * r[\"R_cap\"]",
+      "a0ca357:src/verify_rr_target_b_unsat.py:143:              f\"          {ic['true_phase_walk_capacity']}         \"",
+      "a0ca357:src/verify_rr_target_b_unsat.py:174:                                        \"true_phase_walk_capacity\", \"best_initial_word\","
+    ],
+    "d664019": [
+      "d664019:src/build_rr_segment_successors.py:254:    icap = {(r[\"root_ell\"], r[\"P_core\"]): r[\"true_phase_walk_capacity\"]",
+      "d664019:src/search_rr_target_b_flow.py:384:    icap = {(r[\"root_ell\"], r[\"P_core\"]): r[\"true_phase_walk_capacity\"]",
+      "d664019:src/verify_rr_target_b_unsat.py:110:            \"true_phase_walk_capacity\": best,",
+      "d664019:src/verify_rr_target_b_unsat.py:137:        newb = ic[\"true_phase_walk_capacity\"] + r[\"sum_top_O_cap\"] + 4 * r[\"R_cap\"]",
+      "d664019:src/verify_rr_target_b_unsat.py:143:              f\"          {ic['true_phase_walk_capacity']}         \"",
+      "d664019:src/verify_rr_target_b_unsat.py:174:                                        \"true_phase_walk_capacity\", \"best_initial_word\","
+    ]
+  }
+}
