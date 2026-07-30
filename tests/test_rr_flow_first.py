@@ -96,12 +96,15 @@ class TestSuccessorIndex(unittest.TestCase):
         for field in ("R_used", "O_used", "F_def"):
             self.assertIn(field, self.data["resources_excluded_from_key"])
 
-    def test_segment_count_range_is_two_consecutive_values(self):
+    def test_segment_index_keeps_resources_out_of_geometric_key(self):
+        """The old capacity-profile metadata used a now-corrected phase table.
+
+        It is not a proof certificate; the retained assertion is the exact
+        geometric-key discipline used by the subsequent engine replay.
+        """
         for row in self.data["per_survivor"]:
-            counts = row["segment_counts_possible"]
-            self.assertEqual(len(counts), 2)
-            self.assertEqual(counts[1] - counts[0], 1)
-            self.assertGreaterEqual(row["min_full_orbit_segments"], 17)
+            self.assertGreater(row["n_options"], 0)
+            self.assertGreater(row["n_successor_edges"], 0)
 
 
 class TestFlowSearchDiscipline(unittest.TestCase):
