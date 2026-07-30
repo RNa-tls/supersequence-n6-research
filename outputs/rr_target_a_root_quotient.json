@@ -1,0 +1,31 @@
+{
+  "conservative_history_preserving_key": {
+    "class_count": 22,
+    "definition": "(ExactState, O*, R1 target orbit, R-count, root ell)",
+    "duplicate_classes": [],
+    "status": "unique in this cohort, but not claimed minimal"
+  },
+  "cross_check_with_full_prefix_quotient": {
+    "all_exact_state_classes": 186,
+    "all_left_s6_pair_classes": 186,
+    "all_literal_prefixes": 186,
+    "cohort_unique_under_each_proven_quotient": true
+  },
+  "exact_state": {
+    "class_count": 22,
+    "duplicate_classes": []
+  },
+  "grade": "exact replay + existing canonical_pair_key; terminal-relevant quotient deliberately not asserted",
+  "left_s6_decorated_pair": {
+    "class_count": 22,
+    "definition": "canonical_pair_key(state, O*, R1 target orbit)",
+    "duplicate_classes": []
+  },
+  "root_count": 22,
+  "root_unit": "raw state-bearing (literal joint word, root ell) pair",
+  "schema": "rr-target-a-root-quotient-v1",
+  "terminal_relevant_history_equivalence": {
+    "reason": "Round 35 CH1/CH2/chaining predicates retain distinctions, including R1-target data, not determined by ExactState alone.  A relation-based merge would require a separate proof.",
+    "status": "NOT_PROVED; NO_QUOTIENT_MERGE_USED"
+  }
+}
