@@ -1,0 +1,170 @@
+{
+  "count_units": {
+    "canonical_root": "the left-S6 lexicographically-least translate of an ExactState (exact.canonicalize), compared via its stable_key()",
+    "decorated_continuation_root": "an ExactState root plus the minimal history decoration this round's key needs (R event count, R1 source/target, CH branch) -- see RR_TARGET_A_UNIFIED_ENUMERATOR.md section 11",
+    "exact_state_root": "the ExactState produced by literally replaying a raw literal root; compared via stable_key()",
+    "raw_literal_root": "a specific literal joint-label sequence (e.g. ['w3:201','w3:201',...]) identifying one prefix in rr_long_excursion_prefixes.json['prefixes']",
+    "symbolic_first_return_class": "the (L, return_exponent, symbolic_word) triple describing an excursion's SHAPE, independent of which literal orbit/phase it occupies; many raw roots share one symbolic class"
+  },
+  "explicit_scope_note": "this classification covers every root source PRESENT IN THE REPOSITORY TODAY. It is not a proof that these are the only possible Target A root sources in the full RR prefix space -- L>8 excursions and non-RR-alphabet prefixes were never generated at all, so a 7th source class could exist and is not ruled out here.",
+  "overlap_audit": {
+    "conclusion": "at exact_state_equality and left_s6_canonical_equality (the levels that matter for Target A, since Target A depends on the full history, not just the current permutation), all 33 roots examined (5 short-family + 28 long-excursion) are pairwise distinct with zero collisions and zero cross collisions; the short-family and long-excursion corpora are confirmed DISJOINT sources, consistent with Round 35's unverified claim of disjointness -- this round makes it exact. Literal-state (permutation-only) equality DOES collide 18 times among the 28 long roots, which is expected and NOT a merge candidate: two roots can stand on the same permutation with different hex/orbit visitation history and therefore different Target A reachability, which is exactly why literal-state equality is not used as the comparison level for this predicate.",
+    "decorated_continuation_equality": {
+      "merge_performed": false,
+      "note": "decorated keys additionally carry R-count/CH-branch/first-return-class; since no two roots share even the exact_state_equality level, decorated equality (a REFINEMENT of exact-state equality) cannot hold either -- recorded without a separate replay"
+    },
+    "grade": "exact replay (28 long + 5 short roots literally replayed and compared)",
+    "levels_checked": {
+      "exact_state_equality": {
+        "long_root_internal_collisions": 0,
+        "long_vs_short_cross_collisions": 0,
+        "merge_performed": false,
+        "short_root_internal_collisions": 0
+      },
+      "left_s6_canonical_equality": {
+        "long_root_internal_collisions": 0,
+        "long_vs_short_cross_collisions": 0,
+        "merge_performed": false,
+        "short_root_internal_collisions": 0
+      },
+      "literal_state_equality": {
+        "long_root_internal_collisions": 18,
+        "long_vs_short_cross_collisions": 0,
+        "merge_performed": false,
+        "short_root_internal_collisions": 0
+      }
+    },
+    "proven_continuation_equivalence": {
+      "grade": "open",
+      "note": "no proof of continuation-equivalence (two non-identical states having provably identical future Target-A-reachability) was attempted this round; this is listed as an open technique, not an executed check"
+    }
+  },
+  "schema": "rr-target-a-root-universe-v1",
+  "sources": {
+    "abandonment_ell_root_count": {
+      "ell_values_checked": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "ell_values_where_abandonment_is_legal": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "exactly_five_values": true,
+      "grade": "exact exhaustive search (ell in 0..9 checked directly against the engine)",
+      "statement": "The initial rotation walk from the identity is a single E-orbit's\n    5-port cycle (SIGMA has order... the E-orbit structure has period 5 in\n    phase, established throughout this codebase: PORTS has 5 entries per\n    orbit, ORBIT_PHASE maps into Z/5).  An abandonment can occur only at the\n    point where the NEXT rotation edge would revisit an already-visited\n    permutation -- for the very first pass (starting from the identity),\n    that first collision occurs after exactly 5 rotations (a full orbit\n    cycle), so the abandonment ell ranges over {0,1,2,3,4} and no other\n    value is reachable from the identity's own orbit before the first\n    abandonment. This is checked exhaustively below rather than assumed:\n    for every ell in 0..9, attempt the abandonment root replay and record\n    whether ell=5..9 raise (correctly refuse to replay) or silently\n    succeed with a state that was never used as a root."
+    },
+    "first_return_L_classes": {
+      "L_histogram_all_186": {
+        "7": 10,
+        "8": 176
+      },
+      "L_histogram_surviving_28": {
+        "7": 10,
+        "8": 18
+      },
+      "count_unit": "distinct L values among the 186 historical ell=4 excursion prefixes (before the R-budget obstruction)",
+      "note": "only L=7 and L=8 survive the R-budget obstruction (<=1 R strictly before R2); L in {1,2,3,4,5,6} either cannot occur as a legal odd-parity excursion under this alphabet or was eliminated by the R-budget filter -- L>8 was never enumerated at all (a separate open gap, not resolved here)"
+    },
+    "historical_capped_corpus": {
+      "count_unit": "not re-derived here",
+      "note": "Rounds 19-25 local universes were capped at depth<=6/7/8 after the abandonment; RR_DEPTH_CAP_ARTIFACTS.md already documents which observations from those rounds are scope-limited rather than exhaustive. Referenced for completeness of the source list; not touched this round.",
+      "source_doc": "research/RR_DEPTH_CAP_ARTIFACTS.md"
+    },
+    "long_found_roots": {
+      "boundaries_produced": 6,
+      "count": 6,
+      "count_unit": "long-excursion-prefix ExactState roots",
+      "known_status": "these ARE the 6 KNOWN long Target A boundaries; each search was stopped at the first witness (STOPPED_AFTER_FIRST, not coverage)",
+      "prefix_indices": [
+        4,
+        9,
+        44,
+        74,
+        142,
+        180
+      ],
+      "source_code": "src/search_rr_long_prefix_extensions.py, run with --stop-on-first",
+      "source_json": "outputs/rr_long_prefix_extension_results.json (status == FOUND)"
+    },
+    "long_incomplete_22_roots": {
+      "boundaries_produced": 0,
+      "count": 22,
+      "count_unit": "long-excursion-prefix ExactState roots",
+      "known_status": "Round 35 decided Q2 (completable) for all 22: EXHAUSTED_NO_TARGET_A. Q1 (any Target A boundary) is still INCOMPLETE at all 22.",
+      "prefix_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        40,
+        41,
+        42,
+        43,
+        70,
+        71,
+        72,
+        73,
+        138,
+        139,
+        140,
+        176,
+        177,
+        178
+      ],
+      "source_code": "src/search_rr_long_prefix_extensions.py, node cap 8000, depth ceiling 12",
+      "source_json": "outputs/rr_long_prefix_extension_results.json (status == INCOMPLETE)"
+    },
+    "root_ell_histogram_186": {
+      "0": 38,
+      "1": 38,
+      "2": 38,
+      "3": 34,
+      "4": 38
+    },
+    "short_family_roots": {
+      "boundaries_produced": 12,
+      "boundaries_produced_by_ell": {
+        "0": 3,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 9
+      },
+      "count": 5,
+      "count_unit": "raw abandonment ExactState roots (one per abandonment ell)",
+      "ell_values": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "known_status": "12 of these are the KNOWN short Target A boundaries (3 at ell=0, 9 at ell=4; ell=1,2,3 produced 0)",
+      "source_code": "legacy_research/work/superperm_partial_f1_macro.py :: abandonment_root, consumed by analyze_rr_ell0_family.py :: enumerate_same_component",
+      "source_json": "outputs/rr_preparation_words.json (results_by_ell.<ell>)"
+    }
+  },
+  "total_root_sources_classified": 6,
+  "total_roots_this_round_operates_on": {
+    "grand_total_exact_state_roots": 33,
+    "long_found": 6,
+    "long_incomplete_22": 22,
+    "short_family": 5
+  }
+}
