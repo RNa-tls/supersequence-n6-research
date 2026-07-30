@@ -203,6 +203,39 @@ class TestSearchStatusAudit(unittest.TestCase):
         d = json.loads((OUT / "rr_target_a_search_status_audit.json").read_text(encoding="utf-8"))
         self.assertEqual(d["discipline_violations"], [])
 
+    def test_all_33_roots_present_none_falsely_exhausted(self):
+        d = json.loads((OUT / "rr_target_a_search_status_audit.json").read_text(encoding="utf-8"))
+        hist = d["resumed_frontier_status_histogram"]
+        self.assertEqual(sum(hist.values()), 33)
+        self.assertNotIn("EXHAUSTED_NO_TARGET_A", hist)
+
+
+@unittest.skipUnless((OUT / "rr_new_target_a_boundaries.json").exists(),
+                     "new-boundary pipeline output not present")
+class TestNewBoundaryPipeline(unittest.TestCase):
+    def setUp(self):
+        self.d = json.loads((OUT / "rr_new_target_a_boundaries.json").read_text(encoding="utf-8"))
+
+    def test_every_hit_independently_reconfirmed(self):
+        self.assertEqual(self.d["n_total_hits"], self.d["n_independently_reconfirmed"])
+        self.assertGreater(self.d["n_total_hits"], 0)
+
+    def test_six_known_witnesses_are_not_counted_as_new(self):
+        """The 6 long-FOUND roots re-discover their own known witness; those
+        must NOT be counted among the new-vs-known18 total."""
+        n_rediscovered_known = self.d["n_total_hits"] - self.d["n_new_vs_known18_raw"]
+        self.assertEqual(n_rediscovered_known, 6)
+
+    def test_no_capacity_survivor_reached_the_flow_verifier(self):
+        """Step 6 (Round 34's flow verifier) must never fire without a
+        capacity-theorem survivor -- and none occurred."""
+        if self.d["n_capacity_theorem_survivors"] == 0:
+            for h in self.d["hits"]:
+                self.assertFalse(h["step6_flow_verifier_run"])
+
+    def test_target_b_determination_is_separate_postprocessing(self):
+        self.assertIn("separate post-processing", self.d["target_B_determination_note"])
+
 
 if __name__ == "__main__":
     unittest.main()

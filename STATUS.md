@@ -135,7 +135,7 @@ repository changes that.
   bounded node budget.
 - `experiments/n6_search_baseline.py` — runs the above against n=6 and
   reports the (inconclusive) result plainly.
-- `tests/` — 57 passing tests (`python -m unittest discover -s tests`)
+- `tests/` — 82 passing tests (`python -m unittest discover -s tests`)
   covering all of the above, including independent verification of a
   literature-sourced n=4 witness string.
 - `legacy_research/` — the actual (much larger, much further along) local
@@ -2837,6 +2837,121 @@ Nothing here moves `L_6`: verified upper **872**, proved lower **867**, open
 target **872**. T3 stays exact observation 15/15; CH2, Target C, U/J and the
 N=0 checkpoint are untouched.
 
+### Round 36 — Target A search semantics audited and rebuilt; 1,398 new boundaries found, 0 completable
+
+`src/build_rr_target_a_root_universe.py`, `src/search_rr_target_a_unified.py`,
+`src/run_rr_target_a_coverage.py`, `src/verify_rr_target_a_coverage_status.py`,
+`src/process_rr_new_target_a_boundaries.py` -> `outputs/rr_target_a_root_universe.json`,
+`outputs/rr_target_a_search_status_audit.json`, `outputs/rr_target_a_known18_regression.json`,
+`outputs/rr_target_a_resumed_frontiers.json`, `outputs/rr_new_target_a_boundaries.json`.
+Five write-ups (`RR_TARGET_A_ENUMERATION_SEMANTICS.md`,
+`RR_TARGET_A_SOURCE_UNIVERSE.md`, `RR_TARGET_A_Q1_Q2_SEPARATION.md`,
+`RR_TARGET_A_UNIFIED_ENUMERATOR.md`, `RR_TARGET_A_COVERAGE_STATUS.md`) and
+`tests/test_rr_target_a_unified.py` (25 tests). Known 18 Target B not
+re-searched; N=0 untouched; no global NR6 search.
+
+**The bug this round fixes.** Round 35's "Q1" search still called the
+bundled `area_a_prune_reason` on every intermediate state. That function
+bundles 10 sub-conditions; 6 assume the walk reaches `TARGET_P=121`,
+`TARGET_O=25`, `TARGET_D=4` (full Area-A completion) and 4 are genuinely
+local monotone invariants. Using the bundle as a traversal prune had already
+smuggled completion assumptions into Round 35's own "Q1" runs. Each
+sub-condition is now decomposed and classified with proof
+(`RR_TARGET_A_Q1_Q2_SEPARATION.md`): **Q1-SAFE** — `F_exceeded`,
+`H_positive` (both monotone, and Target A's own definition requires the
+child to have `F_def==1`, `H==0`), `N_exceeded_monotone` (monotone,
+disclosed Area-A scope restriction), `F1_fragment_normal_form_impossible`
+(a structural consistency check, no `TARGET_*` reference at all). **Q2-ONLY**
+— `P_exceeded`, `O_exceeded`, `final_D_impossible` (proved trajectory-
+invariant by direct simulation, but still Q2-only in principle),
+`remaining_pass_starts_exceed_remaining_windows`,
+`remaining_cover_capacity_impossible` (exactly the Round 32/34/35 capacity
+bound Round 35 already proved unsound as a Target A prune),
+`insufficient_future_orbit_opening_credit`. `q1_safe_prune_reason` is a
+**separate re-implementation**, not a filter over the bundle, with a runtime
+assertion that raises if a Q2-only reason ever appears in a Q1 run.
+
+**Unified enumerator** (`search_rr_target_a_unified.py`) replaces three
+ad-hoc searches with one: a 7-status vocabulary (`FOUND_TARGET_A`,
+`EXHAUSTED_NO_TARGET_A`, `INCOMPLETE_NODE_CAP`, `INCOMPLETE_DEPTH_CEILING`,
+`INCOMPLETE_TIMEOUT`, `STOPPED_AFTER_FIRST`, `INVALID_ROOT`) replacing the
+single `frontier_empty` boolean that could not distinguish exhaustion from
+ceiling truncation; full frontier accounting (expanded/generated/queued/
+pruned-by-reason/dedup-merges); deterministic edge order
+(`(rotation length, joint label)`); JSON checkpoint/resume reconstructing
+`ExactState` directly from serialized fields. The minimal decorated key is
+`(stable_key(), r_count)` — proved sufficient (§11): CH1/CH2, R1 source/
+target, and component ancestry are all recoverable from the state at the
+moment needed, never independent information.
+
+**Root universe audit** (`build_rr_target_a_root_universe.py`): 33
+exact-state roots across 3 sources (5 short-family, 6 long-FOUND, 22
+long-INCOMPLETE), every source's code/JSON provenance recorded, count units
+fixed (raw literal / exact-state / decorated-continuation / canonical /
+symbolic-first-return-class). The 5-abandonment-ℓ claim is now an
+exhaustive check (ℓ tried 0..9 against the real engine, legal only at
+{0,1,2,3,4}), not an inherited assumption. Overlap audit at 3 levels: **0
+collisions** at exact-state and left-S6-canonical equality between the
+short-family and long-excursion corpora (18 collisions at literal-state
+equality are expected and not a merge candidate — different visitation
+history on the same permutation means different Target A reachability).
+
+**Known-18 regression: 18/18 pass.** Two real bugs caught and fixed while
+building it: (1) an early replay attempt called `macro.macro_edges()` on an
+already-rotated state, double-applying the final rotation — fixed by
+mirroring `build_rr_target_b_exact_cover.py::replay_state`'s already-
+verified direct-`extend()` pattern; (2) `P_core = preparation_length - 2`
+holds only for ℓ=0 — for ℓ=4 it is `preparation_length - 1` (the ℓ=4
+branch's R2 edge is ℓ=0, the ℓ=0 branch's is ℓ=5). The regression script
+uses neither formula: it looks up each replayed boundary's `P_core` in
+`rr_target_b_survivors.json` by `(root_ell, raw_hash)`. With both fixed,
+18/18 replay and the 7 Round-34 survivors correctly show `EXHAUSTED_NO_PATH`.
+
+**Coverage execution, all 33 roots, budget 100k nodes / 90s each:**
+
+| group | roots | status | hits |
+|---|---|---|---|
+| short-family (r_count=0) | 5 | all INCOMPLETE_TIMEOUT | 0 |
+| long FOUND (r_count=1, no stop-on-first) | 6 | all FOUND_TARGET_A | 1 each (known witness re-found) |
+| long INCOMPLETE-22 (r_count=1, Q1-safe) | 22 | 20 FOUND_TARGET_A, 2 INCOMPLETE_TIMEOUT | 0-126 each |
+
+**26 FOUND_TARGET_A, 7 INCOMPLETE_TIMEOUT, 0 EXHAUSTED_NO_TARGET_A** across
+all 33; not one frontier emptied naturally; no status ever upgraded.
+
+**The headline finding.** The 22 roots Round 35 closed for Q2 (zero
+*completable* Target A boundary) turn out to have **1,398 Target A
+boundaries** under the completion-agnostic Q1 question (1,392 new, 6
+re-discovered known witnesses), all independently re-verified by literal
+replay (`process_rr_new_target_a_boundaries.py`: 1,398/1,398 reconfirmed).
+**Zero of the 1,398 survive the capacity theorem.** This reconciles cleanly
+with Round 35 rather than contradicting it: those roots are not scarce in
+local Target A boundaries, they are scarce in *completable* ones — Q1
+explains why Q2 closed the way it did, at a level of detail Q2 alone could
+not supply. The new-boundary pipeline (exact replay -> canonicalize ->
+compare vs the 18 -> CH1/CH2 -> capacity theorem -> Round 34 flow verifier
+only for survivors) ran to completion and correctly never reached step 6,
+since no capacity-theorem survivor occurred. Target B determination stayed
+separate post-processing throughout, never assumed inside the enumeration.
+
+**Discipline audit: 0 violations across all 33 roots** — no
+`EXHAUSTED_NO_TARGET_A` without natural frontier emptying, no Q2-only prune
+reason in any Q1 run's histogram.
+
+**Why Q1 coverage is still open, honestly.** Every one of the 33 roots'
+queues was still growing at cutoff (87,000-135,000 queued against
+60,000-80,000 expanded) even at ~850+ nodes/second. Dropping 6 of 10
+`area_a_prune_reason` sub-conditions removes most of the pruning power prior
+rounds relied on; no larger node cap in this session would change the
+qualitative picture. Checkpoints (`outputs/rr_target_a_checkpoints/`,
+gitignored, ~130MB/root) allow exact resumption in a future round.
+
+**Scope, unchanged bounds.** Referred to throughout as "18 **currently
+known** Target A boundaries" -- never an exhaustive count. `L_6 <= 872`
+verified, `L_6 >= 867` proved, `L_6 >= 872` open. Known-18 Target B not
+re-searched; the 1,398 new boundaries were correctly never handed to a
+Target B search either (0 capacity survivors). N=0 checkpoint, CH2, T3,
+Target C, U/J branches untouched.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
@@ -2869,7 +2984,7 @@ N=0 checkpoint are untouched.
 ## How to run everything
 
 ```
-python -m unittest discover -s tests -v   # 57 tests, ~6s
+python -m unittest discover -s tests -v   # 82 tests, ~40s
 python -m src.lower_bound                 # prints the bound table
 python -m src.construct                   # builds + verifies greedy witnesses n=1..6
 python -m src.exact_solve                 # proves L(2), L(3) from scratch
