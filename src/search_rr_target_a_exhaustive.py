@@ -1,0 +1,897 @@
+#!/usr/bin/env python3
+"""Round 35: checkpointable exact Target-A traversal.
+
+This is deliberately a *root-local Target-A boundary* search.  It starts
+only from the 22 audited capped Round-27 prefix roots and never expands past
+the prospective second R joint.  It is not a Target-B or NR6 completion
+search.
+
+The exact engine state retains every visited window.  The extra decoration is
+only the RR boundary history which ExactState cannot recover: R-event order,
+R1 endpoints, and the hub-completer event.  Component ancestry and the hub
+mask are recomputed from ExactState at every candidate boundary.
+
+No node cap is a proof condition.  ``--node-limit 0`` is cap-free; an
+interruption or a positive limit leaves the root ``INCOMPLETE`` with an exact
+checkpoint, never ``EXHAUSTED_NO_TARGET_A``.
+"""
+from __future__ import annotations
+
+import argparse
+import ast
+import hashlib
+import importlib.util
+import json
+import os
+import sys
+import time
+from collections import Counter
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any, Iterable, Iterator, Mapping, Optional, Sequence
+
+
+ROOT = Path(__file__).resolve().parent.parent
+WORK = ROOT / "legacy_research" / "work"
+PREFIXES = ROOT / "outputs" / "rr_long_excursion_prefixes.json"
+LEDGER = ROOT / "outputs" / "rr_target_a_22_root_ledger.json"
+KNOWN_TARGET_B = ROOT / "outputs" / "rr_target_b_survivors.json"
+
+
+def _load(name: str, path: Path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+macro = _load("round35_macro", WORK / "superperm_partial_f1_macro.py")
+exact = macro.exact
+core = exact.core
+roots = _load("round35_roots", ROOT / "src" / "build_rr_long_excursion_roots.py")
+
+W1 = macro.W1
+MOVE = {move.label: move for move in exact.ALL_MOVES}
+W2_10 = MOVE["w2:10"]
+HUB = core.hexagon_id(exact.initial_state().p)
+ENGINE_FILES = (
+    ROOT / "legacy_research" / "work" / "superperm_partial_f1.py",
+    ROOT / "legacy_research" / "work" / "superperm_partial_f1_macro.py",
+    ROOT / "src" / "search_rr_target_a_exhaustive.py",
+    ROOT / "src" / "build_rr_long_excursion_roots.py",
+)
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def sha256_file(path: Path) -> str:
+    return sha256_bytes(path.read_bytes())
+
+
+def state_hash(state) -> str:
+    return sha256_bytes(repr(state.stable_key()).encode("utf-8"))
+
+
+def code_hashes() -> dict[str, str]:
+    return {str(path.relative_to(ROOT)): sha256_file(path) for path in ENGINE_FILES}
+
+
+def joint_kind(weight: int, abandonment: bool, new_orbit: bool) -> str:
+    """The only labels allowed by the inherited Round-27 RR model."""
+    return {
+        (2, False, False): "Z2",
+        (2, True, True): "Z2abandon",
+        (3, False, False): "R",
+        (3, False, True): "Z3",
+    }.get((weight, abandonment, new_orbit), "other")
+
+
+@dataclass(frozen=True)
+class REvent:
+    macro_index: int
+    kind: str
+    source_orbit: int
+    source_phase: int
+    target_orbit: int
+    target_phase: int
+
+
+@dataclass(frozen=True)
+class Completer:
+    macro_index: int
+    kind: str
+    source_orbit: int
+    source_phase: int
+    target_orbit: int
+    target_phase: int
+
+
+@dataclass(frozen=True)
+class Decoration:
+    """History not recoverable from ExactState for this boundary question.
+
+    ``hub_id`` and the current hub mask are distinguished-root data.  The
+    latter is intentionally *not* copied here: it is a deterministic function
+    of ExactState and is included in the key through ExactState itself.
+    """
+
+    root_id: str
+    root_ell: int
+    o_star: int
+    hub_id: int
+    macro_index: int
+    r_events: tuple[REvent, ...]
+    hub_touch_count: int
+    completer: Optional[Completer]
+
+    @property
+    def r_count(self) -> int:
+        return len(self.r_events)
+
+    @property
+    def r1(self) -> Optional[REvent]:
+        return self.r_events[0] if self.r_events else None
+
+    @property
+    def branch(self) -> str:
+        """CH1/CH2 only once the complete event information exists."""
+        c = self.completer
+        r1 = self.r1
+        if c is None:
+            return "UNDECIDED"
+        if c.kind == "R" and r1 is not None and c.macro_index == r1.macro_index:
+            return "CH1"
+        if c.kind == "Z2" and r1 is not None and r1.macro_index < c.macro_index:
+            return "CH2"
+        return "OTHER_OR_UNDECIDED"
+
+    def key(self) -> tuple[object, ...]:
+        return (
+            self.root_ell, self.o_star, self.hub_id, self.macro_index,
+            tuple((event.macro_index, event.kind, event.source_orbit, event.source_phase,
+                   event.target_orbit, event.target_phase) for event in self.r_events),
+            self.hub_touch_count,
+            None if self.completer is None else (
+                self.completer.macro_index, self.completer.kind,
+                self.completer.source_orbit, self.completer.source_phase,
+                self.completer.target_orbit, self.completer.target_phase,
+            ),
+        )
+
+    def to_json(self) -> dict[str, object]:
+        return {
+            "root_id": self.root_id, "root_ell": self.root_ell,
+            "o_star": self.o_star, "hub_id": self.hub_id,
+            "macro_index": self.macro_index, "r_events": [asdict(e) for e in self.r_events],
+            "hub_touch_count": self.hub_touch_count,
+            "completer": None if self.completer is None else asdict(self.completer),
+            "branch": self.branch,
+        }
+
+    @staticmethod
+    def from_json(data: Mapping[str, object]) -> "Decoration":
+        rs = tuple(REvent(**{k: v for k, v in event.items()})
+                   for event in data["r_events"])  # type: ignore[index,union-attr]
+        comp_data = data.get("completer")
+        comp = None if comp_data is None else Completer(**comp_data)  # type: ignore[arg-type]
+        return Decoration(
+            root_id=str(data["root_id"]), root_ell=int(data["root_ell"]),
+            o_star=int(data["o_star"]), hub_id=int(data["hub_id"]),
+            macro_index=int(data["macro_index"]), r_events=rs,
+            hub_touch_count=int(data["hub_touch_count"]), completer=comp,
+        )
+
+
+PRUNE_REGISTRY = [
+    {
+        "name": "exact_permutation_collision",
+        "statement": "exact.extend rejects an already visited permutation window",
+        "source": "legacy_research/work/superperm_partial_f1.py::extend",
+        "implementation": "iter_raw_macro_candidates",
+        "test": "test_collision_is_counted_and_not_expanded",
+    },
+    {
+        "name": "area_a_necessary_conditions",
+        "statement": "all child-state necessary conditions in Area A are monotone or necessary",
+        "source": "legacy_research/work/superperm_partial_f1_macro.py::area_a_prune_reason",
+        "implementation": "evaluate_edge",
+        "test": "test_area_a_reason_is_preserved",
+    },
+    {
+        "name": "phi_negative",
+        "statement": "Phi < 0 is the remaining-window-capacity necessary obstruction",
+        "source": "research/J_CAPACITY_OBSTRUCTION.md",
+        "implementation": "inside area_a_necessary_conditions; never counted twice",
+        "test": "test_phi_prune_is_an_area_a_reason",
+    },
+    {
+        "name": "rr_r_budget",
+        "statement": "the scoped RR word has exactly two R events; R2 is a boundary, never a child",
+        "source": "src/search_rr_long_prefix_extensions.py::search",
+        "implementation": "evaluate_edge",
+        "test": "test_r2_is_terminal_boundary",
+    },
+    {
+        "name": "hub_touch_count",
+        "statement": "with F <= 1, no hexagon can be a joint target more than twice",
+        "source": "research/RR_HUB_TOUCH_COUNT.md",
+        "implementation": "advance_decoration",
+        "test": "test_hub_touch_counter_is_monotone",
+    },
+]
+
+
+def registry_hash() -> str:
+    return sha256_bytes(json.dumps(PRUNE_REGISTRY, sort_keys=True).encode("utf-8"))
+
+
+def phi(state) -> int:
+    return 5 + 6 * (exact.TARGET_P - state.P) - (720 - state.visited_count)
+
+
+def incidence_components(state):
+    """Fresh union-find from ExactState; no history summary is trusted."""
+    parent: dict[tuple[str, int], tuple[str, int]] = {}
+
+    def find(node: tuple[str, int]) -> tuple[str, int]:
+        parent.setdefault(node, node)
+        if parent[node] != node:
+            parent[node] = find(parent[node])
+        return parent[node]
+
+    def union(left: tuple[str, int], right: tuple[str, int]) -> None:
+        a, b = find(left), find(right)
+        if a != b:
+            parent[b] = a
+
+    for orbit, mask in enumerate(state.orbit_masks):
+        for phase in range(5):
+            if mask & (1 << phase):
+                port = core.ports_of_e_orbit(core.E_REPS[orbit])[phase]
+                union(("q", orbit), ("h", core.hexagon_id(port)))
+    return parent, find
+
+
+def component_digest(state) -> str:
+    parent, find = incidence_components(state)
+    groups: dict[tuple[str, int], list[tuple[str, int]]] = {}
+    for node in parent:
+        groups.setdefault(find(node), []).append(node)
+    normal = tuple(sorted(tuple(sorted(nodes)) for nodes in groups.values()))
+    return sha256_bytes(repr(normal).encode("utf-8"))
+
+
+def hub_mask(state, decoration: Decoration) -> int:
+    return int(state.hex_masks[decoration.hub_id])
+
+
+def advance_decoration(state_before_run, transition, dec: Decoration) -> Decoration:
+    """Pure history update from an exact macro joint.
+
+    The source coordinates come from the literal state after the rotation run,
+    never from a cached event record.  This is the update function exercised
+    by the state-key audit.
+    """
+    source_orbit, source_phase = exact.ORBIT_PHASE[state_before_run.p]
+    target_orbit, target_phase = exact.ORBIT_PHASE[transition.target]
+    kind = joint_kind(transition.move.weight, transition.abandonment, transition.new_orbit)
+    index = dec.macro_index + 1
+    events = dec.r_events
+    if kind == "R":
+        events = events + (REvent(index, kind, source_orbit, source_phase,
+                                  target_orbit, target_phase),)
+    touch_count = dec.hub_touch_count
+    completer = dec.completer
+    if core.hexagon_id(transition.target) == dec.hub_id:
+        touch_count += 1
+        if completer is None:
+            completer = Completer(index, kind, source_orbit, source_phase,
+                                  target_orbit, target_phase)
+    return Decoration(
+        root_id=dec.root_id, root_ell=dec.root_ell, o_star=dec.o_star,
+        hub_id=dec.hub_id, macro_index=index, r_events=events,
+        hub_touch_count=touch_count, completer=completer,
+    )
+
+
+def initial_decoration(record: Mapping[str, object]) -> tuple[object, Decoration]:
+    """Literal reconstruction of a root and all decoration, including R1."""
+    state = exact.initial_state()
+    ell = int(record["root_ell"])
+    for _ in range(ell):
+        rotation = exact.extend(state, W1)
+        if rotation is None:
+            raise AssertionError("abandonment-root rotation unexpectedly collides")
+        state = rotation.state
+    abandonment = exact.extend(state, W2_10)
+    if abandonment is None:
+        raise AssertionError("abandonment root is illegal")
+    state = abandonment.state
+    dec = Decoration(
+        root_id=str(record["root_id"]), root_ell=ell, o_star=int(record["o_star"]),
+        hub_id=HUB, macro_index=0, r_events=(), hub_touch_count=0, completer=None,
+    )
+    for label in record["literal_joint_word"]:  # type: ignore[index]
+        before = state
+        for _ in range(5):
+            rotation = exact.extend(state, W1)
+            if rotation is None:
+                raise AssertionError("stored root rotation failed literal replay")
+            state = rotation.state
+        joint = exact.extend(state, MOVE[str(label)])
+        if joint is None:
+            raise AssertionError("stored root joint failed literal replay")
+        dec = advance_decoration(state, joint, dec)
+        state = joint.state
+        if before is state:
+            raise AssertionError("nonrotation root joint did not advance")
+    if state_hash(state) != str(record["post_return_state_hash"]):
+        raise AssertionError(f"root replay hash mismatch: {record['root_id']}")
+    if dec.r_count != int(record["r_count"]):
+        raise AssertionError(f"R-count mismatch: {record['root_id']}")
+    return state, dec
+
+
+def iter_raw_macro_candidates(state) -> Iterator[tuple[Optional[object], Optional[str]]]:
+    """Yield every literal macro candidate, including rejected joint collisions."""
+    for run in macro.rotation_runs(state):
+        for move in macro.NONROT_H0:
+            joint = exact.extend(run.state, move)
+            if joint is None:
+                yield None, "exact_permutation_collision"
+            else:
+                yield macro.MacroEdge(run, joint), None
+
+
+def edge_json(edge) -> dict[str, object]:
+    pre = edge.run.state
+    sq, sph = exact.ORBIT_PHASE[pre.p]
+    tq, tph = exact.ORBIT_PHASE[edge.joint.target]
+    return {
+        "label": edge.label, "rotation_length": edge.run.ell,
+        "joint": edge.joint.move.label,
+        "kind": joint_kind(edge.joint.move.weight, edge.joint.abandonment, edge.joint.new_orbit),
+        "source": [sq, sph], "target": [tq, tph],
+        "target_hexagon": core.hexagon_id(edge.joint.target),
+    }
+
+
+def target_a_recognizer(pre_state, transition, before: Decoration, after: Decoration) -> dict[str, object]:
+    """Exact boundary recognizer.  Same-component and chaining are outputs.
+
+    The recognizer does not impose either relation as an acceptance condition;
+    only the former is the historical Target-A property.  Target B/C are not
+    considered here.
+    """
+    sq, sph = exact.ORBIT_PHASE[pre_state.p]
+    tq, tph = exact.ORBIT_PHASE[transition.target]
+    parent, find = incidence_components(pre_state)
+    source_root = find(("q", sq)) if ("q", sq) in parent else None
+    target_root = find(("q", tq)) if ("q", tq) in parent else None
+    same_component = source_root is not None and source_root == target_root
+    r1 = before.r1
+    chaining = r1 is not None and r1.target_orbit == sq
+    area_reason = macro.area_a_prune_reason(transition.state, macro.AREA_A)
+    conditions = {
+        "exactly_two_R_events": before.r_count == 1 and after.r_count == 2,
+        "immediately_after_R2": joint_kind(transition.move.weight, transition.abandonment,
+                                             transition.new_orbit) == "R",
+        "F_def_le_1": transition.state.F <= 1,
+        "Ndef_equals_2": transition.state.Ndef == 2,
+        "H_equals_0": transition.state.H == 0,
+        "area_a_legal": area_reason is None,
+        "same_component": same_component,
+    }
+    target = all(conditions.values())
+    return {
+        "is_target_a": target,
+        "conditions": conditions,
+        "area_a_reason": area_reason,
+        "source_orbit": sq, "source_phase": sph,
+        "target_orbit": tq, "target_phase": tph,
+        "same_component": same_component,
+        "chaining": chaining,
+        "CH_branch": after.branch,
+        "component_digest": component_digest(pre_state),
+        "pre_hub_mask": hub_mask(pre_state, before),
+        "post_r2_state_hash": state_hash(transition.state),
+        "phi": phi(transition.state),
+        "coordinate": {
+            "P": transition.state.P, "F_def": transition.state.F,
+            "S": transition.state.S, "H": transition.state.H,
+            "O": transition.state.O, "D": transition.state.D,
+            "Ndef": transition.state.Ndef, "visited": transition.state.visited_count,
+        },
+        "Target_B_or_C_tested": False,
+    }
+
+
+def decorated_key(state, dec: Decoration) -> tuple[object, ...]:
+    """Conservative raw key.  No unproved history quotient is used."""
+    return (state.stable_key(), dec.key())
+
+
+def evaluate_edge(state, dec: Decoration, edge) -> tuple[str, Optional[Decoration], Optional[dict[str, object]]]:
+    """Classify a literal candidate without mutating global traversal state."""
+    transition = edge.joint
+    reason = macro.area_a_prune_reason(transition.state, macro.AREA_A)
+    if reason is not None:
+        return f"area_a:{reason}", None, None
+    child_dec = advance_decoration(edge.run.state, transition, dec)
+    if child_dec.hub_touch_count > 2:
+        return "hub_touch_count_exceeded", None, None
+    kind = joint_kind(transition.move.weight, transition.abandonment, transition.new_orbit)
+    if kind == "other":
+        return "outside_RR_joint_model", None, None
+    if kind == "R":
+        if child_dec.r_count > 2:
+            return "rr_R_budget_exceeded", None, None
+        recognizer = target_a_recognizer(edge.run.state, transition, dec, child_dec)
+        return ("FOUND_TARGET_A" if recognizer["is_target_a"] else "r2_not_target"), child_dec, recognizer
+    if child_dec.r_count >= 2:
+        return "rr_R_budget_exceeded", None, None
+    return "child", child_dec, None
+
+
+def successor_signature(state, dec: Decoration) -> tuple[tuple[object, ...], ...]:
+    """Deterministic one-step signature for state-key soundness tests."""
+    rows = []
+    for edge, collision in iter_raw_macro_candidates(state):
+        if collision:
+            rows.append(("collision", collision))
+            continue
+        assert edge is not None
+        kind, child_dec, recognition = evaluate_edge(state, dec, edge)
+        if kind == "child":
+            assert child_dec is not None
+            rows.append((edge.label, kind, decorated_key(edge.state, child_dec)))
+        elif kind == "FOUND_TARGET_A":
+            assert recognition is not None
+            rows.append((edge.label, kind, tuple(sorted(recognition["conditions"].items()))))
+        else:
+            rows.append((edge.label, kind))
+    return tuple(sorted(rows, key=repr))
+
+
+def load_audited_roots(ledger_path: Path, prefixes_path: Path) -> list[dict[str, object]]:
+    ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+    prefixes = json.loads(prefixes_path.read_text(encoding="utf-8"))["prefixes"]
+    rows = []
+    for entry in ledger["roots"]:
+        if entry["old_round27_status"] != "INCOMPLETE":
+            continue
+        record = dict(prefixes[int(entry["prefix_index"])])
+        record["root_id"] = entry["root_id"]
+        if record["root_ell"] != entry["root_ell"] or record["literal_joint_word"] != entry["literal_joint_word"]:
+            raise AssertionError(f"ledger/prefix disagreement for {entry['root_id']}")
+        rows.append(record)
+    rows.sort(key=lambda r: int(str(r["root_id"]).rsplit("-", 1)[1]))
+    if len(rows) != 22:
+        raise AssertionError(f"expected exactly 22 audited roots, found {len(rows)}")
+    return rows
+
+
+def checkpoint_config(record: Mapping[str, object], node_limit: int, max_depth: Optional[int]) -> dict[str, object]:
+    return {
+        "schema": "rr-target-a-exhaustive-config-v1",
+        "root_id": record["root_id"],
+        "root_literal_hash": sha256_bytes(repr((record["root_ell"], record["literal_joint_word"])).encode("utf-8")),
+        "node_limit": node_limit, "max_depth": max_depth,
+        "traversal": "deterministic-LIFO-by-reversed-label",
+        "engine_hashes": code_hashes(),
+        "prune_registry_hash": registry_hash(),
+        "recognizer_hash": sha256_bytes(Path(__file__).read_bytes()),
+    }
+
+
+def atomic_json(path: Path, payload: Mapping[str, object]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+    os.replace(temporary, path)
+
+
+def serialize_frontier(frontier: Sequence[tuple[int, object, Decoration, tuple[dict[str, object], ...]]]) -> list[dict[str, object]]:
+    return [{
+        "depth": depth, "state": exact.state_to_json(state),
+        "decoration": dec.to_json(), "trace": list(trace),
+    } for depth, state, dec, trace in frontier]
+
+
+def decode_key(text: str) -> tuple[object, ...]:
+    value = ast.literal_eval(text)
+    if not isinstance(value, tuple):
+        raise ValueError("bad decorated state key in checkpoint")
+    return value
+
+
+def write_checkpoint(path: Path, config: Mapping[str, object],
+                     frontier: Sequence[tuple[int, object, Decoration, tuple[dict[str, object], ...]]],
+                     seen: Iterable[tuple[object, ...]], stats: Mapping[str, object],
+                     boundaries: Sequence[Mapping[str, object]], lineage: Sequence[str]) -> str:
+    payload = {
+        "schema": "rr-target-a-exhaustive-checkpoint-v1", "config": dict(config),
+        "frontier": serialize_frontier(frontier),
+        "seen_keys": sorted(repr(key) for key in seen), "stats": dict(stats),
+        "boundaries": list(boundaries), "checkpoint_lineage": list(lineage),
+        "complete_frontier_snapshot": True,
+    }
+    atomic_json(path, payload)
+    return sha256_file(path)
+
+
+def load_checkpoint(path: Path, config: Mapping[str, object]):
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    if raw.get("schema") != "rr-target-a-exhaustive-checkpoint-v1":
+        raise ValueError("unrecognized Round-35 checkpoint schema")
+    if raw.get("config") != dict(config):
+        raise ValueError("checkpoint configuration, code hash, or root differs")
+    if not raw.get("complete_frontier_snapshot"):
+        raise ValueError("checkpoint does not certify a complete frontier snapshot")
+    frontier = []
+    for item in raw["frontier"]:
+        frontier.append((int(item["depth"]), exact.state_from_json(item["state"]),
+                         Decoration.from_json(item["decoration"]), tuple(item["trace"])))
+    seen = {decode_key(text) for text in raw["seen_keys"]}
+    return frontier, seen, dict(raw["stats"]), list(raw["boundaries"]), list(raw["checkpoint_lineage"])
+
+
+def boundary_canonical_hash(state) -> str:
+    return state_hash(exact.canonicalize(state))[:16]
+
+
+_KNOWN_CANONICAL_HASHES: Optional[set[str]] = None
+
+
+def known_boundary_canonical_hashes() -> set[str]:
+    """Reconstruct the existing 18 boundary states before canonical comparison.
+
+    ``rr_target_b_survivors.json`` labels its stored hashes
+    ``canonical_state_hash`` but, in its producer, the field is the raw-state
+    hash.  A true left-S6 comparison must therefore replay the 12 historical
+    and six long records, then canonicalize each exact state here.  This is
+    small, deterministic preprocessing, not a Target-B re-search.
+    """
+    global _KNOWN_CANONICAL_HASHES
+    if _KNOWN_CANONICAL_HASHES is not None:
+        return _KNOWN_CANONICAL_HASHES
+    producer = _load("round35_known_boundary_replay", ROOT / "src" / "analyze_rr_target_b_survivors.py")
+    preps = json.loads((ROOT / "outputs" / "rr_preparation_words.json").read_text(encoding="utf-8"))
+    long = json.loads((ROOT / "outputs" / "rr_six_counterexamples.json").read_text(encoding="utf-8"))
+    hashes = set()
+    for ell, result in preps["results_by_ell"].items():
+        for prep in result["preparations"]:
+            state = producer.replay_historical(int(ell), prep)
+            if state is not None:
+                hashes.add(sha256_bytes(repr(producer.exact.canonicalize(state).stable_key()).encode("utf-8"))[:16])
+    for witness in long["witnesses"]:
+        state = producer.replay_long(witness)
+        hashes.add(sha256_bytes(repr(producer.exact.canonicalize(state).stable_key()).encode("utf-8"))[:16])
+    if len(hashes) != 18:
+        raise AssertionError(f"expected 18 reconstructed known canonical Target-A states, got {len(hashes)}")
+    _KNOWN_CANONICAL_HASHES = hashes
+    return hashes
+
+
+def coarse_capacity(state) -> dict[str, object]:
+    """Round-30 B+R capacity theorem, recomputed from the exact boundary."""
+    B = exact.TARGET_P - state.P
+    o_cap = exact.TARGET_O - state.O
+    r_cap = max(macro.AREA_A.n_limit - state.Ndef, 0)
+    bound = 5 * (o_cap + r_cap) + 4
+    return {"B": B, "O_cap": o_cap, "R_cap": r_cap, "bound": bound,
+            "verdict": "CAPACITY_IMPOSSIBLE" if B > bound else "CAPACITY_SURVIVOR"}
+
+
+def dispatch_target_b(boundary: Mapping[str, object], state) -> dict[str, object]:
+    canonical = boundary_canonical_hash(state)
+    if canonical in known_boundary_canonical_hashes():
+        return {"classification": "KNOWN_BOUNDARY", "canonical_state_hash": canonical,
+                "target_b_rerun": False, "reason": "known boundary: preserve prior elimination provenance"}
+    coarse = coarse_capacity(state)
+    if coarse["verdict"] == "CAPACITY_IMPOSSIBLE":
+        return {"classification": "NEW_BOUNDARY", "canonical_state_hash": canonical,
+                "coarse_capacity": coarse, "phase_refinement": "NOT_NEEDED",
+                "r_reuse_penalty": "NOT_NEEDED", "flow_first": "NOT_NEEDED"}
+    # Generic arbitrary-boundary implementations of R31/R32 need their own
+    # validated input normal form.  Do not silently reuse their historical
+    # corpus scripts here; retain the boundary for that explicit next stage.
+    return {"classification": "NEW_BOUNDARY", "canonical_state_hash": canonical,
+            "coarse_capacity": coarse, "phase_refinement": "PENDING_GENERIC_VALIDATION",
+            "r_reuse_penalty": "PENDING_GENERIC_VALIDATION", "flow_first": "NOT_DISPATCHED"}
+
+
+def search_root(record: Mapping[str, object], *, node_limit: int = 0,
+                max_depth: Optional[int] = None, checkpoint: Optional[Path] = None,
+                checkpoint_every: int = 1000, resume: Optional[Path] = None) -> dict[str, object]:
+    """Exact root-local traversal.  Positive node/max-depth stops are incomplete."""
+    config = checkpoint_config(record, node_limit, max_depth)
+    if resume is not None:
+        frontier, seen, stats, boundaries, lineage = load_checkpoint(resume, config)
+        lineage = lineage + [sha256_file(resume)]
+    else:
+        start, decoration = initial_decoration(record)
+        frontier = [(0, start, decoration, tuple())]
+        seen = {decorated_key(start, decoration)}
+        stats: dict[str, object] = {
+            "expanded": 0, "generated_edges": 0, "exact_states": {repr(start.stable_key())},
+            "memo_hits": 0, "prunes": {}, "CH1_nodes": 0, "CH2_nodes": 0,
+            "undecided_nodes": 0, "other_nodes": 0, "branch_transitions": {},
+            "max_macro_depth": 0, "checkpoint_count": 0,
+        }
+        boundaries: list[dict[str, object]] = []
+        lineage: list[str] = []
+    # A checkpoint written by this driver contains every field below.  Default
+    # values also make the reader robust for a deliberately minimal synthetic
+    # checkpoint used by the resume control, without relaxing SHA/config
+    # validation or changing any traversal semantics.
+    for field, default in {
+        "expanded": 0, "generated_edges": 0, "exact_states": [], "memo_hits": 0,
+        "prunes": {}, "CH1_nodes": 0, "CH2_nodes": 0, "undecided_nodes": 0,
+        "other_nodes": 0, "branch_transitions": {}, "max_macro_depth": 0,
+        "checkpoint_count": 0,
+    }.items():
+        stats.setdefault(field, default)
+    prunes = Counter(stats.get("prunes", {}))
+    branch_transitions = Counter(stats.get("branch_transitions", {}))
+    exact_states = set(stats.get("exact_states", set()))
+    started = time.time()
+    interrupted = False
+    bounded_depth = False
+    while frontier:
+        if node_limit and int(stats["expanded"]) >= node_limit:
+            interrupted = True
+            break
+        depth, state, dec, trace = frontier.pop()
+        if max_depth is not None and depth >= max_depth:
+            bounded_depth = True
+            continue
+        stats["expanded"] = int(stats["expanded"]) + 1
+        stats["max_macro_depth"] = max(int(stats["max_macro_depth"]), depth)
+        bucket = {"CH1": "CH1_nodes", "CH2": "CH2_nodes", "UNDECIDED": "undecided_nodes"}.get(
+            dec.branch, "other_nodes")
+        stats[bucket] = int(stats[bucket]) + 1
+        child_entries = []
+        for edge, collision in iter_raw_macro_candidates(state):
+            stats["generated_edges"] = int(stats["generated_edges"]) + 1
+            if collision is not None:
+                prunes[collision] += 1
+                continue
+            assert edge is not None
+            verdict, child_dec, recognition = evaluate_edge(state, dec, edge)
+            trace_step = edge_json(edge)
+            if verdict == "child":
+                assert child_dec is not None
+                old_branch = dec.branch
+                new_branch = child_dec.branch
+                if old_branch != new_branch:
+                    branch_transitions[f"{old_branch}->{new_branch}"] += 1
+                key = decorated_key(edge.state, child_dec)
+                if key in seen:
+                    stats["memo_hits"] = int(stats["memo_hits"]) + 1
+                    prunes["decorated_memo_duplicate"] += 1
+                    continue
+                seen.add(key)
+                exact_states.add(repr(edge.state.stable_key()))
+                child_entries.append((depth + 1, edge.state, child_dec, trace + (trace_step,)))
+                continue
+            if verdict == "FOUND_TARGET_A":
+                assert child_dec is not None and recognition is not None
+                boundary = dict(recognition)
+                boundary.update({
+                    "root_id": record["root_id"], "extension_depth": depth + 1,
+                    "literal_macro_trace": list(trace + (trace_step,)),
+                    "decoration_before_R2": dec.to_json(),
+                    "decoration_after_R2": child_dec.to_json(),
+                    "post_r2_state": exact.state_to_json(edge.state),
+                })
+                boundary["target_b_dispatch"] = dispatch_target_b(boundary, edge.state)
+                boundaries.append(boundary)
+                continue
+            prunes[verdict] += 1
+        # Stack uses reverse lexical successor order but the resulting pop order
+        # is stable lexical; recording it in config makes certificates replayable.
+        child_entries.sort(key=lambda item: item[3][-1]["label"], reverse=True)
+        frontier.extend(child_entries)
+        if checkpoint is not None and checkpoint_every > 0 and int(stats["expanded"]) % checkpoint_every == 0:
+            stats["prunes"] = dict(sorted(prunes.items()))
+            stats["branch_transitions"] = dict(sorted(branch_transitions.items()))
+            stats["exact_states"] = sorted(exact_states)
+            digest = write_checkpoint(checkpoint, config, frontier, seen, stats, boundaries, lineage)
+            lineage.append(digest)
+            stats["checkpoint_count"] = int(stats["checkpoint_count"]) + 1
+    stats["prunes"] = dict(sorted(prunes.items()))
+    stats["branch_transitions"] = dict(sorted(branch_transitions.items()))
+    stats["exact_states"] = sorted(exact_states)
+    stats["elapsed_seconds_this_invocation"] = round(time.time() - started, 3)
+    if checkpoint is not None:
+        digest = write_checkpoint(checkpoint, config, frontier, seen, stats, boundaries, lineage)
+        lineage.append(digest)
+        stats["checkpoint_count"] = int(stats["checkpoint_count"]) + 1
+    completed = not frontier and not interrupted and not bounded_depth
+    if not completed:
+        status = "INCOMPLETE"
+    elif boundaries:
+        status = "FOUND_TARGET_A"
+    else:
+        status = "EXHAUSTED_NO_TARGET_A"
+    # The checkpoint retains full state diagnostics for resume auditing.  The
+    # final public result reports the required cardinality only; serializing
+    # every stable key there would duplicate the checkpoint and obscure the
+    # root-level certificate summary.
+    public_stats = dict(stats)
+    public_stats.pop("exact_states", None)
+    result = {
+        "schema": "rr-target-a-exhaustive-root-result-v1",
+        "status": status, "root_id": record["root_id"],
+        "root_literal_hash": config["root_literal_hash"], "config": config,
+        "stats": {**public_stats, "unique_exact_states": len(exact_states),
+                  "unique_decorated_keys": len(seen), "frontier_size": len(frontier)},
+        "frontier_empty": not frontier, "interrupted_by_node_limit": interrupted,
+        "interrupted_by_depth_limit": bounded_depth, "checkpoint": None if checkpoint is None else str(checkpoint),
+        "checkpoint_lineage": lineage, "target_a_boundaries": boundaries,
+        "terminal_counts": {"target_a_boundaries": len(boundaries),
+                            "non_target_R2": prunes.get("r2_not_target", 0)},
+        "final_result_digest": None,
+    }
+    digest_payload = dict(result)
+    digest_payload["final_result_digest"] = None
+    result["final_result_digest"] = sha256_bytes(json.dumps(digest_payload, sort_keys=True, default=str).encode("utf-8"))
+    return result
+
+
+def run_key_audit(records: Sequence[Mapping[str, object]]) -> dict[str, object]:
+    """A tested-universe, not universal, memo-key audit.
+
+    Each of the 22 root states and every first accepted child is duplicated
+    deliberately.  Equal proposed keys must give an equal full one-step
+    signature.  This catches mutable or omitted history in the implemented
+    update, while honestly not proving equivalence for all possible histories.
+    """
+    examples = []
+    groups: dict[tuple[object, ...], list[tuple[object, Decoration]]] = {}
+    for record in records:
+        state, dec = initial_decoration(record)
+        samples = [(state, dec)]
+        for edge, collision in iter_raw_macro_candidates(state):
+            if collision or edge is None:
+                continue
+            verdict, child_dec, _ = evaluate_edge(state, dec, edge)
+            if verdict == "child" and child_dec is not None:
+                samples.append((edge.state, child_dec))
+        for sample in samples:
+            key = decorated_key(*sample)
+            groups.setdefault(key, []).extend([sample, sample])  # deliberate collision
+    mismatches = []
+    for key, samples in groups.items():
+        signatures = {successor_signature(state, dec) for state, dec in samples}
+        if len(signatures) != 1:
+            mismatches.append(sha256_bytes(repr(key).encode("utf-8")))
+    # The recorded six witnesses demonstrate why the R1 target cannot be
+    # dropped when chaining is part of reporting: mutate that one field on a
+    # fixed state and its later chaining classification changes.
+    historical = json.loads((ROOT / "outputs" / "rr_long_prefix_extension_results.json").read_text(encoding="utf-8"))
+    known = next(row for row in historical["results"] if row["status"] == "FOUND")
+    prefix_data = json.loads(PREFIXES.read_text(encoding="utf-8"))["prefixes"]
+    known_record = dict(prefix_data[int(known["prefix_index"])])
+    known_record["root_id"] = "known-witness-audit"
+    state, dec = initial_decoration(known_record)
+    changed = False
+    for step in known["same_component_witnesses"][0]["extension_trace"]:
+        ell = int(step["label"].split(";")[0].split("^")[1])
+        label = step["label"].split(";", 1)[1]
+        for _ in range(ell):
+            state = exact.extend(state, W1).state
+        transition = exact.extend(state, MOVE[label])
+        if transition is None:
+            raise AssertionError("stored witness failed during key audit")
+        after = advance_decoration(state, transition, dec)
+        if joint_kind(transition.move.weight, transition.abandonment, transition.new_orbit) == "R":
+            mutated_r1 = REvent(dec.r1.macro_index, dec.r1.kind, dec.r1.source_orbit,
+                                dec.r1.source_phase, (dec.r1.target_orbit + 1) % 144,
+                                dec.r1.target_phase)
+            mutated = Decoration(dec.root_id, dec.root_ell, dec.o_star, dec.hub_id,
+                                 dec.macro_index, (mutated_r1,), dec.hub_touch_count, dec.completer)
+            changed = target_a_recognizer(state, transition, dec, after)["chaining"] != \
+                      target_a_recognizer(state, transition, mutated, after)["chaining"]
+            break
+        dec, state = after, transition.state
+    return {
+        "schema": "rr-target-a-state-key-audit-v1",
+        "grade": "exhaustive tested-universe equivalence; not an exact key theorem",
+        "roots_checked": len(records), "deliberate_duplicate_groups": len(groups),
+        "key_collision_mismatches": mismatches,
+        "passed": not mismatches,
+        "r1_target_required_for_chaining_reporting": changed,
+        "note": ("ExactState determines legality and component computation. R1 target is retained "
+                 "because the same exact continuation can have different chaining reporting if it is altered."),
+    }
+
+
+def root_certificate(result: Mapping[str, object]) -> dict[str, object]:
+    """A certificate manifest; independent replay is performed by the verifier."""
+    return {
+        "schema": "rr-target-a-exhaustion-certificate-v1",
+        "root_id": result["root_id"], "status": result["status"],
+        "root_literal_hash": result["root_literal_hash"], "config": result["config"],
+        "total_expanded_states": result["stats"]["expanded"],
+        "total_memo_hits": result["stats"]["memo_hits"],
+        "terminal_counts": result["terminal_counts"], "prune_counts": result["stats"]["prunes"],
+        "final_empty_frontier": result["frontier_empty"],
+        "interrupted": result["interrupted_by_node_limit"] or result["interrupted_by_depth_limit"],
+        "checkpoint_lineage": result["checkpoint_lineage"],
+        "deterministic_traversal": result["config"]["traversal"],
+        "search_result_digest": result["final_result_digest"],
+        "warning": ("This manifest becomes an exhaustion certificate only when status is "
+                    "EXHAUSTED_NO_TARGET_A, final_empty_frontier is true, interruption is false, "
+                    "and the independent verifier replays it."),
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ledger", type=Path, default=LEDGER)
+    parser.add_argument("--prefixes", type=Path, default=PREFIXES)
+    parser.add_argument("--root-id", action="append", default=[])
+    parser.add_argument("--node-limit", type=int, default=0)
+    parser.add_argument("--max-depth", type=int, default=None)
+    parser.add_argument("--checkpoint-dir", type=Path, default=ROOT / "outputs" / "checkpoints" / "rr_target_a")
+    parser.add_argument("--checkpoint-every", type=int, default=1000)
+    parser.add_argument("--resume", type=Path, default=None,
+                        help="resume exactly one selected root from its checkpoint")
+    parser.add_argument("--audit-state-key", action="store_true")
+    parser.add_argument("--output", type=Path, default=ROOT / "outputs" / "rr_target_a_exhaustive_results.json")
+    parser.add_argument("--certificates", type=Path, default=ROOT / "outputs" / "rr_target_a_exhaustion_certificates.json")
+    parser.add_argument("--new-boundaries", type=Path, default=ROOT / "outputs" / "rr_target_a_new_boundaries.json")
+    args = parser.parse_args()
+    if args.node_limit < 0 or args.checkpoint_every < 1:
+        raise ValueError("node limit must be >=0 and checkpoint interval must be positive")
+    all_audited_records = load_audited_roots(args.ledger, args.prefixes)
+    records = list(all_audited_records)
+    if args.root_id:
+        wanted = set(args.root_id)
+        records = [record for record in records if record["root_id"] in wanted]
+        if not records or {record["root_id"] for record in records} != wanted:
+            raise ValueError("--root-id must name audited roots exactly")
+    # Key soundness is a property of the implementation and the audited root
+    # universe, not just the pilot root selected for traversal.
+    audit = run_key_audit(all_audited_records) if args.audit_state_key else None
+    if audit is not None and not audit["passed"]:
+        raise RuntimeError("STATE_KEY_UNSOUND: state-key audit failed")
+    all_results = []
+    for record in records:
+        resume = args.resume
+        if resume is not None and len(records) != 1:
+            raise ValueError("--resume requires exactly one --root-id")
+        checkpoint = args.checkpoint_dir / f"{record['root_id']}.json"
+        result = search_root(record, node_limit=args.node_limit, max_depth=args.max_depth,
+                             checkpoint=checkpoint, checkpoint_every=args.checkpoint_every,
+                             resume=resume)
+        all_results.append(result)
+        print(f"{record['root_id']}: {result['status']} expanded={result['stats']['expanded']} "
+              f"frontier={result['stats']['frontier_size']} boundaries={len(result['target_a_boundaries'])}")
+    aggregate = Counter(result["status"] for result in all_results)
+    output = {
+        "schema": "rr-target-a-exhaustive-results-v1", "grade": "exact search when a root naturally exhausts; otherwise incomplete",
+        "scope": "22 audited Round-27 incomplete roots only; not Target B/C or NR6",
+        "input_ledger_sha256": sha256_file(args.ledger), "input_prefixes_sha256": sha256_file(args.prefixes),
+        "state_key_audit": audit, "prune_registry": PRUNE_REGISTRY,
+        "results": all_results, "status_histogram": dict(aggregate),
+    }
+    certificates = {"schema": "rr-target-a-exhaustion-certificates-v1",
+                    "certificates": [root_certificate(result) for result in all_results]}
+    boundaries = [boundary for result in all_results for boundary in result["target_a_boundaries"]]
+    new_boundaries = {"schema": "rr-target-a-new-boundaries-v1", "boundaries": boundaries,
+                      "count": len(boundaries), "scope": "Target-A only; Target-B dispatch metadata is non-authoritative"}
+    atomic_json(args.output, output)
+    atomic_json(args.certificates, certificates)
+    atomic_json(args.new_boundaries, new_boundaries)
+
+
+if __name__ == "__main__":
+    main()
