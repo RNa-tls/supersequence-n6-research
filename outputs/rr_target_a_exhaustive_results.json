@@ -1,0 +1,126 @@
+{
+  "grade": "exact search when a root naturally exhausts; otherwise incomplete",
+  "input_ledger_sha256": "5c4605a285f134059fe47c68cdfeb0698b49e9e53a994a87b6bde8f914875484",
+  "input_prefixes_sha256": "8128ef4fefb3d55915643859316af6e3e6c4cb673a2a5c361b46995c384f764f",
+  "prune_registry": [
+    {
+      "implementation": "iter_raw_macro_candidates",
+      "name": "exact_permutation_collision",
+      "source": "legacy_research/work/superperm_partial_f1.py::extend",
+      "statement": "exact.extend rejects an already visited permutation window",
+      "test": "test_collision_is_counted_and_not_expanded"
+    },
+    {
+      "implementation": "evaluate_edge",
+      "name": "area_a_necessary_conditions",
+      "source": "legacy_research/work/superperm_partial_f1_macro.py::area_a_prune_reason",
+      "statement": "all child-state necessary conditions in Area A are monotone or necessary",
+      "test": "test_area_a_reason_is_preserved"
+    },
+    {
+      "implementation": "inside area_a_necessary_conditions; never counted twice",
+      "name": "phi_negative",
+      "source": "research/J_CAPACITY_OBSTRUCTION.md",
+      "statement": "Phi < 0 is the remaining-window-capacity necessary obstruction",
+      "test": "test_phi_prune_is_an_area_a_reason"
+    },
+    {
+      "implementation": "evaluate_edge",
+      "name": "rr_r_budget",
+      "source": "src/search_rr_long_prefix_extensions.py::search",
+      "statement": "the scoped RR word has exactly two R events; R2 is a boundary, never a child",
+      "test": "test_r2_is_terminal_boundary"
+    },
+    {
+      "implementation": "advance_decoration",
+      "name": "hub_touch_count",
+      "source": "research/RR_HUB_TOUCH_COUNT.md",
+      "statement": "with F <= 1, no hexagon can be a joint target more than twice",
+      "test": "test_hub_touch_counter_is_monotone"
+    }
+  ],
+  "results": [
+    {
+      "checkpoint": "outputs\\checkpoints\\rr_target_a_pilot\\R27-prefix-6.json",
+      "checkpoint_lineage": [
+        "de8031cfb74fe0028967b09bec353c96bcc55aae84d9d5de86425bc9bec1124e",
+        "3a273300f85f70e92565d4eed7c3177cb9df0984ebca168b53c27ad62d5b70b4",
+        "edbb32aa8bfd9cc1e9f7607b201a8fddb24a416d673c61e18ff3d70a39d55f78",
+        "e828ac97b727603b08af5332d00809b9e0cadcc1dcd0029883420d8f71cbac0f",
+        "c1e30a933d0e6b7d4194d3b7b5be66f8af4c7b4ff5b493ba85681ba2d265e83b",
+        "380886c1e96e921f11a535a9119718c5bf168c2bab75c22bca7fa84049c62346",
+        "60658f3d48ec961ff25751c52bbcfd6349730693d7d694416f6be58cbfa090b3",
+        "562f4b96326a74085b133b6a4a01753f86818e05a0a612a3298c464dc4c1c6e4",
+        "f5121d5c3030e7dc9a8159a00f6e09f9079aa62f3dd7f41eb4c47c7c4ffd9836"
+      ],
+      "config": {
+        "engine_hashes": {
+          "legacy_research\\work\\superperm_partial_f1.py": "bafc50dd7890f2cf7c48ac83733d4b5c7208c393f963e6975574af1c1d512af4",
+          "legacy_research\\work\\superperm_partial_f1_macro.py": "bc4885f7c1c5cee95e9f7dcca9c0adec143488f34ee25d349c32d94430bb86a4",
+          "src\\build_rr_long_excursion_roots.py": "24705fd5e88743e189c2b502a0ab6b0a59f20887d2af71da52a372d80afc752c",
+          "src\\search_rr_target_a_exhaustive.py": "42c9292c95aab29900ce16c5ff761e588d1d2ed0c792fd92f25872c9929de578"
+        },
+        "max_depth": null,
+        "node_limit": 8000,
+        "prune_registry_hash": "67603cae7e5b4075eb9e034e549142712199b347b19f159e2babf20fb610a709",
+        "recognizer_hash": "42c9292c95aab29900ce16c5ff761e588d1d2ed0c792fd92f25872c9929de578",
+        "root_id": "R27-prefix-6",
+        "root_literal_hash": "866f1a1e109b3815105bb38b9c5140c7dc1443778638f4bb8df930f77552bcd9",
+        "schema": "rr-target-a-exhaustive-config-v1",
+        "traversal": "deterministic-LIFO-by-reversed-label"
+      },
+      "final_result_digest": "02c056b65d51f640c3e710c918f2eb5b511ad064faf5fc999101aa80b39726dc",
+      "frontier_empty": false,
+      "interrupted_by_depth_limit": false,
+      "interrupted_by_node_limit": true,
+      "root_id": "R27-prefix-6",
+      "root_literal_hash": "866f1a1e109b3815105bb38b9c5140c7dc1443778638f4bb8df930f77552bcd9",
+      "schema": "rr-target-a-exhaustive-root-result-v1",
+      "stats": {
+        "CH1_nodes": 0,
+        "CH2_nodes": 7999,
+        "branch_transitions": {
+          "UNDECIDED->CH2": 1
+        },
+        "checkpoint_count": 9,
+        "elapsed_seconds_this_invocation": 14.182,
+        "expanded": 8000,
+        "frontier_size": 66,
+        "generated_edges": 191992,
+        "max_macro_depth": 66,
+        "memo_hits": 0,
+        "other_nodes": 0,
+        "prunes": {
+          "area_a:F_exceeded": 84391,
+          "area_a:O_exceeded": 4517,
+          "exact_permutation_collision": 89791,
+          "r2_not_target": 5228
+        },
+        "undecided_nodes": 1,
+        "unique_decorated_keys": 8066,
+        "unique_exact_states": 8066
+      },
+      "status": "INCOMPLETE",
+      "target_a_boundaries": [],
+      "terminal_counts": {
+        "non_target_R2": 5228,
+        "target_a_boundaries": 0
+      }
+    }
+  ],
+  "schema": "rr-target-a-exhaustive-results-v1",
+  "scope": "22 audited Round-27 incomplete roots only; not Target B/C or NR6",
+  "state_key_audit": {
+    "deliberate_duplicate_groups": 88,
+    "grade": "exhaustive tested-universe equivalence; not an exact key theorem",
+    "key_collision_mismatches": [],
+    "note": "ExactState determines legality and component computation. R1 target is retained because the same exact continuation can have different chaining reporting if it is altered.",
+    "passed": true,
+    "r1_target_required_for_chaining_reporting": true,
+    "roots_checked": 22,
+    "schema": "rr-target-a-state-key-audit-v1"
+  },
+  "status_histogram": {
+    "INCOMPLETE": 1
+  }
+}
