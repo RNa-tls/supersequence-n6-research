@@ -1,0 +1,429 @@
+{
+  "check_1_capacity_bound_scope": {
+    "boundaries_where_the_bound_fires_only_at_the_boundary_itself": 4,
+    "boundaries_whose_own_path_the_bound_would_have_pruned": 1,
+    "consistency_note": "every boundary at which the bound fires was already removed as capacity-impossible in Rounds 30-32, so the bound agrees with the established ledger where it applies",
+    "grade": "반증됨 (the bound as a Q1 prune) + safe capacity bound (for Q2)",
+    "known_boundaries_checked": 12,
+    "rows": [
+      {
+        "abandonment_ell": 0,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 4,
+        "slack_at_boundary": 7,
+        "slack_before_R2_edge": [
+          16,
+          16,
+          16,
+          12,
+          11
+        ]
+      },
+      {
+        "abandonment_ell": 0,
+        "negative_at_boundary": true,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 6,
+        "slack_at_boundary": -1,
+        "slack_before_R2_edge": [
+          16,
+          12,
+          12,
+          9,
+          9,
+          6,
+          3
+        ]
+      },
+      {
+        "abandonment_ell": 0,
+        "negative_at_boundary": true,
+        "negative_strictly_before_R2_edge": true,
+        "preparation_length": 6,
+        "slack_at_boundary": -6,
+        "slack_before_R2_edge": [
+          16,
+          12,
+          8,
+          8,
+          5,
+          1,
+          -2
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 3,
+        "slack_at_boundary": 7,
+        "slack_before_R2_edge": [
+          32,
+          28,
+          28,
+          28
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 3,
+        "slack_at_boundary": 7,
+        "slack_before_R2_edge": [
+          32,
+          32,
+          28,
+          28
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 3,
+        "slack_at_boundary": 7,
+        "slack_before_R2_edge": [
+          32,
+          32,
+          32,
+          28
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": true,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 5,
+        "slack_at_boundary": -1,
+        "slack_before_R2_edge": [
+          32,
+          28,
+          28,
+          25,
+          25,
+          22
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": true,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 5,
+        "slack_at_boundary": -6,
+        "slack_before_R2_edge": [
+          32,
+          28,
+          24,
+          24,
+          21,
+          17
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 7,
+        "slack_at_boundary": 6,
+        "slack_before_R2_edge": [
+          32,
+          28,
+          28,
+          28,
+          28,
+          27,
+          27,
+          27
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 7,
+        "slack_at_boundary": 6,
+        "slack_before_R2_edge": [
+          32,
+          32,
+          32,
+          30,
+          30,
+          30,
+          30,
+          27
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": true,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 7,
+        "slack_at_boundary": -14,
+        "slack_before_R2_edge": [
+          32,
+          28,
+          24,
+          20,
+          20,
+          17,
+          13,
+          9
+        ]
+      },
+      {
+        "abandonment_ell": 4,
+        "negative_at_boundary": false,
+        "negative_strictly_before_R2_edge": false,
+        "preparation_length": 7,
+        "slack_at_boundary": 6,
+        "slack_before_R2_edge": [
+          32,
+          32,
+          29,
+          29,
+          29,
+          29,
+          27,
+          27
+        ]
+      }
+    ],
+    "verdict": "the bound goes negative strictly before the R2 edge on 1 known Target A boundaries, so it is NOT a valid Target A prune; it is used only for the completability question Q2"
+  },
+  "check_2_known_boundary_replay": {
+    "R2_edge_ell_by_branch": {
+      "ell0_R2edge_ell5": 3,
+      "ell4_R2edge_ell0": 9
+    },
+    "counting_unit": "boundary STATES, not words; P_core = preparation_length - 2, the Round 18 unit used by the survivor ledger",
+    "depth_convention": {
+      "depth_from_abandonment_root": "macro-edges strictly after the abandonment",
+      "depth_from_word_start": "total macro-edges including the abandonment edge",
+      "relation": "word_start = root + 1"
+    },
+    "grade": "exact replay",
+    "known_corpus_is_a_subset_of_this_rounds_universe": "the 22 roots searched here are DISJOINT from the roots that produced the known 18: the known 18 come from the 5 abandonment roots (short) and the 6 FOUND long-prefix roots, none of which is among the 22. So this round does not re-derive the 18 and does not claim to; it extends coverage sideways.",
+    "long_boundaries": 6,
+    "re_recognized": 12,
+    "rows": [
+      {
+        "R2_edge_ell": 5,
+        "abandonment_ell": 0,
+        "preparation_length": 4,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 5,
+        "abandonment_ell": 0,
+        "preparation_length": 6,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 5,
+        "abandonment_ell": 0,
+        "preparation_length": 6,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 3,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 3,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 3,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 5,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 5,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 7,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 7,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 7,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      },
+      {
+        "R2_edge_ell": 0,
+        "abandonment_ell": 4,
+        "preparation_length": 7,
+        "re_recognized": true,
+        "recognizer_agrees_on_target": true,
+        "recorded_chaining": true,
+        "recorded_phi": 0
+      }
+    ],
+    "short_boundaries_replayed": 12,
+    "survivor_ledger_rows": 18,
+    "total_known": 18
+  },
+  "check_3_short_family_truncation": {
+    "ell0": {
+      "depth_ceiling": 7,
+      "expanded": 12957,
+      "frontier_empty_flag_is_misleading": true,
+      "states_dropped_at_the_ceiling": 9143,
+      "was_actually_truncated": true
+    },
+    "ell1": {
+      "depth_ceiling": 7,
+      "expanded": 12367,
+      "frontier_empty_flag_is_misleading": true,
+      "states_dropped_at_the_ceiling": 8710,
+      "was_actually_truncated": true
+    },
+    "ell2": {
+      "depth_ceiling": 7,
+      "expanded": 13103,
+      "frontier_empty_flag_is_misleading": true,
+      "states_dropped_at_the_ceiling": 9245,
+      "was_actually_truncated": true
+    },
+    "ell3": {
+      "depth_ceiling": 7,
+      "expanded": 13029,
+      "frontier_empty_flag_is_misleading": true,
+      "states_dropped_at_the_ceiling": 9189,
+      "was_actually_truncated": true
+    },
+    "ell4": {
+      "depth_ceiling": 8,
+      "expanded": 43459,
+      "frontier_empty_flag_is_misleading": true,
+      "states_dropped_at_the_ceiling": 30408,
+      "was_actually_truncated": true
+    }
+  },
+  "schema": "rr-target-a-coverage-certificate-v1",
+  "section_16_outcome": {
+    "Q1_status_histogram": {
+      "INCOMPLETE": 22
+    },
+    "Q2_all_frontiers_natural": true,
+    "Q2_status_histogram": {
+      "EXHAUSTED_NO_TARGET_A": 22
+    },
+    "grades": {
+      "Q1": "bounded incomplete",
+      "Q2": "root-local exhaustive (completable Target A only)"
+    },
+    "outcome": "C",
+    "root_local_coverage_claim": "root-local exhaustive coverage is claimed ONLY for Q2 (completable Target A) over the stated class of 22 long-prefix roots. Q1 is bounded incomplete, so no unconditional Target A coverage is claimed."
+  },
+  "section_17_closure_audit": [
+    {
+      "gap": "Q1 -- Target A boundaries without the completability assumption",
+      "grade": "bounded incomplete",
+      "roots": 22,
+      "status": "OPEN",
+      "why": "the only prune strong enough to terminate the search is the capacity bound, and check 1 shows it deletes genuine Target A boundaries"
+    },
+    {
+      "gap": "the short-family enumeration's depth ceiling (7 for ell=0..3, 8 for ell=4)",
+      "grade": "scope correction",
+      "status": "OPEN, newly identified this round",
+      "why": "its `frontier_empty: true` flag is computed after ceiling-truncated states are dropped unexpanded, so it cannot witness exhaustion; check 3 counts the dropped states directly"
+    },
+    {
+      "gap": "the 6 FOUND long-prefix roots were searched with --stop-on-first",
+      "grade": "scope correction",
+      "status": "OPEN, newly identified this round",
+      "why": "each was abandoned after its first witness, so those roots may carry further Target A boundaries that were never enumerated"
+    },
+    {
+      "gap": "first-return excursions with L > 8",
+      "grade": "미완료",
+      "status": "OPEN",
+      "why": "the surviving long-excursion corpus contains only L = 7 and L = 8"
+    },
+    {
+      "gap": "abandonment roots and short prefixes outside the 28 long-excursion prefixes",
+      "grade": "미완료",
+      "status": "OPEN",
+      "why": "the 22 roots are disjoint from the 5 abandonment roots that produced the 12 short boundaries; neither set exhausts the RR prefix space"
+    },
+    {
+      "gap": "CH1 / CH2 split at these roots",
+      "grade": "scope correction",
+      "status": "NOT APPLICABLE at the root",
+      "why": "the hub is incomplete at all 22 roots (hub popcount 1-5, never 6), so no hub completer exists yet and the branch is a property of the extension, not of the root; both branches are covered by the Q2 exhaustion because it explored every extension"
+    },
+    {
+      "gap": "over-approximated orbit/phase reachability filter (section 11)",
+      "grade": "scope correction",
+      "status": "VACUOUS",
+      "why": "with collisions dropped every port reaches every port in one macro edge (out-degree 720 of 720), and the distance to the completer target (1,4) is 1 from every root, so the filter excludes nothing"
+    }
+  ],
+  "target_A_recognizer_sha256": "c3ae37c689781676e7fd369aa411d1b0f1599ad3f59ed5d84683610fedb21d7f",
+  "what_this_does_not_say": [
+    "it does not close the RR branch: five coverage gaps above remain open",
+    "it does not extend Round 34's Target B exhaustion to all of RR",
+    "it moves no bound on L_6: verified upper 872, proved lower 867, open target 872",
+    "it says nothing about the N=0 checkpoint, CH2 chaining, T3, or Target C"
+  ]
+}

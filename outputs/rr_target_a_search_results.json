@@ -1,0 +1,1176 @@
+{
+  "Q1_status_histogram": {
+    "INCOMPLETE": 22
+  },
+  "Q2_all_frontiers_natural": true,
+  "Q2_status_histogram": {
+    "EXHAUSTED_NO_TARGET_A": 22
+  },
+  "discipline": {
+    "Q1_capacity_bound_deliberately_not_used": "the bound fires before the R2 edge on the ell=0 P_core=4 known boundaries, so using it for Q1 would delete genuine Target A boundaries",
+    "exhausted_requires": "frontier_emptied_naturally == true",
+    "node_cap_is_not_a_proof_condition": true,
+    "timeout_is_not_exhaustion": true
+  },
+  "grade": "exact exhaustive search for Q2 (completable Target A); bounded incomplete for Q1 (Target A coverage without the completability assumption)",
+  "new_completable_target_a_boundaries": 0,
+  "results": [
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 43917,
+        "expanded": 17427,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 292397,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 91
+        },
+        "r2_edge_outcomes": {
+          "different_components": 782,
+          "source_or_target_orbit_not_in_forest": 15947
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -2,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 1,
+      "prefix_index": 0,
+      "root_ell": 0,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 46823,
+        "expanded": 18585,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 311693,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 99
+        },
+        "r2_edge_outcomes": {
+          "different_components": 846,
+          "source_or_target_orbit_not_in_forest": 16976
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 2,
+        "expanded": 2,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 1,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 31,
+          "capacity_bound_Q2_only": 5
+        },
+        "r2_edge_outcomes": {
+          "source_or_target_orbit_not_in_forest": 1
+        },
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 2,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 2,
+      "prefix_index": 1,
+      "root_ell": 1,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 45971,
+        "expanded": 18285,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 306379,
+          "dedup": 4,
+          "remaining_cover_capacity_impossible": 44
+        },
+        "r2_edge_outcomes": {
+          "different_components": 824,
+          "source_or_target_orbit_not_in_forest": 16789
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 248,
+        "expanded": 248,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 27,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 3797,
+          "capacity_bound_Q2_only": 319,
+          "remaining_cover_capacity_impossible": 4
+        },
+        "r2_edge_outcomes": {
+          "different_components": 6,
+          "source_or_target_orbit_not_in_forest": 154
+        },
+        "seconds": 0.36,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 6,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 3,
+      "prefix_index": 2,
+      "root_ell": 2,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 45567,
+        "expanded": 18052,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 302493,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 4
+        },
+        "r2_edge_outcomes": {
+          "different_components": 847,
+          "source_or_target_orbit_not_in_forest": 16480
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 10389,
+        "expanded": 10389,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 53,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 147917,
+          "capacity_bound_Q2_only": 11770,
+          "remaining_cover_capacity_impossible": 4
+        },
+        "r2_edge_outcomes": {
+          "different_components": 293,
+          "source_or_target_orbit_not_in_forest": 6280
+        },
+        "seconds": 15.37,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 10,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 4,
+      "prefix_index": 3,
+      "root_ell": 3,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 47084,
+        "expanded": 18766,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 313599,
+          "dedup": 3,
+          "remaining_cover_capacity_impossible": 138
+        },
+        "r2_edge_outcomes": {
+          "different_components": 882,
+          "source_or_target_orbit_not_in_forest": 17060
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -2,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 1,
+      "prefix_index": 5,
+      "root_ell": 0,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 46871,
+        "expanded": 18642,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 312133,
+          "dedup": 3,
+          "remaining_cover_capacity_impossible": 99
+        },
+        "r2_edge_outcomes": {
+          "different_components": 870,
+          "source_or_target_orbit_not_in_forest": 16977
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 2,
+        "expanded": 2,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 1,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 30,
+          "capacity_bound_Q2_only": 4
+        },
+        "r2_edge_outcomes": {
+          "source_or_target_orbit_not_in_forest": 1
+        },
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 2,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 2,
+      "prefix_index": 6,
+      "root_ell": 1,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 44384,
+        "expanded": 17647,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 295466,
+          "dedup": 4,
+          "remaining_cover_capacity_impossible": 47
+        },
+        "r2_edge_outcomes": {
+          "different_components": 829,
+          "source_or_target_orbit_not_in_forest": 16057
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 242,
+        "expanded": 242,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 23,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 3710,
+          "capacity_bound_Q2_only": 318,
+          "remaining_cover_capacity_impossible": 4
+        },
+        "r2_edge_outcomes": {
+          "different_components": 7,
+          "source_or_target_orbit_not_in_forest": 143
+        },
+        "seconds": 0.35,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 6,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 3,
+      "prefix_index": 7,
+      "root_ell": 2,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 6,
+      "Q1_any_target_a": {
+        "distinct_states": 43363,
+        "expanded": 17201,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 288004,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 4
+        },
+        "r2_edge_outcomes": {
+          "different_components": 821,
+          "source_or_target_orbit_not_in_forest": 15676
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 10335,
+        "expanded": 10335,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 48,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 147485,
+          "capacity_bound_Q2_only": 11724,
+          "remaining_cover_capacity_impossible": 4
+        },
+        "r2_edge_outcomes": {
+          "different_components": 244,
+          "source_or_target_orbit_not_in_forest": 6318
+        },
+        "seconds": 16.95,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 10,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 7,
+      "hub_completer_kind": null,
+      "phi": 4,
+      "prefix_index": 8,
+      "root_ell": 3,
+      "symbolic_word": "FFEFEFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 43416,
+        "expanded": 17541,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 291530,
+          "dedup": 5,
+          "remaining_cover_capacity_impossible": 273
+        },
+        "r2_edge_outcomes": {
+          "different_components": 834,
+          "source_or_target_orbit_not_in_forest": 16126
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -11,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 1,
+      "prefix_index": 40,
+      "root_ell": 0,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 33656,
+        "expanded": 13602,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 225927,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 136
+        },
+        "r2_edge_outcomes": {
+          "different_components": 693,
+          "source_or_target_orbit_not_in_forest": 12537
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -7,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 2,
+      "prefix_index": 41,
+      "root_ell": 1,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 44012,
+        "expanded": 17770,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 295035,
+          "dedup": 5,
+          "remaining_cover_capacity_impossible": 105
+        },
+        "r2_edge_outcomes": {
+          "different_components": 874,
+          "source_or_target_orbit_not_in_forest": 16304
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -3,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 3,
+      "prefix_index": 42,
+      "root_ell": 2,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 46273,
+        "expanded": 18735,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 310987,
+          "dedup": 5,
+          "remaining_cover_capacity_impossible": 41
+        },
+        "r2_edge_outcomes": {
+          "different_components": 907,
+          "source_or_target_orbit_not_in_forest": 17309
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 25,
+        "expanded": 25,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 17,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 378,
+          "capacity_bound_Q2_only": 33
+        },
+        "r2_edge_outcomes": {
+          "source_or_target_orbit_not_in_forest": 17
+        },
+        "seconds": 0.04,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 1,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 4,
+      "prefix_index": 43,
+      "root_ell": 3,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 45752,
+        "expanded": 18444,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 306634,
+          "dedup": 6,
+          "remaining_cover_capacity_impossible": 282
+        },
+        "r2_edge_outcomes": {
+          "different_components": 974,
+          "source_or_target_orbit_not_in_forest": 16837
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -11,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 1,
+      "prefix_index": 70,
+      "root_ell": 0,
+      "symbolic_word": "FFFEFFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 42712,
+        "expanded": 17323,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 287265,
+          "dedup": 1,
+          "remaining_cover_capacity_impossible": 179
+        },
+        "r2_edge_outcomes": {
+          "different_components": 960,
+          "source_or_target_orbit_not_in_forest": 15820
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -7,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 2,
+      "prefix_index": 71,
+      "root_ell": 1,
+      "symbolic_word": "FFFEFFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 44905,
+        "expanded": 18087,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 300491,
+          "dedup": 5,
+          "remaining_cover_capacity_impossible": 92
+        },
+        "r2_edge_outcomes": {
+          "different_components": 993,
+          "source_or_target_orbit_not_in_forest": 16482
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -3,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 3,
+      "prefix_index": 72,
+      "root_ell": 2,
+      "symbolic_word": "FFFEFFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 44495,
+        "expanded": 17957,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 298150,
+          "dedup": 5,
+          "remaining_cover_capacity_impossible": 53
+        },
+        "r2_edge_outcomes": {
+          "different_components": 950,
+          "source_or_target_orbit_not_in_forest": 16433
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": false,
+        "distinct_states": 25,
+        "expanded": 25,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 17,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 377,
+          "capacity_bound_Q2_only": 36
+        },
+        "r2_edge_outcomes": {
+          "source_or_target_orbit_not_in_forest": 16
+        },
+        "seconds": 0.03,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": false,
+      "capacity_slack": 1,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 4,
+      "prefix_index": 73,
+      "root_ell": 3,
+      "symbolic_word": "FFFEFFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 44651,
+        "expanded": 17943,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 298289,
+          "dedup": 6,
+          "remaining_cover_capacity_impossible": 232
+        },
+        "r2_edge_outcomes": {
+          "different_components": 910,
+          "source_or_target_orbit_not_in_forest": 16390
+        },
+        "seconds": 30.01,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -11,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 1,
+      "prefix_index": 138,
+      "root_ell": 0,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 42175,
+        "expanded": 17005,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 282307,
+          "dedup": 4,
+          "remaining_cover_capacity_impossible": 149
+        },
+        "r2_edge_outcomes": {
+          "different_components": 824,
+          "source_or_target_orbit_not_in_forest": 15685
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -7,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 2,
+      "prefix_index": 139,
+      "root_ell": 1,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 41298,
+        "expanded": 16587,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 275838,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 47
+        },
+        "r2_edge_outcomes": {
+          "different_components": 857,
+          "source_or_target_orbit_not_in_forest": 15152
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -3,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 3,
+      "prefix_index": 140,
+      "root_ell": 2,
+      "symbolic_word": "FFFFEFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 40323,
+        "expanded": 16180,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 269304,
+          "dedup": 6,
+          "remaining_cover_capacity_impossible": 194
+        },
+        "r2_edge_outcomes": {
+          "different_components": 814,
+          "source_or_target_orbit_not_in_forest": 14799
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -11,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 1,
+      "prefix_index": 176,
+      "root_ell": 0,
+      "symbolic_word": "FFFEFFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 42078,
+        "expanded": 17028,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 282810,
+          "dedup": 2,
+          "remaining_cover_capacity_impossible": 153
+        },
+        "r2_edge_outcomes": {
+          "different_components": 877,
+          "source_or_target_orbit_not_in_forest": 15637
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -7,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 2,
+      "prefix_index": 177,
+      "root_ell": 1,
+      "symbolic_word": "FFFEFFFR"
+    },
+    {
+      "Ndef": 1,
+      "O": 8,
+      "Q1_any_target_a": {
+        "distinct_states": 44208,
+        "expanded": 17849,
+        "frontier_emptied_naturally": false,
+        "max_r_free_depth": 10,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "F_exceeded": 296781,
+          "dedup": 8,
+          "remaining_cover_capacity_impossible": 42
+        },
+        "r2_edge_outcomes": {
+          "different_components": 948,
+          "source_or_target_orbit_not_in_forest": 16391
+        },
+        "seconds": 30.0,
+        "status": "INCOMPLETE",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": true
+      },
+      "Q2_completable_target_a": {
+        "decided_without_search": true,
+        "distinct_states": 1,
+        "expanded": 0,
+        "frontier_emptied_naturally": true,
+        "max_r_free_depth": 0,
+        "n_target_a_boundaries": 0,
+        "prune_histogram": {
+          "capacity_bound_at_root": 1
+        },
+        "r2_edge_outcomes": {},
+        "seconds": 0.0,
+        "status": "EXHAUSTED_NO_TARGET_A",
+        "target_a_boundaries": [],
+        "truncated_by_node_cap": false,
+        "truncated_by_time": false
+      },
+      "capacity_dead_at_root": true,
+      "capacity_slack": -3,
+      "ch_branch": "CH_none",
+      "first_return_length_L": 8,
+      "hub_completer_kind": null,
+      "phi": 3,
+      "prefix_index": 178,
+      "root_ell": 2,
+      "symbolic_word": "FFFEFFFR"
+    }
+  ],
+  "schema": "rr-target-a-search-results-v1",
+  "section_14_pipeline": [],
+  "target_A_recognizer_sha256": "c3ae37c689781676e7fd369aa411d1b0f1599ad3f59ed5d84683610fedb21d7f"
+}

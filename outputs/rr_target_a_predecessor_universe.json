@@ -1,0 +1,56 @@
+{
+  "backward_filter_verdict": {
+    "grade": "scope correction",
+    "phi_budget_per_root_class": {
+      "0": {
+        "min_affordable_R2_edge_ell": 4,
+        "root_phi": 1
+      },
+      "1": {
+        "min_affordable_R2_edge_ell": 3,
+        "root_phi": 2
+      },
+      "2": {
+        "min_affordable_R2_edge_ell": 2,
+        "root_phi": 3
+      },
+      "3": {
+        "min_affordable_R2_edge_ell": 1,
+        "root_phi": 4
+      },
+      "4": {
+        "min_affordable_R2_edge_ell": 0,
+        "root_phi": 5
+      }
+    },
+    "usable_as_a_forward_prune": false,
+    "why": "the R2 edge's ell is not fixed across the branches -- it is 0 at all nine ell=4 known boundaries and 5 at all three ell=0 ones -- so no single predecessor class exists to filter against. The Phi budget already encodes the only sound consequence: an R2 edge of length ell costs 5-ell of Phi, so a root with Phi = ell_root + 1 can only afford R2 edges with ell >= 4 - ell_root."
+  },
+  "distances_to_completer_target": [
+    1
+  ],
+  "hand_proved_terminal_geometry": {
+    "completer_target": [
+      1,
+      4
+    ],
+    "ell0_branch_R2_edge_ell": 5,
+    "ell4_branch_R2_edge_ell": 0,
+    "scope": "this geometry is the observed normal form of the 18 KNOWN boundaries, not a proof that every Target A boundary has it; see the backward filter verdict below",
+    "second_R_joint_observed": "w3:120 at every one of the 12 known short boundaries",
+    "terminal_phi": 0
+  },
+  "port_successor_over_approximation": {
+    "nodes": 720,
+    "note": "collisions dropped, so unreachability would be a safe prune; measured distances are small and prune nothing",
+    "out_degree_histogram": {
+      "720": 720
+    },
+    "target": [
+      1,
+      4
+    ]
+  },
+  "schema": "rr-target-a-predecessor-universe-v1",
+  "sections": "6, 9, 11"
+}

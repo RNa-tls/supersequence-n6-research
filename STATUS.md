@@ -135,7 +135,7 @@ repository changes that.
   bounded node budget.
 - `experiments/n6_search_baseline.py` — runs the above against n=6 and
   reports the (inconclusive) result plainly.
-- `tests/` — 38 passing tests (`python -m unittest discover -s tests`)
+- `tests/` — 57 passing tests (`python -m unittest discover -s tests`)
   covering all of the above, including independent verification of a
   literature-sourced n=4 witness string.
 - `legacy_research/` — the actual (much larger, much further along) local
@@ -2729,6 +2729,114 @@ observation 15/15 — Round 31 already excluded the "Target B capacity" route,
 since Target A does not require Target B), and says nothing about CH2
 (frozen), Target C, the U/J branches, or the N=0 checkpoint.
 
+### Round 35 — Target A coverage: Q2 closed for 22 roots, Q1 still open
+
+`src/build_rr_target_a_roots.py`, `src/search_rr_target_a_exhaustive.py`,
+`src/verify_rr_target_a_coverage.py` -> `outputs/rr_22_incomplete_roots.json`,
+`outputs/rr_target_a_predecessor_universe.json`,
+`outputs/rr_target_a_search_results.json`,
+`outputs/rr_target_a_coverage_certificate.json`. Five write-ups
+(`RR_TARGET_A_COVERAGE.md`, `RR_INCOMPLETE_ROOT_ANALYSIS.md`,
+`RR_TARGET_A_BACKWARD_FILTER.md`, `RR_CH1_CH2_EXTENSION_SEARCH.md`,
+`RR_BRANCH_CLOSURE_SCOPE.md`) and `tests/test_rr_target_a_coverage.py`.
+The known 18 were not re-searched for Target B; N=0 untouched; no global NR6
+search.
+
+**The round forced a split that had not been made before.** Target A is a
+LOCAL predicate on one macro edge and does not require the word to complete
+-- Round 30 already proved six Target A boundaries have no continuation and
+remain Target A. So:
+
+| | question | capacity prune legal? | verdict |
+|---|---|---|---|
+| **Q1** | any Target A boundary beyond this root? | **no** | 22/22 `INCOMPLETE` |
+| **Q2** | any Target A boundary that could still complete? | **yes** | 22/22 `EXHAUSTED_NO_TARGET_A` |
+
+**New hand proof: the (B+R) capacity bound re-imported to Phi > 0.** Round 32
+applied it only at Phi=0. Re-derived in the pass-start currency:
+`TARGET_P - P <= (5 - used ports of the current orbit) + 5(TARGET_O - O)
++ 4((n_limit - Ndef) + Phi)`. The `+Phi` term is new and necessary: a
+weight-2 joint at ell<5 can change orbit at zero N cost but always costs
+Phi (at ell=5 it cannot change orbit at all, since `g_{w2:10} = E`; and a
+weight-2 fresh opening needs an abandonment, which would push F past
+TARGET_F=1). **Slack is non-increasing**, falling by `5 - used` whenever an
+orbit is abandoned unsaturated -- that monotonicity is what makes Q2 finite.
+
+**반증됨 as a Target A prune.** Replayed along the known boundaries' own
+paths, the bound reaches **-2 before the R2 edge** on one ell=0 P_core=4
+boundary, so using it for Q1 would delete a genuine Target A boundary. One
+counterexample is enough. It is used for Q2 only, and
+`tests/test_rr_target_a_coverage.py` fails if it ever leaks into Q1.
+Reassuringly, every boundary at which it fires was already
+capacity-impossible in Rounds 30-32.
+
+**Q2 result: 22/22 exhausted, every frontier natural, 0 boundaries, no cap
+and no ceiling.** 14 roots decided by the bound at the root alone (slack
+-2, -3, -7, -11); the other 8 by exhaustive search at 2, 2, 25, 25, 242,
+248, 10,335, 10,389 nodes (slack 1, 1, 2, 2, 6, 6, 10, 10). None of the 6
+FOUND roots is killed by the bound.
+
+**Phi = ell + 1 at every root, measured.** With `dPhi = ell - 5` this gives
+the ell dichotomy in one line: an R2 edge of length ell costs `5 - ell` of
+Phi, so a root with Phi = ell+1 can only afford R2 edges with
+`ell >= 4 - ell_root`. All 9 ell=4 known boundaries use an `ell=0` R2 edge;
+all 3 ell=0 ones use `ell=5`.
+
+**Section 4: all 22 roots share exactly ONE explosion cause signature.** Mean
+branching 2.49-2.57, `Z3` fresh openings dominant, and every R2 edge fails
+the same way: **~95% `source_or_target_orbit_not_in_forest`**, ~5%
+`different_components`, 0 Target A. The forest is built from pass-starts
+only, and at an R2 edge the source orbit is `orbit(p0 . SIGMA^ell)`, which
+for ell>0 is not itself a pass-start -- so its orbit is in the forest only
+by coincidence. `ell=0` makes it automatic, which is exactly why the ell=4
+branch uses it.
+
+**Section 2 quotient: nothing collapses.** 22 distinct classes at the exact,
+left-S6 canonical and decorated levels; 8 resource signatures; 3 symbolic
+excursion classes.
+
+**Three filters measured and reported vacuous rather than dropped.** The
+ell=4 terminal-geometry backward filter is unusable because the R2-edge ell
+is 0 across the ell=4 branch and 5 across the ell=0 branch, so no single
+predecessor class exists (**scope correction**). The orbit/phase
+reachability over-approximation is a complete graph -- out-degree 720/720,
+distance to (1,4) equal to 1 from every root -- so it excludes nothing
+(**scope correction**). CH1/CH2 cannot be assigned at these roots: the hub
+is incomplete at all 22 (popcount 1-5), so C lies in the extension and the
+branch is undetermined; the Q2 search covers both because it explores every
+extension (**scope correction**).
+
+**TWO NEW COVERAGE GAPS, neither on the brief's list.**
+
+1. **The short-family enumeration was depth-truncated and its
+   `frontier_empty` flag cannot detect that.** `analyze_rr_ell0_family.py`
+   computes `frontier_empty = not cap_hit and len(frontier) == 0` **after**
+   ceiling-depth states are dropped unexpanded, so a fully truncated run also
+   reports an empty frontier. Counting the dropped states directly:
+   ell=0/1/2/3 at ceiling 7 drop **9,143 / 8,710 / 9,245 / 9,189** of
+   12,957 / 12,367 / 13,103 / 13,029 expanded; ell=4 at ceiling 8 drops
+   **30,408** of 43,459. Roughly **70% of every frontier was discarded**.
+   The 12 short boundaries are valid witnesses, but the claim that they are
+   *all* the short boundaries has no support. This is the largest gap in the
+   Target A list, and 12 of the 18 known boundaries came from it.
+2. **The 6 FOUND long roots were searched with `--stop-on-first`** and
+   abandoned after one witness each (2-14 nodes), so they may carry further
+   Target A boundaries never enumerated.
+
+**Section 16 outcome: C.** Not A (Q1 incomplete at all 22), not B (no new
+boundary, so the section-14 pipeline is implemented and recorded as
+untriggered). `root-local exhaustive` is claimed **only for Q2**.
+
+**Scope.** RR is **not** closed. Closed: Target B from every known Target A
+boundary (R34), and completable Target A from these 22 roots (R35). Open:
+Q1; the short-family ceiling truncation; the stop-on-first roots; L>8
+excursions; abandonment roots and short prefixes outside the 28 long-excursion
+prefixes. The 22 roots are **disjoint** from the roots that produced the
+known 18, so this round extends coverage sideways rather than re-deriving it.
+Nothing here moves `L_6`: verified upper **872**, proved lower **867**, open
+target **872**. T3 stays exact observation 15/15; CH2, Target C, U/J and the
+N=0 checkpoint are untouched.
+
 ## Open problems (genuinely open, not resolved by this repository)
 
 1. **Closing the 867-872 gap for n=6.** This is the actual research
@@ -2761,7 +2869,7 @@ since Target A does not require Target B), and says nothing about CH2
 ## How to run everything
 
 ```
-python -m unittest discover -s tests -v   # 38 tests, ~4s
+python -m unittest discover -s tests -v   # 57 tests, ~6s
 python -m src.lower_bound                 # prints the bound table
 python -m src.construct                   # builds + verifies greedy witnesses n=1..6
 python -m src.exact_solve                 # proves L(2), L(3) from scratch
