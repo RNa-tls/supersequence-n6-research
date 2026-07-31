@@ -32,7 +32,10 @@ ROUND37_AUDIT = ROOT / "outputs" / "rr_round37_envelope_independent_verification
 OUTPUT = ROOT / "outputs" / "rr_short5_search_results.json"
 CERTIFICATES = ROOT / "outputs" / "rr_short5_exhaustion_certificates.json"
 NEW_BOUNDARIES = ROOT / "outputs" / "rr_short5_new_boundaries.json"
-CHECKPOINT_DIR = ROOT / "outputs" / "rr_short5_checkpoints"
+# Pre-correction checkpoints in ``rr_short5_checkpoints`` are deliberately
+# retained for forensic comparison.  They searched only the pre-R subspace;
+# never resume them with the R1-complete traversal.
+CHECKPOINT_DIR = ROOT / "outputs" / "rr_short5_checkpoints" / "r1_complete_v2"
 
 
 def load_module(name: str, path: Path):
@@ -122,8 +125,9 @@ def short_root_records() -> list[dict[str, object]]:
 
 def short_root_manifest(records: Sequence[Mapping[str, object]]) -> dict[str, object]:
     return {
-        "schema": "rr-short5-root-manifest-v1",
-        "scope": "five bare Round-37 short roots only; all long roots excluded",
+        "schema": "rr-short5-root-manifest-v2",
+        "scope": ("five bare Round-37 short roots only; all long roots excluded; "
+                  "first R is an enqueued R1 child and R2 is terminal"),
         "records": [dict(record) for record in records],
         "round37_audit_sha256": sha256_file(ROUND37_AUDIT),
         "round35_engine_sha256": sha256_file(ROUND35_PATH),
@@ -158,9 +162,11 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
         queue.append((0, state, decoration))
         root_count += 1
     examined, json_roundtrip_failures = 0, []
+    r_count_histogram: Counter[int] = Counter()
     while queue:
         depth, state, decoration = queue.popleft()
         examined += 1
+        r_count_histogram[decoration.r_count] += 1
         restored_state = exact.state_from_json(exact.state_to_json(state))
         restored_decoration = rr.Decoration.from_json(decoration.to_json())
         if rr.decorated_key(restored_state, restored_decoration) != rr.decorated_key(state, decoration):
@@ -178,11 +184,14 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
         if len(signatures) != 1:
             mismatches.append(sha256_bytes(repr(key).encode("utf-8")))
     return {
-        "schema": "rr-short5-decorated-state-key-audit-v1",
-        "grade": "lossless raw-key contract plus complete depth-2 successor-signature regression",
-        "scope": "five short roots; accepted macro children through depth 2",
+        "schema": "rr-short5-decorated-state-key-audit-v2",
+        "grade": ("lossless raw-key contract plus complete depth-2 "
+                  "successor-signature regression, including enqueued R1 states"),
+        "scope": "five short roots; accepted macro children through depth 2, including R1",
         "roots_checked": root_count,
         "states_examined": examined,
+        "r_count_histogram": dict(sorted(r_count_histogram.items())),
+        "r1_states_examined": r_count_histogram[1],
         "deliberate_duplicate_groups": len(groups),
         "key_collision_mismatches": mismatches,
         "json_roundtrip_failures": json_roundtrip_failures,
@@ -197,7 +206,7 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
 
 def config_extra(manifest: Mapping[str, object]) -> dict[str, object]:
     return {
-        "root_universe": "round37-short5-bare-abandonment-v1",
+        "root_universe": "round37-short5-bare-abandonment-r1-complete-v2",
         "short5_manifest_sha256": sha256_bytes(json.dumps(manifest, sort_keys=True).encode("utf-8")),
         "short5_driver_sha256": sha256_file(Path(__file__)),
     }

@@ -211,10 +211,11 @@ PRUNE_REGISTRY = [
     },
     {
         "name": "rr_r_budget",
-        "statement": "the scoped RR word has exactly two R events; R2 is a boundary, never a child",
+        "statement": ("the scoped RR word has at most two R events; a bare short root may enqueue "
+                      "R1, while R2 is a boundary and never a child"),
         "source": "src/search_rr_long_prefix_extensions.py::search",
         "implementation": "evaluate_edge",
-        "test": "test_r2_is_terminal_boundary",
+        "test": "test_legal_first_r_edge_is_enqueued_for_every_short_root; test_long_root_r2_is_recognized_on_edge_and_never_enqueued",
     },
     {
         "name": "hub_touch_count",
@@ -429,10 +430,22 @@ def evaluate_edge(state, dec: Decoration, edge) -> tuple[str, Optional[Decoratio
     if kind == "other":
         return "outside_RR_joint_model", None, None
     if kind == "R":
+        # A long-prefix root has already recorded R1, but a bare short root
+        # has not.  The latter must be allowed to enter the R1 state before a
+        # prospective R2 can be recognized.  Treating every R edge as an R2
+        # terminal silently searched only the pre-R subspace of short roots.
+        if dec.r_count == 0:
+            if child_dec.r_count != 1:
+                raise AssertionError("R1 child did not increment the R counter")
+            return "child", child_dec, None
+        if dec.r_count == 1:
+            if child_dec.r_count != 2:
+                raise AssertionError("R2 boundary did not increment the R counter")
+            recognizer = target_a_recognizer(edge.run.state, transition, dec, child_dec)
+            return ("FOUND_TARGET_A" if recognizer["is_target_a"] else "r2_not_target"), child_dec, recognizer
         if child_dec.r_count > 2:
             return "rr_R_budget_exceeded", None, None
-        recognizer = target_a_recognizer(edge.run.state, transition, dec, child_dec)
-        return ("FOUND_TARGET_A" if recognizer["is_target_a"] else "r2_not_target"), child_dec, recognizer
+        return "rr_R_budget_exceeded", None, None
     if child_dec.r_count >= 2:
         return "rr_R_budget_exceeded", None, None
     return "child", child_dec, None
