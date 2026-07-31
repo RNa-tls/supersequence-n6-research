@@ -47,7 +47,7 @@
   },
   "envelope_theorem": {
     "grade": "exact theorem (root-level certificate, no enumeration)",
-    "rejected_refinement_note": "true_phase_walk_capacity was tried and rejected for this purpose -- it can underestimate true reachable capacity (counterexample at long_found_142: predicts 2, engine achieves 3), so the occupancy-independent universal bound of 4 per segment is used instead",
+    "rejected_refinement_note": "true_phase_walk_capacity was tried and rejected for this purpose -- it can underestimate true reachable capacity (counterexample at long_found_142: predicts 3 ports, engine achieves 4; figures corrected in Round 38), so the occupancy-independent universal bound of 4 per segment is used instead",
     "statement": "ENVELOPE(root) = M(root) + 5k + 7 + 5*max(n_limit-Ndef(root)-k,0) is a provable upper bound on margin_1 for every Target A boundary reachable from root, where k is the number of R events still needed (1 for the 28 long-excursion roots, 2 for the 5 bare abandonment roots)"
   },
   "n_certified_q2_impossible_by_envelope_alone": 28,

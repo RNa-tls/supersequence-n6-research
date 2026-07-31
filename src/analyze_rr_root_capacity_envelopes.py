@@ -60,9 +60,11 @@ every step (including the last one before an R/Z3 transition) to be
 completely fresh, but only the STARTING hexagon of each step's rotation run
 needs that -- the final landing permutation just needs its own single slot
 free, which a partially-visited hexagon can still provide. A concrete
-counterexample was found at root `long_found_142`: the true walk takes 3
-legal E-steps landing in a hexagon with 5 of 6 slots already visited, while
-`true_phase_walk_capacity` predicts only 2. Using it here would have made
+counterexample was found at root `long_found_142`: the engine stands on 4
+ports (the last landing in a hexagon with 5 of 6 slots already visited),
+while `true_phase_walk_capacity` predicts only 3.  [Figures corrected in
+Round 38; an earlier draft of this docstring said "3 vs 2". The direction
+of the finding is unchanged -- see RR_CAPACITY_HELPER_SOUNDNESS_AUDIT.md.] Using it here would have made
 ENVELOPE unsound (violated by the very data it was meant to bound). The
 occupancy-INDEPENDENT universal bound (4 per segment) is used instead,
 verified to violate nothing across all 1,398 known boundaries.  This is
@@ -211,8 +213,9 @@ def main():
             "rejected_refinement_note": ("true_phase_walk_capacity was tried and rejected for "
                                          "this purpose -- it can underestimate true reachable "
                                          "capacity (counterexample at long_found_142: predicts "
-                                         "2, engine achieves 3), so the occupancy-independent "
-                                         "universal bound of 4 per segment is used instead"),
+                                         "3 ports, engine achieves 4; figures corrected in "
+                                         "Round 38), so the occupancy-independent universal "
+                                         "bound of 4 per segment is used instead"),
         },
         "n_roots_total": len(rows),
         "n_certified_q2_impossible_by_envelope_alone": n_certified,

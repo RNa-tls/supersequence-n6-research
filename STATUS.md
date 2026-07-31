@@ -135,7 +135,7 @@ repository changes that.
   bounded node budget.
 - `experiments/n6_search_baseline.py` — runs the above against n=6 and
   reports the (inconclusive) result plainly.
-- `tests/` — 106 passing tests (`python -m unittest discover -s tests`)
+- `tests/` — 134 passing tests (`python -m unittest discover -s tests`)
   covering all of the above, including independent verification of a
   literature-sourced n=4 witness string.
 - `legacy_research/` — the actual (much larger, much further along) local
@@ -2516,7 +2516,7 @@ disjointness contradiction is available at all.
 
 **Still 미완료**: component-compatible capacity (the required *final*
 component structure is uncharacterised, and no heuristic was substituted);
-the 7 remaining survivors; CH2 (status fixed, not re-searched); T3
+the 7 remaining Target B BOUNDARY survivors (a boundary-state count, unrelated to the later 7-ROOT continuation-audit count -- see `RR_ROUND37_COUNT_UNIT_CORRECTION.md`); CH2 (status fixed, not re-searched); T3
 (exact observation 15/15 — the segment structure gave no new route to it).
 
 **Next-round shape**: the full-block graph is small (720 nodes) but
@@ -2994,8 +2994,8 @@ requiring no enumeration at all.
 **A rejected refinement, found by testing the envelope against real data.**
 An attempt to tighten the bound using `true_phase_walk_capacity` (Round
 33's refinement) turned out UNSOUND for this purpose: at root
-`long_found_142` it predicts a maximum of 2 additional legal steps, but the
-engine literally executes 3 (a hexagon with 5 of 6 slots visited can still
+`long_found_142` it predicts a maximum of 3 ports, but the engine literally
+stands on 4 (figures corrected in Round 38; direction unchanged) (a hexagon with 5 of 6 slots visited can still
 supply the one free slot a single joint-landing needs, which the
 refinement's occupancy check wrongly excludes). This does not retract
 Round 33-35's own use of the function (a different, correctly-posed
@@ -3007,7 +3007,7 @@ violations**.
 state, with zero enumeration.** This includes both `long_q1_140` and
 `long_q1_178`, which found zero boundaries within Round 36's search budget
 -- the envelope theorem now resolves them completely (converting 2 of the
-7 previously-INCOMPLETE roots into genuine Q2 closure). The 5 short-family
+7 Q1-INCOMPLETE ROOTS into Q2 closure; note the unit -- 7 counts roots whose Q1 search timed out, NOT roots left unresolved for Q2, which is 5). The 5 short-family
 roots' envelope is **positive** (+14, k=2) -- an honest, non-forced result:
 this particular theorem does not resolve them.
 
@@ -3039,6 +3039,97 @@ is the actual load-bearing guarantee).
 search was run to produce the 1,398-boundary results, and no Target B
 search touched the known 18. `L_6 <= 872` verified, `L_6 >= 867` proved,
 `L_6 >= 872` open -- unmoved. CH2, T3, Target C, U/J untouched.
+
+### Round 38 -- capacity-helper firewall; 0 retractions; the five short roots stay open
+
+`src/audit_rr_capacity_helpers.py`, `src/analyze_rr_short_root_envelope.py`,
+`src/verify_rr_short_root_resource_model.py`, `src/build_rr_1398_boundary_ledger.py`
+-> `outputs/rr_capacity_callsite_audit.json`, `outputs/rr_short_root_ledger.json`,
+`outputs/rr_short_root_defect_bounds.json`, `outputs/rr_short_root_resource_results.json`.
+Five write-ups (`RR_CAPACITY_HELPER_SOUNDNESS_AUDIT.md`,
+`RR_ROUND37_COUNT_UNIT_CORRECTION.md`, `RR_SHORT_ROOT_ENVELOPE.md`,
+`RR_SHORT_ROOT_DEFECT_THEOREM.md`, `RR_SHORT_ROOT_RESOURCE_MODEL.md`) and
+`tests/test_rr_capacity_soundness.py` (28 tests). No large continuation
+search; U/J, N=0, CH2, T3 untouched.
+
+**Part A -- the soundness firewall.** Every capacity refinement counts a
+port as usable only if its HEXAGON is entirely unvisited. That is exactly
+right for the FULL-SEGMENT question (at Phi=0, ell=5 is forced and an ell=5
+run visits all six permutations of the hexagon) and exactly wrong for the
+SINGLE-LANDING question (a joint landing needs only its own target
+permutation free). 20 call sites enumerated by AST parse; five helpers
+classified: `c(q)` and `true_phase_walk_capacity` are
+**SOUND_FOR_FULL_SEGMENT** (precondition Phi=0); the coarse segment bound,
+`capacity_slack`/`orbit_capacity_bound`, and the Round 37 root envelope are
+**SOUND_FOR_SINGLE_LANDING** (occupancy-independent). No helper is UNSOUND
+or UNKNOWN. `assert_full_segment_context` now raises
+`CapacityPreconditionError` when a full-segment helper is called at Phi != 0
+-- verified live in both directions (raises at Phi=5, allows at Phi=0).
+
+**A Round 37 misstatement corrected.** Round 37 recorded the
+`long_found_142` counterexample as "predicts 2, engine achieves 3". The
+exact figures, re-derived from the engine, are **predicts 3 ports, engine
+achieves 4**. The undercounted port is offset 3 (phase 4, hexagon 0), whose
+hexagon has popcount 5 -- the landing succeeds because the single remaining
+free slot IS the target permutation. The DIRECTION of the Round 37 finding
+is confirmed; only the numbers were wrong, and no Round 37 result depended
+on them (the envelope rejected the helper outright and never used it).
+Corrected in STATUS.md, `RR_ROOT_LEVEL_CAPACITY_ENVELOPES.md`, and the
+module docstring. Grade: **corrected claim**.
+
+**Part A.6 -- historical re-verification: 9 RETAINED, 0 RETRACTED.** All 18
+currently known Target A boundaries replayed (12 short-family + 6 long).
+**Phi = 0 at all 18**, so every historical use of a freshness-dependent
+refinement was inside its valid domain. Of the 18, the 9 recorded
+`CAPACITY_IMPOSSIBLE` were each re-proved by the freshness-INDEPENDENT
+coarse segment bound, which consults no hexagon occupancy at all -- so none
+is retained merely because the answer happened to match. The one genuine
+scope violation found (Round 37's `bound_3` applied at boundaries with
+Phi in {0,-3,-4,-8}) is **not load-bearing**: all 1,398 fail at `bound_1`
+first, so `bound_3` never decided anything.
+
+**Part B -- count-unit correction.** "7" had been used for two unrelated
+objects. Corrected ledger: **33 = 28 Q2-closed + 5 Q2-unresolved**, and
+separately **33 = 26 Q1-found + 7 Q1-timeout**; the 7 audited continuation
+roots = **2 newly closed (long_q1_140/178) + 5 unresolved**. Both 7 and 5
+are correct, of different questions. Unrelated collision flagged: the "7
+remaining survivors" of Rounds 32-34 counts Target B boundary STATES, not
+roots. Three invariants now enforced by test.
+
+**Parts C-H -- the five short roots.** Ledgered in full and NOT merged
+(identical resource signature `(P=2,O=2,Ndef=0)` but 5/5 distinct raw and
+canonical hashes, differing Phi 1..5, orbit, phase, hub popcount 1..5). The
++14 margin decomposes exactly and identically at all five:
+`-8 (M_root) + 8 (preserving) + 2 (re-entry) + 7 (terminal) + 5 (residual
+R_cap) = 14`. Parts E, F and G each attempted a strengthening and each
+produced **no improvement**: the entry-sensitive preserving bound gives
+capacity 5 / defect 0; the best re-entry capacity is 4, so the tax stays at
+Round 32's 1; a fresh opening still attains the full 5. The segment-defect
+theorem therefore yields `D_min = 0 + 2x1 = 2` against a margin of 14 --
+**0 of 5 roots closed**, a gap of 12. Reported as the negative result it is.
+
+**Part I/J -- symbolic resource model.** A tiny integer-lattice relaxation
+(ports, fresh/re-entry segments by capacity, `n_E2`), decided by exhaustive
+enumeration since no certified ILP solver exists here. **Feasible at all
+five** (120 ports required against a ceiling of 132), so no root is closed.
+All five classify as **STRUCTURAL_SURVIVOR**.
+
+**A Round 37 recommendation reversed.** Round 37 wrote "no root is
+resume-worthy". That was not supported -- it rested on a frontier-growth
+cost observation, not a certificate. Mathematically all five ARE
+search-worthy; the cost argument is retained but now explicitly labelled
+**HEURISTIC**, never used as a proof or a prune, and enforced as such by
+test.
+
+**A bug found and fixed mid-round.** The first entry-sensitive bound treated
+the entry phase's own bit as a blocker, yielding `init_cap = 0` and a
+nonsensical `init_defect = 5`. The walk already stands on its entry port;
+fixed via `entry_already_occupied`, corrected value 5. A regression test
+pins it.
+
+**Scope.** `L_6 <= 872` verified, `L_6 >= 867` proved, `L_6 >= 872` open --
+unmoved. Known-18 Target B status unchanged; N=0, CH2, T3, Target C, U/J
+untouched.
 
 ## Open problems (genuinely open, not resolved by this repository)
 
@@ -3072,7 +3163,7 @@ search touched the known 18. `L_6 <= 872` verified, `L_6 >= 867` proved,
 ## How to run everything
 
 ```
-python -m unittest discover -s tests -v   # 106 tests, ~45s
+python -m unittest discover -s tests -v   # 134 tests, ~35s
 python -m src.lower_bound                 # prints the bound table
 python -m src.construct                   # builds + verifies greedy witnesses n=1..6
 python -m src.exact_solve                 # proves L(2), L(3) from scratch

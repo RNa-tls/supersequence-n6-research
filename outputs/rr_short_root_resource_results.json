@@ -1,0 +1,164 @@
+{
+  "classification_histogram": {
+    "STRUCTURAL_SURVIVOR": 5
+  },
+  "heuristic_cost_benefit_note": {
+    "consequence": "these roots ARE search-worthy in the mathematical sense -- they are genuine STRUCTURAL_SURVIVORs with no impossibility certificate -- but a naive resumption is not the efficient next step; a new occupancy-independent bound, or a proved quotient, would be",
+    "explicitly_not_claimed": "that the roots are closed, or that search is pointless",
+    "label": "HEURISTIC -- not a proof, not a certificate, never used to prune",
+    "observation": "at the Round 36 budget each short root expanded 71k-80k nodes in 90s with the queue still growing to 120k-134k; extrapolating that growth rate, exhausting even one of these roots is far outside any budget available in a single session"
+  },
+  "model": {
+    "constraints": [
+      "c_init + sum j*f_j + sum j*r_j == TARGET_P - P0 + 1",
+      "sum f_j <= O_cap",
+      "sum r_j + n_E2 <= R_cap",
+      "1 <= c_init <= init_cap_max (entry-sensitive, occupancy-independent)",
+      "re-entry capacity <= 4 (Round 32)"
+    ],
+    "interpretation": {
+      "feasible": "UNRESOLVED -- never a continuation witness",
+      "infeasible": "root is Q2-impossible (certificate)"
+    },
+    "solver": "exhaustive enumeration over an explicitly bounded integer lattice",
+    "variables": [
+      "c_init",
+      "f_1..f_5 (fresh segments by capacity)",
+      "r_1..r_4 (re-entry segments by capacity)",
+      "n_E2"
+    ]
+  },
+  "rows": [
+    {
+      "D_min": 2,
+      "D_min_exceeds_margin": false,
+      "Ndef0": 0,
+      "O0": 2,
+      "O_cap": 23,
+      "P0": 2,
+      "R_cap": 3,
+      "classification": "STRUCTURAL_SURVIVOR",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "envelope_certifies_impossible": false,
+      "envelope_margin": 14,
+      "feasibility_is_not_a_witness": "this is a resource relaxation with no path, no geometry, no hexagon disjointness and no ordering; feasibility means UNRESOLVED only",
+      "init_cap_max": 5,
+      "lattice_points_examined": 120,
+      "ports_required": 120,
+      "resource_model_feasible": true,
+      "resource_model_witness": {
+        "c_init": 1,
+        "fresh_total_ports": 115,
+        "n_fresh": 23,
+        "n_re": 1,
+        "re_total_ports": 4
+      },
+      "root_id": "short_ell0"
+    },
+    {
+      "D_min": 2,
+      "D_min_exceeds_margin": false,
+      "Ndef0": 0,
+      "O0": 2,
+      "O_cap": 23,
+      "P0": 2,
+      "R_cap": 3,
+      "classification": "STRUCTURAL_SURVIVOR",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "envelope_certifies_impossible": false,
+      "envelope_margin": 14,
+      "feasibility_is_not_a_witness": "this is a resource relaxation with no path, no geometry, no hexagon disjointness and no ordering; feasibility means UNRESOLVED only",
+      "init_cap_max": 5,
+      "lattice_points_examined": 120,
+      "ports_required": 120,
+      "resource_model_feasible": true,
+      "resource_model_witness": {
+        "c_init": 1,
+        "fresh_total_ports": 115,
+        "n_fresh": 23,
+        "n_re": 1,
+        "re_total_ports": 4
+      },
+      "root_id": "short_ell1"
+    },
+    {
+      "D_min": 2,
+      "D_min_exceeds_margin": false,
+      "Ndef0": 0,
+      "O0": 2,
+      "O_cap": 23,
+      "P0": 2,
+      "R_cap": 3,
+      "classification": "STRUCTURAL_SURVIVOR",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "envelope_certifies_impossible": false,
+      "envelope_margin": 14,
+      "feasibility_is_not_a_witness": "this is a resource relaxation with no path, no geometry, no hexagon disjointness and no ordering; feasibility means UNRESOLVED only",
+      "init_cap_max": 5,
+      "lattice_points_examined": 120,
+      "ports_required": 120,
+      "resource_model_feasible": true,
+      "resource_model_witness": {
+        "c_init": 1,
+        "fresh_total_ports": 115,
+        "n_fresh": 23,
+        "n_re": 1,
+        "re_total_ports": 4
+      },
+      "root_id": "short_ell2"
+    },
+    {
+      "D_min": 2,
+      "D_min_exceeds_margin": false,
+      "Ndef0": 0,
+      "O0": 2,
+      "O_cap": 23,
+      "P0": 2,
+      "R_cap": 3,
+      "classification": "STRUCTURAL_SURVIVOR",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "envelope_certifies_impossible": false,
+      "envelope_margin": 14,
+      "feasibility_is_not_a_witness": "this is a resource relaxation with no path, no geometry, no hexagon disjointness and no ordering; feasibility means UNRESOLVED only",
+      "init_cap_max": 5,
+      "lattice_points_examined": 120,
+      "ports_required": 120,
+      "resource_model_feasible": true,
+      "resource_model_witness": {
+        "c_init": 1,
+        "fresh_total_ports": 115,
+        "n_fresh": 23,
+        "n_re": 1,
+        "re_total_ports": 4
+      },
+      "root_id": "short_ell3"
+    },
+    {
+      "D_min": 2,
+      "D_min_exceeds_margin": false,
+      "Ndef0": 0,
+      "O0": 2,
+      "O_cap": 23,
+      "P0": 2,
+      "R_cap": 3,
+      "classification": "STRUCTURAL_SURVIVOR",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "envelope_certifies_impossible": false,
+      "envelope_margin": 14,
+      "feasibility_is_not_a_witness": "this is a resource relaxation with no path, no geometry, no hexagon disjointness and no ordering; feasibility means UNRESOLVED only",
+      "init_cap_max": 5,
+      "lattice_points_examined": 120,
+      "ports_required": 120,
+      "resource_model_feasible": true,
+      "resource_model_witness": {
+        "c_init": 1,
+        "fresh_total_ports": 115,
+        "n_fresh": 23,
+        "n_re": 1,
+        "re_total_ports": 4
+      },
+      "root_id": "short_ell4"
+    }
+  ],
+  "schema": "rr-short-root-resource-results-v1"
+}

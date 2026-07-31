@@ -92,7 +92,9 @@ prune sets are statically and dynamically guaranteed disjoint from each
 other's forbidden members, verified exhaustively rather than by sampling;
 (2) a live corruption attempt is caught by the same mechanism that would
 catch an accidental regression. It is **not** certified in the sense of
-"the Q1 search is exhaustive" — that remains open at 7 of 33 roots, as
+"the Q1 search is exhaustive" — that remains open at 7 of 33 roots **by the Q1 count
+unit** (roots whose Q1 search timed out); the Q2 count unit is different (5 of 33
+unresolved), as
 `RR_INCOMPLETE_ROOT_AUDIT.md` documents plainly.
 
 ## 5. NR6 dependency graph (§19)

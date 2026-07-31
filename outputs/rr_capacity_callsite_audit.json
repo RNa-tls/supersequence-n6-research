@@ -1,0 +1,566 @@
+{
+  "call_site_histogram": {
+    "capacity_slack": 6,
+    "capacity_theorem": 2,
+    "envelope_for_root": 2,
+    "freshness_independent_bound": 2,
+    "initial_capacity": 2,
+    "orbit_capacity_bound": 2,
+    "port_capacities": 2,
+    "true_phase_walk_capacity": 2
+  },
+  "call_sites": [
+    {
+      "callee": "envelope_for_root",
+      "file": "src/analyze_rr_root_capacity_envelopes.py",
+      "is_definition": true,
+      "line": 126
+    },
+    {
+      "callee": "envelope_for_root",
+      "file": "src/analyze_rr_root_capacity_envelopes.py",
+      "line": 179
+    },
+    {
+      "callee": "freshness_independent_bound",
+      "file": "src/audit_rr_capacity_helpers.py",
+      "is_definition": true,
+      "line": 329
+    },
+    {
+      "callee": "freshness_independent_bound",
+      "file": "src/audit_rr_capacity_helpers.py",
+      "line": 379
+    },
+    {
+      "callee": "true_phase_walk_capacity",
+      "file": "src/build_rr_1398_boundary_ledger.py",
+      "is_definition": true,
+      "line": 86
+    },
+    {
+      "callee": "true_phase_walk_capacity",
+      "file": "src/build_rr_1398_boundary_ledger.py",
+      "line": 166
+    },
+    {
+      "callee": "port_capacities",
+      "file": "src/build_rr_refined_capacity_bound.py",
+      "is_definition": true,
+      "line": 85
+    },
+    {
+      "callee": "port_capacities",
+      "file": "src/build_rr_refined_capacity_bound.py",
+      "line": 103
+    },
+    {
+      "callee": "capacity_slack",
+      "file": "src/build_rr_target_a_roots.py",
+      "is_definition": true,
+      "line": 168
+    },
+    {
+      "callee": "capacity_slack",
+      "file": "src/build_rr_target_a_roots.py",
+      "line": 342
+    },
+    {
+      "callee": "capacity_theorem",
+      "file": "src/process_rr_new_target_a_boundaries.py",
+      "is_definition": true,
+      "line": 90
+    },
+    {
+      "callee": "capacity_theorem",
+      "file": "src/process_rr_new_target_a_boundaries.py",
+      "line": 135
+    },
+    {
+      "callee": "capacity_slack",
+      "file": "src/search_rr_target_a_exhaustive.py",
+      "line": 125
+    },
+    {
+      "callee": "capacity_slack",
+      "file": "src/verify_rr_target_a_coverage.py",
+      "line": 53
+    },
+    {
+      "callee": "capacity_slack",
+      "file": "src/verify_rr_target_a_coverage.py",
+      "line": 58
+    },
+    {
+      "callee": "capacity_slack",
+      "file": "src/verify_rr_target_a_coverage.py",
+      "line": 70
+    },
+    {
+      "callee": "orbit_capacity_bound",
+      "file": "src/verify_rr_target_b_flow.py",
+      "is_definition": true,
+      "line": 118
+    },
+    {
+      "callee": "orbit_capacity_bound",
+      "file": "src/verify_rr_target_b_flow.py",
+      "line": 170
+    },
+    {
+      "callee": "initial_capacity",
+      "file": "src/verify_rr_target_b_unsat.py",
+      "is_definition": true,
+      "line": 87
+    },
+    {
+      "callee": "initial_capacity",
+      "file": "src/verify_rr_target_b_unsat.py",
+      "line": 136
+    }
+  ],
+  "counterexample": {
+    "engine_achieved_ports": 4,
+    "engine_trace": [
+      {
+        "event": "landed on a new port",
+        "hexagon": 12,
+        "hexagon_popcount_at_root": 0,
+        "phase": 2,
+        "port_index": 2
+      },
+      {
+        "event": "landed on a new port",
+        "hexagon": 2,
+        "hexagon_popcount_at_root": 0,
+        "phase": 3,
+        "port_index": 3
+      },
+      {
+        "event": "landed on a new port",
+        "hexagon": 0,
+        "hexagon_popcount_at_root": 5,
+        "phase": 4,
+        "port_index": 4
+      },
+      {
+        "at_phase": 4,
+        "event": "rot^5 run illegal -> segment ends"
+      }
+    ],
+    "exact_reason": "the helper rejects offset 3 (phase 4, hexagon 0) because that hexagon has popcount 5, i.e. is not entirely unvisited. That rejection is correct for the FULL-SEGMENT question -- an ell=5 run from that port would need all six slots free and only one is. But it is wrong for the PORT-COUNT question: the joint landing needs only its own target permutation free, and hexagon 0's single remaining free slot is exactly that permutation. The engine therefore stands on 4 ports where the helper predicts 3.",
+    "grade": "exact counterexample",
+    "helper_predicted_ports": 3,
+    "port_occupancy_from_entry_phase": [
+      {
+        "hexagon": 72,
+        "hexagon_popcount": 1,
+        "offset": 0,
+        "phase": 1,
+        "port_already_pass_start": true
+      },
+      {
+        "hexagon": 12,
+        "hexagon_popcount": 0,
+        "offset": 1,
+        "phase": 2,
+        "port_already_pass_start": false
+      },
+      {
+        "hexagon": 2,
+        "hexagon_popcount": 0,
+        "offset": 2,
+        "phase": 3,
+        "port_already_pass_start": false
+      },
+      {
+        "hexagon": 0,
+        "hexagon_popcount": 5,
+        "offset": 3,
+        "phase": 4,
+        "port_already_pass_start": false
+      },
+      {
+        "hexagon": 1,
+        "hexagon_popcount": 6,
+        "offset": 4,
+        "phase": 0,
+        "port_already_pass_start": true
+      }
+    ],
+    "precondition_violated": "Phi = 5 != 0, so ell=5 is NOT forced here",
+    "root_identifier": "long_found_142 (prefix index 142, abandonment ell=4)",
+    "root_state": {
+      "Ndef": 1,
+      "O": 8,
+      "P": 10,
+      "Phi": 5,
+      "entry_phase": 1,
+      "orbit": 1
+    },
+    "round_37_misstatement_corrected": {
+      "actual": "predicts 3, engine achieves 4",
+      "as_published": "predicts 2, engine achieves 3",
+      "note": "the DIRECTION of the Round 37 finding (the helper undercounts, and is therefore unsound as a port-count bound) is confirmed; only the two numbers were wrong. The Round 37 envelope itself never used the helper, so no Round 37 result depends on the misstated figures."
+    },
+    "undercount": 1
+  },
+  "firewall_tests": [
+    {
+      "case": "Phi!=0 call",
+      "raised": true
+    },
+    {
+      "case": "Phi==0 call",
+      "raised": false,
+      "value": 2
+    }
+  ],
+  "grade": "exact counterexample + exact replay + exact theorem (replacement proofs)",
+  "helper_taxonomy": {
+    "c_of_q__port_capacity": {
+      "affected_results": [
+        "Round 31 refined bound (removed 1 survivor)",
+        "Round 32 orbit-reuse penalty (removed 1 survivor)"
+      ],
+      "class": "SOUND_FOR_FULL_SEGMENT",
+      "precondition": "Phi == 0 (so ell = 5 is forced and each port's hexagon is COMPLETED)",
+      "proof_status": "exact theorem under the stated precondition; UNSOUND without it",
+      "question": "how many ports of orbit q lie in an entirely unvisited hexagon",
+      "requires_full_hexagon_freshness": true,
+      "requires_only_single_landing": false,
+      "where": [
+        "src/build_rr_refined_capacity_bound.py::port_capacities",
+        "src/analyze_rr_segment_capacity.py::analyse (c dict)"
+      ]
+    },
+    "capacity_slack__port_availability": {
+      "affected_results": [
+        "Round 35 Q2 closure of 22 roots"
+      ],
+      "class": "SOUND_FOR_SINGLE_LANDING",
+      "precondition": "none: uses popcount(orbit_masks[q0]) -- PORT occupancy, not hexagon occupancy -- so it counts landable ports, not completable hexagons",
+      "proof_status": "exact theorem, occupancy-independent (port-level, not hexagon-level)",
+      "question": "(5 - used_ports(q0)) + 5*O_rem + 4*(N_rem + Phi) >= TARGET_P - P",
+      "requires_full_hexagon_freshness": false,
+      "requires_only_single_landing": true,
+      "where": [
+        "src/build_rr_target_a_roots.py::capacity_slack",
+        "src/verify_rr_target_b_flow.py::orbit_capacity_bound"
+      ]
+    },
+    "coarse_segment_bound": {
+      "affected_results": [
+        "Round 30 (removed 9 of 18)",
+        "Round 35 (14 of 22 roots dead)",
+        "Round 36/37 (all 1,398 boundaries)"
+      ],
+      "class": "SOUND_FOR_SINGLE_LANDING",
+      "precondition": "none beyond the RR alphabet: derived purely from segment COUNT (<= O_cap + R_cap orbit changes) and max ports per segment (<= 5), with no reference to hexagon occupancy at all",
+      "proof_status": "exact theorem, occupancy-independent",
+      "question": "5*(O_cap+R_cap)+4 >= B+1",
+      "requires_full_hexagon_freshness": false,
+      "requires_only_single_landing": false,
+      "where": [
+        "src/process_rr_new_target_a_boundaries.py::capacity_theorem",
+        "src/build_rr_1398_boundary_ledger.py::classify_row (bound_1)"
+      ]
+    },
+    "root_envelope": {
+      "affected_results": [
+        "Round 37 closure of 28 of 33 roots"
+      ],
+      "class": "SOUND_FOR_SINGLE_LANDING",
+      "precondition": "none: uses only the conservation law (dM = +1 / -4), the exact Ndef cost of an R event, and the group-theoretic max preserving run of 4 -- all occupancy-independent",
+      "proof_status": "exact theorem, occupancy-independent",
+      "question": "upper bound on margin_1 over ALL Target A boundaries reachable from a root",
+      "requires_full_hexagon_freshness": false,
+      "requires_only_single_landing": true,
+      "where": [
+        "src/analyze_rr_root_capacity_envelopes.py::envelope_for_root"
+      ]
+    },
+    "true_phase_walk_capacity": {
+      "affected_results": [
+        "Round 33 independent re-derivation of two Round 32 removals",
+        "Round 37 bound_3 in the 1,398-boundary ledger (NOT load-bearing: all 1,398 already fail bound_1)"
+      ],
+      "class": "SOUND_FOR_FULL_SEGMENT",
+      "precondition": "Phi == 0 (ell = 5 forced)",
+      "proof_status": "exact theorem under the precondition; UNSOUND as a bound on port count / P-increments -- exact counterexample recorded below",
+      "question": "maximum number of hexagons the current segment can COMPLETE, over legal {+1,+2} phase walks from the current phase",
+      "requires_full_hexagon_freshness": true,
+      "requires_only_single_landing": false,
+      "where": [
+        "src/verify_rr_target_b_unsat.py::initial_capacity",
+        "src/build_rr_1398_boundary_ledger.py::true_phase_walk_capacity"
+      ]
+    }
+  },
+  "historical_eliminations": [
+    {
+      "B_plus_1": 115,
+      "P_core": 2,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 124,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 122,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "33d70b4249b79688",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 0
+    },
+    {
+      "B_plus_1": 113,
+      "P_core": 4,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 114,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 112,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "4355122f1ad249f4",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 0
+    },
+    {
+      "B_plus_1": 113,
+      "P_core": 4,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 109,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 107,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "eb4da81d5a4a4dae",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 0,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 116,
+      "P_core": 2,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 124,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 122,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "5d3f8cb9fdd40f22",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 116,
+      "P_core": 2,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 124,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 122,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "6f1ed828b231741d",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 116,
+      "P_core": 2,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 124,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 122,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "fe82b0cdb5126756",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 114,
+      "P_core": 4,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 114,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 112,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "86195429f1c6a431",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 114,
+      "P_core": 4,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 109,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 107,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "b2898cc223e9851c",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 112,
+      "P_core": 6,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 119,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 117,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "9bd7590e3ceda28a",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 112,
+      "P_core": 6,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 119,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 117,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "cbfdf11e4a797452",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 112,
+      "P_core": 6,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 99,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 97,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "d408ede448259269",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 112,
+      "P_core": 6,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 119,
+      "freshness_INDEPENDENT_eliminates": false,
+      "freshness_dependent_eliminates": false,
+      "freshness_dependent_refined_bound": 117,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "short_family",
+      "raw_hash": "ec9025e8706ba0dd",
+      "recorded_verdict": "CAPACITY_SURVIVOR",
+      "root_ell": 4
+    },
+    {
+      "B_plus_1": 111,
+      "P_core": 7,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 104,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 102,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "long_found_4",
+      "raw_hash": "f903e663bde5e14f",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 111,
+      "P_core": 7,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 104,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 102,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "long_found_9",
+      "raw_hash": "305ec3a20c421fcd",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 108,
+      "P_core": 10,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 94,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 91,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "long_found_44",
+      "raw_hash": "3d0c9ebe3b9b6f95",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 108,
+      "P_core": 10,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 94,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 91,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "long_found_74",
+      "raw_hash": "6763ba842c37d7ab",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 108,
+      "P_core": 10,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 94,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 92,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "long_found_142",
+      "raw_hash": "4f85ec5368a065cb",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    },
+    {
+      "B_plus_1": 108,
+      "P_core": 10,
+      "Phi": 0,
+      "freshness_INDEPENDENT_coarse_bound": 94,
+      "freshness_INDEPENDENT_eliminates": true,
+      "freshness_dependent_eliminates": true,
+      "freshness_dependent_refined_bound": 92,
+      "precondition_Phi_eq_0_holds": true,
+      "provenance": "long_found_180",
+      "raw_hash": "fd286587321ec833",
+      "recorded_verdict": "CAPACITY_IMPOSSIBLE",
+      "root_ell": 4,
+      "status": "RETAINED (independent replacement proof succeeds)"
+    }
+  ],
+  "n_retained": 9,
+  "n_retracted": 0,
+  "schema": "rr-capacity-callsite-audit-v1"
+}

@@ -1,5 +1,10 @@
 # The 7 incomplete-Q1 roots: full audit and continuation strategy
 
+> **Count unit warning.** "7" here counts roots whose **Q1** search timed out.
+> It is NOT the number of roots left unresolved for **Q2** (that is 5), and it
+> is unrelated to the "7 Target B survivors" of Rounds 32–34, which counts
+> boundary STATES. See `RR_ROUND37_COUNT_UNIT_CORRECTION.md`.
+
 Round 37, Goal D, sections 8 (known-18 separation), 11-15. Source
 `src/audit_rr_incomplete_roots.py` → `outputs/rr_incomplete_root_audit.json`.
 

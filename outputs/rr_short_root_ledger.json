@@ -1,0 +1,252 @@
+{
+  "distinct_canonical_decorated_hashes": 5,
+  "distinct_raw_state_hashes": 5,
+  "margin_decomposition": {
+    "short_ell0": {
+      "M_root": -8,
+      "identity": "margin_1_upper_bound = M_root + preserving_slack + reentry_slack + terminal_slack + residual_R_cap_slack",
+      "identity_total": 14,
+      "preserving_slack": 8,
+      "reentry_slack": 2,
+      "residual_R_cap_slack": 5,
+      "terminal_slack": 7
+    },
+    "short_ell1": {
+      "M_root": -8,
+      "identity": "margin_1_upper_bound = M_root + preserving_slack + reentry_slack + terminal_slack + residual_R_cap_slack",
+      "identity_total": 14,
+      "preserving_slack": 8,
+      "reentry_slack": 2,
+      "residual_R_cap_slack": 5,
+      "terminal_slack": 7
+    },
+    "short_ell2": {
+      "M_root": -8,
+      "identity": "margin_1_upper_bound = M_root + preserving_slack + reentry_slack + terminal_slack + residual_R_cap_slack",
+      "identity_total": 14,
+      "preserving_slack": 8,
+      "reentry_slack": 2,
+      "residual_R_cap_slack": 5,
+      "terminal_slack": 7
+    },
+    "short_ell3": {
+      "M_root": -8,
+      "identity": "margin_1_upper_bound = M_root + preserving_slack + reentry_slack + terminal_slack + residual_R_cap_slack",
+      "identity_total": 14,
+      "preserving_slack": 8,
+      "reentry_slack": 2,
+      "residual_R_cap_slack": 5,
+      "terminal_slack": 7
+    },
+    "short_ell4": {
+      "M_root": -8,
+      "identity": "margin_1_upper_bound = M_root + preserving_slack + reentry_slack + terminal_slack + residual_R_cap_slack",
+      "identity_total": 14,
+      "preserving_slack": 8,
+      "reentry_slack": 2,
+      "residual_R_cap_slack": 5,
+      "terminal_slack": 7
+    }
+  },
+  "merge_note": "all five share the resource signature (P=2,O=2,Ndef=0) but are pairwise distinct at raw and canonical state level; they are NOT merged, per the round's instruction",
+  "merged_on_resource_signature": false,
+  "n_roots": 5,
+  "rows": [
+    {
+      "M_P_minus_5O": -8,
+      "Ndef": 0,
+      "O": 2,
+      "O_cap": 23,
+      "P": 2,
+      "P_core": 2,
+      "Phi": 1,
+      "R_cap": 3,
+      "canonical_decorated_hash": "c3a66f161775ca94",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "current_orbit": 120,
+      "current_phase": 1,
+      "ell": 0,
+      "exact_state_hash": "35e9155eda0e933d",
+      "hub_residual_mask": 1,
+      "hub_residual_popcount": 1,
+      "initial_partial_hexagon": 33,
+      "initial_partial_hexagon_popcount": 1,
+      "legal_first_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:120",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "literal_root": [
+        "rot^0;w2:10"
+      ],
+      "n_legal_first_macro_edges": 4,
+      "previously_generated_boundary_count": 0,
+      "root_envelope_margin": 14,
+      "root_id": "short_ell0",
+      "visited_phase_masks": {
+        "0": 1,
+        "120": 2
+      }
+    },
+    {
+      "M_P_minus_5O": -8,
+      "Ndef": 0,
+      "O": 2,
+      "O_cap": 23,
+      "P": 2,
+      "P_core": 2,
+      "Phi": 2,
+      "R_cap": 3,
+      "canonical_decorated_hash": "0c23969223b3b0ef",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "current_orbit": 33,
+      "current_phase": 2,
+      "ell": 1,
+      "exact_state_hash": "fc104ccf91e6dc40",
+      "hub_residual_mask": 3,
+      "hub_residual_popcount": 2,
+      "initial_partial_hexagon": 24,
+      "initial_partial_hexagon_popcount": 1,
+      "legal_first_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:120",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "literal_root": [
+        "rot^1;w1:0",
+        "rot^0;w2:10"
+      ],
+      "n_legal_first_macro_edges": 4,
+      "previously_generated_boundary_count": 0,
+      "root_envelope_margin": 14,
+      "root_id": "short_ell1",
+      "visited_phase_masks": {
+        "0": 1,
+        "33": 4
+      }
+    },
+    {
+      "M_P_minus_5O": -8,
+      "Ndef": 0,
+      "O": 2,
+      "O_cap": 23,
+      "P": 2,
+      "P_core": 2,
+      "Phi": 3,
+      "R_cap": 3,
+      "canonical_decorated_hash": "fa6dc2cad80316e4",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "current_orbit": 9,
+      "current_phase": 3,
+      "ell": 2,
+      "exact_state_hash": "370831e8a0eb811f",
+      "hub_residual_mask": 7,
+      "hub_residual_popcount": 3,
+      "initial_partial_hexagon": 6,
+      "initial_partial_hexagon_popcount": 1,
+      "legal_first_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:120",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "literal_root": [
+        "rot^1;w1:0",
+        "rot^1;w1:0",
+        "rot^0;w2:10"
+      ],
+      "n_legal_first_macro_edges": 4,
+      "previously_generated_boundary_count": 0,
+      "root_envelope_margin": 14,
+      "root_id": "short_ell2",
+      "visited_phase_masks": {
+        "0": 1,
+        "9": 8
+      }
+    },
+    {
+      "M_P_minus_5O": -8,
+      "Ndef": 0,
+      "O": 2,
+      "O_cap": 23,
+      "P": 2,
+      "P_core": 2,
+      "Phi": 4,
+      "R_cap": 3,
+      "canonical_decorated_hash": "faca173c0346a2c6",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "current_orbit": 3,
+      "current_phase": 4,
+      "ell": 3,
+      "exact_state_hash": "89615cac08fafef0",
+      "hub_residual_mask": 15,
+      "hub_residual_popcount": 4,
+      "initial_partial_hexagon": 2,
+      "initial_partial_hexagon_popcount": 1,
+      "legal_first_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:120",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "literal_root": [
+        "rot^1;w1:0",
+        "rot^1;w1:0",
+        "rot^1;w1:0",
+        "rot^0;w2:10"
+      ],
+      "n_legal_first_macro_edges": 4,
+      "previously_generated_boundary_count": 0,
+      "root_envelope_margin": 14,
+      "root_id": "short_ell3",
+      "visited_phase_masks": {
+        "0": 1,
+        "3": 16
+      }
+    },
+    {
+      "M_P_minus_5O": -8,
+      "Ndef": 0,
+      "O": 2,
+      "O_cap": 23,
+      "P": 2,
+      "P_core": 2,
+      "Phi": 5,
+      "R_cap": 3,
+      "canonical_decorated_hash": "777d4b4a93153e09",
+      "continuation_search_status": "INCOMPLETE_TIMEOUT",
+      "current_orbit": 1,
+      "current_phase": 0,
+      "ell": 4,
+      "exact_state_hash": "fb1b213f7e6fe18c",
+      "hub_residual_mask": 31,
+      "hub_residual_popcount": 5,
+      "initial_partial_hexagon": 1,
+      "initial_partial_hexagon_popcount": 1,
+      "legal_first_macro_edges": [
+        "rot^5;w2:10",
+        "rot^5;w3:120",
+        "rot^5;w3:201",
+        "rot^5;w3:210"
+      ],
+      "literal_root": [
+        "rot^1;w1:0",
+        "rot^1;w1:0",
+        "rot^1;w1:0",
+        "rot^1;w1:0",
+        "rot^0;w2:10"
+      ],
+      "n_legal_first_macro_edges": 4,
+      "previously_generated_boundary_count": 0,
+      "root_envelope_margin": 14,
+      "root_id": "short_ell4",
+      "visited_phase_masks": {
+        "0": 1,
+        "1": 1
+      }
+    }
+  ],
+  "schema": "rr-short-root-ledger-v1"
+}

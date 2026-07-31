@@ -83,8 +83,11 @@ An earlier draft tried to tighten the "4 per segment" term using
 `true_phase_walk_capacity` (Round 33's occupancy-aware initial-segment
 refinement). **This is unsound for the present purpose**, and the
 counterexample is exact: at root `long_found_142`, `true_phase_walk_
-capacity` predicts a maximum of 2 additional legal steps, but the engine
-literally executes 3. The function requires the *landing* hexagon of every
+capacity` predicts a maximum of **3 ports**, but the engine literally
+stands on **4**. *(Figures corrected in Round 38; this document originally
+said 2 vs 3. The direction of the finding — the helper undercounts — is
+unchanged, and no result here depended on the numbers: the envelope
+rejected the helper outright. See `RR_CAPACITY_HELPER_SOUNDNESS_AUDIT.md`.)* The function requires the *landing* hexagon of every
 step — including the last one before a transition — to be completely
 fresh; but only the *starting* hexagon of each step's rotation run needs
 that. The final landing permutation just needs its own single slot free,
