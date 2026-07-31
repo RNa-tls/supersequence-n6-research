@@ -1,0 +1,145 @@
+{
+  "schema": "rr-short5-post-r1-analysis-claude-v1",
+  "author": "Claude",
+  "role": "post-R1 analyst (read-only over Codex's codex/round40-short5-r1-complete branch)",
+  "commit_verification": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "git fetch origin codex/round40-short5-r1-complete succeeded (new branch, previously absent). All four cited commits are reachable on it.",
+    "commits": {
+      "d8600b9": "Round 40 Codex: fix short-root R1 traversal completeness",
+      "e9ff19c": "Round 40 Codex: retire pre-R worker and firewall v2 checkpoints",
+      "5e13395": "Round 40 Codex: validate corrected short-root pilot",
+      "abfcdca": "Round 40 Codex: run corrected ell0 medium continuation"
+    }
+  },
+  "files_read": [
+    "research/RR_SHORT_ELL0_MEDIUM_RUN_CODEX.md",
+    "outputs/rr_short_ell0_medium_v2.json",
+    "outputs/rr_short_ell0_medium_v2_verified.json",
+    "research/RR_SHORT5_CORRECTED_PILOT_CODEX.md",
+    "outputs/rr_short5_corrected_pilot.json",
+    "outputs/rr_short5_corrected_pilot_verified.json",
+    "research/RR_SHORT5_R1_COMPLETENESS_CORRECTION_CODEX.md",
+    "outputs/rr_short5_r1_completeness_audit.json",
+    "outputs/rr_short5_worker_retirement.json",
+    "outputs/rr_short5_checkpoints/PRE_R_SCOPE_INVALIDATION.md",
+    "outputs/checkpoints/rr_short5/r1_complete_v2/short_ell0_r1_seed.json",
+    "src/search_rr_target_a_exhaustive.py"
+  ],
+  "files_deliberately_not_read": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "outputs/checkpoints/rr_short5/r1_complete_v2/short_ell0_pilot.json (55310 lines, raw frontier dump) and the final medium checkpoint were not read; per instruction 5, the aggregated JSONs already carry every per-R1-event decoration needed and no question here required frontier-state replay."
+  },
+  "run_scope": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "single root (short_ell0 only), single INCOMPLETE bounded pilot (node-capped at 100250, not exhaustion), exactly 4 distinct R1 events observed. short_ell1-short_ell4 have no corrected-run data yet in this branch.",
+    "root_id": "short_ell0",
+    "status": "INCOMPLETE",
+    "interrupted_by_node_limit": true,
+    "frontier_empty": false,
+    "target_a_boundaries": 0
+  },
+  "state_key_grade": {
+    "label": "CLAUDE_OBSERVATION -- grade preserved per standing correction",
+    "statement": "exhaustive tested-universe equivalence, not a universal proof -- applied consistently to both key schemes now in play: search_rr_target_a_unified.py's (state.stable_key(), r_count), and search_rr_target_a_exhaustive.py's richer Decoration-keyed scheme (state.stable_key(), dec.key()).",
+    "codex_own_evidence": "state_key_audit: 99 states examined (depth<=2), 0 key/signature mismatches, 34 deliberately-duplicated post-R1 groups resolving correctly -- same grade (tested-universe, not universal), independently worded by Codex as 'lossless raw-key contract plus complete depth-2 successor-signature regression'"
+  },
+  "task_1_ch0_vs_ch2": {
+    "label": "CLAUDE_OBSERVATION -- answered from code, not guessed",
+    "code_citation": "search_rr_target_a_exhaustive.py Decoration.branch, lines 142-152",
+    "branch_logic": {
+      "UNDECIDED": "completer is None",
+      "CH1": "completer.kind=='R' and completer.macro_index == r1.macro_index",
+      "CH2": "completer.kind=='Z2' and r1.macro_index < completer.macro_index (R1 strictly BEFORE completer)",
+      "OTHER_OR_UNDECIDED": "everything else, including a completer that fires BEFORE R1 regardless of its kind"
+    },
+    "answer_part_a": "CH0 (hub complete before R1) is NOT a CH2 subtype -- settled by direct code inspection: CH2's own condition requires r1.macro_index < completer.macro_index, which is false by construction whenever the completer precedes R1. This is not hypothetical: the one observed CH0-pattern instance (R1 event 4, completer at macro_index 4, R1 at macro_index 5) is recorded with branch='OTHER_OR_UNDECIDED' in the actual data, not 'CH2'.",
+    "answer_part_b": "whether CH0 deserves its OWN dedicated label (a true third class) versus staying folded into the generic OTHER_OR_UNDECIDED catch-all is an engineering/taxonomy choice not yet made in this codebase -- OTHER_OR_UNDECIDED also catches any other completer pattern that matches neither CH1 nor CH2 (e.g. a non-R, non-Z2 completer kind), so it is not synonymous with CH0 even though the one observed instance happens to be the CH0 pattern.",
+    "provisional_ch0_counter_note": "provisional_CH0_events:1 in the medium-run stats is a separate, ad-hoc diagnostic counter computed outside Decoration.branch entirely -- branch_transitions in the same stats only ever records 'UNDECIDED->CH1' and 'UNDECIDED->OTHER_OR_UNDECIDED', never a CH0-named transition"
+  },
+  "task_2_3_r1_orbit_phase": {
+    "label": "CLAUDE_OBSERVATION",
+    "source": "rr_short5_corrected_pilot.json r1_decorations, cross-verified against rr_short5_corrected_pilot_verified.json r1_metadata (verified:true, failures:[])",
+    "n_distinct_r1_events": 4,
+    "events": [
+      {"index": 1, "macro_index": 1, "source_orbit": 33, "source_phase": 0, "target_orbit": 120, "target_phase": 3, "joint": "w3:120", "hub_state_at_r1": "untouched", "branch": "UNDECIDED"},
+      {"index": 2, "macro_index": 2, "source_orbit": 64, "source_phase": 0, "target_orbit": 120, "target_phase": 4, "hub_state_at_r1": "untouched", "branch": "UNDECIDED"},
+      {"index": 3, "macro_index": 3, "source_orbit": 90, "source_phase": 0, "target_orbit": 120, "target_phase": 0, "hub_state_at_r1": "R1 is itself the completer", "branch": "CH1"},
+      {"index": 4, "macro_index": 5, "source_orbit": 1, "source_phase": 4, "target_orbit": 0, "target_phase": 2, "hub_state_at_r1": "completed before R1, at macro_index 4, via a Z2 edge", "branch": "OTHER_OR_UNDECIDED (CH0 pattern)"}
+    ],
+    "target_orbit_tally": {"120": 3, "0": 1},
+    "target_phase_tally": {"3": 1, "4": 1, "0": 1, "2": 1},
+    "interpretation": "3 of 4 events target orbit 120 (the orbit the root's own w2:10 abandonment already opened; only orbits 0 and 120 are open at shallow depth, so re-entering 120 is the only non-hub R option until a Z3 opens a third orbit). Event 4 targets orbit 0 (the hub) directly, reached only after depth 4. Target phases observed: {3,4,0,2}, four of five possible values, phase 1 not yet seen. n=4 -- reported as raw observation, not a distribution claim."
+  },
+  "task_4_hub_completion_timing": {
+    "label": "CLAUDE_OBSERVATION",
+    "tally": {
+      "hub_not_yet_touched_at_r1_pending": {"count": 2, "events": [1, 2]},
+      "hub_completed_at_r1_CH1": {"count": 1, "events": [3]},
+      "hub_completed_before_r1_CH0_pattern": {"count": 1, "events": [4]},
+      "hub_completed_after_r1_via_later_Z2_CH2": {"count": 0, "events": []}
+    },
+    "statement": "no CH2 instance observed at all in this root's data so far; every hub-completion event is either simultaneous with R1 (CH1) or strictly precedes it (CH0 pattern). Consistent with (not proof of) the intuition that a short root's hub orbit is already open from the start (it is the root's own home orbit), unlike the 22 long-excursion roots where CH1/CH2 was originally motivated. n=4 is far too small to be more than one data point per case."
+  },
+  "task_5_phi_m_at_r1": {
+    "label": "CLAUDE_OBSERVATION",
+    "source": "outputs/rr_short_ell0_medium_v2.json stats (matches RR_SHORT_ELL0_MEDIUM_RUN_CODEX.md histogram table)",
+    "Phi_at_R1": {"0": 1, "1": 3},
+    "M_at_R1": {"-3": 1, "-5": 1, "-6": 1, "-7": 1},
+    "per_event_mapping_attempted": false,
+    "why_not": "committed JSON does not tag which Phi/M value belongs to which R1 event; reconstructing that mapping would require replaying full state from the raw 55310-line pilot checkpoint, which instruction 5 says not to do unless genuinely needed -- not needed here since the aggregate histogram already answers what was asked",
+    "one_checkable_fact": "Phi_at_R1=0 occurs exactly once; by the already-established sawtooth identity (Phi flat across rot^5 runs, drops by (ell_run-5) at a joint), that requires a rotation run shorter than 5 immediately before that R1. The other three keep Phi_at_R1=1 (the root's own value), meaning those three R1 edges are full rot^5 runs with no intervening short rotation. Arithmetic consistency check only, not a new measurement."
+  },
+  "task_6_7_r2_failures_and_dead_end_motifs": {
+    "label": "CLAUDE_OBSERVATION",
+    "source": "outputs/rr_short_ell0_medium_v2.json stats.post_R1_prunes",
+    "post_R1_prunes": {
+      "exact_permutation_collision": 1285544,
+      "area_a:F_exceeded": 925880,
+      "r2_not_target": 53708,
+      "area_a:O_exceeded": 40428,
+      "decorated_memo_duplicate": 4
+    },
+    "share_of_total": {
+      "exact_permutation_collision": "53.4%",
+      "area_a:F_exceeded": "38.5%",
+      "r2_not_target": "2.2%",
+      "area_a:O_exceeded": "1.7%",
+      "decorated_memo_duplicate": "~0%"
+    },
+    "dominant_motif": "exact_permutation_collision -- an ordinary revisit check (candidate landing permutation already visited), not specific to R1/R2 geometry",
+    "r2_not_target_note": "equals R2_candidate_edges (53708) exactly -- every R2 candidate attempted in this run failed the recognizer, consistent with Target_A_hits=0. No finer reason is available (see missing_fields).",
+    "scope_flag_not_a_claimed_bug": {
+      "label": "CLAUDE_OBSERVATION",
+      "statement": "area_a:O_exceeded fired 40428 times via an UNCONDITIONAL call to macro.area_a_prune_reason (evaluate_edge, ~line 422 of search_rr_target_a_exhaustive.py), with no Q1/Q2 mode split. This repository's own Round 36 audit (PRUNE_CLASSIFICATION, src/search_rr_target_a_unified.py) classifies O_exceeded as Q2-ONLY (completion-assuming: 'nothing -- TARGET_O=25 is a full-completion target'), because O>25 only rules out later reaching full Area-A completion, not whether a Target A boundary (a local condition) is still reachable. search_rr_target_a_exhaustive.py is the OLDER Round 35 file (module docstring: 'deliberately a root-local Target-A boundary search... not a Target-B or NR6 completion search') and it does not implement the Q1/Q2 split that a sibling file (search_rr_target_a_unified.py) already has.",
+      "consequence": "if any of the 40428 O_exceeded-discarded states (or descendants) could reach a genuine Target A boundary that simply would not go on to full Area-A completion, this run's traversal would never find it, and its INCOMPLETE/0-hits status would not reflect that",
+      "not_asserted": "this is not claimed to be a bug -- it may be that this engine's intended scope for Codex really is the Q2 question (matching its historical Round 35 role) and the docstring's 'not a completion search' line refers to Target B/C rather than Q1/Q2 coverage. That is Codex's design decision to state, not this analyst's to assume.",
+      "action_taken": "flagged only; no file edited, no prune proposed, no search run"
+    }
+  },
+  "safe_prune_candidates": {
+    "new_candidates_proposed": 0,
+    "candidate_1_ndef_ceiling_status": {
+      "label": "CLAUDE_OBSERVATION -- prediction confirmed",
+      "recap": "predicted vacuous for these five roots (Ndef pinned at 1 post-R1, root Ndef=0, exactly one R event so far)",
+      "confirmation": "target_a_recognizer's conditions dict requires Ndef_equals_2 (transition.state.Ndef==2) for the R2 child exactly -- Ndef(root)+1(R1)+1(R2)=2, matching this document's own derivation precisely and confirming Candidate 1's threshold (Ndef>=n_limit=3) is never approached (pinned at 1, one short of the recognizer's required exact value of 2)",
+      "verdict": "remains correct, remains not useful here -- confirmed-vacuous, not silently dropped"
+    },
+    "candidate_2_same_component_status": "unchanged: still not proposed as a prune (sound direction -- a merge lower bound -- was not established); nothing in this round's data changes that",
+    "why_no_new_candidate": "none of the newly-observed facts (CH0 pattern, orbit-120 concentration, exact_permutation_collision dominance) yields an argument this document can complete a hand proof for; exact_permutation_collision is a basic legality check already at its tightest possible form"
+  },
+  "missing_fields_requested_from_codex": [
+    "per-candidate breakdown of r2_not_target (53708 events) -- target_a_recognizer already computes 7 named booleans (exactly_two_R_events, immediately_after_R2, F_def_le_1, Ndef_equals_2, H_equals_0, area_a_legal, same_component) per candidate but aggregated stats collapse them into one count; a histogram of which condition(s) were False (at minimum, a count of same_component=False specifically) is needed to characterize WHY R2 candidates fail",
+    "per-R1-event tagging of Phi_at_R1/M_at_R1 with the originating event's (macro_index, source_orbit, target_orbit), to let task 5's arithmetic check be verified exactly rather than left as consistent-but-unconfirmed",
+    "explicit confirmation of search_rr_target_a_exhaustive.py's Q1 vs Q2 scope intent (see task_6_7's scope_flag) -- a one-line statement of whether this engine answers 'any Target A boundary' or 'only completion-compatible ones'",
+    "corrected runs for short_ell1 through short_ell4 -- all of this analysis covers short_ell0 only"
+  ],
+  "explicit_non_claims": [
+    "no claim that short_ell0 (or any short root) is FOUND_TARGET_A, EXHAUSTED_NO_TARGET_A, or any status beyond the INCOMPLETE this pilot itself reports",
+    "n=4 R1 events is not treated as a statistically meaningful distribution anywhere in this file",
+    "does not resolve whether CH0 deserves a dedicated label versus staying inside OTHER_OR_UNDECIDED -- only that it is not, and cannot be, a CH2 instance under the current code",
+    "does not assert area_a:O_exceeded usage is a bug -- only flags it as a completion-scoped condition applied inside a boundary-finding search, worth an explicit scope confirmation",
+    "no Codex file, checkpoint, or certificate was edited; no search was run by this analysis -- every number above is read, not computed by a new traversal"
+  ],
+  "end_token": "CLAUDE_POST_R1_ANALYSIS_COMPLETE"
+}
