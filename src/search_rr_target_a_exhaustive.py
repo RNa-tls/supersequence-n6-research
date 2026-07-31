@@ -476,8 +476,16 @@ def load_audited_roots(ledger_path: Path, prefixes_path: Path) -> list[dict[str,
     return rows
 
 
-def checkpoint_config(record: Mapping[str, object], node_limit: int, max_depth: Optional[int]) -> dict[str, object]:
-    return {
+def checkpoint_config(record: Mapping[str, object], node_limit: int, max_depth: Optional[int],
+                      config_extra: Optional[Mapping[str, object]] = None) -> dict[str, object]:
+    """Return the complete, hash-bound checkpoint identity.
+
+    ``config_extra`` is deliberately an additive provenance hook for a
+    separately named root universe.  It changes the checkpoint identity, so
+    a short-root checkpoint can never be resumed as a historical long-prefix
+    checkpoint (or conversely).  The core traversal does not inspect it.
+    """
+    config: dict[str, object] = {
         "schema": "rr-target-a-exhaustive-config-v1",
         "root_id": record["root_id"],
         "root_literal_hash": sha256_bytes(repr((record["root_ell"], record["literal_joint_word"])).encode("utf-8")),
@@ -487,6 +495,12 @@ def checkpoint_config(record: Mapping[str, object], node_limit: int, max_depth: 
         "prune_registry_hash": registry_hash(),
         "recognizer_hash": sha256_bytes(Path(__file__).read_bytes()),
     }
+    if config_extra:
+        collision = set(config).intersection(config_extra)
+        if collision:
+            raise ValueError(f"checkpoint config extension overwrites core keys: {sorted(collision)}")
+        config.update(dict(config_extra))
+    return config
 
 
 def atomic_json(path: Path, payload: Mapping[str, object]) -> None:
@@ -608,9 +622,10 @@ def dispatch_target_b(boundary: Mapping[str, object], state) -> dict[str, object
 
 def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 max_depth: Optional[int] = None, checkpoint: Optional[Path] = None,
-                checkpoint_every: int = 1000, resume: Optional[Path] = None) -> dict[str, object]:
+                checkpoint_every: int = 1000, resume: Optional[Path] = None,
+                checkpoint_config_extra: Optional[Mapping[str, object]] = None) -> dict[str, object]:
     """Exact root-local traversal.  Positive node/max-depth stops are incomplete."""
-    config = checkpoint_config(record, node_limit, max_depth)
+    config = checkpoint_config(record, node_limit, max_depth, checkpoint_config_extra)
     if resume is not None:
         frontier, seen, stats, boundaries, lineage = load_checkpoint(resume, config)
         lineage = lineage + [sha256_file(resume)]
