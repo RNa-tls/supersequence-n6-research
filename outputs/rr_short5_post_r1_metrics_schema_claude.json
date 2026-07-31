@@ -1,0 +1,131 @@
+{
+  "schema": "rr-short5-post-r1-metrics-schema-claude-v1",
+  "author": "Claude",
+  "role": "post-R1 analysis framework designer (planning only, no data analyzed yet)",
+  "purpose": "Specifies the record schema, metric definitions, and prune-candidate status a corrected post-R1 traversal (Codex's pilot) should be measured against for the five short roots (short_ell0..short_ell4). No post-R1 data exists in this repository as of this writing -- see verification_note.",
+  "verification_note": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "commit d8600b9, cited as the 'verified Codex fix commit', could not be located: `git log --all` in this checkout does not contain it, and GitHub's get_commit / search_commits return no match on either branch (main, claude/n6-supersequence-length-rn17wf) of rna-tls/supersequence-n6-research. CODEX_VERIFIED status is not independently confirmed by this session. This schema is written to be source-agnostic so it remains valid regardless of that discrepancy's resolution."
+  },
+  "post_r1_state_universe": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "post-R1 denotes any reachable state with r_count=1 from one of the five short roots (root_r_count=0). Target A requires k=2 R events from these roots; R2 (the second R-kind edge) is the only edge type that can ever be recognized as a Target A boundary from these roots (is_target_a_edge requires r_count_before==1 exactly)."
+  },
+  "required_decoration": {
+    "sufficient_for_correctness": {
+      "label": "CLAUDE_OBSERVATION",
+      "statement": "(state.stable_key(), r_count) is already proven sufficient for traversal correctness by decorated_key's own docstring in search_rr_target_a_unified.py (lines 303-319); this schema does not add anything to that pair for correctness.",
+      "fields": ["state (p, hex_masks, orbit_masks, F, S, H)", "r_count"]
+    },
+    "additional_fields_for_this_analysis": {
+      "label": "CLAUDE_PROPOSAL",
+      "note": "needed only to answer the focus-area questions below without re-deriving R1's identity post-hoc from bare state+r_count; not needed for search correctness",
+      "fields": [
+        {"name": "r1_depth", "type": "int", "meaning": "depth (edge count from root) at which R1 fired", "feeds": ["distance_to_completer"]},
+        {"name": "r1_source_orbit", "type": "int", "meaning": "ORBIT_PHASE[pre.p] orbit component at the moment R1 fired", "feeds": ["r1_target_orbit_distribution (cross-check)"]},
+        {"name": "r1_source_phase", "type": "int", "meaning": "ORBIT_PHASE[pre.p] phase component at the moment R1 fired", "feeds": ["r1_target_phase_distribution (cross-check)"]},
+        {"name": "r1_target_orbit", "type": "int", "meaning": "ORBIT_PHASE[tr.target] orbit component of R1's landing", "feeds": ["r1_target_orbit_distribution"]},
+        {"name": "r1_target_phase", "type": "int", "meaning": "ORBIT_PHASE[tr.target] phase component of R1's landing", "feeds": ["r1_target_phase_distribution"]},
+        {"name": "r1_joint_label", "type": "str", "meaning": "e.g. 'w3:xyz', the literal move label of R1's joint", "feeds": ["r1_target_orbit_distribution (cross-check)"]},
+        {"name": "r1_ell", "type": "int", "meaning": "rotation-run length (edge.run.ell) of R1's macro edge", "feeds": ["phi_m_at_first_r"]},
+        {"name": "hub_popcount_at_r1_minus", "type": "int", "meaning": "hub hexagon popcount immediately before R1's joint fires", "feeds": ["hub_completion_timing", "ch_emergence"]},
+        {"name": "hub_popcount_at_r1_plus", "type": "int", "meaning": "hub hexagon popcount immediately after R1's joint fires", "feeds": ["hub_completion_timing", "ch_emergence"]},
+        {"name": "hub_complete_relative_to_r1", "type": "enum[before_r1, at_r1, after_r1_pending]",
+          "meaning": "derived: before_r1 if hub_popcount_at_r1_minus==6; at_r1 if hub_popcount_at_r1_minus<6 and hub_popcount_at_r1_plus==6; else after_r1_pending",
+          "feeds": ["hub_completion_timing", "ch_emergence"]},
+        {"name": "Phi_at_r1", "type": "int", "meaning": "Phi of the state immediately after R1's joint", "feeds": ["phi_m_at_first_r"]},
+        {"name": "M_at_r1", "type": "int", "meaning": "M = P - 5*O of the state immediately after R1's joint", "feeds": ["phi_m_at_first_r"]},
+        {"name": "Ndef_at_r1", "type": "int", "meaning": "should equal Ndef(root)+1 = 1 exactly for all five roots; recorded to check, not assumed", "feeds": ["safe_prune_candidates.candidate_1.counterexample_request"]},
+        {"name": "steps_since_r1", "type": "int", "meaning": "edge count since R1 fired, tagged on every subsequent record along the walk (0 at R1 itself)", "feeds": ["distance_to_completer", "r2_predecessor_geometry", "post_r1_dead_end_motifs"]}
+      ]
+    }
+  },
+  "focus_areas": {
+    "r1_target_orbit_distribution": {
+      "label": "method defined, CLAUDE_OBSERVATION; no data yet",
+      "definition": "histogram of r1_target_orbit, one row per DISTINCT R1 edge fired (not per post-R1 frontier state, to avoid double-counting one R1 choice across its many Z2/Z3 continuations)",
+      "known_constraint": "an R-kind edge requires landing in an already-open orbit with an unoccupied phase (new_orbit=False, enforced by an AssertionError guard in the engine against reusing an occupied phase); at the literal root only 2 orbits are open (hub orbit + the root's own w2:10 abandonment orbit), so if R1 fires at depth 1 its target orbit is necessarily one of those two -- whether R1 ever fires that early is unknown from existing data",
+      "status": "open empirical question for the pilot"
+    },
+    "r1_target_phase_distribution": {
+      "label": "method defined; no data yet",
+      "definition": "histogram of r1_target_phase in {0,1,2,3,4}",
+      "known_constraint": "none beyond phase range and non-occupancy",
+      "status": "open empirical question for the pilot"
+    },
+    "ch_emergence": {
+      "label": "CLAUDE_OBSERVATION (naming proposal) + open empirical question",
+      "statement": "the existing CH1/CH2 dichotomy (RR_CH1_CH2_EXTENSION_SEARCH.md) was defined for the 22 long-excursion roots (root already at r_count=1, hub always incomplete at root). It is INCOMPLETE for the five short roots: the prior deliverable found ~2.1% of the pre-R1 frontier sample already reaches hub popcount 6 with zero R events fired -- a case CH1/CH2 has no label for.",
+      "proposed_three_way_split": [
+        {"case": "CH0", "condition": "hub hexagon reaches popcount 6 before R1 fires at all (new label, short-root-only)"},
+        {"case": "CH1", "condition": "hub_complete_relative_to_r1 == at_r1"},
+        {"case": "CH2", "condition": "hub reaches popcount 6 strictly after R1, via a Z2 edge"}
+      ],
+      "status": "naming proposal only; which case dominates is exactly what the pilot is for"
+    },
+    "hub_completion_before_after_r1": {
+      "label": "method defined",
+      "definition": "hub_complete_relative_to_r1 histogram, plus steps_since_r1 at first popcount-6 for after_r1_pending records",
+      "status": "open empirical question for the pilot"
+    },
+    "phi_m_at_first_r": {
+      "label": "method defined + two checkable identities (not new claims)",
+      "identity_1": "M_at_r1 = M(root) + sum(+1 per Z2, -4 per Z3 before R1) + 1 (R1 itself contributes +1, same (dP,dO)=(+1,0) as Z2, per the already-proven Round 37 conservation law)",
+      "identity_2": "Phi drops by exactly (r1_ell - 5) at the R1 joint itself and is flat across rot^5 edges otherwise (sawtooth identity, RR_SHORT5_FRONTIER_ANALYSIS_CLAUDE.md section 8, citing SHORTFALL_BUDGET_THEOREM.md section 2); a mismatch in the pilot's reported Phi_at_r1 vs this reconstruction should be flagged, not silently trusted either way",
+      "status": "identities are proven; empirical Phi_at_r1/M_at_r1 values are open"
+    },
+    "distance_to_completer": {
+      "label": "method defined; NO lower bound claimed",
+      "definition": "steps_since_r1 at whichever event is 'the completer', ambiguous until the CH0/CH1/CH2 label is known for the record (CH0's completer precedes R1, so distance is undefined/negative there, not coerced to 0)",
+      "attempted_and_not_completed": "whether R2 can fire literally immediately after R1 (zero Z2/Z3 edges between) was investigated; a confident case analysis over the exact move table (ALL_MOVES, ORBIT_PHASE) could not be completed in this pass without either running new code against live states (out of this role's scope) or asserting an unverified claim",
+      "status": "open empirical question for the pilot; no prune proposed on this basis (see safe_prune_candidates)"
+    },
+    "r2_predecessor_geometry": {
+      "label": "CLAUDE_OBSERVATION, fully verified against engine mutation code",
+      "monotonicity_fact": "component_forest is built purely from orbit_masks bits (one union per set bit, orbit-node to hexagon-node of that visited port). orbit_masks bits are only ever SET, never cleared (`om[q] |= 1 << phase` in superperm_partial_f1.py line 245; the preceding guard actively forbids re-setting an already-set bit). Therefore the induced partition of {orbits} union {hexagons} into components can only COARSEN (merge, never split) along any walk; any two nodes in the same component at some point remain so forever.",
+      "practical_consequence": "the first step at which R2's eventual source and target orbit become same-component is a well-defined, monotone event; the pilot's raw per-state orbit_masks (already part of state serialization, no extra decoration needed) is sufficient to compute it in post-processing",
+      "status": "method for computing this metric is fully specified; empirical values are open"
+    },
+    "post_r1_dead_end_motifs": {
+      "label": "method defined; no data yet",
+      "statement": "the pre-R1 dead-end motif (R_event_not_eligible_r_count) cannot recur in the same form post-R1, since is_target_a_edge's r_count_before!=1 rejection is false once r_count=1. Recommended tracking: pruned_by_reason histogram separately for r_count=0 vs r_count=1 sub-populations, plus a dedicated bucket for different_components / source_or_target_orbit_not_in_forest (the two is_target_a_edge near-miss reasons that can only fire post-R1), histogrammed by (r1_target_orbit, steps_since_r1) once real data exists",
+      "status": "open empirical question for the pilot"
+    }
+  },
+  "safe_prune_candidates": [
+    {
+      "id": "candidate_1_post_r1_ndef_ceiling",
+      "label": "CLAUDE_PROPOSAL",
+      "statement": "for any post-R1 (r_count==1) state reached from a short root, if Ndef(state) >= n_limit (3), no Target A boundary reachable from that state lies within the disclosed Area-A scope; the state and its subtree may be pruned, tightening N_exceeded_monotone's threshold by exactly 1 at r_count==1 states specifically",
+      "hand_proof": {
+        "label": "CLAUDE_HAND_PROOF",
+        "steps": [
+          "1. An R-kind edge has (dS,dF,dO)=(1,0,0) by its own joint_kind definition (3,False,False); by the already-proven identity dNdef=dS+dF-dO, dNdef=+1 exactly for any R-kind edge.",
+          "2. From a post-R1 state, Target A's recognizer requires the boundary to be exactly the second R (is_target_a_edge, r_count_before==1); no Z2/Z3 edge changes Ndef (dNdef=0 for both, Round 37 conservation table).",
+          "3. Therefore Ndef(boundary_child) = Ndef(current_state) + 1 EXACTLY for every Target A boundary reachable from a post-R1 state -- the same '+k exactly' argument the Round 37 envelope theorem already uses for Ndef(boundary)=Ndef(root)+k, specialized to k=1.",
+          "4. N_exceeded_monotone's own disclosed scope requires Ndef(boundary_child) <= n_limit. Substituting step 3: Ndef(current_state) <= n_limit - 1. Contrapositive: Ndef(current_state) >= n_limit certifies no Area-A-scope Target A boundary is reachable from that state."
+        ]
+      },
+      "exact_scope": "r_count==1 states reached from a root with root_r_count==0 (the five short roots specifically); requires Area-A scope (n_limit=3) exactly as N_exceeded_monotone already requires; does not apply as stated to long-excursion roots (root_r_count=1 already)",
+      "required_decoration": "r_count and Ndef, both already present in every existing frontier record -- no new field needed for this specific prune",
+      "honesty_check": "for these five specific short roots, Ndef(root)=0 uniformly and only R-kind edges move Ndef, so post-R1 pre-R2 states have Ndef pinned at exactly 1 (well below the >=3 threshold). This candidate is expected to be correct but VACUOUS for the short-root family as currently scoped -- it would never actually fire here. Recorded anyway because (a) it documents a generally-applicable refinement other roots could use, and (b) its predicted vacuity is itself a checkable claim.",
+      "minimal_counterexample_search_request_for_codex": "among all r_count==1 records the corrected pilot actually generates from the five short roots, report the distribution of Ndef. Expected: {1: <all of them>}. Any record with Ndef != 1 at r_count==1 is either evidence this prune is not vacuous (if Ndef>=3) or evidence of an engine/decoration bug (if Ndef is anything other than 0 or 1 in that population). This is a single aggregate histogram over data the pilot already produces, not a new search."
+    },
+    {
+      "id": "candidate_2_same_component_monotonicity",
+      "label": "considered, NOT proposed as a prune",
+      "statement": "the monotonicity fact under r2_predecessor_geometry is tempting to read as a prune ('not yet same-component => prune') but that direction is UNSOUND: components can still merge later via further Z2/Z3/R edges, so 'not yet same-component' is never a valid impossibility certificate -- exactly backwards from what a sound prune needs.",
+      "why_no_prune_proposed": "no sound prune was found in the other direction either (a lower bound on how many further edges are needed to force a merge) without either running new code against live states (out of scope for this role) or asserting an unverified claim about specific hexagon/orbit adjacency structure. Per the assigning instruction ('only propose a new prune if you can provide a hand proof of soundness'), the correct response to an incomplete proof is not to propose it.",
+      "retained_value": "the monotonicity fact itself is retained as a CLAUDE_OBSERVATION under r2_predecessor_geometry because it is still useful for correctly COMPUTING the metric, even though it yields no prune"
+    }
+  ],
+  "explicit_non_claims": [
+    "no post-R1 data has been analyzed -- none exists in this repository's checkpoints as of this writing",
+    "CODEX_VERIFIED status for commit d8600b9 is not confirmed by this session (see verification_note)",
+    "no r1_target_orbit/phase distribution, CH0/CH1/CH2 proportion, hub-completion-timing proportion, or dead-end-motif frequency is inferred from the pre-R1 checkpoint; all are left as open empirical questions for the corrected pilot",
+    "candidate_1 is not implemented anywhere in this repository",
+    "candidate_2 is explicitly not proposed as a prune",
+    "no search was run, no Codex traversal code or checkpoint file was modified"
+  ],
+  "end_token": "CLAUDE_POST_R1_PLAN_READY"
+}
