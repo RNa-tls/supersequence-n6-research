@@ -173,6 +173,22 @@ class Short5RootTests(unittest.TestCase):
                              [(depth, short5.rr.decorated_key(state, dec), trace)
                               for depth, state, dec, trace in frontier_b])
 
+    def test_post_r1_telemetry_is_additive_and_present(self):
+        """The medium-run observables must not be hidden in uncheckpointed locals."""
+        manifest = short5.short_root_manifest(self.records)
+        result = short5.rr.search_root(self.records[0], node_limit=8, checkpoint=None,
+                                       checkpoint_config_extra=short5.config_extra(manifest))
+        self.assertEqual(result["status"], "INCOMPLETE")
+        stats = result["stats"]
+        for key in ("Phi_at_R1", "M_at_R1", "steps_since_R1_expanded",
+                    "hub_completions_before_R1", "hub_completions_after_R1",
+                    "CH1_events", "CH2_events", "provisional_CH0_events"):
+            self.assertIn(key, stats)
+        self.assertGreaterEqual(int(stats["R1_transitions"]), 1)
+        self.assertTrue(stats["Phi_at_R1"])
+        self.assertTrue(stats["M_at_R1"])
+        self.assertTrue(stats["steps_since_R1_expanded"])
+
     def test_short_driver_does_not_reference_the_phase_helper(self):
         tree = ast.parse((ROOT / "src" / "search_rr_short5_exact.py").read_text(encoding="utf-8"))
         names = {node.func.id for node in ast.walk(tree)

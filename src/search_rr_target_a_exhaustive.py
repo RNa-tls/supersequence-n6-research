@@ -671,7 +671,12 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             "pre_R_nodes": 0, "post_R1_nodes": 0, "R1_transitions": 0,
             "R2_candidate_edges": 0, "Target_A_hits": 0,
             "pre_R_prunes": {}, "post_R1_prunes": {}, "max_post_R1_depth": 0,
-            "r1_decorated_keys": [],
+            "r1_decorated_keys": [], "Phi_at_R1": {}, "M_at_R1": {},
+            "steps_since_R1_expanded": {}, "hub_completions_before_R1": 0,
+            "hub_completions_after_R1": 0, "CH1_events": 0, "CH2_events": 0,
+            # CH0 is deliberately an observational residual label.  It does
+            # not affect the RR recognizer, pruning, or decorated state key.
+            "provisional_CH0_events": 0,
         }
         boundaries: list[dict[str, object]] = []
         lineage: list[str] = []
@@ -686,7 +691,10 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         "checkpoint_count": 0, "pre_R_nodes": 0, "post_R1_nodes": 0,
         "R1_transitions": 0, "R2_candidate_edges": 0, "Target_A_hits": 0,
         "pre_R_prunes": {}, "post_R1_prunes": {}, "max_post_R1_depth": 0,
-        "r1_decorated_keys": [],
+        "r1_decorated_keys": [], "Phi_at_R1": {}, "M_at_R1": {},
+        "steps_since_R1_expanded": {}, "hub_completions_before_R1": 0,
+        "hub_completions_after_R1": 0, "CH1_events": 0, "CH2_events": 0,
+        "provisional_CH0_events": 0,
     }.items():
         stats.setdefault(field, default)
     prunes = Counter(stats.get("prunes", {}))
@@ -695,6 +703,9 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
     branch_transitions = Counter(stats.get("branch_transitions", {}))
     exact_states = set(stats.get("exact_states", set()))
     r1_decorated_keys = set(stats.get("r1_decorated_keys", []))
+    phi_at_r1 = Counter(stats.get("Phi_at_R1", {}))
+    m_at_r1 = Counter(stats.get("M_at_R1", {}))
+    steps_since_r1 = Counter(stats.get("steps_since_R1_expanded", {}))
     if resume is None and decoration.r_count == 1:
         r1_decorated_keys.add(repr(decorated_key(start, decoration)))
 
@@ -713,6 +724,10 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         stats["exact_states"] = sorted(exact_states)
         stats["r1_decorated_keys"] = sorted(r1_decorated_keys)
         stats["unique_r1_decorated_keys"] = len(r1_decorated_keys)
+        stats["Phi_at_R1"] = dict(sorted(phi_at_r1.items(), key=lambda item: int(item[0])))
+        stats["M_at_R1"] = dict(sorted(m_at_r1.items(), key=lambda item: int(item[0])))
+        stats["steps_since_R1_expanded"] = dict(
+            sorted(steps_since_r1.items(), key=lambda item: int(item[0])))
     started = time.time()
     interrupted = False
     bounded_depth = False
@@ -731,6 +746,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         elif dec.r_count == 1:
             stats["post_R1_nodes"] = int(stats["post_R1_nodes"]) + 1
             stats["max_post_R1_depth"] = max(int(stats["max_post_R1_depth"]), depth)
+            assert dec.r1 is not None
+            steps_since_r1[str(dec.macro_index - dec.r1.macro_index)] += 1
         bucket = {"CH1": "CH1_nodes", "CH2": "CH2_nodes", "UNDECIDED": "undecided_nodes"}.get(
             dec.branch, "other_nodes")
         stats[bucket] = int(stats[bucket]) + 1
@@ -763,6 +780,26 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                     r1_decorated_keys.add(repr(key))
                     if dec.r_count == 0 and edge_kind == "R":
                         stats["R1_transitions"] = int(stats["R1_transitions"]) + 1
+                        # Values are measured on the accepted post-R1 child.
+                        # M = P - 5O is an analysis coordinate only.
+                        phi_at_r1[str(phi(edge.state))] += 1
+                        m_at_r1[str(edge.state.P - 5 * edge.state.O)] += 1
+                if dec.completer is None and child_dec.completer is not None:
+                    # Count completion only once the child has survived all
+                    # exact, Area-A, and memo gates and is actually queued.
+                    if dec.r_count == 0:
+                        stats["hub_completions_before_R1"] = int(
+                            stats["hub_completions_before_R1"]) + 1
+                    else:
+                        stats["hub_completions_after_R1"] = int(
+                            stats["hub_completions_after_R1"]) + 1
+                    if child_dec.branch == "CH1":
+                        stats["CH1_events"] = int(stats["CH1_events"]) + 1
+                    elif child_dec.branch == "CH2":
+                        stats["CH2_events"] = int(stats["CH2_events"]) + 1
+                    else:
+                        stats["provisional_CH0_events"] = int(
+                            stats["provisional_CH0_events"]) + 1
                 exact_states.add(repr(edge.state.stable_key()))
                 child_entries.append((depth + 1, edge.state, child_dec, trace + (trace_step,)))
                 continue
