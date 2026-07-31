@@ -5,7 +5,7 @@
   "purpose": "Specifies the record schema, metric definitions, and prune-candidate status a corrected post-R1 traversal (Codex's pilot) should be measured against for the five short roots (short_ell0..short_ell4). No post-R1 data exists in this repository as of this writing -- see verification_note.",
   "verification_note": {
     "label": "CLAUDE_OBSERVATION",
-    "statement": "commit d8600b9, cited as the 'verified Codex fix commit', could not be located: `git log --all` in this checkout does not contain it, and GitHub's get_commit / search_commits return no match on either branch (main, claude/n6-supersequence-length-rn17wf) of rna-tls/supersequence-n6-research. CODEX_VERIFIED status is not independently confirmed by this session. This schema is written to be source-agnostic so it remains valid regardless of that discrepancy's resolution."
+    "statement": "Re-checked on explicit instruction not to rely on the prior check: `git fetch --all --prune` (no new refs), direct `get_commit` lookups for all three cited SHAs (d8600b9, e9ff19c, 5e13395 -- each returns 422 'No commit found for SHA'), `list_pull_requests` (0 PRs, open or closed, ever, in this repository), and `list_repos` (only rna-tls/supersequence-n6-research is visible to this session; its last push is this session's own commit). None of the three SHAs exist anywhere this session can reach. No new or 'v2' checkpoint file exists on disk either -- every file under outputs/rr_target_a_checkpoints/ still carries its original Jul 30 timestamp, unchanged since before this analysis began. CODEX_VERIFIED status remains unconfirmed by this session as of this writing; the schema below is still written to be source-agnostic."
   },
   "post_r1_state_universe": {
     "label": "CLAUDE_OBSERVATION",
@@ -13,8 +13,8 @@
   },
   "required_decoration": {
     "sufficient_for_correctness": {
-      "label": "CLAUDE_OBSERVATION",
-      "statement": "(state.stable_key(), r_count) is already proven sufficient for traversal correctness by decorated_key's own docstring in search_rr_target_a_unified.py (lines 303-319); this schema does not add anything to that pair for correctness.",
+      "label": "CLAUDE_OBSERVATION -- correction applied",
+      "statement": "CORRECTED: the original text called this 'already proven'. That overstates it. decorated_key's docstring (search_rr_target_a_unified.py lines 303-319) gives a deductive argument for (state.stable_key(), r_count) sufficiency, but this schema has not independently re-derived it, and the only thing actually exercised against it is the tested universe -- the states this engine's own test suite and the Round 36 coverage run have actually visited. The correct grade is exhaustive tested-universe equivalence, not a universal proof. The conclusion (this schema adds nothing to that pair for correctness) is unchanged; only the justification's strength is corrected.",
       "fields": ["state (p, hex_masks, orbit_masks, F, S, H)", "r_count"]
     },
     "additional_fields_for_this_analysis": {
@@ -54,14 +54,15 @@
       "status": "open empirical question for the pilot"
     },
     "ch_emergence": {
-      "label": "CLAUDE_OBSERVATION (naming proposal) + open empirical question",
-      "statement": "the existing CH1/CH2 dichotomy (RR_CH1_CH2_EXTENSION_SEARCH.md) was defined for the 22 long-excursion roots (root already at r_count=1, hub always incomplete at root). It is INCOMPLETE for the five short roots: the prior deliverable found ~2.1% of the pre-R1 frontier sample already reaches hub popcount 6 with zero R events fired -- a case CH1/CH2 has no label for.",
-      "proposed_three_way_split": [
-        {"case": "CH0", "condition": "hub hexagon reaches popcount 6 before R1 fires at all (new label, short-root-only)"},
-        {"case": "CH1", "condition": "hub_complete_relative_to_r1 == at_r1"},
-        {"case": "CH2", "condition": "hub reaches popcount 6 strictly after R1, via a Z2 edge"}
+      "label": "CLAUDE_OBSERVATION (naming proposal) + open empirical question -- CORRECTION APPLIED: CH0 is provisional",
+      "statement": "the existing CH1/CH2 dichotomy (RR_CH1_CH2_EXTENSION_SEARCH.md) was defined for the 22 long-excursion roots (root already at r_count=1, hub always incomplete at root). The prior deliverable found ~2.1% of the pre-R1 frontier sample already reaches hub popcount 6 with zero R events fired -- a case CH1/CH2 as originally worded has no label for.",
+      "correction": "the schema as first published called this a 'genuine third case' and an 'exhaustive, mutually exclusive' three-way split outright. That is not yet established. CH0 is PROVISIONAL until the exact event-order relation to CH1/CH2 is settled: it is open whether CH0 is a true third structural class, or merely a degenerate/limiting case of CH2 (if CH2's definition -- 'C is a Z2 and R1 happened earlier' -- is instead read as 'C is a Z2, and R1's position relative to C is otherwise unconstrained', a hub-complete-before-R1 walk is just a CH2 instance where C precedes R1, not a new class). This schema does not decide between the two readings.",
+      "proposed_provisional_split": [
+        {"case": "CH0", "condition": "hub hexagon reaches popcount 6 before R1 fires at all", "status": "PROVISIONAL -- open whether third class or CH2 subtype (see current round's task 1)"},
+        {"case": "CH1", "condition": "hub_complete_relative_to_r1 == at_r1", "status": "unaffected by this correction"},
+        {"case": "CH2", "condition": "hub reaches popcount 6 strictly after R1, via a Z2 edge", "status": "unaffected by this correction"}
       ],
-      "status": "naming proposal only; which case dominates is exactly what the pilot is for"
+      "status": "naming proposal only; CH0's structural status (third class vs. CH2 subtype) and which case dominates are both open, exactly what the pilot is for"
     },
     "hub_completion_before_after_r1": {
       "label": "method defined",

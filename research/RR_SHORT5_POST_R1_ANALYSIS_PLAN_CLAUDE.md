@@ -44,16 +44,27 @@ from these roots.
 Two decoration questions are distinguished, because they have different
 proof obligations:
 
-### 2a. What is *sufficient for correctness* (already proven, not new)
+### 2a. What is *sufficient for correctness* — **correction applied**
 
-`decorated_key` in `search_rr_target_a_unified.py` (lines 303-319)
-already proves, in its own docstring, that `(state.stable_key(), r_count)`
-is the complete sufficient decoration for traversal correctness: every
-subsequent macro edge and the recognizer itself are pure functions of
-`ExactState` and `r_count` alone, so two histories reaching the same pair
-have identical future Target-A reachability. **This document does not
-propose adding anything to that pair for correctness** — it is not this
-document's place to second-guess an already-proven completeness argument.
+**`CLAUDE_OBSERVATION`, correcting §2a of the version of this document as
+first published.** The original text called `decorated_key`'s sufficiency
+claim "already proven." That overstates what is actually established.
+`decorated_key`'s docstring (`search_rr_target_a_unified.py` lines
+303-319) gives a deductive *argument* — every subsequent macro edge and
+the recognizer are pure functions of `ExactState` and `r_count` alone —
+but this document has not independently re-derived that argument from the
+engine's own transition-function signature, and the only thing actually
+exercised against it is the **tested universe**: the states this
+engine's own test suite and the 33-root coverage run have actually
+visited (`tests/test_rr_target_a_unified.py`'s determinism test,
+`decorated_key_hash`'s use as the dedup key across the Round 36 coverage
+run). **The correct grade is exhaustive tested-universe equivalence, not
+a universal proof** — it holds for every state this repository has
+actually enumerated and checked, which is a real and useful guarantee,
+but is not the same claim as "holds for every reachable state, proven."
+**This document does not propose adding anything to `(state, r_count)`
+for correctness** — that conclusion is unchanged — but the *reason* given
+for it is now stated at its correct strength.
 
 ### 2b. What is needed for *this analysis specifically* — `CLAUDE_PROPOSAL`
 
@@ -117,31 +128,50 @@ Histogram of `r1_target_phase` (0..4). No prune or theorem constrains this
 a priori beyond phase ∈ {0..4} and "not already occupied in that orbit" —
 recorded as an open empirical question for the pilot.
 
-### 3.3 CH1 vs. CH2 emergence — `CLAUDE_OBSERVATION` (a genuine third case)
+### 3.3 CH1 vs. CH2 emergence — `CLAUDE_OBSERVATION` (a candidate third case) — **correction applied: CH0 is provisional**
 
 The existing CH1/CH2 dichotomy (`RR_CH1_CH2_EXTENSION_SEARCH.md` §1) was
 defined for the 22 long-excursion roots, where the root already carries
 `r_count=1` and the hub hexagon is *always* incomplete at the root
 (popcount 1-5, proven, never 6): **CH1** = hub completer edge `C` is
 itself the first R event (there, R1 itself); **CH2** = `C` is a `Z2` and
-R1 already happened. For the five short roots this taxonomy is
-**incomplete**, not merely inapplicable: the prior document (§7 of
+R1 already happened. For the five short roots this taxonomy does not
+obviously cover the observed data: the prior document (§7 of
 `RR_SHORT5_FRONTIER_ANALYSIS_CLAUDE.md`) already found ~2.1% of the
 *pre-R1* frontier sample reaches hub popcount 6 with **zero** R events
-fired — a case the CH1/CH2 split has no label for, since it presupposes
-R1 has already happened. `hub_complete_relative_to_r1` (§2b) plus a
-`before_any_R` flag (equivalently, `hub_popcount` sampled at the root
-itself, or at depth 0) together give three exhaustive, mutually exclusive
-cases for the short-root family specifically:
+fired — a case the CH1/CH2 split as originally worded has no label for,
+since it presupposes R1 has already happened.
 
-| case | condition |
-|---|---|
-| **CH0** (new label, short-root-only) | hub hexagon reaches popcount 6 before R1 fires at all |
-| **CH1** | `hub_complete_relative_to_r1 == at_r1` |
-| **CH2** | hub reaches popcount 6 strictly after R1, via a `Z2` edge |
+**Correcting the version of this document as first published:** that
+section previously called this a "genuine third case" and asserted three
+"exhaustive, mutually exclusive" cases outright. That is not yet
+established. **`CH0` is provisional until the exact event-order relation
+to CH1/CH2 is settled** — specifically, §3.3's own open task below (task
+1 of the current round) is to determine *whether* CH0 is truly a
+structurally distinct third class or is instead a **degenerate/limiting
+case of CH2**. A plausible alternative reading: CH2's own definition ("C
+is a `Z2` and R1 happened earlier") could be read as implicitly requiring
+R1 to precede `C`; if instead CH2 is more naturally understood as "the
+hub completer `C` is a `Z2` edge, and R1's position relative to `C` is
+otherwise unconstrained," then a hub-complete-before-R1 walk is just a
+CH2 instance where `C` happens to precede R1 rather than follow it — not
+a new class at all. This document does not decide between these two
+readings; it only names the observation (`hub_complete_relative_to_r1 ==
+before_r1`) precisely enough to let the actual event order in real data
+decide. Pending that determination, the table below is a **provisional
+partition of the observation space**, not a claim about the true
+structural taxonomy:
+
+| provisional case | condition | status |
+|---|---|---|
+| **CH0** (provisional label) | hub hexagon reaches popcount 6 before R1 fires at all | open: third class, or CH2 subtype? (task 1 below) |
+| **CH1** | `hub_complete_relative_to_r1 == at_r1` | unaffected by this correction |
+| **CH2** | hub reaches popcount 6 strictly after R1, via a `Z2` edge | unaffected by this correction |
 
 This is offered as a **naming proposal** for the pilot's output
-categories, not a claim about which case dominates — that is exactly what
+categories, not a claim about which case dominates, and — after this
+correction — not a claim that CH0 is structurally distinct at all. That
+determination is exactly what
 the pilot is for.
 
 ### 3.4 Hub completion before/after R1 — method
