@@ -1,0 +1,19 @@
+{
+  "corrected_pilot": {
+    "checkpoint_schema": "rr-target-a-exhaustive-checkpoint-v3-short-r1-target-a",
+    "node_limit": 250,
+    "status": "INCOMPLETE"
+  },
+  "differential": {
+    "first_divergence_status": "EXACT_COUNTEREXAMPLE",
+    "legacy_profile": "legacy_area_a_q2_comparison_v1",
+    "target_a_profile": "target_a_semantic_v1"
+  },
+  "old_medium_run": {
+    "path": "outputs/rr_short_ell0_medium_v2.json",
+    "reason": "used LEGACY_AREA_A_PROFILE containing O_exceeded before semantic R2 recognition",
+    "status_for_target_a": "PREMATURELY_PRUNED_INVALID_FOR_TARGET_A_COVERAGE"
+  },
+  "schema": "rr-short-ell0-scope-audit-v1",
+  "status": "TARGET_A_COMPLETENESS_GAP_CONFIRMED"
+}

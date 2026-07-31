@@ -64,6 +64,8 @@ ENGINE_FILES = (
     ROOT / "src" / "build_rr_long_excursion_roots.py",
 )
 CHECKPOINT_SCHEMA_V1 = "rr-target-a-exhaustive-checkpoint-v1"
+TARGET_A_SAFE_PROFILE = "target_a_semantic_v1"
+LEGACY_AREA_A_PROFILE = "legacy_area_a_q2_comparison_v1"
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -151,6 +153,26 @@ class Decoration:
             return "CH2"
         return "OTHER_OR_UNDECIDED"
 
+    @property
+    def event_order_class(self) -> str:
+        """Analysis-only timing class for the first hub-completing event.
+
+        This deliberately does *not* create a third proof branch.  In
+        particular, a completion before R1 is an event-order observation, not
+        a CH0 alternative to the proved CH1/CH2 recognizers.
+        """
+        c = self.completer
+        r1 = self.r1
+        if c is None:
+            return "UNDECIDED"
+        if r1 is None or c.macro_index < r1.macro_index:
+            return "PRE_R_COMPLETER_EVENT_ORDER"
+        if c.kind == "R" and c.macro_index == r1.macro_index:
+            return "CH1"
+        if c.kind == "Z2" and r1.macro_index < c.macro_index:
+            return "CH2"
+        return "OTHER_POST_R_COMPLETER_EVENT_ORDER"
+
     def key(self) -> tuple[object, ...]:
         return (
             self.root_ell, self.o_star, self.hub_id, self.macro_index,
@@ -172,6 +194,7 @@ class Decoration:
             "hub_touch_count": self.hub_touch_count,
             "completer": None if self.completer is None else asdict(self.completer),
             "branch": self.branch,
+            "event_order_class": self.event_order_class,
         }
 
     @staticmethod
@@ -188,27 +211,38 @@ class Decoration:
         )
 
 
-PRUNE_REGISTRY = [
+TARGET_A_PRUNE_REGISTRY = [
     {
         "name": "exact_permutation_collision",
         "statement": "exact.extend rejects an already visited permutation window",
         "source": "legacy_research/work/superperm_partial_f1.py::extend",
         "implementation": "iter_raw_macro_candidates",
         "test": "test_collision_is_counted_and_not_expanded",
+        "scope": "universally_safe",
     },
     {
-        "name": "area_a_necessary_conditions",
-        "statement": "all child-state necessary conditions in Area A are monotone or necessary",
-        "source": "legacy_research/work/superperm_partial_f1_macro.py::area_a_prune_reason",
-        "implementation": "evaluate_edge",
-        "test": "test_area_a_reason_is_preserved",
+        "name": "F_exceeded",
+        "statement": "Target A requires F_def=1 at the R2 child; F_def is monotone",
+        "source": "research/RR_TARGET_A_DEFINITION.md §2; ExactState.extend",
+        "implementation": "target_a_prune_reason",
+        "test": "test_target_a_profile_rejects_F_and_H_only_from_the_budget_bundle",
+        "scope": "target_a_safe_proved",
     },
     {
-        "name": "phi_negative",
-        "statement": "Phi < 0 is the remaining-window-capacity necessary obstruction",
-        "source": "research/J_CAPACITY_OBSTRUCTION.md",
-        "implementation": "inside area_a_necessary_conditions; never counted twice",
-        "test": "test_phi_prune_is_an_area_a_reason",
+        "name": "H_positive",
+        "statement": "Target A requires H=0 at the R2 child; H is monotone",
+        "source": "research/RR_TARGET_A_DEFINITION.md §2; ExactState.extend",
+        "implementation": "target_a_prune_reason",
+        "test": "test_target_a_profile_rejects_F_and_H_only_from_the_budget_bundle",
+        "scope": "target_a_safe_proved",
+    },
+    {
+        "name": "F1_fragment_normal_form_impossible",
+        "statement": "with F_def<=1, more than one abandoned partial hexagon or more than F+1 arcs is impossible",
+        "source": "legacy_research/work/superperm_partial_f1.py::f1_normal_form",
+        "implementation": "target_a_prune_reason",
+        "test": "test_target_a_profile_uses_exact_f1_prefix_invariant",
+        "scope": "target_a_safe_proved",
     },
     {
         "name": "rr_r_budget",
@@ -217,6 +251,7 @@ PRUNE_REGISTRY = [
         "source": "src/search_rr_long_prefix_extensions.py::search",
         "implementation": "evaluate_edge",
         "test": "test_legal_first_r_edge_is_enqueued_for_every_short_root; test_long_root_r2_is_recognized_on_edge_and_never_enqueued",
+        "scope": "target_a_scope_reduction",
     },
     {
         "name": "hub_touch_count",
@@ -224,12 +259,62 @@ PRUNE_REGISTRY = [
         "source": "research/RR_HUB_TOUCH_COUNT.md",
         "implementation": "advance_decoration",
         "test": "test_hub_touch_counter_is_monotone",
+        "scope": "universally_safe_under_F_le_1",
+    },
+]
+# Backwards-compatible public name.  It now denotes the *Target-A-only*
+# registry, never the larger Q2/Area-A completion bundle.
+PRUNE_REGISTRY = TARGET_A_PRUNE_REGISTRY
+
+
+LEGACY_AREA_A_PRUNE_REGISTRY = [
+    {
+        "name": "area_a_necessary_conditions",
+        "statement": "The complete P/O/D/N/Phi/window completion bundle used by historical Area-A/Q2 traversals.",
+        "scope": "q2_target_b_completion_only",
+        "implementation": "macro.area_a_prune_reason",
     },
 ]
 
 
-def registry_hash() -> str:
-    return sha256_bytes(json.dumps(PRUNE_REGISTRY, sort_keys=True).encode("utf-8"))
+def registry_for_profile(profile: str) -> list[dict[str, object]]:
+    if profile == TARGET_A_SAFE_PROFILE:
+        return TARGET_A_PRUNE_REGISTRY
+    if profile == LEGACY_AREA_A_PROFILE:
+        return LEGACY_AREA_A_PRUNE_REGISTRY
+    raise ValueError(f"unknown prune profile {profile!r}")
+
+
+def registry_hash(profile: str = TARGET_A_SAFE_PROFILE) -> str:
+    return sha256_bytes(json.dumps(registry_for_profile(profile), sort_keys=True).encode("utf-8"))
+
+
+def target_a_prune_reason(state) -> Optional[str]:
+    """Necessary prefix restrictions for the semantic Target-A predicate only.
+
+    Target A asks for an R2 child with ``F_def=1``, ``H=0``, and the
+    same-component property.  Its roots already have ``F_def=1``.  Since F
+    and H never decrease, only their exceeded values can be discarded before
+    an R2.  The F<=1 partial-hexagon normal form is likewise a prefix
+    invariant.  In contrast, P/O/D/N/Phi and remaining-completion capacity
+    are Q2/Target-B data and are intentionally absent here.
+    """
+    if state.F > exact.TARGET_F:
+        return "F_exceeded"
+    if state.H > 0:
+        return "H_positive"
+    if exact.f1_normal_form(state) is None:
+        return "F1_fragment_normal_form_impossible"
+    return None
+
+
+def prune_reason_for_profile(state, profile: str) -> Optional[str]:
+    """Select a hash-bound prune profile; legacy Area A is audit-only."""
+    if profile == TARGET_A_SAFE_PROFILE:
+        return target_a_prune_reason(state)
+    if profile == LEGACY_AREA_A_PROFILE:
+        return macro.area_a_prune_reason(state, macro.AREA_A)
+    raise ValueError(f"unknown prune profile {profile!r}")
 
 
 def phi(state) -> int:
@@ -378,18 +463,24 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
     same_component = source_root is not None and source_root == target_root
     r1 = before.r1
     chaining = r1 is not None and r1.target_orbit == sq
+    # This is intentionally diagnostic only.  Area A is the Q2/Target-B
+    # completion envelope, while Target A is an R2 boundary predicate.
     area_reason = macro.area_a_prune_reason(transition.state, macro.AREA_A)
     conditions = {
         "exactly_two_R_events": before.r_count == 1 and after.r_count == 2,
         "immediately_after_R2": joint_kind(transition.move.weight, transition.abandonment,
                                              transition.new_orbit) == "R",
-        "F_def_le_1": transition.state.F <= 1,
-        "Ndef_equals_2": transition.state.Ndef == 2,
+        "F_def_equals_1": transition.state.F == 1,
         "H_equals_0": transition.state.H == 0,
-        "area_a_legal": area_reason is None,
+        "hub_touch_count_le_2": after.hub_touch_count <= 2,
         "same_component": same_component,
     }
     target = all(conditions.values())
+    failure_order = (
+        "exactly_two_R_events", "immediately_after_R2", "F_def_equals_1",
+        "H_equals_0", "hub_touch_count_le_2", "same_component",
+    )
+    primary_failure = next((name for name in failure_order if not conditions[name]), None)
     return {
         "is_target_a": target,
         "conditions": conditions,
@@ -399,6 +490,10 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
         "same_component": same_component,
         "chaining": chaining,
         "CH_branch": after.branch,
+        "event_order_class": after.event_order_class,
+        "r2_primary_failure": primary_failure,
+        "r2_failed_conditions": [name for name in failure_order if not conditions[name]],
+        "q2_area_a_reason_diagnostic": area_reason,
         "component_digest": component_digest(pre_state),
         "pre_hub_mask": hub_mask(pre_state, before),
         "post_r2_state_hash": state_hash(transition.state),
@@ -418,15 +513,11 @@ def decorated_key(state, dec: Decoration) -> tuple[object, ...]:
     return (state.stable_key(), dec.key())
 
 
-def evaluate_edge(state, dec: Decoration, edge) -> tuple[str, Optional[Decoration], Optional[dict[str, object]]]:
+def evaluate_edge(state, dec: Decoration, edge, *,
+                  prune_profile: str = TARGET_A_SAFE_PROFILE) -> tuple[str, Optional[Decoration], Optional[dict[str, object]]]:
     """Classify a literal candidate without mutating global traversal state."""
     transition = edge.joint
-    reason = macro.area_a_prune_reason(transition.state, macro.AREA_A)
-    if reason is not None:
-        return f"area_a:{reason}", None, None
     child_dec = advance_decoration(edge.run.state, transition, dec)
-    if child_dec.hub_touch_count > 2:
-        return "hub_touch_count_exceeded", None, None
     kind = joint_kind(transition.move.weight, transition.abandonment, transition.new_orbit)
     if kind == "other":
         return "outside_RR_joint_model", None, None
@@ -438,6 +529,11 @@ def evaluate_edge(state, dec: Decoration, edge) -> tuple[str, Optional[Decoratio
         if dec.r_count == 0:
             if child_dec.r_count != 1:
                 raise AssertionError("R1 child did not increment the R counter")
+            if child_dec.hub_touch_count > 2:
+                return "hub_touch_count_exceeded", None, None
+            reason = prune_reason_for_profile(transition.state, prune_profile)
+            if reason is not None:
+                return f"{prune_profile}:{reason}", None, None
             return "child", child_dec, None
         if dec.r_count == 1:
             if child_dec.r_count != 2:
@@ -449,10 +545,16 @@ def evaluate_edge(state, dec: Decoration, edge) -> tuple[str, Optional[Decoratio
         return "rr_R_budget_exceeded", None, None
     if child_dec.r_count >= 2:
         return "rr_R_budget_exceeded", None, None
+    if child_dec.hub_touch_count > 2:
+        return "hub_touch_count_exceeded", None, None
+    reason = prune_reason_for_profile(transition.state, prune_profile)
+    if reason is not None:
+        return f"{prune_profile}:{reason}", None, None
     return "child", child_dec, None
 
 
-def successor_signature(state, dec: Decoration) -> tuple[tuple[object, ...], ...]:
+def successor_signature(state, dec: Decoration, *,
+                        prune_profile: str = TARGET_A_SAFE_PROFILE) -> tuple[tuple[object, ...], ...]:
     """Deterministic one-step signature for state-key soundness tests."""
     rows = []
     for edge, collision in iter_raw_macro_candidates(state):
@@ -460,7 +562,7 @@ def successor_signature(state, dec: Decoration) -> tuple[tuple[object, ...], ...
             rows.append(("collision", collision))
             continue
         assert edge is not None
-        kind, child_dec, recognition = evaluate_edge(state, dec, edge)
+        kind, child_dec, recognition = evaluate_edge(state, dec, edge, prune_profile=prune_profile)
         if kind == "child":
             assert child_dec is not None
             rows.append((edge.label, kind, decorated_key(edge.state, child_dec)))
@@ -491,7 +593,8 @@ def load_audited_roots(ledger_path: Path, prefixes_path: Path) -> list[dict[str,
 
 
 def checkpoint_config(record: Mapping[str, object], node_limit: int, max_depth: Optional[int],
-                      config_extra: Optional[Mapping[str, object]] = None) -> dict[str, object]:
+                      config_extra: Optional[Mapping[str, object]] = None, *,
+                      prune_profile: str = TARGET_A_SAFE_PROFILE) -> dict[str, object]:
     """Return the complete, hash-bound checkpoint identity.
 
     ``config_extra`` is deliberately an additive provenance hook for a
@@ -506,7 +609,8 @@ def checkpoint_config(record: Mapping[str, object], node_limit: int, max_depth: 
         "node_limit": node_limit, "max_depth": max_depth,
         "traversal": "deterministic-LIFO-by-reversed-label",
         "engine_hashes": code_hashes(),
-        "prune_registry_hash": registry_hash(),
+        "prune_profile": prune_profile,
+        "prune_registry_hash": registry_hash(prune_profile),
         "recognizer_hash": sha256_bytes(Path(__file__).read_bytes()),
     }
     if config_extra:
@@ -653,9 +757,11 @@ def dispatch_target_b(boundary: Mapping[str, object], state) -> dict[str, object
 def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 max_depth: Optional[int] = None, checkpoint: Optional[Path] = None,
                 checkpoint_every: int = 1000, resume: Optional[Path] = None,
-                checkpoint_config_extra: Optional[Mapping[str, object]] = None) -> dict[str, object]:
+                checkpoint_config_extra: Optional[Mapping[str, object]] = None,
+                prune_profile: str = TARGET_A_SAFE_PROFILE) -> dict[str, object]:
     """Exact root-local traversal.  Positive node/max-depth stops are incomplete."""
-    config = checkpoint_config(record, node_limit, max_depth, checkpoint_config_extra)
+    config = checkpoint_config(record, node_limit, max_depth, checkpoint_config_extra,
+                               prune_profile=prune_profile)
     if resume is not None:
         frontier, seen, stats, boundaries, lineage = load_checkpoint(resume, config)
         lineage = lineage + [sha256_file(resume)]
@@ -677,6 +783,7 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             # CH0 is deliberately an observational residual label.  It does
             # not affect the RR recognizer, pruning, or decorated state key.
             "provisional_CH0_events": 0,
+            "event_order_class_events": {}, "R2_primary_failures": {},
         }
         boundaries: list[dict[str, object]] = []
         lineage: list[str] = []
@@ -694,7 +801,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         "r1_decorated_keys": [], "Phi_at_R1": {}, "M_at_R1": {},
         "steps_since_R1_expanded": {}, "hub_completions_before_R1": 0,
         "hub_completions_after_R1": 0, "CH1_events": 0, "CH2_events": 0,
-        "provisional_CH0_events": 0,
+        "provisional_CH0_events": 0, "event_order_class_events": {},
+        "R2_primary_failures": {},
     }.items():
         stats.setdefault(field, default)
     prunes = Counter(stats.get("prunes", {}))
@@ -706,6 +814,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
     phi_at_r1 = Counter(stats.get("Phi_at_R1", {}))
     m_at_r1 = Counter(stats.get("M_at_R1", {}))
     steps_since_r1 = Counter(stats.get("steps_since_R1_expanded", {}))
+    event_order_classes = Counter(stats.get("event_order_class_events", {}))
+    r2_primary_failures = Counter(stats.get("R2_primary_failures", {}))
     if resume is None and decoration.r_count == 1:
         r1_decorated_keys.add(repr(decorated_key(start, decoration)))
 
@@ -728,6 +838,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         stats["M_at_R1"] = dict(sorted(m_at_r1.items(), key=lambda item: int(item[0])))
         stats["steps_since_R1_expanded"] = dict(
             sorted(steps_since_r1.items(), key=lambda item: int(item[0])))
+        stats["event_order_class_events"] = dict(sorted(event_order_classes.items()))
+        stats["R2_primary_failures"] = dict(sorted(r2_primary_failures.items()))
     started = time.time()
     interrupted = False
     bounded_depth = False
@@ -762,7 +874,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                                    edge.joint.new_orbit)
             if edge_kind == "R" and dec.r_count == 1:
                 stats["R2_candidate_edges"] = int(stats["R2_candidate_edges"]) + 1
-            verdict, child_dec, recognition = evaluate_edge(state, dec, edge)
+            verdict, child_dec, recognition = evaluate_edge(
+                state, dec, edge, prune_profile=prune_profile)
             trace_step = edge_json(edge)
             if verdict == "child":
                 assert child_dec is not None
@@ -800,6 +913,7 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                     else:
                         stats["provisional_CH0_events"] = int(
                             stats["provisional_CH0_events"]) + 1
+                    event_order_classes[child_dec.event_order_class] += 1
                 exact_states.add(repr(edge.state.stable_key()))
                 child_entries.append((depth + 1, edge.state, child_dec, trace + (trace_step,)))
                 continue
@@ -817,6 +931,12 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 boundary["target_b_dispatch"] = dispatch_target_b(boundary, edge.state)
                 boundaries.append(boundary)
                 continue
+            if verdict == "r2_not_target":
+                assert recognition is not None
+                primary = recognition["r2_primary_failure"]
+                if primary is None:
+                    raise AssertionError("non-target R2 has no primary recognizer failure")
+                r2_primary_failures[str(primary)] += 1
             record_prune(verdict, dec)
         # Stack uses reverse lexical successor order but the resulting pop order
         # is stable lexical; recording it in config makes certificates replayable.

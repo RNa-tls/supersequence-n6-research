@@ -118,9 +118,9 @@ class Short5RootTests(unittest.TestCase):
     def test_checkpoint_scope_extension_is_identity_bearing(self):
         manifest = short5.short_root_manifest(self.records)
         config = short5.rr.checkpoint_config(self.records[0], 0, None, short5.config_extra(manifest))
-        self.assertEqual(config["root_universe"], "round37-short5-bare-abandonment-r1-complete-v2")
+        self.assertEqual(config["root_universe"], "round37-short5-bare-abandonment-r1-complete-v3-target-a-prunes")
         self.assertEqual(config["checkpoint_payload_schema"],
-                         "rr-target-a-exhaustive-checkpoint-v2-short-r1")
+                         "rr-target-a-exhaustive-checkpoint-v3-short-r1-target-a")
         self.assertIn("short5_manifest_sha256", config)
         with self.assertRaises(ValueError):
             short5.rr.checkpoint_config(self.records[0], 0, None, {"root_id": "bad"})
@@ -134,29 +134,31 @@ class Short5RootTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 short5.read_prior_results(stale, manifest_sha)
 
-    def test_v1_checkpoint_is_rejected_by_the_r1_complete_driver(self):
+    def test_v2_checkpoint_is_rejected_by_the_target_a_scope_driver(self):
         manifest = short5.short_root_manifest(self.records)
-        v2_config = short5.rr.checkpoint_config(self.records[0], 0, None,
+        v3_config = short5.rr.checkpoint_config(self.records[0], 0, None,
                                                  short5.config_extra(manifest))
-        v1_config = short5.rr.checkpoint_config(self.records[0], 0, None)
+        v2_extra = dict(short5.config_extra(manifest))
+        v2_extra["checkpoint_payload_schema"] = "rr-target-a-exhaustive-checkpoint-v2-short-r1"
+        v2_config = short5.rr.checkpoint_config(self.records[0], 0, None, v2_extra)
         state, decoration = short5.rr.initial_decoration(self.records[0])
         stats = {"expanded": 0, "generated_edges": 0, "exact_states": [], "memo_hits": 0,
                  "prunes": {}, "CH1_nodes": 0, "CH2_nodes": 0, "undecided_nodes": 0,
                  "other_nodes": 0, "branch_transitions": {}, "max_macro_depth": 0,
                  "checkpoint_count": 0}
         with tempfile.TemporaryDirectory() as folder:
-            stale = Path(folder) / "v1.json"
-            short5.rr.write_checkpoint(stale, v1_config, [(0, state, decoration, tuple())],
+            stale = Path(folder) / "v2.json"
+            short5.rr.write_checkpoint(stale, v2_config, [(0, state, decoration, tuple())],
                                        {short5.rr.decorated_key(state, decoration)}, stats, [], [])
             with self.assertRaisesRegex(ValueError, "checkpoint payload schema mismatch"):
-                short5.rr.load_checkpoint(stale, v2_config)
+                short5.rr.load_checkpoint(stale, v3_config)
 
-    def test_v2_resume_preserves_an_enqueued_r1_frontier(self):
+    def test_v3_resume_preserves_an_enqueued_r1_frontier(self):
         manifest = short5.short_root_manifest(self.records)
         extra = short5.config_extra(manifest)
         record = self.records[0]
         with tempfile.TemporaryDirectory() as folder:
-            checkpoint = Path(folder) / "v2.json"
+            checkpoint = Path(folder) / "v3.json"
             first = short5.rr.search_root(record, node_limit=1, checkpoint=checkpoint,
                                           checkpoint_every=1, checkpoint_config_extra=extra)
             config = short5.rr.checkpoint_config(record, 1, None, extra)
@@ -182,12 +184,42 @@ class Short5RootTests(unittest.TestCase):
         stats = result["stats"]
         for key in ("Phi_at_R1", "M_at_R1", "steps_since_R1_expanded",
                     "hub_completions_before_R1", "hub_completions_after_R1",
-                    "CH1_events", "CH2_events", "provisional_CH0_events"):
+                    "CH1_events", "CH2_events", "provisional_CH0_events",
+                    "event_order_class_events", "R2_primary_failures"):
             self.assertIn(key, stats)
         self.assertGreaterEqual(int(stats["R1_transitions"]), 1)
         self.assertTrue(stats["Phi_at_R1"])
         self.assertTrue(stats["M_at_R1"])
         self.assertTrue(stats["steps_since_R1_expanded"])
+
+    def test_pre_r_completer_has_analysis_label_not_a_proof_branch(self):
+        r1 = short5.rr.REvent(5, "R", 1, 0, 2, 0)
+        decor = short5.rr.Decoration("synthetic", 0, 0, short5.rr.HUB, 5, (r1,), 1,
+                                     short5.rr.Completer(3, "Z2", 3, 1, 4, 2))
+        self.assertEqual(decor.branch, "OTHER_OR_UNDECIDED")
+        self.assertEqual(decor.event_order_class, "PRE_R_COMPLETER_EVENT_ORDER")
+
+    def test_r2_primary_failure_accounting_is_partitioned(self):
+        manifest = short5.short_root_manifest(self.records)
+        result = short5.rr.search_root(self.records[0], node_limit=20, checkpoint=None,
+                                       checkpoint_config_extra=short5.config_extra(manifest))
+        stats = result["stats"]
+        self.assertEqual(sum(stats["R2_primary_failures"].values()) + stats["Target_A_hits"],
+                         stats["R2_candidate_edges"])
+
+    def test_o_exceeded_differential_is_not_a_target_a_prune(self):
+        runner_path = ROOT / "src" / "run_rr_short_ell0_scope_audit.py"
+        spec = importlib.util.spec_from_file_location("test_scope_audit_runner", runner_path)
+        runner = importlib.util.module_from_spec(spec)
+        sys.modules[spec.name] = runner
+        assert spec.loader is not None
+        spec.loader.exec_module(runner)
+        witness = runner.first_o_divergence(self.records[0], 250)
+        self.assertEqual(witness["status"], "EXACT_COUNTEREXAMPLE")
+        self.assertEqual(witness["legacy_verdict"],
+                         f"{short5.rr.LEGACY_AREA_A_PROFILE}:O_exceeded")
+        self.assertEqual(witness["target_a_safe_verdict"], "child")
+        self.assertGreater(witness["coordinate"]["O"], short5.rr.exact.TARGET_O)
 
     def test_short_driver_does_not_reference_the_phase_helper(self):
         tree = ast.parse((ROOT / "src" / "search_rr_short5_exact.py").read_text(encoding="utf-8"))

@@ -9,6 +9,7 @@ import json
 import sys
 import tempfile
 import unittest
+from dataclasses import replace
 from pathlib import Path
 
 
@@ -132,6 +133,18 @@ class TestRound35Recognizer(unittest.TestCase):
         after = rr.advance_decoration(edge.run.state, edge.joint, decoration)
         self.assertEqual(after.branch, "CH2")
 
+    def test_target_a_profile_rejects_F_and_H_only_from_the_budget_bundle(self):
+        state, _decoration = rr.initial_decoration(self.known_record())
+        self.assertEqual(rr.target_a_prune_reason(replace(state, F=2)), "F_exceeded")
+        self.assertEqual(rr.target_a_prune_reason(replace(state, H=1)), "H_positive")
+
+    def test_target_a_profile_uses_exact_f1_prefix_invariant(self):
+        state, _decoration = rr.initial_decoration(self.known_record())
+        # A literal root is already a valid F<=1 prefix.  The test asserts
+        # that the Target-A profile calls the exact prefix invariant, rather
+        # than an Area-A completion-coordinate predicate.
+        self.assertIsNone(rr.target_a_prune_reason(state))
+
 
 class TestRound35CheckpointAndDeterminism(unittest.TestCase):
     @classmethod
@@ -183,7 +196,15 @@ class TestRound35CheckpointAndDeterminism(unittest.TestCase):
         self.assertNotIn("beam", names)
         self.assertNotIn("heuristic_depth", names)
         self.assertIn("exact_permutation_collision", names)
-        self.assertIn("area_a_necessary_conditions", names)
+        self.assertIn("F_exceeded", names)
+        self.assertNotIn("area_a_necessary_conditions", names)
+        self.assertNotEqual(rr.registry_hash(rr.TARGET_A_SAFE_PROFILE),
+                            rr.registry_hash(rr.LEGACY_AREA_A_PROFILE))
+        self.assertTrue(all("scope" in row for row in rr.TARGET_A_PRUNE_REGISTRY))
+
+    def test_target_a_engine_does_not_call_the_suspect_phase_helper(self):
+        source = (ROOT / "src" / "search_rr_target_a_exhaustive.py").read_text(encoding="utf-8")
+        self.assertNotIn("true_phase_walk_capacity", source)
 
 
 if __name__ == "__main__":

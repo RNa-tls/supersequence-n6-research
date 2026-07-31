@@ -1,0 +1,169 @@
+{
+  "area_a_prune_reason_retention_table": [
+    {
+      "condition": "F>1",
+      "justification": "Target A requires F_def=1 and F is monotone.",
+      "monotone": true,
+      "name": "F_exceeded",
+      "scope": "target_a_safe_proved",
+      "target_a": "RETAINED"
+    },
+    {
+      "condition": "H>0",
+      "justification": "Target A requires H=0 and H is monotone.",
+      "monotone": true,
+      "name": "H_positive",
+      "scope": "target_a_safe_proved",
+      "target_a": "RETAINED"
+    },
+    {
+      "condition": "P>121",
+      "justification": "P=121 is a Target-B completion coordinate, not a Target-A boundary condition.",
+      "monotone": true,
+      "name": "P_exceeded",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "O>25",
+      "justification": "O=25 is a Target-B completion coordinate; Target A has no upper O bound.",
+      "monotone": true,
+      "name": "O_exceeded",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "Ndef>AreaA.n_limit",
+      "justification": "The Ndef limit belongs to Area A/Q2, not Target A.",
+      "monotone": true,
+      "name": "N_exceeded_monotone",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "not arithmetic_D_reachable(state)",
+      "justification": "D=4 is a Target-B terminal coordinate.",
+      "monotone": false,
+      "name": "final_D_impossible",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "720-visited < 121-P",
+      "justification": "This budgets completion to P=121.",
+      "monotone": false,
+      "name": "remaining_pass_starts_exceed_remaining_windows",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "remaining_window_capacity_prune(state)",
+      "justification": "This budgets completion windows to Target B.",
+      "monotone": false,
+      "name": "remaining_cover_capacity_impossible",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "f1_normal_form(state) is None",
+      "justification": "Exact F<=1 prefix invariant, independent of completion coordinates.",
+      "monotone": true,
+      "name": "F1_fragment_normal_form_impossible",
+      "scope": "target_a_safe_proved",
+      "target_a": "RETAINED"
+    },
+    {
+      "condition": "25-O > (121-P)+(1-F)",
+      "justification": "It is a future-credit argument for completing O=25.",
+      "monotone": false,
+      "name": "insufficient_future_orbit_opening_credit",
+      "scope": "q2_target_b_completion_only",
+      "target_a": "DISABLED"
+    },
+    {
+      "condition": "exact.extend returns None",
+      "justification": "A nonrepeat walk cannot traverse the candidate.",
+      "monotone": true,
+      "name": "exact_permutation_collision",
+      "scope": "universally_safe",
+      "target_a": "RETAINED"
+    },
+    {
+      "condition": "more than two R events",
+      "justification": "The scoped RR root language stops at R2; R2 is recognized on the edge.",
+      "monotone": true,
+      "name": "rr_r_budget",
+      "scope": "target_a_scope_reduction",
+      "target_a": "RETAINED"
+    },
+    {
+      "condition": "hub target touches >2 under F<=1",
+      "justification": "RR_HUB_TOUCH_COUNT theorem.",
+      "monotone": true,
+      "name": "hub_touch_count",
+      "scope": "universally_safe_under_F_le_1",
+      "target_a": "RETAINED"
+    }
+  ],
+  "enabled_target_a_prunes": [
+    {
+      "implementation": "iter_raw_macro_candidates",
+      "name": "exact_permutation_collision",
+      "scope": "universally_safe",
+      "source": "legacy_research/work/superperm_partial_f1.py::extend",
+      "statement": "exact.extend rejects an already visited permutation window",
+      "test": "test_collision_is_counted_and_not_expanded"
+    },
+    {
+      "implementation": "target_a_prune_reason",
+      "name": "F_exceeded",
+      "scope": "target_a_safe_proved",
+      "source": "research/RR_TARGET_A_DEFINITION.md \u00a72; ExactState.extend",
+      "statement": "Target A requires F_def=1 at the R2 child; F_def is monotone",
+      "test": "test_target_a_profile_rejects_F_and_H_only_from_the_budget_bundle"
+    },
+    {
+      "implementation": "target_a_prune_reason",
+      "name": "H_positive",
+      "scope": "target_a_safe_proved",
+      "source": "research/RR_TARGET_A_DEFINITION.md \u00a72; ExactState.extend",
+      "statement": "Target A requires H=0 at the R2 child; H is monotone",
+      "test": "test_target_a_profile_rejects_F_and_H_only_from_the_budget_bundle"
+    },
+    {
+      "implementation": "target_a_prune_reason",
+      "name": "F1_fragment_normal_form_impossible",
+      "scope": "target_a_safe_proved",
+      "source": "legacy_research/work/superperm_partial_f1.py::f1_normal_form",
+      "statement": "with F_def<=1, more than one abandoned partial hexagon or more than F+1 arcs is impossible",
+      "test": "test_target_a_profile_uses_exact_f1_prefix_invariant"
+    },
+    {
+      "implementation": "evaluate_edge",
+      "name": "rr_r_budget",
+      "scope": "target_a_scope_reduction",
+      "source": "src/search_rr_long_prefix_extensions.py::search",
+      "statement": "the scoped RR word has at most two R events; a bare short root may enqueue R1, while R2 is a boundary and never a child",
+      "test": "test_legal_first_r_edge_is_enqueued_for_every_short_root; test_long_root_r2_is_recognized_on_edge_and_never_enqueued"
+    },
+    {
+      "implementation": "advance_decoration",
+      "name": "hub_touch_count",
+      "scope": "universally_safe_under_F_le_1",
+      "source": "research/RR_HUB_TOUCH_COUNT.md",
+      "statement": "with F <= 1, no hexagon can be a joint target more than twice",
+      "test": "test_hub_touch_counter_is_monotone"
+    }
+  ],
+  "historical_sources": [
+    "legacy_research/work/superperm_partial_f1_macro.py::area_a_prune_reason",
+    "research/RR_TARGET_A_DEFINITION.md",
+    "research/RR_TARGET_B_DEFINITION.md",
+    "research/RR_ROUND35_VS_ROUND37_RECONCILIATION_CODEX.md"
+  ],
+  "legacy_area_a_profile": "legacy_area_a_q2_comparison_v1",
+  "legacy_registry_hash": "878d06e4906ebc18e990f89cec59b91b8283542249a579c369b6a32ab243f2a1",
+  "schema": "rr-target-a-prune-registry-v1",
+  "target_a_profile": "target_a_semantic_v1",
+  "target_a_registry_hash": "37e393232e780c977aa2c53b67c3be9c3a224539167cb0d966b739a4702633de"
+}

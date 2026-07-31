@@ -125,7 +125,7 @@ def short_root_records() -> list[dict[str, object]]:
 
 def short_root_manifest(records: Sequence[Mapping[str, object]]) -> dict[str, object]:
     return {
-        "schema": "rr-short5-root-manifest-v2",
+        "schema": "rr-short5-root-manifest-v3-target-a-prune-scope",
         "scope": ("five bare Round-37 short roots only; all long roots excluded; "
                   "first R is an enqueued R1 child and R2 is terminal"),
         "records": [dict(record) for record in records],
@@ -214,8 +214,8 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
 
 def config_extra(manifest: Mapping[str, object]) -> dict[str, object]:
     return {
-        "root_universe": "round37-short5-bare-abandonment-r1-complete-v2",
-        "checkpoint_payload_schema": "rr-target-a-exhaustive-checkpoint-v2-short-r1",
+        "root_universe": "round37-short5-bare-abandonment-r1-complete-v3-target-a-prunes",
+        "checkpoint_payload_schema": "rr-target-a-exhaustive-checkpoint-v3-short-r1-target-a",
         "short5_manifest_sha256": sha256_bytes(json.dumps(manifest, sort_keys=True).encode("utf-8")),
         "short5_driver_sha256": sha256_file(Path(__file__)),
     }
