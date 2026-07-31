@@ -155,6 +155,7 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
     between that contract and the current implementation.
     """
     groups: dict[tuple[object, ...], list[tuple[object, object]]] = {}
+    r1_group_keys: set[tuple[object, ...]] = set()
     queue = deque()
     root_count = 0
     for record in records:
@@ -175,14 +176,19 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
         # Deliberate duplicate makes a real equality comparison, not merely a
         # vacuous "no collisions" count.
         groups.setdefault(key, []).extend(((state, decoration), (state, decoration)))
+        if decoration.r_count == 1:
+            r1_group_keys.add(key)
         if depth < depth_limit:
             queue.extend((depth + 1, child_state, child_decoration)
                          for child_state, child_decoration in _accepted_children(state, decoration))
     mismatches = []
+    r1_mismatches = []
     for key, samples in groups.items():
         signatures = {rr.successor_signature(state, decoration) for state, decoration in samples}
         if len(signatures) != 1:
             mismatches.append(sha256_bytes(repr(key).encode("utf-8")))
+            if key in r1_group_keys:
+                r1_mismatches.append(sha256_bytes(repr(key).encode("utf-8")))
     return {
         "schema": "rr-short5-decorated-state-key-audit-v2",
         "grade": ("lossless raw-key contract plus complete depth-2 "
@@ -192,6 +198,8 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
         "states_examined": examined,
         "r_count_histogram": dict(sorted(r_count_histogram.items())),
         "r1_states_examined": r_count_histogram[1],
+        "post_R1_deliberate_duplicate_groups": len(r1_group_keys),
+        "post_R1_key_collision_mismatches": r1_mismatches,
         "deliberate_duplicate_groups": len(groups),
         "key_collision_mismatches": mismatches,
         "json_roundtrip_failures": json_roundtrip_failures,
@@ -207,6 +215,7 @@ def audit_short_state_key(records: Sequence[Mapping[str, object]], depth_limit: 
 def config_extra(manifest: Mapping[str, object]) -> dict[str, object]:
     return {
         "root_universe": "round37-short5-bare-abandonment-r1-complete-v2",
+        "checkpoint_payload_schema": "rr-target-a-exhaustive-checkpoint-v2-short-r1",
         "short5_manifest_sha256": sha256_bytes(json.dumps(manifest, sort_keys=True).encode("utf-8")),
         "short5_driver_sha256": sha256_file(Path(__file__)),
     }

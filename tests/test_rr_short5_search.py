@@ -63,6 +63,8 @@ class Short5RootTests(unittest.TestCase):
         # pre-R states from which it is reachable.
         self.assertGreater(audit["r1_states_examined"], 0)
         self.assertGreater(audit["r_count_histogram"].get(1, 0), 0)
+        self.assertGreater(audit["post_R1_deliberate_duplicate_groups"], 0)
+        self.assertEqual(audit["post_R1_key_collision_mismatches"], [])
         self.assertEqual(audit["key_collision_mismatches"], [])
         self.assertEqual(audit["json_roundtrip_failures"], [])
 
@@ -117,6 +119,8 @@ class Short5RootTests(unittest.TestCase):
         manifest = short5.short_root_manifest(self.records)
         config = short5.rr.checkpoint_config(self.records[0], 0, None, short5.config_extra(manifest))
         self.assertEqual(config["root_universe"], "round37-short5-bare-abandonment-r1-complete-v2")
+        self.assertEqual(config["checkpoint_payload_schema"],
+                         "rr-target-a-exhaustive-checkpoint-v2-short-r1")
         self.assertIn("short5_manifest_sha256", config)
         with self.assertRaises(ValueError):
             short5.rr.checkpoint_config(self.records[0], 0, None, {"root_id": "bad"})
@@ -129,6 +133,45 @@ class Short5RootTests(unittest.TestCase):
             stale.write_text(json.dumps({"short5_manifest_sha256": "v1-stale"}), encoding="utf-8")
             with self.assertRaises(ValueError):
                 short5.read_prior_results(stale, manifest_sha)
+
+    def test_v1_checkpoint_is_rejected_by_the_r1_complete_driver(self):
+        manifest = short5.short_root_manifest(self.records)
+        v2_config = short5.rr.checkpoint_config(self.records[0], 0, None,
+                                                 short5.config_extra(manifest))
+        v1_config = short5.rr.checkpoint_config(self.records[0], 0, None)
+        state, decoration = short5.rr.initial_decoration(self.records[0])
+        stats = {"expanded": 0, "generated_edges": 0, "exact_states": [], "memo_hits": 0,
+                 "prunes": {}, "CH1_nodes": 0, "CH2_nodes": 0, "undecided_nodes": 0,
+                 "other_nodes": 0, "branch_transitions": {}, "max_macro_depth": 0,
+                 "checkpoint_count": 0}
+        with tempfile.TemporaryDirectory() as folder:
+            stale = Path(folder) / "v1.json"
+            short5.rr.write_checkpoint(stale, v1_config, [(0, state, decoration, tuple())],
+                                       {short5.rr.decorated_key(state, decoration)}, stats, [], [])
+            with self.assertRaisesRegex(ValueError, "checkpoint payload schema mismatch"):
+                short5.rr.load_checkpoint(stale, v2_config)
+
+    def test_v2_resume_preserves_an_enqueued_r1_frontier(self):
+        manifest = short5.short_root_manifest(self.records)
+        extra = short5.config_extra(manifest)
+        record = self.records[0]
+        with tempfile.TemporaryDirectory() as folder:
+            checkpoint = Path(folder) / "v2.json"
+            first = short5.rr.search_root(record, node_limit=1, checkpoint=checkpoint,
+                                          checkpoint_every=1, checkpoint_config_extra=extra)
+            config = short5.rr.checkpoint_config(record, 1, None, extra)
+            frontier_a, _seen_a, _stats_a, _bounds_a, _lineage_a = short5.rr.load_checkpoint(checkpoint, config)
+            self.assertEqual(first["status"], "INCOMPLETE")
+            self.assertTrue(any(dec.r_count == 1 for _depth, _state, dec, _trace in frontier_a))
+            resumed = short5.rr.search_root(record, node_limit=1, checkpoint=checkpoint,
+                                            checkpoint_every=1, resume=checkpoint,
+                                            checkpoint_config_extra=extra)
+            frontier_b, _seen_b, _stats_b, _bounds_b, _lineage_b = short5.rr.load_checkpoint(checkpoint, config)
+            self.assertEqual(resumed["status"], "INCOMPLETE")
+            self.assertEqual([(depth, short5.rr.decorated_key(state, dec), trace)
+                              for depth, state, dec, trace in frontier_a],
+                             [(depth, short5.rr.decorated_key(state, dec), trace)
+                              for depth, state, dec, trace in frontier_b])
 
     def test_short_driver_does_not_reference_the_phase_helper(self):
         tree = ast.parse((ROOT / "src" / "search_rr_short5_exact.py").read_text(encoding="utf-8"))

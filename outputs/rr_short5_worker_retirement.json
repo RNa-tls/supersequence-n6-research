@@ -1,0 +1,34 @@
+{
+  "schema": "rr-short5-worker-retirement-v1",
+  "classification": "PRE_R_V1_INVALID_FOR_FULL_SEARCH",
+  "worker": {
+    "pid": 21612,
+    "root_id": "short_ell0",
+    "command_line": "C:\\Users\\parks\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe src\\search_rr_short5_exact.py --root-id short_ell0 --resume outputs\\rr_short5_checkpoints\\short_ell0.json --checkpoint-every 10000 --output outputs\\rr_short5_search_results.json --certificates outputs\\rr_short5_exhaustion_certificates.json --new-boundaries outputs\\rr_short5_new_boundaries.json",
+    "start_time": "2026-07-31T13:54:47.9542571+09:00",
+    "cpu_seconds_at_retirement": 1680.953125,
+    "working_set_bytes_at_retirement": 6019104768,
+    "private_bytes_at_retirement": 6118690816,
+    "termination_method": "Stop-Process without -Force after confirmed periodic atomic checkpoint",
+    "process_terminated": true,
+    "free_physical_memory_mib_after_retirement": 16901
+  },
+  "checkpoint": {
+    "path": "outputs/rr_short5_checkpoints/short_ell0.json",
+    "payload_schema": "rr-target-a-exhaustive-checkpoint-v1",
+    "root_universe": "round37-short5-bare-abandonment-v1",
+    "last_successful_timestamp": "2026-07-31T14:24:41.4895757+09:00",
+    "bytes": 1120165770,
+    "sha256": "23960a5425ca5fe0e1d88edc73c20641c6be22eb84401886f12eaab782d885d5",
+    "readable": true,
+    "complete_frontier_snapshot": true,
+    "expanded": 580000,
+    "frontier_size": 74,
+    "seen_key_count": 580074,
+    "boundary_count": 0,
+    "all_frontier_r_counts": [0],
+    "marking": "PRE_R_V1_INVALID_FOR_FULL_SEARCH",
+    "disposition": "Preserved unchanged; immutable sidecar records invalidity; never resume with v2."
+  },
+  "note": "This was not an exhaustion result. It explored only the pre-R subspace because R1 children were not enqueued."
+}

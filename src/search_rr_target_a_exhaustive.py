@@ -63,6 +63,7 @@ ENGINE_FILES = (
     ROOT / "src" / "search_rr_target_a_exhaustive.py",
     ROOT / "src" / "build_rr_long_excursion_roots.py",
 )
+CHECKPOINT_SCHEMA_V1 = "rr-target-a-exhaustive-checkpoint-v1"
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -523,6 +524,21 @@ def atomic_json(path: Path, payload: Mapping[str, object]) -> None:
     os.replace(temporary, path)
 
 
+def checkpoint_payload_schema(config: Mapping[str, object]) -> str:
+    """Return the explicit payload schema bound into a checkpoint config.
+
+    Historical long-prefix checkpoints use v1 by default.  A separately
+    versioned traversal, such as the corrected bare-short-root R1 search,
+    must supply an explicit schema in its additive config.  This prevents a
+    compatible-looking old JSON file from being resumed under changed state
+    semantics.
+    """
+    schema = config.get("checkpoint_payload_schema", CHECKPOINT_SCHEMA_V1)
+    if not isinstance(schema, str) or not schema:
+        raise ValueError("invalid checkpoint payload schema in configuration")
+    return schema
+
+
 def serialize_frontier(frontier: Sequence[tuple[int, object, Decoration, tuple[dict[str, object], ...]]]) -> list[dict[str, object]]:
     return [{
         "depth": depth, "state": exact.state_to_json(state),
@@ -542,7 +558,7 @@ def write_checkpoint(path: Path, config: Mapping[str, object],
                      seen: Iterable[tuple[object, ...]], stats: Mapping[str, object],
                      boundaries: Sequence[Mapping[str, object]], lineage: Sequence[str]) -> str:
     payload = {
-        "schema": "rr-target-a-exhaustive-checkpoint-v1", "config": dict(config),
+        "schema": checkpoint_payload_schema(config), "config": dict(config),
         "frontier": serialize_frontier(frontier),
         "seen_keys": sorted(repr(key) for key in seen), "stats": dict(stats),
         "boundaries": list(boundaries), "checkpoint_lineage": list(lineage),
@@ -554,8 +570,9 @@ def write_checkpoint(path: Path, config: Mapping[str, object],
 
 def load_checkpoint(path: Path, config: Mapping[str, object]):
     raw = json.loads(path.read_text(encoding="utf-8"))
-    if raw.get("schema") != "rr-target-a-exhaustive-checkpoint-v1":
-        raise ValueError("unrecognized Round-35 checkpoint schema")
+    expected_schema = checkpoint_payload_schema(config)
+    if raw.get("schema") != expected_schema:
+        raise ValueError(f"checkpoint payload schema mismatch: expected {expected_schema!r}")
     if raw.get("config") != dict(config):
         raise ValueError("checkpoint configuration, code hash, or root differs")
     if not raw.get("complete_frontier_snapshot"):
@@ -651,6 +668,10 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             "memo_hits": 0, "prunes": {}, "CH1_nodes": 0, "CH2_nodes": 0,
             "undecided_nodes": 0, "other_nodes": 0, "branch_transitions": {},
             "max_macro_depth": 0, "checkpoint_count": 0,
+            "pre_R_nodes": 0, "post_R1_nodes": 0, "R1_transitions": 0,
+            "R2_candidate_edges": 0, "Target_A_hits": 0,
+            "pre_R_prunes": {}, "post_R1_prunes": {}, "max_post_R1_depth": 0,
+            "r1_decorated_keys": [],
         }
         boundaries: list[dict[str, object]] = []
         lineage: list[str] = []
@@ -662,12 +683,36 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         "expanded": 0, "generated_edges": 0, "exact_states": [], "memo_hits": 0,
         "prunes": {}, "CH1_nodes": 0, "CH2_nodes": 0, "undecided_nodes": 0,
         "other_nodes": 0, "branch_transitions": {}, "max_macro_depth": 0,
-        "checkpoint_count": 0,
+        "checkpoint_count": 0, "pre_R_nodes": 0, "post_R1_nodes": 0,
+        "R1_transitions": 0, "R2_candidate_edges": 0, "Target_A_hits": 0,
+        "pre_R_prunes": {}, "post_R1_prunes": {}, "max_post_R1_depth": 0,
+        "r1_decorated_keys": [],
     }.items():
         stats.setdefault(field, default)
     prunes = Counter(stats.get("prunes", {}))
+    pre_r_prunes = Counter(stats.get("pre_R_prunes", {}))
+    post_r1_prunes = Counter(stats.get("post_R1_prunes", {}))
     branch_transitions = Counter(stats.get("branch_transitions", {}))
     exact_states = set(stats.get("exact_states", set()))
+    r1_decorated_keys = set(stats.get("r1_decorated_keys", []))
+    if resume is None and decoration.r_count == 1:
+        r1_decorated_keys.add(repr(decorated_key(start, decoration)))
+
+    def record_prune(reason: str, current_decoration: Decoration) -> None:
+        prunes[reason] += 1
+        if current_decoration.r_count == 0:
+            pre_r_prunes[reason] += 1
+        elif current_decoration.r_count == 1:
+            post_r1_prunes[reason] += 1
+
+    def persist_telemetry() -> None:
+        stats["prunes"] = dict(sorted(prunes.items()))
+        stats["pre_R_prunes"] = dict(sorted(pre_r_prunes.items()))
+        stats["post_R1_prunes"] = dict(sorted(post_r1_prunes.items()))
+        stats["branch_transitions"] = dict(sorted(branch_transitions.items()))
+        stats["exact_states"] = sorted(exact_states)
+        stats["r1_decorated_keys"] = sorted(r1_decorated_keys)
+        stats["unique_r1_decorated_keys"] = len(r1_decorated_keys)
     started = time.time()
     interrupted = False
     bounded_depth = False
@@ -681,6 +726,11 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             continue
         stats["expanded"] = int(stats["expanded"]) + 1
         stats["max_macro_depth"] = max(int(stats["max_macro_depth"]), depth)
+        if dec.r_count == 0:
+            stats["pre_R_nodes"] = int(stats["pre_R_nodes"]) + 1
+        elif dec.r_count == 1:
+            stats["post_R1_nodes"] = int(stats["post_R1_nodes"]) + 1
+            stats["max_post_R1_depth"] = max(int(stats["max_post_R1_depth"]), depth)
         bucket = {"CH1": "CH1_nodes", "CH2": "CH2_nodes", "UNDECIDED": "undecided_nodes"}.get(
             dec.branch, "other_nodes")
         stats[bucket] = int(stats[bucket]) + 1
@@ -688,9 +738,13 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         for edge, collision in iter_raw_macro_candidates(state):
             stats["generated_edges"] = int(stats["generated_edges"]) + 1
             if collision is not None:
-                prunes[collision] += 1
+                record_prune(collision, dec)
                 continue
             assert edge is not None
+            edge_kind = joint_kind(edge.joint.move.weight, edge.joint.abandonment,
+                                   edge.joint.new_orbit)
+            if edge_kind == "R" and dec.r_count == 1:
+                stats["R2_candidate_edges"] = int(stats["R2_candidate_edges"]) + 1
             verdict, child_dec, recognition = evaluate_edge(state, dec, edge)
             trace_step = edge_json(edge)
             if verdict == "child":
@@ -702,14 +756,19 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 key = decorated_key(edge.state, child_dec)
                 if key in seen:
                     stats["memo_hits"] = int(stats["memo_hits"]) + 1
-                    prunes["decorated_memo_duplicate"] += 1
+                    record_prune("decorated_memo_duplicate", dec)
                     continue
                 seen.add(key)
+                if child_dec.r_count == 1:
+                    r1_decorated_keys.add(repr(key))
+                    if dec.r_count == 0 and edge_kind == "R":
+                        stats["R1_transitions"] = int(stats["R1_transitions"]) + 1
                 exact_states.add(repr(edge.state.stable_key()))
                 child_entries.append((depth + 1, edge.state, child_dec, trace + (trace_step,)))
                 continue
             if verdict == "FOUND_TARGET_A":
                 assert child_dec is not None and recognition is not None
+                stats["Target_A_hits"] = int(stats["Target_A_hits"]) + 1
                 boundary = dict(recognition)
                 boundary.update({
                     "root_id": record["root_id"], "extension_depth": depth + 1,
@@ -721,21 +780,17 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 boundary["target_b_dispatch"] = dispatch_target_b(boundary, edge.state)
                 boundaries.append(boundary)
                 continue
-            prunes[verdict] += 1
+            record_prune(verdict, dec)
         # Stack uses reverse lexical successor order but the resulting pop order
         # is stable lexical; recording it in config makes certificates replayable.
         child_entries.sort(key=lambda item: item[3][-1]["label"], reverse=True)
         frontier.extend(child_entries)
         if checkpoint is not None and checkpoint_every > 0 and int(stats["expanded"]) % checkpoint_every == 0:
-            stats["prunes"] = dict(sorted(prunes.items()))
-            stats["branch_transitions"] = dict(sorted(branch_transitions.items()))
-            stats["exact_states"] = sorted(exact_states)
+            persist_telemetry()
             digest = write_checkpoint(checkpoint, config, frontier, seen, stats, boundaries, lineage)
             lineage.append(digest)
             stats["checkpoint_count"] = int(stats["checkpoint_count"]) + 1
-    stats["prunes"] = dict(sorted(prunes.items()))
-    stats["branch_transitions"] = dict(sorted(branch_transitions.items()))
-    stats["exact_states"] = sorted(exact_states)
+    persist_telemetry()
     stats["elapsed_seconds_this_invocation"] = round(time.time() - started, 3)
     if checkpoint is not None:
         digest = write_checkpoint(checkpoint, config, frontier, seen, stats, boundaries, lineage)
@@ -754,6 +809,7 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
     # root-level certificate summary.
     public_stats = dict(stats)
     public_stats.pop("exact_states", None)
+    public_stats.pop("r1_decorated_keys", None)
     result = {
         "schema": "rr-target-a-exhaustive-root-result-v1",
         "status": status, "root_id": record["root_id"],

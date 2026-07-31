@@ -306,7 +306,8 @@ def checkpoint_audit(result: Mapping[str, object]) -> dict[str, object]:
         return {"ok": False, "reason": "checkpoint_file_missing"}
     raw = json.loads(checkpoint.read_text(encoding="utf-8"))
     try:
-        if raw.get("schema") != "rr-target-a-exhaustive-checkpoint-v1":
+        expected_schema = config.get("checkpoint_payload_schema", "rr-target-a-exhaustive-checkpoint-v1")
+        if raw.get("schema") != expected_schema:
             raise AssertionError("schema")
         if raw.get("config") != result["config"]:
             raise AssertionError("config")

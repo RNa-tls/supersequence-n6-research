@@ -110,6 +110,28 @@ class TestRound35Recognizer(unittest.TestCase):
         self.assertFalse(miss["is_target_a"])
         self.assertFalse(miss["conditions"]["immediately_after_R2"])
 
+    def test_ch_branch_classifier_and_real_ch2_update(self):
+        # The two branch formulas are pure decoration invariants.  CH1 is a
+        # same-index R completion; CH2 is a later Z2 completion after R1.
+        r1 = rr.REvent(5, "R", 1, 0, 2, 0)
+        ch1 = rr.Decoration("synthetic", 0, 0, rr.HUB, 5, (r1,), 1,
+                            rr.Completer(5, "R", 1, 0, 2, 0))
+        ch2 = rr.Decoration("synthetic", 0, 0, rr.HUB, 6, (r1,), 1,
+                            rr.Completer(6, "Z2", 3, 1, 4, 2))
+        self.assertEqual(ch1.branch, "CH1")
+        self.assertEqual(ch2.branch, "CH2")
+
+        records = rr.load_audited_roots(
+            ROOT / "outputs" / "rr_target_a_22_root_ledger.json",
+            ROOT / "outputs" / "rr_long_excursion_prefixes.json",
+        )
+        record = next(row for row in records if row["root_id"] == "R27-prefix-6")
+        state, decoration = rr.initial_decoration(record)
+        edge = next(edge for edge, collision in rr.iter_raw_macro_candidates(state)
+                    if collision is None and edge.label == "rot^5;w2:10")
+        after = rr.advance_decoration(edge.run.state, edge.joint, decoration)
+        self.assertEqual(after.branch, "CH2")
+
 
 class TestRound35CheckpointAndDeterminism(unittest.TestCase):
     @classmethod

@@ -33,12 +33,12 @@ exhaustion result for a short-root Target-A continuation.
 | Long Round-35 root semantics | audited roots start at `r_count=1`; a legal next R is recognized on that edge and never enqueued |
 | Regression tests | short R1 enqueue and long R2 terminal rules both pass |
 
-The checked-out pre-correction `short_ell0` checkpoint contains no serialized
-R event (`82` frontier decorations with `r_events=[]` at the audited snapshot).
+The final pre-correction `short_ell0` checkpoint contains no serialized R
+event (`74` frontier decorations with `r_events=[]`, after 580,000 expansions).
 No checkpoint for `short_ell1` through `short_ell4` is present in this
-checkout.  The pre-correction worker was left untouched while this audit was
-performed; it remains an explicitly stale, pre-R-only computation and must
-not be resumed as the corrected traversal.
+checkout.  The worker was retired after its last periodic atomic checkpoint;
+it remains an explicitly stale, pre-R-only computation and must not be resumed
+as the corrected traversal.
 
 ## Correct rule
 
