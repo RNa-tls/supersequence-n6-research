@@ -1,0 +1,124 @@
+{
+  "schema": "rr-short-ell0-repair-claims-claude-v1",
+  "author": "Claude",
+  "role": "repair-theory analyst, continuing from commit 3d0e68d over Codex commit 24002fd",
+  "no_new_fetch_or_search": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no new fetch or search was performed; every claim below is read from data already fetched in prior rounds or proved/refuted from already-read source code (superperm_partial_f1.py extend(), search_rr_target_a_exhaustive.py incidence_components and advance_decoration)."
+  },
+  "task_1_spine_formalized": {
+    "label": "CLAUDE_OBSERVATION",
+    "orbit_120_phase_sequence": "phase(2) -> phase(3) -> phase(4) -> phase(0), +1 mod 5 per spine step; phase 1 never revisited (already occupied by the root's own w2:10 landing)",
+    "r1_options": [
+      {"spine_depth_k": 0, "lands_at": [120, 3], "label": "event1"},
+      {"spine_depth_k": 1, "lands_at": [120, 4], "label": "event2"},
+      {"spine_depth_k": 2, "lands_at": [120, 0], "label": "event3"},
+      {"spine_depth_k": 4, "lands_at": [0, 2], "label": "event4", "note": "after the spine's own hub-touching step at k=3"}
+    ],
+    "observed_gap": "k=3's own R1 alternative was not observed as a distinct exported event -- only its Z2 continuation (which becomes event 4's completer) appears in the data. Recorded as an observed gap, not inferred either way.",
+    "hub_position_coincidence": "orbit 120's phase 0 slot IS hexagon 0 (the hub) -- a fixed structural fact confirmed by two independent edges landing there (event 3's R, event 4's spine Z2), not a property of move type",
+    "ch1_vs_pre_r_completer": {
+      "code_citation": "Decoration.branch / event_order_class, search_rr_target_a_exhaustive.py lines 144-174",
+      "CH1": "completer.macro_index == r1.macro_index (R1 edge itself lands on hub; k=2, event3)",
+      "PRE_R_COMPLETER_EVENT_ORDER": "completer.macro_index < r1.macro_index (an earlier edge already landed on hub; k=4, event4)",
+      "mutually_exclusive": true
+    }
+  },
+  "task_2_repair_type_effects": {
+    "vacuity_of_z3_reentry": {
+      "label": "CLAUDE_HAND_PROOF",
+      "statement": "a weight-3 edge landing on an already-open orbit is ALWAYS classified R, never Z3, by joint_kind's own definition and extend()'s new_orbit=(om[q]==0) computation. 'Z3 re-entry' is not a distinct legal move category -- any edge matching that description is, by definition, an R, already proven unavailable (R-budget exhausted at R1+R2). Only Z2 and Z3-fresh-opening are real repair candidates."
+    },
+    "Z2": {
+      "forest_vertices": "unchanged (orbit already has a vertex)",
+      "forest_edges": "+1 (new (orbit,phase)->hexagon edge)",
+      "component_partition": "may merge the orbit's component with the target hexagon's component if the hexagon already has a vertex in a different component; otherwise extends the orbit's own component",
+      "hub_touch_count": "+1 iff target hexagon is the hub (identical rule for both kinds; check is hexagon_id(target)==hub_id, independent of joint_kind)",
+      "F_def": "+1 iff not state.visited(word_after(state.p, SIGMA)) -- a check on the PRE-edge position's own visited-set, referencing neither this edge's target, kind, nor the incidence forest",
+      "r1_target_ancestry": "unaffected unless this edge's target hexagon already lies in R1-target's component",
+      "terminal_geometry_risk": "F at risk only via the abandonment mechanism; H never at risk (dH=max(weight-3,0)=0 for weight<=3)"
+    },
+    "Z3": {
+      "forest_vertices": "+1 (new orbit's first vertex)",
+      "forest_edges": "+1 (identical mechanism)",
+      "component_partition": "attaches the new orbit's singleton to the target hexagon's existing component, or starts a fresh singleton if the hexagon has none yet",
+      "hub_touch_count": "same rule as Z2",
+      "F_def": "identical rule -- dF computation in extend() does not branch on joint_kind",
+      "terminal_geometry_risk": "identical risk profile to Z2"
+    },
+    "causal_independence_hand_proof": {
+      "label": "CLAUDE_HAND_PROOF",
+      "claim": "F_def's update rule is causally independent of the incidence-forest/component-merge mechanism",
+      "proof": "dF is computed from state.visited(word_after(state.p, SIGMA)) alone -- a predicate over the OLD orbit's own rotation-continuation and the global visited-set, containing no reference to orbit_masks, incidence_components, or which hexagon the NEW edge targets. Whether an edge merges two components has no causal bearing on whether it triggers F_exceeded."
+    }
+  },
+  "task_3_minimum_merge_conditions": {
+    "label": "CLAUDE_OBSERVATION",
+    "conditions": [
+      "1. the repair's own orbit already belongs to (or, for Z3, becomes) one side of the pair -- the R2-source's eventual small component",
+      "2. its target hexagon already has a vertex in the OTHER side -- R1-target's component (spans 8 distinct hexagons per the one fully-detailed exported sample, not only the hub)",
+      "3. that target PERMUTATION (not merely the hexagon) has not already been visited, or exact_permutation_collision rejects the edge before the forest is consulted"
+    ],
+    "granularity_note": "condition 3 is not automatically satisfied by condition 2: the union-find operates at HEXAGON granularity while collision is checked at PERMUTATION granularity. A hexagon with popcount<6 has a free slot a repair could target without colliding, even though that hexagon already has a vertex from some other, already-visited slot. Only a hexagon at popcount=6 (the hub is the one directly observed example) is collision-saturated for every possible target."
+  },
+  "task_4_lemma_verdicts": [
+    {
+      "lemma": "A",
+      "statement": "a Z2 repair cannot merge two distinct components",
+      "verdict": "FALSE",
+      "grade": "CLAUDE_HAND_PROOF",
+      "argument": "Z2's effect on the forest is mechanically identical to Z3's (one new orbit-vertex-to-hexagon-vertex edge) except it reuses an existing orbit-vertex. Nothing in Z2's definition constrains which hexagon its fixed move-formula target lands in relative to any existing component.",
+      "counterpattern": "any Z2 edge whose orbit q sits in component C_q, landing at a fresh phase whose target hexagon h already has a vertex in a different component C_h, merges C_q and C_h -- the generic case, not a special one"
+    },
+    {
+      "lemma": "B",
+      "statement": "any Z3 repair that merges the needed components consumes the only remaining allowed hub touch",
+      "verdict": "FALSE",
+      "grade": "CLAUDE_HAND_PROOF",
+      "argument": "would only hold if the ONLY hexagon already in R1-target's component were the hub itself. It is not.",
+      "counterpattern": "R1-target's component has {e_orbits:2, hexagons:8, incidences:10} per the exported sample -- 8 distinct hexagons, hub only one of them. A Z3 opening a fresh orbit whose target lands in any of the other 7 already-in-component hexagons (popcount<6) merges the needed components without touching the hub at all.",
+      "data_source": "outputs/rr_short_ell0_v3_component_failures.json records[0], already exported, not newly inferred"
+    },
+    {
+      "lemma": "C",
+      "statement": "any legal repair changes the future R2 source orbit",
+      "verdict": "TRUE",
+      "grade": "CLAUDE_HAND_PROOF",
+      "argument": "inserting any additional macro edge (Z2 or Z3, kind-agnostic) lengthens the walk's history by one edge, so every subsequent rotation-run's landing position shifts relative to the un-repaired walk, since a rotation-run's landing is a deterministic function of the exact preceding position. No repair type or placement leaves later R2 candidates' source orbit unchanged.",
+      "generalizes": "the prior round's proof, stated there only generically for 'the repair event'; confirmed here to hold for both concrete repair types (Z2 and Z3)"
+    },
+    {
+      "lemma": "D",
+      "statement": "a repair preserving terminal geometry must occur before completer",
+      "verdict": "FALSE",
+      "grade": "CLAUDE_HAND_PROOF",
+      "argument": "F_def's update rule references only the pre-edge position's own rotation-continuation and the global visited-set -- no term for completer timing or macro_index. H is never at risk from any weight<=3 edge regardless of timing. Terminal-geometry preservation and completer timing are governed by disjoint state (F/H vs. Decoration.completer).",
+      "counterpattern": "abstract -- a Z3 edge fired strictly between R1 and the re-attempted R2 (hence necessarily after the historical completer in this lineage), targeting a non-hub, non-full hexagon already in R1-target's component; nothing established forces this to trigger an abandonment or exceed the hub-touch cap merely because it occurs after the completer"
+    },
+    {
+      "lemma": "E",
+      "statement": "a repair after completer necessarily causes F_exceeded or collision",
+      "verdict": "FALSE",
+      "grade": "CLAUDE_HAND_PROOF -- exhaustive empirical refutation, not merely abstract",
+      "argument": "in event 4's lineage the completer fires at macro_index 4, strictly before R1 (macro_index 5) -- so every one of the 100,245 post-R1 node expansions in this run is, by definition, 'after completer'.",
+      "exhaustive_evidence": "outputs/rr_short_ell0_v3_frontier_export.json's 85 frontier states report F:{1} exhaustively, zero exceptions -- not one of the tens of thousands of accepted, expanded edges in this post-completer region ever pushed F above 1",
+      "caveat_stated_precisely": "this exhausts ORDINARY post-completer continuations, not a repair-classified edge specifically (no confirmed successful repair exists anywhere in this data, Target_A_hits=0). The refutation rests on (a) the proven causal-independence argument (task_2), which applies regardless of whether an edge also merges components, plus (b) the exhaustive empirical absence of F_exceeded among all accepted post-completer edges -- not on a directly observed successful repair, which does not exist in this data",
+      "most_decisively_refuted": true
+    }
+  ],
+  "task_5_summary": {
+    "label": "CLAUDE_OBSERVATION",
+    "verdicts_table": {"A": "FALSE", "B": "FALSE", "C": "TRUE", "D": "FALSE", "E": "FALSE"},
+    "net_result": "four of five candidate lemmas are false, and the one true lemma (C) does not by itself forbid a repair -- it only says a repair cannot be evaluated against the original 5,419 candidates, it produces new ones. No proven obstruction to a legal, component-merging, geometry-preserving repair was found this round, and none is fabricated. A genuinely permissive result relative to what the candidate lemmas, if true, would have implied."
+  },
+  "task_6_smallest_repair_template": {
+    "label": "CLAUDE_PROPOSAL -- not a claim this template is realized in the data, not searched for",
+    "edge_kind": "Z3 (fresh orbit) preferred -- does not require the repair's own orbit to already be registered; a Z2 template is equally unruled-out if its orbit already sits in the eventual R2-source component (Lemma A)",
+    "timing": "strictly after R1, strictly before the re-attempted R2 candidate (necessarily 'after completer' in this lineage -- Lemma D shows this is not disqualifying)",
+    "target_hexagon": "any hexagon already possessing a forest vertex in R1-target's component, EXCLUDING the hub hexagon (Lemma B: 7 such non-hub hexagons already known to exist) AND excluding any hexagon already at popcount=6 (collision risk, task_3 condition 3)",
+    "target_phase_slot": "any of that hexagon's not-yet-visited permutations",
+    "resulting_orbit": "becomes the new orbit the repair's own vertex sits in; a later R2 candidate would need its own rotation-run to land back in THIS specific orbit for the repair to matter to it (Lemma C: this is a new, not-yet-characterized candidate, not one of the 5,419 already on record)",
+    "required_check": "F stays <=1 immediately after -- not guaranteed by any proof above (task_2's independence proof shows it is POSSIBLE to satisfy, not that it is impossible to fail); must be checked per concrete edge"
+  },
+  "end_token": "CLAUDE_REPAIR_THEORY_COMPLETE"
+}
