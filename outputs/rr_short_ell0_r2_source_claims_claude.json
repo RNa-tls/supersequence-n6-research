@@ -1,0 +1,166 @@
+{
+  "schema": "rr-short-ell0-r2-source-claims-claude-v1",
+  "author": "Claude",
+  "role": "R2-source-orbit structural analyst over codex/round43-short-ell0-taxonomy",
+  "remote_verification": {
+    "label": "CLAUDE_OBSERVATION",
+    "branch": "codex/round43-short-ell0-taxonomy",
+    "commits_confirmed_reachable": ["d90b69a", "785ddab", "24002fd"],
+    "files_read": [
+      "research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md",
+      "research/RR_O_EXCEEDED_SCOPE_CODEX.md",
+      "research/RR_SHORT_ELL0_MEDIUM_V3_TARGET_A_CODEX.md",
+      "research/RR_SHORT_ELL0_V3_FAILURE_TAXONOMY_CODEX.md",
+      "outputs/rr_short_ell0_medium_v3.json",
+      "outputs/rr_short_ell0_medium_v3_verified.json",
+      "outputs/rr_short_ell0_v2_v3_differential.json",
+      "outputs/rr_short_ell0_v3_geometry_failures.json",
+      "outputs/rr_short_ell0_v3_frontier_export.json",
+      "outputs/rr_short_ell0_v3_component_failures.json"
+    ],
+    "independent_verifiers_in_branch": {
+      "rr_short_ell0_medium_v3_verified.json": {"verified": true, "failures": [], "r1_event_failures": []},
+      "rr_short_ell0_v3_taxonomy_verified.json": {"verified": true, "geometry_category_counts_r2_wrong_source_orbit": 44021, "all_other_geometry_categories": 0}
+    },
+    "main_codex_result_confirmed_exactly": {
+      "r2_wrong_source_orbit": 44021,
+      "not_same_component": 5419,
+      "other_r2_failure_classes": 0,
+      "target_a_hits": 0,
+      "classification": "INCOMPLETE",
+      "replay_equivalence_all_true": ["same_expansion_sequence", "same_frontier", "same_seen_key_set", "same_semantic_stats"]
+    }
+  },
+  "task_1_incidence_forest_definition": {
+    "label": "CLAUDE_OBSERVATION",
+    "code_citation": "src/search_rr_target_a_exhaustive.py incidence_components, lines 324-344 (unchanged since two rounds ago)",
+    "vertices": "(q, orbit_id) for each E-orbit with orbit_masks[orbit_id] != 0; (h, hexagon_id) for each hexagon targeted by such a registered phase",
+    "edges": "one union per set bit of orbit_masks: bit `phase` of orbit q creates edge (q,q)--(h, hexagon_id(port at that phase))",
+    "distinguished_hub_root": "dec.hub_id (hexagon of the walk's own starting position, fixed per root); has no special status inside incidence_components itself, only in the separate Decoration structure (hub popcount, hub_touch_count, completer)",
+    "membership_computation": "sq, sph = ORBIT_PHASE[pre_state.p] where pre_state is the state after the R2 candidate's own rotation run but before its joint commits; source_present = (q,sq) in the freshly-rebuilt union-find parent dict",
+    "target_a_usage": "Target A (per research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md) is an R2 macro edge whose child has F_def=1, H=0, and whose R2 source and target E-orbits lie in the same incidence-forest component. Source-orbit membership is a precondition for the same-component question to even be well-defined; its absence is reported as its own taxonomy category (r2_wrong_source_orbit), not folded into not_same_component."
+  },
+  "task_2_transition_laws": {
+    "label": "CLAUDE_OBSERVATION",
+    "code_citation": "legacy_research/work/superperm_partial_f1.py extend() (byte-identical across abfcdca..24002fd, confirmed via git diff) and search_rr_target_a_exhaustive.py advance_decoration lines 360-386",
+    "per_edge_type": {
+      "pure_rotation_w1": {"vertices": "unchanged", "edges": "unchanged", "components": "unchanged", "r1_target_ancestry": "unchanged", "candidate_r2_source_orbit": "CHANGES -- moves current position to a possibly different, unregistered orbit with no forest update", "hub_attachment": "unchanged"},
+      "Z2_weight2_preserving": {"vertices": "unchanged (already-open orbit)", "edges": "+1 (new phase's hexagon)", "components": "may merge two components", "hub_attachment": "+1 touch_count if landing hexagon is hub; sets completer if unset"},
+      "Z3_weight3_fresh": {"vertices": "+1 (new orbit)", "edges": "+1", "components": "may attach new solo component or merge into existing", "hub_attachment": "same rule as Z2"},
+      "R_weight3_reentry": {"vertices": "unchanged (target orbit already open by definition)", "edges": "+1", "components": "may merge two components", "note": "this is the R1/R2 event itself", "hub_attachment": "same rule as Z2/Z3"},
+      "Z2abandon_root_only": {"vertices": "+1 (fires once, at the literal root)", "edges": "+1", "components": "trivial first non-hub component"}
+    },
+    "monotone_quantities": ["forest vertex set (only grows)", "forest edge set (only grows)", "component partition (only coarsens)", "orbit-q-registered (once true, always true)", "P", "O", "Ndef", "hub popcount"],
+    "not_monotone_quantities": ["M = P-5O (sawtooth, +1 per Z2/R, -4 per Z3)", "Phi (sawtooth, established prior round)", "which orbit a given R2 attempt tests (path/rotation-offset dependent, not a fixed-orbit property)"]
+  },
+  "task_3_geometry_failure_explanation": {
+    "label": "CLAUDE_OBSERVATION",
+    "source": "outputs/rr_short_ell0_v3_geometry_failures.json, all 44021 records aggregated (exhaustive, not sampled)",
+    "facts": {
+      "distinct_ell_values": [5],
+      "distinct_r1_source_orbit": [1],
+      "distinct_event_order_class": ["PRE_R_COMPLETER_EVENT_ORDER"],
+      "distinct_completer_records": 1,
+      "distinct_failing_source_orbits": 113,
+      "depth_range": [6, 104],
+      "target_orbit_present_in_pre_r2_forest": "always true (target_missing: false for all 44021)"
+    },
+    "interpretation": "all 44021 failures descend from exactly one R1 event (fires at macro_index 5, targets orbit 0 i.e. the hub, with its hub completer having fired earlier at macro_index 4 -- the PRE_R_COMPLETER_EVENT_ORDER / provisional-CH0 pattern). Cross-checked against component_failures.json's 5419 records: identical signature (same event_order_class, same r1_target_orbit=0, same ell=5). ALL 49440 R2 candidates in this run, both failure classes, descend from this single event; the other three R1 events contributed zero R2 candidates within this budget.",
+    "mechanism": "every frontier state's own current orbit is already registered (100% of 85 states, task 5) because a frontier state always stands exactly where its own most recent weight>=2 joint landed, which always sets a bit for its own orbit. It is specifically the ADDITIONAL rotation (0-5 further pure-rotation steps) that an R2 CANDIDATE's own rotation run performs before its joint is tested that can move the position into a different, unregistered E-orbit -- pure rotation never touches orbit_masks (task 2).",
+    "open_question_not_resolved": "why ell is always exactly 5 in this data, never 0-4, is NOT confirmed from the exported ledgers -- a plausible but unconfirmed hypothesis is that shorter-ell R2-shaped candidates are eliminated by exact_permutation_collision (the dominant prune reason overall, 1541360 occurrences) before ever reaching the R2 recognizer. See export_request below.",
+    "no_counts_inferred_beyond_exported_ledgers": true
+  },
+  "task_4_same_component_failures": {
+    "label": "CLAUDE_OBSERVATION",
+    "source": "outputs/rr_short_ell0_v3_component_failures.json histograms block, all 5419 records (exhaustive)",
+    "r1_target_component_id": "a single fixed value across all 5419",
+    "r1_target_vs_r2_source": "DIFFERENT, all 5419",
+    "component_count_pre_r2_range": [21, 46],
+    "r2_source_component_class_distribution": {
+      "e_orbits1_hexagons1_incidences2": 3438,
+      "e_orbits1_hexagons2_incidences3": 1744,
+      "e_orbits1_hexagons3_incidences4": 206,
+      "e_orbits1_hexagons4_incidences5": 31
+    },
+    "candidate_edge_would_merge_components": "False, all 5419",
+    "could_coarsening_later_repair_the_relation": {
+      "label": "CLAUDE_OBSERVATION -- explicitly not claiming permanent impossibility",
+      "statement": "not provably either way from this data. Monotonicity (task 2) guarantees a merge, once it happens, is permanent, but does NOT guarantee any specific pair of components ever merges. candidate_edge_would_merge_components=False answers only whether THIS specific already-failing candidate would itself be the merging event -- it says nothing about whether some OTHER later edge (touching a hexagon shared by both components) could still merge them. The exported data is a frontier/failure snapshot, not a full future continuation, so this cannot be checked directly."
+    },
+    "is_failure_terminal_only_at_that_candidate": "yes -- chaining (r1.target_orbit == R2.source_orbit) is False for all 5419, and each record is a distinct (pre_state, candidate) pair at a distinct depth; a later R2 attempt from a different position could test a different, larger, or differently-connected source component. Nothing here says a later attempt from this lineage WOULD succeed, only that this data does not rule it out."
+  },
+  "task_5_frontier_structural_profiles": {
+    "label": "CLAUDE_OBSERVATION",
+    "source": "outputs/rr_short_ell0_v3_frontier_export.json, all 85 records (exhaustive)",
+    "aggregate_ranges": {
+      "r_count": {"0": 10, "1": 75},
+      "depth": {"n_distinct": 51, "range": [1, 76]},
+      "P": [3, 78], "O": [2, 34], "F": [1], "H": [0],
+      "Ndef": {"equals_r_count_exactly": true, "note": "Ndef_cap is now a disabled Area-A-only prune in this profile, so this equality is observed not enforced"},
+      "Phi": [0, 1],
+      "M": [-95, -5],
+      "hub_status": {"COMPLETE": 74, "PARTIAL": 11},
+      "hub_popcount": {"6": 74, "1": 10, "2": 1},
+      "component_count": [1, 33],
+      "legal_successor_count": {"0": 4, "1": 12, "2": 23, "3": 36, "4": 10},
+      "current_position_orbit_present_in_forest": "True, all 85"
+    },
+    "structural_profiles": {
+      "label": "descriptive grouping only, NOT a claim of continuation equivalence -- states sharing a profile still differ in depth, exact permutation, and component structure",
+      "grouping_key": "(r_count, R1_target_orbit_if_any, hub_status, completer_kind_if_any, legal_successor_count)",
+      "n_distinct_profiles": 8,
+      "profiles": [
+        {"r_count": 1, "r1_target_orbit": 0, "hub_status": "COMPLETE", "completer_kind": "Z2", "successors": 3, "count": 33},
+        {"r_count": 1, "r1_target_orbit": 0, "hub_status": "COMPLETE", "completer_kind": "Z2", "successors": 2, "count": 23},
+        {"r_count": 1, "r1_target_orbit": 0, "hub_status": "COMPLETE", "completer_kind": "Z2", "successors": 1, "count": 12},
+        {"r_count": 0, "r1_target_orbit": null, "hub_status": "PARTIAL", "completer_kind": null, "successors": 4, "count": 8},
+        {"r_count": 1, "r1_target_orbit": 0, "hub_status": "COMPLETE", "completer_kind": "Z2", "successors": 0, "count": 4},
+        {"r_count": 1, "r1_target_orbit": 120, "hub_status": "PARTIAL", "completer_kind": null, "successors": 3, "count": 2},
+        {"r_count": 0, "r1_target_orbit": null, "hub_status": "COMPLETE", "completer_kind": "Z2", "successors": 4, "count": 2},
+        {"r_count": 1, "r1_target_orbit": 120, "hub_status": "PARTIAL", "completer_kind": "R", "successors": 3, "count": 1}
+      ]
+    },
+    "dead_end_states": {
+      "count": 4,
+      "statement": "genuine zero-legal-successor states within the explored region -- every next_edge_labels entry for each is a prune (target_a_semantic_v1:F_exceeded, outside_RR_joint_model, exact_permutation_collision, one lone r2_not_target), not merely unexpanded due to budget"
+    },
+    "dominant_non_child_next_edge_verdict": {"outside_RR_joint_model": 72, "exact_permutation_collision": 13}
+  },
+  "task_6_ranking_function_search": {
+    "label": "CLAUDE_OBSERVATION only -- no CLAUDE_PROPOSAL theorem this round",
+    "candidates_considered": [
+      {"quantity": "M = P-5O", "monotone": false, "bounded": false, "connects_to_target_a_obstruction": "no argument found"},
+      {"quantity": "Phi", "monotone": "non-increasing at joint boundaries only", "bounded": "empirically {0,1} in this data, but Phi_window_capacity is disabled in this profile so no enforced lower bound exists", "connects_to_target_a_obstruction": "no argument found"},
+      {"quantity": "remaining hub positions (6-popcount)", "monotone": true, "bounded": "yes, [0, 6]", "connects_to_target_a_obstruction": "no -- hub completion is not a Target-A condition at all"},
+      {"quantity": "component count", "monotone": true, "bounded": "yes, >=1", "connects_to_target_a_obstruction": "no proof found connecting a bound value to forced Target-A success or failure"},
+      {"quantity": "unvisited phase count in a distinguished orbit", "evaluated": false, "reason": "no single orbit is distinguished by Target A's own definition"},
+      {"quantity": "future possible completer landings", "evaluated": false, "reason": "not computable as a scalar without assuming a continuation"},
+      {"quantity": "distance to terminal predecessor class", "evaluated": false, "reason": "no terminal-predecessor classification exists yet"}
+    ],
+    "conclusion": "two quantities are genuinely monotone and bounded (remaining hub positions, component count) but neither has a completed proof linking its bound to a forbidden or required Target-A value; no ranking theorem is proposed this round"
+  },
+  "task_7_theorem_attempt": {
+    "label": "CLAUDE_OBSERVATION -- theorem is FALSE as stated",
+    "candidate_theorem": "after the first R event in the short_ell0 root, the only possible second-R source orbits are outside the incidence forest unless a specific transition pattern occurs",
+    "verdict": "false, and the data itself is the counterexample: 10.96% of observed R2 candidates (5419 of 49440) DO have their source orbit inside the forest -- they fail on not_same_component instead, a different reason entirely",
+    "exact_missing_transition_pattern": "an R2 candidate whose rotation run lands in an orbit q such that (a) orbit_masks[q] already has at least one set bit from an EARLIER Z2/Z3/R edge in the same walk (ruling out r2_wrong_source_orbit), AND (b) that vertex's component already contains, or is later joined by an intervening edge to, whichever component R1's own target orbit belongs to at that same moment (ruling out not_same_component). This restates Target A's own definition specialized to the two observed failure modes; no exported record satisfies both simultaneously (Target_A_hits=0 confirms this directly)."
+  },
+  "task_8_safe_prune_candidates": {
+    "label": "none proposed this round",
+    "reason": "every candidate considered required either (a) claiming a currently-different component can never merge -- explicitly forbidden by the counterexample discipline in task 4 without additional unfound argument -- or (b) treating the observed ell=5-only pattern as a proven structural necessity rather than the observed-but-unconfirmed correlation flagged in task 3. Neither clears the complete-hand-proof bar."
+  },
+  "codex_export_request": {
+    "label": "CLAUDE_PROPOSAL -- an export request, not a search request",
+    "statement": "export, for a bounded sample of expanded post-R1 nodes, the rotation-length histogram of every GENERATED edge (not just ones reaching the R2 recognizer), partitioned by which prune reason each ell value received -- specifically whether ell in {0..4} R2-shaped candidates are eliminated by exact_permutation_collision before ever reaching evaluate_edge's R2 branch. This would convert task 3's open hypothesis into either a confirmed mechanism or a genuine counterexample, without any new traversal."
+  },
+  "final_response_summary": {
+    "1_remote_commit_verification": "all three commits confirmed reachable; both in-branch independent verifiers report verified:true with zero failures; stated Main Codex result confirmed exactly",
+    "2_incidence_forest_definition": "see task_1_incidence_forest_definition",
+    "3_source_orbit_membership_monotone": "yes for a fixed orbit (once registered, always registered); no as a property of which orbit a given R2 attempt happens to test (path/rotation-offset dependent)",
+    "4_same_component_repairable_later": "not provably either way from this data -- monotonicity guarantees permanence of an eventual merge, not that one occurs",
+    "5_frontier_structural_profiles": "85 states reduce to 8 descriptive profiles, 89.4% in one R1-event lineage, 4 genuine dead-end states",
+    "6_theorem_or_evasion_pattern": "candidate theorem is false as stated (11% of attempts already clear the source-orbit test); exact evasion pattern stated in task_7_theorem_attempt",
+    "7_proposed_codex_verification_task": "see codex_export_request"
+  },
+  "end_token": "CLAUDE_R2_SOURCE_ANALYSIS_COMPLETE"
+}
