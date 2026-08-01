@@ -454,6 +454,165 @@ R2_OUTCOME_VOCABULARY = (
     "hub_touch_failure", "exact_collision", "other_explicit_reason",
 )
 
+# The historical ``recognizer_geometry_failure`` outcome was deliberately
+# conservative: it meant only that at least one of the two R2 E-orbits was
+# absent from the *pre-R2* incidence forest.  It was never a mathematical
+# predicate in its own right.  Keep that parent outcome for backwards
+# compatibility with existing v3 ledgers, but require every occurrence to
+# carry exactly one member of this deterministic child taxonomy.  The zero
+# entries are intentional: they make the complete decision order auditable,
+# rather than silently conflating an unobserved case with an omitted case.
+GEOMETRY_FAILURE_VOCABULARY = (
+    "no_completer",
+    "completer_wrong_target_orbit",
+    "completer_wrong_target_phase",
+    "r2_wrong_source_orbit",
+    "r2_wrong_target_orbit",
+    "r2_wrong_ell",
+    "r2_wrong_joint",
+    "wrong_hub_residual_position",
+    "wrong_event_order",
+    "chaining_failure",
+    "terminal_boundary_mismatch",
+    "other_asserted_reason",
+)
+
+
+def component_summary(state) -> dict[str, object]:
+    """Return a deterministic, history-free incidence-component summary.
+
+    Component identifiers are hashes of the complete sorted node set, never
+    union-find roots.  Thus they are stable across path compression order and
+    can be exported as independent evidence for an R2 relation test.
+    """
+    parent, find = incidence_components(state)
+    groups: dict[tuple[str, int], list[tuple[str, int]]] = {}
+    for node in parent:
+        groups.setdefault(find(node), []).append(node)
+    node_component: dict[tuple[str, int], dict[str, object]] = {}
+    components: list[dict[str, object]] = []
+    for nodes in sorted((tuple(sorted(group)) for group in groups.values())):
+        e_orbits = tuple(node[1] for node in nodes if node[0] == "q")
+        hexagons = tuple(node[1] for node in nodes if node[0] == "h")
+        identifier = sha256_bytes(repr(nodes).encode("utf-8"))[:16]
+        component = {
+            "id": identifier,
+            "class": {"e_orbits": len(e_orbits), "hexagons": len(hexagons),
+                      "incidences": len(nodes)},
+            "e_orbits": list(e_orbits), "hexagons": list(hexagons),
+        }
+        components.append(component)
+        for node in nodes:
+            node_component[node] = component
+    return {
+        "component_count": len(components),
+        "components": components,
+        "node_component": node_component,
+    }
+
+
+def _component_ref(summary: Mapping[str, object], node: tuple[str, int]) -> Optional[dict[str, object]]:
+    component = summary["node_component"].get(node)  # type: ignore[index,union-attr]
+    if component is None:
+        return None
+    return {"id": component["id"], "class": component["class"]}
+
+
+def geometry_failure_reason(*, source_present: bool, target_present: bool) -> str:
+    """Classify the former opaque geometry exit, with no residual bucket.
+
+    This function is called *only* at the old opaque exit.  Its precondition
+    is therefore ``not source_present or not target_present``.  If both are
+    missing, source absence takes priority; the target absence is retained as
+    an orthogonal flag in the serialized record.  Every remaining taxonomy
+    member is a declared-but-unobserved normal-form diagnostic, not an
+    alternative hidden under a generic label.  Reaching the final branch is a
+    programming error, so ``other_asserted_reason`` is never emitted.
+    """
+    if not source_present:
+        return "r2_wrong_source_orbit"
+    if not target_present:
+        return "r2_wrong_target_orbit"
+    raise AssertionError("geometry taxonomy invoked without a missing R2 incidence endpoint")
+
+
+def geometry_failure_record(pre_state, edge, before: Decoration, after: Decoration,
+                            *, depth: Optional[int] = None) -> dict[str, object]:
+    """Serialize enough endpoint evidence to independently reclassify one exit."""
+    transition = edge.joint
+    sq, sph = exact.ORBIT_PHASE[pre_state.p]
+    tq, tph = exact.ORBIT_PHASE[transition.target]
+    parent, _find = incidence_components(pre_state)
+    source_present = ("q", sq) in parent
+    target_present = ("q", tq) in parent
+    reason = geometry_failure_reason(source_present=source_present, target_present=target_present)
+    candidate_key = (state_hash(pre_state), transition.move.label, edge.run.ell,
+                     sq, sph, tq, tph, before.key())
+    return {
+        "candidate_id": sha256_bytes(repr(candidate_key).encode("utf-8")),
+        "depth": depth,
+        "pre_state_hash": state_hash(pre_state),
+        "macro_label": f"rot^{edge.run.ell};{transition.move.label}",
+        "source_orbit": sq, "source_phase": sph,
+        "target_orbit": tq, "target_phase": tph,
+        "source_orbit_present_in_pre_r2_forest": source_present,
+        "target_orbit_present_in_pre_r2_forest": target_present,
+        "primary_reason": reason,
+        # Preserve overlap information instead of pretending a primary label
+        # is a causal proof.  The independent verifier checks these flags.
+        "secondary_missing_endpoint_flags": {
+            "source_missing": not source_present,
+            "target_missing": not target_present,
+        },
+        "r1": None if before.r1 is None else asdict(before.r1),
+        "completer": None if after.completer is None else asdict(after.completer),
+        "event_order_class": after.event_order_class,
+    }
+
+
+def same_component_failure_record(pre_state, edge, before: Decoration, after: Decoration,
+                                  *, depth: int) -> dict[str, object]:
+    """Detailed, immutable evidence for one `not_same_component` R2 edge."""
+    transition = edge.joint
+    sq, sph = exact.ORBIT_PHASE[pre_state.p]
+    tq, tph = exact.ORBIT_PHASE[transition.target]
+    pre = component_summary(pre_state)
+    post = component_summary(transition.state)
+    source = _component_ref(pre, ("q", sq))
+    target = _component_ref(pre, ("q", tq))
+    post_source = _component_ref(post, ("q", sq))
+    post_target = _component_ref(post, ("q", tq))
+    if source is None or target is None:
+        raise AssertionError("same-component failure record requires both pre-R2 endpoints")
+    if source["id"] == target["id"]:
+        raise AssertionError("same-component failure record received a same-component R2")
+    r1_target = None if before.r1 is None else _component_ref(pre, ("q", before.r1.target_orbit))
+    would_merge = (post_source is not None and post_target is not None and
+                   post_source["id"] == post_target["id"])
+    candidate_key = (state_hash(pre_state), transition.move.label, edge.run.ell,
+                     sq, sph, tq, tph, before.key())
+    return {
+        "candidate_id": sha256_bytes(repr(candidate_key).encode("utf-8")),
+        "depth": depth,
+        "pre_state_hash": state_hash(pre_state),
+        "macro_label": f"rot^{edge.run.ell};{transition.move.label}",
+        "r1_target_orbit": None if before.r1 is None else before.r1.target_orbit,
+        "r1_target_component": r1_target,
+        "r2_source_orbit": sq, "r2_source_phase": sph,
+        "r2_source_component": source,
+        "r2_target_orbit": tq, "r2_target_phase": tph,
+        "r2_target_component": target,
+        "component_count_pre_r2": pre["component_count"],
+        "component_count_post_r2": post["component_count"],
+        "candidate_edge_would_merge_components": would_merge,
+        "exact_relation_checked": (
+            "pre-R2 incidence forest: component(q,R2.source) == component(q,R2.target)"),
+        "pre_r2_component_digest": component_digest(pre_state),
+        "post_r2_component_digest": component_digest(transition.state),
+        "chaining": before.r1 is not None and before.r1.target_orbit == sq,
+        "event_order_class": after.event_order_class,
+    }
+
 
 def r1_event_export(edge, before: Decoration, after: Decoration,
                     trace: tuple[dict[str, object], ...]) -> tuple[str, dict[str, object]]:
@@ -510,6 +669,8 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
     parent, find = incidence_components(pre_state)
     source_root = find(("q", sq)) if ("q", sq) in parent else None
     target_root = find(("q", tq)) if ("q", tq) in parent else None
+    source_present = source_root is not None
+    target_present = target_root is not None
     same_component = source_root is not None and source_root == target_root
     r1 = before.r1
     chaining = r1 is not None and r1.target_orbit == sq
@@ -573,6 +734,13 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
         "event_order_class": after.event_order_class,
         "r2_primary_failure": primary_failure,
         "r2_outcome": r2_outcome,
+        "geometry_failure_reason": (
+            geometry_failure_reason(source_present=source_present, target_present=target_present)
+            if source_root is None or target_root is None else None),
+        "r2_endpoint_presence": {
+            "source_orbit_present_in_pre_r2_forest": source_present,
+            "target_orbit_present_in_pre_r2_forest": target_present,
+        },
         "r2_failed_conditions": failed_conditions,
         "r2_detail_reason": (
             "H_positive" if not conditions["H_equals_0"] else
@@ -843,7 +1011,9 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 max_depth: Optional[int] = None, checkpoint: Optional[Path] = None,
                 checkpoint_every: int = 1000, resume: Optional[Path] = None,
                 checkpoint_config_extra: Optional[Mapping[str, object]] = None,
-                prune_profile: str = TARGET_A_SAFE_PROFILE) -> dict[str, object]:
+                prune_profile: str = TARGET_A_SAFE_PROFILE,
+                capture_r2_diagnostics: bool = False,
+                capture_frontier_snapshot: bool = False) -> dict[str, object]:
     """Exact root-local traversal.  Positive node/max-depth stops are incomplete."""
     config = checkpoint_config(record, node_limit, max_depth, checkpoint_config_extra,
                                prune_profile=prune_profile)
@@ -869,7 +1039,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             # not affect the RR recognizer, pruning, or decorated state key.
             "provisional_CH0_events": 0,
             "event_order_class_events": {}, "R2_primary_failures": {},
-            "R2_outcomes": {}, "R1_events": {},
+            "R2_outcomes": {}, "R1_events": {}, "geometry_failure_counts": {},
+            "geometry_failure_records": [], "same_component_failure_records": [],
         }
         boundaries: list[dict[str, object]] = []
         lineage: list[str] = []
@@ -889,6 +1060,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         "hub_completions_after_R1": 0, "CH1_events": 0, "CH2_events": 0,
         "provisional_CH0_events": 0, "event_order_class_events": {},
         "R2_primary_failures": {}, "R2_outcomes": {}, "R1_events": {},
+        "geometry_failure_counts": {}, "geometry_failure_records": [],
+        "same_component_failure_records": [],
     }.items():
         stats.setdefault(field, default)
     prunes = Counter(stats.get("prunes", {}))
@@ -904,6 +1077,9 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
     r2_primary_failures = Counter(stats.get("R2_primary_failures", {}))
     r2_outcomes = Counter(stats.get("R2_outcomes", {}))
     r1_events = dict(stats.get("R1_events", {}))
+    geometry_failure_counts = Counter(stats.get("geometry_failure_counts", {}))
+    geometry_failure_records = list(stats.get("geometry_failure_records", []))
+    same_component_failure_records = list(stats.get("same_component_failure_records", []))
     if resume is None and decoration.r_count == 1:
         r1_decorated_keys.add(repr(decorated_key(start, decoration)))
 
@@ -930,6 +1106,11 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         stats["R2_primary_failures"] = dict(sorted(r2_primary_failures.items()))
         stats["R2_outcomes"] = {name: int(r2_outcomes[name]) for name in R2_OUTCOME_VOCABULARY}
         stats["R1_events"] = dict(sorted(r1_events.items()))
+        if capture_r2_diagnostics:
+            stats["geometry_failure_counts"] = {
+                name: int(geometry_failure_counts[name]) for name in GEOMETRY_FAILURE_VOCABULARY}
+            stats["geometry_failure_records"] = geometry_failure_records
+            stats["same_component_failure_records"] = same_component_failure_records
     started = time.time()
     interrupted = False
     bounded_depth = False
@@ -1039,6 +1220,17 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 if outcome not in R2_OUTCOME_VOCABULARY or outcome == "TARGET_A_HIT":
                     raise AssertionError("non-target R2 has invalid outcome")
                 r2_outcomes[outcome] += 1
+                if capture_r2_diagnostics:
+                    if outcome == "recognizer_geometry_failure":
+                        reason = recognition["geometry_failure_reason"]
+                        if reason not in GEOMETRY_FAILURE_VOCABULARY:
+                            raise AssertionError("opaque geometry exit has no exact taxonomy reason")
+                        geometry_failure_counts[str(reason)] += 1
+                        geometry_failure_records.append(geometry_failure_record(
+                            edge.run.state, edge, dec, child_dec, depth=depth + 1))
+                    elif outcome == "not_same_component":
+                        same_component_failure_records.append(same_component_failure_record(
+                            edge.run.state, edge, dec, child_dec, depth=depth + 1))
             record_prune(verdict, dec)
         # Stack uses reverse lexical successor order but the resulting pop order
         # is stable lexical; recording it in config makes certificates replayable.
@@ -1052,6 +1244,13 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
     persist_telemetry()
     if sum(r2_outcomes.values()) != int(stats["R2_candidate_edges"]):
         raise AssertionError("R2 outcome ledger does not partition R2 candidates")
+    if capture_r2_diagnostics:
+        if sum(geometry_failure_counts.values()) != r2_outcomes["recognizer_geometry_failure"]:
+            raise AssertionError("geometry taxonomy does not partition opaque geometry exits")
+        if len(geometry_failure_records) != r2_outcomes["recognizer_geometry_failure"]:
+            raise AssertionError("geometry failure evidence count mismatch")
+        if len(same_component_failure_records) != r2_outcomes["not_same_component"]:
+            raise AssertionError("same-component failure evidence count mismatch")
     stats["elapsed_seconds_this_invocation"] = round(time.time() - started, 3)
     if checkpoint is not None:
         digest = write_checkpoint(checkpoint, config, frontier, seen, stats, boundaries, lineage)
@@ -1084,6 +1283,15 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                             "non_target_R2": prunes.get("r2_not_target", 0)},
         "final_result_digest": None,
     }
+    if capture_frontier_snapshot:
+        # Intended only for bounded audit replays.  This exports the requested
+        # terminal frontier (not a large resumable checkpoint) and binds it to
+        # a deterministic LIFO search transcript comparison.
+        result["diagnostic_frontier_snapshot"] = serialize_frontier(frontier)
+        result["diagnostic_frontier_hash"] = sha256_bytes(
+            json.dumps(result["diagnostic_frontier_snapshot"], sort_keys=True).encode("utf-8"))
+        result["diagnostic_seen_key_hash"] = sha256_bytes(
+            "\n".join(sorted(repr(key) for key in seen)).encode("utf-8"))
     digest_payload = dict(result)
     digest_payload["final_result_digest"] = None
     result["final_result_digest"] = sha256_bytes(json.dumps(digest_payload, sort_keys=True, default=str).encode("utf-8"))

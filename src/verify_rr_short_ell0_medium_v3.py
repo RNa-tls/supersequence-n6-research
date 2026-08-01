@@ -5,9 +5,12 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import json
+import hashlib
 import shutil
+import subprocess
 import sys
 import tempfile
+import types
 from collections import Counter
 from pathlib import Path
 
@@ -26,9 +29,29 @@ def load(name: str, path: Path):
     return module
 
 
-rr = load("rr_medium_v3_verify_engine", ROOT / "src" / "search_rr_target_a_exhaustive.py")
 short5 = load("rr_medium_v3_verify_short5", ROOT / "src" / "search_rr_short5_exact.py")
 runner = load("rr_medium_v3_verify_runner", ROOT / "src" / "run_rr_short_ell0_medium_v3.py")
+
+
+def load_frozen_round42_engine():
+    """Verify the historical checkpoint against the exact code it hashes.
+
+    Later diagnostic-only instrumentation changes the source SHA by design;
+    it must not make a valid Round-42 certificate unverifiable or tempt a
+    caller to resume that checkpoint under changed code.
+    """
+    frozen = subprocess.run(
+        ["git", "show", "785ddab:src/search_rr_target_a_exhaustive.py"],
+        cwd=ROOT, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    ).stdout
+    module = types.ModuleType("rr_medium_v3_verify_frozen_round42")
+    module.__file__ = str(ROOT / "src" / "search_rr_target_a_exhaustive.py")
+    sys.modules[module.__name__] = module
+    exec(compile(frozen, module.__file__, "exec"), module.__dict__)
+    return module, hashlib.sha256(frozen).hexdigest()
+
+
+rr, FROZEN_ENGINE_SHA256 = load_frozen_round42_engine()
 
 
 def replay_r1(record, event: dict[str, object]) -> bool:
@@ -59,18 +82,22 @@ def main() -> None:
     failures: list[str] = []
     records = short5.short_root_records()
     record = next(row for row in records if row["root_id"] == "short_ell0")
-    manifest = short5.short_root_manifest(records)
-    extra = short5.config_extra(manifest)
-    config = rr.checkpoint_config(record, int(result["config"]["node_limit"]), None, extra,
-                                  prune_profile=rr.TARGET_A_SAFE_PROFILE)
     checkpoint = ROOT / payload["final_checkpoint"]["path"]
+    raw = json.loads(checkpoint.read_text(encoding="utf-8"))
+    # The checkpoint is a historical certificate.  Its embedded config is its
+    # identity; recomputing manifest/source hashes from a newer worktree would
+    # be a category error.  Validate the frozen code hash directly instead.
+    config = raw.get("config", {})
+    source_key = "src\\search_rr_target_a_exhaustive.py"
     if result["config"] != config or payload.get("prune_profile") != rr.TARGET_A_SAFE_PROFILE:
         failures.append("Target-A-safe config identity")
     if config["checkpoint_payload_schema"] != "rr-target-a-exhaustive-checkpoint-v3-short-r1-target-a":
         failures.append("v3 checkpoint schema")
+    if config.get("engine_hashes", {}).get(source_key) != FROZEN_ENGINE_SHA256 or \
+            config.get("recognizer_hash") != FROZEN_ENGINE_SHA256:
+        failures.append("frozen Round-42 engine hash")
     if payload.get("prune_registry_hash") != rr.registry_hash(rr.TARGET_A_SAFE_PROFILE):
         failures.append("Target-A registry hash")
-    raw = json.loads(checkpoint.read_text(encoding="utf-8"))
     if raw.get("schema") != config["checkpoint_payload_schema"] or raw.get("config") != config:
         failures.append("checkpoint config/schema")
     if not raw.get("complete_frontier_snapshot"):
@@ -108,9 +135,17 @@ def main() -> None:
         trial = Path(folder) / "resume.json"
         shutil.copy2(checkpoint, trial)
         before = json.loads(trial.read_text(encoding="utf-8"))
-        resumed = rr.search_root(record, node_limit=int(result["config"]["node_limit"]), checkpoint=trial,
-                                 checkpoint_every=1, resume=trial, checkpoint_config_extra=extra,
-                                 prune_profile=rr.TARGET_A_SAFE_PROFILE)
+        saved_config_factory = rr.checkpoint_config
+        # `search_root` otherwise derives a config from the *current* manifest
+        # filesystem.  Bind it to the historical certificate only for this
+        # copied, same-limit replay; no on-disk source checkpoint is modified.
+        rr.checkpoint_config = lambda *_args, **_kwargs: dict(config)
+        try:
+            resumed = rr.search_root(record, node_limit=int(result["config"]["node_limit"]), checkpoint=trial,
+                                     checkpoint_every=1, resume=trial,
+                                     prune_profile=rr.TARGET_A_SAFE_PROFILE)
+        finally:
+            rr.checkpoint_config = saved_config_factory
         after = json.loads(trial.read_text(encoding="utf-8"))
         if before["frontier"] != after["frontier"] or before["seen_keys"] != after["seen_keys"]:
             failures.append("checkpoint/resume equivalence")
@@ -129,6 +164,7 @@ def main() -> None:
         "input": str(args.input), "input_sha256": rr.sha256_file(args.input),
         "checkpoint": {"path": str(checkpoint.relative_to(ROOT)), "sha256": rr.sha256_file(checkpoint),
                        "frontier_r_count_distribution": dict(r_frontier)},
+        "frozen_engine": {"commit": "785ddab", "sha256": FROZEN_ENGINE_SHA256},
         "r1_events_verified": len(stats["R1_events"]), "r1_event_failures": event_failures,
         "r2_outcome_ledger": outcomes, "disabled_prunes_observed": disabled_seen,
         "failures": sorted(set(failures)), "verified": not failures,
