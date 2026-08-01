@@ -1,0 +1,95 @@
+{
+  "schema": "rr-short-ell0-productive-r1-claims-claude-v1",
+  "author": "Claude",
+  "role": "productive-R1-branch analyst, continuing from commit 868beab over Codex commit 24002fd",
+  "no_new_fetch_needed": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "codex/round43-short-ell0-taxonomy re-checked and still tops out at 24002fd, unchanged; all data used below was already fetched in the prior round and re-read from local files. No search was run."
+  },
+  "task_0_spine_structure": {
+    "label": "CLAUDE_OBSERVATION -- new this round, not in the prior report",
+    "statement": "the four R1 events are NOT independent siblings from the root. Reading literal_macro_trace together shows they are four alternative 'fire R1 now vs continue preparation' choices at increasing depth along one shared Z2-preparation spine: macro_index1 Z2 33/0->120/2(hex64), macro_index2 Z2 64/0->120/3(hex90), macro_index3 Z2 90/0->120/4(hex96), macro_index4 Z2 96/0->120/0(hex0). Event 1 fires R1 at depth 0 of this spine, event 2 at depth 1, event 3 at depth 2 (where R1 itself lands on hex0, the hub -> CH1), event 4 at depth 4 (after the spine's own Z2 already touched the hub one step earlier -> PRE_R_COMPLETER_EVENT_ORDER).",
+    "hub_phase_coincidence": "orbit 120's phase-0 slot is identically hexagon 0 (the hub), a fixed structural fact confirmed by both event 3's R edge and event 4's spine Z2 edge landing there identically -- not a coincidence of which move type fires.",
+    "scheduling_explanation": {
+      "label": "CLAUDE_OBSERVATION, grounded in the run's own config, not inferred",
+      "statement": "outputs/rr_short_ell0_medium_v3.json result.config.traversal = 'deterministic-LIFO-by-reversed-label'. A LIFO/DFS order applied to this shared spine mechanically exhausts the deepest alternative (event 4) first within a finite budget, while shallower siblings (events 1-3) remain unexplored -- without needing any claim that they are structurally worse.",
+      "reframes": "productive vs nonproductive is reframed as a scheduling artifact of this specific bounded run, not a proven structural distinction"
+    }
+  },
+  "task_1_productive_event": {
+    "label": "CLAUDE_OBSERVATION",
+    "event_id": "87cbc56a565e566d",
+    "fires_at_macro_index": 5,
+    "source_orbit": 1, "source_phase": 4,
+    "target_orbit": 0, "target_phase": 2,
+    "ell": 4,
+    "Phi_before": 5, "Phi_after": 0,
+    "M_before": -4, "M_after": -3,
+    "P_before": 6, "P_after": 7,
+    "O_before": 2, "O_after": 2,
+    "hub_popcount_before": 6, "hub_popcount_after": 6,
+    "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+    "completer": {"kind": "Z2", "macro_index": 4, "source_orbit": 96, "source_phase": 0, "target_orbit": 120, "target_phase": 0}
+  },
+  "task_2_comparison_table": {
+    "label": "CLAUDE_OBSERVATION",
+    "events": [
+      {"id": "event1", "macro_index": 1, "target_orbit": 120, "target_phase": 3, "ell": 5, "hub_popcount_before_after": [1,1], "completer": null, "event_order_class": "UNDECIDED", "Phi_before_after": [6,1], "M_before_after": [-8,-7], "O_before_after": [2,2], "forest_effect": "adds edge (orbit120)--hex(90); does not touch hub's component"},
+      {"id": "event2", "macro_index": 2, "target_orbit": 120, "target_phase": 4, "ell": 5, "hub_popcount_before_after": [1,1], "completer": null, "event_order_class": "UNDECIDED", "Phi_before_after": [6,1], "M_before_after": [-7,-6], "O_before_after": [2,2], "forest_effect": "adds edge (orbit120)--hex(96); does not touch hub's component"},
+      {"id": "event3", "macro_index": 3, "target_orbit": 120, "target_phase": 0, "ell": 5, "hub_popcount_before_after": [1,2], "completer": {"kind": "R", "macro_index": 3, "source_orbit": 90, "source_phase": 0, "target_orbit": 120, "target_phase": 0}, "event_order_class": "CH1", "Phi_before_after": [6,1], "M_before_after": [-6,-5], "O_before_after": [2,2], "forest_effect": "adds edge (orbit120)--hex(0), MERGING orbit120's component with the hub's component at this exact step (R1 itself is the merging event)"},
+      {"id": "event4_productive", "macro_index": 5, "target_orbit": 0, "target_phase": 2, "ell": 4, "hub_popcount_before_after": [6,6], "completer": {"kind": "Z2", "macro_index": 4, "source_orbit": 96, "source_phase": 0, "target_orbit": 120, "target_phase": 0}, "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER", "Phi_before_after": [5,0], "M_before_after": [-4,-3], "O_before_after": [2,2], "forest_effect": "orbit120's component was already merged with the hub's one step earlier by the Z2 completer, not by R1; R1 itself adds a DIFFERENT edge, (orbit0)--hex(18), extending the already-merged component further"}
+    ],
+    "shared_facts": [
+      "events 1 and 2 are literal prefix-truncations of event 4's own preparation history (byte-identical trace steps)",
+      "R-kind edges (including R1 itself) never register their own source orbit, only the target's -- confirmed for event 4's own R1, whose source orbit 1 gains no forest vertex from this edge",
+      "O=2 throughout all four events and their shared spine -- no Z3 fires anywhere in this explored region"
+    ]
+  },
+  "task_3_required_merging_event": {
+    "label": "CLAUDE_OBSERVATION + CLAUDE_HAND_PROOF",
+    "statement": "a Z2 or Z3 edge, fired while the walk is standing in (or opening) an orbit already in the R2-source-orbit's small component, whose target hexagon is already registered as part of R1-target's larger component (or the symmetric assignment) -- either merges the same two components",
+    "hand_proof_cannot_be_R": {
+      "claim": "the merging event cannot be an R edge, and specifically cannot be R2 itself",
+      "proof": "this repository's own already-proven fact (r_count_exceeded, restated in RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md's formal hierarchy) is that an RR word from a bare short root has exactly two R events: R1 (already fixed) and R2 (the boundary candidate itself, whose legality is exactly what is being tested, evaluated at the PRE-R2 state before it fires). A third R is provably excluded (rr_R_budget). The merging event, if one exists, must fire strictly between the fixed R1 and the not-yet-fired R2 attempt, and cannot itself be an R -- leaving only Z2 or Z3."
+    }
+  },
+  "task_4_legality_analysis": {
+    "label": "CLAUDE_OBSERVATION per sub-question",
+    "consumes_unavailable_R": {"answer": "No", "status": "proven", "reason": "see task_3 hand proof"},
+    "violates_hub_touch": {"answer": "conditionally possible, not proven either way", "mechanism": "hub_touch_count is a retained Q1-safe prune (more than two hub targets under F<=1 is illegal); depends on the specific merging edge chosen, which this data does not enumerate"},
+    "destroys_terminal_geometry": {"answer": "conditionally possible for F, not at risk for H", "mechanism": "F only increases on an abandonment (dF=1 when the next literal rotation of the old pass would have been unvisited); inserting any edge changes the walk's trajectory and could trigger an unwanted abandonment, pushing F from 1 to 2 (F_exceeded, monotone, retained, disqualifying). H cannot be pushed positive by any weight<=3 RR-alphabet edge (dH=max(weight-3,0)=0), so H is not at risk from this class of insertion."},
+    "changes_candidate_r2_source_orbit": {"answer": "Yes, necessarily", "status": "proven", "reason": "inserting any additional macro edge anywhere in the walk's history shifts every subsequent position, since rotation runs land differently once the preceding history has one more edge in it. The 5419 recorded candidates are candidates of the walk exactly as it stands; repairing the mismatch does not patch those specific states -- it produces a materially different walk with its own, currently unknown, R2 candidate set."},
+    "remains_legal_overall": {"answer": "not proven impossible, not proven guaranteed", "reason": "both named risk mechanisms (hub_touch_count, F_exceeded-via-abandonment) are real but neither is shown unavoidable for every possible choice of merging edge"}
+  },
+  "task_5_theorem_verdict": {
+    "label": "CLAUDE_OBSERVATION -- neither proven nor refuted",
+    "candidate_theorem": "any event that repairs the component mismatch necessarily destroys source-orbit admissibility or terminal geometry",
+    "verdict": "left open honestly. task_4 identifies two real risk mechanisms a merging edge COULD trigger and proves a merging edge NECESSARILY changes the downstream R2 candidate set -- but 'changes' is not 'destroys admissibility': a different candidate can still be source-admissible. No argument was found (and none fabricated) showing every possible Z2/Z3 merging choice, at every insertion point, must trigger F_exceeded or hub_touch_count_exceeded. No witness merging edge was found or searched for (searching was explicitly out of scope this round) that provably stays legal either."
+  },
+  "task_6_minimal_repair_pattern": {
+    "label": "CLAUDE_PROPOSAL -- a description of what to look for, not a claim it exists, not searched for by this document",
+    "event_type": "Z2 or Z3 only (never R, proven excluded in task_3)",
+    "source_target_orbit": "source orbit already a member of the R2-source-orbit's eventual small component; target hexagon already a member of R1-target's component at the moment this edge fires",
+    "timing_relative_to_completer": "strictly after R1 (macro_index > 5 in this lineage) and strictly before the re-attempted R2 candidate; no constraint relative to the original completer (macro_index 4), which already fired before R1",
+    "required_decoration": "the walk's full component-forest state at the insertion point (to confirm the target hexagon is genuinely in R1-target's component, not merely a class-shape match) and F/H immediately after insertion (to rule out an accidental abandonment)",
+    "expected_codex_search_predicate": "do NOT extend the current 100250-node frontier (task_4 proves any insertion changes the downstream candidate set entirely). Instead: from the fixed post-R1 state at macro_index 5 (or any other post-R1 state), enumerate Z2/Z3 continuations and, for each, check (a) whether it merges the R2-source-orbit's component with R1-target's component, (b) whether F stays <=1 immediately after, and (c) whether hub_touch_count stays <=2 immediately after -- reporting the first (or all, if cheap) edges satisfying all three, rather than only aggregate counts"
+  },
+  "task_7_zero_candidate_branches": {
+    "label": "CLAUDE_OBSERVATION -- structural facts only, no impossibility inferred",
+    "statement": "events 1, 2, and 3 are three legitimate, legal R1 firings, each with its own target orbit/phase, Phi/M trajectory, and (for event 3) its own immediate hub completion -- reported exactly as such, nothing more. The specific, non-speculative reason zero R2 candidates exist for them within this budget is the run's own documented deterministic-LIFO traversal order applied to a shared preparation spine (task_0), not an inference from silence. No claim is made about what these branches' subtrees would contain at comparable exploration depth."
+  },
+  "safe_prune_candidates": {
+    "new_candidates_proposed": 0,
+    "reason": "task_5's theorem attempt could not be completed in either direction; proposing a prune on an unproven 'necessarily destroys' premise would be the overclaiming this analyst role exists to avoid"
+  },
+  "final_response_summary": {
+    "1_productive_r1_event": "macro_index 5, source (1,4), target (0,2), ell=4, completer fires one step earlier (PRE_R_COMPLETER_EVENT_ORDER)",
+    "2_comparison_with_nonproductive": "the four are not independent siblings but four stopping points on one shared preparation spine -- see task_2_comparison_table",
+    "3_required_merging_event": "a Z2/Z3 edge (never R, proven) bridging the two components",
+    "4_legality_of_merge": "does not consume an unavailable R (proven); conditionally at risk from hub_touch_count and F_exceeded-via-abandonment (named, not proven unavoidable); necessarily changes the downstream R2 candidate set (proven)",
+    "5_theorem_verdict": "neither proven nor refuted this round",
+    "6_minimal_repair_pattern": "see task_6_minimal_repair_pattern",
+    "7_zero_candidate_branches": "reported structurally only; absence of R2 candidates attributed to the run's documented LIFO traversal order, not a proven structural difference"
+  },
+  "end_token": "CLAUDE_PRODUCTIVE_R1_ANALYSIS_COMPLETE"
+}
