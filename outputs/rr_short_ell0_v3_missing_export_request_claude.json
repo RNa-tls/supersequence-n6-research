@@ -1,0 +1,39 @@
+{
+  "schema": "rr-short-ell0-v3-missing-export-request-claude-v1",
+  "author": "Claude",
+  "reason_this_file_exists": "commit 785ddab and all four v3 artifacts it is said to contain are unreachable from this session (see outputs/rr_short_ell0_v3_claims_claude.json and research/RR_SHORT_ELL0_V3_STRUCTURE_CLAUDE.md). This is the minimal export request needed before any of the eight requested analysis sections can be performed for real.",
+  "step_0_reachability": {
+    "requirement": "push the commit actually containing this work to a branch reachable from rna-tls/supersequence-n6-research (the branch used so far, codex/round40-short5-r1-complete, or a new one), and confirm it is visible via `git ls-remote origin` -- without this, nothing else in this request can be checked either.",
+    "currently_reachable_head": "abfcdca"
+  },
+  "step_1_required_files": [
+    "research/RR_SHORT_ELL0_MEDIUM_V3_TARGET_A_CODEX.md",
+    "outputs/rr_short_ell0_medium_v3.json",
+    "outputs/rr_short_ell0_medium_v3_verified.json",
+    "outputs/rr_short_ell0_v2_v3_differential.json"
+  ],
+  "step_2_minimum_fields_per_deliverable_section": {
+    "for_r1_event_analysis_section_2": {
+      "requirement": "per R1 event (not an aggregate), all of: source_orbit, source_phase, target_orbit, target_phase, ell (rotation-run length of the R1 edge), Phi immediately before and after the R1 joint, M immediately before and after, hub popcount immediately before and after, the completer's full record (macro_index, kind, source/target orbit+phase) or explicit null if none yet, the event-order class (see the refined 4-way split already requested in outputs/rr_short5_v3_analysis_schema_claude.json's event_order_class field), and enough of the resulting state (at minimum P, O, F, H, Ndef) to describe 'resulting state geometry' as asked.",
+      "already_requested": "this exact shape (r1_event_level_phi_m, exact_hub_timing, event_order_class) was already specified in the prior round's outputs/rr_short5_v3_analysis_schema_claude.json -- this is a repeat of that request, not a new one, since the v3 artifacts as currently unreachable cannot be checked against it."
+    },
+    "for_recognizer_geometry_failure_split_section_3": {
+      "requirement": "a per-candidate (or at minimum a fully cross-tabulated histogram) breakdown of target_a_recognizer's named boolean conditions (exactly_two_R_events, immediately_after_R2, F_def_le_1, Ndef_equals_2, H_equals_0, area_a_legal, same_component) for every one of the 44,021 candidates currently lumped into 'recognizer_geometry_failure'. Without this, no subdivision into 'completer absent / wrong R2 source orbit / wrong ell / wrong joint label / wrong hub residual position / wrong boundary timing / chaining relation failure / other' (the categories suggested in the prompt) can be produced without inventing a mapping this analyst has no basis for.",
+      "minimum_acceptable_fallback": "if per-candidate data is too large to export, a histogram keyed by the exact tuple of which named conditions were False (not just a single 'reason' string) would still allow an exact partition, since the 7 named booleans already exist in the recognizer's own return value per src/search_rr_target_a_exhaustive.py's target_a_recognizer function."
+    },
+    "for_same_component_analysis_section_4": {
+      "requirement": "for each of the 5,419 not_same_component cases: the R2 candidate's source orbit's component id and R2's target orbit's component id (both computable from component_forest at that state, per src/search_rr_target_a_exhaustive.py's incidence_components), plus the total component count at that state, plus R1's own target orbit's component id for cross-reference. Without per-case component ids, 'component count distribution' and 'whether failure is permanent under component coarsening' cannot be assessed -- the monotonicity fact itself (components only coarsen, never split, established in a prior round from orbit_masks being OR-only) is independent of this export and remains available regardless."
+    },
+    "for_frontier_structure_classification_section_5": {
+      "requirement": "the full 85-state frontier itself (state + decoration), which was explicitly out of scope for prior rounds under the 'do not require the full checkpoint unless genuinely needed' instruction -- classifying all 85 states by r_count/depth/Phi/M/P/O/F/H/Ndef/hub-completion/R1-orbit-phase/completer-status/remaining-legal-successors/dominant-next-prune-reason is exactly the case where full frontier data is genuinely needed, since no aggregate can substitute for a per-state classification."
+    },
+    "for_long_branch_recurrence_section_6": {
+      "requirement": "either the full macro-edge trace (labels, kinds, targets) for at least the longest few branches reaching depth ~103, or a periodicity/motif pre-analysis from Codex's own side (repeated resource signatures, phase-cycle patterns, repeated hub masks) with enough raw evidence (not just a verdict) to distinguish exact state recurrence from signature recurrence, as the task itself requires."
+    },
+    "for_potential_ranking_function_section_7": {
+      "requirement": "the same per-state trajectory data as section 6, specifically values of P-5O, Phi, remaining hub positions, and component count sampled along at least one full root-to-frontier path, so a claimed monotone/bounded quantity's transition law can be checked against real transitions rather than asserted from the model alone."
+    }
+  },
+  "note_on_scope": "this request intentionally does not ask Codex to compute the answers to sections 2-8 -- it asks only for the raw fields this analyst would need to compute them independently, consistent with this analyst role never being asked to duplicate Codex's search or trust Codex's own derived conclusions without being able to check them.",
+  "end_token": "CLAUDE_V3_TELEMETRY_INSUFFICIENT"
+}

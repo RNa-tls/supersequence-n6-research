@@ -1,0 +1,47 @@
+{
+  "schema": "rr-short-ell0-v3-claims-claude-v1",
+  "author": "Claude",
+  "role": "v3 structural analyst (verification-gated -- see verification block)",
+  "verification": {
+    "label": "CLAUDE_OBSERVATION",
+    "result": "FAILED",
+    "checks_performed": [
+      "git fetch origin codex/round40-short5-r1-complete",
+      "git ls-remote origin (full ref listing)",
+      "GitHub get_commit(owner=rna-tls, repo=supersequence-n6-research, sha=785ddab)",
+      "local filesystem search: find . -iname '*v3*' and find . -iname '*differential*'"
+    ],
+    "result_detail": {
+      "commit_785ddab_reachable": false,
+      "codex_branch_head": "abfcdca (unchanged since two rounds ago; no new commit)",
+      "required_files_found": {
+        "research/RR_SHORT_ELL0_MEDIUM_V3_TARGET_A_CODEX.md": false,
+        "outputs/rr_short_ell0_medium_v3.json": false,
+        "outputs/rr_short_ell0_medium_v3_verified.json": false,
+        "outputs/rr_short_ell0_v2_v3_differential.json": false
+      }
+    },
+    "statement": "none of the four required v3 artifacts, nor commit 785ddab itself, exist anywhere this session can reach (git or filesystem). The 'Known v3 facts' numbers supplied directly in the assigning prompt could not be confirmed against any file and are not treated as verified data."
+  },
+  "sections_not_performed": {
+    "label": "CLAUDE_OBSERVATION",
+    "reason": "every one of sections 2-8 (R1 event analysis, recognizer_geometry_failure subdivision, same-component analysis, frontier structure classification, long-branch recurrence, potential ranking function, safe-prune candidates) requires per-event or per-state raw data (orbit/phase values, component memberships, Phi/M trajectories, hub masks) that exists in none of the missing files and cannot be substituted from anything already in this repository. Performing these analyses using only the prompt-supplied aggregate 'Known v3 facts' would mean presenting fabricated structural findings under this project's own CLAUDE_OBSERVATION label, which is defined throughout this project's history as a fact read directly off existing data or code -- not attempted.",
+    "r1_event_analysis": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY",
+    "recognizer_geometry_failure_split": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY",
+    "same_component_failure_analysis": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY",
+    "frontier_structure_classification": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY",
+    "long_branch_recurrence_analysis": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY",
+    "potential_ranking_function": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY",
+    "safe_prune_candidates": "NOT_PERFORMED_INSUFFICIENT_TELEMETRY -- none proposed; no hand proof can be grounded in unverified data"
+  },
+  "not_a_claim_the_numbers_are_false": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "this is not a judgment that the prompt-supplied numbers are inaccurate -- only that they are unverifiable from this session, and this project's standing rule (applied identically in every prior round) is to act on a citation only once independently confirmed, never on trust alone."
+  },
+  "pattern_note": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "this is the fourth consecutive round citing a specific commit SHA claimed to contain verified work; the fourth in which that SHA is unreachable from this session (d8600b9/e9ff19c/5e13395/abfcdca did eventually resolve once the branch was actually pushed; d90b69a and now 785ddab have not). Reported plainly, not as an accusation of fabrication -- as a reason the verify-before-acting rule applies with its usual weight."
+  },
+  "minimal_export_request_reference": "see outputs/rr_short_ell0_v3_missing_export_request_claude.json for the structured minimal-export request",
+  "end_token": "CLAUDE_V3_TELEMETRY_INSUFFICIENT"
+}
