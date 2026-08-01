@@ -2,6 +2,11 @@
   "schema": "rr-short5-post-r1-analysis-claude-v1",
   "author": "Claude",
   "role": "post-R1 analyst (read-only over Codex's codex/round40-short5-r1-complete branch)",
+  "scope_correction_notice": {
+    "label": "SUPERSEDING NOTICE -- applied after this file was first published",
+    "statement": "the v2 100250-node run this file analyzes used search_rr_target_a_exhaustive.py's evaluate_edge, which applies the full area_a_prune_reason bundle unconditionally, including O_exceeded (Q2-ONLY / completion-scoped per this repo's own Round 36 PRUNE_CLASSIFICATION). Every block below marked 'status': 'V2_Q2_FILTERED_OBSERVATION' is downgraded accordingly: informative about what this scope-tainted run did, not usable as a Target-A-coverage-safe finding. See research/RR_SHORT5_V2_SCOPE_CORRECTION_CLAUDE.md for the full correction, including a note that commit d90b69a (cited as the source of this finding) could not be located by this session.",
+    "surviving_unchanged": ["state_key_grade", "task_1_ch0_vs_ch2.code_citation and answer_part_a (the code-semantic facts only, not the one example instance's specific values)"]
+  },
   "commit_verification": {
     "label": "CLAUDE_OBSERVATION",
     "statement": "git fetch origin codex/round40-short5-r1-complete succeeded (new branch, previously absent). All four cited commits are reachable on it.",
@@ -59,6 +64,8 @@
   },
   "task_2_3_r1_orbit_phase": {
     "label": "CLAUDE_OBSERVATION",
+    "status": "V2_Q2_FILTERED_OBSERVATION",
+    "status_note": "the specific event table below is downgraded per scope_correction_notice; do not use for R1 distribution claims. Only the general code-level fact that an R-kind edge must land in an already-open orbit (structural, not run-dependent) survives.",
     "source": "rr_short5_corrected_pilot.json r1_decorations, cross-verified against rr_short5_corrected_pilot_verified.json r1_metadata (verified:true, failures:[])",
     "n_distinct_r1_events": 4,
     "events": [
@@ -73,6 +80,8 @@
   },
   "task_4_hub_completion_timing": {
     "label": "CLAUDE_OBSERVATION",
+    "status": "V2_Q2_FILTERED_OBSERVATION",
+    "status_note": "this tally is downgraded per scope_correction_notice; do not use for hub-timing frequency claims.",
     "tally": {
       "hub_not_yet_touched_at_r1_pending": {"count": 2, "events": [1, 2]},
       "hub_completed_at_r1_CH1": {"count": 1, "events": [3]},
@@ -83,6 +92,8 @@
   },
   "task_5_phi_m_at_r1": {
     "label": "CLAUDE_OBSERVATION",
+    "status": "V2_Q2_FILTERED_OBSERVATION",
+    "status_note": "these histograms are downgraded per scope_correction_notice; do not use as Target-A-safe Phi/M-at-R1 statistics.",
     "source": "outputs/rr_short_ell0_medium_v2.json stats (matches RR_SHORT_ELL0_MEDIUM_RUN_CODEX.md histogram table)",
     "Phi_at_R1": {"0": 1, "1": 3},
     "M_at_R1": {"-3": 1, "-5": 1, "-6": 1, "-7": 1},
@@ -92,6 +103,8 @@
   },
   "task_6_7_r2_failures_and_dead_end_motifs": {
     "label": "CLAUDE_OBSERVATION",
+    "status": "V2_Q2_FILTERED_OBSERVATION -- CONFIRMED, not merely flagged, per Codex prune-scope audit (see scope_correction_notice)",
+    "status_note": "this prune histogram is now known to include a Q2-ONLY reason (O_exceeded) applied unconditionally; it does not describe Target-A-safe R2 failure motifs or dead-end frequencies. The scope_flag_not_a_claimed_bug entry below, originally hedged, is retained as the historical record of what was flagged and when -- it is not rewritten, only superseded.",
     "source": "outputs/rr_short_ell0_medium_v2.json stats.post_R1_prunes",
     "post_R1_prunes": {
       "exact_permutation_collision": 1285544,
@@ -118,6 +131,8 @@
     }
   },
   "safe_prune_candidates": {
+    "status": "prune_proposal_use_of_this_block_is_disallowed_per_scope_correction",
+    "status_note": "instruction (Round after this file was first published) forbids using v2-run statistics for prune proposals; candidate_1's proof and scope are code-derived and unaffected, but its 'confirmation' text cites v2 recognizer behavior and should be read as illustrative, not as run-derived evidence supporting a prune decision.",
     "new_candidates_proposed": 0,
     "candidate_1_ndef_ceiling_status": {
       "label": "CLAUDE_OBSERVATION -- prediction confirmed",

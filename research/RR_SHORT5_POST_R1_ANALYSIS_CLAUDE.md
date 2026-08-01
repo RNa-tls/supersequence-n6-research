@@ -1,5 +1,30 @@
 # Post-R1 analysis of the corrected `short_ell0` pilot (Claude, analyst role)
 
+> **SCOPE CORRECTION (superseding notice, applied after this document was
+> first published):** the 100,250-node v2 run this document analyzes
+> (`outputs/rr_short_ell0_medium_v2.json`, and by extension the 84-frontier
+> pilot it was migrated from) used `search_rr_target_a_exhaustive.py`'s
+> `evaluate_edge`, which applies the full `area_a_prune_reason` bundle
+> **unconditionally** — including `O_exceeded`, a **Q2-ONLY**
+> (completion-scoped) sub-reason by this repository's own Round 36
+> classification (§6 below already flagged this precisely, as a question
+> rather than a conclusion). **Every empirical statistic in §§2-6 below
+> that depends on run output (the R1 event table's specific values, the
+> hub-timing tally, the `Phi`/`M` histograms, the prune-reason breakdown)
+> is therefore downgraded to `V2_Q2_FILTERED_OBSERVATION`** — informative
+> about what *this particular, scope-tainted run* actually did, but not
+> usable as a Target-A-coverage-safe finding about `short_ell0` itself. It
+> must not be cited for Target A frontier structure, R1 distribution, R2
+> failure motifs, hub-timing frequencies, or prune proposals. See
+> `RR_SHORT5_V2_SCOPE_CORRECTION_CLAUDE.md` for the full correction,
+> including a note on a commit citation (`d90b69a`) this session could not
+> locate. **Only §1 (state-key grade) and the four named code-semantic
+> facts in §2 (`CH2` requires R1-before-completer; a pre-R1 completer is
+> therefore not `CH2`; the `CH0` pattern remains provisional) survive this
+> correction unchanged** — those come from reading `Decoration.branch`'s
+> source directly, not from run output, and are unaffected by which
+> prunes the run applied.
+
 ## 0. What was inspected, and how
 
 Per this round's instruction, all four cited commits were fetched and

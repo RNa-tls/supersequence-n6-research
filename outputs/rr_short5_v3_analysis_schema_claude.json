@@ -1,0 +1,108 @@
+{
+  "schema": "rr-short5-v3-analysis-schema-claude-v1",
+  "author": "Claude",
+  "role": "analysis schema for the forthcoming v3 medium run (planning only -- v3 does not exist yet)",
+  "purpose": "Specifies the record schema and Target-A-safe admission profile a v3 short_ell0 medium run must emit for its output to be analyzable as Target-A-coverage-safe, correcting the v2 run's scope gap (see research/RR_SHORT5_V2_SCOPE_CORRECTION_CLAUDE.md).",
+  "precondition_no_v3_data_exists": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "as of this writing, no v3 run, checkpoint, or commit is reachable from this session (git ls-remote origin shows codex/round40-short5-r1-complete still at abfcdca; commit d90b69a could not be located). This schema is prepared ahead of v3 landing, per instruction, and contains no v3 data."
+  },
+  "target_a_safe_admission_profile": {
+    "label": "CLAUDE_PROPOSAL, grounded in this repository's own pre-existing Round 36 classification",
+    "statement": "a traversal is Target-A-safe (Q1-safe) for boundary-FINDING purposes if and only if it prunes an intermediate (non-boundary) state using ONLY the four reasons this repository's own PRUNE_CLASSIFICATION (src/search_rr_target_a_unified.py) marks Q1-SAFE. Any use of a Q2-ONLY reason as a traversal-level prune (not merely as a post-hoc completability annotation on an already-found boundary) makes the run's negative results (0 hits, or an incomplete frontier) uninterpretable as Target-A coverage, exactly the gap identified in the v2 run.",
+    "q1_safe_reasons_admitted": [
+      {"name": "F_exceeded", "test": "state.F > TARGET_F (F_def > 1)", "monotone": true},
+      {"name": "H_positive", "test": "state.H > 0", "monotone": true},
+      {"name": "N_exceeded_monotone", "test": "state.Ndef > n_limit (== 3)", "monotone": true, "note": "a scope restriction to Area A, not a completeness claim -- unaffected by O/P"},
+      {"name": "F1_fragment_normal_form_impossible", "monotone": true}
+    ],
+    "q2_only_reasons_forbidden_as_traversal_prunes": [
+      "P_exceeded", "O_exceeded", "final_D_impossible",
+      "remaining_pass_starts_exceed_remaining_windows",
+      "remaining_cover_capacity_impossible",
+      "insufficient_future_orbit_opening_credit"
+    ],
+    "additional_definitional_prunes_admitted": [
+      {"name": "outside_RR_joint_model / outside_RR_alphabet", "reason": "definitional -- not in the RR alphabet at all, not a completion assumption"},
+      {"name": "r_count_exceeded / rr_R_budget_exceeded (r_count > 2)", "reason": "already-proven exact fact about RR words (at most two R events), not completion-scoped"},
+      {"name": "hub_touch_count_exceeded (if capped at a small constant like 2)", "reason": "requires its own hand proof before being treated as Q1-safe; NOT pre-admitted by this schema -- see open_question below"},
+      {"name": "exact_permutation_collision / decorated_memo_duplicate", "reason": "ordinary visited-state and duplicate-key checks, not completion-scoped"}
+    ],
+    "open_question_not_resolved_here": "whether hub_touch_count_exceeded (observed in the v2 engine at threshold 2) is itself Q1-safe was not audited in Round 36's PRUNE_CLASSIFICATION (that classification only covers area_a_prune_reason's 10 sub-conditions) and is not assumed safe by this schema; a v3 run using it as a traversal prune should say so explicitly so it can be audited separately."
+  },
+  "required_output_fields": {
+    "r1_event_level_phi_m": {
+      "label": "CLAUDE_PROPOSAL",
+      "requirement": "for EACH distinct R1 event (not just an anonymous aggregate histogram), record Phi and M of the state immediately after that specific R1 edge, tagged with that event's (macro_index, source_orbit, source_phase, target_orbit, target_phase) -- exactly the gap flagged in the prior round's missing_fields list, now upgraded from 'nice to have' to 'required' since the v2 aggregate histogram's Q2-taint means even its anonymous values cannot be trusted, let alone mapped after the fact",
+      "example_row_shape": {
+        "r1_event": {"macro_index": 1, "source_orbit": 33, "source_phase": 0, "target_orbit": 120, "target_phase": 3},
+        "Phi_at_r1": "int",
+        "M_at_r1": "int",
+        "P_at_r1": "int",
+        "O_at_r1": "int"
+      }
+    },
+    "exact_hub_timing": {
+      "label": "CLAUDE_PROPOSAL",
+      "requirement": "per R1 event: hub_touch_count at R1, the completer's (macro_index, kind, source_orbit, source_phase, target_orbit, target_phase) if any exists yet, and the exact macro_index at which hub popcount first reaches 6 (independent of whether that edge is later classified as a 'completer' by Decoration.branch) -- so 'exact' timing is available even for events whose branch is UNDECIDED or OTHER_OR_UNDECIDED",
+      "example_row_shape": {
+        "r1_event_macro_index": 1,
+        "hub_touch_count_at_r1": "int",
+        "hub_popcount_at_r1": "int (0-6)",
+        "hub_full_at_macro_index": "int or null if not yet reached within this run's frontier"
+      }
+    },
+    "event_order_class": {
+      "label": "CLAUDE_PROPOSAL",
+      "requirement": "per R1 event, the exact ordering between the R1 macro_index and the completer macro_index (if a completer exists), reported as one of four disjoint labels -- NOT the current 4-way {UNDECIDED, CH1, CH2, OTHER_OR_UNDECIDED} which conflates 'no completer yet' with 'completer exists but neither CH1 nor CH2 pattern matched'",
+      "proposed_labels": [
+        {"label": "NO_COMPLETER_YET", "condition": "completer is None"},
+        {"label": "COMPLETER_BEFORE_R1", "condition": "completer.macro_index < r1.macro_index (the CH0 pattern)"},
+        {"label": "COMPLETER_IS_R1", "condition": "completer.macro_index == r1.macro_index and completer.kind == 'R' (CH1)"},
+        {"label": "COMPLETER_AFTER_R1", "condition": "completer.macro_index > r1.macro_index (includes but is not limited to CH2 -- CH2 additionally requires completer.kind=='Z2'; a completer.kind other than Z2 firing after R1 should still be tagged COMPLETER_AFTER_R1, distinctly from CH2)"}
+      ],
+      "note": "this refines, not replaces, Decoration.branch -- both should be reported so CH0's eventual status (true third class vs relabeled subtype) can be decided from data that already distinguishes order from completer-kind"
+    },
+    "r2_recognizer_failure_reason": {
+      "label": "CLAUDE_PROPOSAL, escalated from the prior round's missing-field request",
+      "requirement": "for every R2 candidate edge evaluated (not just a monolithic r2_not_target count), record which of target_a_recognizer's named conditions were False: exactly_two_R_events, immediately_after_R2, F_def_le_1, Ndef_equals_2, H_equals_0, area_a_legal, same_component. A per-candidate row (or at minimum a histogram of which condition set failed) is required, not just the boolean is_target_a.",
+      "example_row_shape": {
+        "r2_candidate_macro_index": "int",
+        "same_component": "bool",
+        "F_def_le_1": "bool",
+        "Ndef_equals_2": "bool",
+        "H_equals_0": "bool",
+        "area_a_legal": "bool",
+        "is_target_a": "bool"
+      }
+    },
+    "o_and_p_trajectories_beyond_o25": {
+      "label": "CLAUDE_PROPOSAL",
+      "requirement": "since O_exceeded (O>25) must NOT be used as a traversal prune in v3 (target_a_safe_admission_profile above), the run will necessarily explore states with O>25 that v2 discarded. The full (P, O) trajectory for every expanded node -- not just a terminal count -- is required specifically in the O>25 region, so it is possible to check directly whether any Target-A boundary is reachable ONLY through an O>25 state (which would mean the v2 run's O_exceeded pruning did in fact hide a real boundary, not just a hypothetical one)",
+      "example_row_shape": {
+        "macro_index": "int",
+        "P": "int",
+        "O": "int",
+        "O_exceeds_25": "bool",
+        "r_count": "int (0, 1, or 2)"
+      }
+    },
+    "states_admitted_only_by_target_a_safe_profile": {
+      "label": "CLAUDE_PROPOSAL",
+      "requirement": "a diff, not just a new run: report the count (and ideally the decorated keys) of states that v3's Target-A-safe traversal admits (does not prune) at a point where the v2 engine's unconditional area_a_prune_reason call WOULD have pruned it (i.e. states whose only reason for v2-rejection was a Q2-ONLY sub-reason). This is the direct, checkable measure of how much of the state space the v2 scope gap actually hid -- distinct from simply re-running and reporting new totals, which would not by itself demonstrate the two runs' state sets actually differ where predicted",
+      "example_row_shape": {
+        "decorated_key_hash": "str",
+        "v2_would_have_pruned_via": "one of the six Q2-ONLY reason names",
+        "v3_admits": true,
+        "eventually_reaches_target_a_boundary": "bool or null if run incomplete at that branch"
+      }
+    }
+  },
+  "explicit_non_claims": [
+    "no v3 run exists yet; every field above is a schema requirement, not a reported value",
+    "target_a_safe_admission_profile's Q1-SAFE/Q2-ONLY split is not a new derivation -- it is read directly from this repository's own pre-existing Round 36 PRUNE_CLASSIFICATION, cited not re-proven",
+    "hub_touch_count_exceeded's own safety is explicitly left open, not assumed",
+    "no search was run to produce this schema; it contains no empirical claims about short_ell0 or any other root"
+  ],
+  "end_token": "CLAUDE_V3_ANALYSIS_READY"
+}
