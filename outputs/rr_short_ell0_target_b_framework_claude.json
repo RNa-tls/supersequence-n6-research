@@ -1,0 +1,106 @@
+{
+  "schema": "rr-short-ell0-target-b-framework-claude-v1",
+  "author": "Claude",
+  "role": "proof-safe canonicalization and Target B framework designer (planning only)",
+  "verification_note": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "the cited '38,406 exact Target A hits' figure could not be verified: git ls-remote origin shows codex/round43-short-ell0-taxonomy unchanged at 24002fd (the same commit already fully analyzed, which itself reported Target_A_hits:0), and no new branch exists. This framework does not depend on the figure being accurate -- it is prepared ahead of, not in response to, verified data."
+  },
+  "task_1_proved_symmetries": {
+    "label": "CLAUDE_OBSERVATION",
+    "left_s6_relabeling": {
+      "status": "proven, exercised at scale",
+      "source": "legacy_research/work/superperm_partial_f1.py exact.canonicalize, lines 421-435",
+      "caveat": "docstring's own load-bearing caveat: 'this is a child quotient only... it cannot remove a complete orbit merely because a prefix was reached in another order'"
+    },
+    "decorated_pair_canonicalization": {
+      "status": "proven mechanically well-defined; observed triviality is corpus-specific, NOT a general theorem",
+      "source": "research/RR_DECORATED_BOUNDARY_STATE.md section 3",
+      "measured_on_old_corpus": "stabilizer_size=1 and tie_variant_count=1 for all 2234 boundaries -- explicitly recorded as 'vacuously true for this universe only', tie-resolution relation-invariance NOT proven in general",
+      "consequence_for_new_corpus": "cannot assume vacuity; must re-measure"
+    },
+    "rotation_hexagon_structure": {"status": "not itself a boundary-identification symmetry -- baked into state representation, not a separate quotient"},
+    "reversal_symmetry": {"status": "no proof found in any document read; absence of proof reported as absence, not as nonexistence"}
+  },
+  "task_2_required_boundary_key_features": {
+    "label": "CLAUDE_OBSERVATION, mapped onto the existing proven 27-field decoration schema",
+    "schema_source": "research/RR_DECORATED_BOUNDARY_STATE.md: 5 orbit-transported + 4 hexagon-transported + 18 left-S6-invariant fields",
+    "features": {
+      "decorated_state_ExactState": {"verdict": "must remain", "reason": "old corpus's 1-state-per-boundary property is an empirical finding of that corpus, not a theorem; not proven to transfer to a repair-produced corpus"},
+      "incidence_forest": {"verdict": "must remain reconstructible", "reason": "not cached anywhere in this codebase -- incidence_components rebuilds from orbit_masks fresh every call, so the STATE is the actual requirement"},
+      "component_partition": {"verdict": "must remain", "reason": "represented via r1_target_hub_distance/r2_source_hub_distance/r2_target_hub_distance/r2_meet_is_hub -- cited by RR_DECORATED_BOUNDARY_STATE.md as structurally (not merely separatingly) necessary for same_component"},
+      "r1_r2_relation": {"verdict": "must remain", "reason": "chaining is DEFINED as r1_target_orbit==r2_source_orbit -- not an empirical correlation to potentially drop, the literal definition"},
+      "completer_timing": {"verdict": "must remain", "reason": "hub_completer_orbit/hexagon/macro_index/kind/is_r1 -- exactly the machinery event_order_class/Decoration.branch (CH1/CH2/PRE_R_COMPLETER_EVENT_ORDER) are built from"},
+      "hub_state": {"verdict": "must remain", "reason": "hub_id plus BFS-distance fields"},
+      "provenance": {"verdict": "GAP -- not part of the existing 27-field schema at all", "addressed_in": "task_3"}
+    },
+    "greedy_minimality_warning": {
+      "label": "CLAUDE_OBSERVATION, restated from RR_DECORATED_BOUNDARY_STATE.md with full force",
+      "statement": "separating minimality is not structural minimality. The old corpus's greedy 7-field subset omitted r1_target_orbit/r2_source_orbit entirely even though chaining's DEFINITION requires them. Any field-dropping decision for the new corpus must be justified by a field's role in a definition or a proven relation, never merely by 'removing it didn't create a collision in this sample'."
+    }
+  },
+  "task_3_repair_history_provenance": {
+    "label": "CLAUDE_OBSERVATION -- open, not resolved, not assumed either way",
+    "deductive_part_not_corpus_specific": "decorated_key's own docstring establishes: if the post-boundary (state, decoration) pair is identical, the set of legal FUTURE macro edges is a pure function of that pair, independent of history, by construction of extend() (which takes only state and a move, never a history object). This follows from the transition function's signature, unchanged, not corpus-specific.",
+    "what_is_not_covered": "whether two different repair histories producing bit-for-bit identical (state, decoration) pairs could differ in something Target B's continuation search consults OUTSIDE the transition function. hub_touch_count is a concrete example of an ACCUMULATED-not-recomputed decoration field (advance_decoration: touch_count = dec.hub_touch_count; touch_count += 1) -- genuinely path-dependent.",
+    "resolution": "since task_2 already requires hub_touch_count (and the ordered r_events tuple, and completer) to be part of the retained key, the one concrete way provenance COULD matter is already captured: a repair path touching the hub an extra time versus one that doesn't, even landing at an identical final state, carries a different accumulated hub_touch_count and is therefore already a DIFFERENT decorated key, not a silent collision. Provenance beyond what is already folded into the retained decoration fields is not shown to matter, and is not assumed not to matter."
+  },
+  "task_4_theorem_hypotheses": {
+    "label": "CLAUDE_OBSERVATION -- preconditions stated precisely, not assumed to carry over",
+    "phi_zero_forces_ell_5": {
+      "hypothesis": "pure arithmetic consequence of the Phi definition (rises by 1 per rotation, drops by (ell-5) at each joint) applied where Phi is already exactly 0; root-independent, no re-verification of the identity itself needed",
+      "open_per_boundary_question": "whether any new-corpus boundary state actually has Phi=0 must be checked per state, not assumed"
+    },
+    "full_segment_capacity_theorem": {
+      "source": "research/RR_TARGET_B_FULL_BLOCK_THEOREM.md section 1, Round 32",
+      "statement": "when R_cap=1 exactly, the only preserving word of a capacity-5 segment is EEEE",
+      "explicit_precondition": "R_cap = 1 exactly, plus an unquoted 'distinct-hexagon condition' (section 10, not re-read this round) for the converse",
+      "risk_for_new_corpus": "Ndef_cap/n_limit is a DISABLED, Q2-only/Area-A-scope restriction in the Target-A-safe profile that found the new boundaries (research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md, Round 41). If n_limit is not enforced, R_cap=1 is not guaranteed or even well-defined in the old sense for a new-corpus boundary -- must be checked explicitly per boundary."
+    },
+    "existing_orbit_entry_capacity_leq_4": {
+      "source": "Round 32, restated in research/RR_SHORT_ROOT_DEFECT_THEOREM.md section 2",
+      "statement": "an R-entry into an orbit that already holds one used port has capacity at most 4",
+      "explicit_precondition": "the target orbit must already have exactly the 'one used port' configuration the proof's own witness assumes (orbit 0, entry phase 1, 1 port already used)",
+      "risk_for_new_corpus": "a new-corpus boundary reached via a repair edge could enter an orbit with a different occupancy profile; not proven uniformly single-occupancy for every orbit a new boundary might involve"
+    },
+    "helper_free_exact_macro_dfs": {
+      "note": "names an engineering approach, not a single mathematical theorem",
+      "hypotheses": [
+        "(a) its own prune set must be Target-A/B-safe in the sense Round 41 established -- no Q2-only reason applied as a traversal-level prune",
+        "(b) must be deterministic and checkpointable, per the existing state-key audit pattern, for independent re-verification",
+        "(c) must terminate within an affordable node budget -- a resource claim, not provable in the abstract, not assumed here"
+      ]
+    }
+  },
+  "task_5_known18_closure_transfer_risks": {
+    "label": "CLAUDE_OBSERVATION -- most load-bearing finding of this document",
+    "core_issue": "the old known-18/2234-boundary corpus and its capacity-theorem closure were built and verified entirely within the old Area-A scope (O<=25, Ndef<=n_limit=3); the coarse capacity theorem's own arithmetic (bound_1 = 5*(O_cap+R_cap)+4) implicitly assumes O_cap and R_cap are non-negative, always true under the old enforced scope, not automatically true once those caps are lifted",
+    "evidence_new_boundaries_found_outside_old_scope": {
+      "statement": "the new short_ell0-derived boundaries were found PRECISELY by disabling those caps",
+      "citation_1": "research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md (Round 41) retires O_exceeded and Ndef_cap/N_exceeded_monotone from the Target-A-safe traversal profile as Q2-only/Area-A-scope artifacts",
+      "citation_2": "outputs/rr_short_ell0_v3_frontier_export.json's 85-state frontier (already read, prior round) shows O reaching 34, already 9 past the old cap, before any R2 event"
+    },
+    "concrete_risks_to_check_not_assume": [
+      "1. O_cap or R_cap negative at the boundary (possible now that the caps producing these boundaries are themselves disabled)",
+      "2. the full-segment theorem's R_cap=1 precondition not holding -- short roots need k=2 R events not k=1, differing structurally in the Round 37 envelope theorem's own k-accounting between long-excursion and short-root corpora",
+      "3. the re-entry-capacity-<=4 witness orbit's specific occupancy profile not matching whatever orbit a new boundary's continuation would need to enter",
+      "4. the decorated-key tie-triviality (task_1) being corpus-specific, not general -- a new boundary could have a nontrivial stabilizer the old corpus never exhibited"
+    ],
+    "not_claimed": "this is not a claim any theorem is FALSE outside the old regime -- only that its available proof does not cover it, and applying it anyway without re-derivation would repeat the unstated-precondition failure mode Round 38's capacity-helper firewall was built to catch"
+  },
+  "task_6_classification_checklist": {
+    "label": "CLAUDE_PROPOSAL -- a decision procedure, not itself a proof",
+    "steps": [
+      "1. Compute raw_state_hash and canonical_state_hash via exact.canonicalize (the one proven symmetry). If canonical_state_hash matches an existing known boundary exactly: also compute and compare canonical_decorated_hash. Both match -> EXACT_DUPLICATE. State matches, decoration differs -> PROVED_SYMMETRY_EQUIVALENT ONLY IF the specific transporting alpha and resulting decoration mapping are exhibited and checked against task_2's required-field list; an unexplained mismatch must NOT be silently resolved as equivalence.",
+      "2. If canonical_state_hash is new: compute the coarse resource profile (P,O,F,H,Ndef,D) plus task_2's required decoration fields. If this exact tuple already exists among known boundaries but the raw/canonical state hash differs -> RESOURCE_PROFILE_COLLISION_ONLY (explicitly NOT evidence of equivalence; record and move on, do not merge). Otherwise -> GENUINELY_NEW_CLASS.",
+      "3. For any GENUINELY_NEW_CLASS boundary, before applying ANY existing capacity theorem from task_4: verify O_cap>=0 and R_cap>=0 explicitly; verify which k (1 or 2) applies and matches the boundary's own root-family record; verify the specific orbit-occupancy precondition each theorem needs, per-orbit, not assumed. A theorem applied without these three checks passing is an unverified extrapolation, not a closure, and must be labeled as such if used at all."
+    ]
+  },
+  "explicit_non_claims": [
+    "does not confirm, use, or analyze the cited 38406-hit figure -- unverified from this session",
+    "does not claim any new short_ell0-derived boundary is closed, open, duplicate, or novel -- no boundary data exists in this session to apply the checklist to",
+    "does not re-derive any theorem from scratch -- every theorem in task_4 is quoted from an already-existing, already-graded document with its precondition stated, not re-proven",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_TARGET_B_FRAMEWORK_READY"
+}
