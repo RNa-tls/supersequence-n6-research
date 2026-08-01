@@ -448,6 +448,56 @@ def edge_json(edge) -> dict[str, object]:
     }
 
 
+R2_OUTCOME_VOCABULARY = (
+    "TARGET_A_HIT", "wrong_R_count", "wrong_Ndef", "wrong_Fdef",
+    "wrong_boundary_timing", "not_same_component", "recognizer_geometry_failure",
+    "hub_touch_failure", "exact_collision", "other_explicit_reason",
+)
+
+
+def r1_event_export(edge, before: Decoration, after: Decoration,
+                    trace: tuple[dict[str, object], ...]) -> tuple[str, dict[str, object]]:
+    """Serialize an accepted R1 event without treating Phi/M as a prune.
+
+    The literal predecessor is the state *after* the macro rotation run and
+    immediately before its R joint.  This removes any ambiguity about whether
+    a reported coordinate was measured at macro entry or at the R event.
+    """
+    predecessor = edge.run.state
+    child = edge.state
+    source_orbit, source_phase = exact.ORBIT_PHASE[predecessor.p]
+    target_orbit, target_phase = exact.ORBIT_PHASE[child.p]
+    event_key = (state_hash(predecessor), edge.label, source_orbit, source_phase,
+                 target_orbit, target_phase)
+    event_id = sha256_bytes(repr(event_key).encode("utf-8"))
+    coordinates = lambda state: {
+        "P": state.P, "O": state.O, "Ndef": state.Ndef,
+        "F": state.F, "H": state.H,
+    }
+    return event_id, {
+        "event_id": event_id,
+        "literal_predecessor_word": list(predecessor.p),
+        "literal_predecessor_state_hash": state_hash(predecessor),
+        "macro_label": edge.label,
+        "ell": edge.run.ell,
+        "source_permutation": list(predecessor.p),
+        "target_permutation": list(child.p),
+        "source_orbit": source_orbit, "source_phase": source_phase,
+        "target_orbit": target_orbit, "target_phase": target_phase,
+        "Phi_before": phi(predecessor), "Phi_after": phi(child),
+        "M_before": predecessor.P - 5 * predecessor.O,
+        "M_after": child.P - 5 * child.O,
+        "coordinate_before": coordinates(predecessor),
+        "coordinate_after": coordinates(child),
+        "hub_popcount_before": hub_mask(predecessor, before).bit_count(),
+        "hub_popcount_after": hub_mask(child, after).bit_count(),
+        "completer_timing": None if after.completer is None else asdict(after.completer),
+        "event_order_class": after.event_order_class,
+        "resulting_decorated_key": repr(decorated_key(child, after)),
+        "literal_macro_trace": list(trace + (edge_json(edge),)),
+    }
+
+
 def target_a_recognizer(pre_state, transition, before: Decoration, after: Decoration) -> dict[str, object]:
     """Exact boundary recognizer.  Same-component and chaining are outputs.
 
@@ -480,7 +530,37 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
         "exactly_two_R_events", "immediately_after_R2", "F_def_equals_1",
         "H_equals_0", "hub_touch_count_le_2", "same_component",
     )
-    primary_failure = next((name for name in failure_order if not conditions[name]), None)
+    failed_conditions = [name for name in failure_order if not conditions[name]]
+    if target:
+        r2_outcome = "TARGET_A_HIT"
+        primary_failure = None
+    elif not conditions["exactly_two_R_events"]:
+        r2_outcome = "wrong_R_count"
+        primary_failure = r2_outcome
+    elif not conditions["immediately_after_R2"]:
+        r2_outcome = "wrong_boundary_timing"
+        primary_failure = r2_outcome
+    elif not conditions["F_def_equals_1"]:
+        r2_outcome = "wrong_Fdef"
+        primary_failure = r2_outcome
+    elif not conditions["H_equals_0"]:
+        # The requested R2 ledger has no separate H entry.  Preserve the
+        # exact reason in ``r2_detail_reason`` without inventing a semantic
+        # Ndef condition for Target A.
+        r2_outcome = "other_explicit_reason"
+        primary_failure = r2_outcome
+    elif not conditions["hub_touch_count_le_2"]:
+        r2_outcome = "hub_touch_failure"
+        primary_failure = r2_outcome
+    elif source_root is None or target_root is None:
+        r2_outcome = "recognizer_geometry_failure"
+        primary_failure = r2_outcome
+    elif not conditions["same_component"]:
+        r2_outcome = "not_same_component"
+        primary_failure = r2_outcome
+    else:  # Defensive: the outcome vocabulary must remain total.
+        r2_outcome = "other_explicit_reason"
+        primary_failure = r2_outcome
     return {
         "is_target_a": target,
         "conditions": conditions,
@@ -492,7 +572,12 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
         "CH_branch": after.branch,
         "event_order_class": after.event_order_class,
         "r2_primary_failure": primary_failure,
-        "r2_failed_conditions": [name for name in failure_order if not conditions[name]],
+        "r2_outcome": r2_outcome,
+        "r2_failed_conditions": failed_conditions,
+        "r2_detail_reason": (
+            "H_positive" if not conditions["H_equals_0"] else
+            None if target else ",".join(failed_conditions)
+        ),
         "q2_area_a_reason_diagnostic": area_reason,
         "component_digest": component_digest(pre_state),
         "pre_hub_mask": hub_mask(pre_state, before),
@@ -784,6 +869,7 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             # not affect the RR recognizer, pruning, or decorated state key.
             "provisional_CH0_events": 0,
             "event_order_class_events": {}, "R2_primary_failures": {},
+            "R2_outcomes": {}, "R1_events": {},
         }
         boundaries: list[dict[str, object]] = []
         lineage: list[str] = []
@@ -802,7 +888,7 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
         "steps_since_R1_expanded": {}, "hub_completions_before_R1": 0,
         "hub_completions_after_R1": 0, "CH1_events": 0, "CH2_events": 0,
         "provisional_CH0_events": 0, "event_order_class_events": {},
-        "R2_primary_failures": {},
+        "R2_primary_failures": {}, "R2_outcomes": {}, "R1_events": {},
     }.items():
         stats.setdefault(field, default)
     prunes = Counter(stats.get("prunes", {}))
@@ -816,6 +902,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
     steps_since_r1 = Counter(stats.get("steps_since_R1_expanded", {}))
     event_order_classes = Counter(stats.get("event_order_class_events", {}))
     r2_primary_failures = Counter(stats.get("R2_primary_failures", {}))
+    r2_outcomes = Counter(stats.get("R2_outcomes", {}))
+    r1_events = dict(stats.get("R1_events", {}))
     if resume is None and decoration.r_count == 1:
         r1_decorated_keys.add(repr(decorated_key(start, decoration)))
 
@@ -840,6 +928,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             sorted(steps_since_r1.items(), key=lambda item: int(item[0])))
         stats["event_order_class_events"] = dict(sorted(event_order_classes.items()))
         stats["R2_primary_failures"] = dict(sorted(r2_primary_failures.items()))
+        stats["R2_outcomes"] = {name: int(r2_outcomes[name]) for name in R2_OUTCOME_VOCABULARY}
+        stats["R1_events"] = dict(sorted(r1_events.items()))
     started = time.time()
     interrupted = False
     bounded_depth = False
@@ -897,6 +987,11 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                         # M = P - 5O is an analysis coordinate only.
                         phi_at_r1[str(phi(edge.state))] += 1
                         m_at_r1[str(edge.state.P - 5 * edge.state.O)] += 1
+                        event_id, event = r1_event_export(edge, dec, child_dec, trace)
+                        existing = r1_events.get(event_id)
+                        if existing is not None and existing != event:
+                            raise AssertionError("R1 event identifier collision")
+                        r1_events[event_id] = event
                 if dec.completer is None and child_dec.completer is not None:
                     # Count completion only once the child has survived all
                     # exact, Area-A, and memo gates and is actually queued.
@@ -919,6 +1014,9 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 continue
             if verdict == "FOUND_TARGET_A":
                 assert child_dec is not None and recognition is not None
+                if recognition["r2_outcome"] != "TARGET_A_HIT":
+                    raise AssertionError("Target-A R2 has non-hit outcome")
+                r2_outcomes["TARGET_A_HIT"] += 1
                 stats["Target_A_hits"] = int(stats["Target_A_hits"]) + 1
                 boundary = dict(recognition)
                 boundary.update({
@@ -937,6 +1035,10 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
                 if primary is None:
                     raise AssertionError("non-target R2 has no primary recognizer failure")
                 r2_primary_failures[str(primary)] += 1
+                outcome = str(recognition["r2_outcome"])
+                if outcome not in R2_OUTCOME_VOCABULARY or outcome == "TARGET_A_HIT":
+                    raise AssertionError("non-target R2 has invalid outcome")
+                r2_outcomes[outcome] += 1
             record_prune(verdict, dec)
         # Stack uses reverse lexical successor order but the resulting pop order
         # is stable lexical; recording it in config makes certificates replayable.
@@ -948,6 +1050,8 @@ def search_root(record: Mapping[str, object], *, node_limit: int = 0,
             lineage.append(digest)
             stats["checkpoint_count"] = int(stats["checkpoint_count"]) + 1
     persist_telemetry()
+    if sum(r2_outcomes.values()) != int(stats["R2_candidate_edges"]):
+        raise AssertionError("R2 outcome ledger does not partition R2 candidates")
     stats["elapsed_seconds_this_invocation"] = round(time.time() - started, 3)
     if checkpoint is not None:
         digest = write_checkpoint(checkpoint, config, frontier, seen, stats, boundaries, lineage)

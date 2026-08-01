@@ -1,0 +1,1191 @@
+{
+  "attribution": {
+    "mathematical_envelope_facts": "CLAUDE, CODEX_VERIFIED",
+    "new_discovered_boundaries": "CODEX_FINDING",
+    "search_implementation": "CODEX"
+  },
+  "classification": "INCOMPLETE",
+  "differential_path": "outputs\\rr_short_ell0_v2_v3_differential.json",
+  "disabled_prune_counts": {
+    "D4_reachability": 0,
+    "Ndef_cap": 0,
+    "O_exceeded": 0,
+    "P_exceeded": 0,
+    "Phi_window_capacity": 0,
+    "future_orbit_credit": 0
+  },
+  "enabled_prune_counts": {
+    "F1_fragment_normal_form_impossible": 0,
+    "F_exceeded": 172882,
+    "H_positive": 0,
+    "exact_permutation_collision": 1541360,
+    "hub_touch_count": 0,
+    "rr_R_budget": 0
+  },
+  "final_checkpoint": {
+    "complete_frontier_snapshot": true,
+    "frontier_r_count_distribution": {
+      "0": 10,
+      "1": 75
+    },
+    "frontier_size": 85,
+    "path": "outputs\\checkpoints\\rr_short5\\r1_complete_v3\\short_ell0_medium.json",
+    "schema": "rr-target-a-exhaustive-checkpoint-v3-short-r1-target-a",
+    "seen_size": 100335,
+    "sha256": "bde57b03af17023e1372bd338d6b6710ce1715010ce7d4518d01b5a821784a8e"
+  },
+  "migration": {
+    "committed_expanded": 100250,
+    "committed_frontier": 85,
+    "preserved_noninput_tmp": null,
+    "resumed_from_committed_checkpoint": true,
+    "source": "outputs\\checkpoints\\rr_short5\\r1_complete_v3_target_a\\short_ell0_scope_audit.json",
+    "source_sha256": "90661e9d0e1cd6302208a6316f5d05949dca5a850f4162833fdd20881820688d",
+    "target": "outputs\\checkpoints\\rr_short5\\r1_complete_v3\\short_ell0_medium.json"
+  },
+  "phase_helper_used": false,
+  "prune_profile": "target_a_semantic_v1",
+  "prune_registry_hash": "37e393232e780c977aa2c53b67c3be9c3a224539167cb0d966b739a4702633de",
+  "result": {
+    "checkpoint": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research\\outputs\\checkpoints\\rr_short5\\r1_complete_v3\\short_ell0_medium.json",
+    "checkpoint_lineage": [
+      "9d02233b1a78a347bc59f8c44470c48dc6d34b1e024b07d147f6c67f002a4af1",
+      "4b7146487b2a1e31db590ee6245f8adbaf54f0c3de12d157c7dab308393ddce7",
+      "4e0d89f211b5efe0e1202cb2bc8171d683fe33d26b1251c74e9bf0f8f7c84e02",
+      "41a54b7009ce73d721d265527bfbb40c0d4afe65c76fc3727f4928996c9e80b2",
+      "55fa18bf67546eac6da6f4e6aa08ff7bc2041c970bc9bff0c5c6e420e1b96968",
+      "90661e9d0e1cd6302208a6316f5d05949dca5a850f4162833fdd20881820688d",
+      "f2a6c65f253ff4076728c0a1134475f3d62f4370518753b6665ae1f3218d3d5d",
+      "9e17e18b4f8994ab64e10341188c98ce739d826b47876d347063b7eaffeffd85",
+      "7d1a7777ac9057f7a004847e920349fff9c35c8748f8bb16f3a1a11aad9bf8c0",
+      "718fa2411369764fc01b7183682ba5835af2d42ccaa84ad5fdbce588e31b5c9a",
+      "346d2c653314bafd7667aefa627b63d000025f9e1be33d357eae2d47f4aa7df2",
+      "2fe7c129a4bb6e97dc4ca67280512ee65fab5e94abcf88b749fbd7bd11a1d075",
+      "dec71b1645a8a569a5429f29a0ad1422ddcf5b3bafcfa863148e595728852086",
+      "ac10704e4d48c18e15b2e806cb937e198001ae30eb192238959ef41d14776f4a",
+      "307d419c7e389931eeeac663b9a28628ddf48e07a86f138e525b2a0c2364a0a4",
+      "aed96714038db7ed2befb8c64a7e72369f9a15091c81cd611d06d1c222e77456",
+      "aa77d8ce19d86c79fd76abe539652c068f677a2729a5e6b10a4e22cd7a154a08",
+      "6ef0853f0e0587a30a139ba6d49195c47978eb2477f04bd999a0c8d0a85cfc23",
+      "b551ce2b885f7402e1982c67d44cade712cce109206209682f836bf3dc4e3fbf",
+      "8fd879eeb278286f789e5176c285c5a51b6a637071d0696827751b7d9b4f0942",
+      "f2b28f19f275542b05d4aee5f815ff16670c505b21ffd60806a4b18b2f1d98da",
+      "07f76c31e70b0288cfb74bd6cfba61397164a82ea320a1ff0763e4a0eb59b594",
+      "457d6c58fed1fe94cc36b7b5f08b323135c87666407995e4966c6d3ab1924ed2",
+      "87fa1da349abd30df2410e5a34a0b2d70f3a2927654c17d11dd6bbf97030fb30",
+      "7a6387b6048e4f4c9dc0f5dd84fe40629a9e06c1bd0f75a12f2e52bb4a13e8d1",
+      "4328a1ba8631a9c28a1ad5c527a860a8a70a91f4b15a571b4af8f0abee2e3e77",
+      "758909ca52bd3a8ecfb9dc01b172fbedd310d6b620f24a23be2ffb893c2588e2",
+      "dd599d5349acc8e5ee83b47afd53352200a60a5918eed1c3be94112acab69325",
+      "bde57b03af17023e1372bd338d6b6710ce1715010ce7d4518d01b5a821784a8e"
+    ],
+    "config": {
+      "checkpoint_payload_schema": "rr-target-a-exhaustive-checkpoint-v3-short-r1-target-a",
+      "engine_hashes": {
+        "legacy_research\\work\\superperm_partial_f1.py": "bafc50dd7890f2cf7c48ac83733d4b5c7208c393f963e6975574af1c1d512af4",
+        "legacy_research\\work\\superperm_partial_f1_macro.py": "bc4885f7c1c5cee95e9f7dcca9c0adec143488f34ee25d349c32d94430bb86a4",
+        "src\\build_rr_long_excursion_roots.py": "24705fd5e88743e189c2b502a0ab6b0a59f20887d2af71da52a372d80afc752c",
+        "src\\search_rr_target_a_exhaustive.py": "4924fddde7fd96f20479311ab4b6c1b5d6d4c1772c5211de0316955e0081f134"
+      },
+      "max_depth": null,
+      "node_limit": 100250,
+      "prune_profile": "target_a_semantic_v1",
+      "prune_registry_hash": "37e393232e780c977aa2c53b67c3be9c3a224539167cb0d966b739a4702633de",
+      "recognizer_hash": "4924fddde7fd96f20479311ab4b6c1b5d6d4c1772c5211de0316955e0081f134",
+      "root_id": "short_ell0",
+      "root_literal_hash": "ecffdbbb3f1d7e1f2cbb798288f3eebf849eba4a4c4aa3c6dd57edeeda6e2e07",
+      "root_universe": "round37-short5-bare-abandonment-r1-complete-v3-target-a-prunes",
+      "schema": "rr-target-a-exhaustive-config-v1",
+      "short5_driver_sha256": "fc0adeafd34c726fe1019ab9068414e5acb317d9750173d8edd5bd2d87f7213a",
+      "short5_manifest_sha256": "bf0aee47cbfdaf960550db2e1d5f2f2109a9f0dc5a77a9adb8fcd23920cd6c4d",
+      "traversal": "deterministic-LIFO-by-reversed-label"
+    },
+    "final_result_digest": "8528b6f457819bed0f2406c040e1c9a51863a319229243aac3bca77b745d295c",
+    "frontier_empty": false,
+    "interrupted_by_depth_limit": false,
+    "interrupted_by_node_limit": true,
+    "root_id": "short_ell0",
+    "root_literal_hash": "ecffdbbb3f1d7e1f2cbb798288f3eebf849eba4a4c4aa3c6dd57edeeda6e2e07",
+    "schema": "rr-target-a-exhaustive-root-result-v1",
+    "stats": {
+      "CH1_events": 1,
+      "CH1_nodes": 0,
+      "CH2_events": 0,
+      "CH2_nodes": 0,
+      "M_at_R1": {
+        "-3": 1,
+        "-5": 1,
+        "-6": 1,
+        "-7": 1
+      },
+      "Phi_at_R1": {
+        "0": 1,
+        "1": 3
+      },
+      "R1_events": {
+        "039dd3f229e4a6af3ab71d6e90c3caba93a8dee9c52acddadd2bd31ba5b7fb7f": {
+          "M_after": -6,
+          "M_before": -7,
+          "Phi_after": 1,
+          "Phi_before": 6,
+          "completer_timing": null,
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 4
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 3
+          },
+          "ell": 5,
+          "event_id": "039dd3f229e4a6af3ab71d6e90c3caba93a8dee9c52acddadd2bd31ba5b7fb7f",
+          "event_order_class": "UNDECIDED",
+          "hub_popcount_after": 1,
+          "hub_popcount_before": 1,
+          "literal_macro_trace": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                2
+              ],
+              "target_hexagon": 64
+            },
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "rotation_length": 5,
+              "source": [
+                64,
+                0
+              ],
+              "target": [
+                120,
+                4
+              ],
+              "target_hexagon": 96
+            }
+          ],
+          "literal_predecessor_state_hash": "e0530b9f407fe7d7c1cee643eac3c3af11fde091229c1540f9546be4018954c6",
+          "literal_predecessor_word": [
+            0,
+            3,
+            4,
+            5,
+            1,
+            2
+          ],
+          "macro_label": "rot^5;w3:120",
+          "resulting_decorated_key": "(((5, 1, 2, 3, 4, 0), ((0, 1), (33, 63), (64, 63), (96, 2)), ((0, 1), (120, 22)), 1, 2, 0), (0, 120, 0, 2, ((2, 'R', 64, 0, 120, 4),), 0, None))",
+          "source_orbit": 64,
+          "source_permutation": [
+            0,
+            3,
+            4,
+            5,
+            1,
+            2
+          ],
+          "source_phase": 0,
+          "target_orbit": 120,
+          "target_permutation": [
+            5,
+            1,
+            2,
+            3,
+            4,
+            0
+          ],
+          "target_phase": 4
+        },
+        "329ce119318740472484b14275ad7acaa07ff2d8e44e31e4fed3c63f3de56454": {
+          "M_after": -5,
+          "M_before": -6,
+          "Phi_after": 1,
+          "Phi_before": 6,
+          "completer_timing": {
+            "kind": "R",
+            "macro_index": 3,
+            "source_orbit": 90,
+            "source_phase": 0,
+            "target_orbit": 120,
+            "target_phase": 0
+          },
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 5
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 4
+          },
+          "ell": 5,
+          "event_id": "329ce119318740472484b14275ad7acaa07ff2d8e44e31e4fed3c63f3de56454",
+          "event_order_class": "CH1",
+          "hub_popcount_after": 2,
+          "hub_popcount_before": 1,
+          "literal_macro_trace": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                2
+              ],
+              "target_hexagon": 64
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                64,
+                0
+              ],
+              "target": [
+                120,
+                3
+              ],
+              "target_hexagon": 90
+            },
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "rotation_length": 5,
+              "source": [
+                90,
+                0
+              ],
+              "target": [
+                120,
+                0
+              ],
+              "target_hexagon": 0
+            }
+          ],
+          "literal_predecessor_state_hash": "ee72a7c254b4582cb078cf0e1163efffa6dcddcdf473e4ed708090c73a75e85b",
+          "literal_predecessor_word": [
+            0,
+            4,
+            5,
+            1,
+            2,
+            3
+          ],
+          "macro_label": "rot^5;w3:120",
+          "resulting_decorated_key": "(((1, 2, 3, 4, 5, 0), ((0, 3), (33, 63), (64, 63), (90, 63)), ((0, 1), (120, 15)), 1, 2, 0), (0, 120, 0, 3, ((3, 'R', 90, 0, 120, 0),), 1, (3, 'R', 90, 0, 120, 0)))",
+          "source_orbit": 90,
+          "source_permutation": [
+            0,
+            4,
+            5,
+            1,
+            2,
+            3
+          ],
+          "source_phase": 0,
+          "target_orbit": 120,
+          "target_permutation": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "target_phase": 0
+        },
+        "87cbc56a565e566d175e36a5fc120ba853c7ee7c25e7386fba38b1849ed241ce": {
+          "M_after": -3,
+          "M_before": -4,
+          "Phi_after": 0,
+          "Phi_before": 5,
+          "completer_timing": {
+            "kind": "Z2",
+            "macro_index": 4,
+            "source_orbit": 96,
+            "source_phase": 0,
+            "target_orbit": 120,
+            "target_phase": 0
+          },
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 7
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 6
+          },
+          "ell": 4,
+          "event_id": "87cbc56a565e566d175e36a5fc120ba853c7ee7c25e7386fba38b1849ed241ce",
+          "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+          "hub_popcount_after": 6,
+          "hub_popcount_before": 6,
+          "literal_macro_trace": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                2
+              ],
+              "target_hexagon": 64
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                64,
+                0
+              ],
+              "target": [
+                120,
+                3
+              ],
+              "target_hexagon": 90
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                90,
+                0
+              ],
+              "target": [
+                120,
+                4
+              ],
+              "target_hexagon": 96
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                96,
+                0
+              ],
+              "target": [
+                120,
+                0
+              ],
+              "target_hexagon": 0
+            },
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^4;w3:120",
+              "rotation_length": 4,
+              "source": [
+                1,
+                4
+              ],
+              "target": [
+                0,
+                2
+              ],
+              "target_hexagon": 18
+            }
+          ],
+          "literal_predecessor_state_hash": "513f0301fe013139bc0ed998c918e40d642fe3320dfb81fa9ff16f33c131104c",
+          "literal_predecessor_word": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "macro_label": "rot^4;w3:120",
+          "resulting_decorated_key": "(((2, 3, 4, 0, 1, 5), ((0, 63), (18, 8), (33, 63), (64, 63), (90, 63), (96, 63)), ((0, 5), (120, 31)), 1, 2, 0), (0, 120, 0, 5, ((5, 'R', 1, 4, 0, 2),), 1, (4, 'Z2', 96, 0, 120, 0)))",
+          "source_orbit": 1,
+          "source_permutation": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "source_phase": 4,
+          "target_orbit": 0,
+          "target_permutation": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "target_phase": 2
+        },
+        "8cd250717e321c5d986e6ce804c13028316a43c09b2151f1574f729fa79e764a": {
+          "M_after": -7,
+          "M_before": -8,
+          "Phi_after": 1,
+          "Phi_before": 6,
+          "completer_timing": null,
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 3
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 2
+          },
+          "ell": 5,
+          "event_id": "8cd250717e321c5d986e6ce804c13028316a43c09b2151f1574f729fa79e764a",
+          "event_order_class": "UNDECIDED",
+          "hub_popcount_after": 1,
+          "hub_popcount_before": 1,
+          "literal_macro_trace": [
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                3
+              ],
+              "target_hexagon": 90
+            }
+          ],
+          "literal_predecessor_state_hash": "12052132639976d777de5867db5cc05f91f31ac07d2460832049884dd0fa8df8",
+          "literal_predecessor_word": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:120",
+          "resulting_decorated_key": "(((4, 5, 1, 2, 3, 0), ((0, 1), (33, 63), (90, 2)), ((0, 1), (120, 10)), 1, 2, 0), (0, 120, 0, 1, ((1, 'R', 33, 0, 120, 3),), 0, None))",
+          "source_orbit": 33,
+          "source_permutation": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1
+          ],
+          "source_phase": 0,
+          "target_orbit": 120,
+          "target_permutation": [
+            4,
+            5,
+            1,
+            2,
+            3,
+            0
+          ],
+          "target_phase": 3
+        }
+      },
+      "R1_transitions": 4,
+      "R2_candidate_edges": 49440,
+      "R2_outcomes": {
+        "TARGET_A_HIT": 0,
+        "exact_collision": 0,
+        "hub_touch_failure": 0,
+        "not_same_component": 5419,
+        "other_explicit_reason": 0,
+        "recognizer_geometry_failure": 44021,
+        "wrong_Fdef": 0,
+        "wrong_Ndef": 0,
+        "wrong_R_count": 0,
+        "wrong_boundary_timing": 0
+      },
+      "R2_primary_failures": {
+        "not_same_component": 5419,
+        "recognizer_geometry_failure": 44021
+      },
+      "Target_A_hits": 0,
+      "branch_transitions": {
+        "UNDECIDED->CH1": 1,
+        "UNDECIDED->OTHER_OR_UNDECIDED": 1
+      },
+      "checkpoint_count": 25,
+      "elapsed_seconds_this_invocation": 0.226,
+      "event_order_class_events": {
+        "CH1": 1,
+        "PRE_R_COMPLETER_EVENT_ORDER": 1
+      },
+      "expanded": 100250,
+      "frontier_size": 85,
+      "generated_edges": 2405996,
+      "hub_completions_after_R1": 0,
+      "hub_completions_before_R1": 2,
+      "max_macro_depth": 103,
+      "max_post_R1_depth": 103,
+      "memo_hits": 107,
+      "other_nodes": 100246,
+      "post_R1_nodes": 100245,
+      "post_R1_prunes": {
+        "decorated_memo_duplicate": 107,
+        "exact_permutation_collision": 1541352,
+        "outside_RR_joint_model": 541803,
+        "r2_not_target": 49440,
+        "target_a_semantic_v1:F_exceeded": 172862
+      },
+      "pre_R_nodes": 5,
+      "pre_R_prunes": {
+        "exact_permutation_collision": 8,
+        "outside_RR_joint_model": 70,
+        "target_a_semantic_v1:F_exceeded": 20
+      },
+      "provisional_CH0_events": 1,
+      "prunes": {
+        "decorated_memo_duplicate": 107,
+        "exact_permutation_collision": 1541360,
+        "outside_RR_joint_model": 541873,
+        "r2_not_target": 49440,
+        "target_a_semantic_v1:F_exceeded": 172882
+      },
+      "steps_since_R1_expanded": {
+        "0": 1,
+        "1": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 2,
+        "15": 1,
+        "16": 1,
+        "17": 1,
+        "18": 1,
+        "19": 1,
+        "2": 1,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 1,
+        "25": 1,
+        "26": 1,
+        "27": 1,
+        "28": 1,
+        "29": 1,
+        "3": 1,
+        "30": 1,
+        "31": 1,
+        "32": 2,
+        "33": 2,
+        "34": 2,
+        "35": 1,
+        "36": 1,
+        "37": 1,
+        "38": 1,
+        "39": 1,
+        "4": 1,
+        "40": 1,
+        "41": 1,
+        "42": 1,
+        "43": 2,
+        "44": 2,
+        "45": 2,
+        "46": 2,
+        "47": 1,
+        "48": 2,
+        "49": 1,
+        "5": 1,
+        "50": 1,
+        "51": 1,
+        "52": 1,
+        "53": 3,
+        "54": 6,
+        "55": 10,
+        "56": 16,
+        "57": 31,
+        "58": 59,
+        "59": 96,
+        "6": 1,
+        "60": 159,
+        "61": 245,
+        "62": 373,
+        "63": 561,
+        "64": 776,
+        "65": 1094,
+        "66": 1477,
+        "67": 1975,
+        "68": 2510,
+        "69": 3135,
+        "7": 1,
+        "70": 3934,
+        "71": 4699,
+        "72": 5401,
+        "73": 6130,
+        "74": 6665,
+        "75": 6995,
+        "76": 7254,
+        "77": 7154,
+        "78": 6952,
+        "79": 6366,
+        "8": 1,
+        "80": 5694,
+        "81": 4915,
+        "82": 4077,
+        "83": 3307,
+        "84": 2621,
+        "85": 1932,
+        "86": 1337,
+        "87": 893,
+        "88": 570,
+        "89": 341,
+        "9": 1,
+        "90": 199,
+        "91": 103,
+        "92": 49,
+        "93": 38,
+        "94": 18,
+        "95": 6,
+        "96": 4,
+        "97": 1,
+        "98": 2
+      },
+      "undecided_nodes": 4,
+      "unique_decorated_keys": 100335,
+      "unique_exact_states": 100335,
+      "unique_r1_decorated_keys": 100320
+    },
+    "status": "INCOMPLETE",
+    "target_a_boundaries": [],
+    "terminal_counts": {
+      "non_target_R2": 49440,
+      "target_a_boundaries": 0
+    }
+  },
+  "schema": "rr-short-ell0-medium-v3-target-a-result-v1",
+  "scope": "short_ell0 only; semantic Target-A traversal; 100,000 additional expansions after v3 pilot unless naturally exhausted",
+  "source_validation": {
+    "additive_telemetry": {
+      "R1_events": {
+        "039dd3f229e4a6af3ab71d6e90c3caba93a8dee9c52acddadd2bd31ba5b7fb7f": {
+          "M_after": -6,
+          "M_before": -7,
+          "Phi_after": 1,
+          "Phi_before": 6,
+          "completer_timing": null,
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 4
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 3
+          },
+          "ell": 5,
+          "event_id": "039dd3f229e4a6af3ab71d6e90c3caba93a8dee9c52acddadd2bd31ba5b7fb7f",
+          "event_order_class": "UNDECIDED",
+          "hub_popcount_after": 1,
+          "hub_popcount_before": 1,
+          "literal_macro_trace": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                2
+              ],
+              "target_hexagon": 64
+            },
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "rotation_length": 5,
+              "source": [
+                64,
+                0
+              ],
+              "target": [
+                120,
+                4
+              ],
+              "target_hexagon": 96
+            }
+          ],
+          "literal_predecessor_state_hash": "e0530b9f407fe7d7c1cee643eac3c3af11fde091229c1540f9546be4018954c6",
+          "literal_predecessor_word": [
+            0,
+            3,
+            4,
+            5,
+            1,
+            2
+          ],
+          "macro_label": "rot^5;w3:120",
+          "resulting_decorated_key": "(((5, 1, 2, 3, 4, 0), ((0, 1), (33, 63), (64, 63), (96, 2)), ((0, 1), (120, 22)), 1, 2, 0), (0, 120, 0, 2, ((2, 'R', 64, 0, 120, 4),), 0, None))",
+          "source_orbit": 64,
+          "source_permutation": [
+            0,
+            3,
+            4,
+            5,
+            1,
+            2
+          ],
+          "source_phase": 0,
+          "target_orbit": 120,
+          "target_permutation": [
+            5,
+            1,
+            2,
+            3,
+            4,
+            0
+          ],
+          "target_phase": 4
+        },
+        "329ce119318740472484b14275ad7acaa07ff2d8e44e31e4fed3c63f3de56454": {
+          "M_after": -5,
+          "M_before": -6,
+          "Phi_after": 1,
+          "Phi_before": 6,
+          "completer_timing": {
+            "kind": "R",
+            "macro_index": 3,
+            "source_orbit": 90,
+            "source_phase": 0,
+            "target_orbit": 120,
+            "target_phase": 0
+          },
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 5
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 4
+          },
+          "ell": 5,
+          "event_id": "329ce119318740472484b14275ad7acaa07ff2d8e44e31e4fed3c63f3de56454",
+          "event_order_class": "CH1",
+          "hub_popcount_after": 2,
+          "hub_popcount_before": 1,
+          "literal_macro_trace": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                2
+              ],
+              "target_hexagon": 64
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                64,
+                0
+              ],
+              "target": [
+                120,
+                3
+              ],
+              "target_hexagon": 90
+            },
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "rotation_length": 5,
+              "source": [
+                90,
+                0
+              ],
+              "target": [
+                120,
+                0
+              ],
+              "target_hexagon": 0
+            }
+          ],
+          "literal_predecessor_state_hash": "ee72a7c254b4582cb078cf0e1163efffa6dcddcdf473e4ed708090c73a75e85b",
+          "literal_predecessor_word": [
+            0,
+            4,
+            5,
+            1,
+            2,
+            3
+          ],
+          "macro_label": "rot^5;w3:120",
+          "resulting_decorated_key": "(((1, 2, 3, 4, 5, 0), ((0, 3), (33, 63), (64, 63), (90, 63)), ((0, 1), (120, 15)), 1, 2, 0), (0, 120, 0, 3, ((3, 'R', 90, 0, 120, 0),), 1, (3, 'R', 90, 0, 120, 0)))",
+          "source_orbit": 90,
+          "source_permutation": [
+            0,
+            4,
+            5,
+            1,
+            2,
+            3
+          ],
+          "source_phase": 0,
+          "target_orbit": 120,
+          "target_permutation": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "target_phase": 0
+        },
+        "87cbc56a565e566d175e36a5fc120ba853c7ee7c25e7386fba38b1849ed241ce": {
+          "M_after": -3,
+          "M_before": -4,
+          "Phi_after": 0,
+          "Phi_before": 5,
+          "completer_timing": {
+            "kind": "Z2",
+            "macro_index": 4,
+            "source_orbit": 96,
+            "source_phase": 0,
+            "target_orbit": 120,
+            "target_phase": 0
+          },
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 7
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 6
+          },
+          "ell": 4,
+          "event_id": "87cbc56a565e566d175e36a5fc120ba853c7ee7c25e7386fba38b1849ed241ce",
+          "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+          "hub_popcount_after": 6,
+          "hub_popcount_before": 6,
+          "literal_macro_trace": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                2
+              ],
+              "target_hexagon": 64
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                64,
+                0
+              ],
+              "target": [
+                120,
+                3
+              ],
+              "target_hexagon": 90
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                90,
+                0
+              ],
+              "target": [
+                120,
+                4
+              ],
+              "target_hexagon": 96
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                96,
+                0
+              ],
+              "target": [
+                120,
+                0
+              ],
+              "target_hexagon": 0
+            },
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^4;w3:120",
+              "rotation_length": 4,
+              "source": [
+                1,
+                4
+              ],
+              "target": [
+                0,
+                2
+              ],
+              "target_hexagon": 18
+            }
+          ],
+          "literal_predecessor_state_hash": "513f0301fe013139bc0ed998c918e40d642fe3320dfb81fa9ff16f33c131104c",
+          "literal_predecessor_word": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "macro_label": "rot^4;w3:120",
+          "resulting_decorated_key": "(((2, 3, 4, 0, 1, 5), ((0, 63), (18, 8), (33, 63), (64, 63), (90, 63), (96, 63)), ((0, 5), (120, 31)), 1, 2, 0), (0, 120, 0, 5, ((5, 'R', 1, 4, 0, 2),), 1, (4, 'Z2', 96, 0, 120, 0)))",
+          "source_orbit": 1,
+          "source_permutation": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "source_phase": 4,
+          "target_orbit": 0,
+          "target_permutation": [
+            2,
+            3,
+            4,
+            0,
+            1,
+            5
+          ],
+          "target_phase": 2
+        },
+        "8cd250717e321c5d986e6ce804c13028316a43c09b2151f1574f729fa79e764a": {
+          "M_after": -7,
+          "M_before": -8,
+          "Phi_after": 1,
+          "Phi_before": 6,
+          "completer_timing": null,
+          "coordinate_after": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 1,
+            "O": 2,
+            "P": 3
+          },
+          "coordinate_before": {
+            "F": 1,
+            "H": 0,
+            "Ndef": 0,
+            "O": 2,
+            "P": 2
+          },
+          "ell": 5,
+          "event_id": "8cd250717e321c5d986e6ce804c13028316a43c09b2151f1574f729fa79e764a",
+          "event_order_class": "UNDECIDED",
+          "hub_popcount_after": 1,
+          "hub_popcount_before": 1,
+          "literal_macro_trace": [
+            {
+              "joint": "w3:120",
+              "kind": "R",
+              "label": "rot^5;w3:120",
+              "rotation_length": 5,
+              "source": [
+                33,
+                0
+              ],
+              "target": [
+                120,
+                3
+              ],
+              "target_hexagon": 90
+            }
+          ],
+          "literal_predecessor_state_hash": "12052132639976d777de5867db5cc05f91f31ac07d2460832049884dd0fa8df8",
+          "literal_predecessor_word": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:120",
+          "resulting_decorated_key": "(((4, 5, 1, 2, 3, 0), ((0, 1), (33, 63), (90, 2)), ((0, 1), (120, 10)), 1, 2, 0), (0, 120, 0, 1, ((1, 'R', 33, 0, 120, 3),), 0, None))",
+          "source_orbit": 33,
+          "source_permutation": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1
+          ],
+          "source_phase": 0,
+          "target_orbit": 120,
+          "target_permutation": [
+            4,
+            5,
+            1,
+            2,
+            3,
+            0
+          ],
+          "target_phase": 3
+        }
+      },
+      "R2_outcomes": {
+        "TARGET_A_HIT": 0,
+        "exact_collision": 0,
+        "hub_touch_failure": 0,
+        "not_same_component": 5,
+        "other_explicit_reason": 0,
+        "recognizer_geometry_failure": 113,
+        "wrong_Fdef": 0,
+        "wrong_Ndef": 0,
+        "wrong_R_count": 0,
+        "wrong_boundary_timing": 0
+      },
+      "R2_primary_failures": {
+        "not_same_component": 5,
+        "recognizer_geometry_failure": 113
+      },
+      "event_order_class_events": {
+        "CH1": 1,
+        "PRE_R_COMPLETER_EVENT_ORDER": 1
+      }
+    },
+    "current_engine_sha256": "4924fddde7fd96f20479311ab4b6c1b5d6d4c1772c5211de0316955e0081f134",
+    "replayed_prefix_expansions": 250,
+    "source_engine_revision": "d90b69a",
+    "source_engine_sha256": "689bdc5735023b4b1956839955a10b12cecead4b1617ad47998232410ba9b0ea",
+    "source_frontier_states_compared": 88,
+    "successor_signature_mismatches": []
+  },
+  "state_key_status": {
+    "audit": {
+      "contract": {
+        "decoration": "key retains root_ell,o_star,hub_id,macro_index,ordered R events,hub touch count,first completer",
+        "exact_state": "stable_key = p + sparse hex masks + sparse E masks + F,S,H",
+        "omitted_decoration_field": "root_id only; it is provenance-only because every root is searched independently"
+      },
+      "deliberate_duplicate_groups": 99,
+      "grade": "lossless raw-key contract plus complete depth-2 successor-signature regression, including enqueued R1 states",
+      "json_roundtrip_failures": [],
+      "key_collision_mismatches": [],
+      "passed": true,
+      "post_R1_deliberate_duplicate_groups": 34,
+      "post_R1_key_collision_mismatches": [],
+      "r1_states_examined": 34,
+      "r_count_histogram": {
+        "0": 65,
+        "1": 34
+      },
+      "roots_checked": 5,
+      "schema": "rr-short5-decorated-state-key-audit-v2",
+      "scope": "five short roots; accepted macro children through depth 2, including R1",
+      "states_examined": 99
+    },
+    "scope": "finite tested universe, not a theorem",
+    "status": "exhaustive tested-universe equivalence"
+  }
+}

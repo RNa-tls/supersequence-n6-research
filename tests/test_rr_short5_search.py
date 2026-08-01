@@ -206,6 +206,21 @@ class Short5RootTests(unittest.TestCase):
         stats = result["stats"]
         self.assertEqual(sum(stats["R2_primary_failures"].values()) + stats["Target_A_hits"],
                          stats["R2_candidate_edges"])
+        self.assertEqual(set(stats["R2_outcomes"]), set(short5.rr.R2_OUTCOME_VOCABULARY))
+        self.assertEqual(sum(stats["R2_outcomes"].values()), stats["R2_candidate_edges"])
+
+    def test_accepted_r1_events_export_literal_metadata(self):
+        manifest = short5.short_root_manifest(self.records)
+        result = short5.rr.search_root(self.records[0], node_limit=8, checkpoint=None,
+                                       checkpoint_config_extra=short5.config_extra(manifest))
+        events = result["stats"]["R1_events"]
+        self.assertEqual(len(events), result["stats"]["R1_transitions"])
+        for event_id, event in events.items():
+            self.assertEqual(event_id, event["event_id"])
+            self.assertIn("literal_predecessor_word", event)
+            self.assertIn("source_orbit", event)
+            self.assertIn("Phi_before", event)
+            self.assertIn("resulting_decorated_key", event)
 
     def test_o_exceeded_differential_is_not_a_target_a_prune(self):
         runner_path = ROOT / "src" / "run_rr_short_ell0_scope_audit.py"

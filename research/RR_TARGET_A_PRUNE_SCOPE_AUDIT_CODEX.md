@@ -90,7 +90,7 @@ A deterministic `short_ell0` pilot used 250 expansions under each profile.
 
 The first divergence occurs at macro depth 69.  It is literally replayed from
 the bare `short_ell0` root: the exact legal child has
-`(P,O,D,Ndef,F,H)=(71,26,4,1,1,0)`.  The legacy profile returns
+`(P,O,D,Ndef,F,H)=(71,26,59,1,1,0)`.  The legacy profile returns
 `legacy_area_a_q2_comparison_v1:O_exceeded`; the Target-A profile returns
 `child`.  This is an **exact counterexample to O-cap pruning as a
 Target-A-safe prefix rule**, not a claim that the child already reaches a
