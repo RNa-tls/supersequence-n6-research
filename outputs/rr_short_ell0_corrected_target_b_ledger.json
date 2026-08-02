@@ -1,0 +1,81 @@
+{
+  "conclusion": "all currently canonicalised classes are closed in the stated Target-B Area-A model",
+  "counts": {
+    "EXHAUSTED_NO_PATH": 1,
+    "canonical_classes": 1,
+    "exact_Target_A_literal_replays": 1,
+    "exact_decorated_boundary_states": 1,
+    "exact_flow_runs": 1,
+    "stored_R6_claims": 1
+  },
+  "disallowed_helper_name": "true_phase_walk_capacity",
+  "phase_helper_used": false,
+  "replacement_path": [
+    "exact literal boundary replay",
+    "Phi=0 full-segment theorem",
+    "Round30 B+1 coarse bound",
+    "Round32 occupancy-independent B+R bound",
+    "exact macro engine DFS"
+  ],
+  "rows": [
+    {
+      "B_plus_1": 115,
+      "available_R_capacity": 1,
+      "available_orbit_capacity": 23,
+      "canonical_boundary_class": "0df3f68a0cc9a15d70ab0efd79b57bb5f970098457bf4821f400e113593f1d25",
+      "canonical_state_hash": "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+      "coarse_bound": 124,
+      "coordinate": {
+        "D": 3,
+        "F": 1,
+        "H": 0,
+        "M": -3,
+        "Ndef": 2,
+        "O": 2,
+        "P": 7,
+        "Phi": 0,
+        "S": 3,
+        "visited": 31
+      },
+      "exact_flow": {
+        "checkpointability": "not_started_as_a_long-run; a capped result is explicitly INCOMPLETE",
+        "leaf_states": 585,
+        "max_depth": 40,
+        "max_visited": 271,
+        "node_cap": 20000,
+        "nodes": 3214,
+        "prunes": {
+          "F_exceeded": 48331,
+          "N_exceeded_monotone": 91,
+          "round32_B_plus_R": 5869
+        },
+        "seconds_cap": 30.0,
+        "solution_macro_path": null,
+        "surviving_ells": [
+          5
+        ],
+        "truncated": false,
+        "verdict": "EXHAUSTED_NO_PATH"
+      },
+      "existing_orbit_entry_bound": 122,
+      "final_status": "EXHAUSTED_NO_PATH",
+      "initial_area_a_reason": null,
+      "literal_witness_count": 1,
+      "phi_zero": true,
+      "reason": null,
+      "representative_witness_id": "short_ell0_target_a_00000",
+      "required_continuation_ell_5": true,
+      "status": "REQUIRES_EXACT_HELPER_FREE_DFS",
+      "surviving_initial_ells": [
+        5
+      ]
+    }
+  ],
+  "run_configuration": {
+    "flow_node_cap": 20000,
+    "flow_seconds_cap": 30.0,
+    "run_exact_flow": true
+  },
+  "schema": "rr-short-ell0-target-b-helper-free-ledger-v2-literal-r2-source",
+  "scope": "Target B inside Area A (F=1,H=0,Ndef<=3); Target-A enumeration itself was capped"
+}

@@ -536,22 +536,22 @@ def geometry_failure_reason(*, source_present: bool, target_present: bool) -> st
     raise AssertionError("geometry taxonomy invoked without a missing R2 incidence endpoint")
 
 
-def geometry_failure_record(pre_state, edge, before: Decoration, after: Decoration,
+def geometry_failure_record(joint_source_state, edge, before: Decoration, after: Decoration,
                             *, depth: Optional[int] = None) -> dict[str, object]:
     """Serialize enough endpoint evidence to independently reclassify one exit."""
     transition = edge.joint
-    sq, sph = exact.ORBIT_PHASE[pre_state.p]
+    sq, sph = exact.ORBIT_PHASE[joint_source_state.p]
     tq, tph = exact.ORBIT_PHASE[transition.target]
-    parent, _find = incidence_components(pre_state)
+    parent, _find = incidence_components(joint_source_state)
     source_present = ("q", sq) in parent
     target_present = ("q", tq) in parent
     reason = geometry_failure_reason(source_present=source_present, target_present=target_present)
-    candidate_key = (state_hash(pre_state), transition.move.label, edge.run.ell,
+    candidate_key = (state_hash(joint_source_state), transition.move.label, edge.run.ell,
                      sq, sph, tq, tph, before.key())
     return {
         "candidate_id": sha256_bytes(repr(candidate_key).encode("utf-8")),
         "depth": depth,
-        "pre_state_hash": state_hash(pre_state),
+        "literal_joint_source_state_hash": state_hash(joint_source_state),
         "macro_label": f"rot^{edge.run.ell};{transition.move.label}",
         "source_orbit": sq, "source_phase": sph,
         "target_orbit": tq, "target_phase": tph,
@@ -570,13 +570,18 @@ def geometry_failure_record(pre_state, edge, before: Decoration, after: Decorati
     }
 
 
-def same_component_failure_record(pre_state, edge, before: Decoration, after: Decoration,
+def same_component_failure_record(macro_entry_state, edge, before: Decoration, after: Decoration,
                                   *, depth: int) -> dict[str, object]:
     """Detailed, immutable evidence for one `not_same_component` R2 edge."""
     transition = edge.joint
-    sq, sph = exact.ORBIT_PHASE[pre_state.p]
+    # A macro candidate may rotate before executing its joint.  Target-A
+    # geometry is evaluated at the literal joint source, never macro entry.
+    # Retain macro-entry only for provenance, so callers cannot silently use
+    # it for the source-orbit predicate.
+    joint_source_state = edge.run.state
+    sq, sph = exact.ORBIT_PHASE[joint_source_state.p]
     tq, tph = exact.ORBIT_PHASE[transition.target]
-    pre = component_summary(pre_state)
+    pre = component_summary(joint_source_state)
     post = component_summary(transition.state)
     source = _component_ref(pre, ("q", sq))
     target = _component_ref(pre, ("q", tq))
@@ -589,12 +594,13 @@ def same_component_failure_record(pre_state, edge, before: Decoration, after: De
     r1_target = None if before.r1 is None else _component_ref(pre, ("q", before.r1.target_orbit))
     would_merge = (post_source is not None and post_target is not None and
                    post_source["id"] == post_target["id"])
-    candidate_key = (state_hash(pre_state), transition.move.label, edge.run.ell,
+    candidate_key = (state_hash(joint_source_state), transition.move.label, edge.run.ell,
                      sq, sph, tq, tph, before.key())
     return {
         "candidate_id": sha256_bytes(repr(candidate_key).encode("utf-8")),
         "depth": depth,
-        "pre_state_hash": state_hash(pre_state),
+        "macro_entry_state_hash": state_hash(macro_entry_state),
+        "literal_joint_source_state_hash": state_hash(joint_source_state),
         "macro_label": f"rot^{edge.run.ell};{transition.move.label}",
         "r1_target_orbit": None if before.r1 is None else before.r1.target_orbit,
         "r1_target_component": r1_target,
@@ -607,7 +613,7 @@ def same_component_failure_record(pre_state, edge, before: Decoration, after: De
         "candidate_edge_would_merge_components": would_merge,
         "exact_relation_checked": (
             "pre-R2 incidence forest: component(q,R2.source) == component(q,R2.target)"),
-        "pre_r2_component_digest": component_digest(pre_state),
+        "pre_r2_component_digest": component_digest(joint_source_state),
         "post_r2_component_digest": component_digest(transition.state),
         "chaining": before.r1 is not None and before.r1.target_orbit == sq,
         "event_order_class": after.event_order_class,
@@ -657,16 +663,20 @@ def r1_event_export(edge, before: Decoration, after: Decoration,
     }
 
 
-def target_a_recognizer(pre_state, transition, before: Decoration, after: Decoration) -> dict[str, object]:
+def target_a_recognizer(joint_source_state, transition, before: Decoration, after: Decoration) -> dict[str, object]:
     """Exact boundary recognizer.  Same-component and chaining are outputs.
 
     The recognizer does not impose either relation as an acceptance condition;
     only the former is the historical Target-A property.  Target B/C are not
     considered here.
     """
-    sq, sph = exact.ORBIT_PHASE[pre_state.p]
+    # ``joint_source_state`` is specifically the state after the macro
+    # rotation run and immediately before ``transition``.  Using macro entry
+    # here changes R2's source orbit and invalidates the literal boundary
+    # predicate.
+    sq, sph = exact.ORBIT_PHASE[joint_source_state.p]
     tq, tph = exact.ORBIT_PHASE[transition.target]
-    parent, find = incidence_components(pre_state)
+    parent, find = incidence_components(joint_source_state)
     source_root = find(("q", sq)) if ("q", sq) in parent else None
     target_root = find(("q", tq)) if ("q", tq) in parent else None
     source_present = source_root is not None
@@ -747,8 +757,9 @@ def target_a_recognizer(pre_state, transition, before: Decoration, after: Decora
             None if target else ",".join(failed_conditions)
         ),
         "q2_area_a_reason_diagnostic": area_reason,
-        "component_digest": component_digest(pre_state),
-        "pre_hub_mask": hub_mask(pre_state, before),
+        "literal_joint_source_state_hash": state_hash(joint_source_state),
+        "component_digest": component_digest(joint_source_state),
+        "pre_hub_mask": hub_mask(joint_source_state, before),
         "post_r2_state_hash": state_hash(transition.state),
         "phi": phi(transition.state),
         "coordinate": {

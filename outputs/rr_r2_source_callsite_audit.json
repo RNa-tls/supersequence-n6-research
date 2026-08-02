@@ -1,0 +1,111 @@
+{
+  "call_sites": [
+    {
+      "affected_outputs": [
+        "all R2 recognizer records"
+      ],
+      "correct_state": "joint_source_state / edge.run.state",
+      "file": "src/search_rr_target_a_exhaustive.py",
+      "function": "target_a_recognizer",
+      "old_state_used": "ambiguous parameter named pre_state",
+      "semantic_role": "R2 source orbit, incidence membership, same-component and chaining"
+    },
+    {
+      "affected_outputs": [
+        "R2 geometry/component evidence"
+      ],
+      "correct_state": "edge.run.state",
+      "file": "src/search_rr_target_a_exhaustive.py",
+      "function": "geometry_failure_record + same_component_failure_record",
+      "old_state_used": "pre_state parameter",
+      "semantic_role": "R2 endpoint diagnostics"
+    },
+    {
+      "affected_outputs": [
+        "rr_short_ell0_repair_hierarchy.json (v1 invalid)"
+      ],
+      "correct_state": "edge.run.state",
+      "file": "src/search_rr_short_ell0_repair_fair.py",
+      "function": "hierarchy_for_r2",
+      "old_state_used": "macro-entry pre_state",
+      "semantic_role": "repair hierarchy R2 source and same-component"
+    },
+    {
+      "affected_outputs": [
+        "focused predecessor records"
+      ],
+      "correct_state": "joint_source_state",
+      "file": "src/search_rr_short_ell0_r1_split.py",
+      "function": "predicate_before_r2",
+      "old_state_used": "ambiguous pre_state parameter",
+      "semantic_role": "focused pre-Target-A predicate"
+    },
+    {
+      "affected_outputs": [
+        "fair R1 repair records"
+      ],
+      "correct_state": "joint_source_state",
+      "file": "src/search_rr_short_ell0_fair_r1.py",
+      "function": "repair_predicate",
+      "old_state_used": "ambiguous pre_state parameter",
+      "semantic_role": "fair repair predicate"
+    },
+    {
+      "affected_outputs": [
+        "v1 verifier invalid for R2 source semantics"
+      ],
+      "correct_state": "edge.run.state",
+      "file": "src/verify_rr_short_ell0_repair_search.py",
+      "function": "R4+ literal replay",
+      "old_state_used": "macro-entry state",
+      "semantic_role": "independent same-component replay"
+    },
+    {
+      "affected_outputs": [
+        "corrected Target-A/Target-B ledgers"
+      ],
+      "correct_state": "edge.run.state",
+      "file": "src/analyze_rr_short_ell0_target_b.py",
+      "function": "analysis",
+      "old_state_used": "already correct edge.run.state",
+      "semantic_role": "literal R2 corpus and Target-B dispatch"
+    }
+  ],
+  "correction": "R2 source is edge.run.state, never macro-entry state",
+  "historical_outputs": [
+    {
+      "path": "outputs\\rr_short_ell0_repair_hierarchy.json",
+      "sha256": "1886cdc721b0c315e405e3120d9330d29a04f7f404134764785eb8c57e7049e6",
+      "status": "INVALID_R2_SOURCE_SEMANTICS"
+    },
+    {
+      "path": "outputs\\rr_short_ell0_repair_witnesses.json",
+      "sha256": "0e1431ff7cfc057e753ad64479229eb26dcdb79ccab074b255775b449fa4068b",
+      "status": "PROVENANCE_REPLAYABLE_BUT_OLD_HIERARCHY_LABELS_INVALID"
+    }
+  ],
+  "regression_fixture": {
+    "branch_id": "short_ell0_r1_0",
+    "joint_source_hash": "348e1dd64fe35c23fd9f2af8c403afcb7ee4e8739d8445bb04b84f7d6cf5b93e",
+    "joint_source_same_component": false,
+    "literal_macro_trace_suffix": {
+      "joint": "w3:120",
+      "kind": "R",
+      "label": "rot^4;w3:120",
+      "rotation_length": 4,
+      "source": [
+        1,
+        4
+      ],
+      "target": [
+        0,
+        2
+      ],
+      "target_hexagon": 18
+    },
+    "macro_entry_hash": "631d91e53ccc01797ca169ca7267001e654ff7b272613b3635e11a663fe9495f",
+    "macro_entry_same_component": true,
+    "r2_predecessor_node_id": "short_ell0_r1_0:1"
+  },
+  "schema": "rr-r2-literal-source-callsite-audit-v2"
+}

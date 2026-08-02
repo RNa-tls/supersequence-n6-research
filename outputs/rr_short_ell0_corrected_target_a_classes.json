@@ -1,0 +1,452 @@
+{
+  "canonical_classes": [
+    {
+      "canonical_boundary_class": "0df3f68a0cc9a15d70ab0efd79b57bb5f970098457bf4821f400e113593f1d25",
+      "canonical_decoration": {
+        "branch": "CH1",
+        "completer": {
+          "kind": "R",
+          "macro_index": 3,
+          "source_orbit": 141,
+          "source_phase": 4,
+          "target_orbit": 21,
+          "target_phase": 3
+        },
+        "event_order_class": "CH1",
+        "hub_id": 18,
+        "hub_touch_count": 1,
+        "macro_index": 5,
+        "o_star": 21,
+        "r_events": [
+          {
+            "kind": "R",
+            "macro_index": 3,
+            "source_orbit": 141,
+            "source_phase": 4,
+            "target_orbit": 21,
+            "target_phase": 3
+          },
+          {
+            "kind": "R",
+            "macro_index": 5,
+            "source_orbit": 21,
+            "source_phase": 2,
+            "target_orbit": 0,
+            "target_phase": 0
+          }
+        ],
+        "root_ell": 0,
+        "root_id": "short_ell0"
+      },
+      "canonical_state": {
+        "F": 1,
+        "H": 0,
+        "S": 3,
+        "hex_masks": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            63
+          ],
+          [
+            18,
+            63
+          ],
+          [
+            20,
+            63
+          ],
+          [
+            21,
+            63
+          ],
+          [
+            28,
+            63
+          ]
+        ],
+        "orbit_masks": [
+          [
+            0,
+            13
+          ],
+          [
+            21,
+            27
+          ]
+        ],
+        "p": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "canonical_state_hash": "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+      "representative_raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+      "representative_witness_id": "short_ell0_target_a_00000"
+    }
+  ],
+  "claimed_R6_witnesses": [
+    {
+      "CH_class": "CH1",
+      "M": -3,
+      "P_O_F_H_Ndef": {
+        "F": 1,
+        "H": 0,
+        "Ndef": 2,
+        "O": 2,
+        "P": 7
+      },
+      "Phi": 0,
+      "R1_event": {
+        "kind": "R",
+        "macro_index": 3,
+        "source_orbit": 90,
+        "source_phase": 0,
+        "target_orbit": 120,
+        "target_phase": 0
+      },
+      "R2_event": {
+        "kind": "R",
+        "macro_index": 5,
+        "source_orbit": 120,
+        "source_phase": 4,
+        "target_orbit": 0,
+        "target_phase": 3
+      },
+      "R2_macro_edge": {
+        "joint": "w3:120",
+        "kind": "R",
+        "label": "rot^5;w3:120",
+        "rotation_length": 5,
+        "source": [
+          120,
+          4
+        ],
+        "target": [
+          0,
+          3
+        ],
+        "target_hexagon": 4
+      },
+      "boundary_state_id": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+      "branch_id": "short_ell0_r1_1",
+      "canonical_boundary_class": "0df3f68a0cc9a15d70ab0efd79b57bb5f970098457bf4821f400e113593f1d25",
+      "completer_event": {
+        "kind": "R",
+        "macro_index": 3,
+        "source_orbit": 90,
+        "source_phase": 0,
+        "target_orbit": 120,
+        "target_phase": 0
+      },
+      "component_partition_state_id": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+      "event_order_class": "CH1",
+      "exact_decorated_boundary_hash": "743ddf98e8bf9b299838ce6db4ec674282ee0d75728e7b97fd088b80fad07a24",
+      "exact_incidence_state_id": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+      "exact_target_a_conditions": {
+        "F_def_equals_1": true,
+        "H_equals_0": true,
+        "exactly_two_R_events": true,
+        "hub_touch_count_le_2": true,
+        "immediately_after_R2": true,
+        "same_component": true
+      },
+      "exact_target_a_replay": true,
+      "hub_state": {
+        "hub_id": 0,
+        "mask": 63,
+        "popcount": 6
+      },
+      "literal_joint_source_orbit_phase": [
+        120,
+        4
+      ],
+      "literal_macro_trace": [
+        "rot^5;w2:10",
+        "rot^5;w2:10",
+        "rot^5;w3:120",
+        "rot^4;w2:10",
+        "rot^5;w3:120"
+      ],
+      "literal_macro_trace_sha256": "782107aa9ac7f18ca0982b9fe93577303dbf3ed4eddfdd7b3a20111ef7f582e5",
+      "parent_pointer_replay_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59",
+      "repair_event_ids": [
+        "short_ell0_r1_1:repair:0"
+      ],
+      "stored_hierarchy_label": "R6",
+      "stored_hierarchy_source_orbit_phase": [
+        120,
+        4
+      ],
+      "terminal_ell": 5,
+      "witness_id": "short_ell0_target_a_00000"
+    }
+  ],
+  "counts": {
+    "canonical_boundary_classes": 1,
+    "canonical_multiplicity_histogram": {
+      "1": 1
+    },
+    "exact_Target_A_literal_replays": 1,
+    "exact_decorated_boundary_states": 1,
+    "literal_multiplicity_histogram": {
+      "1": 1
+    },
+    "raw_exact_states": 1,
+    "stored_R6_claims": 1,
+    "stored_R6_replay_mismatches": 0
+  },
+  "driver_sha256": "28e841bf0eeb9e942d48ccf7c2ef884f2d3b38f541c0ed986ec2b3017cd7c75b",
+  "engine_sha256": "bafc50dd7890f2cf7c48ac83733d4b5c7208c393f963e6975574af1c1d512af4",
+  "exact_Target_A_witness_ids": [
+    "short_ell0_target_a_00000"
+  ],
+  "left_S6_canonicalisation": {
+    "full_720_action_control_passed": true,
+    "full_720_action_control_sample": 1,
+    "normal_form": "unique action mapping terminal word p to identity",
+    "not_quotiented": [
+      "repair provenance",
+      "traversal-history order",
+      "arbitrary E-orbit relabelling",
+      "unproved decorated-state equivalence"
+    ],
+    "proved_action": "global alphabet relabelling commutes with every right position action"
+  },
+  "provenance_sensitivity": {
+    "duplicate_exact_decorated_groups": 0,
+    "duplicate_literal_witnesses_beyond_first": 0,
+    "method": "ExactState Markov sufficiency plus literal macro successor signature",
+    "note": "repair provenance is retained in witness records; the continuation engine key is exact state because it has no history predicate after the R2 boundary.",
+    "status": "PROVED_FOR_TARGET_B_ENGINE_KEY"
+  },
+  "raw_boundary_states": {
+    "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59": {
+      "canonical_decorated_hash": "0df3f68a0cc9a15d70ab0efd79b57bb5f970098457bf4821f400e113593f1d25",
+      "canonical_decoration": {
+        "branch": "CH1",
+        "completer": {
+          "kind": "R",
+          "macro_index": 3,
+          "source_orbit": 141,
+          "source_phase": 4,
+          "target_orbit": 21,
+          "target_phase": 3
+        },
+        "event_order_class": "CH1",
+        "hub_id": 18,
+        "hub_touch_count": 1,
+        "macro_index": 5,
+        "o_star": 21,
+        "r_events": [
+          {
+            "kind": "R",
+            "macro_index": 3,
+            "source_orbit": 141,
+            "source_phase": 4,
+            "target_orbit": 21,
+            "target_phase": 3
+          },
+          {
+            "kind": "R",
+            "macro_index": 5,
+            "source_orbit": 21,
+            "source_phase": 2,
+            "target_orbit": 0,
+            "target_phase": 0
+          }
+        ],
+        "root_ell": 0,
+        "root_id": "short_ell0"
+      },
+      "canonical_state": {
+        "F": 1,
+        "H": 0,
+        "S": 3,
+        "hex_masks": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            63
+          ],
+          [
+            18,
+            63
+          ],
+          [
+            20,
+            63
+          ],
+          [
+            21,
+            63
+          ],
+          [
+            28,
+            63
+          ]
+        ],
+        "orbit_masks": [
+          [
+            0,
+            13
+          ],
+          [
+            21,
+            27
+          ]
+        ],
+        "p": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "canonical_state_hash": "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+      "component_partition": [
+        {
+          "e_orbits": [
+            0,
+            120
+          ],
+          "hexagons": [
+            0,
+            4,
+            33,
+            64,
+            90,
+            96
+          ],
+          "id": "4ab1304179c72141"
+        }
+      ],
+      "coordinate": {
+        "D": 3,
+        "F": 1,
+        "H": 0,
+        "M": -3,
+        "Ndef": 2,
+        "O": 2,
+        "P": 7,
+        "Phi": 0,
+        "S": 3,
+        "visited": 31
+      },
+      "exact_state": {
+        "F": 1,
+        "H": 0,
+        "S": 3,
+        "hex_masks": [
+          [
+            0,
+            63
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            33,
+            63
+          ],
+          [
+            64,
+            63
+          ],
+          [
+            90,
+            63
+          ],
+          [
+            96,
+            63
+          ]
+        ],
+        "orbit_masks": [
+          [
+            0,
+            11
+          ],
+          [
+            120,
+            15
+          ]
+        ],
+        "p": [
+          3,
+          4,
+          0,
+          1,
+          2,
+          5
+        ]
+      },
+      "incidence_edges_q_h_phase": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          96,
+          1
+        ],
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          120,
+          0,
+          0
+        ],
+        [
+          120,
+          33,
+          1
+        ],
+        [
+          120,
+          64,
+          2
+        ],
+        [
+          120,
+          90,
+          3
+        ]
+      ],
+      "left_action_to_identity": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        5
+      ],
+      "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+    }
+  },
+  "schema": "rr-short-ell0-target-a-boundary-freeze-v2-literal-r2-source",
+  "scope": "capped fair short_ell0 post-R1 experiment; no Target-A absence claim; literal R2 source",
+  "source_artifacts": {
+    "outputs\\rr_short_ell0_corrected_fair_repair_results.json": "6ab7517aa43f0fbf85b913cdc882e7f7a1ca810f5fa4e50d2e00807c306db286",
+    "outputs\\rr_short_ell0_corrected_repair_hierarchy.json": "245823d0dadba4ee8be142b2ced866b83ad5516e0c3d9b3fe3e30270f78f7959",
+    "outputs\\rr_short_ell0_corrected_repair_witnesses.json": "333cbadd5b5289d6514a86ed276abfe63fcad02c0f0cfdbbe290055264262467"
+  }
+}

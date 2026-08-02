@@ -1,0 +1,76 @@
+{
+  "canonical_classes": 1,
+  "corrected_literal_Target_A_hits": 1,
+  "corrected_literal_same_component_failures": 38405,
+  "corrected_repaired_R2_paths": 46128,
+  "counterexample_fixture": {
+    "branch_id": "short_ell0_r1_0",
+    "joint_source_hash": "348e1dd64fe35c23fd9f2af8c403afcb7ee4e8739d8445bb04b84f7d6cf5b93e",
+    "joint_source_same_component": false,
+    "literal_macro_trace_suffix": {
+      "joint": "w3:120",
+      "kind": "R",
+      "label": "rot^4;w3:120",
+      "rotation_length": 4,
+      "source": [
+        1,
+        4
+      ],
+      "target": [
+        0,
+        2
+      ],
+      "target_hexagon": 18
+    },
+    "macro_entry_hash": "631d91e53ccc01797ca169ca7267001e654ff7b272613b3635e11a663fe9495f",
+    "macro_entry_same_component": true,
+    "r2_predecessor_node_id": "short_ell0_r1_0:1"
+  },
+  "helper_free_target_B": {
+    "leaf_states": 585,
+    "max_depth": 40,
+    "max_visited": 271,
+    "nodes": 3214,
+    "prunes": {
+      "F_exceeded": 48331,
+      "N_exceeded_monotone": 91,
+      "round32_B_plus_R": 5869
+    },
+    "solution": null,
+    "surviving_ells": [
+      5
+    ],
+    "truncated": false,
+    "verdict": "EXHAUSTED_NO_PATH"
+  },
+  "input_sha256": {
+    "outputs\\rr_short_ell0_corrected_fair_repair_results.json": "6ab7517aa43f0fbf85b913cdc882e7f7a1ca810f5fa4e50d2e00807c306db286",
+    "outputs\\rr_short_ell0_corrected_known18_comparison.json": "e9b0e3748212bef7c93fc05b1410d1fd4d9eca48f8d329a14c168ad1216f458d",
+    "outputs\\rr_short_ell0_corrected_repair_hierarchy.json": "245823d0dadba4ee8be142b2ced866b83ad5516e0c3d9b3fe3e30270f78f7959",
+    "outputs\\rr_short_ell0_corrected_repair_witnesses.json": "333cbadd5b5289d6514a86ed276abfe63fcad02c0f0cfdbbe290055264262467",
+    "outputs\\rr_short_ell0_corrected_target_a_classes.json": "4b7f341d72037f344c1863474f864e3f3ccaf529d12d8bd4318b35870a80ed25",
+    "outputs\\rr_short_ell0_corrected_target_b_ledger.json": "69eb33a0122587afc8e86a0f871240a38c62f59d24491ef7d0ed362e70b5d440"
+  },
+  "known18_classification": {
+    "canonical_boundary_class": "0df3f68a0cc9a15d70ab0efd79b57bb5f970098457bf4821f400e113593f1d25",
+    "canonical_state_hash": "989d2261b4587843f75e052e2d2d4909601bdeac1f36222610d59046898e0afa",
+    "classification": "SYMMETRY_EQUIVALENT_TO_KNOWN18",
+    "known18_matches": [
+      {
+        "known_id": "short_ell0_33d70b4249b7",
+        "literal_replay_verified": true,
+        "raw_state_hash": "33d70b4249b796881bc3c65ae68cee342853f1e5f8a4a8c27ce11331414c2d59"
+      }
+    ],
+    "mapping_type": "proved_global_left_S6_state_equality",
+    "undecided": false
+  },
+  "literal_hit_branch_distribution": {
+    "short_ell0_r1_1": 1
+  },
+  "old_macro_entry_semantic_Target_A_claims": 38406,
+  "schema": "rr-r2-literal-source-independent-verifier-v2",
+  "scope": "same capped 4x25,000 fair prefix; no deeper continuation search",
+  "status": "VERIFIED",
+  "traversal_transcript_preserved": true
+}
