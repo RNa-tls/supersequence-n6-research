@@ -203,4 +203,60 @@ applied to certify closure.
   whether it applies here.
 - Runs no search, edits no Codex file.
 
+## Amendment (commit `b09f1d5`, branch `codex/round-r2-literal-source-correction`)
+
+**`CLAUDE_OBSERVATION`, superseding the "not checkable" items above, not
+retracting the rest of this document.** The correction branch is now
+reachable (`git fetch` + `git log` + independent GitHub `list_branches`
+confirmation). Reading the actual diff shows the real defect was **not**
+in `evaluate_edge`/`target_a_recognizer` — that call site's diff is a
+pure rename (`pre_state`→`joint_source_state`), value unchanged, already
+`edge.run.state` both before and after — confirming this document's §0
+finding was correct *for the scope it covered*. The real defect was in
+`hierarchy_for_r2` (`src/search_rr_short_ell0_repair_fair.py`), a
+function that did not exist on any branch reachable when this document
+was written, and so was never audited, in either direction, by anything
+above.
+
+**Independently reproduced, not merely read:** checked out `b09f1d5`
+into an isolated `git worktree` and *ran*
+`tests/test_rr_short_ell0_repair_fair.py` directly. All 5 tests pass,
+including `test_r2_literal_joint_source_regression_fixture`, which
+reproduced the claimed discrepancy myself — `target_a_recognizer` at
+macro-entry state returns `same_component=True` for the fixture, at
+`edge.run.state` returns `same_component=False`, for the identical
+literal trace. The corrected engine's full 89-test suite also passes in
+the same worktree.
+
+**Result-file integrity:** the four smaller corrected JSON files'
+recorded `input_sha256` values initially appeared not to match the
+checked-out files; traced this to CRLF/LF line-ending normalization
+between the Windows authoring environment and this Linux checkout
+(re-inserting CRLF reproduces the recorded hash exactly, for all four
+files — not a data-integrity concern).
+
+**Target-B closure cross-check:** the surviving boundary's ledger row
+reports `Phi=0` and `available_R_capacity=1` — exactly the two
+preconditions `RR_SHORT_ELL0_TARGET_B_FRAMEWORK_CLAUDE.md` flagged as
+required-not-assumable before applying the full-segment capacity
+theorem — and explicitly records `phase_helper_used: false`,
+`disallowed_helper_name: true_phase_walk_capacity`, honoring the Round
+38 capacity-helper firewall. The DFS is explicitly not truncated (3,214
+of a 20,000-node cap).
+
+**Known-18 mapping cross-check:** the surviving boundary's
+`raw_state_hash` matches known-18 id `short_ell0_33d70b4249b7` — an id
+this session independently recognizes from
+`outputs/rr_short_survivor_ledger.json`, read at the very start of this
+research thread, long before any short_ell0 R1/R2 work began. The
+mapping is via literal replay plus the already-proven global left-`S6`
+normalization, not a coordinate-only match.
+
+**This document's own zero-retractions conclusion is unchanged**: no
+claim audited above depended on `hierarchy_for_r2`, so none required
+retraction then or now. The correction itself — figures, mapping, and
+closure — is independently verified true here, not merely relayed.
+
 CLAUDE_R2_SEMANTICS_AUDIT_COMPLETE
+
+CLAUDE_CORRECTION_VERIFIED
