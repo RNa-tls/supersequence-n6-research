@@ -1,0 +1,123 @@
+{
+  "schema": "rr-short5-strategy-claude-v1",
+  "author": "Claude",
+  "role": "strategy assessor -- no search run, synthesizes already-verified data",
+  "section_1_proof_state": {
+    "proved_hand_theorems": [
+      "conservation law M=P-5O, dM=+1 (Z2/R), -4 (Z3)",
+      "root-level envelope theorem, closes 28/33 roots for Q2 with no enumeration",
+      "incidence-forest monotonicity (orbit_masks OR-only)",
+      "CH2 requires R1-strictly-before-completer by construction",
+      "repair-theory lemmas A, C, D, E (Z2 can merge components; repair changes future R2 source orbit; geometry preservation independent of completer timing; post-completer repair does not necessarily cause F_exceeded)",
+      "Z3-re-entry nonexistence (definitional)",
+      "Phi sawtooth identity (pre-dates this thread)",
+      "full-segment EEEE theorem, conditional on R_cap=1",
+      "existing-orbit entry capacity <=4",
+      "left-S6 canonicalization is the one proven symmetry",
+      "R2 source is edge.run.state, not macro-entry state -- independently verified this session by running the regression fixture, not merely reading it"
+    ],
+    "exact_exhaustive_certificates": [
+      "28 of 33 roots, Q2-impossible via envelope theorem",
+      "22 long-excursion roots, Q2-exhausted at their slack levels",
+      "known-18 corpus Target-B status: 9/18 confirmed capacity-impossible; remainder's exact closure basis not re-verified this round, reported as open bookkeeping",
+      "the single corrected short_ell0 hit's Target-B question: EXHAUSTED_NO_PATH at 3214 nodes, explicitly not truncated -- exact for that one boundary"
+    ],
+    "corrected_bounded_observations": {
+      "two_distinct_corpora_must_not_be_conflated": {
+        "old_single_lifo_run": "100,250 expansions, evaluate_edge/target_a_recognizer (never buggy), 44021 r2_wrong_source_orbit + 5419 not_same_component + 0 hits of 49440 candidates, entirely from one R1 event's subtree (LIFO scheduling artifact)",
+        "new_fair_repair_search": "four branches x 25,000 expansions, corrected hierarchy_for_r2, 46128 repaired R2 paths -> 38405 same-component failures -> 1 literal hit. Equal-budget design directly addresses the LIFO-bias finding from two rounds ago."
+      },
+      "all_four_fair_branches_remain_incomplete": "capped, nonempty frontiers, including the FOUND_TARGET_A branch (a hit does not imply exhaustion)"
+    },
+    "invalidated_historical_observations": [
+      "pre-correction hierarchy_for_r2 output (v1 repair hierarchy, the '38,406 exact hits' figure) -- now marked INVALID_R2_SOURCE_SEMANTICS, 38,405 of 38,406 were false positives"
+    ],
+    "open_branches": [
+      "short_ell1-short_ell4: entirely untouched by the corrected recognizer (correction's own scope statement: 'concerns only the already-fixed fair short_ell0 prefix')",
+      "short_ell0 beyond the capped 4x25,000 prefix",
+      "the 5 long-excursion-family roots that timed out in Round 36's original Q1 coverage pass, unrelated to this correction",
+      "whether the RR/NR6 framework is even the right lens for L_6>=872 -- STATUS.md's own standing, unaddressed caveat"
+    ],
+    "short_ell0_exact_position": "exactly one verified, closed Target-A->Target-B chain, found inside a capped, fair, corrected-recognizer 4x25,000-node prefix, collapsing under left-S6 equivalence into an ALREADY-KNOWN, already-closed known-18 class. Resolves zero new Target-B survivors. Does not close short_ell0 as a root -- three of four R1-branch subtrees remain INCOMPLETE with nonempty frontiers, and the one FOUND_TARGET_A branch is not shown exhausted either. What IS established solidly: the corrected engine and methodology work correctly end-to-end, independently reproduced this session."
+  },
+  "section_2_progress_estimate": {
+    "label": "CLAUDE_OBSERVATION -- ranges, not points, per instruction not to inflate",
+    "governing_caveat": "this entire investigation operates inside the NR6-assumed framework STATUS.md itself flags as unverified. Every percentage below is progress WITHIN that conditional framework, not toward a rigorous unconditional L_6>=872 proof.",
+    "estimates": [
+      {"scope": "unconditional L_6>=872 proof", "range": "~0%", "basis": "no RR-branch result connected to the unconditional claim; NR6 itself unverified"},
+      {"scope": "RR-branch, Q2 question, all 33 roots", "range": "~85% (28/33 roots)", "basis": "envelope theorem, exact, no enumeration needed"},
+      {"scope": "RR-branch, Q1 question, all roots", "range": "~20-40%", "basis": "most long-excursion roots covered; 5-root short-root family essentially just starting under the corrected recognizer"},
+      {"scope": "known-18 corpus, Target-B closure", "range": "~50-100%", "basis": "9/18 confirmed via capacity theorem; remainder not re-verified this session, reported as a range not re-derived"},
+      {"scope": "short_ell0 (state-space fraction explored)", "range": "~1-10%, likely low end", "basis": "four branches, 25000 expansions each, against a state space with confirmed depth >100 and hundreds of thousands of generated edges per branch; no principled total-size estimate exists"},
+      {"scope": "short_ell1-short_ell4", "range": "0%", "basis": "corrected recognizer never run on them"}
+    ]
+  },
+  "section_3_strategy_comparison": {
+    "label": "CLAUDE_PROPOSAL",
+    "criteria_table": [
+      {"criterion": "novel-structure discovery potential", "option_A_deepen_short_ell0": "lower -- same literal-orbit mechanics likely to recur, not reveal qualitatively new phenomena", "option_B_shallow_pass_other_four": "higher -- only way to tell if observed patterns are general or root-specific coincidences"},
+      {"criterion": "duplicate-computation risk", "option_A_deepen_short_ell0": "moderate -- new territory beyond the cap, but conceptually more-of-the-same-root", "option_B_shallow_pass_other_four": "near zero -- genuinely unexplored roots"},
+      {"criterion": "global-generalization potential", "option_A_deepen_short_ell0": "low -- one data point cannot confirm a pattern is general", "option_B_shallow_pass_other_four": "high -- only way to test generalization"},
+      {"criterion": "exhaustion-certificate potential", "option_A_deepen_short_ell0": "low near-term -- branching already produced hundreds of thousands of generated edges per 25k-expansion branch", "option_B_shallow_pass_other_four": "unknown but nonzero -- one of the four untried roots could have a smaller reachable space, unverified but at least possible"},
+      {"criterion": "hand-theorem-candidate generation", "option_A_deepen_short_ell0": "diminishing returns expected -- lemma set A-E already extracted the load-bearing mechanics", "option_B_shallow_pass_other_four": "higher -- cross-root confirmation is what upgrades an observed pattern into a genuine root-independent theorem"}
+    ],
+    "recommendation": "B is the stronger choice on four of five criteria. Recommend B first, A conditionally afterward, informed by what B's shallow pass reveals about which root (if any) looks tractable to deepen."
+  },
+  "section_4_generalizable_structure": [
+    {"structure": "R1 preparation spine (literal orbit/phase sequence)", "generalizes": false, "reasoning": "tied to short_ell0's own starting permutation arithmetic"},
+    {"structure": "R1 preparation spine (qualitative pattern: shared Z2 spine, R1 as alternative stopping points)", "generalizes": "plausibly, untested", "reasoning": "a natural consequence of RR alphabet move-table design, not obviously ell=0-specific -- worth checking against the other four roots"},
+    {"structure": "literal R2 source semantics (edge.run.state, never macro-entry)", "generalizes": true, "reasoning": "a property of the transition engine itself (extend(), ORBIT_PHASE), applies identically to every root"},
+    {"structure": "known-18 collapse (this specific boundary = short_ell0_33d70b4249b7)", "generalizes": false, "reasoning": "a coincidence of this one boundary's own canonical form"},
+    {"structure": "known-18 comparison methodology (literal replay + left-S6 canonicalization)", "generalizes": true, "reasoning": "already built root-agnostic; should be applied unchanged to other roots' boundaries"},
+    {"structure": "Target-B helper-free closure methodology", "generalizes": "methodology general, applicability root/boundary-specific", "reasoning": "must re-check Phi=0 and R_cap=1 per boundary every time"},
+    {"structure": "CH1/PRE_R_COMPLETER_EVENT_ORDER distinction", "generalizes": "definitions general, categorization root-specific", "reasoning": "depends on each root's own hub/orbit geometry"},
+    {"structure": "incidence-forest/component monotonicity and vertex/edge rules", "generalizes": true, "reasoning": "proven directly from extend()'s orbit_masks OR-only update, root-independent"}
+  ],
+  "section_5_recommended_sequence": [
+    {
+      "round": "N+1",
+      "title": "fair-recognizer shallow pilot on the four untouched roots",
+      "goal": "run the corrected engine (post-b09f1d5) on short_ell1-short_ell4, same fair-branch design, equal 25,000-expansion budget per R1 child for direct comparability with short_ell0",
+      "evidence_level_required": "exact/deterministic, same rigor as short_ell0's corrected run -- hash-verified, replay-equivalence checked, no unsound helper",
+      "stop_condition": "equal budget exhausted per branch, or an early hit found and independently verified",
+      "on_success": "immediately apply the already-built known-18-comparison and helper-free Target-B DFS methodology",
+      "on_failure": "still valuable -- records each root's own R2-candidate and component structure, input to Round N+2"
+    },
+    {
+      "round": "N+2",
+      "title": "cross-root generalization pass (analysis only, no search)",
+      "goal": "compare all five short roots' preparation spines, hub coincidences, R1 event distributions, same-component failure patterns; attempt to state and hand-prove a root-independent theorem",
+      "evidence_level_required": "hand proof, or explicit refutation with a counterpattern",
+      "stop_condition": "theorem proved, or attempt reported as a clean negative result -- not left ambiguous",
+      "on_success": "reusable structural result for any future short-root search",
+      "on_failure": "still narrows the search space by documenting which patterns are root-specific"
+    },
+    {
+      "round": "N+3",
+      "title": "classify any new hits from Round N+1",
+      "goal": "for every Target-A boundary found beyond the already-known one, run the classification checklist already prepared (RR_SHORT_ELL0_TARGET_B_FRAMEWORK_CLAUDE.md section 6)",
+      "evidence_level_required": "canonical-hash comparison plus, for any GENUINELY_NEW_CLASS, the three precondition checks (O_cap>=0, R_cap>=0, correct k) before any capacity theorem is applied",
+      "stop_condition": "every found boundary classified, none left probably-fine",
+      "on_success": "a genuinely new class found -- actual new information, becomes priority",
+      "on_failure": "a real negative result -- evidence this RR-alphabet region is thin on new boundaries near the roots"
+    },
+    {
+      "round": "N+4",
+      "title": "deepen whichever root looks most tractable (conditional on N+1-3)",
+      "goal": "consider Option-A-style depth only now, informed by which root's structure suggests the best chance of exhaustion or discovery",
+      "evidence_level_required": "same exact/deterministic standard, larger budget",
+      "stop_condition": "a resource budget agreed in advance -- single branches have already reached 100k+ expansions without exhausting a root",
+      "on_success": "a genuine milestone for the RR branch",
+      "on_failure": "still bounds the state-space-size estimate more precisely for future planning"
+    },
+    {
+      "round": "N+5",
+      "title": "consolidate and re-state scope honestly (conditional)",
+      "goal": "update STATUS.md-level framing of what the RR branch has and has not achieved toward L_6>=872",
+      "evidence_level_required": "an accurate summary, not a new claim",
+      "stop_condition": "n/a -- reporting round",
+      "on_success_or_failure": "either way, the field is left honestly scoped for whoever continues it next"
+    }
+  ],
+  "end_token": "CLAUDE_SHORT5_STRATEGY_READY"
+}
