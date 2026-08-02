@@ -1,0 +1,162 @@
+{
+  "schema": "rr-short5-cross-root-framework-claude-v1",
+  "author": "Claude",
+  "role": "cross-root proof-analysis framework designer (planning only, no new data)",
+  "no_new_data_check": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "git ls-remote origin checked before writing this: no commit beyond codex/round-r2-literal-source-correction (b09f1d5) exists. Nothing below analyzes short_ell1-short_ell4 data, which does not exist yet."
+  },
+  "section_1_classification": {
+    "categories_defined": {
+      "universally_semantic": "true by definition/construction of the engine code; verifying requires only reading code, no combinatorial argument",
+      "proved_rr_wide": "a nontrivial theorem (a real proof step) already established for every root, not just one",
+      "short_root_wide_conjectural": "a pattern observed at >=1 short root, hypothesized but not proven for the 5-root family generally",
+      "short_ell0_specific": "a literal/numeric/structural fact tied to short_ell0's own concrete starting permutation"
+    },
+    "features": [
+      {"feature": "literal R2 source = edge.run.state", "classification": "universally_semantic", "note": "property of extend()/ORBIT_PHASE/rotation mechanics, root-independent"},
+      {"feature": "incidence forest construction", "classification": "universally_semantic", "note": "incidence_components is a pure function of orbit_masks"},
+      {"feature": "component monotonicity", "classification": "proved_rr_wide", "note": "requires the orbit_masks OR-only argument -- a real proof step, holds for any root once made"},
+      {"feature": "R1 preparation spine -- literal instance", "classification": "short_ell0_specific", "note": "orbit sequence 33->64->90->96, phase sequence 2->3->4->0, tied to this root's starting permutation"},
+      {"feature": "R1 preparation spine -- qualitative pattern", "classification": "short_root_wide_conjectural", "note": "one shared Z2 spine, R1 as alternative stopping points -- untested beyond short_ell0"},
+      {"feature": "CH1/pre-R-completer relation -- definitions", "classification": "universally_semantic", "note": "Decoration.branch/event_order_class are engine-level, root-independent"},
+      {"feature": "CH1/pre-R-completer relation -- which events land where", "classification": "short_ell0_specific", "note": "depends on each root's own hub/orbit geometry"},
+      {"feature": "completer orbit/phase (specific values)", "classification": "short_ell0_specific", "note": "e.g. orbit120 phase0 = hex0 is a literal coincidence of this root's structure"},
+      {"feature": "repair types -- classification logic (Z3 re-entry nonexistence)", "classification": "universally_semantic", "note": "follows from joint_kind's fixed definition"},
+      {"feature": "repair types -- only Z2/Z3-fresh viable", "classification": "proved_rr_wide", "note": "deduced from the universally-semantic classification logic"},
+      {"feature": "known-18 equivalence -- methodology", "classification": "proved_rr_wide", "note": "canonicalize + decorated-pair comparison is root-agnostic by construction"},
+      {"feature": "known-18 equivalence -- this specific result", "classification": "short_ell0_specific", "note": "short_ell0's hit = short_ell0_33d70b4249b7, a fact about one boundary"},
+      {"feature": "Target-B full-segment closure -- the theorem", "classification": "proved_rr_wide", "note": "Round 32 EEEE theorem, conditional on R_cap=1, applies to any state satisfying the precondition"},
+      {"feature": "Target-B full-segment closure -- precondition applicability per boundary", "classification": "must_check_per_boundary_not_assumed", "note": "genuinely root/boundary-specific"},
+      {"feature": "Phi/M behavior (conservation law, sawtooth)", "classification": "proved_rr_wide", "note": "both follow purely from joint_kind/extend() definitions"}
+    ]
+  },
+  "section_2_cross_root_profile": {
+    "label": "CLAUDE_PROPOSAL",
+    "built_on": "the already-proven 27-field decoration schema (RR_DECORATED_BOUNDARY_STATE.md), not a new invention",
+    "field_groups": [
+      {"group": "root identity (provenance only)", "fields": ["root_id", "root_ell", "o_star"], "left_s6_behavior": "not quotiented -- these identify which root; quotienting would erase the comparison"},
+      {"group": "R1 child geometry", "fields": ["r1_source_orbit", "r1_source_phase", "r1_target_orbit", "r1_target_phase", "r1_macro_index"], "left_s6_behavior": "orbit ids quotiented (transport under LEFT_ORBIT_ACTION); phase and macro_index invariant"},
+      {"group": "hub/completer timing", "fields": ["hub_id", "hub_completer_orbit", "hub_completer_hexagon", "hub_completer_macro_index", "hub_completer_kind", "hub_completer_is_r1", "hub_touch_count"], "left_s6_behavior": "hub_id/hub_completer_hexagon quotiented (hexagon-transported); hub_completer_orbit quotiented (orbit-transported); rest invariant"},
+      {"group": "incidence forest / component partition", "fields": ["component_count", "r1_target_hub_distance", "r2_source_hub_distance", "r2_target_hub_distance", "r2_meet_is_hub"], "left_s6_behavior": "raw vertex/edge identities quotiented; BFS-distance and LCA-type coordinates are graph invariants, hence left-S6-invariant"},
+      {"group": "resource coordinates", "fields": ["P", "O", "F", "H", "Ndef", "D"], "left_s6_behavior": "invariant -- pure counts, unaffected by symbol relabeling"},
+      {"group": "Phi/M", "fields": ["Phi", "M"], "left_s6_behavior": "invariant -- arithmetic functions of P/O/visited_count alone"},
+      {"group": "literal R2 geometry", "fields": ["r2_source_orbit", "r2_source_phase", "r2_target_orbit", "r2_target_phase", "ell"], "left_s6_behavior": "orbit quotiented, phase and ell invariant"},
+      {"group": "canonical known-18 mapping", "fields": ["canonical_state_hash", "canonical_boundary_class", "known18_matches[].known_id", "mapping_type"], "left_s6_behavior": "already-canonicalized outputs, comparable directly across roots"}
+    ],
+    "explicit_warning": "a profile that SEPARATES roots' boundaries into distinct-looking groups is not thereby a MINIMAL profile, and matching profiles across two states does not license treating them as continuation-equivalent. This profile is for comparison/classification only; any claim of shared future reachability requires the full canonicalized (state, decoration) pair to match, per the decorated-key sufficiency argument -- itself graded exhaustive tested-universe equivalence, not a universal proof."
+  },
+  "section_3_generalization_tests": [
+    {
+      "outcome": "A",
+      "statement": "all roots reproduce only known-18 classes",
+      "significance": "moderate -- consistent with (not proof of) the RR-branch's Target-A-abundant/Target-B-empty pattern extending to the short-root family",
+      "next_proof_task": "attempt a structural (not merely empirical) argument for why -- a theorem connecting short-root R2 geometry to known-18's defining structure, not yet attempted",
+      "cannot_be_concluded": "search-space exhaustion; that no short-root-specific class exists beyond the tested budget; anything about the Round-36 long-excursion timeouts"
+    },
+    {
+      "outcome": "B",
+      "statement": "roots produce new Target A classes but all Target-B close",
+      "significance": "moderate-to-high -- new geometric structure exists, relevant to later Target C/NR6 questions, while Target B stays empty with fresh witnesses",
+      "next_proof_task": "characterize what makes the new classes distinct from known-18; determine whether the same closure theorem or a different obstruction closes each",
+      "cannot_be_concluded": "that ALL new classes anywhere would close; a general theorem from finitely many closed instances"
+    },
+    {
+      "outcome": "C",
+      "statement": "one root produces a Target-B survivor",
+      "significance": "MAJOR -- the first actual candidate contribution toward L_6>=872 from this entire RR-branch investigation",
+      "next_proof_task": "exhaustively re-verify the survivor; attempt extension to a full Target-C/NR6 completion; re-audit every capacity theorem/helper used along the way",
+      "cannot_be_concluded": "that the survivor extends to a full construction without that extension being separately, exhaustively verified"
+    },
+    {
+      "outcome": "D",
+      "statement": "R1 preparation-spine geometry differs across roots",
+      "significance": "informative either direction -- would refute or fail to support the qualitative-pattern-generalizes hypothesis",
+      "next_proof_task": "distinguish superficial relabeling differences (expected, literal orbit labels are not left-S6-invariant) from genuine structural divergence (spine length, number of R1 alternatives)",
+      "cannot_be_concluded": "that the roots are fundamentally different from surface-level label differences alone"
+    },
+    {
+      "outcome": "E",
+      "statement": "one root has no R1 admission in the tested normal form",
+      "significance": "potentially important -- all 5 roots have shared an identical resource signature and legal_first_macro_edges set since Round 36; a genuine admission asymmetry among roots differing only in ell would be a real surprise",
+      "next_proof_task": "determine whether this is a genuine geometric asymmetry or an artifact of the tested search design/normal form",
+      "cannot_be_concluded": "that R1 is impossible for that root in every possible search design -- only that it did not appear in the one design tested"
+    }
+  ],
+  "section_4_candidate_lemmas": {
+    "label": "CLAUDE_PROPOSAL -- none asserted true",
+    "lemmas": [
+      {
+        "id": "lemma_1",
+        "statement": "for every short root r and every Target A boundary b reachable from r, canonicalize(b) is left-S6-equal to canonicalize(b') for some b' in the known-18 corpus",
+        "necessary_evidence": "exhaustive (not bounded) Target-A search from all 5 roots, or a structural argument independent of search",
+        "likely_counterexample_pattern": "a boundary reached via a longer repair chain opening enough fresh orbits/hexagons to reach a canonical form outside the small known-18 corpus",
+        "hand_proof_route": "a bijection/quotient argument showing short-root R2-recognition geometry is structurally forced into known-18's finite canonical-form set -- does not exist yet",
+        "finite_certificate_route": "exhaustively enumerate all Target-A boundaries from all 5 roots and check each against known-18 -- bounded pilots are a sample of this, not the certificate"
+      },
+      {
+        "id": "lemma_2",
+        "statement": "short-root boundaries satisfy Phi=0 and R_cap=1 -- SPLIT into two claims of different epistemic status",
+        "part_a_ndef_equals_2": {
+          "status": "already provable, not conjectural",
+          "reason": "the same +k-exactly identity Round 37's envelope theorem uses: Ndef(boundary)=Ndef(root)+k, k=2 for a bare short root, Ndef(root)=0",
+          "hand_proof_route": "direct citation of the Round 37 identity, no new proof needed"
+        },
+        "part_b_phi_equals_0": {
+          "status": "genuinely open",
+          "reason": "Phi depends on rotation-run lengths along the specific path taken, not on Ndef/R-event accounting, so nothing forces it a priori",
+          "necessary_evidence": "check Phi(b)=0 for every boundary found across all 5 roots, not just the one instance confirmed so far",
+          "likely_counterexample_pattern": "a boundary reached via ell=5 at every step except one short step elsewhere in the path (not the R2 edge itself) leaving Phi>0 at the boundary",
+          "finite_certificate_route": "cheap, deterministic -- read directly off already-exported per-boundary telemetry"
+        },
+        "note_on_r_cap_label": "whether Ndef=2 should be read as 'R_cap=1' additionally depends on treating n_limit=3 as the reference constant -- now understood (Round 41) as a Target-B/Area-A-scope convention, not an intrinsic Target-A property. The lemma is two separate claims wearing one name and should not be evaluated as a single unit."
+      },
+      {
+        "id": "lemma_3",
+        "statement": "every short-root R1 preparation is a phase truncation of one orbit spine -- there is a single E-orbit q* (or small canonical family) such that R1 alternatives are successive Z2-preparation-depth choices along one spine through q*'s phases",
+        "necessary_evidence": "short_ell0 exhibits this; needs the same check for short_ell1-short_ell4",
+        "likely_counterexample_pattern": "a root where more than one independent preparation spine exists (branching earlier than a single shared prefix)",
+        "hand_proof_route": "showing, from the fixed move table and new_orbit/ORBIT_PHASE structure, that exactly one Z2-continuation is legal at each preparation depth from any bare short root -- not yet attempted",
+        "finite_certificate_route": "direct inspection of the legal successor set at each preparation depth for all 5 roots -- cheap; partially done already (all 5 roots share an identical legal_first_macro_edges list from Round 36)"
+      },
+      {
+        "id": "lemma_4",
+        "statement": "every genuinely new boundary violates a common component condition X (X unidentified -- deliberately provisional)",
+        "necessary_evidence": "at least one genuinely-new boundary must exist to characterize X -- none does yet (requires outcome B or C from section 3 first)",
+        "likely_counterexample_pattern": "untestable until such a boundary is observed",
+        "hand_proof_route": "not available yet -- X has not been identified",
+        "finite_certificate_route": "not available yet",
+        "status": "placeholder for future work, not a claim with current support"
+      }
+    ]
+  },
+  "section_5_evidence_grading_ledger": {
+    "label": "CLAUDE_PROPOSAL",
+    "grades": {
+      "HAND_THEOREM": "a proved, general statement with a complete argument, root-independent unless explicitly scoped",
+      "EXACT_EXHAUSTIVE_CERTIFICATE": "a specific, bounded question decided by a search verified non-truncated",
+      "CORRECTED_BOUNDED_OBSERVATION": "a real, reproducible fact about a specific capped run -- informative, not exhaustive",
+      "CORPUS_SPECIFIC_SYMMETRY_MEASUREMENT": "an empirical measurement taken over one specific, finite corpus -- not a general symmetry theorem",
+      "REFUTED_CONJECTURE": "a specific claim shown false, with the exact counterexample recorded",
+      "OPEN": "genuinely undecided; no evidence yet in either direction"
+    },
+    "worked_example": [
+      {"claim": "component partition is monotone non-increasing under any macro edge", "grade": "HAND_THEOREM"},
+      {"claim": "R2 source is edge.run.state, never macro entry", "grade": "HAND_THEOREM", "note": "engine-level, verified by running the regression test independently"},
+      {"claim": "28 of 33 roots are Q2-impossible", "grade": "EXACT_EXHAUSTIVE_CERTIFICATE", "note": "envelope theorem, no enumeration"},
+      {"claim": "short_ell0's one corrected Target-A hit is Target-B closed", "grade": "EXACT_EXHAUSTIVE_CERTIFICATE", "note": "helper-free DFS, EXHAUSTED_NO_PATH, not truncated"},
+      {"claim": "the old 100,250-node short_ell0 LIFO run's 44,021/5,419/0 split", "grade": "CORRECTED_BOUNDED_OBSERVATION", "note": "real, reproducible for that run; not exhaustive of short_ell0"},
+      {"claim": "stabilizer_size=1 for all 2,234 old-corpus boundaries", "grade": "CORPUS_SPECIFIC_SYMMETRY_MEASUREMENT", "note": "explicitly not generalized in its own source document"},
+      {"claim": "the original 38,406-exact-Target-A-hits claim", "grade": "REFUTED_CONJECTURE", "note": "38,405 of 38,406 were same-component failures, independently verified"},
+      {"claim": "short_ell1-short_ell4's R1 preparation spine shape", "grade": "OPEN"},
+      {"claim": "lemmas 1-4 (section 4)", "grade": "OPEN", "note": "explicitly, per section 4"}
+    ]
+  },
+  "explicit_non_claims": [
+    "does not analyze any short_ell1-short_ell4 data -- none exists yet, checked via git ls-remote before writing",
+    "does not assert any of the section 4 candidate lemmas as true",
+    "does not claim the section 2 profile is minimal in the strong (structural) sense -- only proof-safe, with the separating-vs-structural-minimality distinction stated explicitly",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_CROSS_ROOT_FRAMEWORK_READY"
+}
