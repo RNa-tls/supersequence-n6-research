@@ -1,0 +1,77 @@
+{
+  "schema": "rr-prior-claims-retraction-ledger-claude-v1",
+  "author": "Claude",
+  "role": "R2-source-semantics auditor of my own prior three documents",
+  "headline_finding": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "the described 'critical R2-source semantics error' (macro-entry pre_state vs edge.run.state) could not be confirmed to exist in this codebase. Re-reading the already-fetched search_rr_target_a_exhaustive.py shows evaluate_edge's live search path calls target_a_recognizer(edge.run.state, ...) exclusively (line 794); the macro-entry `state` parameter is never referenced for this purpose anywhere in the function. geometry_failure_record/same_component_failure_record call sites (lines 1229-1233) and the older engine's is_target_a_edge (search_rr_target_a_unified.py, read two rounds ago) all use edge.run.state consistently too. This exactly matches what every one of my prior three documents already used and cited."
+  },
+  "commit_verification": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no commit was cited this round. git ls-remote origin shows codex/round43-short-ell0-taxonomy unchanged at 24002fd, the same commit already analyzed. No new branch or commit exists anywhere reachable. The 38,406-to-1 collapse, the 5,419/38,405 split, and the 3,214-node Target-B closure are unconfirmed from anything this session can reach."
+  },
+  "task_3_formal_explanation": {
+    "label": "CLAUDE_HAND_PROOF -- general theory, independent of whether the defect exists here",
+    "steps": [
+      "1. Pure rotation (SIGMA) does not preserve E-orbit membership in general -- the mechanism behind r2_wrong_source_orbit existing at all.",
+      "2. ORBIT_PHASE[macro_entry_state.p] and ORBIT_PHASE[edge.run.state.p] are, in general, different orbits whenever the rotation-run length ell>0; they coincide only in the degenerate case ell=0.",
+      "3. extend()'s own new_orbit=(orbit_masks[q]==0) classification (deciding R vs Z3) is evaluated at edge.run.state, the state the joint actually fires from -- the state whose orbit-openness decided the R-classification in the first place.",
+      "4. Using a different state's orbit for the recognizer's same-component test would compute forest membership for an orbit unrelated to why the edge was classified R in the first place -- an internal inconsistency between classifier and recognizer, not a stricter or looser version of the same question.",
+      "5. Therefore the two are not interchangeable for any ell>0, and ell>0 is not rare: all 49,440 R2 candidates in the analyzed run have ell=5 exactly (re-cited from two rounds ago, not re-derived)."
+    ]
+  },
+  "task_4_definitions": {
+    "label": "CLAUDE_OBSERVATION -- restated unchanged, not corrected",
+    "r2_source": "sq, sph = exact.ORBIT_PHASE[edge.run.state.p] -- the orbit/phase immediately after the R2 candidate's own rotation run, immediately before its joint commits",
+    "pre_r2_incidence_forest": "incidence_components(edge.run.state) -- rebuilt fresh from edge.run.state.orbit_masks, never from a cached history summary",
+    "same_component_predicate": "find(('q',sq)) == find(('q',tq)) under that same freshly-rebuilt union-find; tq from ORBIT_PHASE[transition.target] (the joint's own literal target, unambiguous on the target side)",
+    "target_a_boundary_state": "an R-kind macro edge with before.r_count==1 (the second R of the word), whose child has F_def<=1, H=0, and whose R2 source/target (as defined above) share a component. Unchanged from research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md's own formal statement."
+  },
+  "audit_ledger": [
+    {"claim": "incidence-forest definition (vertices/edges/hub)", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec1", "classification": "unaffected_semantic_code_theorem", "reason": "definitional, independent of which state incidence_components is called on"},
+    {"claim": "per-edge-type transition laws (Z2/Z3/R/rotation)", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec2", "classification": "unaffected_semantic_code_theorem", "reason": "pure extend()/advance_decoration facts, no recognizer-pre-state dependency"},
+    {"claim": "44,021 failures all descend from one R1 event, ell=5, r2_wrong_source_orbit", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec3", "classification": "unaffected_still_valid_observation", "reason": "computed via edge.run.state-based exported fields; matches confirmed convention"},
+    {"claim": "5,419 not_same_component failures, component-class distribution", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec4", "classification": "unaffected_still_valid_observation", "reason": "same edge.run.state-based source"},
+    {"claim": "candidate theorem false as stated (11% clear source-orbit test)", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec7", "classification": "unaffected_still_valid_observation", "reason": "direct arithmetic on the two figures above"},
+    {"claim": "frontier structural profiles (85 states, 8 profiles)", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec5 / RR_SHORT_ELL0_PRODUCTIVE_R1_CLAUDE.md", "classification": "unaffected_semantic_code_theorem", "reason": "frontier states are pre-R2 positions, not R2 candidates -- does not touch R2-source semantics"},
+    {"claim": "ranking-function search, no theorem found", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec6", "classification": "unaffected_still_valid_observation", "reason": "negative result independent of R2-source convention"},
+    {"claim": "four-R1-event preparation spine formalization", "source_doc": "RR_SHORT_ELL0_PRODUCTIVE_R1_CLAUDE.md sec0-1", "classification": "unaffected_semantic_code_theorem", "reason": "R1 is never passed through target_a_recognizer -- only R2 (the second R) is recognizer-tested; R1 classification uses only joint_kind/extend"},
+    {"claim": "hub-position coincidence (orbit120 phase0 = hex0)", "source_doc": "RR_SHORT_ELL0_PRODUCTIVE_R1_CLAUDE.md sec0", "classification": "unaffected_semantic_code_theorem", "reason": "fact about hexagon_id/ORBIT_PHASE on specific literal targets, unrelated to recognizer pre-state choice"},
+    {"claim": "CH1 vs PRE_R_COMPLETER_EVENT_ORDER distinction", "source_doc": "RR_SHORT_ELL0_PRODUCTIVE_R1_CLAUDE.md sec0", "classification": "unaffected_semantic_code_theorem", "reason": "built from Decoration.completer/Decoration.r1, entirely separate from target_a_recognizer"},
+    {"claim": "productive branch = LIFO scheduling artifact", "source_doc": "RR_SHORT_ELL0_PRODUCTIVE_R1_CLAUDE.md sec0", "classification": "unaffected_still_valid_observation", "reason": "grounded in the run's own config.traversal field"},
+    {"claim": "Z3 re-entry is not a real move category", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec2", "classification": "unaffected_semantic_code_theorem", "reason": "derived from joint_kind's definition (weight, abandonment, new_orbit) alone -- no ORBIT_PHASE/pre-state term in that derivation"},
+    {"claim": "Lemma A refuted: Z2 CAN merge two distinct components", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec4", "classification": "unaffected_semantic_code_theorem", "reason": "fact about incidence_components' union-find mechanics generically, independent of which state triggered its construction"},
+    {"claim": "Lemma C proved: any legal repair changes the future R2 source orbit", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec4", "classification": "unaffected_semantic_code_theorem", "reason": "proof is about position-shift under an inserted edge -- walk mechanics, not recognizer-pre-state"},
+    {"claim": "Lemma B refuted: merging Z3 need not touch the hub", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec4", "classification": "unaffected_still_valid_observation", "reason": "uses r1_target_component/r2_source_component fields, both edge.run.state-derived"},
+    {"claim": "Lemma D refuted: geometry preservation independent of completer timing", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec4", "classification": "unaffected_semantic_code_theorem", "reason": "F_def's update rule references state.visited(word_after(state.p,SIGMA)) only, no recognizer term"},
+    {"claim": "Lemma E refuted: post-completer repair does not necessarily cause F_exceeded", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec4", "classification": "unaffected_empirical_part_reconfirmed", "reason": "the exhaustive F={1} evidence over 85 frontier states does not depend on R2-source semantics"},
+    {"claim": "smallest symbolic repair template", "source_doc": "RR_SHORT_ELL0_REPAIR_THEORY_CLAUDE.md sec6", "classification": "unaffected_proposal", "reason": "built from the above, none of which is affected"},
+    {"claim": "why ell is always exactly 5 (exact_permutation_collision hypothesis)", "source_doc": "RR_SHORT_ELL0_R2_SOURCE_ORBIT_CLAUDE.md sec3", "classification": "undecided_pending_corrected_replay", "reason": "was already flagged unconfirmed when written; nothing this round changes its status either direction"}
+  ],
+  "classification_counts": {
+    "unaffected_semantic_code_theorem": 9,
+    "unaffected_still_valid_observation": 6,
+    "unaffected_proposal": 1,
+    "unaffected_empirical_part_reconfirmed": 1,
+    "dependent_on_invalid_r2_classification": 0,
+    "retraction_required": 0,
+    "undecided_pending_corrected_replay": 1
+  },
+  "exhaustiveness_posture": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no prior document in this thread claimed the 100,250-node prefix or its R2 candidates constitute an exhaustive search of short_ell0. Every document explicitly carried INCOMPLETE/bounded-pilot framing forward. This round's instruction not to claim exhaustiveness is honored by continuing that posture, not by a new correction."
+  },
+  "surviving_statement_status": {
+    "label": "CLAUDE_OBSERVATION -- cannot be preserved as verified, nothing to check it against",
+    "instructed_statement": "within the corrected replayed prefix, the sole literal Target A boundary is left-S6 equivalent to known-18 and is Target-B closed",
+    "status": "no commit contains a 1-hit result, a 3,214-node helper-free closure, or a left-S6 equivalence check against known-18. This is not a claim the statement is false -- it is a report that there is nothing to check it against, the same posture taken toward the 38,406-hit figure two rounds ago.",
+    "verification_procedure_already_prepared": "outputs/rr_short_ell0_target_b_framework_claude.json's classification checklist (section 6) is the prepared procedure for verifying exactly this kind of claim once real data lands"
+  },
+  "explicit_non_claims": [
+    "does not retract any claim from the three prior documents -- the audit found none warranted",
+    "does not confirm the 38,406-to-1 collapse, the 5,419/38,405 split, or the 3,214-node Target-B closure -- none are checkable from anything reachable",
+    "does not claim the described error is impossible in general -- task_3_formal_explanation states precisely when and why such an error would matter, as standing theory, independent of whether it applies here",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_R2_SEMANTICS_AUDIT_COMPLETE"
+}
