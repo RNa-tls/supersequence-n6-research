@@ -31,6 +31,15 @@ search = load("rr_repair_verify_search", ROOT / "src" / "search_rr_short_ell0_re
 split, rr, exact = search.split, search.rr, search.exact
 
 
+def compatible_recognizer_payload(fresh, stored) -> bool:
+    """Compare the v2 raw-state corpus with a freshly tagged literal replay."""
+    fresh = dict(fresh)
+    stored = dict(stored)
+    fresh.pop("source_state_semantic_tag", None)
+    stored.pop("source_state_semantic_tag", None)
+    return fresh == stored
+
+
 def edge_for_label(state, label):
     for edge, collision in rr.iter_raw_macro_candidates(state):
         if collision is None and edge is not None and edge.label == label:
@@ -70,6 +79,7 @@ def main() -> None:
     witnesses = json.loads(args.witnesses.resolve().read_text(encoding="utf-8"))
     if not (result["schema"] == hierarchy["schema"] == witnesses["schema"] == search.SCHEMA):
         raise AssertionError("repair output schema disagreement")
+    search.require_current_hierarchy_schema(hierarchy)
     if result["prune_profile"] != rr.TARGET_A_SAFE_PROFILE:
         raise AssertionError("completion-only prune profile enabled")
     children = {row["branch_id"]: row for row in result["frozen_R1_children"]}
@@ -150,9 +160,11 @@ def main() -> None:
         edge = edge_for_label(state, path["r2_edge"]["label"])
         after = rr.advance_decoration(edge.run.state, edge.joint, dec)
         joint_source = edge.run.state
-        recognition = rr.target_a_recognizer(joint_source, edge.joint, dec, after)
-        if recognition != path["recognizer"]:
+        recognition = rr.target_a_recognizer(rr.r2_literal_joint_source(edge), edge.joint, dec, after)
+        if not compatible_recognizer_payload(recognition, path["recognizer"]):
             raise AssertionError("post-repair R2 recognizer replay disagreement")
+        if recognition["source_state_semantic_tag"] != rr.R2_LITERAL_JOINT_SOURCE_TAG:
+            raise AssertionError("post-repair replay used an untagged R2 source")
         source, phase = exact.ORBIT_PHASE[joint_source.p]
         if (source, phase) != (path["future_R2_source_orbit"], path["future_R2_source_phase"]):
             raise AssertionError("future R2 source orbit was not the literal post-repair source")

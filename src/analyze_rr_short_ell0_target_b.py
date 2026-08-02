@@ -452,7 +452,9 @@ def analysis(*, flow_node_cap: int, flow_seconds: float, run_exact_flow: bool) -
             edge = edge_from_json(pre_state, row["r2_edge"])
             post_state = edge.state
             post_dec = rr.advance_decoration(edge.run.state, edge.joint, pre_dec)
-            recognition = rr.target_a_recognizer(edge.run.state, edge.joint, pre_dec, post_dec)
+            recognition = rr.target_a_recognizer(
+                rr.r2_literal_joint_source(edge), edge.joint, pre_dec, post_dec
+            )
             if post_dec.to_json() != row["decoration_after_R2"]:
                 raise AssertionError(f"R2 decoration literal replay mismatch at {branch_id}/{node_id}")
             if state_hash(post_state) != row["recognizer"]["post_r2_state_hash"]:

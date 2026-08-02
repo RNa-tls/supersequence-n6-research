@@ -62,6 +62,15 @@ def atomic_json(path: Path, payload: Mapping[str, object]) -> None:
     os.replace(temp, path)
 
 
+def require_current_hierarchy_schema(payload: Mapping[str, object]) -> None:
+    """Reject the historical macro-entry hierarchy as a current input."""
+    schema = payload.get("schema")
+    if schema == LEGACY_SCHEMA:
+        raise ValueError("INVALID_R2_SOURCE_SEMANTICS: v1 repair hierarchy is historical only")
+    if schema != SCHEMA:
+        raise ValueError(f"unexpected repair hierarchy schema: {schema!r}")
+
+
 def component(summary: Mapping[str, object], node: tuple[str, int]):
     value = summary["node_component"].get(node)  # type: ignore[index,union-attr]
     if value is None:
@@ -151,8 +160,9 @@ def hierarchy_for_r2(macro_entry_state, edge, dec_before, dec_after, repair_even
     incidence membership and same-component.  Macro entry remains in the
     serialized record strictly as provenance.
     """
-    joint_source_state = edge.run.state
-    recognition = rr.target_a_recognizer(joint_source_state, edge.joint, dec_before, dec_after)
+    joint_source_ref = rr.r2_literal_joint_source(edge)
+    joint_source_state = joint_source_ref.state
+    recognition = rr.target_a_recognizer(joint_source_ref, edge.joint, dec_before, dec_after)
     source_orbit, source_phase = exact.ORBIT_PHASE[joint_source_state.p]
     target_orbit, target_phase = exact.ORBIT_PHASE[edge.joint.target]
     summary = rr.component_summary(joint_source_state)
@@ -195,6 +205,11 @@ def hierarchy_for_r2(macro_entry_state, edge, dec_before, dec_after, repair_even
             "target_a_recognizer": "literal_joint_source",
             "incidence_forest_membership": "literal_joint_source",
             "same_component": "literal_joint_source",
+        },
+        "predicate_semantic_state_tags": {
+            "target_a_recognizer": rr.R2_LITERAL_JOINT_SOURCE_TAG,
+            "incidence_forest_membership": rr.R2_LITERAL_JOINT_SOURCE_TAG,
+            "same_component": rr.R2_LITERAL_JOINT_SOURCE_TAG,
         },
         "literal_macro_entry": {
             "state_hash": rr.state_hash(macro_entry_state), "word": list(macro_entry_state.p),

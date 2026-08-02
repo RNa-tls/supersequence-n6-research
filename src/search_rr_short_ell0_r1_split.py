@@ -214,7 +214,7 @@ def predicate_before_r2(joint_source_state, edge, dec, after) -> dict[str, objec
     """Exact focused predecessor predicate; R2 is inspected but never enqueued."""
     if joint_source_state != edge.run.state:
         raise AssertionError("focused R2 predicate must receive literal joint source")
-    recognition = rr.target_a_recognizer(joint_source_state, edge.joint, dec, after)
+    recognition = rr.target_a_recognizer(rr.r2_literal_joint_source(edge), edge.joint, dec, after)
     summary = rr.component_summary(joint_source_state)
     sq, _ = exact.ORBIT_PHASE[joint_source_state.p]
     r1_component = None if dec.r1 is None else component_ref(summary, ("q", dec.r1.target_orbit))

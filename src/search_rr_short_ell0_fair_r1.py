@@ -203,7 +203,7 @@ def failure_reason(recognition: Mapping[str, object], dec, after) -> str:
 def repair_predicate(joint_source_state, edge, dec, after, repair_mask: int) -> dict[str, object]:
     if joint_source_state != edge.run.state:
         raise AssertionError("repair predicate must receive literal R2 joint source")
-    recognition = rr.target_a_recognizer(joint_source_state, edge.joint, dec, after)
+    recognition = rr.target_a_recognizer(rr.r2_literal_joint_source(edge), edge.joint, dec, after)
     summary = rr.component_summary(joint_source_state)
     source_orbit, _phase = exact.ORBIT_PHASE[joint_source_state.p]
     r1_component = component_for(summary, ("q", dec.r1.target_orbit)) if dec.r1 else None

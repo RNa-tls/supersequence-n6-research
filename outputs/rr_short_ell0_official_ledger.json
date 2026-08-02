@@ -1,0 +1,71 @@
+{
+  "schema": "rr-short-ell0-official-ledger-v1",
+  "analysis_only": true,
+  "scope": "Corrected capped 4x25,000 fair prefix for short_ell0; not a global short-root exhaustion result.",
+  "historical_status": [
+    {
+      "label": "v1",
+      "status": "R1_TRAVERSAL_COMPLETENESS_GAP",
+      "scope": "Bare short roots at r_count=0",
+      "disposition": "PRE_R_ONLY_INVALID_FOR_FULL_SHORT_ROOT_SEARCH"
+    },
+    {
+      "label": "v2",
+      "status": "Q2_ONLY_PRUNE_CONTAMINATION",
+      "scope": "Target-A prefix with completion-only Area-A/Q2 pruning",
+      "disposition": "PREMATURELY_PRUNED_INVALID_FOR_TARGET_A_COVERAGE"
+    },
+    {
+      "label": "old_repair_hierarchy",
+      "status": "INVALID_R2_SOURCE_SEMANTICS",
+      "scope": "macro-entry rather than literal R2 joint source",
+      "disposition": "HISTORICAL_TELEMETRY_ONLY"
+    },
+    {
+      "label": "corrected_fair_prefix",
+      "status": "VALID_CAPPED_OBSERVATION",
+      "scope": "four exact R1 children, 25,000 expansions each, Target-A-safe prunes",
+      "disposition": "BOUNDARY_EVIDENCE_ONLY_NOT_EXHAUSTION"
+    }
+  ],
+  "count_unit_ledger": {
+    "historical_macro_entry_target_a_claims": 38406,
+    "literal_source_same_component_false_positives": 38405,
+    "literal_target_a_hits": 1,
+    "left_s6_canonical_boundary_classes": 1,
+    "known18_classes": 1,
+    "new_classes": 0,
+    "helper_free_target_b_exhaustions": 1,
+    "unresolved_classes_in_corrected_prefix": 0
+  },
+  "known18_mapping": {
+    "classification": "SYMMETRY_EQUIVALENT_TO_KNOWN18",
+    "known18_id": "short_ell0_33d70b4249b7"
+  },
+  "target_b": {
+    "method": "helper-free exact macro DFS",
+    "helper_used": false,
+    "nodes": 3214,
+    "frontier_empty": true,
+    "truncated": false,
+    "verdict": "EXHAUSTED_NO_PATH"
+  },
+  "official_status": {
+    "corrected_fair_prefix": "ALL_OBSERVED_TARGET_A_TARGET_B_CLOSED",
+    "global_short_ell0": "OPEN / INCOMPLETE",
+    "bounded_run_may_be_presented_as_exhaustion": false
+  },
+  "recognizer_contract": {
+    "literal_joint_source": "edge.run.state",
+    "required_tag_for_new_source_sensitive_calls": "R2_LITERAL_JOINT_SOURCE_V1",
+    "macro_entry_tag": "R2_MACRO_ENTRY_PROVENANCE_ONLY_V1",
+    "historical_raw_state_fallback": "LEGACY_UNTAGGED_STATE_ARGUMENT"
+  },
+  "artifacts": {
+    "corrected_hierarchy": "outputs/rr_short_ell0_corrected_repair_hierarchy.json",
+    "corrected_target_a_classes": "outputs/rr_short_ell0_corrected_target_a_classes.json",
+    "corrected_target_b_ledger": "outputs/rr_short_ell0_corrected_target_b_ledger.json",
+    "independent_verifier": "src/verify_rr_r2_literal_source.py",
+    "correction_commit": "b09f1d55cce6b556f266f7e7629fd7977f8b109e"
+  }
+}

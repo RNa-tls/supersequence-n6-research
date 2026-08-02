@@ -66,6 +66,30 @@ ENGINE_FILES = (
 CHECKPOINT_SCHEMA_V1 = "rr-target-a-exhaustive-checkpoint-v1"
 TARGET_A_SAFE_PROFILE = "target_a_semantic_v1"
 LEGACY_AREA_A_PROFILE = "legacy_area_a_q2_comparison_v1"
+R2_LITERAL_JOINT_SOURCE_TAG = "R2_LITERAL_JOINT_SOURCE_V1"
+R2_MACRO_ENTRY_PROVENANCE_TAG = "R2_MACRO_ENTRY_PROVENANCE_ONLY_V1"
+
+
+@dataclass(frozen=True)
+class R2SemanticState:
+    """A state plus its non-interchangeable R2 semantic role.
+
+    Macro entry is useful provenance, but it is not the source of a joint
+    following a nonempty rotation run.  New source-sensitive code should pass
+    ``r2_literal_joint_source(edge)`` to the recognizer.  Raw states remain
+    accepted only for historical replay controls and are labelled as such in
+    the recognizer output.
+    """
+    state: Any
+    semantic_tag: str
+
+
+def r2_literal_joint_source(edge) -> R2SemanticState:
+    return R2SemanticState(edge.run.state, R2_LITERAL_JOINT_SOURCE_TAG)
+
+
+def r2_macro_entry_provenance(state) -> R2SemanticState:
+    return R2SemanticState(state, R2_MACRO_ENTRY_PROVENANCE_TAG)
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -674,6 +698,16 @@ def target_a_recognizer(joint_source_state, transition, before: Decoration, afte
     # rotation run and immediately before ``transition``.  Using macro entry
     # here changes R2's source orbit and invalidates the literal boundary
     # predicate.
+    if isinstance(joint_source_state, R2SemanticState):
+        if joint_source_state.semantic_tag != R2_LITERAL_JOINT_SOURCE_TAG:
+            raise ValueError("Target-A R2 recognizer requires literal joint-source semantics")
+        source_state_tag = joint_source_state.semantic_tag
+        joint_source_state = joint_source_state.state
+    else:
+        # Compatibility is intentionally diagnostic-only.  New boundary code
+        # must use the wrapper above; regression fixtures use this branch to
+        # demonstrate why macro entry is invalid.
+        source_state_tag = "LEGACY_UNTAGGED_STATE_ARGUMENT"
     sq, sph = exact.ORBIT_PHASE[joint_source_state.p]
     tq, tph = exact.ORBIT_PHASE[transition.target]
     parent, find = incidence_components(joint_source_state)
@@ -758,6 +792,7 @@ def target_a_recognizer(joint_source_state, transition, before: Decoration, afte
         ),
         "q2_area_a_reason_diagnostic": area_reason,
         "literal_joint_source_state_hash": state_hash(joint_source_state),
+        "source_state_semantic_tag": source_state_tag,
         "component_digest": component_digest(joint_source_state),
         "pre_hub_mask": hub_mask(joint_source_state, before),
         "post_r2_state_hash": state_hash(transition.state),
@@ -802,7 +837,9 @@ def evaluate_edge(state, dec: Decoration, edge, *,
         if dec.r_count == 1:
             if child_dec.r_count != 2:
                 raise AssertionError("R2 boundary did not increment the R counter")
-            recognizer = target_a_recognizer(edge.run.state, transition, dec, child_dec)
+            recognizer = target_a_recognizer(
+                r2_literal_joint_source(edge), transition, dec, child_dec
+            )
             return ("FOUND_TARGET_A" if recognizer["is_target_a"] else "r2_not_target"), child_dec, recognizer
         if child_dec.r_count > 2:
             return "rr_R_budget_exceeded", None, None

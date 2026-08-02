@@ -203,10 +203,23 @@ def main() -> None:
         macro_entry, dec = replayed[branch][str(row["r2_predecessor_node_id"])]
         edge = edge_for_data(macro_entry, row["r2_edge"])
         after = rr.advance_decoration(edge.run.state, edge.joint, dec)
-        literal = rr.target_a_recognizer(edge.run.state, edge.joint, dec, after)
+        literal = rr.target_a_recognizer(
+            rr.r2_literal_joint_source(edge), edge.joint, dec, after
+        )
         old_semantic = rr.target_a_recognizer(macro_entry, edge.joint, dec, after)
-        if literal != row["recognizer"]:
+        # The persisted corrected-v2 corpus predates semantic-state tags.  Its
+        # literal state hash below is the authoritative proof that its raw
+        # argument was the actual joint source.  Compare its historical
+        # payload modulo the new diagnostic tag, then require that fresh
+        # replay uses the literal wrapper.
+        stored_literal = dict(row["recognizer"])
+        comparable_literal = dict(literal)
+        comparable_literal.pop("source_state_semantic_tag", None)
+        stored_literal.pop("source_state_semantic_tag", None)
+        if comparable_literal != stored_literal:
             raise AssertionError("hierarchy recognizer not literal-joint-source result")
+        if literal["source_state_semantic_tag"] != rr.R2_LITERAL_JOINT_SOURCE_TAG:
+            raise AssertionError("new literal replay is not semantically tagged")
         if rr.state_hash(macro_entry) != row["literal_macro_entry"]["state_hash"]:
             raise AssertionError("macro entry provenance mismatch")
         if rr.state_hash(edge.run.state) != row["literal_joint_source"]["state_hash"]:

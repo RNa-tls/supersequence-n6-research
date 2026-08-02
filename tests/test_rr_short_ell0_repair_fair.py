@@ -57,12 +57,16 @@ class TestRound46RepairFair(unittest.TestCase):
         r2 = edge_for(fixture["literal_macro_trace"][-1])
         after = repair.rr.advance_decoration(r2.run.state, r2.joint, dec)
         at_macro_entry = repair.rr.target_a_recognizer(state, r2.joint, dec, after)
-        at_joint_source = repair.rr.target_a_recognizer(r2.run.state, r2.joint, dec, after)
+        at_joint_source = repair.rr.target_a_recognizer(
+            repair.rr.r2_literal_joint_source(r2), r2.joint, dec, after
+        )
         expected = fixture["expected"]
         self.assertEqual(repair.rr.state_hash(state), expected["macro_entry_hash"])
         self.assertEqual(repair.rr.state_hash(r2.run.state), expected["joint_source_hash"])
         self.assertTrue(at_macro_entry["conditions"]["same_component"])
         self.assertFalse(at_joint_source["conditions"]["same_component"])
+        self.assertEqual(at_joint_source["source_state_semantic_tag"],
+                         repair.rr.R2_LITERAL_JOINT_SOURCE_TAG)
         hierarchy = repair.hierarchy_for_r2(state, r2, dec, after, [{"component_merge": False}])
         self.assertEqual(hierarchy["recognizer"], at_joint_source)
         self.assertEqual(hierarchy["literal_joint_source"]["state_hash"], expected["joint_source_hash"])
@@ -71,6 +75,19 @@ class TestRound46RepairFair(unittest.TestCase):
         self.assertNotEqual(repair.SCHEMA, repair.LEGACY_SCHEMA)
         self.assertIn("literal-r2-source", repair.SCHEMA)
         self.assertIn("literal-r2-source", repair.CHECKPOINT_SCHEMA)
+        repair.require_current_hierarchy_schema({"schema": repair.SCHEMA})
+        with self.assertRaisesRegex(ValueError, "INVALID_R2_SOURCE_SEMANTICS"):
+            repair.require_current_hierarchy_schema({"schema": repair.LEGACY_SCHEMA})
+
+    def test_macro_entry_wrapper_is_rejected_by_literal_recognizer(self):
+        state, dec = repair.rr.initial_decoration(repair.split.record())
+        edge = next(edge for edge, collision in repair.rr.iter_raw_macro_candidates(state)
+                    if collision is None and edge is not None)
+        after = repair.rr.advance_decoration(edge.run.state, edge.joint, dec)
+        with self.assertRaisesRegex(ValueError, "literal joint-source semantics"):
+            repair.rr.target_a_recognizer(
+                repair.rr.r2_macro_entry_provenance(state), edge.joint, dec, after
+            )
 
 
 if __name__ == "__main__":

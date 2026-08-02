@@ -1,0 +1,51 @@
+{
+  "schema": "rr-short5-next-search-costs-v1",
+  "analysis_only": true,
+  "search_started": false,
+  "calibration": {
+    "corrected_short_ell0_fair_prefix": {
+      "r1_branches": 4,
+      "expansions_per_branch": 25000,
+      "total_expansions": 100000,
+      "sampled_external_working_set_bytes": 3994310656,
+      "warning": "This is a sampled observed working set, not an instrumentation-guaranteed process peak."
+    },
+    "historical_v4_single_branch_checkpoint": {
+      "expansions": 100245,
+      "checkpoint_bytes": 127829078,
+      "warning": "This checkpoint is pre-literal-source v4 and must not be resumed directly.  It is size calibration only."
+    },
+    "corrected_prefix_artifacts": {
+      "hierarchy_bytes": 409111078,
+      "full_witness_corpus_bytes": 1680954579,
+      "warning": "Full witness export dominates storage; future runs should retain compact telemetry until a hit/R4+ witness requires materialization."
+    }
+  },
+  "strategies": {
+    "A_deepen_short_ell0_fairly": {
+      "proposed_first_increment_expansions": 100000,
+      "allocation": "25000 additional expansions for each of four R1 branches",
+      "expected_memory": "Use the 3.72 GiB sampled calibration as a lower operational observation; enforce a separate memory monitor because it is not a peak guarantee.",
+      "expected_checkpoint": "approximately the 127829078-byte historical 100245-expansion checkpoint scale, subject to v5 fields and frontier shape",
+      "new_target_a_class_value": "unknown; the corrected prefix observed one class and it was known-18 equivalent",
+      "exhaustion_value": "none from a fixed cap",
+      "global_rr_closure_value": "local to short_ell0"
+    },
+    "B_corrected_fair_pilots_for_short_ell1_to_short_ell4": {
+      "admission_pilot_expansions": 1000,
+      "allocation": "250 Target-A-safe expansions per bare root before freezing legal R1 children",
+      "later_fair_pass_formula": "25000 times the measured number of replay-validated R1 children in each root",
+      "expected_memory": "must be measured during the 1000-expansion admission pilot; no cross-root forecast is asserted",
+      "expected_checkpoint": "compact root/R1 telemetry for admission, then branch-local v5 checkpoints sized from measured post-R1 frontiers",
+      "new_target_a_class_value": "higher global information value because four corrected root universes have not yet been sampled",
+      "exhaustion_value": "none from either capped stage",
+      "global_rr_closure_value": "broadens corrected exact coverage from one short root to all five short-root universes"
+    }
+  },
+  "recommendation": {
+    "strategy": "B_corrected_fair_pilots_for_short_ell1_to_short_ell4",
+    "reason": "Broaden the corrected root universe before spending another large fixed-cap increment on an already sampled open root.",
+    "checkpoint_namespace": "outputs/checkpoints/rr_short5/r1_split_v5_literal_source/",
+    "direct_v4_resume_allowed": false
+  }
+}
