@@ -1,0 +1,105 @@
+{
+  "schema": "rr-short5-top8-v6-claims-claude-v1",
+  "author": "Claude",
+  "role": "conditional proof-significance analyst -- v6 top-8 endpoint audit unverified",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no commit, branch, or file was cited this round, and none was found. git fetch origin --prune followed by git branch -r shows the same four codex/* branches already known from prior rounds; git log --all --oneline | grep -i v6 and a repo-wide filename search for *v6* both return nothing. Every figure in the prompt is asserted in the task text, not read from any file this session can reach.",
+    "figures_asserted_not_verified": {
+      "six_of_eight_naturally_exhausted": true,
+      "two_capped_at_50000_expansion_cap": true,
+      "exact_additional_expansions": 167820,
+      "repair_literal_replays": 207842,
+      "R2_literal_replays": 99438,
+      "component_merge_occurrences": 0,
+      "bridge_template_occurrences": 0,
+      "literal_Target_A_hits": 0,
+      "Target_B_survivors": 0
+    },
+    "framing": "this document performs the requested analysis CONDITIONALLY, exactly as done two rounds ago for the unverified v5 figures (which were later confirmed accurate once a real commit landed). Numeric conclusions are not promoted to confirmed facts anywhere in this document. Sections 4 and 5 do not depend on the v6 figures and are given unconditionally."
+  },
+  "section_1_proof_significance": {
+    "label": "CLAUDE_OBSERVATION -- conditional throughout",
+    "six_exact_branch_exhaustions": {
+      "conditional_grade": "if 'naturally exhausted' means queue-empty AND no cap hit (this project's established status vocabulary), each of the six is a genuine EXACT_EXHAUSTIVE_CERTIFICATE at the granularity of one R1-provenance child -- narrow, not nothing"
+    },
+    "zero_bridge_occurrences_207842_replays": {
+      "conditional_grade": "if these replays cover the COMPLETE reachable space of the six now-exhausted branches, this is an exact, complete fact about those six branches specifically -- the section-6 bridge template from two rounds ago's component-bridge document was checked against every reachable node and found nowhere in this subset",
+      "comparison_to_prior_state": "previously the template's existence was entirely unverified in either direction; if this report is accurate, it is now falsified specifically within these six branches' full spaces, not beyond them"
+    },
+    "zero_target_a_hits_99438_replays": {
+      "conditional_grade": "if accurate, extends the known-18-collapse pattern established across every prior verified round -- consistent with, not independent confirmation beyond, that pattern"
+    },
+    "two_capped_branches": "contribute nothing to closure by construction, regardless of the rest of the report's accuracy -- a capped branch is definitionally open",
+    "exact_certificates_vs_bounded_observations": [
+      {"statement": "these six specific children have no bridge occurrence and no Target A hit anywhere in their reachable space", "grade": "exact fact about these six children specifically, conditional on the report being accurate"},
+      {"statement": "the bridge template never occurs anywhere in the RR short-root family", "grade": "not supported -- 6 of 439 corpus children checked (and only 6 of this 8-child top-8 subset); the two capped siblings of this same subset already refute 'checked everywhere'"},
+      {"statement": "Target A does not exist anywhere in the short-root family beyond known-18", "grade": "not supported, same reasoning, further weakened by the two still-open branches within this same top-8 set"}
+    ]
+  },
+  "section_2_bridge_conjecture_reassessment": {
+    "conjecture": "no legal continuation from this top-8 family can merge the R1-target component with the hub component before R2",
+    "evidence_now_available_conditional": "if accurate, a comprehensive (not sampled) check of six of eight children's full reachable spaces, apparently using the exact section-6 template proposed two rounds ago (the report's own 'bridge-template occurrences: 0' figure matches that template's vocabulary directly), found no occurrence -- the strongest evidence offered so far for the conjecture, conditional on the report being real",
+    "precise_missing_cases": "the conjecture's truth-value for the entire top-8 family depends on exactly the two capped branches' still-unexplored frontiers -- nothing else is missing within this 8-child set if the report is accurate. These two are, by construction, the members that most resisted natural exhaustion, making them the most plausible place for the template to fire if it fires anywhere in this set",
+    "why_zero_occurrences_is_not_a_proof": [
+      "conditional on the report existing and being accurate at all -- not established this round",
+      "even if accurate, 'naturally exhausted' must genuinely mean queue-empty, not a silent relabeling of a capped state -- not independently checked here",
+      "covers 6 of 439 total R1-provenance children in the wider corpus, and only this one top-8 subset -- a vanishingly small fraction of the family",
+      "the two branches most likely to contain a counterexample (longest resistance to exhaustion) are precisely the ones not covered by the zero-occurrence claim",
+      "only an empirical count is offered, no structural argument for why the template would be geometrically unrealizable -- a large finite negative count is evidence, not proof"
+    ],
+    "strongest_finite_certificate_route": "complete, uncapped exhaustion of the two remaining branches, plus extending the identical exhaustive check (not a sample) across the other 431 children in the 439-child corpus. The six exhausted branches alone, even fully certified, constitute a finite certificate only for those six children, not the family-wide conjecture",
+    "strongest_hand_proof_route": "derive directly from the fixed HEX_POSITION/ORBIT_PHASE geometry tables (not from search) whether an R1-target orbit arising from the branching-spine parametrization (established two rounds ago, parametrized by root_ell) can ever, by construction, have an unvisited phase whose hexagon is already a member of hub's incidence component. Proving this impossible for the whole family would be a genuine hand-proof; exhibiting one constructively would refute it. Neither attempted here or, so far as verifiable, anywhere else."
+  },
+  "section_3_six_exhausted_common_mechanism": {
+    "label": "CLAUDE_OBSERVATION -- no common theorem inferred, per the task's own instruction, since no terminal certificate data exists",
+    "no_v6_data_to_attribute_mechanism": true,
+    "carried_forward_plausibility_not_new_finding": {
+      "source": "already-verified prior-round (three rounds ago) dominant-prune data for this exact top-8 family",
+      "dominant_prune": "exact_permutation_collision (77000-79000 occurrences per child)",
+      "secondary_prunes": ["F_exceeded", "outside_RR_joint_model"],
+      "secondary_prune_range": "8000-9000 per child",
+      "r2_specific_dominant_failure": "recognizer_geometry_failure",
+      "conditional_statement": "if the six now-exhausted children are drawn from or structurally similar to this same top-8 set, it would be unsurprising -- NOT CONFIRMED -- for collision saturation and the F-cap to again be the leading candidates",
+      "caveat": "explicitly a carried-forward plausibility from older, already-verified data, not a new finding, and not a substitute for the terminal certificates the task asks for and that do not exist here"
+    },
+    "common_mechanism_asserted": false
+  },
+  "section_4_two_capped_branches_information_request": {
+    "label": "CLAUDE_PROPOSAL -- does not depend on v6 report accuracy",
+    "requested_fields": [
+      {"field": "exact_child_ids", "detail": "which 2 of the original top-8 -- determines which root(s), which prior structural data from two rounds ago already applies"},
+      {"field": "frontier_structural_profile", "detail": "frontier size, per-node depth, per-node accepted-successor count, mirroring accepted_successors() from analyze_rr_short5_child_outcomes.py"},
+      {"field": "component_partition", "detail": "full incidence_forest snapshot at the cap point -- component list with e_orbits/hexagons sets, identifying hub's current component and R1-target orbit's current component"},
+      {"field": "hub_relation", "detail": "for every frontier node, whether any currently-legal edge targets a hexagon in hub's component, broken out by whether that hexagon equals hub_id specifically or another hub-component hexagon"},
+      {"field": "remaining_legal_successors", "detail": "categorized by kind (Z2/Z3/R counts), with target orbit/phase/hexagon for each"},
+      {"field": "distance_to_bridge_template", "detail": "for each frontier node, explicit yes/no against the exact section-6 condition from two rounds ago (forced non-abandoning Z2/Z3, target hexagon in hub's component, target hexagon != hub_id) -- the single most decision-relevant field, reduces the open question to a direct lookup"},
+      {"field": "provenance_fields_for_continuation_without_resuming_v6", "detail": "full literal_macro_trace to the cap point, current Decoration fields (r_events, hub_touch_count, completer, macro_index), current F/H/P values -- sufficient to deterministically replay and independently re-verify the endpoint from scratch without touching the writer whose auxiliary-field preservation is flagged unsafe"}
+    ]
+  },
+  "section_5_strategy_recommendation": {
+    "label": "CLAUDE_PROPOSAL",
+    "option_A": {
+      "description": "replay-reconstruct and deepen the two capped branches",
+      "assessment": "directly operationalizes section_4: once frontier data is available, apply the section-6 bridge template as an explicit lookup against each frontier node -- no search, a deterministic classification. Only option that can directly advance the bridge conjecture's truth value for this family, since the two capped branches are, by construction, the only unresolved cases within it"
+    },
+    "option_B": {
+      "description": "generalize from the six exhausted branches",
+      "assessment": "low marginal mathematical value right now -- exhausted branches contain neither a bridge occurrence nor a Target A hit by definition; further characterizing why they closed would at best reconfirm the already-established collision/F-cap pattern. Does not touch the open existential"
+    },
+    "option_C": {
+      "description": "move to the remaining 105 capped children (of 113 total, outside this top-8)",
+      "assessment": "broadens the empirical base but dilutes effort across many under-explored branches without resolving the mechanism question for any of them at the same depth already reached by the two branches in hand"
+    },
+    "recommendation": "A",
+    "reasoning": "the two capped branches are, within this family, the deepest-explored, hardest-to-close cases -- the most information-dense place to look next. The mathematically substantive next step is not merely raising the cap (a computation, not a proof step) but applying the already-derived section-6 template as a direct, deterministic classification against their frontiers once section_4's data is available. If the template fires on either branch, it constructively refutes the conjecture with an exact witness; if it verifiably does not, and the frontier is small enough to argue exhaustively by hand from the geometry tables, that is a genuine step toward the hand-proof route, not another bounded observation. Option B offers no route to either outcome; option C offers only more of the same bounded observation already in hand."
+  },
+  "explicit_non_claims": [
+    "does not confirm any figure in the v6 report -- no commit, branch, or file was found this round",
+    "does not infer a common exhaustion mechanism for the six claimed branches -- no terminal certificates exist to check",
+    "does not claim the bridge conjecture is proved or disproved -- both remain open, conditional on data not yet verified",
+    "does not recommend raising the v6 checkpoint cap or resuming it -- the stated writer-safety concern is taken at face value; section_4's request is designed to avoid needing to",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_TOP8_V6_ANALYSIS_INCOMPLETE"
+}
