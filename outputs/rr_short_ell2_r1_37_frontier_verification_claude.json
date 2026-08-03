@@ -1,0 +1,116 @@
+{
+  "schema": "rr-short-ell2-r1-37-frontier-verification-claude-v1",
+  "author": "Claude",
+  "role": "short-root search analyst -- independent verification of codex/round-r1-37-frontier-analysis",
+  "section_1_remote_verification": {
+    "branch": "codex/round-r1-37-frontier-analysis",
+    "claimed_commit": "fae8ded9a8fe5e2958e602fafb2ac4e337ef8958",
+    "fetched_commit": "fae8ded9a8fe5e2958e602fafb2ac4e337ef8958",
+    "commit_match": true,
+    "claimed_parent": "479289107591ce887097550d370dd7f3785475d9",
+    "verified_parent": "479289107591ce887097550d370dd7f3785475d9",
+    "parent_match": true,
+    "all_5_required_files_exist": true,
+    "lfs_pointers_found": false,
+    "sha256_format_sanity_check": "all hex strings matching a SHA-256-shaped pattern across the 3 JSON files checked programmatically for exactly 64 hex characters -- no anomalies",
+    "cross_file_hash_consistency": "next_plan.json provenance.checkpoint.sha256_from_verified_v7_ledger matches frontier.json provenance.checkpoint.sha256_from_verified_v7_ledger exactly",
+    "unverifiable_upstream_link": {
+      "issue": "provenance.verified_v7_ledger_sha256 and checkpoint.sha256_from_verified_v7_ledger reference an intermediate v7 ledger and a 4.88GB checkpoint neither provided this round nor traceable to any reachable branch/commit (no round-53 branch exists)",
+      "mitigation": "this round's own audit is independently self-grounded regardless: it replays 65 ancestry nodes literally from the already-verified v5 anchor, with assert guards in main() that would raise on any mismatch (confirmed by reading the guard clauses directly, lines 540-549)"
+    }
+  },
+  "section_2_exact_class_count_verification": {
+    "label": "CLAUDE_HAND_PROOF -- independently recomputed from raw per-state records",
+    "counts": {
+      "frontier_states": {"recomputed": 22, "claimed": 22, "match": true},
+      "exact_decorated_states": {"recomputed": 22, "claimed": 22, "match": true, "definition": "rr.state_hash(state), literal state identity, finest possible grain"},
+      "proved_left_s6_classes": {"recomputed": 22, "claimed": 22, "match": true, "definition": "hash of canonical_state_decoration() output, the already-established proved left-S6 canonicalization -- the one count among the five resting on a PROVED symmetry, not a heuristic"},
+      "resource_profiles": {"recomputed": 18, "claimed": 18, "match": true, "definition": "SHA256({P,O,F,H,Ndef,D,Phi,M}), a coarse 8-scalar hash -- explicitly HEURISTIC, not a proved continuation equivalence"},
+      "successor_signatures": {"recomputed": 22, "claimed": 22, "match": true, "definition": "hash of the state's own computed legal-successor structure -- empirically unique here but a descriptive summary, not a proved equivalence"},
+      "component_geometries": {"recomputed": 19, "claimed": 19, "match": true, "definition": "hash of a deliberately coarsened component-shape list (counts + is_hub/is_r1_target/has_current_orbit/has_current_hexagon flags), discarding specific orbit/hexagon identities -- a shape signature, not an exact or proved-symmetry equivalence"}
+    },
+    "conclusion": "only exact_state_hash and left_s6_canonical_class_sha256 rest on proved equivalences; resource_profile, successor_signature, and component_geometry are heuristic profiles by construction, matching Codex's own explicit disclaimer that they are not continuation equivalences and must not be used for pruning"
+  },
+  "section_3_structural_predicates": {
+    "label": "CLAUDE_HAND_PROOF -- literal state facts, not derived classifications",
+    "hub_complete": {"definition": "hub_mask == 63 where hub_mask = int(state.hex_masks[dec.hub_id]), a direct read of the exact state's own hex_masks array", "verified_true_for_all_22": true},
+    "phi_zero": {"definition": "rr.phi(state), the already-established Phi invariant formula, applied directly to each exact state", "verified_true_for_all_22": true},
+    "r1_target_distinct_from_hub": {"definition": "component_id(summary,('q',r1_orbit)) != component_id(summary,('h',hub_id)) via rr.component_summary(state), the already-verified incidence_components machinery", "verified_true_for_all_22": true},
+    "all_three_are_literal_not_heuristic": true
+  },
+  "section_4_immediate_r2_subgroup": {
+    "label": "CLAUDE_HAND_PROOF",
+    "n_states_with_r2_candidate": 9,
+    "matches_claimed_9": true,
+    "all_9_fail_only_same_component": true,
+    "each_associated_subgraph_exactly_exhausted": true,
+    "exhaustion_mechanism_confirmed_by_reading_code": "bridge_distance_within (lines 247-293) returns reachable_subgraph_exhausted_no_bridge only when the BFS queue empties before reaching the depth-3 cap -- a genuine complete exploration, not a depth-capped non-result",
+    "exact_certificate_unit": "subgraph",
+    "certificate_unit_reasoning": "not state-level (the claim is about everything reachable from the state, not the state alone); not branch-level (only 9 of 22 roots have this property; the branch remains open). A per-root reachable-subgraph exhaustion certificate, one per named state independently."
+  },
+  "section_5_remaining_13_states": {
+    "label": "CLAUDE_HAND_PROOF",
+    "all_13_status_uniform": "not_found_within_bound",
+    "lookahead_bound_uniform": 3,
+    "proved_lower_bound_uniform": 4,
+    "no_stronger_claim_found": true,
+    "recurrence_count": {"value": 0, "verified_true_empty_list": true},
+    "collision_saturation_non_monotone": {
+      "monotone_saturation_observed": false,
+      "frontier_mean_exact_collisions": 13.181818181818182,
+      "frontier_mean_legal_successors": 1.2727272727272727,
+      "data_backed_not_merely_asserted": true
+    },
+    "other_monotone_quantities_found": {
+      "answer": "yes, seven",
+      "nondecreasing_zero_violations": ["P", "O", "S", "Ndef", "Phi", "hub_popcount", "visited"],
+      "not_monotone": {"D": {"violation_count": 242}, "M": {"violation_count": 274}}
+    }
+  },
+  "section_6_421219_vs_421221_discrepancy": {
+    "label": "CLAUDE_OBSERVATION -- cannot be explained from ledger fields, reported precisely rather than guessed at",
+    "421221_occurrences": {
+      "locations": ["markdown 'Separation-invariant candidate' section", "frontier_classes.json candidate_theorems[0].support", "analyze_rr_short_ell2_r1_37_frontier.py line 667"],
+      "nature": "a fixed literal string in all three locations, 'All 421,221 previously verified replay nodes were B0...' -- NOT the output of any computation performed by this round's analyzer",
+      "no_computed_B0_field_exists": true,
+      "related_but_distinct_field": "provenance.parent_dag_nodes_scanned == 305022 for this branch specifically -- a different, locally-computed, internally-consistent number unrelated to 421221"
+    },
+    "421219_occurrences": {
+      "found_anywhere_in_5_files": false
+    },
+    "conclusion": "neither number is a ledger-backed, locally-computed fact in this round's artifacts. 421,221 is a carried-forward hardcoded reference, almost certainly the same figure flagged as unverified in this analyst's own prior document (RR_TOP8_7_OF_8_SIGNIFICANCE_CLAUDE.md) two rounds ago. 421,219 cannot be traced to any source in the files fetched this round. No root-node-exclusion, terminal-node-convention, or two-non-B0-units explanation can be confirmed or refuted from available data.",
+    "instruction_compliance": "per the task's explicit instruction not to accept a verbal explanation without matching ledger fields, no explanation is offered -- the gap is reported as open"
+  },
+  "section_7_strategy_d": {
+    "label": "CLAUDE_HAND_PROOF for reproduction; CLAUDE_OBSERVATION for assessment",
+    "exact_8_state_ids": ["short_ell2_r1_37:304973","short_ell2_r1_37:304860","short_ell2_r1_37:304858","short_ell2_r1_37:303323","short_ell2_r1_37:236166","short_ell2_r1_37:304872","short_ell2_r1_37:303324","short_ell2_r1_37:12"],
+    "selection_criterion": "sort 13 non-exhausted states by (legal_successor_count ascending, proved_lower_bound ascending, depth descending, node_id), deduplicate by compound key (successor_signature_class_sha256, component_geometry_class_sha256), take first 8",
+    "independent_reproduction": "reproduced the exact procedure from raw data; result matches the claimed 8-state batch exactly",
+    "key_structural_finding": {
+      "statement": "among the 13 unresolved states, every one already has a distinct compound (successor_signature, component_geometry) profile -- no two of the 13 share a compound profile at all",
+      "implication": "the deduplication step is a no-op on this data; the 8-state batch is not a coverage-preserving compression, it is simply the top 8 of 13 already-fully-distinct states ranked by fewest successors, then tightest proved bridge-distance lower bound, then greatest depth"
+    },
+    "resource_profile_coverage": {"covered": 7, "total": 18},
+    "component_geometry_coverage": {"covered": 7, "total": 19},
+    "all_13_unresolved_represented": false,
+    "excluded_states": ["short_ell2_r1_37:3", "short_ell2_r1_37:6", "short_ell2_r1_37:305018", "short_ell2_r1_37:303321", "short_ell2_r1_37:13"],
+    "excluded_states_pattern": "precisely the 5 states with the highest legal_successor_count (2,2,3,3,3) among the 13 -- the batch systematically favors the narrowest states first",
+    "representative_heuristic_or_proved": {
+      "verdict": "heuristic, not backed by any proved continuation equivalence",
+      "grounds": ["Codex's own document explicitly disclaims the profiles as non-equivalences", "the compound-key dedup is a no-op here, so there is no actual equivalence class being represented at all -- each 'representative' stands only for itself"]
+    },
+    "assessment_A_all_13": "strictly more complete; given the dedup-is-a-no-op finding, not meaningfully more information-costly than the 8-batch in proof-structure terms, only more compute (325000 vs 200000 expansions)",
+    "assessment_B_smaller_proof_oriented_subset": "no principled way to pick a smaller provably-representative subset without an actual equivalence relation to justify it -- any subset smaller than 13 is a resource-driven guess exactly as the 8-batch is",
+    "assessment_C_hand_analysis_of_9_closed_subgraphs": "already fully closed; further hand analysis extracts candidate shared-mechanism material from data already in hand at zero further computation cost -- highest value per unit effort, requires no new search",
+    "assessment_D_deeper_single_hardest_profile": "lowest proof value per unit effort -- no coverage or comparative value, no reason to expect faster convergence than breadth",
+    "recommendation": "C first (free, uses only existing data), then A over the specific 8-batch if further search is pursued (more complete for comparable effort since no real compression is being exploited), D least justified",
+    "relation_to_codex_own_recommendation": "refines rather than contradicts Codex's own D_then_A framing -- Codex's 'D' labels the structural-subfamily strategy (correct that equal effort on all 22 too early is wasteful); this analysis adds that the prioritization achieved is not the coverage-preserving one its description implies"
+  },
+  "explicit_non_claims": [
+    "does not verify the round-53 process behind the 305022-node v7 checkpoint -- unreachable this session",
+    "does not resolve the 421219/421221 discrepancy -- reported as unexplainable from available data",
+    "does not claim Codex's batch-selection methodology is flawed -- the code is a correct, faithful implementation of its stated rule; the finding is that the rule's practical effect on this data differs from what its description implies",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_R1_37_FRONTIER_PARTIAL"
+}
