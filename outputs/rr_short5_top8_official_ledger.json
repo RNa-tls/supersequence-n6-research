@@ -1,0 +1,3017 @@
+{
+  "aggregate": {
+    "additional_expansions": 167820,
+    "bridge_template_occurrences": 0,
+    "capped_nonempty": 2,
+    "component_merges": 0,
+    "independent_ledger_verifier": "passed",
+    "literal_target_a_hits": 0,
+    "naturally_exhausted": 6,
+    "r2_literal_replays": 99438,
+    "repair_literal_replays": 207842,
+    "target_b_survivors": 0,
+    "top_children": 8
+  },
+  "capped_children": [
+    {
+      "additional_v6_expansions": 50000,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell2\\short_ell2_r1_70\\checkpoint.json",
+      "checkpoint_sha256": "d42a446eb125364a7cd2786504f9ca790ded10b556e861137b788f3b2ff43587",
+      "child_id": "short_ell2_r1_70",
+      "endpoint": "CAP_REACHED_NONEMPTY_FRONTIER",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_literal_replay_anchors": [
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 57,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 57,
+          "exact_state_hash": "acbe2c9f5957cea304ab66256b1b07e2eafbd3e6e44aaad5a54f3ba2f76525a9",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:3"
+          ],
+          "macro_trace_length": 2,
+          "macro_trace_sha256": "c6846f31849e7f52ebcfdbb51a7e410734f2aa44d7c88d98d047ecc5714aa9d5",
+          "node_id": "short_ell2_r1_70:4",
+          "parent_node_id": "short_ell2_r1_70:1"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 63,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 63,
+          "exact_state_hash": "a7596daa566368e9159921000c17663eab846f760082bcc94f3bbb89264f5745",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52459"
+          ],
+          "macro_trace_length": 8,
+          "macro_trace_sha256": "a0b6c510a7ad7d1296255013ace8447ca6536548512345752d0232502f8540df",
+          "node_id": "short_ell2_r1_70:52460",
+          "parent_node_id": "short_ell2_r1_70:40486"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 64,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 64,
+          "exact_state_hash": "62d50c214263963229f1baa8aac1fd1e7d11009dc04e0f5df33080322436c640",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52461"
+          ],
+          "macro_trace_length": 9,
+          "macro_trace_sha256": "a565fd9513db2fc2539a89b140b7f6d88194378b183cb72fb6d6463a15445860",
+          "node_id": "short_ell2_r1_70:52462",
+          "parent_node_id": "short_ell2_r1_70:52459"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 66,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 66,
+          "exact_state_hash": "191e1d6c6f0099e7f2b84a5895d117968a42fd4f6b7bbd722890af11198ed770",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52464"
+          ],
+          "macro_trace_length": 11,
+          "macro_trace_sha256": "1bc57b242ac9f296a41b2fb342a297ea7561b0b1aaa180454bcbea2b9d231d69",
+          "node_id": "short_ell2_r1_70:52465",
+          "parent_node_id": "short_ell2_r1_70:52463"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 70,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 70,
+          "exact_state_hash": "b004da5f136b33c225847e64561a1d625b53cfad3dc908ef99b643cddd862343",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54591"
+          ],
+          "macro_trace_length": 15,
+          "macro_trace_sha256": "59f8643e7f68151c5679def1c3c8bf67fed7372f8a63d6c1c98b26727f685948",
+          "node_id": "short_ell2_r1_70:54592",
+          "parent_node_id": "short_ell2_r1_70:54590"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 76,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 76,
+          "exact_state_hash": "e0aadc7d5c6f4b13e451522239060639a2ee3c12a9244d5fcf4ad0686be96b23",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54590",
+            "short_ell2_r1_70:repair:54593",
+            "short_ell2_r1_70:repair:54971",
+            "short_ell2_r1_70:repair:54972",
+            "short_ell2_r1_70:repair:54973",
+            "short_ell2_r1_70:repair:54974",
+            "short_ell2_r1_70:repair:54977"
+          ],
+          "macro_trace_length": 21,
+          "macro_trace_sha256": "35c1490954ea2c2f3d3d46c440e8c1d97943fd13727b77f98b284cbb80e50229",
+          "node_id": "short_ell2_r1_70:54978",
+          "parent_node_id": "short_ell2_r1_70:54975"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 76,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 76,
+          "exact_state_hash": "f054e7e9c0d61683eea55df58f8ba4144a6590eab76e3cc93c5fe72a1a606b67",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54590",
+            "short_ell2_r1_70:repair:54593",
+            "short_ell2_r1_70:repair:54971",
+            "short_ell2_r1_70:repair:54972",
+            "short_ell2_r1_70:repair:54973",
+            "short_ell2_r1_70:repair:54974",
+            "short_ell2_r1_70:repair:54976"
+          ],
+          "macro_trace_length": 21,
+          "macro_trace_sha256": "4b8316e1e00bf14a07eab518c9c2525e3ba95a1387aea868abfbe8701e292c1a",
+          "node_id": "short_ell2_r1_70:54977",
+          "parent_node_id": "short_ell2_r1_70:54975"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 77,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 77,
+          "exact_state_hash": "1e4792524b651f09abb26e4f3f66f8ded87457c6ffe0ce5fa5d19fc900393d5c",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54590",
+            "short_ell2_r1_70:repair:54593",
+            "short_ell2_r1_70:repair:54971",
+            "short_ell2_r1_70:repair:54972",
+            "short_ell2_r1_70:repair:54973",
+            "short_ell2_r1_70:repair:54974",
+            "short_ell2_r1_70:repair:54975",
+            "short_ell2_r1_70:repair:54979"
+          ],
+          "macro_trace_length": 22,
+          "macro_trace_sha256": "470e59d2d167c9da45cd543532d6a3ad0062011f1378ad522c370748748ae73f",
+          "node_id": "short_ell2_r1_70:54980",
+          "parent_node_id": "short_ell2_r1_70:54976"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 79,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 79,
+          "exact_state_hash": "cd2035762d644e78f89e11d4a7a8f24dc339c64ac0d94934b81728a012f97525",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54590",
+            "short_ell2_r1_70:repair:54593",
+            "short_ell2_r1_70:repair:54971",
+            "short_ell2_r1_70:repair:54972",
+            "short_ell2_r1_70:repair:54973",
+            "short_ell2_r1_70:repair:54974",
+            "short_ell2_r1_70:repair:54975",
+            "short_ell2_r1_70:repair:54978",
+            "short_ell2_r1_70:repair:54982",
+            "short_ell2_r1_70:repair:54984"
+          ],
+          "macro_trace_length": 24,
+          "macro_trace_sha256": "732717fb94359bd28c18b1b813d01a93656c7790a7dfd429db29a2cc92c44afe",
+          "node_id": "short_ell2_r1_70:54985",
+          "parent_node_id": "short_ell2_r1_70:54983"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 87,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 87,
+          "exact_state_hash": "707d127fa5af88c30b6f89930d11fb6ae01447ff604d7a920f6b7c0cb93b2e3c",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54590",
+            "short_ell2_r1_70:repair:54593",
+            "short_ell2_r1_70:repair:54971",
+            "short_ell2_r1_70:repair:54972",
+            "short_ell2_r1_70:repair:54973",
+            "short_ell2_r1_70:repair:54974",
+            "short_ell2_r1_70:repair:54975",
+            "short_ell2_r1_70:repair:54978",
+            "short_ell2_r1_70:repair:54982",
+            "short_ell2_r1_70:repair:54983",
+            "short_ell2_r1_70:repair:54986",
+            "short_ell2_r1_70:repair:54990",
+            "short_ell2_r1_70:repair:54993",
+            "short_ell2_r1_70:repair:54997",
+            "short_ell2_r1_70:repair:55002",
+            "short_ell2_r1_70:repair:55004",
+            "short_ell2_r1_70:repair:55007",
+            "short_ell2_r1_70:repair:55009"
+          ],
+          "macro_trace_length": 32,
+          "macro_trace_sha256": "a38085b63101c40517f7912bf7e6d3b55f5a6629cd32a5bc82ca5beb8535881d",
+          "node_id": "short_ell2_r1_70:55010",
+          "parent_node_id": "short_ell2_r1_70:55008"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 87,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 55,
+                "source_orbit": 1,
+                "source_phase": 3,
+                "target_orbit": 3,
+                "target_phase": 1
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 87,
+          "exact_state_hash": "7ce9dc7fcf927fdfaaec34393754851df215b3b22f9dbdd0786d480c8d2e33fb",
+          "lineage": [
+            "short_ell2_r1_70:repair:0",
+            "short_ell2_r1_70:repair:2",
+            "short_ell2_r1_70:repair:5",
+            "short_ell2_r1_70:repair:40481",
+            "short_ell2_r1_70:repair:40482",
+            "short_ell2_r1_70:repair:40483",
+            "short_ell2_r1_70:repair:40485",
+            "short_ell2_r1_70:repair:52458",
+            "short_ell2_r1_70:repair:52460",
+            "short_ell2_r1_70:repair:52462",
+            "short_ell2_r1_70:repair:52463",
+            "short_ell2_r1_70:repair:52466",
+            "short_ell2_r1_70:repair:54588",
+            "short_ell2_r1_70:repair:54589",
+            "short_ell2_r1_70:repair:54590",
+            "short_ell2_r1_70:repair:54593",
+            "short_ell2_r1_70:repair:54971",
+            "short_ell2_r1_70:repair:54972",
+            "short_ell2_r1_70:repair:54973",
+            "short_ell2_r1_70:repair:54974",
+            "short_ell2_r1_70:repair:54975",
+            "short_ell2_r1_70:repair:54978",
+            "short_ell2_r1_70:repair:54982",
+            "short_ell2_r1_70:repair:54983",
+            "short_ell2_r1_70:repair:54986",
+            "short_ell2_r1_70:repair:54990",
+            "short_ell2_r1_70:repair:54993",
+            "short_ell2_r1_70:repair:54997",
+            "short_ell2_r1_70:repair:55002",
+            "short_ell2_r1_70:repair:55004",
+            "short_ell2_r1_70:repair:55007",
+            "short_ell2_r1_70:repair:55008"
+          ],
+          "macro_trace_length": 32,
+          "macro_trace_sha256": "ac3f0d35ebf90d41d862e21cdd88fd109484aefc0a4dd402cc184b6ed6b7b768",
+          "node_id": "short_ell2_r1_70:55009",
+          "parent_node_id": "short_ell2_r1_70:55008"
+        }
+      ],
+      "frontier_size": 11,
+      "max_depth": 100,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "nearest_profile": {
+        "bridge_template_occurrences": 0,
+        "literal_target_a_hits": 0,
+        "r2_hierarchy": {
+          "R0": 24239,
+          "R2": 2686
+        },
+        "r2_outcomes": {
+          "not_same_component": 2686,
+          "recognizer_geometry_failure": 24239
+        }
+      },
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 26925
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 24239,
+          "R2": 2686
+        },
+        "literal_replayed": 26925,
+        "outcomes": {
+          "not_same_component": 2686,
+          "recognizer_geometry_failure": 24239
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 367,
+            "orbit": 72,
+            "phase": 0
+          },
+          {
+            "count": 360,
+            "orbit": 61,
+            "phase": 4
+          },
+          {
+            "count": 349,
+            "orbit": 78,
+            "phase": 0
+          },
+          {
+            "count": 349,
+            "orbit": 37,
+            "phase": 2
+          },
+          {
+            "count": 340,
+            "orbit": 66,
+            "phase": 3
+          },
+          {
+            "count": 334,
+            "orbit": 75,
+            "phase": 3
+          },
+          {
+            "count": 333,
+            "orbit": 45,
+            "phase": 3
+          },
+          {
+            "count": 320,
+            "orbit": 50,
+            "phase": 3
+          },
+          {
+            "count": 316,
+            "orbit": 131,
+            "phase": 0
+          },
+          {
+            "count": 309,
+            "orbit": 136,
+            "phase": 4
+          },
+          {
+            "count": 288,
+            "orbit": 69,
+            "phase": 0
+          },
+          {
+            "count": 283,
+            "orbit": 110,
+            "phase": 2
+          },
+          {
+            "count": 283,
+            "orbit": 141,
+            "phase": 2
+          },
+          {
+            "count": 271,
+            "orbit": 22,
+            "phase": 1
+          },
+          {
+            "count": 263,
+            "orbit": 65,
+            "phase": 2
+          },
+          {
+            "count": 258,
+            "orbit": 77,
+            "phase": 0
+          },
+          {
+            "count": 253,
+            "orbit": 19,
+            "phase": 1
+          },
+          {
+            "count": 250,
+            "orbit": 50,
+            "phase": 2
+          },
+          {
+            "count": 240,
+            "orbit": 112,
+            "phase": 3
+          },
+          {
+            "count": 240,
+            "orbit": 89,
+            "phase": 1
+          }
+        ],
+        "total": 26925
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 55010,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 55010,
+        "types": {
+          "Z2": 22635,
+          "Z3_fresh": 32375
+        }
+      },
+      "total_expansions": 55000,
+      "trusted_immutable_anchor": {
+        "r1_child_origin_hash": "04eea0d7b583a9213d04ff79922dc2a2a2e69c5319333a85db9154d0be21369d",
+        "r1_literal_trace_length": 55,
+        "r1_literal_trace_sha256": "890c9c68d19c5d9652a2de99d860ff4851590ef4469115ef4252b192bff2c098",
+        "root_hash": "21b933221426421e7cca8b2cfed1f786769871486d008ed7998c7337d55053c1",
+        "root_id": "short_ell2",
+        "v5_source_checkpoint": "outputs\\checkpoints\\rr_short5\\corrected_v5\\short_ell2\\short_ell2_r1_70\\checkpoint.json",
+        "v5_source_sha256": "8eae0f896cbf99641c59e7dde42508769aa70cce819ba20bd7a691bd762f56dd"
+      },
+      "v6_frontier_engine_state_sha256": "0de5382a5d102db6cff1f54b02526cbdc04674c5aecf5a3d6153555b11bb2850"
+    },
+    {
+      "additional_v6_expansions": 50000,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+      "checkpoint_sha256": "36404b918ffe335bbfa5607cb1a187ab85e16b416e123028be31eaddcee2f671",
+      "child_id": "short_ell2_r1_37",
+      "endpoint": "CAP_REACHED_NONEMPTY_FRONTIER",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_literal_replay_anchors": [
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 47,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 47,
+          "exact_state_hash": "f402987c63dc66c0d2eafc554fda7bfae2387ab62e02b94ae149cffd14005b8b",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:2"
+          ],
+          "macro_trace_length": 2,
+          "macro_trace_sha256": "cb0dc02edb3fb5e0ac15e5720435c3016434bfbdeee75835b5992cf4ac1d56b9",
+          "node_id": "short_ell2_r1_37:3",
+          "parent_node_id": "short_ell2_r1_37:1"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 48,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 48,
+          "exact_state_hash": "80f65043a1902ebb15f5e2246afefde6d584a142aae2582e05c1d63b51ffde7e",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:5"
+          ],
+          "macro_trace_length": 3,
+          "macro_trace_sha256": "9db36ae168b9d6cf3c0290b4da6da2fc53f204662054357d58a14d1b374369c9",
+          "node_id": "short_ell2_r1_37:6",
+          "parent_node_id": "short_ell2_r1_37:2"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 52,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 52,
+          "exact_state_hash": "a022d455482e954a5f73f166738a249651cc98909498bb33f4403ec6ea06c02f",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:12"
+          ],
+          "macro_trace_length": 7,
+          "macro_trace_sha256": "ce0c8efa4753a83c24a3251d80042b465e47f4a95ddd0590a73b695258ba866f",
+          "node_id": "short_ell2_r1_37:13",
+          "parent_node_id": "short_ell2_r1_37:10"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 52,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 52,
+          "exact_state_hash": "62f685408b6ff742e627007dd535d3847403b0e75e61a50fb1d54a73a27385e4",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:11"
+          ],
+          "macro_trace_length": 7,
+          "macro_trace_sha256": "49f1de61d11c22b6977acdbfd110e7b0d65fc3e7ab18ced42863da54a2f942b7",
+          "node_id": "short_ell2_r1_37:12",
+          "parent_node_id": "short_ell2_r1_37:10"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 54,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 54,
+          "exact_state_hash": "bcd1edfca0cf268be28a2d622158cdb77b09b9016bf9fd8bcf555b70cb0272af",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:15"
+          ],
+          "macro_trace_length": 9,
+          "macro_trace_sha256": "6cf813566bce6652bba30c241757b3aceb02b07c77a8c95f692cb04bf22e6da8",
+          "node_id": "short_ell2_r1_37:16",
+          "parent_node_id": "short_ell2_r1_37:14"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 55,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 55,
+          "exact_state_hash": "99e00ab9b9c2b6c98625770a19e36fd901a1de907ab9987c000fcf32df84491d",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:17"
+          ],
+          "macro_trace_length": 10,
+          "macro_trace_sha256": "628ff26bb817ea7200ab58c2212beb9ec38d45eeca783e81d53a98a5c223989a",
+          "node_id": "short_ell2_r1_37:18",
+          "parent_node_id": "short_ell2_r1_37:15"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 58,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 58,
+          "exact_state_hash": "295efed11ebc0d15b1c6ff301f57e702adbb4932bac5d311ceb803de1d516e0d",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40133"
+          ],
+          "macro_trace_length": 13,
+          "macro_trace_sha256": "ffc4839923f4afbda33918ce5b66068a02892cbce36b18f6c9d8d810105f02da",
+          "node_id": "short_ell2_r1_37:40134",
+          "parent_node_id": "short_ell2_r1_37:22"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 59,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 59,
+          "exact_state_hash": "6fe46cb5b58a99aba37550c3dbe4eb713a3b55c3c9fc917f0310f1bf615b6812",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40136"
+          ],
+          "macro_trace_length": 14,
+          "macro_trace_sha256": "d2de654e0dc7814874e1f0f208735d1124d0b74b1ee80b31b4aeff98441b1278",
+          "node_id": "short_ell2_r1_37:40137",
+          "parent_node_id": "short_ell2_r1_37:40133"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 60,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 60,
+          "exact_state_hash": "746e667b8546ddfc7cba64bb5018c515861c07e5373303b1c31c9e8e24fff9c8",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49156"
+          ],
+          "macro_trace_length": 15,
+          "macro_trace_sha256": "958ab07b81fda73f3d0d95d77520321ef93c900ee6805a567de712bf6c8d0ac2",
+          "node_id": "short_ell2_r1_37:49157",
+          "parent_node_id": "short_ell2_r1_37:40136"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 60,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 60,
+          "exact_state_hash": "fab5f32ee0cbbe47b7a469d1cf0857d9f945f886518f0bb7104ab67a4635aaa6",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49155"
+          ],
+          "macro_trace_length": 15,
+          "macro_trace_sha256": "6a77c6a125c0ab34f8e0abdc476eaac7b4568ac5d785ded3cbabf234338de8ad",
+          "node_id": "short_ell2_r1_37:49156",
+          "parent_node_id": "short_ell2_r1_37:40136"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 63,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 63,
+          "exact_state_hash": "0ccd522888af7f72ca27da29b3503bc3e31062c49325a99f594f8cf19c43a4f9",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54172"
+          ],
+          "macro_trace_length": 18,
+          "macro_trace_sha256": "2fd018b2f33dc20f7613e71cebcf253ce967e9ec0a6cc1f4a0aca8db48d4a8db",
+          "node_id": "short_ell2_r1_37:54173",
+          "parent_node_id": "short_ell2_r1_37:54171"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 65,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 65,
+          "exact_state_hash": "5e1432f2395d5fa3540aee61fd2c51b4aa0c8bc4dbdc9bd4f1177b3562e46f84",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54598"
+          ],
+          "macro_trace_length": 20,
+          "macro_trace_sha256": "0005399d0cd085f8b2cab3183dcd6868a5dd9d16584c9ccb6fcfcf0d5002110c",
+          "node_id": "short_ell2_r1_37:54599",
+          "parent_node_id": "short_ell2_r1_37:54176"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 67,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 67,
+          "exact_state_hash": "29c365479d3277ca55032f21c68a41b76526a4de5f461d088db6cab11a1e27b7",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54601"
+          ],
+          "macro_trace_length": 22,
+          "macro_trace_sha256": "5391059c0b37368cd4b86ba071d96627ce5d8a71ca867103a424650f107a7750",
+          "node_id": "short_ell2_r1_37:54602",
+          "parent_node_id": "short_ell2_r1_37:54600"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 69,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 69,
+          "exact_state_hash": "684cff49e42927a20194ea372cff2c85200abe17294eb8b0f4d8a808fce30e27",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54600",
+            "short_ell2_r1_37:repair:54604",
+            "short_ell2_r1_37:repair:54894"
+          ],
+          "macro_trace_length": 24,
+          "macro_trace_sha256": "fbe5e62481c2b6894aa85d7783e47875025d82b8ba2d7155708cb209943faf5b",
+          "node_id": "short_ell2_r1_37:54895",
+          "parent_node_id": "short_ell2_r1_37:54605"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 69,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 69,
+          "exact_state_hash": "c6ed3535964e0dcc1a964d0af11fe7e0c0eafbbf0749f306977b37c8b16db9db",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54600",
+            "short_ell2_r1_37:repair:54604",
+            "short_ell2_r1_37:repair:54893"
+          ],
+          "macro_trace_length": 24,
+          "macro_trace_sha256": "9c3584eac0758048bfd051cfecd45222d6afe0edc6e389b6c27193d21d057b80",
+          "node_id": "short_ell2_r1_37:54894",
+          "parent_node_id": "short_ell2_r1_37:54605"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 71,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 71,
+          "exact_state_hash": "da14b7b51c207fe858b22b8d8f546ab246cf10cd6af79246df3ac3a4a6af033b",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54600",
+            "short_ell2_r1_37:repair:54604",
+            "short_ell2_r1_37:repair:54892",
+            "short_ell2_r1_37:repair:54895",
+            "short_ell2_r1_37:repair:54898"
+          ],
+          "macro_trace_length": 26,
+          "macro_trace_sha256": "c293f0aa9fc7c963c10511d04d89ed3f6e37a3dce21ddadcb429a7f6b72d6081",
+          "node_id": "short_ell2_r1_37:54899",
+          "parent_node_id": "short_ell2_r1_37:54896"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 71,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 71,
+          "exact_state_hash": "3939116a3d3b967a3892c1aa7938114946bf9d7370232805ecca13d0db609dbb",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54600",
+            "short_ell2_r1_37:repair:54604",
+            "short_ell2_r1_37:repair:54892",
+            "short_ell2_r1_37:repair:54895",
+            "short_ell2_r1_37:repair:54897"
+          ],
+          "macro_trace_length": 26,
+          "macro_trace_sha256": "42a112befde6226fcc0b958f05f5ca40549f7fb2ee7a2c582196ea35f5c673c0",
+          "node_id": "short_ell2_r1_37:54898",
+          "parent_node_id": "short_ell2_r1_37:54896"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 78,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 78,
+          "exact_state_hash": "099cd82ace1b884f1dd00110baed59eb213d6b88c66e6daf216e1318afbf9d82",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54600",
+            "short_ell2_r1_37:repair:54604",
+            "short_ell2_r1_37:repair:54892",
+            "short_ell2_r1_37:repair:54895",
+            "short_ell2_r1_37:repair:54896",
+            "short_ell2_r1_37:repair:54900",
+            "short_ell2_r1_37:repair:54948",
+            "short_ell2_r1_37:repair:54952",
+            "short_ell2_r1_37:repair:54963",
+            "short_ell2_r1_37:repair:54993",
+            "short_ell2_r1_37:repair:54995",
+            "short_ell2_r1_37:repair:55013"
+          ],
+          "macro_trace_length": 33,
+          "macro_trace_sha256": "0c7a37fc8df4f6b82ac839dd2aba2ce53bdc77723ce7047c5a14fcc1773164bd",
+          "node_id": "short_ell2_r1_37:55014",
+          "parent_node_id": "short_ell2_r1_37:54996"
+        },
+        {
+          "decoration": {
+            "branch": "OTHER_OR_UNDECIDED",
+            "completer": {
+              "kind": "Z2",
+              "macro_index": 4,
+              "source_orbit": 129,
+              "source_phase": 4,
+              "target_orbit": 9,
+              "target_phase": 2
+            },
+            "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+            "hub_id": 0,
+            "hub_touch_count": 1,
+            "macro_index": 79,
+            "o_star": 9,
+            "r_events": [
+              {
+                "kind": "R",
+                "macro_index": 45,
+                "source_orbit": 126,
+                "source_phase": 2,
+                "target_orbit": 91,
+                "target_phase": 3
+              }
+            ],
+            "root_ell": 2,
+            "root_id": "short_ell2"
+          },
+          "depth": 79,
+          "exact_state_hash": "f8cffcbb407fd0b90d18ce82a765e59481422445674251697a939c13c213647d",
+          "lineage": [
+            "short_ell2_r1_37:repair:0",
+            "short_ell2_r1_37:repair:1",
+            "short_ell2_r1_37:repair:4",
+            "short_ell2_r1_37:repair:7",
+            "short_ell2_r1_37:repair:8",
+            "short_ell2_r1_37:repair:9",
+            "short_ell2_r1_37:repair:10",
+            "short_ell2_r1_37:repair:13",
+            "short_ell2_r1_37:repair:14",
+            "short_ell2_r1_37:repair:16",
+            "short_ell2_r1_37:repair:18",
+            "short_ell2_r1_37:repair:21",
+            "short_ell2_r1_37:repair:40132",
+            "short_ell2_r1_37:repair:40135",
+            "short_ell2_r1_37:repair:49154",
+            "short_ell2_r1_37:repair:49158",
+            "short_ell2_r1_37:repair:54170",
+            "short_ell2_r1_37:repair:54171",
+            "short_ell2_r1_37:repair:54175",
+            "short_ell2_r1_37:repair:54597",
+            "short_ell2_r1_37:repair:54599",
+            "short_ell2_r1_37:repair:54600",
+            "short_ell2_r1_37:repair:54604",
+            "short_ell2_r1_37:repair:54892",
+            "short_ell2_r1_37:repair:54895",
+            "short_ell2_r1_37:repair:54896",
+            "short_ell2_r1_37:repair:54900",
+            "short_ell2_r1_37:repair:54948",
+            "short_ell2_r1_37:repair:54952",
+            "short_ell2_r1_37:repair:54963",
+            "short_ell2_r1_37:repair:54993",
+            "short_ell2_r1_37:repair:54995",
+            "short_ell2_r1_37:repair:55012",
+            "short_ell2_r1_37:repair:55015"
+          ],
+          "macro_trace_length": 34,
+          "macro_trace_sha256": "1ab1dfa375e69638dad4aa9500865dfa9b6a7c6196b1d4bbfb5891634a1dfe10",
+          "node_id": "short_ell2_r1_37:55016",
+          "parent_node_id": "short_ell2_r1_37:55013"
+        }
+      ],
+      "frontier_size": 19,
+      "max_depth": 100,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "nearest_profile": {
+        "bridge_template_occurrences": 0,
+        "literal_target_a_hits": 0,
+        "r2_hierarchy": {
+          "R0": 23728,
+          "R2": 2554
+        },
+        "r2_outcomes": {
+          "not_same_component": 2554,
+          "recognizer_geometry_failure": 23728
+        }
+      },
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 26282
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 23728,
+          "R2": 2554
+        },
+        "literal_replayed": 26282,
+        "outcomes": {
+          "not_same_component": 2554,
+          "recognizer_geometry_failure": 23728
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 409,
+            "orbit": 66,
+            "phase": 3
+          },
+          {
+            "count": 404,
+            "orbit": 45,
+            "phase": 3
+          },
+          {
+            "count": 362,
+            "orbit": 61,
+            "phase": 4
+          },
+          {
+            "count": 320,
+            "orbit": 112,
+            "phase": 3
+          },
+          {
+            "count": 314,
+            "orbit": 130,
+            "phase": 0
+          },
+          {
+            "count": 298,
+            "orbit": 131,
+            "phase": 2
+          },
+          {
+            "count": 285,
+            "orbit": 136,
+            "phase": 4
+          },
+          {
+            "count": 285,
+            "orbit": 45,
+            "phase": 0
+          },
+          {
+            "count": 279,
+            "orbit": 78,
+            "phase": 0
+          },
+          {
+            "count": 276,
+            "orbit": 69,
+            "phase": 0
+          },
+          {
+            "count": 273,
+            "orbit": 131,
+            "phase": 0
+          },
+          {
+            "count": 266,
+            "orbit": 58,
+            "phase": 1
+          },
+          {
+            "count": 263,
+            "orbit": 22,
+            "phase": 1
+          },
+          {
+            "count": 262,
+            "orbit": 50,
+            "phase": 3
+          },
+          {
+            "count": 260,
+            "orbit": 75,
+            "phase": 3
+          },
+          {
+            "count": 259,
+            "orbit": 94,
+            "phase": 3
+          },
+          {
+            "count": 257,
+            "orbit": 19,
+            "phase": 1
+          },
+          {
+            "count": 256,
+            "orbit": 40,
+            "phase": 4
+          },
+          {
+            "count": 253,
+            "orbit": 116,
+            "phase": 2
+          },
+          {
+            "count": 252,
+            "orbit": 37,
+            "phase": 2
+          }
+        ],
+        "total": 26282
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 55018,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 55018,
+        "types": {
+          "Z2": 22272,
+          "Z3_fresh": 32746
+        }
+      },
+      "total_expansions": 55000,
+      "trusted_immutable_anchor": {
+        "r1_child_origin_hash": "a90ad6bc56ef9dd3032a9d36ca89c67a2afd91afcd70b6e1b396d293ac8abb8b",
+        "r1_literal_trace_length": 45,
+        "r1_literal_trace_sha256": "7e6644e1b0eaf2ba28f3f7b7ec6e8efb76ab8edc1f89c8f454159a0f52a5aff4",
+        "root_hash": "21b933221426421e7cca8b2cfed1f786769871486d008ed7998c7337d55053c1",
+        "root_id": "short_ell2",
+        "v5_source_checkpoint": "outputs\\checkpoints\\rr_short5\\corrected_v5\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+        "v5_source_sha256": "be6ecd6d9ef9a58b1599bd8df6ec2fe76d3c6ffffb0cfd84c5c42347de397fb1"
+      },
+      "v6_frontier_engine_state_sha256": "9465498b993a042bfb0c9604e6b3a7a5f02fa31b0b2f6b139992e9738729dbd5"
+    }
+  ],
+  "exhausted_certificates": [
+    {
+      "additional_v6_expansions": 35457,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell4\\short_ell4_r1_12\\checkpoint.json",
+      "checkpoint_sha256": "d466df1f8cfaefe7d1d21ba908ca1b47ae397f0e7f897a3927973a74b1ff2ef2",
+      "child_id": "short_ell4_r1_12",
+      "empty_frontier_certificate": {
+        "checkpoint_schema": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source",
+        "complete_frontier_snapshot": true,
+        "component_merge_count": 0,
+        "config_sha256": "cd5a45730d0d844f6399f9bab0fcbc05c4cd15bc1ad91e410dc77773dc6c2c08",
+        "frontier_count": 0,
+        "r2_candidate_count": 19422,
+        "repair_candidate_count": 40456,
+        "terminal_prune_histogram": {
+          "prune:exact_permutation_collision": 621501,
+          "prune:outside_RR_joint_model": 220991,
+          "prune:target_a_semantic_v1:F_exceeded": 68598
+        }
+      },
+      "endpoint": "NATURALLY_EXHAUSTED",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_size": 0,
+      "max_depth": 99,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 19422
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 17351,
+          "R2": 2071
+        },
+        "literal_replayed": 19422,
+        "outcomes": {
+          "not_same_component": 2071,
+          "recognizer_geometry_failure": 17351
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 373,
+            "orbit": 123,
+            "phase": 1
+          },
+          {
+            "count": 358,
+            "orbit": 123,
+            "phase": 2
+          },
+          {
+            "count": 290,
+            "orbit": 103,
+            "phase": 4
+          },
+          {
+            "count": 279,
+            "orbit": 33,
+            "phase": 2
+          },
+          {
+            "count": 253,
+            "orbit": 141,
+            "phase": 1
+          },
+          {
+            "count": 235,
+            "orbit": 112,
+            "phase": 4
+          },
+          {
+            "count": 232,
+            "orbit": 113,
+            "phase": 3
+          },
+          {
+            "count": 221,
+            "orbit": 140,
+            "phase": 0
+          },
+          {
+            "count": 218,
+            "orbit": 58,
+            "phase": 1
+          },
+          {
+            "count": 211,
+            "orbit": 107,
+            "phase": 3
+          },
+          {
+            "count": 209,
+            "orbit": 68,
+            "phase": 1
+          },
+          {
+            "count": 208,
+            "orbit": 79,
+            "phase": 1
+          },
+          {
+            "count": 204,
+            "orbit": 27,
+            "phase": 0
+          },
+          {
+            "count": 204,
+            "orbit": 137,
+            "phase": 3
+          },
+          {
+            "count": 203,
+            "orbit": 102,
+            "phase": 4
+          },
+          {
+            "count": 203,
+            "orbit": 129,
+            "phase": 2
+          },
+          {
+            "count": 198,
+            "orbit": 31,
+            "phase": 4
+          },
+          {
+            "count": 191,
+            "orbit": 30,
+            "phase": 0
+          },
+          {
+            "count": 189,
+            "orbit": 82,
+            "phase": 0
+          },
+          {
+            "count": 187,
+            "orbit": 117,
+            "phase": 0
+          }
+        ],
+        "total": 19422
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 40456,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 40456,
+        "types": {
+          "Z2": 16856,
+          "Z3_fresh": 23600
+        }
+      },
+      "total_expansions": 40457
+    },
+    {
+      "additional_v6_expansions": 461,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell1\\short_ell1_r1_98\\checkpoint.json",
+      "checkpoint_sha256": "99a1451f48c050bf9b97a1d08d43e21ebbc5fbe8d5c42e646cb692930281d328",
+      "child_id": "short_ell1_r1_98",
+      "empty_frontier_certificate": {
+        "checkpoint_schema": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source",
+        "complete_frontier_snapshot": true,
+        "component_merge_count": 0,
+        "config_sha256": "23925a9b9fad4af44149e5df32a3c3d814e4c7f1c1926eb1758c20054dd13b10",
+        "frontier_count": 0,
+        "r2_candidate_count": 2368,
+        "repair_candidate_count": 5460,
+        "terminal_prune_histogram": {
+          "prune:exact_permutation_collision": 84409,
+          "prune:outside_RR_joint_model": 28586,
+          "prune:target_a_semantic_v1:F_exceeded": 10240
+        }
+      },
+      "endpoint": "NATURALLY_EXHAUSTED",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_size": 0,
+      "max_depth": 92,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 2368
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 2174,
+          "R2": 194
+        },
+        "literal_replayed": 2368,
+        "outcomes": {
+          "not_same_component": 194,
+          "recognizer_geometry_failure": 2174
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 54,
+            "orbit": 45,
+            "phase": 3
+          },
+          {
+            "count": 50,
+            "orbit": 76,
+            "phase": 4
+          },
+          {
+            "count": 49,
+            "orbit": 109,
+            "phase": 1
+          },
+          {
+            "count": 48,
+            "orbit": 81,
+            "phase": 4
+          },
+          {
+            "count": 46,
+            "orbit": 121,
+            "phase": 1
+          },
+          {
+            "count": 45,
+            "orbit": 70,
+            "phase": 0
+          },
+          {
+            "count": 44,
+            "orbit": 102,
+            "phase": 1
+          },
+          {
+            "count": 43,
+            "orbit": 61,
+            "phase": 2
+          },
+          {
+            "count": 39,
+            "orbit": 80,
+            "phase": 4
+          },
+          {
+            "count": 36,
+            "orbit": 91,
+            "phase": 2
+          },
+          {
+            "count": 36,
+            "orbit": 72,
+            "phase": 3
+          },
+          {
+            "count": 36,
+            "orbit": 45,
+            "phase": 0
+          },
+          {
+            "count": 34,
+            "orbit": 1,
+            "phase": 1
+          },
+          {
+            "count": 34,
+            "orbit": 68,
+            "phase": 0
+          },
+          {
+            "count": 33,
+            "orbit": 110,
+            "phase": 0
+          },
+          {
+            "count": 33,
+            "orbit": 27,
+            "phase": 0
+          },
+          {
+            "count": 32,
+            "orbit": 85,
+            "phase": 3
+          },
+          {
+            "count": 30,
+            "orbit": 132,
+            "phase": 0
+          },
+          {
+            "count": 30,
+            "orbit": 67,
+            "phase": 1
+          },
+          {
+            "count": 29,
+            "orbit": 37,
+            "phase": 1
+          }
+        ],
+        "total": 2368
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 5460,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 5460,
+        "types": {
+          "Z2": 2311,
+          "Z3_fresh": 3149
+        }
+      },
+      "total_expansions": 5461
+    },
+    {
+      "additional_v6_expansions": 697,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell2\\short_ell2_r1_40\\checkpoint.json",
+      "checkpoint_sha256": "3a9d3af649422e809c008af6890d133973eea9b09c2169fad375d0f1ba8a2c11",
+      "child_id": "short_ell2_r1_40",
+      "empty_frontier_certificate": {
+        "checkpoint_schema": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source",
+        "complete_frontier_snapshot": true,
+        "component_merge_count": 0,
+        "config_sha256": "c5ac21cbacc7a3bee73c705ec92fe26d6fe0a190d054fdea30069d2fa68eb86b",
+        "frontier_count": 0,
+        "r2_candidate_count": 2813,
+        "repair_candidate_count": 5696,
+        "terminal_prune_histogram": {
+          "prune:exact_permutation_collision": 89732,
+          "prune:outside_RR_joint_model": 29171,
+          "prune:target_a_semantic_v1:F_exceeded": 9315
+        }
+      },
+      "endpoint": "NATURALLY_EXHAUSTED",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_size": 0,
+      "max_depth": 95,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 2813
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 2576,
+          "R2": 237
+        },
+        "literal_replayed": 2813,
+        "outcomes": {
+          "not_same_component": 237,
+          "recognizer_geometry_failure": 2576
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 85,
+            "orbit": 72,
+            "phase": 0
+          },
+          {
+            "count": 71,
+            "orbit": 78,
+            "phase": 0
+          },
+          {
+            "count": 60,
+            "orbit": 131,
+            "phase": 0
+          },
+          {
+            "count": 57,
+            "orbit": 61,
+            "phase": 4
+          },
+          {
+            "count": 54,
+            "orbit": 70,
+            "phase": 0
+          },
+          {
+            "count": 46,
+            "orbit": 116,
+            "phase": 0
+          },
+          {
+            "count": 43,
+            "orbit": 37,
+            "phase": 2
+          },
+          {
+            "count": 42,
+            "orbit": 110,
+            "phase": 2
+          },
+          {
+            "count": 42,
+            "orbit": 136,
+            "phase": 4
+          },
+          {
+            "count": 42,
+            "orbit": 50,
+            "phase": 2
+          },
+          {
+            "count": 41,
+            "orbit": 75,
+            "phase": 3
+          },
+          {
+            "count": 41,
+            "orbit": 46,
+            "phase": 1
+          },
+          {
+            "count": 40,
+            "orbit": 66,
+            "phase": 3
+          },
+          {
+            "count": 39,
+            "orbit": 66,
+            "phase": 4
+          },
+          {
+            "count": 38,
+            "orbit": 141,
+            "phase": 2
+          },
+          {
+            "count": 37,
+            "orbit": 103,
+            "phase": 1
+          },
+          {
+            "count": 36,
+            "orbit": 22,
+            "phase": 1
+          },
+          {
+            "count": 35,
+            "orbit": 114,
+            "phase": 1
+          },
+          {
+            "count": 35,
+            "orbit": 56,
+            "phase": 3
+          },
+          {
+            "count": 35,
+            "orbit": 130,
+            "phase": 0
+          }
+        ],
+        "total": 2813
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 5696,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 5696,
+        "types": {
+          "Z2": 2574,
+          "Z3_fresh": 3122
+        }
+      },
+      "total_expansions": 5697
+    },
+    {
+      "additional_v6_expansions": 22737,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell3\\short_ell3_r1_64\\checkpoint.json",
+      "checkpoint_sha256": "06ee4ef02699a9140587552c3a47f614368ca6c2ca73bae7a626c7528f8c527e",
+      "child_id": "short_ell3_r1_64",
+      "empty_frontier_certificate": {
+        "checkpoint_schema": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source",
+        "complete_frontier_snapshot": true,
+        "component_merge_count": 0,
+        "config_sha256": "6051c7fa9369ea0989aa469afa6127c736a24039aab13723082c8b9b215ad1b7",
+        "frontier_count": 0,
+        "r2_candidate_count": 12848,
+        "repair_candidate_count": 27736,
+        "terminal_prune_histogram": {
+          "prune:exact_permutation_collision": 432902,
+          "prune:outside_RR_joint_model": 144701,
+          "prune:target_a_semantic_v1:F_exceeded": 47500
+        }
+      },
+      "endpoint": "NATURALLY_EXHAUSTED",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_size": 0,
+      "max_depth": 98,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 12848
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 11583,
+          "R2": 1265
+        },
+        "literal_replayed": 12848,
+        "outcomes": {
+          "not_same_component": 1265,
+          "recognizer_geometry_failure": 11583
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 339,
+            "orbit": 16,
+            "phase": 2
+          },
+          {
+            "count": 255,
+            "orbit": 10,
+            "phase": 2
+          },
+          {
+            "count": 251,
+            "orbit": 138,
+            "phase": 3
+          },
+          {
+            "count": 217,
+            "orbit": 75,
+            "phase": 3
+          },
+          {
+            "count": 197,
+            "orbit": 89,
+            "phase": 2
+          },
+          {
+            "count": 193,
+            "orbit": 64,
+            "phase": 2
+          },
+          {
+            "count": 192,
+            "orbit": 50,
+            "phase": 3
+          },
+          {
+            "count": 189,
+            "orbit": 112,
+            "phase": 3
+          },
+          {
+            "count": 170,
+            "orbit": 104,
+            "phase": 1
+          },
+          {
+            "count": 169,
+            "orbit": 139,
+            "phase": 3
+          },
+          {
+            "count": 166,
+            "orbit": 40,
+            "phase": 4
+          },
+          {
+            "count": 165,
+            "orbit": 74,
+            "phase": 3
+          },
+          {
+            "count": 148,
+            "orbit": 130,
+            "phase": 4
+          },
+          {
+            "count": 146,
+            "orbit": 36,
+            "phase": 4
+          },
+          {
+            "count": 144,
+            "orbit": 88,
+            "phase": 3
+          },
+          {
+            "count": 143,
+            "orbit": 94,
+            "phase": 2
+          },
+          {
+            "count": 140,
+            "orbit": 88,
+            "phase": 1
+          },
+          {
+            "count": 139,
+            "orbit": 37,
+            "phase": 2
+          },
+          {
+            "count": 137,
+            "orbit": 114,
+            "phase": 1
+          },
+          {
+            "count": 137,
+            "orbit": 93,
+            "phase": 0
+          }
+        ],
+        "total": 12848
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 27736,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 27736,
+        "types": {
+          "Z2": 11113,
+          "Z3_fresh": 16623
+        }
+      },
+      "total_expansions": 27737
+    },
+    {
+      "additional_v6_expansions": 731,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell2\\short_ell2_r1_107\\checkpoint.json",
+      "checkpoint_sha256": "5b3234f89f6483f9f57fd1d0ffaa12ed29f40ba4c72d8427156ac6846cc884af",
+      "child_id": "short_ell2_r1_107",
+      "empty_frontier_certificate": {
+        "checkpoint_schema": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source",
+        "complete_frontier_snapshot": true,
+        "component_merge_count": 0,
+        "config_sha256": "0077722ea8c4db0d3092c06f6f4d3feb12539aa8de6828cbccef3cc31839539c",
+        "frontier_count": 0,
+        "r2_candidate_count": 2721,
+        "repair_candidate_count": 5730,
+        "terminal_prune_histogram": {
+          "prune:exact_permutation_collision": 90851,
+          "prune:outside_RR_joint_model": 29107,
+          "prune:target_a_semantic_v1:F_exceeded": 9135
+        }
+      },
+      "endpoint": "NATURALLY_EXHAUSTED",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_size": 0,
+      "max_depth": 95,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 2721
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 2501,
+          "R2": 220
+        },
+        "literal_replayed": 2721,
+        "outcomes": {
+          "not_same_component": 220,
+          "recognizer_geometry_failure": 2501
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 69,
+            "orbit": 78,
+            "phase": 0
+          },
+          {
+            "count": 59,
+            "orbit": 131,
+            "phase": 0
+          },
+          {
+            "count": 57,
+            "orbit": 61,
+            "phase": 4
+          },
+          {
+            "count": 50,
+            "orbit": 82,
+            "phase": 1
+          },
+          {
+            "count": 47,
+            "orbit": 116,
+            "phase": 0
+          },
+          {
+            "count": 45,
+            "orbit": 56,
+            "phase": 3
+          },
+          {
+            "count": 44,
+            "orbit": 64,
+            "phase": 2
+          },
+          {
+            "count": 43,
+            "orbit": 70,
+            "phase": 0
+          },
+          {
+            "count": 43,
+            "orbit": 50,
+            "phase": 2
+          },
+          {
+            "count": 42,
+            "orbit": 66,
+            "phase": 4
+          },
+          {
+            "count": 41,
+            "orbit": 136,
+            "phase": 4
+          },
+          {
+            "count": 41,
+            "orbit": 71,
+            "phase": 4
+          },
+          {
+            "count": 39,
+            "orbit": 110,
+            "phase": 2
+          },
+          {
+            "count": 37,
+            "orbit": 103,
+            "phase": 1
+          },
+          {
+            "count": 37,
+            "orbit": 46,
+            "phase": 1
+          },
+          {
+            "count": 37,
+            "orbit": 130,
+            "phase": 0
+          },
+          {
+            "count": 36,
+            "orbit": 45,
+            "phase": 3
+          },
+          {
+            "count": 36,
+            "orbit": 22,
+            "phase": 1
+          },
+          {
+            "count": 35,
+            "orbit": 75,
+            "phase": 3
+          },
+          {
+            "count": 35,
+            "orbit": 66,
+            "phase": 3
+          }
+        ],
+        "total": 2721
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 5730,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 5730,
+        "types": {
+          "Z2": 2524,
+          "Z3_fresh": 3206
+        }
+      },
+      "total_expansions": 5731
+    },
+    {
+      "additional_v6_expansions": 7737,
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell3\\short_ell3_r1_56\\checkpoint.json",
+      "checkpoint_sha256": "b1cd8d68b4b4757c9c43fe2ba8fea0c9b76129ca0e7ae8ec7c94c7b74824e3e7",
+      "child_id": "short_ell3_r1_56",
+      "empty_frontier_certificate": {
+        "checkpoint_schema": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source",
+        "complete_frontier_snapshot": true,
+        "component_merge_count": 0,
+        "config_sha256": "ebd92d2eb709a0a1412ab65c99604e7ec49fba402c06ed242897fc09946474c0",
+        "frontier_count": 0,
+        "r2_candidate_count": 6059,
+        "repair_candidate_count": 12736,
+        "terminal_prune_histogram": {
+          "prune:exact_permutation_collision": 195982,
+          "prune:outside_RR_joint_model": 68198,
+          "prune:target_a_semantic_v1:F_exceeded": 22713
+        }
+      },
+      "endpoint": "NATURALLY_EXHAUSTED",
+      "engine_state_hash_definition": "SHA-256 of canonical frontier-state records (node id, exact state hash, decoration, lineage)",
+      "engine_state_validated_by": "rr-short5-top8-continuation-verifier-v1",
+      "frontier_size": 0,
+      "max_depth": 100,
+      "missing_v6_auxiliary_provenance_fields": [
+        "top8_continuation.schema",
+        "top8_continuation.source_checkpoint",
+        "top8_continuation.source_sha256",
+        "top8_continuation.base_expanded",
+        "top8_continuation.additional_budget"
+      ],
+      "r2_profile": {
+        "hierarchy_failures": {
+          "repair_not_component_merging": 6059
+        },
+        "hierarchy_maximum_levels": {
+          "R0": 5678,
+          "R2": 381
+        },
+        "literal_replayed": 6059,
+        "outcomes": {
+          "not_same_component": 381,
+          "recognizer_geometry_failure": 5678
+        },
+        "target_a_hits": [],
+        "top_literal_source_orbit_phase": [
+          {
+            "count": 203,
+            "orbit": 16,
+            "phase": 2
+          },
+          {
+            "count": 146,
+            "orbit": 69,
+            "phase": 0
+          },
+          {
+            "count": 125,
+            "orbit": 138,
+            "phase": 3
+          },
+          {
+            "count": 107,
+            "orbit": 10,
+            "phase": 2
+          },
+          {
+            "count": 98,
+            "orbit": 40,
+            "phase": 4
+          },
+          {
+            "count": 97,
+            "orbit": 89,
+            "phase": 2
+          },
+          {
+            "count": 94,
+            "orbit": 75,
+            "phase": 0
+          },
+          {
+            "count": 85,
+            "orbit": 75,
+            "phase": 3
+          },
+          {
+            "count": 82,
+            "orbit": 116,
+            "phase": 1
+          },
+          {
+            "count": 80,
+            "orbit": 88,
+            "phase": 1
+          },
+          {
+            "count": 79,
+            "orbit": 130,
+            "phase": 4
+          },
+          {
+            "count": 78,
+            "orbit": 28,
+            "phase": 1
+          },
+          {
+            "count": 78,
+            "orbit": 74,
+            "phase": 3
+          },
+          {
+            "count": 78,
+            "orbit": 92,
+            "phase": 1
+          },
+          {
+            "count": 78,
+            "orbit": 24,
+            "phase": 0
+          },
+          {
+            "count": 77,
+            "orbit": 50,
+            "phase": 3
+          },
+          {
+            "count": 75,
+            "orbit": 139,
+            "phase": 3
+          },
+          {
+            "count": 70,
+            "orbit": 110,
+            "phase": 3
+          },
+          {
+            "count": 70,
+            "orbit": 27,
+            "phase": 3
+          },
+          {
+            "count": 68,
+            "orbit": 130,
+            "phase": 3
+          }
+        ],
+        "total": 6059
+      },
+      "repair_profile": {
+        "bridge_template_matches": 0,
+        "component_merges": 0,
+        "literal_replayed": 12736,
+        "r1_target_hub_merges": 0,
+        "repair_type_violations": [],
+        "target_hex_in_hub_component": 0,
+        "total": 12736,
+        "types": {
+          "Z2": 5166,
+          "Z3_fresh": 7570
+        }
+      },
+      "total_expansions": 12737
+    }
+  ],
+  "input": {
+    "analysis_sha256": "d627e5b4c00d55d8bc7ce50ebc4dad0e835e3abcdfc37d3457754db93a18f6d9",
+    "v6_result_sha256": "155012394a9a41a7a53406e883ca4fd96191dce4997fcdcfa835e41ea4e9381a",
+    "verification_sha256": "90cf8a1b079ff16848ab6d2eafc8e205ed9f339371217d0629c08343cc0eb81f"
+  },
+  "schema": "rr-short5-top8-official-ledger-v1",
+  "scope": "v6 fixed 50,000-additional endpoint corpus"
+}

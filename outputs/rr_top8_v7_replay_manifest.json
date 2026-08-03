@@ -1,0 +1,91 @@
+{
+  "forbidden": [
+    "resume v6 with missing metadata",
+    "infer provenance from absent top8_continuation field",
+    "start a search in this planning round"
+  ],
+  "per_capped_child": [
+    {
+      "child_id": "short_ell2_r1_70",
+      "frontier_anchor_count": 11,
+      "trusted_anchor": {
+        "r1_child_origin_hash": "04eea0d7b583a9213d04ff79922dc2a2a2e69c5319333a85db9154d0be21369d",
+        "r1_literal_trace_length": 55,
+        "r1_literal_trace_sha256": "890c9c68d19c5d9652a2de99d860ff4851590ef4469115ef4252b192bff2c098",
+        "root_hash": "21b933221426421e7cca8b2cfed1f786769871486d008ed7998c7337d55053c1",
+        "root_id": "short_ell2",
+        "v5_source_checkpoint": "outputs\\checkpoints\\rr_short5\\corrected_v5\\short_ell2\\short_ell2_r1_70\\checkpoint.json",
+        "v5_source_sha256": "8eae0f896cbf99641c59e7dde42508769aa70cce819ba20bd7a691bd762f56dd"
+      },
+      "v6_endpoint_checkpoint": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell2\\short_ell2_r1_70\\checkpoint.json",
+      "v6_endpoint_sha256": "d42a446eb125364a7cd2786504f9ca790ded10b556e861137b788f3b2ff43587",
+      "v6_frontier_engine_state_sha256": "0de5382a5d102db6cff1f54b02526cbdc04674c5aecf5a3d6153555b11bb2850",
+      "validation_steps": [
+        "literal replay from immutable v5 R1 anchor through every parent-DAG macro trace",
+        "recompute all provenance fields without deserializing missing v6 auxiliary metadata",
+        "compare exact state hash, decoration, decorated key, and frontier-state digest to v6",
+        "compare legal successor signatures for every endpoint frontier state",
+        "compare exact literal-R2 recognizer outputs for every legal R2 candidate",
+        "require a separate read-only independent verifier before any v7 traversal"
+      ]
+    },
+    {
+      "child_id": "short_ell2_r1_37",
+      "frontier_anchor_count": 19,
+      "trusted_anchor": {
+        "r1_child_origin_hash": "a90ad6bc56ef9dd3032a9d36ca89c67a2afd91afcd70b6e1b396d293ac8abb8b",
+        "r1_literal_trace_length": 45,
+        "r1_literal_trace_sha256": "7e6644e1b0eaf2ba28f3f7b7ec6e8efb76ab8edc1f89c8f454159a0f52a5aff4",
+        "root_hash": "21b933221426421e7cca8b2cfed1f786769871486d008ed7998c7337d55053c1",
+        "root_id": "short_ell2",
+        "v5_source_checkpoint": "outputs\\checkpoints\\rr_short5\\corrected_v5\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+        "v5_source_sha256": "be6ecd6d9ef9a58b1599bd8df6ec2fe76d3c6ffffb0cfd84c5c42347de397fb1"
+      },
+      "v6_endpoint_checkpoint": "outputs\\checkpoints\\rr_short5\\top8_continuation_v6\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+      "v6_endpoint_sha256": "36404b918ffe335bbfa5607cb1a187ab85e16b416e123028be31eaddcee2f671",
+      "v6_frontier_engine_state_sha256": "9465498b993a042bfb0c9604e6b3a7a5f02fa31b0b2f6b139992e9738729dbd5",
+      "validation_steps": [
+        "literal replay from immutable v5 R1 anchor through every parent-DAG macro trace",
+        "recompute all provenance fields without deserializing missing v6 auxiliary metadata",
+        "compare exact state hash, decoration, decorated key, and frontier-state digest to v6",
+        "compare legal successor signatures for every endpoint frontier state",
+        "compare exact literal-R2 recognizer outputs for every legal R2 candidate",
+        "require a separate read-only independent verifier before any v7 traversal"
+      ]
+    }
+  ],
+  "proposed_checkpoint_schema": "rr-short5-top8-replay-validated-checkpoint-v7",
+  "proposed_provenance": [
+    "trusted_v5_source_checkpoint and SHA-256",
+    "v6_endpoint_checkpoint and SHA-256",
+    "v6_frontier_engine_state_sha256",
+    "root and R1-child origin hashes",
+    "R1 literal trace hash",
+    "engine/driver/recognizer semantics SHA-256",
+    "initialization verifier SHA-256"
+  ],
+  "reason": "It is the smallest rigorously scoped next batch, preserves exact provenance, and can add exact empty-frontier certificates without extrapolating capped observations.",
+  "recommendation": "A_deepen_two_capped_after_v7_validation",
+  "schema": "rr-top8-v7-replay-manifest-v1",
+  "status": "PLAN_ONLY_NO_SEARCH_STARTED",
+  "strategy_comparison": {
+    "A_deepen_two_capped": {
+      "estimate": "two new replay-validated branches; a first equal increment of 50,000 each is 100,000 exact expansions, with current endpoint checkpoints about 0.73 and 0.81 GiB",
+      "exhaustion_likelihood": "plausible but unproved",
+      "new_target_a_likelihood": "moderate relative to alternatives; these are the only top8 frontiers already known to survive",
+      "proof_value": "highest near-term: may convert one or both small frontiers into exact empty-frontier certificates"
+    },
+    "B_other_105_capped": {
+      "estimate": "breadth-first pilot at the same 50,000 cap would be up to 5,250,000 extra exact expansions plus checkpoint storage",
+      "exhaustion_likelihood": "low per unit cost because every selected child is already capped",
+      "new_target_a_likelihood": "unknown; no theorem ranks them above the two current frontiers",
+      "proof_value": "broader Target-A discovery coverage but little immediate closure"
+    },
+    "C_hand_theorem": {
+      "estimate": "small computation but open-ended mathematical effort",
+      "exhaustion_likelihood": "not applicable; six-of-eight and zero bridge observations do not yet imply a theorem",
+      "new_target_a_likelihood": "not applicable",
+      "proof_value": "maximal if successful"
+    }
+  }
+}

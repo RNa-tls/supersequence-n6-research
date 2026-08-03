@@ -1,0 +1,61 @@
+{
+  "call_sites": [
+    {
+      "effect": "metadata exists only before the first shared checkpoint rewrite",
+      "file": "src/search_rr_short5_top8_continuation.py",
+      "lines": "45-49",
+      "role": "adds v6-only top8_continuation then invokes shared writer"
+    },
+    {
+      "effect": "does not carry unrecognised top-level fields",
+      "file": "src/search_rr_short1_4_corrected_fair.py",
+      "lines": "311-318",
+      "role": "checkpoint_payload whitelist serializer"
+    },
+    {
+      "effect": "replaces v6 bootstrap payload with whitelist payload",
+      "file": "src/search_rr_short1_4_corrected_fair.py",
+      "lines": "454-465",
+      "role": "atomic checkpoint write"
+    },
+    {
+      "effect": "later resume requires source_sha256 that the shared writer dropped",
+      "file": "src/search_rr_short5_top8_continuation.py",
+      "lines": "46-48",
+      "role": "v6 resume guard"
+    }
+  ],
+  "finding": "AUXILIARY_PROVENANCE_NOT_CLOSED_UNDER_V5_CHECKPOINT_SERIALIZER",
+  "first_affected_checkpoint_version": "rr-short1-4-corrected-fair-checkpoint-v5-literal-r2-source used as v6 payload",
+  "first_defective_write": "first pilot.run_branch atomic checkpoint rewrite after v6 bootstrap",
+  "impact": {
+    "v5": "not affected: v5 never asserted these v6 wrapper fields",
+    "v6_completed_analysis": "not affected: source SHA externally anchored by v5 aggregate and all engine-state replay checks pass",
+    "v6_same_driver_resume": "unsafe: the wrapper requires the omitted source_sha256"
+  },
+  "lost_fields": [
+    "top8_continuation.schema",
+    "top8_continuation.source_checkpoint",
+    "top8_continuation.source_sha256",
+    "top8_continuation.base_expanded",
+    "top8_continuation.additional_budget"
+  ],
+  "not_lost": [
+    "checkpoint schema",
+    "config including engine/recognizer hash",
+    "root",
+    "R1 child",
+    "frontier",
+    "seen keys",
+    "nodes/parent DAG",
+    "repair events",
+    "R2 paths",
+    "stats",
+    "complete_frontier_snapshot"
+  ],
+  "remediation": "Do not modify v6 checkpoints. Reconstruct a fresh v7 payload by literal replay from the immutable v5 anchor and compare it to v6 endpoint states.",
+  "schema": "rr-v6-provenance-loss-audit-v1",
+  "severity": "resume metadata unsafe; completed engine-state analysis unaffected",
+  "shared_writer_commit": "4785cc6",
+  "v6_introducing_commit": "06dae7c"
+}
