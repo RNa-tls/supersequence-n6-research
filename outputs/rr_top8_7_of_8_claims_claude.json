@@ -1,0 +1,69 @@
+{
+  "schema": "rr-top8-7-of-8-claims-claude-v1",
+  "author": "Claude",
+  "role": "conditional proof-significance analyst -- v7 7-of-8 result unverified",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no commit or branch was cited this round, and none was found. git fetch origin --prune and git fetch --all --prune show the same seven remote branches already known; codex/round-v6-endpoint-v7-plan is unchanged, still at 4792891 (independently verified last round, whose own manifest recorded status: PLAN_ONLY_NO_SEARCH_STARTED). No v7-result branch exists, no new commit anywhere, and a repository-wide search for this round's specific numbers (421221, 305000, B1-B6) returns nothing.",
+    "figures_asserted_not_verified": {
+      "seven_of_eight_exhausted": true,
+      "only_short_ell2_r1_37_capped": true,
+      "short_ell2_r1_37_expansions": 305000,
+      "short_ell2_r1_37_frontier": 22,
+      "total_verified_replay_nodes": 421221,
+      "R2_records": 204685,
+      "component_merge_bridge_target_a_target_b_all_zero": true,
+      "B1_B6_all_zero": true
+    },
+    "internal_inconsistency_flagged": {
+      "statement": "task 4 states '421,219 B0 states with no B1 event' while the headline figures state '421,221 nodes' -- a 2-node discrepancy within the same message, noted precisely rather than silently reconciled, independent of whether the underlying data exists at all"
+    },
+    "framing": "this document performs the requested six tasks CONDITIONALLY, exactly as done for the unverified v5 and v6 figures in prior rounds (both later confirmed accurate once real commits landed). Numeric conclusions are not promoted to confirmed facts anywhere in this document."
+  },
+  "section_1_strongest_exact_theorem": {
+    "label": "CLAUDE_OBSERVATION -- conditional",
+    "conditional_statement": "for each of the seven specific R1-provenance children (short_ell4_r1_12, short_ell1_r1_98, short_ell2_r1_40, short_ell3_r1_64, short_ell2_r1_107, short_ell3_r1_56, and now short_ell2_r1_70), under the literal-R2-source-corrected recognizer and the TARGET_A_SAFE_PROFILE prune set, the complete reachable continuation space contains no FOUND_TARGET_A outcome and no incidence-forest merge between the R1-target orbit's component and the hub component",
+    "grade": "a conjunction of seven independent, per-child exact certificates -- exact and strong for these seven specific children, but not a symbolic argument extending to an eighth child or to the remaining 431+105 children outside this top-8"
+  },
+  "section_2_why_one_capped_branch_blocks_family_theorem": {
+    "label": "CLAUDE_OBSERVATION -- logical form, not evidence weight",
+    "reasoning": "a family-wide claim is a universal statement over 8 cases; seven exact certificates verify seven of the eight instances and say nothing about the eighth, since an exact certificate for child A is silent about child B by construction. short_ell2_r1_37 is exactly the one instance the universal quantifier has not been discharged for. This is unaffected by how close to closure it reportedly is (frontier 22, if accurate) -- the gap is binary (checked/not yet checked), not a matter of degree"
+  },
+  "section_3_candidate_ranking_functions": {
+    "label": "CLAUDE_OBSERVATION -- explanatory candidates, not yet a proof",
+    "candidates": [
+      {"name": "F-budget exhaustion", "status": "already proven exact", "role": "every joint after the root must be forced/non-abandoning; explains dominance of literal-collision saturation in prune histograms"},
+      {"name": "total-orbit-count ceiling", "status": "structurally true but not yet quantified as a proof of zero-bridge", "role": "only Z3 opens a fresh orbit and ORBIT_COUNT is a fixed constant, giving a hard finite bound on branch length independent of the bridge question"},
+      {"name": "hub_touch_count <= 2", "status": "already proven exact", "role": "direct resource cap on returns to the hub hexagon"},
+      {"name": "R-budget (exactly 2 R events, second always terminal)", "status": "already proven exact", "role": "bounds branches to exactly one R2 attempt each"},
+      {"name": "source-orbit registration barrier", "status": "genuinely explanatory candidate, NOT yet a theorem", "role": "R1-target orbit's incidence-forest component, once isolated at admission, appears to stay isolated because forced Z2/Z3 continuations do not land on hub-registered hexagons; a precise combinatorial argument for WHY this coincidence essentially never occurs (e.g. a counting argument over the fixed HEX_POSITION/ORBIT_PHASE tables) has not been derived here or, so far as verifiable, anywhere else"}
+    ]
+  },
+  "section_4_large_zero_hit_count_interpretation": {
+    "label": "CLAUDE_OBSERVATION -- conditional, same grading discipline as prior rounds",
+    "structural_impossibility": {"verdict": "NOT_ESTABLISHED", "reasoning": "would require a combinatorial argument independent of the count itself -- see section_3's unfinished candidate"},
+    "missing_transition_type": {"verdict": "UNLIKELY_FOR_THE_UNDERLYING_ENGINE_SPECIFICALLY", "reasoning": "this session has already independently verified from source that iter_raw_macro_candidates (macro.rotation_runs x macro.NONROT_H0) is exhaustive over the complete RR move alphabet; that confidence cannot be extended to whatever 'B1' denotes this round since no file defining that term was found"},
+    "long_tail_rare_event": {"verdict": "PLAUSIBLE_AND_NOT_EXCLUDED", "reasoning": "a large but finite sample cannot distinguish 'never happens' from 'happens at a rate far below 1-in-400,000' without an independent rate-bounding argument"},
+    "bounded_evidence_only": {"verdict": "CORRECT_DEFAULT_GRADE", "reasoning": "consistent with every other zero-occurrence finding graded in this session's prior work -- strong, not a certificate, not yet a theorem"}
+  },
+  "section_5_smallest_counterexample_shape": {
+    "label": "CLAUDE_PROPOSAL -- restates the minimal template derived three rounds ago, scoped to short_ell2_r1_37",
+    "template": "a single legal, forced (non-abandoning) Z2 or Z3 edge, fired from some node in short_ell2_r1_37's (reportedly 22-node) frontier, whose target hexagon is already a member of the hub component in that frontier node's incidence forest and is NOT equal to hub_id itself -- followed by a legal R-kind edge (the branch's R2 candidate) whose target orbit is also in that now-merged component, with F_def==1, H==0, and hub_touch_count<=2 all still satisfied",
+    "minimality_argument": "nothing weaker can merge the two components at all (only Z2/Z3 can add a merging incidence-forest edge, and only given the specific hexagon coincidence); nothing beyond this single bridge-plus-R2 pair is needed once the merge occurs, since the recognizer's other conditions are ordinary, already-satisfied bookkeeping in this family",
+    "open_question": "whether this specific coincidence exists anywhere in short_ell2_r1_37's remaining frontier is exactly what this round's report does not resolve for this analyst -- no data file exists to check it against"
+  },
+  "section_6_recommended_next_step": {
+    "label": "CLAUDE_PROPOSAL -- conditional on the reported frontier size being accurate",
+    "recommendation": "frontier classification, not further blind deepening",
+    "reasoning": "at the reported scale (22 nodes), directly enumerating each remaining frontier node's legal successors and checking each explicitly against section_5's minimal template is cheaper, more decisive, and strictly more informative per unit effort than raising an expansion cap again -- it either finds the template realized (a constructive counterexample resolving the branch) or converts a large bounded observation into a finite, hand-checkable certificate for this one branch (22 explicit non-matches, verified by direct inspection rather than search volume)",
+    "conditionality": "if the true frontier is much larger than reported, deeper exact continuation would remain the more tractable option; this session cannot verify the frontier size this round, so the recommendation is conditional, not unconditional"
+  },
+  "explicit_non_claims": [
+    "does not confirm any figure in this round's report -- no commit or file was found to check them against",
+    "does not resolve the internal 421219-vs-421221 discrepancy -- flagged, not adjudicated, since no source data exists to determine which (if either) is correct",
+    "does not claim the top-8 bridge conjecture is proved, disproved, or quantifiably 'close' beyond the logical point in section_2 -- seven exact certificates plus one open case is seven proofs and one open problem, not a fraction of a proof",
+    "does not extend confidence about this project's own verified move-alphabet exhaustiveness to whatever B1-B6 denotes this round -- that term is undefined in any file this session can reach",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_TOP8_7_OF_8_ANALYSIS_READY"
+}
