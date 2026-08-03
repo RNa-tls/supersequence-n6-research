@@ -1,0 +1,108 @@
+{
+  "schema": "rr-short5-component-bridge-claims-claude-v1",
+  "author": "Claude",
+  "role": "short-root search analyst -- formal component-bridge derivation, no search run (Codex's continuation worker is the active search this round)",
+  "method_note": "pure source-grounded derivation from three already-verified files (legacy_research/work/superperm_partial_f1.py's extend/ExactState; src/search_rr_target_a_exhaustive.py's advance_decoration/evaluate_edge/target_a_recognizer/incidence_components) plus already-verified prior-round JSON (incidence_forest records for the top-8). No new search, no new replay.",
+  "section_0_exact_mechanism": {
+    "label": "CLAUDE_HAND_PROOF -- read directly from source, line-cited",
+    "facts": [
+      {"id": "i", "statement": "only weight>=2 moves touch orbit_masks; rotation (weight1) never does", "source": "superperm_partial_f1.py extend(), lines 213-255: the 'if move.weight >= 2' block is the only place om[q] is mutated"},
+      {"id": "ii", "statement": "each joint sets exactly one incidence bit keyed by its TARGET orbit and TARGET hexagon, never its source", "source": "superperm_partial_f1.py lines 239,245: q,phase = ORBIT_PHASE[target]; om[q] |= 1<<phase"},
+      {"id": "iii", "statement": "F only increases on an abandonment, and abandonment is a property of the state (state.p) not of which joint is chosen; since these roots already sit at F=TARGET_F=1, any abandoning joint is pruned", "source": "superperm_partial_f1.py line 235 (abandonment formula), line 51 (TARGET_F=1)"},
+      {"id": "iv", "statement": "H never changes for any RR-alphabet (weight 2 or 3) joint; only triggered by weight>=4 moves already excluded as kind=='other'", "source": "superperm_partial_f1.py: dH = max(move.weight-3, 0)"},
+      {"id": "v", "statement": "hub_touch_count increments only when the target hexagon equals the ONE specific hexagon dec.hub_id (0 for all 8 top-8 children), not any hexagon in hub's broader incidence component", "source": "search_rr_target_a_exhaustive.py advance_decoration, line 401: if core.hexagon_id(transition.target)==dec.hub_id: touch_count+=1"},
+      {"id": "vi", "statement": "the R-budget structurally forbids using R as an intermediate bridge -- any R-kind edge taken post-R1 is immediately routed to target_a_recognizer and returned as FOUND_TARGET_A or r2_not_target, terminal either way", "source": "search_rr_target_a_exhaustive.py evaluate_edge, lines 823-846"}
+    ]
+  },
+  "section_1_which_kinds_can_merge": {
+    "label": "CLAUDE_OBSERVATION, derived from section_0",
+    "table": [
+      {"kind": "Z2_forced", "can_merge": "yes, conditionally", "mechanism": "preserves orbit; merges iff target hexagon already registered in hub's component via another orbit", "walk_position_effect": "none -- stays in same orbit, only phase advances"},
+      {"kind": "Z3_forced", "can_merge": "yes, conditionally", "mechanism": "fresh orbit's only edge is (fresh_orbit,target_hex); merges the FRESH orbit (not the source orbit) iff target hexagon already registered elsewhere", "walk_position_effect": "walk moves into the fresh orbit"},
+      {"kind": "R", "can_merge": "structurally excluded as a bridge", "mechanism": "any R taken post-R1 is consumed as R2 itself", "walk_position_effect": "n/a, terminal"},
+      {"kind": "Z2abandon_or_abandoning_Z3_R", "can_merge": "no", "mechanism": "pruned by F_exceeded before any component question is reached (roots already at F=TARGET_F=1)", "walk_position_effect": "n/a"}
+    ],
+    "key_finding": "both live bridge mechanisms (Z2, Z3) are conditional on the same underlying event: a target hexagon already registered in hub's component being reachable, without collision, from wherever the walk currently sits at its next forced rotation length. This event's existence for any of the 8 specific children's post-R1 states is NOT verified in this document."
+  },
+  "section_2_effects_by_kind": {
+    "label": "CLAUDE_OBSERVATION",
+    "Z2_forced": {
+      "R_budget": "untouched",
+      "incidence_forest": "adds edge (current_orbit, target_hex); merges iff target_hex already registered elsewhere",
+      "hub_touch_count": "+1 iff target_hex == hub_id exactly; +0 for any other hub-component hexagon",
+      "F_H": "both unchanged when forced (non-abandoning by construction)",
+      "future_R2_source_orbit": "UNCHANGED -- walk remains in same orbit, R2 fired immediately after would still source from this orbit at a later phase",
+      "terminal_geometry": "none of F_exceeded/H_positive/F1_fragment_normal_form_impossible triggered when forced"
+    },
+    "Z3_forced": {
+      "R_budget": "untouched",
+      "incidence_forest": "adds edge (fresh_orbit, target_hex); merges the fresh orbit (not the source) iff target_hex already registered elsewhere",
+      "hub_touch_count": "same single-hexagon rule as Z2",
+      "F_H": "both unchanged when forced",
+      "future_R2_source_orbit": "CHANGED -- walk is now positioned in the fresh orbit; R2 fired immediately after sources from there instead",
+      "terminal_geometry": "same as Z2"
+    },
+    "R": {
+      "R_budget": "consumes the sole remaining slot; r_count 1->2, terminal",
+      "incidence_forest": "adds edge (reentered_orbit, target_hex) to an already-registered orbit -- this is precisely what target_a_recognizer's same_component check evaluates",
+      "hub_touch_count": "same single-hexagon rule; this edge IS the one being judged against the <=2 cap",
+      "F_H": "evaluated by target_a_recognizer's own F_def_equals_1/H_equals_0 gates on the resulting state",
+      "future_R2_source_orbit": "n/a -- this edge is R2 or R1 itself",
+      "terminal_geometry": "gated explicitly by the recognizer"
+    },
+    "sharpest_asymmetry": "Z2 can grow the merged territory while leaving the future R2 source orbit unchanged; Z3 cannot -- firing Z3 necessarily relocates the walk, bundling any merge it achieves with a changed R2-source-orbit candidate"
+  },
+  "section_3_merge_requirements": {
+    "label": "CLAUDE_OBSERVATION",
+    "direct_touch_vs_intermediate": "not required to be direct; a true two-hop bridge through a third orbit is geometrically possible (revisiting an orbit's unused phases across non-consecutive steps) but requires TWO separate joints through the same orbit vertex, not one -- strictly more expensive than the one-step version, and unnecessary if a one-step coincidence exists",
+    "before_or_after_completer": "irrelevant to the mechanism -- the completer only matters because it is the event that first sets hub_touch_count from 0 to 1 and fixes hub_id's identity; the merge machinery applies identically to every joint regardless of position relative to the completer",
+    "alters_future_R2_source_orbit": "only if the merge is achieved via Z3; a Z2-mediated merge leaves the source orbit fixed"
+  },
+  "section_4_lemmas": {
+    "lemma_A": {
+      "text": "Z2 cannot connect the isolated R1-target component to the hub without changing the future R2 source",
+      "verdict": "REFUTED_MECHANISM_LEVEL",
+      "counterpattern": "Z2 is orbit-preserving by definition; if its forced target phase's hexagon happens to already be registered in hub's component via another orbit, this single Z2 edge merges the components while the walk's current orbit (hence any immediately-following R2's source orbit) is unchanged -- exactly the case the lemma claims cannot exist",
+      "unresolved_scope": "whether such a coincidental hexagon actually exists within any of the 8 children's R1-target orbit's unvisited phase set is NOT verified here -- refuted at the rule level, not shown realized in any concrete instance"
+    },
+    "lemma_B": {
+      "text": "any Z3-fresh merge into the hub component causes an F or hub-touch violation",
+      "verdict": "REFUTED_MECHANISM_LEVEL",
+      "counterpattern": "hub_touch_count increments only for the single hexagon hub_id (0 for all 8), never for any other hexagon in hub's larger incidence component (e.g. short_ell2_r1_70's hub component has 9 hexagons: 0,1,4,6,8,9,18,24,96); a forced Z3 targeting e.g. hexagon 96 or 18 would merge into hub's component while leaving hub_touch_count untouched, and a forced (non-abandoning) Z3 never increments F regardless of target hexagon",
+      "unresolved_scope": "existence of the specific geometric coincidence for any of the 8 children not verified here"
+    },
+    "lemma_C": {
+      "text": "any legal two-step component bridge consumes geometry needed for R2",
+      "verdict": "PARTIALLY_REFUTED",
+      "reasoning": "read literally ('any... bridge') false: R-budget moot for Z2/Z3, F/H moot for forced joints, hub_touch_count moot provided the bridge avoids hexagon hub_id specifically. A well-chosen one-step bridge consumes none of the four resources target_a_recognizer gates on. The universal claim is refuted; the genuine, avoidable risk it points at is real only in the special case where the bridge re-touches hub_id specifically, which would consume the one remaining hub-touch slot (the completer already spent the first of two allowed)"
+    },
+    "lemma_D": {
+      "text": "the isolated component can only merge through an orbit already absent from the required incidence forest",
+      "verdict": "REFUTED_UNDER_READING_1_OPEN_UNDER_READING_2",
+      "reading_1": {"interpretation": "only a fresh/never-registered orbit (i.e. only Z3) can bridge", "verdict": "REFUTED", "counterpattern": "same as Lemma A -- Z2 reuses the already-registered R1-target orbit and is an equally valid bridge mechanism"},
+      "reading_2": {"interpretation": "the bridging orbit must be a 'sacrificial' one distinct from R2's own eventual target orbit", "verdict": "LEFT_OPEN", "reasoning": "nothing in evaluate_edge or target_a_recognizer distinguishes a sacrificial bridging orbit from R2's eventual target orbit; whether a specific path reuses the same orbit for both purposes is a fact about which continuations are legal from a given state, requiring a continuation trace to settle, not attempted here"}
+    }
+  },
+  "section_5_summary_table": [
+    {"lemma": "A", "verdict": "refuted (mechanism-level); existence of specific coincidence unverified", "basis": "Z2 orbit-preservation"},
+    {"lemma": "B", "verdict": "refuted (mechanism-level); existence of specific coincidence unverified", "basis": "hub_touch_count's single-hexagon scope"},
+    {"lemma": "C", "verdict": "refuted as universal claim; true only in avoidable hub_id-touching special case", "basis": "resource accounting across all four gated quantities"},
+    {"lemma": "D", "verdict": "refuted under reading 1; left open under reading 2", "basis": "Z2 bridge counterpattern; no engine-level 'sacrificial orbit' concept found"}
+  ],
+  "section_6_smallest_unresolved_template": {
+    "label": "CLAUDE_PROPOSAL -- handed to Codex's continuation worker, not computed here",
+    "template": "Is there a legal (exact.extend-succeeding), forced (non-Z2abandon, non-abandoning) Z2 or Z3 edge, sourced from the walk's then-current orbit, whose target_hexagon is already a member of the pre-move incidence forest's hub-containing component, and is NOT equal to hub_id itself?",
+    "predicted_consequence_if_satisfied": "F, H, hub_touch_count, and R-budget all remain exactly as they were one step earlier; the merge is achieved; if the edge was Z2 specifically, the future R2's candidate source orbit is unchanged from what it would have been without the bridge",
+    "necessity_and_sufficiency": "minimal and mechanically necessary-and-sufficient per this analysis: nothing weaker suffices (section_0 facts i-ii: no other edge kind or hexagon choice adds a merging incidence bit) and nothing stronger is required (section_0 facts iii-vi: no resource is spent by construction when this exact condition holds)",
+    "checked_for_existence_this_round": false,
+    "reason_not_checked": "requires either literal orbit/hexagon geometry tables or a continuation trace; explicitly left to Codex's already-running worker per the task's instruction not to duplicate it"
+  },
+  "explicit_non_claims": [
+    "does not check whether the template's condition is actually satisfied for any of the 8 children or any child in the 439-child corpus -- left to Codex's continuation traces",
+    "does not claim a component merge, even if achieved, is sufficient for FOUND_TARGET_A -- target_a_recognizer also requires F_def_equals_1, H_equals_0, and hub_touch_count_le_2 to hold at the moment R2 itself fires, a separate question from whether the forest permits it",
+    "does not resolve Lemma D's second reading (a possible sacrificial-orbit distinction) -- flagged as genuinely open, not engine-visible from the code read this round",
+    "runs no search and no replay of any kind -- pure source-grounded derivation from already-read code and already-verified prior-round JSON data",
+    "no Codex file touched"
+  ],
+  "end_token": "CLAUDE_COMPONENT_BRIDGE_ANALYSIS_COMPLETE"
+}
