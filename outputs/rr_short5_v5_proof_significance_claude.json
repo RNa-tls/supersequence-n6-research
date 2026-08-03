@@ -1,0 +1,75 @@
+{
+  "schema": "rr-short5-v5-proof-significance-claude-v1",
+  "author": "Claude",
+  "role": "conditional proof-significance analyst -- v5 pilot data unverified",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no commit was cited this round. git ls-remote origin shows no ref beyond codex/round-r2-literal-source-correction (b09f1d5), unchanged since the last independently-verified correction. No v5 branch, commit, or data file exists anywhere this session can reach. The listed figures (439 provenance children, 326 exhausted, 113 capped, 596537 expansions, short_ell4: 3 hits, all mapping to known-18) are asserted in the prompt, not read from any file.",
+    "framing": "this document is a CONDITIONAL analysis, not a verification. Proof-significance reasoning is meaningful even under a hypothesis -- what follows should be read with an implicit 'if the stated figures are accurate' throughout. Numeric conclusions are not promoted to confirmed facts anywhere in this document.",
+    "reusability_note": "if genuine v5 data lands on a reachable branch later, this document's sections 2-4 (built from already-proven material) remain directly applicable without rework -- only the specific figures plugged into sections 1 and 5 would need replacing"
+  },
+  "section_1_cross_root_conclusion": {
+    "label": "CLAUDE_OBSERVATION -- conditional",
+    "may_be_concluded_if_accurate": [
+      "within the specific tested prefixes, no genuinely new Target-A boundary class was found across all five short roots -- all 4 reported hits (1 independently-verified short_ell0 + 3 claimed short_ell4) reduce to known-18",
+      "326 of 439 reported provenance children reached natural exhaustion -- if 'natural' means frontier genuinely empty (not budget-capped, consistent with this thread's established status vocabulary), each is a real, narrow-scope exact local closure",
+      "113 remain capped with nonempty frontier -- honest INCOMPLETE, contributes nothing to closure"
+    ],
+    "may_not_be_concluded_even_if_accurate": [
+      "that any of the five short roots is Target-A-exhausted as a ROOT -- 326 exhausted children is not root exhaustion; 113 remain open and 'provenance child' is a finer unit than a root",
+      "that short_ell1-short_ell3 having 'no Target A in prefix' means those roots HAVE no Target-A boundary -- only that none appeared in the tested finite prefix (outcome A from the prior cross-root framework document, same caution applies)",
+      "that the known-18-collapse pattern continues at any depth beyond what was tested, or for any of the 113 still-open branches",
+      "anything about Target C, NR6, or L_6>=872 -- untouched regardless",
+      "whether short_ell1-short_ell3 even achieved fair R1 admission in the tested normal form as opposed to admission followed by no R2 hit -- the summary as given does not distinguish these (see section_4)"
+    ]
+  },
+  "section_2_generalization_candidate": {
+    "label": "CLAUDE_PROPOSAL -- not asserted true",
+    "candidate": "every short-root Target A boundary is left-S6 equivalent to known-18",
+    "exact_statement": "for every root r in {short_ell0,...,short_ell4} and every Target A boundary b reachable from r (within the Target-A-safe, corrected-recognizer search), canonicalize(b) is left-S6-equal to canonicalize(b') for some b' in the known-18 corpus. Verbatim Lemma 1 of the prior cross-root framework document.",
+    "evidence_conditional": "if the v5 figures are accurate, sample size grows from n=1 (independently-verified short_ell0 result) to n=4 (adding 3 claimed short_ell4 hits), with zero counterexamples either way -- still a very small sample against an unexhausted space",
+    "missing_proof_step": "no structural or bijective argument exists connecting short-root R2-recognition geometry to known-18's specific finite corpus; evidence remains purely empirical, four data points not a derivation",
+    "plausible_counterexample_shape": "a boundary reached via a longer repair/preparation chain, opening enough fresh orbits/hexagons to land in a canonical form outside known-18. The 113 capped branches with nonempty frontier are exactly where such a boundary would be hiding -- unexplored deeper territory by definition",
+    "finite_certificate_route": "exhaustive (uncapped) Target-A search across all five roots -- the v5 pilots, even fully verified, are NOT this (113 capped branches is definitionally incomplete)",
+    "hand_proof_route": "still nonexistent -- growing empirical support does not substitute for identifying WHY short-root R2 geometry would be structurally confined to known-18's set; no such argument attempted"
+  },
+  "section_3_exhausted_child_mechanisms": {
+    "label": "CLAUDE_OBSERVATION -- mechanisms classified, none promoted to a theorem about the specific 326",
+    "load_bearing_distinction": "this engine never expands past any second-R edge -- every such edge is a terminal test, win or lose. Two of the six candidates therefore operate at a different level than the other four.",
+    "mechanism_table": [
+      {"candidate": "component obstruction (not_same_component)", "operates_at": "individual R2-candidate rejection", "can_alone_terminate_branch": false, "reason": "rejects that one R2 attempt; the frontier state may still have other non-R legal continuations untried"},
+      {"candidate": "orbit-incidence failure (r2_wrong_source_orbit)", "operates_at": "individual R2-candidate rejection", "can_alone_terminate_branch": false, "reason": "same as component obstruction"},
+      {"candidate": "hub-touch restriction (hub_touch_count_exceeded)", "operates_at": "edge/state-level legality", "can_alone_terminate_branch": "yes, if it is the last remaining legal edge type at that state", "reason": "proven, definitional prune, root-independent"},
+      {"candidate": "R-budget (rr_R_budget_exceeded, at most two R events)", "operates_at": "edge-level legality", "can_alone_terminate_branch": "yes, same condition", "reason": "proven exact fact, not root-specific"},
+      {"candidate": "literal collision (exact_permutation_collision)", "operates_at": "edge-level legality", "can_alone_terminate_branch": true, "reason": "the NR6 nonrepeat constraint itself; already the dominant prune reason (>50%) in the one independently-verified corrected run"},
+      {"candidate": "terminal geometry failure (F_exceeded/H_positive)", "operates_at": "edge-level legality, monotone", "can_alone_terminate_branch": true, "reason": "F is proven never-decreasing; once exceeded, permanently disqualifying"}
+    ],
+    "conclusion": "natural exhaustion requires every generated edge at a state to be individually illegal, for reasons drawn from the four state/edge-level legality mechanisms only -- the two recognition-level rejections can only explain why a specific R2 attempt failed, never why a branch ran out of continuations entirely. Collision and F_exceeded were the two dominant prune reasons in the one verified dataset, making them the most plausible leading candidates for most of the 326 -- stated as a plausibility ranking from already-proven mechanics, not a claim about which actually fired."
+  },
+  "section_4_remaining_proof_burden": {
+    "label": "CLAUDE_OBSERVATION -- four distinct levels, not conflated",
+    "326_exact_local_closures": "each, if genuinely naturally exhausted (not budget-capped), is a real EXACT_EXHAUSTIVE_CERTIFICATE at the granularity of one provenance child -- narrow scope, not nothing",
+    "113_bounded_open_branches": "honest INCOMPLETE, contributes zero to closure, and is specifically where section_2's plausible counterexample shape would have to be found if it exists",
+    "root_level_admission_incompleteness": "a gap the summary as given does not resolve -- not stated whether short_ell1-short_ell3 achieved fair R1 admission at all, or admission happened but produced no R2 hit. Exactly outcome E of the prior cross-root framework document, flagged there as potentially major given all five roots have shared an identical resource signature since Round 36. Neither reading is assumed here -- recorded as an open clarification needed.",
+    "short_five_global_incompleteness": "even taking every figure at face value, all five short roots remain formally Q1-open at the root level -- none shown exhausted; short_ell0 already known independently to have 3 of 4 branches incomplete; the aggregate 113-capped figure confirms incompleteness is distributed, not confined to one root"
+  },
+  "section_5_progress_reassessment": {
+    "label": "CLAUDE_OBSERVATION -- conservative, no ranges revised",
+    "principle": "because the underlying v5 data is unverified, the conservative and honest move is to NOT revise any numeric range from the prior strategy document (RR_SHORT5_STRATEGY_CLAUDE.md, two rounds ago). Only the qualitative implication of a confirmed result is noted, clearly marked conditional.",
+    "table": [
+      {"scope": "unconditional L_6>=872 proof", "prior_range": "~0%", "conditional_implication_if_accurate": "unchanged -- nothing here bears on the unconditional claim regardless of verification status"},
+      {"scope": "RR-branch Q1 question, short-root family", "prior_range": "essentially just starting, 1 of 5 roots sampled", "conditional_implication_if_accurate": "would shift to 'shallowly sampled across all 5 roots' -- still far from exhaustive (113 of 439 children capped); shift is noted as direction only, not adopted as a formal revision"},
+      {"scope": "short_ell0 alone", "prior_range": "~1-10%, likely low end", "conditional_implication_if_accurate": "unchanged -- nothing about short_ell0's own figures changed, the b09f1d5 result is the same one already counted"},
+      {"scope": "known-18-collapse pattern (Lemma 1)", "prior_range": "n=1, no counterexample, OPEN", "conditional_implication_if_accurate": "would become n=4, no counterexample -- still far too small a sample to move from OPEN to any stronger grade"}
+    ],
+    "no_range_moved": true
+  },
+  "explicit_non_claims": [
+    "does not confirm any of the v5 figures -- no commit or file exists to check them against",
+    "does not revise any numeric progress estimate from the prior strategy document",
+    "does not promote any section_3 mechanism candidate to a theorem about which one caused any specific exhaustion",
+    "does not resolve the root-admission-vs-no-R2-hit ambiguity for short_ell1-short_ell3 -- flags it as needing clarification",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_SHORT5_V5_ANALYSIS_READY"
+}
