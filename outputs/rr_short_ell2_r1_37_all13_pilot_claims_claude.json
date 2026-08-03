@@ -1,0 +1,131 @@
+{
+  "schema": "rr-short-ell2-r1-37-all13-pilot-claims-claude-v1",
+  "author": "Claude",
+  "role": "conditional methodological/mathematical assessor -- corrected all-13 pilot not yet available remotely",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no new Codex branch was found this round. git fetch --all --prune and git remote show origin show the same seven branches already known; codex/round-r1-37-frontier-analysis is unchanged at fae8ded, the commit independently verified last round. Consistent with the task's explicit instruction, every reported fact this round is treated as conditional, not verified.",
+    "grounding": "sections 1-4 use this analyst's own already-independently-verified data on short_ell2_r1_37's 22-state frontier from two rounds ago (successor counts, depths, profile distinctness, hub/Phi/component facts) -- that data is real and confirmed, distinct from this round's new unverified claims"
+  },
+  "section_1_all13_pilot_assessment": {
+    "label": "CLAUDE_OBSERVATION",
+    "complete_frontier_coverage": {
+      "verdict": "sound improvement",
+      "reasoning": "directly fixes the flaw independently found two rounds ago: all 13 unresolved states have distinct compound (successor_signature, component_geometry) profiles, so any subset smaller than 13 necessarily omits at least one structurally-unique state entirely"
+    },
+    "fairness_of_equal_caps": {
+      "verdict": "fair as resource allocation, not obviously optimal as information allocation",
+      "reasoning": "verified successor counts among the 13 range 1-3 (five at 1, five at 2, three at 3); a flat cap gives narrow-branching states proportionally deeper probing per unit budget than wide-branching states, even though wider states have more distinct edges tried and are, if anything, the more plausible place to find a rare bridge event"
+    },
+    "is_10000_sufficient": {
+      "verdict": "plausibly sufficient for the rapid-exhaustion end, genuinely uncertain for the long-tail end",
+      "reasoning": "the existing 22-node frontier (depths 47-88) was reached via 305,000 total expansions with frontier-local mean successor count 1.27 and mean 13.18 collisions per 24 raw candidates; a 10,000 cap per already-deep state is a meaningfully smaller relative probe than what produced the current frontier from the root"
+    },
+    "preferable_budget_allocation": {
+      "verdict": "a successor-count-informed allocation would be more defensible",
+      "proposal": "weight the cap inversely by branching factor, or explicitly reserve more budget for the five highest-successor-count states (:3, :6, :305018, :303321, :13 -- the exact five excluded from the flawed 8-state batch two rounds ago)",
+      "caveat": "not a criticism of using equal caps for a first diagnostic pass, where simplicity and comparability has real value"
+    },
+    "checkpoint_cost_justified": {
+      "verdict": "yes",
+      "reasoning": "1.86-2.09GB total across 13 independent checkpoints is well under half the 4.88GB single checkpoint already used for this branch's prior continuation; the no-budget-transfer / any-nonempty-frontier-stays-INCOMPLETE discipline avoids silent relabeling"
+    }
+  },
+  "section_2_preregistered_outcomes": [
+    {
+      "outcome": "A_all_13_naturally_exhaust",
+      "exact_conclusion_permitted": "the entire 22-state short_ell2_r1_37 frontier is exactly exhausted -- an EXACT_EXHAUSTIVE_CERTIFICATE for the whole branch, joining the other 7 top-8 children",
+      "conclusion_not_permitted": "anything about the other 431 children in the 439-child corpus, or a family-wide/universal bridge conjecture",
+      "required_replay_or_certificate": "independent hash-verified replay of each of the 13 new certificates, exactly as done for the prior 7",
+      "best_next_step": "attempt the structural hand-proof route (section 4) now that a complete, comparable 8-of-8 dataset exists"
+    },
+    {
+      "outcome": "B_some_exhaust_some_cap",
+      "exact_conclusion_permitted": "each exhausted state individually gets its own exact certificate; capped states remain individually INCOMPLETE, unchanged in kind from before",
+      "conclusion_not_permitted": "any aggregate claim about all 13 together; any assumed correlation between successor-count and outcome without checking it explicitly",
+      "required_replay_or_certificate": "per-state replay verification for the exhausted subset; an explicit (not assumed) comparison of exhausted-vs-capped by successor count and other profile fields",
+      "best_next_step": "raise the cap only for the still-capped subset (efficient triage), or begin hand-analysis of the newly-exhausted subset immediately"
+    },
+    {
+      "outcome": "C_all_13_hit_cap",
+      "exact_conclusion_permitted": "10,000 expansions is not sufficient to resolve any of these 13 at this depth/complexity -- a negative result about cap size, not about mathematical content",
+      "conclusion_not_permitted": "any change to bridge-conjecture status; zero net information about existence/non-existence beyond a slightly larger bounded observation",
+      "required_replay_or_certificate": "none required, but a breakdown of why (near-empty remaining frontier vs. still-growing frontier at the cap) is genuinely informative",
+      "best_next_step": "diagnose the growth pattern first, then either raise the cap substantially or switch to an adaptive/unequal allocation"
+    },
+    {
+      "outcome": "D_component_merge_appears",
+      "exact_conclusion_permitted": "a hand-verifiable exact fact about that specific continuation -- constructively refutes the 'no continuation ever merges these two components' local conjecture for this one branch; the exact precondition this analyst's own component-bridge template identified as missing has now occurred",
+      "conclusion_not_permitted": "that Target A is found -- a merge is necessary but not sufficient; the subsequent R2 attempt must still separately satisfy F_def=1, H=0, hub_touch_count<=2",
+      "required_replay_or_certificate": "full replay verification of the specific merge edge against the section-6 template's exact definition; then explicit tracking of the very next R2 candidate's same_component outcome",
+      "best_next_step": "halt the equal-cap pilot for that one state immediately and deep-dive it specifically -- highest priority item in the whole research thread"
+    },
+    {
+      "outcome": "E_bridge_template_occurrence_appears",
+      "exact_conclusion_permitted": "treated as the same event as D, described in this project's own established vocabulary (forced non-abandoning Z2/Z3 landing on a non-hub_id hub-component hexagon) -- flagged as a terminology note pending confirmation Codex uses the same definition",
+      "conclusion_not_permitted": "same as D",
+      "required_replay_or_certificate": "same as D",
+      "best_next_step": "same as D"
+    },
+    {
+      "outcome": "F_literal_target_a_appears",
+      "exact_conclusion_permitted": "a new Target-A boundary is found in short_ell2_r1_37 -- the single most significant possible outcome of this entire multi-round thread",
+      "conclusion_not_permitted": "anything about L_6>=872 or the unconditional bound directly -- a structural data point, not direct progress on the main conjecture",
+      "required_replay_or_certificate": "mandatory independent literal replay plus left-S6 canonicalization, checked against the known-18 corpus, per this project's established methodology",
+      "best_next_step": "top priority: characterize the boundary's exact structure and test it directly against the known-18-collapse conjecture -- a genuinely new class would refute it with an exact witness"
+    },
+    {
+      "outcome": "G_target_b_survivor_appears",
+      "exact_conclusion_permitted": "a new data point for the separate Target-B/Area-A research thread (a different completion envelope than Target A)",
+      "conclusion_not_permitted": "should not be conflated with Target-A/bridge-conjecture progress -- governed by different recognizers",
+      "required_replay_or_certificate": "cross-check against this project's established Target-B verification apparatus",
+      "best_next_step": "hand off to whatever thread tracks Target-B specifically; do not let it substitute for this round's Target-A-focused question"
+    }
+  ],
+  "section_3_bridge_conjecture_significance": {
+    "13_of_13_exhaustion_no_bridge": {
+      "short_ell2_r1_37_scope": "fully closed -- joins the other 7, matching their exact-certificate status",
+      "top8_scope": "8/8 exact, complete-space certificates -- strongest possible finite result for this family, still not a theorem",
+      "corpus_439_scope": "unchanged -- 431 children remain entirely uninvestigated; family-wide conjecture exactly as open, with one more (already-small, n=8) confirmed instance"
+    },
+    "partial_exhaustion_no_bridge": {
+      "short_ell2_r1_37_scope": "remains INCOMPLETE as a branch -- deeper sub-certificates recorded but branch-level closure not achieved",
+      "top8_scope": "remains at 7/8 (or a fraction thereof) in whole-branch-closure terms",
+      "corpus_439_scope": "negligible additional evidence"
+    },
+    "130000_bounded_observations_no_bridge": {
+      "short_ell2_r1_37_scope": "remains INCOMPLETE -- weakest positive-direction outcome, adds ~43% more volume to an already-large bounded observation without changing its category",
+      "top8_scope": "remains at 7/8; zero new exact certificates",
+      "corpus_439_scope": "negligible; still just a larger finite negative count, graded as bounded evidence not proof, consistent with every prior such finding this session"
+    }
+  },
+  "section_4_candidate_hand_proof_route": {
+    "label": "CLAUDE_PROPOSAL -- no invariant asserted as proved",
+    "weaker_already_understood_candidate": {
+      "description": "pigeonhole/well-foundedness argument from the finite state space (720-visited strictly decreasing per the Phi formula, plus the confirmed monotone quantities P,O,S,Ndef,Phi,hub_popcount,visited)",
+      "limitation": "only proves any branch must eventually terminate somehow, not that it terminates without a bridge -- not the promising direction"
+    },
+    "promising_not_yet_attempted_route": {
+      "description": "a direct combinatorial enumeration over the fixed HEX_POSITION/ORBIT_PHASE tables (not a search): enumerate, for the specific family of orbits reachable via this family's branching-spine parametrization (shared spine plus root_ell, established several rounds ago), exactly which hexagons each such orbit's phase-cycle could ever touch, and check by direct table lookup whether any coincide with the fixed hub-component hexagon set",
+      "outcomes": "if structurally impossible for this family's orbit-reachability pattern, a genuine hand-proof of the local conjecture; if a coincidence can be constructively exhibited, a direct refutation",
+      "novelty_note": "restates, specifically scoped as the concrete next step, a direction already named but not attempted four and two rounds ago -- proposed again because nothing in this round's new (unverified) facts changes that assessment"
+    }
+  },
+  "section_5_count_reconciliation_logical_audit": {
+    "label": "CLAUDE_OBSERVATION -- form only, no ledger available to check values",
+    "claimed_relation": "421,221 parent-DAG vertices minus 2 parent-null branch roots equals 421,219 B0-classified incoming paths",
+    "form_assessment": "vertices - roots = non-root incoming-edge count is the standard, sound identity for a rooted tree/forest where every non-root vertex has exactly one parent -- consistent with this project's own already-verified data shape (every frontier record checked two rounds ago carried exactly one parent_node_id, not a list)",
+    "conditions_required_but_unverifiable_this_round": [
+      "genuine single-parent structure must hold for the ENTIRE scanned graph, not just the 65-node ancestry union previously checked -- any vertex with more than one incoming edge would break the simple subtraction",
+      "'B0-classified' must be coextensive with 'every non-root incoming edge', not a proper subset -- if B0 denotes a status that could exclude some non-root edges for reasons unrelated to root-ness, vertices-minus-roots would only be an upper bound, not an exact equality"
+    ],
+    "conclusion": "the relation's form is a correct and unsurprising identity for a rooted-forest structure, plausible given this project's established data conventions, but its exactness for the specific cited figures depends on two assumptions neither confirmable nor refutable without the underlying ledger"
+  },
+  "explicit_non_claims": [
+    "does not verify any of this round's reported figures -- no branch or file exists to check them against",
+    "does not assert any hand-proof invariant as established -- section_4 is a proposal for future investigation only",
+    "does not resolve the count-reconciliation question numerically -- only its logical form is assessed",
+    "no search run, no Codex file touched"
+  ],
+  "end_token": "CLAUDE_ALL13_PILOT_ASSESSMENT_READY"
+}
