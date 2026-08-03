@@ -1,0 +1,236 @@
+{
+  "schema": "rr-short5-top8-capped-claims-claude-v1",
+  "author": "Claude",
+  "role": "short-root search analyst -- independent verification of Codex round51 (codex/round51-short5-child-outcomes)",
+  "commit_verification": {
+    "label": "CLAUDE_OBSERVATION",
+    "branch": "codex/round51-short5-child-outcomes",
+    "commits_checked": ["4785cc6", "673bd9f", "dfc314f"],
+    "all_reachable": true,
+    "method": "git fetch origin codex/round51-short5-child-outcomes; git log --oneline; dfc314f cross-checked independently via GitHub API get_commit",
+    "files_read": [
+      "research/RR_SHORT5_CHILD_OUTCOME_ANALYSIS_CODEX.md",
+      "research/RR_SHORT1_4_CORRECTED_FAIR_PILOTS_CODEX.md",
+      "research/RR_SHORT5_CROSS_ROOT_COMPARISON_CODEX.md",
+      "outputs/rr_short5_child_classes.json",
+      "outputs/rr_short5_child_outcomes.json",
+      "outputs/rr_short5_capped_priority.json",
+      "outputs/rr_short1_4_corrected_fair_verified.json",
+      "src/analyze_rr_short5_child_outcomes.py",
+      "src/analyze_rr_short_ell0_target_b.py",
+      "src/search_rr_target_a_exhaustive.py"
+    ],
+    "hash_check": {
+      "file": "rr_short1_4_corrected_fair_results.json",
+      "recorded_sha256_prefix": "858bf5da",
+      "raw_checkout_byte_hash_matched": false,
+      "resolution": "CRLF/LF cross-platform artifact, same pattern identified two rounds ago -- re-inserting CRLF reproduces recorded hash exactly, confirmed by direct byte-level test, not assumed",
+      "treated_as_integrity_concern": false
+    },
+    "cross_checked_against_existing_verifiers": {
+      "rr_short1_4_corrected_fair_verified_json": {
+        "status": "VERIFIED_CAPPED_PILOTS",
+        "literal_R2_source_verified": true,
+        "known18_comparison_verified": true
+      }
+    }
+  },
+  "section_1_canonicalization": {
+    "label": "CLAUDE_HAND_PROOF",
+    "claim": "no two of the 439 exact decorated children are left-S6 equivalent to each other",
+    "independent_recomputation": {
+      "source_file": "rr_short5_child_classes.json",
+      "member_count_distribution": {"1": 439},
+      "n_mixed_outcomes_true": 0,
+      "sum_of_member_count": 439,
+      "n_distinct_canonical_child_class_hashes": 439,
+      "n_distinct_child_ids": 439
+    },
+    "method_note": "canonical_boundary (analyze_rr_short_ell0_target_b.py lines 207-220) uses the algebraic shortcut action_to_identity, mathematically equivalent to the slow 720-fold exact.canonicalize loop, not a re-implementation of a different notion",
+    "cross_validation_scope_caveat": "the shortcut vs. slow-method equivalence is cross-checked by full_canonical_control on a 24-state audit sample elsewhere in the pipeline (known-18 witness-reconstruction path, same file), guarded by a hard AssertionError that did not fire -- this audit was NOT re-run specifically against the 439-child dataset; it validates the shared method, not this exact invocation",
+    "conclusion_confirmed": true
+  },
+  "section_2_zero_successor_soundness": {
+    "label": "CLAUDE_HAND_PROOF",
+    "claim": "immediate legal-successor count 0 is a sound local exhaustion certificate",
+    "argument": "accepted_successors (analyze_rr_short5_child_outcomes.py lines 70-86) iterates rr.iter_raw_macro_candidates(state) -- which itself (search_rr_target_a_exhaustive.py lines 451-458) enumerates the complete move alphabet macro.rotation_runs(state) x macro.NONROT_H0 with no subsetting -- and classifies every candidate with rr.evaluate_edge(..., prune_profile=TARGET_A_SAFE_PROFILE), the exact same function used by the live search itself (previously regression-tested in an isolated worktree, three rounds ago)",
+    "logical_conclusion": "accepted==0 means literally every possible macro edge from that state -- the complete set, not a sample -- was rejected by the same legality check the live search uses; an empty frontier with the node cap nowhere near reached is exactly the project's own EXHAUSTED_NO_TARGET_A criterion (queue empty AND no cap hit)",
+    "grading_note": "the proof is tautological by construction of accepted_successors -- graded as such, not overstated",
+    "independent_recomputation": {
+      "source_file": "rr_short5_child_outcomes.json",
+      "filter": "immediate_successors.accepted == 0",
+      "n_matching": 107,
+      "n_with_outcome_NATURALLY_EXHAUSTED": 107,
+      "exceptions": 0
+    },
+    "conclusion_confirmed": true
+  },
+  "section_3_six_mechanism_reassessment": {
+    "label": "CLAUDE_OBSERVATION",
+    "load_bearing_distinction": "the engine never expands past a second-R edge -- every such edge is a terminal test, win or lose. Candidate-rejecting mechanisms operate at a different level than branch-terminating ones.",
+    "mechanisms": [
+      {
+        "candidate": "zero_immediate_legal_successors",
+        "classification": "branch_terminating",
+        "status": "proved",
+        "evidence": "section_2 -- tautological by construction, 107/107 independently confirmed"
+      },
+      {
+        "candidate": "hub_touch_count_exceeded",
+        "classification": "branch_terminating",
+        "status": "mechanism proved; not shown to explain the 326",
+        "evidence": "a genuine definitional legality blocker when it is the last remaining option; not isolated as the specific cause of any counted exhaustion in this dataset"
+      },
+      {
+        "candidate": "rr_R_budget_exceeded",
+        "classification": "branch_terminating",
+        "status": "mechanism proved; not shown to explain the 326",
+        "evidence": "proven exact fact (at most two R events), not isolated to specific cases in this dataset"
+      },
+      {
+        "candidate": "exact_permutation_collision",
+        "classification": "branch_terminating",
+        "status": "dominant by volume",
+        "evidence": "single largest prune category in every one of the top-8 capped children's own dominant-prune tables (77000-79000 occurrences each); plausibly the largest contributor among the 326 too -- a volume observation, not a per-branch causal claim"
+      },
+      {
+        "candidate": "F_exceeded_or_H_positive",
+        "classification": "branch_terminating",
+        "status": "secondary by volume",
+        "evidence": "second-largest prune category throughout (8000-9000 per top-8 child)"
+      },
+      {
+        "candidate": "not_same_component",
+        "classification": "candidate_rejecting_only",
+        "status": "cannot alone terminate a branch",
+        "evidence": "rejects one R2 attempt; per section_2's mechanics, cannot by itself empty a frontier that still has non-R legal edges"
+      },
+      {
+        "candidate": "r2_wrong_source_orbit_recognizer_geometry_failure",
+        "classification": "candidate_rejecting_only",
+        "status": "dominant R2 failure reason by far",
+        "evidence": "1988-2279 occurrences per top-8 child vs. 120-219 not_same_component (roughly 10-20:1) -- still only rejects individual R2 attempts, never a whole branch"
+      },
+      {
+        "candidate": "event_order_class_PRE_R_COMPLETER_EVENT_ORDER_CH1_UNDECIDED",
+        "classification": "observational_only",
+        "status": "explicitly refuted as a shortcut",
+        "evidence": "independently recomputed cross-tab: PRE_R_COMPLETER_EVENT_ORDER splits 326 exhausted / 100 capped (both outcomes present); CH1 is 4/4 capped; UNDECIDED is 9/9 capped -- neither CH1 nor UNDECIDED shows a single natural exhaustion in this corpus, flagged as a small-sample (13 total) observation, explicitly not promoted to a theorem"
+      },
+      {
+        "candidate": "hub_popcount_at_R1",
+        "classification": "observational_only",
+        "status": "explicitly refuted as a shortcut",
+        "evidence": "matches the report's own finding: popcount-6 occurs in both 326 exhausted and 101 capped children"
+      }
+    ]
+  },
+  "section_4_top8_structural_comparison": {
+    "label": "CLAUDE_OBSERVATION",
+    "source_file": "rr_short5_capped_priority.json, cross-checked against rr_short5_child_outcomes.json",
+    "children": [
+      {"child_id": "short_ell2_r1_70", "root": "short_ell2", "R1_depth": 55, "ell": 5, "max_depth": 104, "immediate_accepted": 1, "immediate_accepted_kinds": ["Z3"], "component_count": 18, "geometry_same_component_ratio": "2279:182"},
+      {"child_id": "short_ell4_r1_12", "root": "short_ell4", "R1_depth": 57, "ell": 5, "max_depth": 102, "immediate_accepted": 1, "immediate_accepted_kinds": ["Z3"], "component_count": 19, "geometry_same_component_ratio": "2074:219"},
+      {"child_id": "short_ell1_r1_98", "root": "short_ell1", "R1_depth": 60, "ell": 5, "max_depth": 97, "immediate_accepted": 2, "immediate_accepted_kinds": ["Z2", "Z3"], "component_count": 21, "geometry_same_component_ratio": "1988:164"},
+      {"child_id": "short_ell2_r1_40", "root": "short_ell2", "R1_depth": 59, "ell": 5, "max_depth": 101, "immediate_accepted": 1, "immediate_accepted_kinds": ["Z3"], "component_count": 20, "geometry_same_component_ratio": "2268:198"},
+      {"child_id": "short_ell3_r1_64", "root": "short_ell3", "R1_depth": 59, "ell": 5, "max_depth": 100, "immediate_accepted": 3, "immediate_accepted_kinds": ["Z2", "Z3", "Z3"], "component_count": 20, "geometry_same_component_ratio": "2269:120"},
+      {"child_id": "short_ell2_r1_37", "root": "short_ell2", "R1_depth": 45, "ell": 5, "max_depth": 101, "immediate_accepted": 1, "immediate_accepted_kinds": ["Z3"], "component_count": 14, "geometry_same_component_ratio": "2270:189"},
+      {"child_id": "short_ell2_r1_107", "root": "short_ell2", "R1_depth": 62, "ell": 5, "max_depth": 101, "immediate_accepted": 2, "immediate_accepted_kinds": ["Z2", "Z3"], "component_count": 21, "geometry_same_component_ratio": "2193:186"},
+      {"child_id": "short_ell3_r1_56", "root": "short_ell3", "R1_depth": 60, "ell": 5, "max_depth": 96, "immediate_accepted": 2, "immediate_accepted_kinds": ["Z2", "Z3"], "component_count": 20, "geometry_same_component_ratio": "2174:130"}
+    ],
+    "shared_fields_across_all_8": {
+      "event_order_class": "PRE_R_COMPLETER_EVENT_ORDER",
+      "R1_geometry": {"joint_label": "w3:120", "kind": "R", "ell": 5},
+      "completer": {"kind": "Z2", "macro_index": 4},
+      "Ndef": 1,
+      "Phi": 0,
+      "H": 0,
+      "F": 1,
+      "dominant_prune_order": ["exact_permutation_collision", "outside_RR_joint_model", "F_exceeded"],
+      "dominant_R2_failure_order": ["recognizer_geometry_failure", "not_same_component"]
+    },
+    "hand_verified_patterns": [
+      {
+        "label": "CLAUDE_HAND_PROOF",
+        "claim": "literal target-hexagon sequence for macro steps 4 through 8 is identical, edge for edge, across all 8 children, spanning all 4 roots",
+        "sequence": ["hex_0_step4_completer", "hex_96_step5", "hex_18_step6", "hex_4_step7", "hex_1_step8"],
+        "method": "read directly from each child's own literal_macro_trace, not inferred",
+        "scope_limit": "checked for these 8 children only, not claimed to generalize to the other 431"
+      },
+      {
+        "label": "CLAUDE_OBSERVATION",
+        "claim": "rotation length of step 5 equals 4 minus root_ell, exactly, for all 4 roots",
+        "data": {"short_ell1": "rot^3", "short_ell2": "rot^2", "short_ell3": "rot^1", "short_ell4": "rot^0"},
+        "method": "hand-verified from raw rotation lengths in literal_macro_trace",
+        "candidate_explanation_not_proven": "root's own ell extra pure-rotation steps shift the phase alignment of everything downstream by exactly root_ell"
+      },
+      {
+        "label": "CLAUDE_OBSERVATION -- deterministic replay, not a search",
+        "claim": "R1-alternative structure exists deep in short_ell2_r1_70's preparation history but does not match the narrower hex-18 hypothesis",
+        "method": "replayed short_ell2_r1_70's literal trace up to (not including) step 6 via exact.extend (deterministic re-execution of an already-complete literal path), then enumerated every legal macro candidate at that exact point via macro.rotation_runs/macro.NONROT_H0/exact.extend",
+        "result": "an R-kind edge is legal at that point (ell=5, w3:120, target=(orbit 0, phase 3), hex 4) but targets a different phase/hexagon than the observed hex 18 continuation",
+        "interpretation": "genuine confirmation that R1 alternatives exist along this deep preparation history (qualitatively matching short_ell0's pattern), while refuting the specific narrower hypothesis that R1 could have fired exactly at the hex-18 point -- reported as a real negative result, not smoothed over",
+        "scope_limit": "one data point, from one child, at one step -- not a general claim about all 8, let alone all 439"
+      }
+    ],
+    "relation_to_preparation_spine_flag": {
+      "codex_reported": "preparation_spine_presence: false for short_ell1-4 (Round 50 cross-root comparison)",
+      "claude_note": "not treated as contradicted -- the coarse flag likely measures a stricter/different claim (multiple shallow alternative R1-firing points, as in short_ell0's own spine) than what was found here (a shared early hex-touching sequence with R1 firing much deeper, at very different depths per child, not clustered shallow alternatives)"
+    }
+  },
+  "section_5_per_child_obstruction_assessment": {
+    "label": "CLAUDE_OBSERVATION",
+    "shared_obstruction_type": "all eight fail overwhelmingly on recognizer_geometry_failure -- the same source-orbit-never-registered mechanism already hand-proved for short_ell0's own productive branch, via the identical ell=5 rotation-lands-in-an-unregistered-orbit argument. No child among the 8 presents a qualitatively different obstruction from the others; differences are quantitative.",
+    "children": [
+      {
+        "child_id": "short_ell2_r1_70",
+        "most_plausible_obstruction": "source-orbit registration barrier (1 accepted successor, Z3 only)",
+        "evidence_needed": "since only one legal continuation exists, a short forced lookahead (2-3 levels) would already reveal whether this branch's only path stays trapped, cheaply"
+      },
+      {
+        "child_id": "short_ell4_r1_12",
+        "most_plausible_obstruction": "same, structurally identical profile (1 accepted, Z3 only)",
+        "evidence_needed": "same -- single-path lookahead"
+      },
+      {
+        "child_id": "short_ell1_r1_98",
+        "most_plausible_obstruction": "same barrier, but 2 live continuations (Z2+Z3)",
+        "evidence_needed": "needs both branches checked; not reducible to a single lookahead"
+      },
+      {
+        "child_id": "short_ell2_r1_40",
+        "most_plausible_obstruction": "same as _70/_12 (1 accepted, Z3 only)",
+        "evidence_needed": "single-path lookahead"
+      },
+      {
+        "child_id": "short_ell3_r1_64",
+        "most_plausible_obstruction": "same barrier, 3 live continuations (Z2+2xZ3) -- the most branching of the 8",
+        "evidence_needed": "the least tractable of the 8 for a cheap lookahead; likely needs the deepest additional budget"
+      },
+      {
+        "child_id": "short_ell2_r1_37",
+        "most_plausible_obstruction": "same barrier; smallest component_count (14) and shallowest R1_macro_depth (45) of the 8, but largest checkpoint (81.8 MB) and deepest post_R1_depth_span (56)",
+        "evidence_needed": "worth checking first whether its small component count reflects genuinely fewer opened orbits or just fewer merges; 1 accepted successor"
+      },
+      {
+        "child_id": "short_ell2_r1_107",
+        "most_plausible_obstruction": "same barrier; 2 live continuations, best not_same_component-to-geometry_failure ratio among the 8 (highest share of near-misses that at least clear the source-orbit test)",
+        "evidence_needed": "worth prioritizing if the goal is finding a genuinely new boundary -- proportionally closer to satisfying both conditions than its siblings"
+      },
+      {
+        "child_id": "short_ell3_r1_56",
+        "most_plausible_obstruction": "same barrier; smallest maximum_macro_depth (96) and smallest checkpoint (65.4 MB) of the 8",
+        "evidence_needed": "cheapest of the 8 to deepen further given its smaller state footprint"
+      }
+    ],
+    "conjecture_flagged_not_proven": "none of the 8 is shown to have a fundamentally different obstruction from short_ell0's own already-characterized mechanism -- suggests but does not prove that the source-orbit-registration barrier may be a genuinely RR-wide phenomenon for deep ell=5-only R2 attempts, not a short_ell0 peculiarity; Lemma-status, consistent with the cross-root framework document two rounds ago"
+  },
+  "explicit_non_claims": [
+    "does not claim any of the 8 (or any of the 113 capped children) will eventually resolve to EXHAUSTED_NO_TARGET_A or FOUND_TARGET_A -- every one remains genuinely open",
+    "does not promote any of the six section_3 mechanisms to a theorem about which one caused any specific one of the 326 exhaustions -- only zero-successor is proved as a sufficient local condition",
+    "does not claim the hex-0-96-18-4-1 sequence or the 4-minus-root_ell rotation identity holds beyond the 8 children actually checked here",
+    "does not claim the single replayed R-alternative at short_ell2_r1_70 generalizes to the other 7, or to the other 431 children",
+    "no search run, no Codex file touched -- the one replay performed is a deterministic re-execution of an already-complete, already-given literal path, no branching, no exploration, no new state discovered beyond what the existing trace already specifies"
+  ],
+  "end_token": "CLAUDE_TOP8_CAPPED_ANALYSIS_READY"
+}
