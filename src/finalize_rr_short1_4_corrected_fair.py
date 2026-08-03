@@ -74,10 +74,10 @@ def main() -> None:
         class_table.append("| — | 0 | — | — |")
 
     provenance = "\n".join([
-        f"- `{path.relative_to(ROOT)}` — SHA-256 `{sha256_file(path)}`"
+        f"- `{path.relative_to(ROOT)}` - SHA-256 `{sha256_file(path)}`"
         for path in (result_path, classes_path, profiles_path, verified_path)
     ])
-    pilots_doc = f"""# Round 50 — corrected fair pilots for `short_ell1`–`short_ell4`
+    pilots_doc = f"""# Round 50 - corrected fair pilots for `short_ell1` through `short_ell4`
 
 ## Scope
 
@@ -125,7 +125,7 @@ New canonical classes: `{classes['counts']['new_state_classes']}`.
 
 No frequency reported here is a theorem or an exhaustion result.
 """
-    comparison_doc = f"""# Round 50 — corrected cross-root comparison
+    comparison_doc = f"""# Round 50 - corrected cross-root comparison
 
 ## Scope
 

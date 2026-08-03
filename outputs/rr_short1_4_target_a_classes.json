@@ -1,0 +1,1007 @@
+{
+  "canonical_state_classes": [
+    {
+      "canonical_state_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616",
+      "decorated_boundary_key_count": 1,
+      "known18_comparison": {
+        "classification": "EXACT_KNOWN18_MATCH",
+        "matches": [
+          {
+            "canonical_state_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616",
+            "ell": 4,
+            "known_id": "short_ell4_fe82b0cdb512",
+            "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+            "source": "rr_preparation_words.json"
+          }
+        ]
+      },
+      "literal_witness_count": 1,
+      "representative_witness_id": "short_ell4_target_a_00001",
+      "root_distribution": {
+        "short_ell4": 1
+      },
+      "target_b": {
+        "phase_helper_used": false,
+        "reference": "outputs/rr_target_b_18_boundary_corrected_ledger.json",
+        "status": "KNOWN18_HELPER_FREE_CERTIFICATE_REUSED"
+      }
+    },
+    {
+      "canonical_state_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4",
+      "decorated_boundary_key_count": 1,
+      "known18_comparison": {
+        "classification": "EXACT_KNOWN18_MATCH",
+        "matches": [
+          {
+            "canonical_state_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4",
+            "ell": 4,
+            "known_id": "short_ell4_6f1ed828b231",
+            "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+            "source": "rr_preparation_words.json"
+          }
+        ]
+      },
+      "literal_witness_count": 1,
+      "representative_witness_id": "short_ell4_target_a_00000",
+      "root_distribution": {
+        "short_ell4": 1
+      },
+      "target_b": {
+        "phase_helper_used": false,
+        "reference": "outputs/rr_target_b_18_boundary_corrected_ledger.json",
+        "status": "KNOWN18_HELPER_FREE_CERTIFICATE_REUSED"
+      }
+    },
+    {
+      "canonical_state_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9",
+      "decorated_boundary_key_count": 1,
+      "known18_comparison": {
+        "classification": "EXACT_KNOWN18_MATCH",
+        "matches": [
+          {
+            "canonical_state_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9",
+            "ell": 4,
+            "known_id": "short_ell4_5d3f8cb9fdd4",
+            "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+            "source": "rr_preparation_words.json"
+          }
+        ]
+      },
+      "literal_witness_count": 1,
+      "representative_witness_id": "short_ell4_target_a_00002",
+      "root_distribution": {
+        "short_ell4": 1
+      },
+      "target_b": {
+        "phase_helper_used": false,
+        "reference": "outputs/rr_target_b_18_boundary_corrected_ledger.json",
+        "status": "KNOWN18_HELPER_FREE_CERTIFICATE_REUSED"
+      }
+    }
+  ],
+  "counts": {
+    "canonical_state_classes": 3,
+    "exact_decorated_boundary_states": 3,
+    "known18_orbit_classes": 3,
+    "literal_Target_A_hits": 3,
+    "new_state_classes": 0,
+    "raw_exact_states": 3
+  },
+  "literal_target_a_witnesses": [
+    {
+      "CH_class": "CH2",
+      "R1_event": {
+        "kind": "R",
+        "macro_index": 2,
+        "source_orbit": 121,
+        "source_phase": 4,
+        "target_orbit": 1,
+        "target_phase": 3
+      },
+      "R2_event": {
+        "kind": "R",
+        "macro_index": 4,
+        "source_orbit": 1,
+        "source_phase": 4,
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      "boundary_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+      "branch_id": "short_ell4_r1_18",
+      "canonical_boundary_key": "dbd94fad1f326c6cb05b32522e3813464082cf7c5b012d1167f769220b43b926",
+      "canonical_decoration": {
+        "branch": "CH2",
+        "completer": {
+          "kind": "Z2",
+          "macro_index": 3,
+          "source_orbit": 141,
+          "source_phase": 4,
+          "target_orbit": 21,
+          "target_phase": 2
+        },
+        "event_order_class": "CH2",
+        "hub_id": 4,
+        "hub_touch_count": 1,
+        "macro_index": 4,
+        "o_star": 21,
+        "r_events": [
+          {
+            "kind": "R",
+            "macro_index": 2,
+            "source_orbit": 19,
+            "source_phase": 3,
+            "target_orbit": 21,
+            "target_phase": 1
+          },
+          {
+            "kind": "R",
+            "macro_index": 4,
+            "source_orbit": 21,
+            "source_phase": 2,
+            "target_orbit": 0,
+            "target_phase": 0
+          }
+        ],
+        "root_ell": 4,
+        "root_id": "short_ell4"
+      },
+      "canonical_state": {
+        "F": 1,
+        "H": 0,
+        "S": 3,
+        "hex_masks": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            63
+          ],
+          [
+            18,
+            63
+          ],
+          [
+            20,
+            63
+          ],
+          [
+            28,
+            63
+          ]
+        ],
+        "orbit_masks": [
+          [
+            0,
+            9
+          ],
+          [
+            21,
+            30
+          ]
+        ],
+        "p": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "canonical_state_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4",
+      "completer_event": {
+        "kind": "Z2",
+        "macro_index": 3,
+        "source_orbit": 15,
+        "source_phase": 2,
+        "target_orbit": 1,
+        "target_phase": 4
+      },
+      "component_partition": [
+        {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 4,
+            "incidences": 6
+          },
+          "e_orbits": [
+            0,
+            1
+          ],
+          "hexagons": [
+            0,
+            1,
+            2,
+            72
+          ],
+          "id": "ec04de68b00de189"
+        }
+      ],
+      "coordinate": {
+        "F": 1,
+        "H": 0,
+        "M": -4,
+        "Ndef": 2,
+        "O": 2,
+        "P": 6,
+        "Phi": 0
+      },
+      "event_order_class": "CH2",
+      "exact_decorated_boundary_hash": "b1975615dd1280a24a7163bf371d14fd4100f82e8ad4c2f639d2a9fc0fdf6382",
+      "incidence_forest": {
+        "component_count": 1,
+        "components": [
+          {
+            "class": {
+              "e_orbits": 2,
+              "hexagons": 4,
+              "incidences": 6
+            },
+            "e_orbits": [
+              0,
+              1
+            ],
+            "hexagons": [
+              0,
+              1,
+              2,
+              72
+            ],
+            "id": "ec04de68b00de189"
+          }
+        ]
+      },
+      "known18_comparison": {
+        "classification": "EXACT_KNOWN18_MATCH",
+        "matches": [
+          {
+            "canonical_state_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4",
+            "ell": 4,
+            "known_id": "short_ell4_6f1ed828b231",
+            "raw_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+            "source": "rr_preparation_words.json"
+          }
+        ]
+      },
+      "left_action_to_identity": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5
+      ],
+      "literal_joint_source": {
+        "orbit": 1,
+        "phase": 4,
+        "semantic_tag": "R2_LITERAL_JOINT_SOURCE_V1",
+        "state_hash": "de41553e0e313ee7d51b30e68e94f6484ba7ab5e0c0a7c18882a57b897716edd"
+      },
+      "literal_macro_trace": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            1,
+            1
+          ],
+          "target_hexagon": 72
+        },
+        {
+          "joint": "w3:120",
+          "kind": "R",
+          "label": "rot^5;w3:120",
+          "rotation_length": 5,
+          "source": [
+            121,
+            4
+          ],
+          "target": [
+            1,
+            3
+          ],
+          "target_hexagon": 2
+        },
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            15,
+            2
+          ],
+          "target": [
+            1,
+            4
+          ],
+          "target_hexagon": 0
+        },
+        {
+          "joint": "w3:120",
+          "kind": "R",
+          "label": "rot^0;w3:120",
+          "rotation_length": 0,
+          "source": [
+            1,
+            4
+          ],
+          "target": [
+            0,
+            2
+          ],
+          "target_hexagon": 18
+        }
+      ],
+      "parent_dag_replay_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+      "recognizer": {
+        "CH_branch": "CH2",
+        "Target_B_or_C_tested": false,
+        "area_a_reason": null,
+        "chaining": true,
+        "component_digest": "27d04f2728e7a346c796d90fdd1d7103a9f1fb274d696fa9afa3197ec76226c7",
+        "conditions": {
+          "F_def_equals_1": true,
+          "H_equals_0": true,
+          "exactly_two_R_events": true,
+          "hub_touch_count_le_2": true,
+          "immediately_after_R2": true,
+          "same_component": true
+        },
+        "coordinate": {
+          "D": 4,
+          "F_def": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 6,
+          "S": 3,
+          "visited": 25
+        },
+        "event_order_class": "CH2",
+        "geometry_failure_reason": null,
+        "is_target_a": true,
+        "literal_joint_source_state_hash": "de41553e0e313ee7d51b30e68e94f6484ba7ab5e0c0a7c18882a57b897716edd",
+        "phi": 0,
+        "post_r2_state_hash": "6f1ed828b231741d0795e40ad506d51334e3562043c78375c706ea1a588ed81f",
+        "pre_hub_mask": 63,
+        "q2_area_a_reason_diagnostic": null,
+        "r2_detail_reason": null,
+        "r2_endpoint_presence": {
+          "source_orbit_present_in_pre_r2_forest": true,
+          "target_orbit_present_in_pre_r2_forest": true
+        },
+        "r2_failed_conditions": [],
+        "r2_outcome": "TARGET_A_HIT",
+        "r2_primary_failure": null,
+        "same_component": true,
+        "source_orbit": 1,
+        "source_phase": 4,
+        "source_state_semantic_tag": "R2_LITERAL_JOINT_SOURCE_V1",
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      "root_id": "short_ell4",
+      "witness_id": "short_ell4_target_a_00000"
+    },
+    {
+      "CH_class": "CH1",
+      "R1_event": {
+        "kind": "R",
+        "macro_index": 3,
+        "source_orbit": 81,
+        "source_phase": 1,
+        "target_orbit": 1,
+        "target_phase": 4
+      },
+      "R2_event": {
+        "kind": "R",
+        "macro_index": 4,
+        "source_orbit": 1,
+        "source_phase": 4,
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      "boundary_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+      "branch_id": "short_ell4_r1_62",
+      "canonical_boundary_key": "50e9c69f06f8d36ce85102243ee0264739b8c9ddab441272931819e4a3e98a20",
+      "canonical_decoration": {
+        "branch": "CH1",
+        "completer": {
+          "kind": "R",
+          "macro_index": 3,
+          "source_orbit": 20,
+          "source_phase": 4,
+          "target_orbit": 21,
+          "target_phase": 2
+        },
+        "event_order_class": "CH1",
+        "hub_id": 4,
+        "hub_touch_count": 1,
+        "macro_index": 4,
+        "o_star": 21,
+        "r_events": [
+          {
+            "kind": "R",
+            "macro_index": 3,
+            "source_orbit": 20,
+            "source_phase": 4,
+            "target_orbit": 21,
+            "target_phase": 2
+          },
+          {
+            "kind": "R",
+            "macro_index": 4,
+            "source_orbit": 21,
+            "source_phase": 2,
+            "target_orbit": 0,
+            "target_phase": 0
+          }
+        ],
+        "root_ell": 4,
+        "root_id": "short_ell4"
+      },
+      "canonical_state": {
+        "F": 1,
+        "H": 0,
+        "S": 3,
+        "hex_masks": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            63
+          ],
+          [
+            18,
+            63
+          ],
+          [
+            20,
+            63
+          ],
+          [
+            21,
+            63
+          ]
+        ],
+        "orbit_masks": [
+          [
+            0,
+            9
+          ],
+          [
+            21,
+            29
+          ]
+        ],
+        "p": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "canonical_state_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616",
+      "completer_event": {
+        "kind": "R",
+        "macro_index": 3,
+        "source_orbit": 81,
+        "source_phase": 1,
+        "target_orbit": 1,
+        "target_phase": 4
+      },
+      "component_partition": [
+        {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 4,
+            "incidences": 6
+          },
+          "e_orbits": [
+            0,
+            1
+          ],
+          "hexagons": [
+            0,
+            1,
+            12,
+            72
+          ],
+          "id": "f8f9f5e754829d62"
+        }
+      ],
+      "coordinate": {
+        "F": 1,
+        "H": 0,
+        "M": -4,
+        "Ndef": 2,
+        "O": 2,
+        "P": 6,
+        "Phi": 0
+      },
+      "event_order_class": "CH1",
+      "exact_decorated_boundary_hash": "bf73f3cca3e1f81fbacf6a520250affee5b17348ac947c434d5fa47e61fd93ec",
+      "incidence_forest": {
+        "component_count": 1,
+        "components": [
+          {
+            "class": {
+              "e_orbits": 2,
+              "hexagons": 4,
+              "incidences": 6
+            },
+            "e_orbits": [
+              0,
+              1
+            ],
+            "hexagons": [
+              0,
+              1,
+              12,
+              72
+            ],
+            "id": "f8f9f5e754829d62"
+          }
+        ]
+      },
+      "known18_comparison": {
+        "classification": "EXACT_KNOWN18_MATCH",
+        "matches": [
+          {
+            "canonical_state_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616",
+            "ell": 4,
+            "known_id": "short_ell4_fe82b0cdb512",
+            "raw_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+            "source": "rr_preparation_words.json"
+          }
+        ]
+      },
+      "left_action_to_identity": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5
+      ],
+      "literal_joint_source": {
+        "orbit": 1,
+        "phase": 4,
+        "semantic_tag": "R2_LITERAL_JOINT_SOURCE_V1",
+        "state_hash": "cb49621887d83ec80042fea2cf406df9daf0550e63e12c1607a6242f5303fdd2"
+      },
+      "literal_macro_trace": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            1,
+            1
+          ],
+          "target_hexagon": 72
+        },
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            121,
+            4
+          ],
+          "target": [
+            1,
+            2
+          ],
+          "target_hexagon": 12
+        },
+        {
+          "joint": "w3:120",
+          "kind": "R",
+          "label": "rot^5;w3:120",
+          "rotation_length": 5,
+          "source": [
+            81,
+            1
+          ],
+          "target": [
+            1,
+            4
+          ],
+          "target_hexagon": 0
+        },
+        {
+          "joint": "w3:120",
+          "kind": "R",
+          "label": "rot^0;w3:120",
+          "rotation_length": 0,
+          "source": [
+            1,
+            4
+          ],
+          "target": [
+            0,
+            2
+          ],
+          "target_hexagon": 18
+        }
+      ],
+      "parent_dag_replay_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+      "recognizer": {
+        "CH_branch": "CH1",
+        "Target_B_or_C_tested": false,
+        "area_a_reason": null,
+        "chaining": true,
+        "component_digest": "9ee7f4bfe6f73ac5ce37f17cbd4331e25ce846f9c476ce735ddc8ea21d2a2149",
+        "conditions": {
+          "F_def_equals_1": true,
+          "H_equals_0": true,
+          "exactly_two_R_events": true,
+          "hub_touch_count_le_2": true,
+          "immediately_after_R2": true,
+          "same_component": true
+        },
+        "coordinate": {
+          "D": 4,
+          "F_def": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 6,
+          "S": 3,
+          "visited": 25
+        },
+        "event_order_class": "CH1",
+        "geometry_failure_reason": null,
+        "is_target_a": true,
+        "literal_joint_source_state_hash": "cb49621887d83ec80042fea2cf406df9daf0550e63e12c1607a6242f5303fdd2",
+        "phi": 0,
+        "post_r2_state_hash": "fe82b0cdb5126756bd423f72e6b6ec9d51f9467daa091061982201d655af4354",
+        "pre_hub_mask": 63,
+        "q2_area_a_reason_diagnostic": null,
+        "r2_detail_reason": null,
+        "r2_endpoint_presence": {
+          "source_orbit_present_in_pre_r2_forest": true,
+          "target_orbit_present_in_pre_r2_forest": true
+        },
+        "r2_failed_conditions": [],
+        "r2_outcome": "TARGET_A_HIT",
+        "r2_primary_failure": null,
+        "same_component": true,
+        "source_orbit": 1,
+        "source_phase": 4,
+        "source_state_semantic_tag": "R2_LITERAL_JOINT_SOURCE_V1",
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      "root_id": "short_ell4",
+      "witness_id": "short_ell4_target_a_00001"
+    },
+    {
+      "CH_class": "CH2",
+      "R1_event": {
+        "kind": "R",
+        "macro_index": 1,
+        "source_orbit": 0,
+        "source_phase": 4,
+        "target_orbit": 1,
+        "target_phase": 2
+      },
+      "R2_event": {
+        "kind": "R",
+        "macro_index": 4,
+        "source_orbit": 1,
+        "source_phase": 4,
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      "boundary_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+      "branch_id": "short_ell4_r1_71",
+      "canonical_boundary_key": "705e4c4fa705019475d35ddd020f0dd198d6c560d75023e26d0f261611c39e4f",
+      "canonical_decoration": {
+        "branch": "CH2",
+        "completer": {
+          "kind": "Z2",
+          "macro_index": 3,
+          "source_orbit": 141,
+          "source_phase": 4,
+          "target_orbit": 21,
+          "target_phase": 2
+        },
+        "event_order_class": "CH2",
+        "hub_id": 4,
+        "hub_touch_count": 1,
+        "macro_index": 4,
+        "o_star": 21,
+        "r_events": [
+          {
+            "kind": "R",
+            "macro_index": 1,
+            "source_orbit": 0,
+            "source_phase": 2,
+            "target_orbit": 21,
+            "target_phase": 0
+          },
+          {
+            "kind": "R",
+            "macro_index": 4,
+            "source_orbit": 21,
+            "source_phase": 2,
+            "target_orbit": 0,
+            "target_phase": 0
+          }
+        ],
+        "root_ell": 4,
+        "root_id": "short_ell4"
+      },
+      "canonical_state": {
+        "F": 1,
+        "H": 0,
+        "S": 3,
+        "hex_masks": [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            63
+          ],
+          [
+            18,
+            63
+          ],
+          [
+            21,
+            63
+          ],
+          [
+            28,
+            63
+          ]
+        ],
+        "orbit_masks": [
+          [
+            0,
+            9
+          ],
+          [
+            21,
+            15
+          ]
+        ],
+        "p": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "canonical_state_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9",
+      "completer_event": {
+        "kind": "Z2",
+        "macro_index": 3,
+        "source_orbit": 15,
+        "source_phase": 2,
+        "target_orbit": 1,
+        "target_phase": 4
+      },
+      "component_partition": [
+        {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 4,
+            "incidences": 6
+          },
+          "e_orbits": [
+            0,
+            1
+          ],
+          "hexagons": [
+            0,
+            1,
+            2,
+            12
+          ],
+          "id": "617af1755ed7e5a2"
+        }
+      ],
+      "coordinate": {
+        "F": 1,
+        "H": 0,
+        "M": -4,
+        "Ndef": 2,
+        "O": 2,
+        "P": 6,
+        "Phi": 0
+      },
+      "event_order_class": "CH2",
+      "exact_decorated_boundary_hash": "d3cf86e32abe6b4e546509088562befcaebc90699e93b380cee8f24444ea1c7c",
+      "incidence_forest": {
+        "component_count": 1,
+        "components": [
+          {
+            "class": {
+              "e_orbits": 2,
+              "hexagons": 4,
+              "incidences": 6
+            },
+            "e_orbits": [
+              0,
+              1
+            ],
+            "hexagons": [
+              0,
+              1,
+              2,
+              12
+            ],
+            "id": "617af1755ed7e5a2"
+          }
+        ]
+      },
+      "known18_comparison": {
+        "classification": "EXACT_KNOWN18_MATCH",
+        "matches": [
+          {
+            "canonical_state_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9",
+            "ell": 4,
+            "known_id": "short_ell4_5d3f8cb9fdd4",
+            "raw_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+            "source": "rr_preparation_words.json"
+          }
+        ]
+      },
+      "left_action_to_identity": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        5
+      ],
+      "literal_joint_source": {
+        "orbit": 1,
+        "phase": 4,
+        "semantic_tag": "R2_LITERAL_JOINT_SOURCE_V1",
+        "state_hash": "9161065247c83317b3f01ff0de9d41b38ab8f926a7c9deeeb65eb22162611081"
+      },
+      "literal_macro_trace": [
+        {
+          "joint": "w3:120",
+          "kind": "R",
+          "label": "rot^5;w3:120",
+          "rotation_length": 5,
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            1,
+            2
+          ],
+          "target_hexagon": 12
+        },
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            81,
+            1
+          ],
+          "target": [
+            1,
+            3
+          ],
+          "target_hexagon": 2
+        },
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            15,
+            2
+          ],
+          "target": [
+            1,
+            4
+          ],
+          "target_hexagon": 0
+        },
+        {
+          "joint": "w3:120",
+          "kind": "R",
+          "label": "rot^0;w3:120",
+          "rotation_length": 0,
+          "source": [
+            1,
+            4
+          ],
+          "target": [
+            0,
+            2
+          ],
+          "target_hexagon": 18
+        }
+      ],
+      "parent_dag_replay_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+      "recognizer": {
+        "CH_branch": "CH2",
+        "Target_B_or_C_tested": false,
+        "area_a_reason": null,
+        "chaining": true,
+        "component_digest": "1101f2444218c57887928cbe69f4df3db9965261b9310307a7e25d7774d5e432",
+        "conditions": {
+          "F_def_equals_1": true,
+          "H_equals_0": true,
+          "exactly_two_R_events": true,
+          "hub_touch_count_le_2": true,
+          "immediately_after_R2": true,
+          "same_component": true
+        },
+        "coordinate": {
+          "D": 4,
+          "F_def": 1,
+          "H": 0,
+          "Ndef": 2,
+          "O": 2,
+          "P": 6,
+          "S": 3,
+          "visited": 25
+        },
+        "event_order_class": "CH2",
+        "geometry_failure_reason": null,
+        "is_target_a": true,
+        "literal_joint_source_state_hash": "9161065247c83317b3f01ff0de9d41b38ab8f926a7c9deeeb65eb22162611081",
+        "phi": 0,
+        "post_r2_state_hash": "5d3f8cb9fdd40f2258b113d61f89178626b3d3cba00bd01b1526c74c753cf52e",
+        "pre_hub_mask": 63,
+        "q2_area_a_reason_diagnostic": null,
+        "r2_detail_reason": null,
+        "r2_endpoint_presence": {
+          "source_orbit_present_in_pre_r2_forest": true,
+          "target_orbit_present_in_pre_r2_forest": true
+        },
+        "r2_failed_conditions": [],
+        "r2_outcome": "TARGET_A_HIT",
+        "r2_primary_failure": null,
+        "same_component": true,
+        "source_orbit": 1,
+        "source_phase": 4,
+        "source_state_semantic_tag": "R2_LITERAL_JOINT_SOURCE_V1",
+        "target_orbit": 0,
+        "target_phase": 2
+      },
+      "root_id": "short_ell4",
+      "witness_id": "short_ell4_target_a_00002"
+    }
+  ],
+  "phase_helper_used": false,
+  "schema": "rr-short1-4-target-a-classes-v5-literal-r2-source",
+  "scope": "capped corrected pilots only"
+}
