@@ -1,0 +1,3449 @@
+{
+  "candidate_theorems": [
+    {
+      "counterexample_request": "A legal post-R1/pre-R2 Z2 or Z3 child whose pre-components are distinct and post-components coincide.",
+      "name": "separation_invariant_candidate",
+      "proof_gap": "No closure of the legal Z2/Z3 insertion cases for every future occupancy mask.",
+      "required_decoration": [
+        "exact incidence forest",
+        "R1 target orbit",
+        "hub id",
+        "literal joint source",
+        "F/H",
+        "future R2 source"
+      ],
+      "statement": "In the short_ell2_r1_37 reachable Target-A-safe universe, the R1-target component never merges with the hub component before R2.",
+      "status": "CONJECTURE; finite prefix only",
+      "support": "All 421,221 previously verified replay nodes were B0; all 22 endpoint states remain separated and no bridge occurs in their exact next-three-step neighborhoods."
+    },
+    {
+      "counterexample_request": "Any descendant R2 whose failure reason differs, or a Target-A hit.",
+      "name": "same_component_gate_candidate",
+      "proof_gap": "The statement does not cover R2 candidates appearing after further continuation.",
+      "required_decoration": [
+        "literal R2 joint source",
+        "component partition",
+        "R1 target orbit"
+      ],
+      "statement": "Every geometrically available R2 at these endpoint profiles fails only the same-component predicate.",
+      "status": "FINITE COMPLETE CHECK ON THE 22 STATES ONLY",
+      "support": "9 immediate R2 candidates, all with detail_reason=same_component."
+    },
+    {
+      "counterexample_request": "None within the replayed exact transition graph; verifier mismatch would be required.",
+      "name": "local_exhaustion_certificate",
+      "proof_gap": "This is a certificate for nine roots, not a common hand theorem for all 22.",
+      "required_decoration": [
+        "exact state",
+        "full decoration"
+      ],
+      "statement": "Nine of the 22 stored frontier roots have finite reachable subgraphs containing no bridge.",
+      "status": "FINITE COMPLETE CHECK",
+      "support": [
+        "short_ell2_r1_37:304862",
+        "short_ell2_r1_37:304864",
+        "short_ell2_r1_37:304869",
+        "short_ell2_r1_37:304871",
+        "short_ell2_r1_37:304971",
+        "short_ell2_r1_37:305011",
+        "short_ell2_r1_37:305012",
+        "short_ell2_r1_37:305014",
+        "short_ell2_r1_37:305016"
+      ]
+    }
+  ],
+  "component_geometry_classes": [
+    {
+      "component_geometry_class_sha256": "a83dc0632f778ffadf1010f88e8a79d131b463d0171c8eeeb5d0bf890f47ef38",
+      "node_ids": [
+        "short_ell2_r1_37:304871",
+        "short_ell2_r1_37:304872"
+      ],
+      "size": 2
+    },
+    {
+      "component_geometry_class_sha256": "d1761282e1626f9c99a4a3bcc4330c92178478de6772733cfdac4d4e6801f030",
+      "node_ids": [
+        "short_ell2_r1_37:303323",
+        "short_ell2_r1_37:303324"
+      ],
+      "size": 2
+    },
+    {
+      "component_geometry_class_sha256": "e9b444dcee142f460d4045260005239a575696f606f7e7e1c7b67572b2be90cf",
+      "node_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13"
+      ],
+      "size": 2
+    },
+    {
+      "component_geometry_class_sha256": "0063a596b8ed94dbcdadb6d77bc89231fb0dc02ee285078cfcc749f297e50cb4",
+      "node_ids": [
+        "short_ell2_r1_37:304869"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "03d97ae2e76d45117f392a1e0fdbb6a8a1c410ddcdd43830da4d761ffe4aa3ff",
+      "node_ids": [
+        "short_ell2_r1_37:305018"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "3c9072782240cd71f823dc48e9e1603e958668f20e8932c0db1498ad24186d28",
+      "node_ids": [
+        "short_ell2_r1_37:305011"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "40b5c0b8352492fc209ad67bdeec12820a764f3d74df6a0c714a419fad915a44",
+      "node_ids": [
+        "short_ell2_r1_37:304864"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "57ae748390be908b9540342196dc53ceaa86602e7ecc4cd82714c97452295a16",
+      "node_ids": [
+        "short_ell2_r1_37:304858"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "7db9b4f993fcd2001dfd5cfa89717a25d5e6d8d0efa5809f27bf20ea850889ca",
+      "node_ids": [
+        "short_ell2_r1_37:304973"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "7fce039f27dcb475d89f132eadd1002aaa2852ec6a478f7ef8164a364b6494e1",
+      "node_ids": [
+        "short_ell2_r1_37:305012"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "a17826fc6259ec0fd9a7161e84f6714e7a8d165c92c8700b70b1b2db23a2bc3e",
+      "node_ids": [
+        "short_ell2_r1_37:304860"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "a3e01edc04814bc09f05f5ad90b46b3bb9e0d6d6709adb2727f7ffd23a4af0fa",
+      "node_ids": [
+        "short_ell2_r1_37:305016"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "bd91db0ebba348f83c47c16c0332721d012d6327ca2d6aeca97dd5e283b0c760",
+      "node_ids": [
+        "short_ell2_r1_37:236166"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "c0bad00d64bdf917303ac59f4e7b5a4c9e495c06817f1c0311d1621113895cb9",
+      "node_ids": [
+        "short_ell2_r1_37:304862"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "e82ae1e739f1bffb2d94c29b60724277e0cbc99a0b56faa4c2275dd9b2287df7",
+      "node_ids": [
+        "short_ell2_r1_37:303321"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "eb02a2cac161dd8af4431ff02fe8765c327d92e731d3083362923c7affcc55fe",
+      "node_ids": [
+        "short_ell2_r1_37:6"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "ee87c06e36a5191e9c9d5cb4e7495e9b112233c6439163aaefe89b69b11beaf7",
+      "node_ids": [
+        "short_ell2_r1_37:304971"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "f1d78d09f3346f2e8a7f26adab81fd07c8aa21eaf6317038717f606d054c65c9",
+      "node_ids": [
+        "short_ell2_r1_37:3"
+      ],
+      "size": 1
+    },
+    {
+      "component_geometry_class_sha256": "fcadc0310749f02fe4d13eaddf03d4b7b9664e1e4978aa03dd9fd8b51ba5b3be",
+      "node_ids": [
+        "short_ell2_r1_37:305014"
+      ],
+      "size": 1
+    }
+  ],
+  "counts": {
+    "component_geometry_classes": 19,
+    "exact_decorated_states": 22,
+    "frontier_states": 22,
+    "left_s6_canonical_classes": 22,
+    "resource_profile_classes": 18,
+    "successor_signature_classes": 22
+  },
+  "equivalence_warning": "Only the left-S6 classes are proved symmetry quotients. Resource, successor, and component classes are profiles, not merge permissions.",
+  "histograms": {
+    "bridge_distance_status": {
+      "not_found_within_bound": 13,
+      "reachable_subgraph_exhausted_no_bridge": 9
+    },
+    "depth": {
+      "47": 1,
+      "48": 1,
+      "52": 2,
+      "56": 1,
+      "58": 1,
+      "59": 2,
+      "66": 1,
+      "67": 1,
+      "68": 1,
+      "69": 1,
+      "73": 1,
+      "74": 2,
+      "76": 1,
+      "77": 1,
+      "85": 2,
+      "86": 1,
+      "87": 1,
+      "88": 1
+    },
+    "hub_mask": {
+      "63": 22
+    },
+    "legal_successor_count": {
+      "0": 5,
+      "1": 9,
+      "2": 5,
+      "3": 3
+    }
+  },
+  "left_s6_canonical_classes": [
+    {
+      "left_s6_canonical_class_sha256": "019251b189341676f3b75b9adaee262c104c0265cb400bae66054e7550f58478",
+      "node_ids": [
+        "short_ell2_r1_37:304971"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "0a7ddc09affb3d1fe56a3d055494627ddd2954f7add0bd44242230be1a69a33c",
+      "node_ids": [
+        "short_ell2_r1_37:304862"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "15e0a3b2cf3bdf5fb5080990537d1d299582ae69a427d6b6efbc37d873259926",
+      "node_ids": [
+        "short_ell2_r1_37:236166"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "2e1e50c4cef44880d5fb1da3321845e0d6fc9e328d3e596204e042a27342ff6e",
+      "node_ids": [
+        "short_ell2_r1_37:304864"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "3e4e2f3266841ddbbd3d965f237952f0186126b5c23fe450affd7599b18c121d",
+      "node_ids": [
+        "short_ell2_r1_37:303323"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "42a7515c5ad7d0460abf88c4c328499539e5770bd4df9bf8c865d15f4fb8b860",
+      "node_ids": [
+        "short_ell2_r1_37:303324"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "62dc43c886131955ee492c8f5dae9328ff7bc2e2f103a692f60cb0d19119e012",
+      "node_ids": [
+        "short_ell2_r1_37:12"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "675daa11b47858d94105dc9ca6d4f15d12baab9bfa4c986373e7d7b3d6417bcd",
+      "node_ids": [
+        "short_ell2_r1_37:304869"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "7dcb2da37d2ec4a829941f089f88c0cd182ba77094491da1e8d9b907add5e23f",
+      "node_ids": [
+        "short_ell2_r1_37:6"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "8051def06b408fa87f68a50d15c4c7f8ee599dcb361517bdd7bc8793042cad64",
+      "node_ids": [
+        "short_ell2_r1_37:13"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "908be611190944a373759c62c2f235e895fc523072c27768c965d3056f140554",
+      "node_ids": [
+        "short_ell2_r1_37:305016"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "971e6a1f413116fef3155c93ad80d834367c776649d721767488838b57260923",
+      "node_ids": [
+        "short_ell2_r1_37:305011"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "a76be2c4d0faf9898f4afa01d2a4eafc836f92267a3665289e590d823343c774",
+      "node_ids": [
+        "short_ell2_r1_37:305014"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "a7c0fc0981dac9f65652d48d9dc41d5ec6cd1c6f5fe0b00052bade18dc525b7d",
+      "node_ids": [
+        "short_ell2_r1_37:304858"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "af4440bc5da75a252eb5805c29f8d0a0cecb3b4f8570de632bfa532c59d55380",
+      "node_ids": [
+        "short_ell2_r1_37:305012"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "c2a12e30f655a0f876f311eb85012ebf37c3aa768a84baa00162665986092539",
+      "node_ids": [
+        "short_ell2_r1_37:304872"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "cb5cc659ead96c428f1cdf9edba7554f519e137ea50b220c77e7274be3036458",
+      "node_ids": [
+        "short_ell2_r1_37:304973"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "cf8688c56d25bbbc2e8dfa881fa18892684e04260398111382c0187791b619d6",
+      "node_ids": [
+        "short_ell2_r1_37:304860"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "d2017193d74ee06fdae5cdf077787ad45991760cf3965a19da886c2b9b782821",
+      "node_ids": [
+        "short_ell2_r1_37:305018"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "e7c20c5799cdbd64c32efc4e8c6de137a6bf62403c1e0751633c67205e32412c",
+      "node_ids": [
+        "short_ell2_r1_37:303321"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "eb28815b370d122426206841f8ddc0eaaab876d4e142e3a0087c10bce83f7f67",
+      "node_ids": [
+        "short_ell2_r1_37:3"
+      ],
+      "size": 1
+    },
+    {
+      "left_s6_canonical_class_sha256": "fb60756b7107202c7dbf1e04cb92548017969dece4129f0f898d99366ed45b10",
+      "node_ids": [
+        "short_ell2_r1_37:304871"
+      ],
+      "size": 1
+    }
+  ],
+  "provenance": {
+    "analysis_sha256": "06efbfae118e071f5ef9043f541eec31e4a5c6ecc8afd453f4235a063ab71762",
+    "ancestry_nodes_replayed": 65,
+    "checkpoint": {
+      "bytes": 4884573885,
+      "path": "outputs\\checkpoints\\rr_short5\\top2_continuation_v7\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+      "sha256_from_verified_v7_ledger": "2847a6bd5861476428ec7cd9bd9d1d855229b33378662ebeef4ae4db832b1551"
+    },
+    "engine_sha256": "5388bf46a0eb1d56223193c35c842cf19a7a6d6bba7b1b1ade11e785d427d649",
+    "parent_dag_nodes_scanned": 305022,
+    "v7_adapter_sha256": "61dd3b5a35e4eb4d6a36b4032c61b239e4452e95dc07ac9d6016d60839aff636",
+    "verified_v7_ledger_sha256": "16162784ffcb51e8bd3edf86c6e1ebb0b56475739ddb5035a9e456a0f275fe83"
+  },
+  "recurrence_and_ranking": {
+    "exact_decorated_recurrences": [],
+    "monotonicity": {
+      "D": {
+        "minimal_counterexamples": [
+          {
+            "after": 31,
+            "before": 32,
+            "edge": [
+              "short_ell2_r1_37:1",
+              "short_ell2_r1_37:2"
+            ]
+          },
+          {
+            "after": 31,
+            "before": 32,
+            "edge": [
+              "short_ell2_r1_37:1",
+              "short_ell2_r1_37:2"
+            ]
+          },
+          {
+            "after": 34,
+            "before": 35,
+            "edge": [
+              "short_ell2_r1_37:5",
+              "short_ell2_r1_37:8"
+            ]
+          },
+          {
+            "after": 33,
+            "before": 34,
+            "edge": [
+              "short_ell2_r1_37:8",
+              "short_ell2_r1_37:9"
+            ]
+          },
+          {
+            "after": 31,
+            "before": 32,
+            "edge": [
+              "short_ell2_r1_37:1",
+              "short_ell2_r1_37:2"
+            ]
+          }
+        ],
+        "nondecreasing_on_replayed_paths": false,
+        "violation_count": 242
+      },
+      "M": {
+        "minimal_counterexamples": [
+          {
+            "after": -32,
+            "before": -28,
+            "edge": [
+              "short_ell2_r1_37:0",
+              "short_ell2_r1_37:1"
+            ]
+          },
+          {
+            "after": -36,
+            "before": -32,
+            "edge": [
+              "short_ell2_r1_37:1",
+              "short_ell2_r1_37:3"
+            ]
+          },
+          {
+            "after": -32,
+            "before": -28,
+            "edge": [
+              "short_ell2_r1_37:0",
+              "short_ell2_r1_37:1"
+            ]
+          },
+          {
+            "after": -35,
+            "before": -31,
+            "edge": [
+              "short_ell2_r1_37:2",
+              "short_ell2_r1_37:6"
+            ]
+          },
+          {
+            "after": -32,
+            "before": -28,
+            "edge": [
+              "short_ell2_r1_37:0",
+              "short_ell2_r1_37:1"
+            ]
+          }
+        ],
+        "nondecreasing_on_replayed_paths": false,
+        "violation_count": 274
+      },
+      "Ndef": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      },
+      "O": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      },
+      "P": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      },
+      "Phi": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      },
+      "S": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      },
+      "hub_popcount": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      },
+      "visited": {
+        "minimal_counterexamples": [],
+        "nondecreasing_on_replayed_paths": true,
+        "violation_count": 0
+      }
+    },
+    "path_count": 22,
+    "relaxed_phase_context_recurrences": [
+      {
+        "endpoint": "short_ell2_r1_37:236166",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303321",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303321",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303321",
+        "first": 6,
+        "second": 13,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303324",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303324",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303323",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:303323",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304858",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304858",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304858",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304858",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304858",
+        "first": 3,
+        "second": 21,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304860",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304860",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304860",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304860",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304860",
+        "first": 16,
+        "second": 22,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304862",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304862",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304862",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304862",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304864",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304864",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304864",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304864",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304864",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304869",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304869",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304869",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304869",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304869",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304872",
+        "first": 12,
+        "second": 29,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304871",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304871",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304871",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304871",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304871",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304871",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304971",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 20,
+        "second": 31,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:304973",
+        "first": 3,
+        "second": 32,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 20,
+        "second": 31,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 7,
+        "second": 33,
+        "signature": [
+          2,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 2,
+        "second": 36,
+        "signature": [
+          1,
+          2,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 3,
+        "second": 37,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305012",
+        "first": 4,
+        "second": 38,
+        "signature": [
+          4,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 20,
+        "second": 31,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 7,
+        "second": 33,
+        "signature": [
+          2,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 2,
+        "second": 36,
+        "signature": [
+          1,
+          2,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 3,
+        "second": 37,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305011",
+        "first": 4,
+        "second": 38,
+        "signature": [
+          4,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 20,
+        "second": 31,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 7,
+        "second": 33,
+        "signature": [
+          2,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 2,
+        "second": 36,
+        "signature": [
+          1,
+          2,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 3,
+        "second": 37,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 4,
+        "second": 38,
+        "signature": [
+          4,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305014",
+        "first": 37,
+        "second": 41,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 20,
+        "second": 31,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 7,
+        "second": 33,
+        "signature": [
+          2,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 2,
+        "second": 36,
+        "signature": [
+          1,
+          2,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 3,
+        "second": 37,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305016",
+        "first": 4,
+        "second": 38,
+        "signature": [
+          4,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 8,
+        "second": 10,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 10,
+        "second": 12,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 1,
+        "second": 19,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 17,
+        "second": 20,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 19,
+        "second": 23,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 9,
+        "second": 28,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 23,
+        "second": 30,
+        "signature": [
+          0,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 20,
+        "second": 31,
+        "signature": [
+          1,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 7,
+        "second": 33,
+        "signature": [
+          2,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 2,
+        "second": 36,
+        "signature": [
+          1,
+          2,
+          1,
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 3,
+        "second": 37,
+        "signature": [
+          3,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 4,
+        "second": 38,
+        "signature": [
+          4,
+          2,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 12,
+        "second": 42,
+        "signature": [
+          4,
+          1,
+          1,
+          6,
+          2,
+          1
+        ]
+      },
+      {
+        "endpoint": "short_ell2_r1_37:305018",
+        "first": 28,
+        "second": 43,
+        "signature": [
+          2,
+          1,
+          1,
+          6,
+          3,
+          1
+        ]
+      }
+    ],
+    "relaxed_recurrence_warning": "A repeated reduced signature is not an exact state cycle.",
+    "strict_finite_ranking": {
+      "quantity": "remaining unvisited permutation windows = 720 - visited",
+      "replayed_unique_edges": 64,
+      "scope_warning": "This proves finiteness of each literal continuation, not a useful short exhaustion bound.",
+      "strictly_decreases_on_every_replayed_edge": true,
+      "visited_increment_range": [
+        6,
+        6
+      ]
+    },
+    "tail_collision_averages": {
+      "0": {
+        "mean_exact_collisions": 13.181818181818182,
+        "mean_legal_successors": 1.2727272727272727,
+        "states": 22
+      },
+      "1": {
+        "mean_exact_collisions": 11.818181818181818,
+        "mean_legal_successors": 2.409090909090909,
+        "states": 22
+      },
+      "10": {
+        "mean_exact_collisions": 11.88888888888889,
+        "mean_legal_successors": 1.7222222222222223,
+        "states": 18
+      },
+      "2": {
+        "mean_exact_collisions": 12.772727272727273,
+        "mean_legal_successors": 1.8181818181818181,
+        "states": 22
+      },
+      "3": {
+        "mean_exact_collisions": 12.523809523809524,
+        "mean_legal_successors": 1.6666666666666667,
+        "states": 21
+      },
+      "4": {
+        "mean_exact_collisions": 12.2,
+        "mean_legal_successors": 1.85,
+        "states": 20
+      },
+      "5": {
+        "mean_exact_collisions": 11.95,
+        "mean_legal_successors": 1.9,
+        "states": 20
+      },
+      "6": {
+        "mean_exact_collisions": 12.3,
+        "mean_legal_successors": 1.75,
+        "states": 20
+      },
+      "7": {
+        "mean_exact_collisions": 12.25,
+        "mean_legal_successors": 1.5,
+        "states": 20
+      },
+      "8": {
+        "mean_exact_collisions": 11.222222222222221,
+        "mean_legal_successors": 1.6666666666666667,
+        "states": 18
+      },
+      "9": {
+        "mean_exact_collisions": 12.5,
+        "mean_legal_successors": 1.7777777777777777,
+        "states": 18
+      }
+    },
+    "tail_collision_profiles": [
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 15,
+        "legal_successors": 0,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 17,
+        "legal_successors": 0,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 19,
+        "legal_successors": 0,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 13,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 19,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 6,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 8,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 10,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 0,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 5,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 8,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 10,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 12,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 13,
+        "legal_successors": 2,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 15,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 17,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 18,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 8,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 9,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 10,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 12,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 1,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 13,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 18,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 5,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 7,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 8,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 10,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 13,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 15,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 17,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 18,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 10,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 2,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 5
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 18,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 7,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 8,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 12,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 17,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 10,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 3,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 8,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 4
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 18,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 10,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 14,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 4,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 8,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 18,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 12,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 18,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 8,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 9,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 10,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 5,
+        "exact_collisions": 14,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 13,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 18,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 5,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 12,
+        "legal_successors": 2,
+        "occurrences": 4
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 13,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 14,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 6,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 8,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 9,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 16,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 8,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 11,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 13,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 9,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 14,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 7,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 8,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 9,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 13,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 15,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 16,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 8,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 12,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 9,
+        "legal_successors": 3,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 12,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 8,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 9,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 13,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 16,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 10,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 12,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 13,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 8,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 12,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 9,
+        "exact_collisions": 16,
+        "legal_successors": 3,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 9,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 11,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 12,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 14,
+        "legal_successors": 1,
+        "occurrences": 2
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 16,
+        "legal_successors": 1,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 5,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 7,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 8,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 9,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 10,
+        "legal_successors": 2,
+        "occurrences": 1
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 13,
+        "legal_successors": 2,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 16,
+        "legal_successors": 2,
+        "occurrences": 3
+      },
+      {
+        "distance_from_frontier": 10,
+        "exact_collisions": 12,
+        "legal_successors": 3,
+        "occurrences": 1
+      }
+    ]
+  },
+  "resource_profile_classes": [
+    {
+      "node_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13"
+      ],
+      "resource_profile_class_sha256": "131501c1690750cb18e4f92877c7ffe43964655db47f6b81cfdb47bc8324f50f",
+      "size": 2
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305011",
+        "short_ell2_r1_37:305012"
+      ],
+      "resource_profile_class_sha256": "201fb62df65810f9d2a0a85e468f4f526350bf88f8abe5eac83e512a9a2ad916",
+      "size": 2
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:303323",
+        "short_ell2_r1_37:303324"
+      ],
+      "resource_profile_class_sha256": "63570c29f5de6b79a0035a63ef6ccdf082643ff5aa533a987b500dcdc54ec9e3",
+      "size": 2
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304871",
+        "short_ell2_r1_37:304872"
+      ],
+      "resource_profile_class_sha256": "b8e570c43820f8a875e50fb9a4f72ab680db4457a323bd73fd5ce15ebb952567",
+      "size": 2
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304860"
+      ],
+      "resource_profile_class_sha256": "457a1e1e7021a152dcd9a7ce6fc9ee91179869964e99c19b881b4aaa1c79732e",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:6"
+      ],
+      "resource_profile_class_sha256": "54922086a0e12f07f2e2a665db00a4a0a3e0bf28dc8e61ce2a02cb3b4da07202",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:303321"
+      ],
+      "resource_profile_class_sha256": "62384c03c16fadd95c2e3e1c424a5f6fd9cf287f6e6eac6a5c90b5cde5fe6a42",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304971"
+      ],
+      "resource_profile_class_sha256": "7ef16170be8447f5169c4f22d8a2b68361fe66dfd05177734c810b7d92df00f8",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:236166"
+      ],
+      "resource_profile_class_sha256": "961ce65909a8cfe6da6bb5ba1bb5a5fefbb5324e830942f0d7466c5300943fe9",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305018"
+      ],
+      "resource_profile_class_sha256": "9a1a309c9e831e63693ca5a895bee1272c783a844066bb556a6f50f90990403a",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304869"
+      ],
+      "resource_profile_class_sha256": "9f44e6c51121f5da52d13200e98d370e8d6d8f149220fa900304795afc3e70f3",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:3"
+      ],
+      "resource_profile_class_sha256": "a3b69345ab3898bdb53eb64db602b0d99bfb4fdf60c01f69053b9f640922e9bb",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304973"
+      ],
+      "resource_profile_class_sha256": "b04138f624204997c0352153b220f4c09fb4c7c5e9f95e2b9fd65f29c15c624b",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304862"
+      ],
+      "resource_profile_class_sha256": "d6b3c8298db96a1f744dba4f8d7315f4add1a12d508b41475cd3de91f30e12c0",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305016"
+      ],
+      "resource_profile_class_sha256": "db3889fee9abee126fd1b048ceb8c862cc0be10b491e4cbfc84b9a1d3c997ddc",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304858"
+      ],
+      "resource_profile_class_sha256": "e3e3458f194d4e12325ed828f281dd80cb7d92efa59bbc85205d542566266a73",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305014"
+      ],
+      "resource_profile_class_sha256": "ec18e2b0b6b355f6cad9683d7b777d782e89936fc58b291325218392a5122030",
+      "size": 1
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304864"
+      ],
+      "resource_profile_class_sha256": "ed0428eab4ec5fb7bae15ab16bb30985457768b04249fc846978b5494386c3ad",
+      "size": 1
+    }
+  ],
+  "schema": "rr-short-ell2-r1-37-frontier-audit-v1",
+  "scope": "22-state read-only frontier; no continuation search",
+  "structural_findings": {
+    "all_Phi_zero": true,
+    "all_R1_target_components_separate_from_hub": true,
+    "all_component_counts_equal_O_minus_1": true,
+    "all_hubs_complete": true,
+    "bridge_interpretation": "Nine reachable subgraphs closed during exact <=3-step BFS; the other thirteen have exact bridge distance at least four, not infinite.",
+    "collision_saturation": {
+      "frontier_mean_exact_collisions": 13.181818181818182,
+      "frontier_mean_legal_successors": 1.2727272727272727,
+      "monotone_saturation_observed": false,
+      "reason": "The exact-collision and legal-successor means over the last ten ancestry layers fluctuate rather than change monotonically."
+    },
+    "immediate_R2_candidates": 9,
+    "immediate_R2_failure_reasons": {
+      "same_component": 9
+    },
+    "locally_exhausted_no_bridge_state_count": 9,
+    "locally_exhausted_node_ids": [
+      "short_ell2_r1_37:304862",
+      "short_ell2_r1_37:304864",
+      "short_ell2_r1_37:304869",
+      "short_ell2_r1_37:304871",
+      "short_ell2_r1_37:304971",
+      "short_ell2_r1_37:305011",
+      "short_ell2_r1_37:305012",
+      "short_ell2_r1_37:305014",
+      "short_ell2_r1_37:305016"
+    ],
+    "remaining_states_with_no_bridge_through_three_steps": 13
+  },
+  "successor_signature_classes": [
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305018"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "21234e09279ea363f56796568758efdbd4e10503f37092d45d297b204c72b154"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304971"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "245f1b8f5edd51fb1a27fc42484ba7a2a9a6bcb4a51513d192da06936c70c744"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304869"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "2b9ae2685eceb0d0fa7b86e9e608146cf67e4b8e66e64ac5b2122f20704b96a7"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:236166"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "5fc173437081e30dd0e4279cea0c13921654aed6c9c8f2a95fb12c1e181545c2"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304871"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "5ffa28774775c8eae63ef121f1ca8f1f076eed286bf4cb403b8788ad26f533b4"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305016"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "60f15f8c86e23c303be010d3f878a5a094d056f5d9ba7365b0210fa60e971b30"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304862"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "623f06e716320b100742af7db0852856871f1cbea3762ab0eb59d5fb2fb2bdab"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:12"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "7449c6a236ae54296a4addb7ee66abe0913655bb3918f0f956ae74fde0710b1a"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:303324"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "79c485cbf124377bbcef2855d70fe1b2eae7efea35cda7b831c54eb61c7bc164"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:3"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "897fe31e2bf3a1f66c970de2e94fa2e8b210171c7ef9aed5e9576252c7c4f57f"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304860"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "8f93580002f6940bbe9822920f092a0c62412f3b5bfe1ab54daaaf29406eaedf"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:303323"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "92fd505028e9f7759b93798ac4d4b1a6319904d5de64dc292a142d5575748a3f"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:303321"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "a120b17cfa5fb84f0edf46f27fb8ddddd90becf7b55e02b7599c87abb8cd2be9"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304872"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "a96b584a5df0bf784efc0516db33d0da63f85c875a9509e594849c07965c17ce"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305014"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "b4d3d0fa55172fb8a75675cd8a320fae65b9cc57c367cc35bc78529457b10d9e"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:6"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "b97f7dd934d98c96eb43fe1750efea0bebb8d1fd4f10a7d0d0bce9c0c38adf0e"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:13"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "b9fbe6be063399d1ecab066bd0407841322780a7936d6d0c830c9e0955e2861b"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304973"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "ba272f86e043329c1df4344c2adf9561835357b61bfcc059a344c3c583677b0e"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304864"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "ce2416ba327cce7caebc1bff2962d556f07e7427682db0718b3e3730b31f182f"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305011"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "ce8f05b65b996b05242a0e6c88fd8a457ccda162827145489abb4b56b5baa8fd"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:305012"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "f877e12b46b66a5ba219cb1817c8a641e3eeb57949104e7e82a88710be69ab51"
+    },
+    {
+      "node_ids": [
+        "short_ell2_r1_37:304858"
+      ],
+      "size": 1,
+      "successor_signature_class_sha256": "feb85e91283d089eb681b8b070122dc67da314fd9557ab001497418401e85416"
+    }
+  ]
+}

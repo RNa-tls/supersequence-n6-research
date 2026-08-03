@@ -1,0 +1,55 @@
+{
+  "current_status": "short_ell2_r1_37 remains INCOMPLETE with 22 frontier states",
+  "not_executed": true,
+  "provenance": {
+    "analysis_sha256": "06efbfae118e071f5ef9043f541eec31e4a5c6ecc8afd453f4235a063ab71762",
+    "ancestry_nodes_replayed": 65,
+    "checkpoint": {
+      "bytes": 4884573885,
+      "path": "outputs\\checkpoints\\rr_short5\\top2_continuation_v7\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+      "sha256_from_verified_v7_ledger": "2847a6bd5861476428ec7cd9bd9d1d855229b33378662ebeef4ae4db832b1551"
+    },
+    "engine_sha256": "5388bf46a0eb1d56223193c35c842cf19a7a6d6bba7b1b1ade11e785d427d649",
+    "parent_dag_nodes_scanned": 305022,
+    "v7_adapter_sha256": "61dd3b5a35e4eb4d6a36b4032c61b239e4452e95dc07ac9d6016d60839aff636",
+    "verified_v7_ledger_sha256": "16162784ffcb51e8bd3edf86c6e1ebb0b56475739ddb5035a9e456a0f275fe83"
+  },
+  "recommendation": {
+    "checkpoint_plan": "fresh branch-local namespace keyed by checkpoint SHA, exact state hash, and parent replay hash; equal independent caps; empty frontier required for exhaustion",
+    "first_batch_node_ids": [
+      "short_ell2_r1_37:304973",
+      "short_ell2_r1_37:304860",
+      "short_ell2_r1_37:304858",
+      "short_ell2_r1_37:303323",
+      "short_ell2_r1_37:236166",
+      "short_ell2_r1_37:304872",
+      "short_ell2_r1_37:303324",
+      "short_ell2_r1_37:12"
+    ],
+    "interpretation": "caps are INCOMPLETE; zero bridge observations are not impossibility",
+    "next_gate": "If profile representatives do not exhaust, expand all 22 equally rather than pruning profile-equivalent states.",
+    "per_state_additional_cap": 25000,
+    "selection_rule": "exclude the nine locally exhausted subgraphs, then take one exact state per (successor-signature, component-geometry) profile, ordered by fewest successors then deepest state",
+    "strategy": "D_then_A"
+  },
+  "schema": "rr-short-ell2-r1-37-frontier-audit-v1",
+  "strategies": {
+    "A_equal_all_22": {
+      "assessment": "complete but initially wasteful",
+      "proof_value": "high only after natural exhaustion",
+      "recommended": false
+    },
+    "B_smallest_successor": {
+      "assessment": "cheap but risks sampling one repeated geometry",
+      "recommended": false
+    },
+    "C_common_obstruction": {
+      "assessment": "no common obstruction is proved by the present bounded audit",
+      "recommended": false
+    },
+    "D_structural_subfamilies": {
+      "assessment": "best first step: preserve exact provenance while sampling each observed successor/component profile",
+      "recommended": true
+    }
+  }
+}
