@@ -1,0 +1,215 @@
+{
+  "schema": "rr-short5-top8-symbolic-claims-claude-v1",
+  "author": "Claude",
+  "role": "short-root search analyst -- symbolic family reconstruction over codex/round51-short5-child-outcomes",
+  "commit_reverification": {
+    "branch": "codex/round51-short5-child-outcomes",
+    "commits": ["4785cc6", "673bd9f", "dfc314f"],
+    "method": "re-fetched this round; rr_short5_capped_priority.json byte-identical (sha256 match) to the copy cached and independently verified two rounds ago -- no new commits on the branch",
+    "no_new_data": true
+  },
+  "headline_finding": {
+    "label": "CLAUDE_HAND_PROOF",
+    "statement": "the 8 children are not 8 independent walks. Within each root, the top-8 representatives sharing that root are literal prefixes of a single deterministic literal walk, differing only in which offset an available R-kind edge (w3:120, ell=5) is taken instead of declined. Across roots, a shorter shared prefix exists (the completer plus three more steps) before the walk itself begins to differ by root.",
+    "divergence_types": {
+      "type_1_forced_divergence": "the literal walk differs between roots because a specific continuation is illegal for one root's state (e.g. its own earlier prefix already touched the target hexagon) -- not a choice, verified forced at D1 by direct replay",
+      "type_2_r_admission_choice": "within one root's shared walk, a legal R-kind edge becomes available as an alternative to continuing Z2/Z3 preparation; taking it yields one child (with that macro_index as its R1), declining it continues the walk toward the next such point"
+    }
+  },
+  "section_1_spine_reconstruction": {
+    "label": "CLAUDE_HAND_PROOF for offsets 0-3 and all listed divergence offsets (read directly from literal_macro_trace); root-dependence caveat noted",
+    "completer": {
+      "offset": 0,
+      "array_index": 3,
+      "macro_index_1indexed": 4,
+      "target_hexagon": 0,
+      "kind": "Z2",
+      "joint": "w2:10",
+      "source_orbit_phase_root_dependent": true,
+      "target_orbit_phase_root_dependent": true,
+      "note": "hexagon label (0) and kind/joint are shared across all 4 roots; source AND target orbit/phase are root-specific -- a precision the prior round's document did not make explicit"
+    },
+    "shared_offsets_1_to_3": [
+      {"offset": 1, "target_hexagon": 96, "kind": "Z2", "joint": "w2:10", "rotation_length_formula": "4 - root_ell", "verified_values": {"short_ell1": 3, "short_ell2": 2, "short_ell3": 1, "short_ell4": 0}},
+      {"offset": 2, "target_hexagon": 18, "kind": "Z2", "joint": "w2:10", "rotation_length": 5, "identical_across_roots": true},
+      {"offset": 3, "target_hexagon": 4, "kind": "Z2", "joint": "w2:10", "rotation_length": 5, "identical_across_roots": true}
+    ],
+    "extended_shared_window": {
+      "claim": "short_ell1/2/3 remain byte-for-byte identical (kind, joint, target orbit/phase, target hexagon) from offset 4 through offset 37 -- more than 30 further edges beyond the originally reported 5-hexagon window",
+      "grade": "CLAUDE_HAND_PROOF, found this round by comparing full traces rather than the first 8-12 entries as prior rounds did"
+    },
+    "divergence_points": [
+      {
+        "id": "D1",
+        "offset": 4,
+        "type": "type_1_forced",
+        "splitting_root": "short_ell4",
+        "majority_edge": {"kind": "Z2", "joint": "w2:10", "target_hexagon": 1},
+        "short_ell4_edge": {"kind": "Z3", "joint": "w3:201", "target_hexagon": 3},
+        "forced_verified_by_replay": true
+      },
+      {
+        "id": "D2",
+        "offset": 38,
+        "type": "type_1_unverified",
+        "splitting_root": "short_ell1",
+        "short_ell1_edge": {"kind": "Z3", "joint": "w3:201", "target_hexagon": 16},
+        "continuing_edge": {"kind": "Z2", "joint": "w2:10", "target_hexagon": 105},
+        "forced_verified_by_replay": false
+      },
+      {
+        "id": "R-alt(37)",
+        "offset": 41,
+        "type": "type_2",
+        "child": "short_ell2_r1_37",
+        "r1_edge": {"kind": "R", "joint": "w3:120", "source": [126, 2], "target": [91, 3], "target_hexagon": 92},
+        "declined_edge": {"kind": "Z2", "joint": "w2:10", "source": [126, 2], "target": [91, 2], "target_hexagon": 82}
+      },
+      {
+        "id": "D3",
+        "offset": 50,
+        "type": "type_1_unverified",
+        "splitting_root": "short_ell3",
+        "short_ell3_edge": {"kind": "Z2", "joint": "w2:10", "target_hexagon": 8},
+        "continuing_edge": {"kind": "Z3", "joint": "w3:201", "target_hexagon": 2},
+        "forced_verified_by_replay": false
+      },
+      {
+        "id": "R-alt(70)",
+        "offset": 51,
+        "type": "type_2",
+        "child": "short_ell2_r1_70",
+        "r1_edge": {"kind": "R", "joint": "w3:120", "source": [1, 3], "target": [3, 1], "target_hexagon": 48},
+        "declined_edge": {"kind": "Z2", "joint": "w2:10", "source": [1, 3], "target": [3, 0], "target_hexagon": 3}
+      },
+      {
+        "id": "R-alt(40)",
+        "offset": 55,
+        "type": "type_2_inferred",
+        "child": "short_ell2_r1_40",
+        "note": "inferred from R1_geometry match on macro_index; not separately re-verified with a Detail printout this round"
+      },
+      {
+        "id": "R-alt(107)",
+        "offset": 58,
+        "type": "type_2_inferred",
+        "child": "short_ell2_r1_107",
+        "note": "last observed short_ell2 R1 point in the top-8 set"
+      },
+      {
+        "id": "R-alt(64)",
+        "offset": 55,
+        "type": "type_2",
+        "child": "short_ell3_r1_64",
+        "r1_edge": {"kind": "R", "joint": "w3:120", "source": [57, 4], "target": [56, 2], "target_hexagon": 69},
+        "declined_edge": {"kind": "Z2", "joint": "w2:10", "source": [57, 4], "target": [56, 1], "target_hexagon": 111}
+      },
+      {
+        "id": "R-alt(56)",
+        "offset": 56,
+        "type": "type_2_inferred",
+        "child": "short_ell3_r1_56"
+      }
+    ],
+    "scope_limit": "short_ell4_r1_12 and short_ell1_r1_98 are each the only top-8 representative of their root; no sibling data exists in this 8-child set to extend their spines past their single observed R1. Not checked against the broader 439-child corpus (99/111/107/122 R1-children per root)."
+  },
+  "section_2_D1_replay_verification": {
+    "label": "CLAUDE_HAND_PROOF",
+    "method": "built short_root(ell) for ell in {1,2,3,4} via src/analyze_rr_short_root_envelope.py's own function, replayed each root's first 7 literal macro edges deterministically via exact.extend, then enumerated the complete fixed legal-edge set from that single state via macro.macro_edges (exhaustive rotation-run x nonrotation-joint enumeration) -- no further step taken, no branching search",
+    "results": {
+      "short_ell1": {"n_legal_edges": 21, "rot5_options": ["w2:10->hex1(Z2)", "w3:201->hex3(Z3)", "w3:210->hex2(Z3)"]},
+      "short_ell2": {"n_legal_edges": 21, "rot5_options": ["w2:10->hex1(Z2)", "w3:201->hex3(Z3)", "w3:210->hex2(Z3)"]},
+      "short_ell3": {"n_legal_edges": 19, "rot5_options": ["w2:10->hex1(Z2)"], "note": "both Z3 options illegal -- hex3 already visited by short_ell3's own prefix at offset -3"},
+      "short_ell4": {"n_legal_edges": 19, "rot5_options": ["w3:201->hex3(Z3)"], "note": "w2:10->hex1 is entirely absent (exact.extend returns None) -- illegal for short_ell4's specific state, not merely undesired"}
+    },
+    "conclusion": "no R-kind edge exists anywhere in this 19/19/21/21-edge enumeration for any of the four roots -- D1 is a purely Z2/Z3 structural fork, unrelated to R-admission, and short_ell4's divergence there is forced, not a free choice. This directly refutes reading D1 as a 'registration repair' opportunity (task 4) -- there was nothing to repair."
+  },
+  "section_3_claims_A_to_E": {
+    "claim_A": {
+      "text": "the first five spine transitions are conjugate across roots",
+      "verdict": "PARTIALLY_REFUTED",
+      "true_for": "completer plus offsets 1-3 (4 transitions), with only the offset-1 rotation length varying as the proven 4-root_ell parameter",
+      "false_at": "the fifth transition (offset 4): short_ell4 takes Z3;w3:201->hex3 instead of the other three roots' Z2;w2:10->hex1 -- a different joint KIND, not a parameter variant, and forced by illegality (section 2)",
+      "exact_counterpattern": "short_ell4's offset-4 edge vs the shared group's offset-4 edge, per section_1 D1 record"
+    },
+    "claim_B": {
+      "text": "the only root-dependent parameter is the final rotation length",
+      "verdict": "REFUTED",
+      "counterpatterns": [
+        "the completer's own source AND target orbit/phase differ by root, not merely a rotation length",
+        "D1: short_ell4's divergence is a joint-kind substitution (Z2->Z3), not a rotation-length variant",
+        "D2 and D3 are likewise joint-kind substitutions between siblings sharing an otherwise-identical prefix"
+      ],
+      "note": "the 4-root_ell rotation-length identity at offset 1 remains correct and clean, but is not the only root-dependent quantity"
+    },
+    "claim_C": {
+      "text": "every legal R alternative before the first divergence targets an orbit different from the required future R2 source orbit",
+      "verdict": "REFUTED_AT_EVERY_CHECKED_INSTANCE",
+      "n_checked": 4,
+      "n_refuting": 4,
+      "checked_pairs": [
+        {"taken": "short_ell2_r1_37", "orbit": 91, "phase_taken": 3, "phase_declined": 2},
+        {"taken": "short_ell2_r1_70", "orbit": 3, "phase_taken": 1, "phase_declined": 0},
+        {"taken": "short_ell3_r1_64", "orbit": 56, "phase_taken": 2, "phase_declined": 1}
+      ],
+      "finding": "in every checked instance the R-alternative and the declined continuation target the IDENTICAL orbit, differing only in phase -- the claim as literally stated (different orbit) is false at every point checked. A weaker phase-sensitive restatement would be true in the same instances but was not what was asked.",
+      "additional_note": "no R-kind edge exists at or before D1 at all, so the claim is vacuous in that window and was instead evaluated at the Type-2 (R-admission) branch points"
+    },
+    "claim_D": {
+      "text": "registering the required orbit necessarily changes the future R2 source",
+      "verdict": "NOT_REFUTED_BUT_NEAR_TAUTOLOGICAL",
+      "reasoning": "once a joint move is taken at a given state it consumes the step and determines the next state by construction -- any two different moves at the same state necessarily lead to different subsequent walks and different sourceable orbits. True essentially by definition of a single-edge-per-step literal walk, not a fact specific to R2 geometry or registration.",
+      "grade": "CLAUDE_OBSERVATION, not promoted to a substantive theorem"
+    },
+    "claim_E": {
+      "text": "any path preserving the required future source cannot merge the needed components before R2",
+      "verdict": "NOT_REFUTED, CORPUS_OBSERVATION_ONLY",
+      "evidence": "in all 8 checked children, R1's own target orbit sits in an isolated single-orbit component, never merged with the hub component, regardless of how far along the spine R1 fired (offsets 41 to 58 -- up to 17 further preparation edges of delay did not change the outcome in any of the 8 cases)",
+      "caveat": "n=8, not exhaustive; no general argument given for why this would hold beyond the sample checked"
+    }
+  },
+  "section_4_r1_target_isolation": {
+    "label": "CLAUDE_HAND_PROOF",
+    "method": "for each of the 8 children, located the incidence_forest component containing hub.id (always 0) and the component containing R1_geometry.target_orbit, directly from each child's own JSON record -- no computation beyond membership lookup",
+    "result": "in all 8 of 8 children, R1's target-orbit component is different from the hub component, and is always minimal (e_orbits=1, hexagons=2 or 3)",
+    "data": [
+      {"child_id": "short_ell2_r1_70", "r1_target_orbit": 3, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 2, "incidences": 3}},
+      {"child_id": "short_ell4_r1_12", "r1_target_orbit": 96, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 3, "incidences": 4}},
+      {"child_id": "short_ell1_r1_98", "r1_target_orbit": 58, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 2, "incidences": 3}},
+      {"child_id": "short_ell2_r1_40", "r1_target_orbit": 34, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 2, "incidences": 3}},
+      {"child_id": "short_ell3_r1_64", "r1_target_orbit": 56, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 2, "incidences": 3}},
+      {"child_id": "short_ell2_r1_37", "r1_target_orbit": 91, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 2, "incidences": 3}},
+      {"child_id": "short_ell2_r1_107", "r1_target_orbit": 44, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 2, "incidences": 3}},
+      {"child_id": "short_ell3_r1_56", "r1_target_orbit": 56, "hub_id": 0, "same_component": false, "r1_component_class": {"e_orbits": 1, "hexagons": 3, "incidences": 4}}
+    ],
+    "significance": "this is the exact, quantitative form of the 'source-orbit registration barrier' described qualitatively two rounds ago -- now confirmed uniformly across the full top-8 set, not just asserted by analogy to short_ell0"
+  },
+  "section_5_smallest_unresolved_template": {
+    "label": "CLAUDE_PROPOSAL -- open question, precisely stated, not resolved",
+    "template": "Does there exist, from R1's target orbit/phase, any legal Z2/Z3 continuation -- within the remaining resource budget (1 further R event, hub_touch_count <= 2, F_def == 1, H == 0) -- whose own orbit registration merges R1's target-orbit component with the component that will contain the eventual R2 target orbit (in particular, with the hub component, since every checked R2 candidate's target orbit traces back toward hex 0's territory)?",
+    "grounding": "derived directly from target_a_recognizer's exact same_component(source,target) requirement (verified from source two rounds ago, reused unchanged) and section_4's uniform finding",
+    "status": "genuinely open; not answered by any data inspected this round or prior rounds; not attempted by search here, per task instruction",
+    "relation_to_prior_finding": "the same underlying question as the single-legal-continuation lookahead evidence-need identified two rounds ago for the single-successor children, now given exact symbolic form in terms of incidence_components and the recognizer's own same_component predicate"
+  },
+  "section_6_classification": {
+    "label": "CLAUDE_OBSERVATION",
+    "table": [
+      {"finding": "completer at macro_index 4 for all 8; offsets 1-3 hex-identical across all 4 roots with rot(4-root_ell) at offset 1", "grade": "family_wide_hand_theorem", "scope": "n=8, exhaustively re-derivable from given trace data"},
+      {"finding": "within a root, top-8 children sharing that root are literal prefixes of one walk, differing only in R1-admission offset", "grade": "family_wide_hand_theorem", "scope": "n=8, byte-for-byte verified"},
+      {"finding": "D1 is forced for short_ell4 (Z2 alternative illegal, not merely undesired)", "grade": "hand_theorem_verified_by_replay", "scope": "covers all 4 roots at this one point; not generalized to D2/D3"},
+      {"finding": "R-alternative and declined continuation always target the same orbit, different phase (refutes Claim C)", "grade": "corpus_observation", "scope": "n=4 checked pairs, 100% consistent, not shown to generalize"},
+      {"finding": "R1's target orbit always lands in an isolated, hub-disjoint component", "grade": "corpus_observation", "scope": "n=8, 100% consistent, no general argument given"},
+      {"finding": "D2/D3 forced-vs-free status", "grade": "unresolved_child_specific_fact_only", "scope": "read directly from trace data; mechanism not independently verified as it was for D1"},
+      {"finding": "smallest unresolved template (section_5)", "grade": "open_question", "scope": "precisely stated, not resolved"}
+    ]
+  },
+  "explicit_non_claims": [
+    "does not claim the branching-spine structure (Type 1/2 divergences) generalizes to the other 431 children in the 439-child corpus, or to the remaining R1-admission points of short_ell1 and short_ell4 beyond their single top-8 representative",
+    "does not verify D2 or D3 by replay the way D1 was verified -- their forced-vs-free status is genuinely unknown from this round's work",
+    "does not resolve the section_5 existential template -- reported as the smallest OPEN question this analysis could reduce the problem to, not as solved",
+    "does not claim Claim E is false -- only that it is unproven and consistent with, not established by, the n=8 sample checked",
+    "no search run: all replay in section_2 is a deterministic re-execution of an already-fixed prefix, enumerating one state's fixed legal-edge set once, with no further exploration past that single enumeration",
+    "no Codex file touched"
+  ],
+  "end_token": "CLAUDE_TOP8_FAMILY_ANALYSIS_COMPLETE"
+}
