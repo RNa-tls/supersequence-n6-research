@@ -1,0 +1,1364 @@
+{
+  "correction": {
+    "all_13_compound_profiles_distinct": true,
+    "no_continuation_equivalence_proved": true,
+    "not_profile_representatives": true,
+    "old_eight_are": "priority-selected states only",
+    "old_eight_coverage": {
+      "component_geometries_covered": 7,
+      "component_geometries_total_frontier": 19,
+      "omitted_states": 5,
+      "resource_profiles_covered": 7,
+      "resource_profiles_total_frontier": 18,
+      "selected_states": 8,
+      "unresolved_states": 13
+    },
+    "supersedes": "the eight-state Strategy D proposal in Round 54"
+  },
+  "coverage_assertions": {
+    "all_planned_caps_equal": true,
+    "all_unresolved_states_included": true,
+    "compound_profile_count": 13
+  },
+  "empirical_cost_estimate": {
+    "aggregate_checkpoint_growth_gb_range": [
+      1.86,
+      2.09
+    ],
+    "assumptions": "fresh one-root branch-local checkpoints, 10,000 accepted expansions per nonexhausted state, historical checkpoint cadence included; no estimate is an exhaustion prediction",
+    "basis": [
+      {
+        "additional_expansions": 61199,
+        "branch": "short_ell2_r1_70",
+        "checkpoint_bytes_per_node": 14271.504548231913,
+        "elapsed_seconds": 1320.9070000000065,
+        "expansions_per_second": 46.331043744941695
+      },
+      {
+        "additional_expansions": 250000,
+        "branch": "short_ell2_r1_37",
+        "checkpoint_bytes_per_node": 16013.841247516573,
+        "elapsed_seconds": 8806.375,
+        "expansions_per_second": 28.388525358050277
+      }
+    ],
+    "combined_rate_point_estimate_minutes": 70.51,
+    "memory_note": "Round-53 peak_working_set_bytes was recorded as 0, so no new memory estimate is asserted",
+    "per_state_checkpoint_growth_mb_range": [
+      142.7,
+      160.2
+    ],
+    "sequential_runtime_range_minutes": [
+      46.8,
+      76.4
+    ]
+  },
+  "pilot": {
+    "additional_expansion_cap_per_state": 10000,
+    "budget_transfer": false,
+    "checkpoint_initialization": "fresh single-root replay-validated subcheckpoint; reference the immutable v7 checkpoint by SHA and do not copy its 4.88 GB parent DAG",
+    "checkpoint_namespace": "outputs/checkpoints/rr_short5/r1_37_all13_v8/<state_id>/checkpoint.json",
+    "exhaustion_rule": "empty frontier only",
+    "maximum_total_additional_expansions": 130000,
+    "natural_exhaustion_stops_branch": true,
+    "required_instrumentation": [
+      "exact bridge predicate",
+      "B0-B6 hierarchy",
+      "literal R2 joint source",
+      "Target A replay",
+      "Target B helper-free analysis when required"
+    ],
+    "state_count": 13
+  },
+  "schema": "rr-short-ell2-r1-37-all13-pilot-plan-v2",
+  "scope": "all 13 unresolved Round-54 frontier states; continuation not started",
+  "source": {
+    "frontier_export": "outputs\\rr_short_ell2_r1_37_frontier.json",
+    "frontier_export_sha256": "f7e1932923ea4bb30a4ac5842a02eff5250484b0acbcb50b16427df2259a30be",
+    "immutable_v7_checkpoint_sha256": "2847a6bd5861476428ec7cd9bd9d1d855229b33378662ebeef4ae4db832b1551"
+  },
+  "state_selection_ledger": [
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "7db9b4f993fcd2001dfd5cfa89717a25d5e6d8d0efa5809f27bf20ea850889ca",
+        "component_count": 31,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 77,
+      "exact_state_hash": "6bd018b3ac7e2a9bf3d6e92440ce087504d9bd10c51d51fb18573d0e258bd380",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            31,
+            0
+          ],
+          "target": [
+            142,
+            4
+          ],
+          "target_hexagon": 53,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "ab6c17cc9624d402f75560828925dac64f71a224af0ecff31ca6750d0254b0cc",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 1,
+      "priority_reason": "rank 1/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "b04138f624204997c0352153b220f4c09fb4c7c5e9f95e2b9fd65f29c15c624b",
+        "coordinate": {
+          "D": 81,
+          "F": 1,
+          "H": 0,
+          "M": -81,
+          "Ndef": 1,
+          "O": 32,
+          "P": 79,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:304973",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 1,
+      "successor_signature_sha256": "ba272f86e043329c1df4344c2adf9561835357b61bfcc059a344c3c583677b0e"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "a17826fc6259ec0fd9a7161e84f6714e7a8d165c92c8700b70b1b2db23a2bc3e",
+        "component_count": 27,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 67,
+      "exact_state_hash": "126ffcbdbd9cbc16c558a5e08aca9fb43161fa2e8874b776e86ba18d7ef4f1b0",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            85,
+            3
+          ],
+          "target": [
+            87,
+            0
+          ],
+          "target_hexagon": 87,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "f1c59bb921c9e544481af962e2e9b17f4a977cc4cfc2c00bd8a04524e2d00346",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 2,
+      "priority_reason": "rank 2/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "457a1e1e7021a152dcd9a7ce6fc9ee91179869964e99c19b881b4aaa1c79732e",
+        "coordinate": {
+          "D": 71,
+          "F": 1,
+          "H": 0,
+          "M": -71,
+          "Ndef": 1,
+          "O": 28,
+          "P": 69,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:304860",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 1,
+      "successor_signature_sha256": "8f93580002f6940bbe9822920f092a0c62412f3b5bfe1ab54daaaf29406eaedf"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "57ae748390be908b9540342196dc53ceaa86602e7ecc4cd82714c97452295a16",
+        "component_count": 27,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 66,
+      "exact_state_hash": "d99ba28acc37c49ba1be32e28534f262af8ba727386028e72b556a5bd688188d",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            1,
+            2
+          ],
+          "target": [
+            16,
+            0
+          ],
+          "target_hexagon": 16,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "fd228dfe51247d51e01edc0695e207903aee1dcc6057ce2e3e737d41ae8c37ec",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 3,
+      "priority_reason": "rank 3/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "e3e3458f194d4e12325ed828f281dd80cb7d92efa59bbc85205d542566266a73",
+        "coordinate": {
+          "D": 72,
+          "F": 1,
+          "H": 0,
+          "M": -72,
+          "Ndef": 1,
+          "O": 28,
+          "P": 68,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:304858",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 1,
+      "successor_signature_sha256": "feb85e91283d089eb681b8b070122dc67da314fd9557ab001497418401e85416"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "d1761282e1626f9c99a4a3bcc4330c92178478de6772733cfdac4d4e6801f030",
+        "component_count": 22,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 59,
+      "exact_state_hash": "7b8f1490f6093df18aa35669f65a4fefe30e82245b9de5846d0665e5e9c5cb28",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            130,
+            0
+          ],
+          "target": [
+            69,
+            2
+          ],
+          "target_hexagon": 52,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "2279f1b974917dfea88e60b391b9962403d2b567d99ef6ec45854560b85d6ba5",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 4,
+      "priority_reason": "rank 4/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "63570c29f5de6b79a0035a63ef6ccdf082643ff5aa533a987b500dcdc54ec9e3",
+        "coordinate": {
+          "D": 54,
+          "F": 1,
+          "H": 0,
+          "M": -54,
+          "Ndef": 1,
+          "O": 23,
+          "P": 61,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:303323",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 1,
+      "successor_signature_sha256": "92fd505028e9f7759b93798ac4d4b1a6319904d5de64dc292a142d5575748a3f"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "bd91db0ebba348f83c47c16c0332721d012d6327ca2d6aeca97dd5e283b0c760",
+        "component_count": 21,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 56,
+      "exact_state_hash": "db9f4960957e335aa1a507bcb6629cd29673a62ad865c954b6e52b3da7607f1b",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            86,
+            1
+          ],
+          "target": [
+            110,
+            3
+          ],
+          "target_hexagon": 113,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "cc83f6de4f907450b4664e7b8063ae80ade0348274c8c13efdf0c8d5c93aa47a",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 5,
+      "priority_reason": "rank 5/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "961ce65909a8cfe6da6bb5ba1bb5a5fefbb5324e830942f0d7466c5300943fe9",
+        "coordinate": {
+          "D": 52,
+          "F": 1,
+          "H": 0,
+          "M": -52,
+          "Ndef": 1,
+          "O": 22,
+          "P": 58,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:236166",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 1,
+      "successor_signature_sha256": "5fc173437081e30dd0e4279cea0c13921654aed6c9c8f2a95fb12c1e181545c2"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "a83dc0632f778ffadf1010f88e8a79d131b463d0171c8eeeb5d0bf890f47ef38",
+        "component_count": 29,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 74,
+      "exact_state_hash": "1959118a8d87c325d370dc40000426113858c17e5ada8eea67a2a7800884ac7c",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            49,
+            3
+          ],
+          "target": [
+            51,
+            0
+          ],
+          "target_hexagon": 51,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            49,
+            3
+          ],
+          "target": [
+            30,
+            2
+          ],
+          "target_hexagon": 44,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "f7639d7c0cd286fc4c482bccc86c278d9f8c8eed48f07b52b8fd47ad65df1131",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 6,
+      "priority_reason": "rank 6/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "b8e570c43820f8a875e50fb9a4f72ab680db4457a323bd73fd5ce15ebb952567",
+        "coordinate": {
+          "D": 74,
+          "F": 1,
+          "H": 0,
+          "M": -74,
+          "Ndef": 1,
+          "O": 30,
+          "P": 76,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:304872",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 2,
+      "successor_signature_sha256": "a96b584a5df0bf784efc0516db33d0da63f85c875a9509e594849c07965c17ce"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "d1761282e1626f9c99a4a3bcc4330c92178478de6772733cfdac4d4e6801f030",
+        "component_count": 22,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 59,
+      "exact_state_hash": "5231c081c6e2456b9e0b5514f27057510a927e20c1d10fb43bf76920bd9dc020",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            69,
+            0
+          ],
+          "target": [
+            37,
+            1
+          ],
+          "target_hexagon": 56,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            69,
+            0
+          ],
+          "target": [
+            140,
+            3
+          ],
+          "target_hexagon": 37,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "2279f1b974917dfea88e60b391b9962403d2b567d99ef6ec45854560b85d6ba5",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 7,
+      "priority_reason": "rank 7/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "63570c29f5de6b79a0035a63ef6ccdf082643ff5aa533a987b500dcdc54ec9e3",
+        "coordinate": {
+          "D": 54,
+          "F": 1,
+          "H": 0,
+          "M": -54,
+          "Ndef": 1,
+          "O": 23,
+          "P": 61,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:303324",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 2,
+      "successor_signature_sha256": "79c485cbf124377bbcef2855d70fe1b2eae7efea35cda7b831c54eb61c7bc164"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "e9b444dcee142f460d4045260005239a575696f606f7e7e1c7b67572b2be90cf",
+        "component_count": 18,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 52,
+      "exact_state_hash": "62f685408b6ff742e627007dd535d3847403b0e75e61a50fb1d54a73a27385e4",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            49,
+            2
+          ],
+          "target": [
+            63,
+            4
+          ],
+          "target_hexagon": 62,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            49,
+            2
+          ],
+          "target": [
+            65,
+            0
+          ],
+          "target_hexagon": 65,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "8fc8f2ed54734ddb33cc0f8ed75582b047169b3b4691a6d78b1a423ff8278e19",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 8,
+      "priority_reason": "rank 8/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "131501c1690750cb18e4f92877c7ffe43964655db47f6b81cfdb47bc8324f50f",
+        "coordinate": {
+          "D": 41,
+          "F": 1,
+          "H": 0,
+          "M": -41,
+          "Ndef": 1,
+          "O": 19,
+          "P": 54,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:12",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 2,
+      "successor_signature_sha256": "7449c6a236ae54296a4addb7ee66abe0913655bb3918f0f956ae74fde0710b1a"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "eb02a2cac161dd8af4431ff02fe8765c327d92e731d3083362923c7affcc55fe",
+        "component_count": 16,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 48,
+      "exact_state_hash": "80f65043a1902ebb15f5e2246afefde6d584a142aae2582e05c1d63b51ffde7e",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            98,
+            2
+          ],
+          "target": [
+            116,
+            0
+          ],
+          "target_hexagon": 116,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            98,
+            2
+          ],
+          "target": [
+            117,
+            0
+          ],
+          "target_hexagon": 117,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "a21e56498acb49442ec25e83b92fb004709aba49760f82d302c050519227fa6c",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 9,
+      "priority_reason": "rank 9/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "54922086a0e12f07f2e2a665db00a4a0a3e0bf28dc8e61ce2a02cb3b4da07202",
+        "coordinate": {
+          "D": 35,
+          "F": 1,
+          "H": 0,
+          "M": -35,
+          "Ndef": 1,
+          "O": 17,
+          "P": 50,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:6",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 2,
+      "successor_signature_sha256": "b97f7dd934d98c96eb43fe1750efea0bebb8d1fd4f10a7d0d0bce9c0c38adf0e"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "f1d78d09f3346f2e8a7f26adab81fd07c8aa21eaf6317038717f606d054c65c9",
+        "component_count": 16,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 47,
+      "exact_state_hash": "f402987c63dc66c0d2eafc554fda7bfae2387ab62e02b94ae149cffd14005b8b",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            111,
+            0
+          ],
+          "target": [
+            140,
+            2
+          ],
+          "target_hexagon": 56,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            111,
+            0
+          ],
+          "target": [
+            130,
+            3
+          ],
+          "target_hexagon": 36,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "c475f8d88d8db6427c4aa58714891ce8dcfbfe6a2bc15500daa5c4dbe9ac747f",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 10,
+      "priority_reason": "rank 10/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "a3b69345ab3898bdb53eb64db602b0d99bfb4fdf60c01f69053b9f640922e9bb",
+        "coordinate": {
+          "D": 36,
+          "F": 1,
+          "H": 0,
+          "M": -36,
+          "Ndef": 1,
+          "O": 17,
+          "P": 49,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:3",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 2,
+      "successor_signature_sha256": "897fe31e2bf3a1f66c970de2e94fa2e8b210171c7ef9aed5e9576252c7c4f57f"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "03d97ae2e76d45117f392a1e0fdbb6a8a1c410ddcdd43830da4d761ffe4aa3ff",
+        "component_count": 35,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 88,
+      "exact_state_hash": "71242da830856c3068ab9f7f19c8897d63687fa919551ca59faf01010baa7bb4",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            11,
+            1
+          ],
+          "target": [
+            35,
+            3
+          ],
+          "target_hexagon": 31,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            11,
+            1
+          ],
+          "target": [
+            43,
+            4
+          ],
+          "target_hexagon": 42,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            11,
+            1
+          ],
+          "target": [
+            45,
+            4
+          ],
+          "target_hexagon": 44,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "36a5f4e15a10bd1a6573c70bf4f527a5da5f36c73f01ab00896fd4ac22e619c3",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 11,
+      "priority_reason": "rank 11/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "9a1a309c9e831e63693ca5a895bee1272c783a844066bb556a6f50f90990403a",
+        "coordinate": {
+          "D": 90,
+          "F": 1,
+          "H": 0,
+          "M": -90,
+          "Ndef": 1,
+          "O": 36,
+          "P": 90,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:305018",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 3,
+      "successor_signature_sha256": "21234e09279ea363f56796568758efdbd4e10503f37092d45d297b204c72b154"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "e82ae1e739f1bffb2d94c29b60724277e0cbc99a0b56faa4c2275dd9b2287df7",
+        "component_count": 22,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 58,
+      "exact_state_hash": "78089b596b5975549c5b8a565a8260377737e3ee13debabb447efd7e4253364b",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            122,
+            1
+          ],
+          "target": [
+            88,
+            2
+          ],
+          "target_hexagon": 81,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            122,
+            1
+          ],
+          "target": [
+            58,
+            3
+          ],
+          "target_hexagon": 57,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            122,
+            1
+          ],
+          "target": [
+            64,
+            3
+          ],
+          "target_hexagon": 63,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "a1b52e7d9bc8d677256ffe0d423a79f50c74a0b8c641746a47ba6d4ae0aee0f8",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 12,
+      "priority_reason": "rank 12/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "62384c03c16fadd95c2e3e1c424a5f6fd9cf287f6e6eac6a5c90b5cde5fe6a42",
+        "coordinate": {
+          "D": 55,
+          "F": 1,
+          "H": 0,
+          "M": -55,
+          "Ndef": 1,
+          "O": 23,
+          "P": 60,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:303321",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 3,
+      "successor_signature_sha256": "a120b17cfa5fb84f0edf46f27fb8ddddd90becf7b55e02b7599c87abb8cd2be9"
+    },
+    {
+      "cap_status_if_frontier_nonempty": "INCOMPLETE",
+      "component_geometry": {
+        "class_sha256": "e9b444dcee142f460d4045260005239a575696f606f7e7e1c7b67572b2be90cf",
+        "component_count": 18,
+        "hub_component": {
+          "class": {
+            "e_orbits": 2,
+            "hexagons": 9,
+            "incidences": 11
+          },
+          "e_orbits": [
+            0,
+            9
+          ],
+          "hexagons": [
+            0,
+            1,
+            4,
+            6,
+            8,
+            9,
+            18,
+            24,
+            96
+          ]
+        },
+        "r1_target_component": {
+          "class": {
+            "e_orbits": 1,
+            "hexagons": 2,
+            "incidences": 3
+          },
+          "e_orbits": [
+            91
+          ],
+          "hexagons": [
+            40,
+            92
+          ]
+        },
+        "same_component": false
+      },
+      "depth": 52,
+      "exact_state_hash": "a022d455482e954a5f73f166738a249651cc98909498bb33f4403ec6ea06c02f",
+      "immediate_legal_macro_moves": [
+        {
+          "joint": "w2:10",
+          "kind": "Z2",
+          "label": "rot^5;w2:10",
+          "rotation_length": 5,
+          "source": [
+            63,
+            2
+          ],
+          "target": [
+            49,
+            4
+          ],
+          "target_hexagon": 48,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:201",
+          "kind": "Z3",
+          "label": "rot^5;w3:201",
+          "rotation_length": 5,
+          "source": [
+            63,
+            2
+          ],
+          "target": [
+            53,
+            0
+          ],
+          "target_hexagon": 53,
+          "verdict": "child"
+        },
+        {
+          "joint": "w3:210",
+          "kind": "Z3",
+          "label": "rot^5;w3:210",
+          "rotation_length": 5,
+          "source": [
+            63,
+            2
+          ],
+          "target": [
+            52,
+            0
+          ],
+          "target_hexagon": 52,
+          "verdict": "child"
+        }
+      ],
+      "parent_replay_hash": "8fc8f2ed54734ddb33cc0f8ed75582b047169b3b4691a6d78b1a423ff8278e19",
+      "planned_additional_expansion_cap": 10000,
+      "priority_rank": 13,
+      "priority_reason": "rank 13/13 by (fewest legal successors, greater depth, stable state id); ordering only, not a quotient or equivalence",
+      "resource_profile": {
+        "class_sha256": "131501c1690750cb18e4f92877c7ffe43964655db47f6b81cfdb47bc8324f50f",
+        "coordinate": {
+          "D": 41,
+          "F": 1,
+          "H": 0,
+          "M": -41,
+          "Ndef": 1,
+          "O": 19,
+          "P": 54,
+          "Phi": 0
+        }
+      },
+      "state_id": "short_ell2_r1_37:13",
+      "stop_early_on_natural_exhaustion": true,
+      "successor_count": 3,
+      "successor_signature_sha256": "b9fbe6be063399d1ecab066bd0407841322780a7936d6d0c830c9e0955e2861b"
+    }
+  ],
+  "status": "PLAN_ONLY_NOT_EXECUTED"
+}

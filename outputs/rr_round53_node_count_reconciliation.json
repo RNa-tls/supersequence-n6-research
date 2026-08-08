@@ -1,0 +1,124 @@
+{
+  "aggregate": {
+    "B0_classified_paths": 421219,
+    "B1_B6_classified_paths": 0,
+    "R2_attempt_records": 204685,
+    "auxiliary_ledger_scope": "repair_events and R2_attempt_records are auxiliary event/candidate ledgers, not additional parent-DAG state vertices and not extra B0-B6 denominator rows",
+    "discrepancy_explanation": "B0-B6 classifies accepted incoming parent-DAG edges/paths, not state vertices. Each of the two branch-local DAGs has one parent-null root vertex. Those two roots account exactly for 421221 - 421219. The 22 frontier vertices are nonroot vertices and their incoming edges are already included in B0; they are not exclusions.",
+    "equations": [
+      "421221 total nodes = 2 root records + 421219 parent-nonnull accepted paths",
+      "421219 B0 paths = 116198 + 305021",
+      "421221 total nodes = 421199 expanded records + 22 stored frontier records"
+    ],
+    "expanded_records": 421199,
+    "frontier_records": 22,
+    "parent_nonnull_records": 421219,
+    "repair_event_records": 421219,
+    "root_records": 2,
+    "total_parent_DAG_nodes": 421221
+  },
+  "branches": [
+    {
+      "B0_classified_paths": 116198,
+      "B1_B6_classified_paths": 0,
+      "R2_attempt_records": 56122,
+      "child_id": "short_ell2_r1_70",
+      "expanded_records": 116199,
+      "frontier_records": 0,
+      "parent_dag_nodes": 116199,
+      "parent_nonnull_records": 116198,
+      "records_excluded_from_B0_B6": [
+        {
+          "count": 1,
+          "kind": "root_record",
+          "reason": "no incoming parent-DAG edge exists to classify"
+        }
+      ],
+      "repair_event_records": 116198,
+      "root_node_indices": [
+        0
+      ],
+      "root_records": 1
+    },
+    {
+      "B0_classified_paths": 305021,
+      "B1_B6_classified_paths": 0,
+      "R2_attempt_records": 148563,
+      "child_id": "short_ell2_r1_37",
+      "expanded_records": 305000,
+      "frontier_records": 22,
+      "parent_dag_nodes": 305022,
+      "parent_nonnull_records": 305021,
+      "records_excluded_from_B0_B6": [
+        {
+          "count": 1,
+          "kind": "root_record",
+          "reason": "no incoming parent-DAG edge exists to classify"
+        }
+      ],
+      "repair_event_records": 305021,
+      "root_node_indices": [
+        0
+      ],
+      "root_records": 1
+    }
+  ],
+  "consistency_checks": {
+    "frontier_plus_expanded_equals_nodes": true,
+    "nodes_minus_roots_equals_parent_nonnull": true,
+    "only_root_records_excluded": true,
+    "parent_nonnull_equals_B0_through_B6": true
+  },
+  "local_artifacts": [
+    {
+      "bytes": 1658334557,
+      "git_status": "local untracked large artifact",
+      "path": "outputs\\checkpoints\\rr_short5\\top2_continuation_v7\\short_ell2\\short_ell2_r1_70\\checkpoint.json",
+      "role": "r1_70 original checkpoint",
+      "sha256": "f9e6d7d848abd20e4a1e45a1b02b8fcf2d070dc2c7ebe795fe7689cd37c45f9e"
+    },
+    {
+      "bytes": 4884573885,
+      "git_status": "local untracked large artifact",
+      "path": "outputs\\checkpoints\\rr_short5\\top2_continuation_v7\\short_ell2\\short_ell2_r1_37\\checkpoint.json",
+      "role": "r1_37 original checkpoint",
+      "sha256": "2847a6bd5861476428ec7cd9bd9d1d855229b33378662ebeef4ae4db832b1551"
+    },
+    {
+      "bytes": 6956,
+      "git_status": "local untracked artifact",
+      "path": "outputs\\rr_short5_top2_v7_results.json",
+      "role": "raw continuation result",
+      "sha256": "b22ad8ab822d8ca297cc2fbd5f906deef92c73e6dbe84b35f01f2cdb38467689"
+    },
+    {
+      "bytes": 1482,
+      "git_status": "local untracked artifact",
+      "path": "outputs\\rr_short5_top2_v7_bridge_ledger.json",
+      "role": "raw bridge ledger",
+      "sha256": "a64f047b0504358e24eefc0b8ad993a369cdf1d183b9e67bf4de05060c52eee2"
+    },
+    {
+      "bytes": 3165,
+      "git_status": "local untracked artifact",
+      "path": "outputs\\rr_short5_top2_v7_continuation.json",
+      "role": "final continuation ledger",
+      "sha256": "16162784ffcb51e8bd3edf86c6e1ebb0b56475739ddb5035a9e456a0f275fe83"
+    },
+    {
+      "bytes": 3236,
+      "git_status": "local untracked artifact",
+      "path": "outputs\\rr_short5_top2_v7_verified.json",
+      "role": "independent verifier output",
+      "sha256": "856e5923379801a55ea8c2f94ba87ec3b1e53e4f1d19dfd8fd5a0b6ba7756f86"
+    }
+  ],
+  "method": {
+    "B0_counts": "compared every parent-nonnull DAG record with the original bridge ledger maximum_level_counts",
+    "frontier_counts": "parsed each original checkpoint frontier array directly",
+    "hardcoded_report_strings_used": false,
+    "node_counts": "streamed each original v7 checkpoint nodes array; verified sequential node ids and counted parent_id=null directly"
+  },
+  "schema": "rr-round53-node-count-reconciliation-v1",
+  "status": "RECONCILED"
+}
