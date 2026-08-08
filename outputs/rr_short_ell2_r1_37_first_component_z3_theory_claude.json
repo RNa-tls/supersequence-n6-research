@@ -1,0 +1,179 @@
+{
+  "schema": "rr-short-ell2-r1-37-first-component-z3-theory-claude-v1",
+  "author": "Claude",
+  "role": "formal theory attack on the FZ1 bottleneck, independent of Codex's forward search",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no Round-57 branch, commit, or file exists anywhere this session can reach. Every specific figure attributed to Round-57 (196 dangerous transitions, 88 direct-Z3, 108 next-Z2, 176 preceding triples, R3=174, R4=22, R5=0, depth-4 region 1075 states/991 edges) is asserted in the prompt only and is not used as fact anywhere in this document.",
+    "scope_note": "tasks 1,3,4,5,7,8,9 are formal derivations from already-verified engine semantics and fixed global tables, independent of Round-57's accuracy. Task 2 and the count-dependent parts of task 6 cannot be performed without the actual named-22 data and are explicitly left undone with missing inputs stated."
+  },
+  "section_1_fz1_minimal_prerequisite_system": {
+    "label": "CLAUDE_HAND_PROOF for each condition's classification",
+    "definition": "an FZ1 witness is a Z3 edge (fresh orbit q', target hexagon h) such that h is already a member of C_R1's registered hexagon set at the moment before it fires, and no earlier event in the continuation already merged C_R1 with anything",
+    "conditions": {
+      "A_orbit_phase": [
+        {"id": "A1", "statement": "target orbit must be fresh (om[q']==0 before the move)", "classification": "already_proved_necessary", "grounding": "Z3's own defining condition in joint_kind"},
+        {"id": "A2", "statement": "the specific phase reached must correspond to a target hexagon already in C_R1", "classification": "already_proved_necessary", "grounding": "orbit_masks bits keyed by target orbit/phase only, established four rounds ago"},
+        {"id": "A3", "statement": "source orbit is irrelevant to whether the edge is component-changing", "classification": "already_proved_necessary_as_a_non_condition", "grounding": "incidence bit keyed by target only, confirmed from extend()'s source"}
+      ],
+      "B_incidence_forest": [
+        {"id": "B1", "statement": "the edge must not already exist", "classification": "redundant_given_A1"},
+        {"id": "B2", "statement": "h's vertex must already be present in the forest before the move", "classification": "already_proved_necessary"}
+      ],
+      "C_component_partition": [
+        {"id": "C1", "statement": "h's pre-existing component must equal C_R1 specifically", "classification": "already_proved_necessary", "note": "definitional, not a separate assumption"},
+        {"id": "C2", "statement": "C_R1 and h's component must have been distinct immediately before the move", "classification": "redundant_given_C1"}
+      ],
+      "D_registration": [
+        {"id": "D1", "statement": "the literal permutation window at h must not already be visited (hex_masks/NR6 check)", "classification": "already_proved_necessary"},
+        {"id": "D2", "statement": "the move must be forced/non-abandoning, since F is already at TARGET_F=1", "classification": "already_proved_necessary", "grounding": "established four rounds ago; confirmed from evaluate_edge's source"}
+      ],
+      "E_resource_counters": [
+        {"id": "E1", "statement": "hub_touch_count must remain <=2 after the move", "classification": "plausible_but_unproved_for_FZ1_specifically", "note": "only relevant when h==hub_id exactly; usually irrelevant to an FZ1 witness"},
+        {"id": "E2", "statement": "the R-budget is not directly implicated", "classification": "already_proved_necessary_as_a_non_condition", "grounding": "Z3 never touches r_count, confirmed four rounds ago"}
+      ],
+      "F_provenance_history": [
+        {"id": "F1", "statement": "no earlier move in the continuation already merged C_R1 with anything", "classification": "already_proved_necessary", "note": "definitional to 'first'"},
+        {"id": "F2", "statement": "the specific continuation reaching this point must itself be legal", "classification": "already_proved_necessary", "note": "tautological"}
+      ]
+    },
+    "minimal_system": ["A1", "A2", "B2", "C1", "D1", "D2", "F1"],
+    "conditionally_relevant": ["E1 (only when h==hub_id)"],
+    "proved_non_conditions": ["A3", "E2"]
+  },
+  "section_2_r4_analysis": {
+    "label": "CLAUDE_OBSERVATION -- task cannot be completed",
+    "status": "BLOCKED_NO_DATA",
+    "reason": "no file names which 22 states constitute R4, their records, or what R3/R4/R5 mean operationally beyond the prompt's own gloss",
+    "what_would_be_needed": [
+      "exact decorated state or resolvable state hash for each of the 22",
+      "incidence-forest snapshot at each state",
+      "which of section_1's conditions (A1-F2) each entry satisfies vs fails",
+      "literal continuation history back to R1 for each"
+    ],
+    "no_fabricated_partition_offered": true
+  },
+  "section_3_cut_separator_analysis": {
+    "label": "CLAUDE_HAND_PROOF -- new computed result via non-search table lookup",
+    "method": "direct deterministic query of ORBIT_PHASE/HEX_POSITION, identical in kind to the non-search table lookup used successfully two rounds ago",
+    "C_R1_at_admission_hexagon_set": [40, 82, 90, 91, 92],
+    "fz1_candidate_orbits_count": 20,
+    "fz1_candidate_orbits": [36, 40, 41, 42, 72, 74, 78, 82, 83, 90, 92, 93, 95, 96, 98, 102, 120, 126, 128, 129],
+    "conclusion_on_saturation_question": "the 'all admissible Z3 attachment sites already saturated' hypothesis is FALSE at the table level -- 20 nonempty candidate orbits exist combinatorially. Whether any is actually dynamically reachable is unresolved.",
+    "two_step_bridge_candidates": {
+      "count": 5,
+      "table": [
+        {"orbit": 96, "shares_with_orbit_91": [90], "full_hexagon_set": [90, 96, 97, 100, 114], "overlaps_hub_at": [96]},
+        {"orbit": 120, "shares_with_orbit_91": [90], "full_hexagon_set": [0, 33, 64, 90, 96], "overlaps_hub_at": [0, 96]},
+        {"orbit": 126, "shares_with_orbit_91": [40, 91], "full_hexagon_set": [6, 40, 57, 91, 98], "overlaps_hub_at": [6]},
+        {"orbit": 128, "shares_with_orbit_91": [82], "full_hexagon_set": [8, 42, 63, 82, 99], "overlaps_hub_at": [8]},
+        {"orbit": 129, "shares_with_orbit_91": [92], "full_hexagon_set": [9, 24, 65, 92, 102], "overlaps_hub_at": [9, 24]}
+      ],
+      "significance": "concrete two-step candidate pathways (FZ1 into one of these five orbits, followed by a later event from within that orbit touching its own hub-overlapping hexagon) that, if both steps are legally reachable, would constitute a pre-R2 bridge. Existence result about the fixed combinatorial structure only, not a reachability claim."
+    },
+    "requested_lemma_shape": {
+      "verdict": "cannot be asserted",
+      "reason": "premise is false at the table level (20 nonempty candidate endpoints exist)",
+      "correctly_scoped_open_question": "not whether C_R1 can grow at all (table-level: yes in principle) but whether any continuation from the actual root reaches one of these 20 orbits while fresh, under forced-move/collision/hub-touch constraints -- genuinely dynamic, unresolved"
+    },
+    "orbit_regularity_context": {
+      "finding": "every one of the 144 orbits in the system has exactly hexagon-adjacency degree 20, including hub's own orbits {0,9}",
+      "significance": "orbit 91 is not unusually isolated or well-connected -- the 20-candidate count is the generic value for any orbit in this system"
+    }
+  },
+  "section_4_invariant_candidates": {
+    "label": "CLAUDE_OBSERVATION",
+    "candidates": [
+      {
+        "name": "unregistered attachment hexagons adjacent to C_R1",
+        "value_at_R1_admission": "20 orbits' worth of shared hexagons, all initially unregistered",
+        "monotone": "not established either way this round"
+      },
+      {
+        "name": "incidence-boundary size of C_R1",
+        "value_at_R1_admission": "at least 20",
+        "monotone": "plausibly non-increasing, most promising candidate, NOT proved",
+        "reasoning": "registering fresh territory can only close off options from a fixed table, never open new ones"
+      },
+      {
+        "name": "accessible-orbit boundary (live legal Z3 targets within the 20-orbit list)",
+        "monotone": "not established this round"
+      },
+      {
+        "name": "orbit-adjacency distance of C_R1 to C_H",
+        "value_at_R1_admission": "computed minimum 2 hops (via one of the 5 two-step orbits)",
+        "monotone": false,
+        "counterexample": "any Z3 targeting one of the 124 non-candidate orbits changes nothing about this distance -- a direct counterexample to strict monotonicity, sufficient per the task's own single-counterexample rule"
+      }
+    ]
+  },
+  "section_5_bounded_witness_length": {
+    "label": "CLAUDE_HAND_PROOF for the stated bounds; explicit distinction of bound types per task instruction",
+    "eventual_termination_bound": {
+      "statement": "(720-visited) strictly decreases by exactly 6 on every literal move -- already established four rounds ago, re-confirmed from source",
+      "scope": "bounds everything, gives no information about FZ1 timing specifically"
+    },
+    "bound_on_first_component_change": {
+      "statement": "an FZ1 witness, if it occurs, must occur within the first 144 Z3 events of the continuation",
+      "reasoning": "only 144 orbits exist total; each fresh-orbit opening is a distinct, non-repeatable event by Z3's own definition",
+      "tightness": "loose but firm; tightenable in principle via the F<=1 forced-move constraint, not tightened further here"
+    },
+    "bound_on_first_bridge": {
+      "statement": "no bound derived beyond the loose global termination bound",
+      "reasoning": "requires a specific second leg (one of the 5 two-step orbits, or an unidentified multi-hop path) to be opened AND revisited at the right phase -- not bounded by the 144-orbit argument alone"
+    },
+    "pigeonhole_caveat": "the finite-state pigeonhole argument bounds FZ1's timing IF it occurs, but says nothing about whether it occurs; no exact-decorated-state recurrence exists on any replayed path (confirmed two rounds ago: exact_decorated_recurrences==[]), and no continuation equivalence has been established to strengthen this further"
+  },
+  "section_6_r3_r4_gap": {
+    "label": "CLAUDE_PROPOSAL -- methodology only, specific 174/22 partition uninspectable",
+    "plausible_reading_not_confirmed": "R3 = states failing a structural condition (A1/A2/B2/C1, cannot reach a shared hexagon at all); R4 = states satisfying structural conditions but failing a dynamic/legality one (D1/D2/F1) -- matches the task's own framing of R4 as 'structurally closest' but not verified against real records",
+    "coordinate_ranking_by_expected_proof_value": [
+      {"rank": 1, "coordinate": "exact incidence edge set", "reasoning": "literal complete forest state, directly determines A1-F1 without approximation"},
+      {"rank": 2, "coordinate": "registered orbit history", "reasoning": "largely redundant with rank 1 but cheaper to compare; reveals whether any R4 case already opened one of the 20 boundary orbits without landing on the shared hexagon"},
+      {"rank": 3, "coordinate": "local degree vector around C_R1", "reasoning": "directly operationalizes the section_4 incidence-boundary-size candidate"},
+      {"rank": 4, "coordinate": "source hex predecessor", "reasoning": "relevant to forced-move availability but doesn't resolve A1-F1 alone"},
+      {"rank": 5, "coordinate": "last 2-4 macro kinds", "reasoning": "useful quick F-budget sanity check, less informative than ranks 1-2"},
+      {"rank": 6, "coordinate": "component canonical labeling", "reasoning": "aids cross-state dedup, doesn't reveal which condition is failing"},
+      {"rank": 7, "coordinate": "exact R1 provenance", "reasoning": "constant across all candidates within one branch (orbit 91 always) -- zero within-branch discriminating power"}
+    ]
+  },
+  "section_7_theorem_ladder": {
+    "L0": {"statement": "direct Z2 obstruction only", "status": "PROVED", "grounding": "two rounds ago: orbit 91's complete phase-hexagon set disjoint from hub's"},
+    "L1": {"statement": "no component-changing Z3 in the verified depth-4 region", "status": "CANNOT_BE_ASSERTED", "reason": "no depth-4 region data exists in this session's reach; if real, would be a bounded observation only"},
+    "L2": {"statement": "no first component-changing Z3 satisfying obstruction family X", "status": "CANNOT_BE_ASSERTED", "reason": "no obstruction-family classification exists (task 2 blocked); the naive zero-candidate-orbits obstruction is shown FALSE by section_3"},
+    "L3": {"statement": "every possible FZ1 would require an impossible incidence/registration configuration", "status": "REFUTED_AT_TABLE_LEVEL", "reason": "20 possible (not yet shown unreachable) configurations exist per section_3"},
+    "L4": {"statement": "short_ell2_r1_37 cannot change C_R1 before R2", "status": "NOT_PROVABLE", "reason": "section_3's table evidence points the other way (nonempty candidate set), though this is not proof a change occurs"},
+    "L5": {"statement": "short_ell2_r1_37 cannot produce a pre-R2 bridge", "status": "NOT_PROVABLE", "reason": "the 5-orbit two-step table is a standing candidate counterexample-in-waiting pending dynamic reachability check"},
+    "summary": "L0 closed; L1-L2 need real depth-region/obstruction-family data; L3-L5 need a dynamic reachability argument over the now precisely-bounded 20 (and especially 5 two-step) candidate orbits from section_3"
+  },
+  "section_8_route_if_nothing_found": {
+    "label": "CLAUDE_PROPOSAL -- ranked by plausibility",
+    "ranked_routes": [
+      {"rank": 1, "route": "complete exact closure", "assessment": "most plausible route to an actual theorem for closing branches, least likely to close ALL branches in practice; only certifies branches that actually empty their frontier"},
+      {"rank": 2, "route": "backward closure of all FZ1 prerequisite states", "assessment": "second most plausible, arguably higher intrinsic value -- section_3 already reduces the target set to a bounded 20 (or 5) orbit list, making this smaller and more targeted than raw forward closure"},
+      {"rank": 3, "route": "exact cut-state enumeration", "assessment": "formalization of the section_4 incidence-boundary-size candidate; contingent on proving it monotone first, not yet established"},
+      {"rank": 4, "route": "finite transition-system quotient with proved continuation equivalence", "assessment": "most powerful in principle, least plausible near-term -- available quotients (resource profile, component geometry, successor signature) are explicitly not proved equivalences per two rounds ago's finding"},
+      {"rank": 5, "route": "SAT/UNSAT certificate", "assessment": "lowest plausibility -- no precedent in this project's methodology, substantial translation effort required"}
+    ]
+  },
+  "section_9_route_if_witness_found": {
+    "label": "CLAUDE_PROPOSAL -- strict replay checklist",
+    "checklist": [
+      "independently replay the exact literal path from the immutable v5/root anchor through the witness, confirming state hash/decoration/incidence-forest at every step",
+      "confirm the witness genuinely satisfies section_1's A1-F1 against the replayed state, not a summary",
+      "test whether the newly-merged orbit is one of the 5 two-step candidates from section_3, or requires a further unidentified hop",
+      "test whether a later Z2 becomes possible from within the new orbit landing on a C_H hexagon -- must check actual legality (D1/D2/E1) from the post-witness state",
+      "test whether the eventual R2 source remains admissible -- must be checked against the literal continuation, not inferred",
+      "test whether Target A becomes possible -- same_component passing is necessary but not sufficient for target_a_recognizer's is_target_a; F_def==1, H==0, hub_touch_count<=2 must all still hold",
+      "determine scope of refutation precisely: state exactly which of L1-L5 the witness resolves and which remain open, rather than a blanket 'conjecture refuted' claim"
+    ]
+  },
+  "explicit_non_claims": [
+    "does not verify any Round-57 figure -- no branch or file exists to check them against",
+    "does not classify the 22 claimed R4 entries -- data does not exist in this session's reach",
+    "does not claim branch-wide impossibility at any level beyond L0, which was already proved two rounds ago, not newly established here",
+    "the 20-orbit and 5-orbit tables in section_3 are existence results about fixed combinatorial structure, not reachability claims",
+    "no search run, no Codex artifact modified"
+  ],
+  "end_token": "CLAUDE_FIRST_COMPONENT_Z3_THEORY_READY"
+}
