@@ -1,0 +1,137 @@
+{
+  "schema": "rr-short-ell2-r1-37-all13-pilot-verification-claude-v1",
+  "author": "Claude",
+  "role": "short-root search analyst -- independent verification of codex/round-r1-37-all13-pilot-results",
+  "section_1_remote_verification": {
+    "branch": "codex/round-r1-37-all13-pilot-results",
+    "claimed_commit": "e280d325f59de8aebdcb0b149403ad770cf6ad18",
+    "fetched_commit": "e280d325f59de8aebdcb0b149403ad770cf6ad18",
+    "commit_match": true,
+    "claimed_parent": "c394624f046930ec4257228cad4e13aaba70231f",
+    "verified_parent": "c394624f046930ec4257228cad4e13aaba70231f",
+    "parent_match": true,
+    "all_5_required_files_exist_as_ordinary_blobs": true,
+    "lfs_pointers_found": false,
+    "blob_sha256_consistency": {
+      "result_sha256_match": true,
+      "bridge_ledger_sha256_match": true,
+      "verifier_sha256_match": true,
+      "crlf_roundtrip_needed": false,
+      "note": "all three matched on raw bytes directly, unlike several prior rounds' artifacts which needed the CRLF round-trip"
+    },
+    "hash_format_sanity_check": "every SHA-256-shaped hex string across the three JSON files checked for exactly 64 hex characters -- no anomalies; the only 40-character strings found were ordinary git commit SHAs"
+  },
+  "section_2_count_verification": {
+    "label": "CLAUDE_HAND_PROOF -- independently recomputed from raw per-branch records",
+    "counts": {
+      "unresolved_input_states": {"recomputed": 13, "claimed": 13, "match": true},
+      "total_expansions": {"recomputed": 66096, "claimed": 66096, "match": true},
+      "naturally_exhausted": {"recomputed": 7, "claimed": 7, "match": true},
+      "capped_nonempty_frontier": {"recomputed": 6, "claimed": 6, "match": true},
+      "total_remaining_frontier": {"recomputed": 84, "claimed": 84, "match": true},
+      "R2_records": {"recomputed": 31465, "claimed": 31465, "match": true},
+      "B0": {"recomputed": 66167, "claimed": 66167, "match": true},
+      "B1_B6": {"recomputed": [0,0,0,0,0,0], "claimed": 0, "match": true},
+      "component_merges": {"recomputed": 0, "claimed": 0, "match": true},
+      "bridge_template_occurrences": {"recomputed": 0, "claimed": 0, "match": true},
+      "literal_Target_A": {"recomputed": 0, "claimed": 0, "match": true},
+      "Target_B_survivors": {"recomputed": 0, "claimed": 0, "match": true},
+      "independent_verification": {"recomputed": {"verified": true, "overall_status": "ALL13_PILOT_PARTIAL"}, "claimed": true, "match": true}
+    },
+    "finer_grained_check": {
+      "description": "R2 failure breakdown independently recomputed by summing nested R2_outcomes.immediate/later dicts across all 13 branches",
+      "immediate_recognizer_geometry_failure": 7,
+      "later_recognizer_geometry_failure": 28758,
+      "later_not_same_component": 2700,
+      "sum_matches_R2_record_total": true
+    }
+  },
+  "section_3_certificate_scope_verdict": {
+    "label": "CLAUDE_HAND_PROOF",
+    "exhausted_7": {
+      "empty_frontier_confirmed": "frontier_size==0 and naturally_exhausted==true for all 7, direct field inspection",
+      "verifier_confirmation": "exact_successor_replay=PASS for all 13 branches, per the verifier's own iter_raw_macro_candidates+evaluate_edge re-enumeration",
+      "certificate_unit": "subgraph -- consistent with the unit established two rounds ago for the original 9 locally-exhausted roots",
+      "no_omitted_path": "verifier scope is 'all stored incoming edges plus exact outgoing-edge replay of every expanded node' -- every one of the 66096 expanded nodes' complete outgoing set was re-enumerated, not spot-checked"
+    },
+    "capped_6": {
+      "nonempty_frontier_confirmed": {"short_ell2_r1_37:236166": 9, "short_ell2_r1_37:12": 8, "short_ell2_r1_37:6": 20, "short_ell2_r1_37:3": 21, "short_ell2_r1_37:303321": 12, "short_ell2_r1_37:13": 14},
+      "each_at_exactly_10000_expansions": true,
+      "status_remains_INCOMPLETE": true,
+      "zero_observations_are_bounded_evidence_only": true
+    }
+  },
+  "section_4_7_vs_6_structural_comparison": {
+    "label": "CLAUDE_OBSERVATION -- correlation reported, not promoted to invariant, per task instruction",
+    "table": [
+      {"id": "short_ell2_r1_37:303323", "status": "exhausted", "orig_successors": 1, "orig_depth": 59, "P": 61, "O": 23, "D": 54, "M": -54},
+      {"id": "short_ell2_r1_37:303324", "status": "exhausted", "orig_successors": 2, "orig_depth": 59, "P": 61, "O": 23, "D": 54, "M": -54},
+      {"id": "short_ell2_r1_37:304858", "status": "exhausted", "orig_successors": 1, "orig_depth": 66, "P": 68, "O": 28, "D": 72, "M": -72},
+      {"id": "short_ell2_r1_37:304860", "status": "exhausted", "orig_successors": 1, "orig_depth": 67, "P": 69, "O": 28, "D": 71, "M": -71},
+      {"id": "short_ell2_r1_37:304872", "status": "exhausted", "orig_successors": 2, "orig_depth": 74, "P": 76, "O": 30, "D": 74, "M": -74},
+      {"id": "short_ell2_r1_37:304973", "status": "exhausted", "orig_successors": 1, "orig_depth": 77, "P": 79, "O": 32, "D": 81, "M": -81},
+      {"id": "short_ell2_r1_37:305018", "status": "exhausted", "orig_successors": 3, "orig_depth": 88, "P": 90, "O": 36, "D": 90, "M": -90},
+      {"id": "short_ell2_r1_37:3", "status": "capped", "orig_successors": 2, "orig_depth": 47, "P": 49, "O": 17, "D": 36, "M": -36},
+      {"id": "short_ell2_r1_37:6", "status": "capped", "orig_successors": 2, "orig_depth": 48, "P": 50, "O": 17, "D": 35, "M": -35},
+      {"id": "short_ell2_r1_37:12", "status": "capped", "orig_successors": 2, "orig_depth": 52, "P": 54, "O": 19, "D": 41, "M": -41},
+      {"id": "short_ell2_r1_37:13", "status": "capped", "orig_successors": 3, "orig_depth": 52, "P": 54, "O": 19, "D": 41, "M": -41},
+      {"id": "short_ell2_r1_37:236166", "status": "capped", "orig_successors": 1, "orig_depth": 56, "P": 58, "O": 22, "D": 52, "M": -52},
+      {"id": "short_ell2_r1_37:303321", "status": "capped", "orig_successors": 3, "orig_depth": 58, "P": 60, "O": 23, "D": 55, "M": -55}
+    ],
+    "successor_count_does_not_separate": {
+      "finding": "exhausted successor counts {1,1,1,1,2,2,3}, capped {1,2,2,2,3,3} -- both span 1-3, with a successor-count-1 state in each group (304973 exhausted, 236166 capped) and a successor-count-3 state in each group (305018 exhausted, 303321 capped)"
+    },
+    "depth_separates_cleanly": {
+      "finding": "every exhausted state has orig_depth >= 59 (range 59-88); every capped state has orig_depth <= 58 (range 47-58) -- no overlap in this n=13 sample",
+      "P_O_D_M_correlation": "P,O,D,M move monotonically with depth on these replayed paths (established two rounds ago) and track the same separation -- not independent evidence, restatements of the same signal"
+    },
+    "plausible_not_proved_mechanism": "states starting deeper into the shared spine have less remaining room before F<=1/NR6 collision constraints force termination, making faster natural exhaustion more likely -- offered as a candidate explanation, not a demonstrated cause",
+    "R2_record_count_separates_but_likely_downstream": {
+      "finding": "exhausted 0-2279, capped 4511-4968, clean separation",
+      "caveat": "very likely a consequence of hitting vs not hitting the 10000 cap (more allowed expansions -> more R2 attempts), not an independent structural signal"
+    }
+  },
+  "section_5_hex_position_orbit_phase_assessment": {
+    "label": "mixed: CLAUDE_OBSERVATION for data-sufficiency assessment, CLAUDE_HAND_PROOF for the new computed result",
+    "data_sufficiency": {
+      "verdict": "insufficient for a full per-node HEX_POSITION x ORBIT_PHASE cell-purity table",
+      "reason": "the three pilot output files export only aggregate B0-B6 and R2_outcomes tallies, no per-node or per-edge orbit/hexagon identity for the 66096 expanded nodes"
+    },
+    "hand_computed_result": {
+      "method": "direct deterministic query of legacy_research/work/superperm_partial_f1.py's own ORBIT_PHASE and HEX_POSITION tables -- no search, no branching, a fixed-constant lookup",
+      "r1_target_orbit_for_entire_branch": 91,
+      "orbit_91_phase_hexagon_table": {"0": 91, "1": 40, "2": 82, "3": 92, "4": 90},
+      "orbit_91_complete_hexagon_set": [40, 82, 90, 91, 92],
+      "hub_component_hexagon_set": [0, 1, 4, 6, 8, 9, 18, 24, 96],
+      "intersection": [],
+      "conclusion": "Z2-mediated bridge is structurally impossible for the entire short_ell2_r1_37 branch (all 13, and by the same fact all original 22 states) -- orbit 91 never touches any of hub's 9 hexagons at any of its 5 phases. This closes the Z2 sub-case of the local bridge conjecture completely for this branch by direct computation, not search volume."
+    },
+    "global_144_orbit_table": {
+      "method": "extended the same lookup to all 144 orbits (ORBIT_COUNT, the complete global table)",
+      "orbits_with_hub_intersection": 36,
+      "hub_owning_orbits_excluded_as_expected": [0, 9],
+      "remaining_watch_list_34_orbits": [1,3,4,5,6,7,8,10,11,13,16,18,19,21,24,25,27,33,35,45,57,63,65,96,97,99,105,120,121,124,126,128,129,138],
+      "significance": "the smallest finite table that could plausibly support a full hand-proof: a bounded, closed 34-orbit watch list for the Z3 case, replacing a vague 'check Z3 too' with an exact, checkable list. Whether any of these 34 is ever legally opened fresh via Z3 from within this branch's reachable state space is state-history-dependent and not resolvable from fixed tables alone."
+    },
+    "what_codex_should_export_next": "for every Z3 edge encountered during any future continuation of the 6 capped branches (or re-derivable from the already-completed 66096-node exploration if the raw edge log exists), record the target orbit ID. If none of the 34 listed orbits ever appears as a Z3 target across the full explored space, that is a substantially stronger empirical result than the current aggregate bridge_count:0, since it would confirm the specific mechanism gap rather than just the outcome."
+  },
+  "section_6_recommended_next_step": {
+    "label": "CLAUDE_PROPOSAL",
+    "recommendation": "D, refined by the section_5 result, ahead of plain equal-effort continuation (A)",
+    "reasoning": [
+      "confirm, by re-deriving from already-computed data if possible or by requesting Codex export raw Z3 target-orbit identities on any future run, whether any of the 34 orbits ever appears as a legal Z3 target anywhere in the already-completed 66096-node exploration -- a data-query against existing computation, not a new search",
+      "only if inconclusive from existing data, continue the 6 capped branches specifically instrumented to flag a Z3 target among the 34 -- far more targeted than undirected deepening",
+      "option B (classify the 84 frontier states) is a reasonable complement but lower-value, since those states' components/successors are already governed by the orbit-91-vs-hub disjointness fact established here",
+      "option C (successor-weighted continuation) is not supported by section_4's finding that successor count does not separate the two groups",
+      "option E (hybrid) is effectively what is recommended: a targeted data check (D) that, if inconclusive, feeds into prioritizing which of the 6 capped states to continue"
+    ]
+  },
+  "explicit_non_claims": [
+    "does not claim short_ell2_r1_37, the top-8 family, or the 439-child corpus is closed -- 6 of 13 and the branch as a whole remain INCOMPLETE",
+    "does not claim the Z3 bridge mechanism is impossible -- only reduced to a precise, bounded, 34-orbit question, itself still open",
+    "does not promote the depth correlation (section_4) to a proved invariant -- reported as an n=13 observation with a plausible, unproved mechanistic reading",
+    "no search run: section_5's computation is a deterministic query over fixed, pre-existing global tables, identical in kind to non-search table lookups used successfully in prior rounds",
+    "does not modify any Codex artifact"
+  ],
+  "end_token": "CLAUDE_ALL13_PILOT_VERIFIED"
+}
