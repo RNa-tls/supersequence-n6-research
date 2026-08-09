@@ -1,0 +1,111 @@
+{
+  "schema": "rr-short-ell2-r1-37-local-global-fz1-gap-claude-v1",
+  "author": "Claude",
+  "role": "formal explanation of local-FZ1-possibility vs global-zero-observation, independent of Codex's live Stage-D search",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION",
+    "statement": "no Stage D branch, commit, or file exists anywhere this session can reach. Every specific figure this round (84 starts, 1,318,577 states, 800,516 Z3 transitions, 4/6 seeds exhausted, seed_3/seed_6 capped, 69369 remaining frontier) is asserted in the prompt only and is not used as fact below. All tasks are formal derivations independent of these figures, building on the already-verified two-rounds-ago table computation."
+  },
+  "section_1_local_vs_global": {
+    "label": "CLAUDE_HAND_PROOF for arrow classifications",
+    "definitions": {
+      "locally_admissible_fz1_geometry": "a pair (q,p) such that HEX_POSITION of the permutation at ORBIT_PHASE^-1(q,p) lands on a hexagon already in C_R1's registered set -- pure fixed-table fact, no state or walk involved",
+      "exact_state_realizability": "existence of some self-consistent hypothetical ExactState (satisfying __post_init__'s own invariants) embedding the local geometry -- a consistency question, not a reachability question",
+      "branch_reachability": "existence of an actual legal move sequence from short_ell2_r1_37's specific root/R1 admission reaching such a state, remaining legal at every step -- a dynamical question about this branch's actual literal history",
+      "provenance_realizability": "branch reachability plus the arrival moment also satisfying recognizer-relevant bookkeeping (hub_touch_count<=2, r_count still 1, etc.)"
+    },
+    "arrow_analysis": {
+      "arrow_1_local_to_exact_state": {"verdict": "not the likely failure point", "reasoning": "ExactState's own validation constraints are weak; almost any locally-admissible geometry can be embedded in some self-consistent hypothetical state"},
+      "arrow_2_exact_state_to_reachable": {"verdict": "MOST LIKELY LOCUS OF THE GAP", "reasoning": "the only arrow depending on short_ell2_r1_37's own specific, largely forced (F<=1) literal history -- at each forced position, legal weight-2/3 targets are determined by the current literal permutation, not freely chosen among the 20 table candidates"},
+      "arrow_3_reachable_to_fz1_fires": {"verdict": "smaller last-mile gap", "reasoning": "requires the specific permutation-window (not just hexagon) to be NR6-unvisited (condition D1); plausibly minor relative to arrow 2"}
+    },
+    "conclusion": "Arrow 2 is the missing implication most likely responsible for the observed zero -- table-level possibility says nothing about whether this one branch's largely forced trajectory ever actually visits one of the 20 qualifying configurations"
+  },
+  "section_2_20_candidate_orbits_symbolic": {
+    "label": "CLAUDE_HAND_PROOF -- recomputed at full phase-level precision",
+    "attachment_table": {
+      "hex_40": [["36",3],["40",0],["41",4],["42",2],["126",2]],
+      "hex_82": [["42",1],["78",3],["82",0],["83",4],["128",2]],
+      "hex_90": [["72",2],["90",0],["93",3],["96",1],["120",3]],
+      "hex_91": [["74",2],["90",4],["95",3],["98",1],["126",3]],
+      "hex_92": [["78",2],["92",0],["93",4],["102",1],["129",2]]
+    },
+    "regularity_finding": "each of orbit 91's own 5 hexagons has exactly 5 attaching candidate orbits -- a uniform 5x5=25 structure, with 5 orbits (42,78,90,93,126) each appearing twice at different qualifying phases",
+    "required_registration_ordering_lemma": {
+      "statement": "for orbit q to serve as a direct FZ1 witness, its very first-ever touch must land exactly on the qualifying phase. If the first touch lands elsewhere, direct FZ1 for q is permanently foreclosed. A delayed route remains: reaching the qualifying phase later via Z2 fired while continuously resident in q since opening -- departure requires an R-kind re-entry, which is R2 itself, terminal, never intermediate",
+      "consequence": "component change via any candidate q requires either exactly one event (first touch is the qualifying phase) or exactly two events (open elsewhere, then uninterrupted Z2 completion)"
+    },
+    "grouping": "by attachment hexagon only (the 5 groups in attachment_table) -- no continuation equivalence inferred or claimed among orbits sharing a group"
+  },
+  "section_3_five_hub_touching_orbits": {
+    "label": "CLAUDE_HAND_PROOF -- derived forbidden-pattern lemma",
+    "phase_table": [
+      {"orbit": 96, "C_R1_side": [[1,90]], "hub_side": [[0,96]]},
+      {"orbit": 120, "C_R1_side": [[3,90]], "hub_side": [[0,0],[4,96]]},
+      {"orbit": 126, "C_R1_side": [[2,40],[3,91]], "hub_side": [[0,6]]},
+      {"orbit": 128, "C_R1_side": [[2,82]], "hub_side": [[0,8]]},
+      {"orbit": 129, "C_R1_side": [[2,92]], "hub_side": [[0,9],[4,24]]}
+    ],
+    "derived_lemma": {
+      "statement": "for any q in {96,120,126,128,129}, realizing C_R1 -> q -> C_H requires visiting two structurally distinct phases of q. The second touch must be a Z2 fired while continuously resident in q since it was opened; departure forces the only route back to be an R-kind re-entry, which is R2 itself, terminal.",
+      "status": "PROVED, necessary condition, not an impossibility result"
+    },
+    "shortcut_ruled_out": "R2 cannot simultaneously create and benefit from the merge -- target_a_recognizer's same_component check is computed from the incidence forest BEFORE the R2 transition fires (established four rounds ago), so the merge must already exist prior to R2",
+    "cyclic_constraint_found": false
+  },
+  "section_4_144_bound_revisited": {
+    "label": "CLAUDE_HAND_PROOF with an explicit self-correction",
+    "self_correction": {
+      "what_was_retracted": "the earlier citation of '(720-visited) decreases by exactly 6 per move' as a general law",
+      "why": "on rechecking, this was Round 54's own empirical finding on one specific 64-edge sample of one branch's ancestry, not a first-principles derivation. Re-derived from extend()'s own mechanics: each call advances visited_count by exactly 1 window regardless of move weight; weight governs F/S/H deltas, not window count. A macro edge of rotation length ell plus one joint visits ell+1 windows, which varies with ell (state-dependent) -- no general reason for this to equal 6 uniformly, and three-rounds-ago data already recorded rotation lengths 0,1,2,3 at different points on these branches"
+    },
+    "what_remains_valid": {
+      "orbit_pigeonhole": "Z3 requires a fresh orbit (om[q]==0); ORBIT_COUNT=144 total orbits confirmed directly from source; sound and unconditional, needs no window-counting mechanism"
+    },
+    "gap_exposed_by_the_task": "the original framing conflated Z3-EVENT-COUNT (144, bounded) with TOTAL-MOVE-COUNT or search EFFORT before FZ1 could occur (unbounded by this argument) -- between successive Z3s, arbitrarily many Z2/rotation moves and, separately, arbitrarily many rejected collision attempts (which consume no window budget at all) can occur",
+    "strongest_valid_replacement": {
+      "bound_1": "at most 144 Z3 events fire in any single branch's history (orbit-pigeonhole, solid)",
+      "bound_2": "at most HEX_COUNT x N = 120 x 6 = 720 genuine successful literal single-window-advancing moves of any kind fire in any single branch's history (window-budget pigeonhole, re-derived from extend()/ExactState source this round, not inherited from an empirical citation)",
+      "bound_3_none_derived": "no bound is derived on the number of rejected/colliding candidate attempts -- the quantity search-tree 'expansion' counts actually measure, empirically large relative to genuine moves per prior rounds' pilot data"
+    },
+    "key_distinction": "neither bound says anything about WHEN FZ1 occurs relative to overall search cost -- they bound branch CONTENT, not discovery EFFORT"
+  },
+  "section_5_provenance_invariant_candidates": {
+    "label": "CLAUDE_OBSERVATION",
+    "none_shown_to_prevent_attachment": true,
+    "most_load_bearing_candidate": "registered orbit order combined with phase at first registration -- exactly the gating condition derived in section_2 (whether q's first touch lands on the qualifying phase)",
+    "ranked_below": ["incidence-edge chronology", "macro suffix class", "Z2/Z3 count vector", "component birth time"],
+    "reasoning": "the ranked-below candidates are either coarser restatements of the same underlying fact or not directly implicated by anything derived in sections 1-3"
+  },
+  "section_6_forbidden_order_attempt": {
+    "label": "CLAUDE_OBSERVATION -- negative result of an active search, not an unexamined gap",
+    "cyclic_precedence_found": false,
+    "what_was_sought": "a second, independent constraint forcing the OPPOSITE order to section_2/3's derived ordering requirement (open q at phase x, then Z2-complete at phase y without departing)",
+    "conclusion": "the section_3 lemma is a genuine sequential necessity, valuable for narrowing the witness search, but not (on evidence available this round) a contradiction. Whether a deeper interaction between forced-move sequences produces a genuine cycle remains open, requiring per-branch forced-move trace data not available this round"
+  },
+  "section_7_theorem_ladder": {
+    "L0": {"statement": "direct Z2 obstruction", "status": "PROVED", "note": "two rounds ago, unchanged"},
+    "L1": {"statement": "depth-4 FZ1-free", "status": "CANNOT_BE_ASSERTED", "reason": "no depth-4 data in this session's reach"},
+    "L1_plus": {"statement": "Stage-D 1.3M-state FZ1-free", "status": "UNVERIFIED_THIS_ROUND", "reason": "no branch found; conditionally, if real, a larger bounded observation, not a proof, silent on the two still-capped seeds"},
+    "L2": {"statement": "candidate-family obstruction", "status": "PARTIAL_PROGRESS_NOT_COMPLETE", "reasoning": "section_3's forbidden-pattern lemma is a proved necessary-condition characterization for the 5 hub-touching orbits, not an impossibility proof"},
+    "L3": {"statement": "provenance impossibility", "status": "NOT_ESTABLISHED", "reason": "Arrow 2 (section_1) remains the open, unresolved link"},
+    "L4": {"statement": "first component-changing Z3 impossible", "status": "NOT_PROVABLE"},
+    "L5": {"statement": "pre-R2 bridge impossible", "status": "NOT_PROVABLE", "note": "the 5-orbit lemma narrows the shape a counterexample would take without ruling it out"}
+  },
+  "section_8_codex_result_interpretation": {
+    "label": "CLAUDE_PROPOSAL -- pre-registered",
+    "c5_states_no_fz1": {"interpretation": "Codex's own C0-C5 stage definitions not on file; interpreted generically as a deeper structural checkpoint without a witness -- extends the bounded-observation base without resolving Arrow 2"},
+    "all_20_candidates_die_at_c0_c4": {"interpretation": "most directly relevant possible result to this document -- a direct empirical test of section_2/3 predictions; genuine targeted progress toward L3 if confirmed, though still bounded by that depth"},
+    "one_exact_fz1_witness_appears": {"interpretation": "immediately promotes past L2 for that instance; triggers the strict replay checklist established two rounds ago (independent replay, confirm A1-F1, test if orbit is one of the 5 two-step candidates, test later Z2 legality, test R2-source admissibility, test full recognizer conditions)"},
+    "stage_e_again_finds_zero": {"interpretation": "incremental strengthening of the bounded-evidence base only, same caveats, particularly if the two open seeds remain unclosed"},
+    "seed_3_seed_6_exhaust": {"interpretation": "genuine complete closure certificate for those two subproblems, and potentially the whole short_ell2_r1_37 all-13 continuation -- significant for this one branch, no implication beyond it for the wider top-8 family or 439-child corpus"}
+  },
+  "explicit_non_claims": [
+    "does not verify any Stage-D figure -- no branch or file exists to check them against",
+    "does not claim branch-wide impossibility at any level beyond L0",
+    "does not claim to have found a cyclic forbidden-order theorem -- actively sought, not found, reported as a negative result",
+    "retracts an earlier over-general citation of a '+6 windows per edge' law, replaced with two independently-derived, correctly-scoped bounds",
+    "no search run, no Codex artifact modified"
+  ],
+  "end_token": "CLAUDE_FZ1_PROVENANCE_THEORY_READY"
+}
