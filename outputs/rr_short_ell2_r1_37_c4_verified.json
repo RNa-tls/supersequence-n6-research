@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "C4_attempts": 253537,
+    "exact_signatures": 86,
+    "first_touch_histogram": {
+      "T0": 0,
+      "T1": 0,
+      "T2": 253537,
+      "T3": 0,
+      "T4": 0
+    },
+    "left_s6_canonical_signatures": 17,
+    "mechanism_histogram": {
+      "K0": 253537,
+      "K1": 0,
+      "K2": 0,
+      "K3": 0,
+      "K4": 0,
+      "K5": 0,
+      "K6": 0
+    }
+  },
+  "input_sha256": {
+    "rr_short_ell2_r1_37_c4_collision_classes.json": "98f21b1a80b8ac3e36a5b0d39e06f55e565b45a0601f16300f204f3f828f69c0",
+    "rr_short_ell2_r1_37_c4_collision_ledger.json": "9f4c22b7bea5c129d564c221c516a1b87f614cedef4b9c23ccc5904de3e4eca0",
+    "rr_short_ell2_r1_37_c4_first_touch_audit.json": "a1edb48e42db24b3ee3b34300e0298cb5be7e704edca8783a44dd1462cd0b441",
+    "rr_short_ell2_r1_37_c4_predecessor_closure.json": "0450db9b9530b1ea833edbfa9dcd7f9a564900a4b88ffdb649c34fa91aa6aa34",
+    "rr_short_ell2_r1_37_first_component_z3_manifest.json": "7fb263242d7358d0ddcf36c2d9159f5b1ff3cfd5ea0e0770dede8b0c5ba2ff6b",
+    "rr_short_ell2_r1_37_fz1_condition_ledger.json": "02a9b435c899b912126ac8daf150e3b7447a4822818bd37980236d03067778ab"
+  },
+  "schema": "rr-short-ell2-r1-37-c4-collision-verified-v1",
+  "theorem_level": "T2: all observed C4 states collide; T2+ is not established",
+  "verification_scope": [
+    "count conservation against the independent Round-59 C4 ledger",
+    "every exact and left-S6 representative's literal action/target/orbit/phase/hex bit",
+    "K0/K5 exact mask classification and fresh-registration prerequisite",
+    "all 84 root hex-mask rows and theorem-level non-promotion"
+  ],
+  "verified": true,
+  "verifier_sha256": "0e5321e4850465ad33699c8062f51ab125d7161664d31b6f31f1ba5f46f82f7a"
+}

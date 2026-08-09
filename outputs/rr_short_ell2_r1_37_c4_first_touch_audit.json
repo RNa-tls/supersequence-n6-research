@@ -1,0 +1,27 @@
+{
+  "C4_attempts": 253537,
+  "candidate_orbit_registration_before": {
+    "fresh": 253537,
+    "registered": 0
+  },
+  "classification": {
+    "T0": 0,
+    "T1": 0,
+    "T2": 253537,
+    "T3": 0,
+    "T4": 0
+  },
+  "continuous_residency_delayed_Z2_candidates": 0,
+  "definitions": {
+    "T0": "wrong qualifying phase (zero by the C4 prerequisite)",
+    "T1": "correct phase, but its literal window was first touched in this same tentative rotation prefix",
+    "T2": "the literal target window was touched before this macro; direct fresh registration therefore collides",
+    "T3": "previous registration with continuous residence permits a delayed Z2 route",
+    "T4": "realizable FZ1 witness"
+  },
+  "first_introduction_origin_histogram": {
+    "PRE_STAGE_D_ANCHOR": 253537
+  },
+  "interpretation": "C4 freshness is about pass-start registration; the collided permutation window may already have been visited by a rotation in another pass.",
+  "schema": "rr-short-ell2-r1-37-c4-first-touch-audit-v1"
+}

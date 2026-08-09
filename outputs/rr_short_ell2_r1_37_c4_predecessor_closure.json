@@ -1,0 +1,199 @@
+{
+  "C4_source_nodes": 253537,
+  "closure_domain": "exact ancestors of observed C4 source nodes inside the six frozen Stage-D parent DAGs",
+  "closure_stabilized_inside_observed_DAG": true,
+  "complete_finite_C4_prerequisite_closure": false,
+  "four_full_hex_route_proof": {
+    "claim": "every descendant C4 prerequisite using one of these phase routes collides before the Z3 can execute",
+    "covered_candidate_phase_routes": [
+      {
+        "candidate_orbit": 36,
+        "candidate_phase": 3,
+        "target_hexagon": 40
+      },
+      {
+        "candidate_orbit": 40,
+        "candidate_phase": 0,
+        "target_hexagon": 40
+      },
+      {
+        "candidate_orbit": 41,
+        "candidate_phase": 4,
+        "target_hexagon": 40
+      },
+      {
+        "candidate_orbit": 42,
+        "candidate_phase": 2,
+        "target_hexagon": 40
+      },
+      {
+        "candidate_orbit": 72,
+        "candidate_phase": 2,
+        "target_hexagon": 90
+      },
+      {
+        "candidate_orbit": 74,
+        "candidate_phase": 2,
+        "target_hexagon": 91
+      },
+      {
+        "candidate_orbit": 78,
+        "candidate_phase": 2,
+        "target_hexagon": 92
+      },
+      {
+        "candidate_orbit": 90,
+        "candidate_phase": 0,
+        "target_hexagon": 90
+      },
+      {
+        "candidate_orbit": 90,
+        "candidate_phase": 4,
+        "target_hexagon": 91
+      },
+      {
+        "candidate_orbit": 92,
+        "candidate_phase": 0,
+        "target_hexagon": 92
+      },
+      {
+        "candidate_orbit": 93,
+        "candidate_phase": 3,
+        "target_hexagon": 90
+      },
+      {
+        "candidate_orbit": 93,
+        "candidate_phase": 4,
+        "target_hexagon": 92
+      },
+      {
+        "candidate_orbit": 95,
+        "candidate_phase": 3,
+        "target_hexagon": 91
+      },
+      {
+        "candidate_orbit": 96,
+        "candidate_phase": 1,
+        "target_hexagon": 90
+      },
+      {
+        "candidate_orbit": 98,
+        "candidate_phase": 1,
+        "target_hexagon": 91
+      },
+      {
+        "candidate_orbit": 102,
+        "candidate_phase": 1,
+        "target_hexagon": 92
+      },
+      {
+        "candidate_orbit": 120,
+        "candidate_phase": 3,
+        "target_hexagon": 90
+      },
+      {
+        "candidate_orbit": 126,
+        "candidate_phase": 2,
+        "target_hexagon": 40
+      },
+      {
+        "candidate_orbit": 126,
+        "candidate_phase": 3,
+        "target_hexagon": 91
+      },
+      {
+        "candidate_orbit": 129,
+        "candidate_phase": 2,
+        "target_hexagon": 92
+      }
+    ],
+    "hexagons": [
+      40,
+      90,
+      91,
+      92
+    ]
+  },
+  "new_states_outside_observed_DAG_enumerated": false,
+  "observed_C4_target_hex_mask_histogram": {
+    "h40:m63": 132366,
+    "h92:m63": 121171
+  },
+  "observed_predecessor_closure_nodes": 712083,
+  "proved_monotone_subcase": {
+    "claim": "all descendants keep these four hexagons full, so every C4 prerequisite targeting one of them collides",
+    "hexagons_full_in_all_84_roots": [
+      40,
+      90,
+      91,
+      92
+    ],
+    "proof": "hex masks only gain bits under exact.extend"
+  },
+  "remaining_hex82_case": {
+    "SAT_CSP_status": "NOT_ENCODED: five local routes are not five exact global states; no proved finite provenance quotient exists",
+    "exact_global_class_count": null,
+    "root_histogram": {
+      "0": 81,
+      "2": 1,
+      "4": 1,
+      "63": 1
+    },
+    "status": "OBSERVED_COLLISION_ONLY_UNLESS_A_SEPARATE_PRECEDENCE_LEMMA_IS_PROVED",
+    "unresolved_local_phase_routes": [
+      {
+        "candidate_orbit": 42,
+        "candidate_phase": 1,
+        "target_hex_position": 2,
+        "target_hexagon": 82
+      },
+      {
+        "candidate_orbit": 78,
+        "candidate_phase": 3,
+        "target_hex_position": 4,
+        "target_hexagon": 82
+      },
+      {
+        "candidate_orbit": 82,
+        "candidate_phase": 0,
+        "target_hex_position": 0,
+        "target_hexagon": 82
+      },
+      {
+        "candidate_orbit": 83,
+        "candidate_phase": 4,
+        "target_hex_position": 5,
+        "target_hexagon": 82
+      },
+      {
+        "candidate_orbit": 128,
+        "candidate_phase": 2,
+        "target_hex_position": 1,
+        "target_hexagon": 82
+      }
+    ]
+  },
+  "root_hex_mask_histograms": {
+    "40": {
+      "63": 84
+    },
+    "82": {
+      "0": 81,
+      "2": 1,
+      "4": 1,
+      "63": 1
+    },
+    "90": {
+      "63": 84
+    },
+    "91": {
+      "63": 84
+    },
+    "92": {
+      "63": 84
+    }
+  },
+  "schema": "rr-short-ell2-r1-37-c4-predecessor-closure-v1",
+  "theorem_level": "T2: all observed C4 states collide; T2+ is not established",
+  "unresolved_reason": "backward ancestry closure cannot manufacture legal predecessor states absent from the bounded Stage-D corpus"
+}
