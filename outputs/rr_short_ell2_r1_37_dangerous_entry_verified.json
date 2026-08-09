@@ -1,0 +1,45 @@
+{
+  "backward_counts": {
+    "R0": 0,
+    "R1": 0,
+    "R2": 0,
+    "R3": 174,
+    "R4": 22,
+    "R5": 0
+  },
+  "branch_wide_T4_proved": false,
+  "count_ledger": {
+    "abstract_dangerous_transition_identities": 196,
+    "abstract_predecessor_consistent": 196,
+    "bridge_witnesses": 0,
+    "exact_legal_dangerous_transitions_in_depth4": 0,
+    "exact_precursor_triples_exposed_in_depth4": 22,
+    "global_unresolved_without_reachability_closure": 196,
+    "locally_defined_permutation_actions": 196
+  },
+  "dangerous_counts": {
+    "direct_only_preceding_triples": 68,
+    "direct_z3_transition_identities": 88,
+    "exactly_observed_later_z2_precursor_triples": 22,
+    "later_z2_only_preceding_triples": 88,
+    "next_z2_transition_identities": 108,
+    "overlap_preceding_triples": 20,
+    "total_mechanism_labelled_transition_identities": 196,
+    "unique_preceding_z3_triples": 176
+  },
+  "output_sha256_prewrite": {
+    "outputs\\rr_short_ell2_r1_37_backward_realizability.json": "a47020c4e8ac24b12645b951bdbac8069166ce7db593aa425e89c21a5aa34e28",
+    "outputs\\rr_short_ell2_r1_37_dangerous_entries.json": "1f8be509f4b1d3dba271d132f92be3ad8294a66a172cd58b3b4da60d14016c12",
+    "outputs\\rr_short_ell2_r1_37_dangerous_entry_manifest.json": "82329467791077a98f5664f17a03587bb9cef77d0bade206f0b133954acf4076",
+    "outputs\\rr_short_ell2_r1_37_refinement_analysis.json": "808efe86c5ee31a3c39537c203451980b9a5249a5efbd529d47d1adf07ae48b0",
+    "outputs\\rr_short_ell2_r1_37_z2_lemma_certificate.json": "27bec589b04003ca33afed3150133e27133e5c32e35d5ffb32be5ce7f911384f"
+  },
+  "overall_status": "DANGEROUS_ENTRY_SET_REDUCED",
+  "schema": "rr-short-ell2-r1-37-dangerous-entry-independent-verification-v1",
+  "strongest_supported_theorem_level": "T1",
+  "theorem_scope": "all exact states and edges in the complete depth-4 bounded graph are bridge-free; all 196 abstract mechanisms require an earlier component-changing Z3, absent from that graph",
+  "verification_method": "rehash frozen artifacts; rebuild the fixed Z3 table/closure; replay the 991 stored edges; recompute dangerous ledgers, refinement partitions, predecessor chains, and 720 Z2 preservation checks",
+  "verified": true,
+  "verifier_sha256": "10cb184efdca594ca357be445b841d3bafdbd91f1623cb421c8bfdf7de9dfdf1",
+  "z2_lemma_verified": true
+}

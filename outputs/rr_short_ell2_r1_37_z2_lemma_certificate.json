@@ -1,0 +1,124 @@
+{
+  "branch_wide_after_arbitrary_z3_history": false,
+  "conditions": {
+    "hub_component_hexagons": [
+      0,
+      1,
+      4,
+      6,
+      8,
+      9,
+      18,
+      24,
+      96
+    ],
+    "r1_target_component_not_previously_expanded": true,
+    "r1_target_component_orbits": [
+      91
+    ]
+  },
+  "frozen_manifest_sha256_prewrite": "82329467791077a98f5664f17a03587bb9cef77d0bade206f0b133954acf4076",
+  "hub_component_hexagons": [
+    0,
+    1,
+    4,
+    6,
+    8,
+    9,
+    18,
+    24,
+    96
+  ],
+  "intersection": [],
+  "invalidation_condition": "a prior component-changing Z3 adds another orbit to the R1-target component; Z2 on that added orbit is outside the orbit-91 argument",
+  "orbit_91_phase_linked_hexagons": [
+    40,
+    82,
+    90,
+    91,
+    92
+  ],
+  "orbit_91_phase_rows": [
+    {
+      "hex_position": 0,
+      "hexagon": 91,
+      "orbit": 91,
+      "phase": 0,
+      "word": [
+        0,
+        4,
+        5,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "hex_position": 2,
+      "hexagon": 40,
+      "orbit": 91,
+      "phase": 1,
+      "word": [
+        4,
+        5,
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "hex_position": 3,
+      "hexagon": 82,
+      "orbit": 91,
+      "phase": 2,
+      "word": [
+        5,
+        1,
+        3,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "hex_position": 4,
+      "hexagon": 92,
+      "orbit": 91,
+      "phase": 3,
+      "word": [
+        1,
+        3,
+        0,
+        4,
+        5,
+        2
+      ]
+    },
+    {
+      "hex_position": 5,
+      "hexagon": 90,
+      "orbit": 91,
+      "phase": 4,
+      "word": [
+        3,
+        0,
+        4,
+        5,
+        1,
+        2
+      ]
+    }
+  ],
+  "proof_steps": [
+    "a full-segment Z2 endpoint stays in the source E-orbit (720/720 fixed-table checks)",
+    "therefore a Z2 from the unexpanded R1-target component remains on orbit 91",
+    "all five orbit-91 phases lie in hexagons {40,82,90,91,92}",
+    "that set is disjoint from the hub-component hexagons",
+    "hence no such Z2 incidence can connect the R1-target and hub components"
+  ],
+  "schema": "rr-short-ell2-r1-37-z2-lemma-certificate-v1",
+  "statement": "before any component-changing Z3 event, a Z2 transition cannot merge the R1-target component with the hub component",
+  "z2_orbit_preservation_checks": 720,
+  "z2_orbit_preservation_failures": 0
+}
