@@ -1,0 +1,144 @@
+{
+  "schema": "rr-short-ell2-r1-37-hex82-theory-claude-v1",
+  "author": "Claude",
+  "role": "attack on the five hex-82 C4 routes, with an important open verification gap flagged prominently",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION -- mixed: statistics unverified/reused, combinatorial structure independently reproduced",
+    "round_60_status": "no branch exists anywhere reachable this session",
+    "reused_unverified_figure": "'C4 attempts = 253,537' is the same figure already flagged as unverified/contradicted in a prior round's fictional Stage-E narrative",
+    "unverifiable_terms": ["K0-K6", "T0-T4", "86 exact collision signatures", "17 left-S6 canonical signatures"],
+    "independently_reproduced_structure": "the five hex-82 routes (q42:p1, q78:p3, q82:p0, q83:p4, q128:p2) exactly match this analyst's own table computation from two rounds ago; the elimination pattern ({96,120,126,129} removed, 128 retained) was independently re-derived and found fully self-consistent this round",
+    "open_data_gap": "at all 22 states of this analyst's own previously-verified 22-state frontier (depths 47-88), only {40,92} is registered in C_R1, not {90,91} -- the claim that {40,90,91,92} are 'already full at all 84 Stage-D roots' could not be confirmed; the 84-root set is a later/deeper frontier than the 22 checked, so this is not a strict contradiction, but it is unconfirmed"
+  },
+  "section_1_five_route_prerequisites": {
+    "label": "CLAUDE_HAND_PROOF for fixed-table facts; branch-history facts marked as such",
+    "routes": [
+      {"route": "q42:p1", "full_phase_hex_map": {"0":42,"1":82,"2":40,"3":46,"4":43}, "qualifying_phase": 1, "alternate_CR1_phase": {"phase":2,"hex":40,"status":"confirmed registered"}, "hub_touch_phase": null},
+      {"route": "q78:p3", "full_phase_hex_map": {"0":78,"1":116,"2":92,"3":82,"4":79}, "qualifying_phase": 3, "alternate_CR1_phase": {"phase":2,"hex":92,"status":"confirmed registered"}, "hub_touch_phase": null},
+      {"route": "q82:p0", "full_phase_hex_map": {"0":82,"1":63,"2":87,"3":81,"4":83}, "qualifying_phase": 0, "alternate_CR1_phase": null, "hub_touch_phase": null},
+      {"route": "q83:p4", "full_phase_hex_map": {"0":83,"1":13,"2":73,"3":79,"4":82}, "qualifying_phase": 4, "alternate_CR1_phase": null, "hub_touch_phase": null},
+      {"route": "q128:p2", "full_phase_hex_map": {"0":8,"1":63,"2":82,"3":42,"4":99}, "qualifying_phase": 2, "alternate_CR1_phase": null, "hub_touch_phase": {"phase":0,"hex":8}}
+    ],
+    "key_new_finding": "q42 and q78 each have a second, independent route into C_R1 not needing hexagon 82 at all -- their hex-82 phase is relevant only if the orbit's own first touch specifically lands there rather than at the alternate phase",
+    "q128_distinction": "the only one of the five with an independent hub-touching phase (phase 0 -> hexagon 8), making it doubly relevant to both the C_R1-attachment and eventual hub-reach questions",
+    "required_first_touch_status": "for a direct FZ1-type witness, the orbit's very first-ever touch must land exactly at the listed phase; otherwise only the delayed-Z2 route remains",
+    "registration_state": "none of the five target orbits (42,78,82,83,128) is registered in the one confirmed real state ({40,92}) -- all remain fresh candidates as far as verifiable",
+    "collision_window": "the specific literal permutation-window at the qualifying (orbit,phase) pair, per the ORBIT_PHASE/HEX_POSITION bijection"
+  },
+  "section_2_common_lemma_search": {
+    "label": "CLAUDE_OBSERVATION -- negative result, correct case structure established instead",
+    "single_common_lemma_covers_all_five": false,
+    "minimum_case_families": 2,
+    "family_A": {"members": ["q82:p0","q83:p4","q128:p2"], "description": "no alternate route -- only one relevant phase per orbit"},
+    "family_B": {"members": ["q42:p1","q78:p3"], "description": "alternate route exists via a different, already-confirmed hexagon -- requires first accounting for which phase is touched first"},
+    "no_proof_offered": "this section establishes only the correct case structure, not that any route actually collides"
+  },
+  "section_3_registration_order_analysis": {
+    "label": "CLAUDE_HAND_PROOF -- for the collapse of events; CLAUDE_OBSERVATION for the negative contradiction search",
+    "event_collapse": "B and C are the same event for a hex-82 route by definition; A and F are also the same event since Z3 registers the orbit as it fires, not before -- genuinely separable events reduce to {A=B=C=F} (the attempt) vs D (component-merge legality) vs E (window conflict)",
+    "forced_precedence_contradiction_found": false,
+    "reasoning": "E and D are checked at the same instant (F's own evaluation), not at different chronological points; for an ordinary Z3 (not R2 itself), only E is checked at all -- D doesn't gate Z3 legality, so there is no D-vs-E ordering tension to exploit for Family A routes",
+    "honest_negative_result": "no exact contradiction is reported because none was found -- not manufactured"
+  },
+  "section_4_first_touch_dichotomy": {
+    "label": "CLAUDE_HAND_PROOF",
+    "family_A_q82_q83_q128": "first touch CAN occur at the qualifying phase; nothing in fixed tables forbids it; whether it does in the real branch is exactly the open question",
+    "family_B_q42_q78": "genuine branch point in first-touch outcome -- can land at hex-82 phase OR the alternate confirmed-hex phase; if alternate, hex-82 route foreclosed but orbit still attaches via the alternate hexagon",
+    "continuous_residency": "identical mechanism established two rounds ago -- uninterrupted Z2 residency required; departure forces re-entry, which is R2 itself, terminal",
+    "delayed_residency_impossibility_proof": "NOT achieved this round -- state-history question not resolvable from fixed tables alone, remains open exactly as two rounds ago"
+  },
+  "section_5_why_hex82_different": {
+    "label": "CLAUDE_HAND_PROOF -- independent recomputation, fully self-consistent with the round's claimed elimination pattern",
+    "attachment_table": [
+      {"orbit": 96, "attaching_phase": 1, "hexagon": 90, "in_full_set": true},
+      {"orbit": 120, "attaching_phase": 3, "hexagon": 90, "in_full_set": true},
+      {"orbit": 126, "attaching_phases": [2,3], "hexagons": [40,91], "in_full_set": true},
+      {"orbit": 129, "attaching_phase": 2, "hexagon": 92, "in_full_set": true},
+      {"orbit": 128, "attaching_phase": 2, "hexagon": 82, "in_full_set": false}
+    ],
+    "conclusion": "every C_R1-attaching phase of 96,120,126,129 lands in {40,90,91,92}, explaining their elimination; 128's sole attaching phase lands on 82, explaining exactly why it alone survives",
+    "structural_vs_artifact_verdict": "hex 82's role in the orbit-91-adjacency structure is not qualitatively different from 40/90/91's role -- every one of orbit 91's five hexagons has exactly five attaching orbits (established three rounds ago). There is nothing in the fixed tables marking hex 82 as special. If exceptionalism is real, it is most defensibly a fact about THIS branch's particular literal ordering (provenance timing), not a structural property of hexagon 82 itself -- since the one confirmed real data point shows only {40,92} visited, not yet 90 or 91 either"
+  },
+  "section_6_five_case_table": [
+    {"route": "q42:p1", "first_legal_prerequisite": "orbit 42 fresh at attempt", "first_unavoidable_prior_touch": "none identified", "collision_window": "unique permutation at (orbit 42, phase 1)", "obstruction_family": "B (alternate route via phase 2/hex 40)", "proof_status": "OPEN_PROVENANCE_CASE", "minimal_counterexample_shape": "a literal continuation where orbit 42's first touch is exactly phase 1 and that window is unvisited"},
+    {"route": "q78:p3", "first_legal_prerequisite": "orbit 78 fresh at attempt", "first_unavoidable_prior_touch": "none identified", "collision_window": "unique permutation at (orbit 78, phase 3)", "obstruction_family": "B (alternate route via phase 2/hex 92)", "proof_status": "OPEN_PROVENANCE_CASE", "minimal_counterexample_shape": "analogous to q42"},
+    {"route": "q82:p0", "first_legal_prerequisite": "orbit 82 fresh at attempt", "first_unavoidable_prior_touch": "none identified", "collision_window": "unique permutation at (orbit 82, phase 0)", "obstruction_family": "A (no alternate route)", "proof_status": "OPEN_PROVENANCE_CASE", "minimal_counterexample_shape": "a literal continuation reaching this exact window unvisited"},
+    {"route": "q83:p4", "first_legal_prerequisite": "orbit 83 fresh at attempt", "first_unavoidable_prior_touch": "none identified", "collision_window": "unique permutation at (orbit 83, phase 4)", "obstruction_family": "A", "proof_status": "OPEN_PROVENANCE_CASE", "minimal_counterexample_shape": "analogous to q82"},
+    {"route": "q128:p2", "first_legal_prerequisite": "orbit 128 fresh at attempt", "first_unavoidable_prior_touch": "none identified", "collision_window": "unique permutation at (orbit 128, phase 2)", "obstruction_family": "A, plus independently hub-touching via phase 0", "proof_status": "OPEN_PROVENANCE_CASE", "minimal_counterexample_shape": "analogous, doubly significant given hub relevance"}
+  ],
+  "section_7_finite_hand_proof_attempt": {
+    "label": "CLAUDE_OBSERVATION -- no proof achieved, per the task's own instruction not to overclaim",
+    "achieved": "correct case structure (2 families, first-touch/alternate-phase split for Family B)",
+    "not_achieved": "closure of any of the 5 cases -- requires branch-history information (which move is forced at a specific historical point) not derivable from fixed tables alone",
+    "contrast_with_prior_proof": "qualitatively different from the earlier proof that orbit 91 itself can never reach hub via Z2 (a pure fixed-table fact, independent of branch history)"
+  },
+  "section_8_t2_t3_relation": {
+    "T2": {"status": "CANNOT_BE_EVALUATED", "reason": "no verified observation data exists this round"},
+    "T2a": {"status": "NOT_ESTABLISHED", "reason": "non-hex82 routes not attempted here; shown eliminated only under the unconfirmed {40,90,91,92}-full hypothesis"},
+    "T2b": {"status": "NOT_ESTABLISHED", "reason": "all five hex-82 routes remain OPEN_PROVENANCE_CASE"},
+    "T2_plus": {"status": "NOT_IMPLIED_BY_T2B_ALONE", "reason": "T2b would only close the five already-identified hex-82 routes; T2+ requires a separate completeness argument that the five-route list, together with the eliminated routes, exhausts the full C4 prerequisite space"},
+    "T3": {"status": "FAR_SHORT", "reason": "requires both T2+ and a further argument ruling out multi-hop component-growth chains not enumerated here"},
+    "T4": {"status": "FAR_SHORT_OF_T3"},
+    "direct_answer": "T2b alone does NOT imply T2+; an additional, separate completeness argument over the entire C4 route list is required and was not attempted"
+  },
+  "section_9_falsifiable_lemmas": [
+    {
+      "id": 1,
+      "name": "Alternate-route resolution for Family B",
+      "statement": "for q42 and q78, if either orbit's first touch is confirmed to occur at its alternate phase rather than its hex-82 phase, the hex-82 route is permanently foreclosed, though the orbit still attaches to C_R1 via the alternate hexagon",
+      "covers": ["q42:p1", "q78:p3"],
+      "current_supporting_facts": "direct consequence of the already-established first-touch dichotomy",
+      "minimal_counterexample": "an orbit touching its qualifying phase and an already-registered phase simultaneously -- impossible by construction",
+      "finite_check_needed": "none; follows from extend()'s one-window-per-call semantics"
+    },
+    {
+      "id": 2,
+      "name": "{40,90,91,92}-full sufficiency for the four eliminated orbits",
+      "statement": "if {40,90,91,92} are genuinely all registered by the time any of 96,120,126,129 is first touched, none can serve as a direct C_R1-attachment witness via any phase other than the ones already accounted for",
+      "covers": ["96", "120", "126", "129"],
+      "current_supporting_facts": "exact table: every C_R1-attaching phase of these four lands in {40,90,91,92}",
+      "minimal_counterexample": "a sixth attaching phase this document's table missed -- structurally impossible, all 5 phases per orbit enumerated",
+      "finite_check_needed": "none for the table itself; the {40,90,91,92}-full premise is the actual open item"
+    },
+    {
+      "id": 3,
+      "name": "Registration status of hex 90/91 at the Stage-D root set",
+      "statement": "at the unverified 84-state Stage-D root set, hexagons 90 and 91 are registered in C_R1, in addition to the confirmed 40 and 92",
+      "covers": "the entire premise sections 1-6 conditionally rest on",
+      "current_supporting_facts": "plausible given monotone occupancy and continued orbit-91 residency, but NOT confirmed -- real 22-state data shows only {40,92} at an earlier point",
+      "minimal_counterexample": "any of the 84 real Stage-D root states shown to lack hex 90 or 91 in its C_R1 component",
+      "finite_check_needed": "direct inspection of the real Stage-D root records' own component_partition fields -- the single most important item for Codex to verify next"
+    },
+    {
+      "id": 4,
+      "name": "Family A first-touch openness",
+      "statement": "for each of q82, q83, q128, whether its first touch lands at the qualifying phase versus another phase is not determined by fixed tables and genuinely depends on branch-specific forced-move history",
+      "covers": ["q82:p0", "q83:p4", "q128:p2"],
+      "current_supporting_facts": "no structural asymmetry among an orbit's five phases found favoring one over another",
+      "minimal_counterexample": "a fixed-table argument showing one specific phase is always reached before any other -- not found this round",
+      "finite_check_needed": "a direct trace of the forced rotation-run sequence leading to each orbit's first opening -- not performed this round"
+    },
+    {
+      "id": 5,
+      "name": "T2+ requires route-list completeness independent of T2b",
+      "statement": "proving T2b does not by itself establish T2+ without a separate argument that the five-route hex-82 list, together with the eliminated routes, exhausts every possible C4 prerequisite",
+      "covers": "the logical relationship in section_8",
+      "current_supporting_facts": "this document's hex-82 attachment table is a genuine fixed-table completeness result for hex 82 specifically; completeness of the broader C4 space beyond hex 82 has not been checked",
+      "minimal_counterexample": "a C4 route not going through any of orbit 91's five hexagons at all",
+      "finite_check_needed": "a review of whatever mechanism actually defines C4 in Codex's real classification, compared against this analyst's own attachment-table framework"
+    }
+  ],
+  "what_codex_should_verify_next": [
+    "confirm or refute whether hexagons 90 and 91 are genuinely registered in C_R1 at all 84 real Stage-D root states (Lemma 3, the load-bearing open item)",
+    "for each of the five hex-82 routes, report the specific first-touch history of the named orbit -- whether it was ever opened at a non-qualifying phase first",
+    "confirm that C4 in the real classification scheme is synonymous with this analyst's own attachment-table framework, not a different mechanism"
+  ],
+  "explicit_non_claims": [
+    "does not treat Round 60's specific search statistics as real -- no branch exists, and 253,537 is a reused, previously-flagged unverified figure",
+    "does not confirm hexagons 90/91 are registered at the actual Stage-D root set -- the single most important open verification item",
+    "does not prove any of the five hex-82 routes collides or is unreachable -- all remain OPEN_PROVENANCE_CASE",
+    "does not claim T2b implies T2+",
+    "no search run, no Codex artifact modified"
+  ],
+  "end_token": "CLAUDE_HEX82_PARTIAL"
+}
