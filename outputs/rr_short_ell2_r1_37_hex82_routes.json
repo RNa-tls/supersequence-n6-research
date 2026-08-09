@@ -1,0 +1,1452 @@
+{
+  "analyzer_sha256": "8bab9c6fca0d2dae91292a182c430438fb9d7ab2fb94e83827a9b0220698fafe",
+  "common_registration_obligation": {
+    "all_84_roots_hex40_full": true,
+    "blocked_rotation_successor": [
+      4,
+      5,
+      1,
+      3,
+      0,
+      2
+    ],
+    "blocked_rotation_successor_orbit_phase": [
+      91,
+      1
+    ],
+    "classification": "H2_PREDECESSOR_LOCALLY_LEGAL_BUT_ANCHORED_PROVENANCE_INCOMPATIBLE",
+    "obligation_id": "register_q91_p2_to_attach_h82_to_C_R1",
+    "only_allowed_pre_R2_kind": "Z2",
+    "provenance_argument": [
+      "h40 is full at every frozen anchor, so the unique Z2 source window 245130 is already visited",
+      "no frozen anchor is terminal at 245130",
+      "exact.extend never enters an already-visited target window, hence no descendant can become terminal at 245130",
+      "therefore the q91:p2 incidence q91--h82 cannot be introduced by a pre-R2 Z2",
+      "a blocked w3 into existing q91 would be R2 and is recognized but never traversed"
+    ],
+    "root_hex82_mask_histogram": {
+      "0": 81,
+      "2": 1,
+      "4": 1,
+      "63": 1
+    },
+    "roots_terminal_at_unique_source": 0,
+    "roots_with_q91_p2_registered": 0,
+    "route_target_already_occupied_at_root_count": {
+      "q128:p2": 2,
+      "q42:p1": 2,
+      "q78:p3": 1,
+      "q82:p0": 1,
+      "q83:p4": 1
+    },
+    "target_hex_position": [
+      82,
+      3
+    ],
+    "target_orbit": 91,
+    "target_phase": 2,
+    "target_word": [
+      5,
+      1,
+      3,
+      0,
+      4,
+      2
+    ],
+    "unique_w2_source_hex_position": [
+      40,
+      1
+    ],
+    "unique_w2_source_word": [
+      2,
+      4,
+      5,
+      1,
+      3,
+      0
+    ]
+  },
+  "inputs": {
+    "candidate_table_sha256": "6f5bb3dc75b6e300aea58139d75d992cc76a45edca03f3ea9350a9995ae1ca2f",
+    "manifest_sha256": "7fb263242d7358d0ddcf36c2d9159f5b1ff3cfd5ea0e0770dede8b0c5ba2ff6b"
+  },
+  "route_count": 5,
+  "routes": [
+    {
+      "candidate_orbit": 42,
+      "candidate_phase": 1,
+      "exact_incidence_edge_introduced": {
+        "e_orbit": 42,
+        "hexagon": 82,
+        "phase": 1
+      },
+      "exact_macro_kind": "Z3",
+      "left_s6_or_continuation_equivalence_used": false,
+      "other_q91_contact_hexagons": [
+        40
+      ],
+      "required_C_R1_relation": "hexagon 82 is in the incidence component containing q91",
+      "required_first_touch_status": "target permutation window is unvisited",
+      "required_registration_state": "B_q42=0 before the joint (fresh candidate orbit)",
+      "required_resource_state": "F=1, H=0, r_count=1; the w3 joint is blocked, not an abandonment",
+      "route_id": "hex82_q42_p1",
+      "route_spec_sha256": "4ba6381675bd4ff322a3c7909be9856d2893db83d495459e6f6150d369cc5b60",
+      "source_hexagon": "macro-entry dependent; exact joint sources listed below",
+      "target_hex_position": 2,
+      "target_hexagon": 82,
+      "target_word": [
+        2,
+        5,
+        1,
+        3,
+        0,
+        4
+      ],
+      "w3_joint_predecessors": [
+        {
+          "blocked_rotation_successor": [
+            3,
+            0,
+            2,
+            5,
+            1,
+            4
+          ],
+          "blocked_rotation_successor_hex_position": [
+            43,
+            5
+          ],
+          "joint_label": "w3:120",
+          "joint_source_hex_position": [
+            43,
+            4
+          ],
+          "joint_source_orbit_phase": [
+            47,
+            3
+          ],
+          "joint_source_word": [
+            4,
+            3,
+            0,
+            2,
+            5,
+            1
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              4,
+              3,
+              0,
+              2,
+              5,
+              1
+            ],
+            "1": [
+              1,
+              4,
+              3,
+              0,
+              2,
+              5
+            ],
+            "2": [
+              5,
+              1,
+              4,
+              3,
+              0,
+              2
+            ],
+            "3": [
+              2,
+              5,
+              1,
+              4,
+              3,
+              0
+            ],
+            "4": [
+              0,
+              2,
+              5,
+              1,
+              4,
+              3
+            ],
+            "5": [
+              3,
+              0,
+              2,
+              5,
+              1,
+              4
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            4,
+            3,
+            2,
+            5,
+            1,
+            0
+          ],
+          "blocked_rotation_successor_hex_position": [
+            87,
+            1
+          ],
+          "joint_label": "w3:201",
+          "joint_source_hex_position": [
+            87,
+            0
+          ],
+          "joint_source_orbit_phase": [
+            87,
+            0
+          ],
+          "joint_source_word": [
+            0,
+            4,
+            3,
+            2,
+            5,
+            1
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              0,
+              4,
+              3,
+              2,
+              5,
+              1
+            ],
+            "1": [
+              1,
+              0,
+              4,
+              3,
+              2,
+              5
+            ],
+            "2": [
+              5,
+              1,
+              0,
+              4,
+              3,
+              2
+            ],
+            "3": [
+              2,
+              5,
+              1,
+              0,
+              4,
+              3
+            ],
+            "4": [
+              3,
+              2,
+              5,
+              1,
+              0,
+              4
+            ],
+            "5": [
+              4,
+              3,
+              2,
+              5,
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            0,
+            3,
+            2,
+            5,
+            1,
+            4
+          ],
+          "blocked_rotation_successor_hex_position": [
+            58,
+            0
+          ],
+          "joint_label": "w3:210",
+          "joint_source_hex_position": [
+            58,
+            5
+          ],
+          "joint_source_orbit_phase": [
+            59,
+            4
+          ],
+          "joint_source_word": [
+            4,
+            0,
+            3,
+            2,
+            5,
+            1
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              4,
+              0,
+              3,
+              2,
+              5,
+              1
+            ],
+            "1": [
+              1,
+              4,
+              0,
+              3,
+              2,
+              5
+            ],
+            "2": [
+              5,
+              1,
+              4,
+              0,
+              3,
+              2
+            ],
+            "3": [
+              2,
+              5,
+              1,
+              4,
+              0,
+              3
+            ],
+            "4": [
+              3,
+              2,
+              5,
+              1,
+              4,
+              0
+            ],
+            "5": [
+              0,
+              3,
+              2,
+              5,
+              1,
+              4
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "candidate_orbit": 78,
+      "candidate_phase": 3,
+      "exact_incidence_edge_introduced": {
+        "e_orbit": 78,
+        "hexagon": 82,
+        "phase": 3
+      },
+      "exact_macro_kind": "Z3",
+      "left_s6_or_continuation_equivalence_used": false,
+      "other_q91_contact_hexagons": [
+        92
+      ],
+      "required_C_R1_relation": "hexagon 82 is in the incidence component containing q91",
+      "required_first_touch_status": "target permutation window is unvisited",
+      "required_registration_state": "B_q78=0 before the joint (fresh candidate orbit)",
+      "required_resource_state": "F=1, H=0, r_count=1; the w3 joint is blocked, not an abandonment",
+      "route_id": "hex82_q78_p3",
+      "route_spec_sha256": "e8a01799c28d94aee5acff611662f2b10ba660ac257b259489fbfd4bb1669d68",
+      "source_hexagon": "macro-entry dependent; exact joint sources listed below",
+      "target_hex_position": 4,
+      "target_hexagon": 82,
+      "target_word": [
+        1,
+        3,
+        0,
+        4,
+        2,
+        5
+      ],
+      "w3_joint_predecessors": [
+        {
+          "blocked_rotation_successor": [
+            4,
+            2,
+            1,
+            3,
+            0,
+            5
+          ],
+          "blocked_rotation_successor_hex_position": [
+            116,
+            2
+          ],
+          "joint_label": "w3:120",
+          "joint_source_hex_position": [
+            116,
+            1
+          ],
+          "joint_source_orbit_phase": [
+            131,
+            2
+          ],
+          "joint_source_word": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              5,
+              4,
+              2,
+              1,
+              3,
+              0
+            ],
+            "1": [
+              0,
+              5,
+              4,
+              2,
+              1,
+              3
+            ],
+            "2": [
+              3,
+              0,
+              5,
+              4,
+              2,
+              1
+            ],
+            "3": [
+              1,
+              3,
+              0,
+              5,
+              4,
+              2
+            ],
+            "4": [
+              2,
+              1,
+              3,
+              0,
+              5,
+              4
+            ],
+            "5": [
+              4,
+              2,
+              1,
+              3,
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            5,
+            4,
+            1,
+            3,
+            0,
+            2
+          ],
+          "blocked_rotation_successor_hex_position": [
+            46,
+            2
+          ],
+          "joint_label": "w3:201",
+          "joint_source_hex_position": [
+            46,
+            1
+          ],
+          "joint_source_orbit_phase": [
+            127,
+            2
+          ],
+          "joint_source_word": [
+            2,
+            5,
+            4,
+            1,
+            3,
+            0
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              2,
+              5,
+              4,
+              1,
+              3,
+              0
+            ],
+            "1": [
+              0,
+              2,
+              5,
+              4,
+              1,
+              3
+            ],
+            "2": [
+              3,
+              0,
+              2,
+              5,
+              4,
+              1
+            ],
+            "3": [
+              1,
+              3,
+              0,
+              2,
+              5,
+              4
+            ],
+            "4": [
+              4,
+              1,
+              3,
+              0,
+              2,
+              5
+            ],
+            "5": [
+              5,
+              4,
+              1,
+              3,
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            2,
+            4,
+            1,
+            3,
+            0,
+            5
+          ],
+          "blocked_rotation_successor_hex_position": [
+            106,
+            2
+          ],
+          "joint_label": "w3:210",
+          "joint_source_hex_position": [
+            106,
+            1
+          ],
+          "joint_source_orbit_phase": [
+            130,
+            2
+          ],
+          "joint_source_word": [
+            5,
+            2,
+            4,
+            1,
+            3,
+            0
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              5,
+              2,
+              4,
+              1,
+              3,
+              0
+            ],
+            "1": [
+              0,
+              5,
+              2,
+              4,
+              1,
+              3
+            ],
+            "2": [
+              3,
+              0,
+              5,
+              2,
+              4,
+              1
+            ],
+            "3": [
+              1,
+              3,
+              0,
+              5,
+              2,
+              4
+            ],
+            "4": [
+              4,
+              1,
+              3,
+              0,
+              5,
+              2
+            ],
+            "5": [
+              2,
+              4,
+              1,
+              3,
+              0,
+              5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "candidate_orbit": 82,
+      "candidate_phase": 0,
+      "exact_incidence_edge_introduced": {
+        "e_orbit": 82,
+        "hexagon": 82,
+        "phase": 0
+      },
+      "exact_macro_kind": "Z3",
+      "left_s6_or_continuation_equivalence_used": false,
+      "other_q91_contact_hexagons": [],
+      "required_C_R1_relation": "hexagon 82 is in the incidence component containing q91",
+      "required_first_touch_status": "target permutation window is unvisited",
+      "required_registration_state": "B_q82=0 before the joint (fresh candidate orbit)",
+      "required_resource_state": "F=1, H=0, r_count=1; the w3 joint is blocked, not an abandonment",
+      "route_id": "hex82_q82_p0",
+      "route_spec_sha256": "3844b62a93e111da3e839997a09d3e2995dc2852ab8d0bcb4f6ae322df543bfe",
+      "source_hexagon": "macro-entry dependent; exact joint sources listed below",
+      "target_hex_position": 0,
+      "target_hexagon": 82,
+      "target_word": [
+        0,
+        4,
+        2,
+        5,
+        1,
+        3
+      ],
+      "w3_joint_predecessors": [
+        {
+          "blocked_rotation_successor": [
+            5,
+            1,
+            0,
+            4,
+            2,
+            3
+          ],
+          "blocked_rotation_successor_hex_position": [
+            81,
+            4
+          ],
+          "joint_label": "w3:120",
+          "joint_source_hex_position": [
+            81,
+            3
+          ],
+          "joint_source_orbit_phase": [
+            88,
+            2
+          ],
+          "joint_source_word": [
+            3,
+            5,
+            1,
+            0,
+            4,
+            2
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              3,
+              5,
+              1,
+              0,
+              4,
+              2
+            ],
+            "1": [
+              2,
+              3,
+              5,
+              1,
+              0,
+              4
+            ],
+            "2": [
+              4,
+              2,
+              3,
+              5,
+              1,
+              0
+            ],
+            "3": [
+              0,
+              4,
+              2,
+              3,
+              5,
+              1
+            ],
+            "4": [
+              1,
+              0,
+              4,
+              2,
+              3,
+              5
+            ],
+            "5": [
+              5,
+              1,
+              0,
+              4,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            3,
+            5,
+            0,
+            4,
+            2,
+            1
+          ],
+          "blocked_rotation_successor_hex_position": [
+            78,
+            4
+          ],
+          "joint_label": "w3:201",
+          "joint_source_hex_position": [
+            78,
+            3
+          ],
+          "joint_source_orbit_phase": [
+            75,
+            2
+          ],
+          "joint_source_word": [
+            1,
+            3,
+            5,
+            0,
+            4,
+            2
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              1,
+              3,
+              5,
+              0,
+              4,
+              2
+            ],
+            "1": [
+              2,
+              1,
+              3,
+              5,
+              0,
+              4
+            ],
+            "2": [
+              4,
+              2,
+              1,
+              3,
+              5,
+              0
+            ],
+            "3": [
+              0,
+              4,
+              2,
+              1,
+              3,
+              5
+            ],
+            "4": [
+              5,
+              0,
+              4,
+              2,
+              1,
+              3
+            ],
+            "5": [
+              3,
+              5,
+              0,
+              4,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            1,
+            5,
+            0,
+            4,
+            2,
+            3
+          ],
+          "blocked_rotation_successor_hex_position": [
+            80,
+            4
+          ],
+          "joint_label": "w3:210",
+          "joint_source_hex_position": [
+            80,
+            3
+          ],
+          "joint_source_orbit_phase": [
+            85,
+            2
+          ],
+          "joint_source_word": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              3,
+              1,
+              5,
+              0,
+              4,
+              2
+            ],
+            "1": [
+              2,
+              3,
+              1,
+              5,
+              0,
+              4
+            ],
+            "2": [
+              4,
+              2,
+              3,
+              1,
+              5,
+              0
+            ],
+            "3": [
+              0,
+              4,
+              2,
+              3,
+              1,
+              5
+            ],
+            "4": [
+              5,
+              0,
+              4,
+              2,
+              3,
+              1
+            ],
+            "5": [
+              1,
+              5,
+              0,
+              4,
+              2,
+              3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "candidate_orbit": 83,
+      "candidate_phase": 4,
+      "exact_incidence_edge_introduced": {
+        "e_orbit": 83,
+        "hexagon": 82,
+        "phase": 4
+      },
+      "exact_macro_kind": "Z3",
+      "left_s6_or_continuation_equivalence_used": false,
+      "other_q91_contact_hexagons": [],
+      "required_C_R1_relation": "hexagon 82 is in the incidence component containing q91",
+      "required_first_touch_status": "target permutation window is unvisited",
+      "required_registration_state": "B_q83=0 before the joint (fresh candidate orbit)",
+      "required_resource_state": "F=1, H=0, r_count=1; the w3 joint is blocked, not an abandonment",
+      "route_id": "hex82_q83_p4",
+      "route_spec_sha256": "a791783537616e4a16588a7a85be938fe03ba41ae6972fcde134c462439ca4ff",
+      "source_hexagon": "macro-entry dependent; exact joint sources listed below",
+      "target_hex_position": 5,
+      "target_hexagon": 82,
+      "target_word": [
+        3,
+        0,
+        4,
+        2,
+        5,
+        1
+      ],
+      "w3_joint_predecessors": [
+        {
+          "blocked_rotation_successor": [
+            2,
+            5,
+            3,
+            0,
+            4,
+            1
+          ],
+          "blocked_rotation_successor_hex_position": [
+            73,
+            3
+          ],
+          "joint_label": "w3:120",
+          "joint_source_hex_position": [
+            73,
+            2
+          ],
+          "joint_source_orbit_phase": [
+            4,
+            1
+          ],
+          "joint_source_word": [
+            1,
+            2,
+            5,
+            3,
+            0,
+            4
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              1,
+              2,
+              5,
+              3,
+              0,
+              4
+            ],
+            "1": [
+              4,
+              1,
+              2,
+              5,
+              3,
+              0
+            ],
+            "2": [
+              0,
+              4,
+              1,
+              2,
+              5,
+              3
+            ],
+            "3": [
+              3,
+              0,
+              4,
+              1,
+              2,
+              5
+            ],
+            "4": [
+              5,
+              3,
+              0,
+              4,
+              1,
+              2
+            ],
+            "5": [
+              2,
+              5,
+              3,
+              0,
+              4,
+              1
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            1,
+            2,
+            3,
+            0,
+            4,
+            5
+          ],
+          "blocked_rotation_successor_hex_position": [
+            90,
+            3
+          ],
+          "joint_label": "w3:201",
+          "joint_source_hex_position": [
+            90,
+            2
+          ],
+          "joint_source_orbit_phase": [
+            96,
+            1
+          ],
+          "joint_source_word": [
+            5,
+            1,
+            2,
+            3,
+            0,
+            4
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              5,
+              1,
+              2,
+              3,
+              0,
+              4
+            ],
+            "1": [
+              4,
+              5,
+              1,
+              2,
+              3,
+              0
+            ],
+            "2": [
+              0,
+              4,
+              5,
+              1,
+              2,
+              3
+            ],
+            "3": [
+              3,
+              0,
+              4,
+              5,
+              1,
+              2
+            ],
+            "4": [
+              2,
+              3,
+              0,
+              4,
+              5,
+              1
+            ],
+            "5": [
+              1,
+              2,
+              3,
+              0,
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            5,
+            2,
+            3,
+            0,
+            4,
+            1
+          ],
+          "blocked_rotation_successor_hex_position": [
+            76,
+            3
+          ],
+          "joint_label": "w3:210",
+          "joint_source_hex_position": [
+            76,
+            2
+          ],
+          "joint_source_orbit_phase": [
+            18,
+            1
+          ],
+          "joint_source_word": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              1,
+              5,
+              2,
+              3,
+              0,
+              4
+            ],
+            "1": [
+              4,
+              1,
+              5,
+              2,
+              3,
+              0
+            ],
+            "2": [
+              0,
+              4,
+              1,
+              5,
+              2,
+              3
+            ],
+            "3": [
+              3,
+              0,
+              4,
+              1,
+              5,
+              2
+            ],
+            "4": [
+              2,
+              3,
+              0,
+              4,
+              1,
+              5
+            ],
+            "5": [
+              5,
+              2,
+              3,
+              0,
+              4,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "candidate_orbit": 128,
+      "candidate_phase": 2,
+      "exact_incidence_edge_introduced": {
+        "e_orbit": 128,
+        "hexagon": 82,
+        "phase": 2
+      },
+      "exact_macro_kind": "Z3",
+      "left_s6_or_continuation_equivalence_used": false,
+      "other_q91_contact_hexagons": [],
+      "required_C_R1_relation": "hexagon 82 is in the incidence component containing q91",
+      "required_first_touch_status": "target permutation window is unvisited",
+      "required_registration_state": "B_q128=0 before the joint (fresh candidate orbit)",
+      "required_resource_state": "F=1, H=0, r_count=1; the w3 joint is blocked, not an abandonment",
+      "route_id": "hex82_q128_p2",
+      "route_spec_sha256": "40b036dadcbb36284a224eaa19abe0ce8d83bd3a71cd9a20df97214e5985c92c",
+      "source_hexagon": "macro-entry dependent; exact joint sources listed below",
+      "target_hex_position": 1,
+      "target_hexagon": 82,
+      "target_word": [
+        4,
+        2,
+        5,
+        1,
+        3,
+        0
+      ],
+      "w3_joint_predecessors": [
+        {
+          "blocked_rotation_successor": [
+            1,
+            3,
+            4,
+            2,
+            5,
+            0
+          ],
+          "blocked_rotation_successor_hex_position": [
+            8,
+            1
+          ],
+          "joint_label": "w3:120",
+          "joint_source_hex_position": [
+            8,
+            0
+          ],
+          "joint_source_orbit_phase": [
+            8,
+            0
+          ],
+          "joint_source_word": [
+            0,
+            1,
+            3,
+            4,
+            2,
+            5
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              0,
+              1,
+              3,
+              4,
+              2,
+              5
+            ],
+            "1": [
+              5,
+              0,
+              1,
+              3,
+              4,
+              2
+            ],
+            "2": [
+              2,
+              5,
+              0,
+              1,
+              3,
+              4
+            ],
+            "3": [
+              4,
+              2,
+              5,
+              0,
+              1,
+              3
+            ],
+            "4": [
+              3,
+              4,
+              2,
+              5,
+              0,
+              1
+            ],
+            "5": [
+              1,
+              3,
+              4,
+              2,
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            0,
+            1,
+            4,
+            2,
+            5,
+            3
+          ],
+          "blocked_rotation_successor_hex_position": [
+            13,
+            0
+          ],
+          "joint_label": "w3:201",
+          "joint_source_hex_position": [
+            13,
+            5
+          ],
+          "joint_source_orbit_phase": [
+            12,
+            4
+          ],
+          "joint_source_word": [
+            3,
+            0,
+            1,
+            4,
+            2,
+            5
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              3,
+              0,
+              1,
+              4,
+              2,
+              5
+            ],
+            "1": [
+              5,
+              3,
+              0,
+              1,
+              4,
+              2
+            ],
+            "2": [
+              2,
+              5,
+              3,
+              0,
+              1,
+              4
+            ],
+            "3": [
+              4,
+              2,
+              5,
+              3,
+              0,
+              1
+            ],
+            "4": [
+              1,
+              4,
+              2,
+              5,
+              3,
+              0
+            ],
+            "5": [
+              0,
+              1,
+              4,
+              2,
+              5,
+              3
+            ]
+          }
+        },
+        {
+          "blocked_rotation_successor": [
+            3,
+            1,
+            4,
+            2,
+            5,
+            0
+          ],
+          "blocked_rotation_successor_hex_position": [
+            50,
+            1
+          ],
+          "joint_label": "w3:210",
+          "joint_source_hex_position": [
+            50,
+            0
+          ],
+          "joint_source_orbit_phase": [
+            50,
+            0
+          ],
+          "joint_source_word": [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          "macro_entry_words_by_rotation_length": {
+            "0": [
+              0,
+              3,
+              1,
+              4,
+              2,
+              5
+            ],
+            "1": [
+              5,
+              0,
+              3,
+              1,
+              4,
+              2
+            ],
+            "2": [
+              2,
+              5,
+              0,
+              3,
+              1,
+              4
+            ],
+            "3": [
+              4,
+              2,
+              5,
+              0,
+              3,
+              1
+            ],
+            "4": [
+              1,
+              4,
+              2,
+              5,
+              0,
+              3
+            ],
+            "5": [
+              3,
+              1,
+              4,
+              2,
+              5,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "schema": "rr-short-ell2-r1-37-hex82-routes-v1",
+  "scope": "five exact hex-82 route specifications; no quotient"
+}

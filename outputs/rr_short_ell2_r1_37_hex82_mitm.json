@@ -1,0 +1,5043 @@
+{
+  "M1_orbit_phase_matches": 155538,
+  "M2_structural_state_matches": 0,
+  "M3_exact_decorated_state_matches": 0,
+  "M4_exact_legal_noncolliding_C4": 0,
+  "M5_FZ1_witnesses": 0,
+  "branches": [
+    {
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\r1_37_first_component_z3_v1\\seed_236166\\checkpoint.json",
+      "checkpoint_sha256": "bfe42113ef4645f25580a87a7b41533422f1818d9e8ca45a8cd5e5386ce0a5b1",
+      "expanded_nodes": 3158,
+      "frontier_nodes": 0,
+      "invariant_counts": {},
+      "nearest_route_states": {
+        "hex82_q128_p2": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "56c9040e387af21cda176462aba1a9df2696a2ba2cf82246184af3dff6d5db88",
+          "depth": 75,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          "literal_target": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:236166:fz:1935",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  35,
+                  4
+                ],
+                "target": [
+                  34,
+                  1
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  132,
+                  1
+                ],
+                "target": [
+                  58,
+                  3
+                ],
+                "target_hexagon": 57
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  2
+                ],
+                "target": [
+                  58,
+                  4
+                ],
+                "target_hexagon": 59
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  56,
+                  3
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  59,
+                  4
+                ],
+                "target": [
+                  58,
+                  1
+                ],
+                "target_hexagon": 87
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  134,
+                  1
+                ],
+                "target": [
+                  40,
+                  3
+                ],
+                "target_hexagon": 39
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  34,
+                  2
+                ],
+                "target": [
+                  40,
+                  4
+                ],
+                "target_hexagon": 41
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  38,
+                  3
+                ],
+                "target": [
+                  57,
+                  2
+                ],
+                "target_hexagon": 48
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  3,
+                  1
+                ],
+                "target": [
+                  61,
+                  4
+                ],
+                "target_hexagon": 60
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  63,
+                  3
+                ],
+                "target": [
+                  32,
+                  2
+                ],
+                "target_hexagon": 45
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  112,
+                  1
+                ],
+                "target": [
+                  32,
+                  3
+                ],
+                "target_hexagon": 35
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  46,
+                  2
+                ],
+                "target": [
+                  30,
+                  0
+                ],
+                "target_hexagon": 30
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  4
+                ],
+                "target": [
+                  133,
+                  4
+                ],
+                "target_hexagon": 50
+              }
+            ],
+            "anchor_path_hash": "7ca117bfbe40021e53e5cc272b29b9fb173826ac3ef48ce03cc87cebb9503866",
+            "anchor_state_hash": "958dea5f565da6f8bcdefea9d123055f730fcef2d07c3a135fd9b98a15be5cde",
+            "node_ids": [
+              "short_ell2_r1_37:236166:fz:root:0",
+              "short_ell2_r1_37:236166:fz:1187",
+              "short_ell2_r1_37:236166:fz:1190",
+              "short_ell2_r1_37:236166:fz:1770",
+              "short_ell2_r1_37:236166:fz:1771",
+              "short_ell2_r1_37:236166:fz:1772",
+              "short_ell2_r1_37:236166:fz:1777",
+              "short_ell2_r1_37:236166:fz:1778",
+              "short_ell2_r1_37:236166:fz:1802",
+              "short_ell2_r1_37:236166:fz:1804",
+              "short_ell2_r1_37:236166:fz:1807",
+              "short_ell2_r1_37:236166:fz:1933",
+              "short_ell2_r1_37:236166:fz:1934",
+              "short_ell2_r1_37:236166:fz:1935"
+            ],
+            "replay_edge_count": 13,
+            "start_record_id": "short_ell2_r1_37:236166:pilot:7697"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:236166",
+          "state_hash": "f39312ef34bfc70f17d54e23f9d524ce3fec451ea78842d60860457baadabcd1",
+          "target_already_visited": false
+        },
+        "hex82_q42_p1": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "e288760c67374cd8dbac3ae96f3d0090671c65239a8871bc097d4593bd6e5ea6",
+          "depth": 66,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            4,
+            0,
+            3,
+            2,
+            5,
+            1
+          ],
+          "literal_target": [
+            2,
+            5,
+            1,
+            3,
+            0,
+            4
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:236166:fz:1771",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  35,
+                  4
+                ],
+                "target": [
+                  34,
+                  1
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  132,
+                  1
+                ],
+                "target": [
+                  58,
+                  3
+                ],
+                "target_hexagon": 57
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  2
+                ],
+                "target": [
+                  58,
+                  4
+                ],
+                "target_hexagon": 59
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  56,
+                  3
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              }
+            ],
+            "anchor_path_hash": "7ca117bfbe40021e53e5cc272b29b9fb173826ac3ef48ce03cc87cebb9503866",
+            "anchor_state_hash": "958dea5f565da6f8bcdefea9d123055f730fcef2d07c3a135fd9b98a15be5cde",
+            "node_ids": [
+              "short_ell2_r1_37:236166:fz:root:0",
+              "short_ell2_r1_37:236166:fz:1187",
+              "short_ell2_r1_37:236166:fz:1190",
+              "short_ell2_r1_37:236166:fz:1770",
+              "short_ell2_r1_37:236166:fz:1771"
+            ],
+            "replay_edge_count": 4,
+            "start_record_id": "short_ell2_r1_37:236166:pilot:7697"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:236166",
+          "state_hash": "a33c1ef91a5e245eb913b4b763856b45836a1e9d30b4b0e17cf34897e6b716f9",
+          "target_already_visited": false
+        },
+        "hex82_q78_p3": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": false
+          },
+          "decorated_state_sha256": "765f9ecfbb6e08f8e3ae11e3edd46b61de1e8494ad111b2c13e4a6d6513e7462",
+          "depth": 67,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "literal_target": [
+            1,
+            3,
+            0,
+            4,
+            2,
+            5
+          ],
+          "macro_label": "rot^1;w3:120",
+          "node_id": "short_ell2_r1_37:236166:fz:12",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  79,
+                  0
+                ],
+                "target": [
+                  20,
+                  1
+                ],
+                "target_hexagon": 77
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  140,
+                  4
+                ],
+                "target": [
+                  119,
+                  3
+                ],
+                "target_hexagon": 115
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  98,
+                  2
+                ],
+                "target": [
+                  116,
+                  0
+                ],
+                "target_hexagon": 116
+              }
+            ],
+            "anchor_path_hash": "fbc675e140a91c47b61e33597de375d2d2c0c35ab5332d6984181b051a1afdbf",
+            "anchor_state_hash": "ce9c8e26bb9cb02bc04ba528066d8f54aec9736b173be761d2720a666bd33db1",
+            "node_ids": [
+              "short_ell2_r1_37:236166:fz:root:2",
+              "short_ell2_r1_37:236166:fz:10",
+              "short_ell2_r1_37:236166:fz:11",
+              "short_ell2_r1_37:236166:fz:12"
+            ],
+            "replay_edge_count": 3,
+            "start_record_id": "short_ell2_r1_37:236166:pilot:9935"
+          },
+          "satisfied_condition_count": 3,
+          "seed_id": "short_ell2_r1_37:236166",
+          "state_hash": "27924c865e8a9ebd57f89d877164b919cf7a9f416cd64f7193e60e477249246d",
+          "target_already_visited": false
+        },
+        "hex82_q82_p0": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "16bd50d2733e7c800b85f7a48802c6387ed17df3db67730fd3f3cc9312f16ca6",
+          "depth": 69,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "literal_target": [
+            0,
+            4,
+            2,
+            5,
+            1,
+            3
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:236166:fz:145",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  10,
+                  0
+                ],
+                "target": [
+                  130,
+                  1
+                ],
+                "target_hexagon": 69
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  69,
+                  0
+                ],
+                "target": [
+                  37,
+                  1
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  140,
+                  2
+                ],
+                "target": [
+                  79,
+                  3
+                ],
+                "target_hexagon": 80
+              }
+            ],
+            "anchor_path_hash": "29f0961a7a40f4a8991bffd6f1be17046c89343fd88f031f4d1368538a8adfd3",
+            "anchor_state_hash": "985d92a0f86d4aec881724d376f198047ad0fc16b7c31b529205e0fe079fe2cd",
+            "node_ids": [
+              "short_ell2_r1_37:236166:fz:root:4",
+              "short_ell2_r1_37:236166:fz:142",
+              "short_ell2_r1_37:236166:fz:143",
+              "short_ell2_r1_37:236166:fz:145"
+            ],
+            "replay_edge_count": 3,
+            "start_record_id": "short_ell2_r1_37:236166:pilot:9939"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:236166",
+          "state_hash": "c53d05eebc42a0d19c7d760cc7f000ef9c3afeddb0275998b9c27f4b037154ec",
+          "target_already_visited": false
+        },
+        "hex82_q83_p4": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "0d3bf4760b5deec6ecb0ce439d2d7b3fe41cc95f980724bb494504a200372bd3",
+          "depth": 78,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "literal_target": [
+            3,
+            0,
+            4,
+            2,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:236166:fz:2023",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  35,
+                  4
+                ],
+                "target": [
+                  34,
+                  1
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  132,
+                  1
+                ],
+                "target": [
+                  58,
+                  3
+                ],
+                "target_hexagon": 57
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  2
+                ],
+                "target": [
+                  58,
+                  4
+                ],
+                "target_hexagon": 59
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  56,
+                  3
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  59,
+                  4
+                ],
+                "target": [
+                  58,
+                  1
+                ],
+                "target_hexagon": 87
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  134,
+                  1
+                ],
+                "target": [
+                  40,
+                  3
+                ],
+                "target_hexagon": 39
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  34,
+                  2
+                ],
+                "target": [
+                  37,
+                  0
+                ],
+                "target_hexagon": 37
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  36,
+                  4
+                ],
+                "target": [
+                  76,
+                  1
+                ],
+                "target_hexagon": 61
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  138,
+                  3
+                ],
+                "target": [
+                  76,
+                  2
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  52,
+                  1
+                ],
+                "target": [
+                  76,
+                  3
+                ],
+                "target_hexagon": 75
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  89,
+                  2
+                ],
+                "target": [
+                  76,
+                  4
+                ],
+                "target_hexagon": 77
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  74,
+                  3
+                ],
+                "target": [
+                  61,
+                  2
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  37,
+                  1
+                ],
+                "target": [
+                  61,
+                  3
+                ],
+                "target_hexagon": 62
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  2
+                ],
+                "target": [
+                  65,
+                  0
+                ],
+                "target_hexagon": 65
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              }
+            ],
+            "anchor_path_hash": "7ca117bfbe40021e53e5cc272b29b9fb173826ac3ef48ce03cc87cebb9503866",
+            "anchor_state_hash": "958dea5f565da6f8bcdefea9d123055f730fcef2d07c3a135fd9b98a15be5cde",
+            "node_ids": [
+              "short_ell2_r1_37:236166:fz:root:0",
+              "short_ell2_r1_37:236166:fz:1187",
+              "short_ell2_r1_37:236166:fz:1190",
+              "short_ell2_r1_37:236166:fz:1770",
+              "short_ell2_r1_37:236166:fz:1771",
+              "short_ell2_r1_37:236166:fz:1772",
+              "short_ell2_r1_37:236166:fz:1777",
+              "short_ell2_r1_37:236166:fz:1780",
+              "short_ell2_r1_37:236166:fz:1783",
+              "short_ell2_r1_37:236166:fz:1818",
+              "short_ell2_r1_37:236166:fz:1984",
+              "short_ell2_r1_37:236166:fz:1985",
+              "short_ell2_r1_37:236166:fz:1988",
+              "short_ell2_r1_37:236166:fz:1989",
+              "short_ell2_r1_37:236166:fz:1994",
+              "short_ell2_r1_37:236166:fz:1996",
+              "short_ell2_r1_37:236166:fz:2023"
+            ],
+            "replay_edge_count": 16,
+            "start_record_id": "short_ell2_r1_37:236166:pilot:7697"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:236166",
+          "state_hash": "06f1a458a11803b3f28cb66c894da24877e9d429d5a72f37469998181493a329",
+          "target_already_visited": false
+        }
+      },
+      "nodes_replayed": 3158,
+      "route_counts": {
+        "hex82_q128_p2": {
+          "M1_orbit_phase_macro_match": 44,
+          "first_failed:hex82_in_R1_component": 44
+        },
+        "hex82_q42_p1": {
+          "M1_orbit_phase_macro_match": 124,
+          "first_failed:hex82_in_R1_component": 124
+        },
+        "hex82_q78_p3": {
+          "M1_orbit_phase_macro_match": 71,
+          "first_failed:hex82_in_R1_component": 71
+        },
+        "hex82_q82_p0": {
+          "M1_orbit_phase_macro_match": 178,
+          "first_failed:hex82_in_R1_component": 178
+        },
+        "hex82_q83_p4": {
+          "M1_orbit_phase_macro_match": 70,
+          "first_failed:hex82_in_R1_component": 70
+        }
+      },
+      "seed_id": "short_ell2_r1_37:236166"
+    },
+    {
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\r1_37_first_component_z3_v1\\seed_12\\checkpoint.json",
+      "checkpoint_sha256": "fa3f6706963a0778eed10728aa4659d4f07dd9299a5ebc690f7ca3568c10635b",
+      "expanded_nodes": 170773,
+      "frontier_nodes": 0,
+      "invariant_counts": {},
+      "nearest_route_states": {
+        "hex82_q128_p2": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "0980f5eafef8e3cfe0ade7397e9874c60f48ac3f40185da19d7546bba364f79a",
+          "depth": 63,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          "literal_target": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:12:fz:39546",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  18,
+                  1
+                ],
+                "target": [
+                  78,
+                  4
+                ],
+                "target_hexagon": 79
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  83,
+                  3
+                ],
+                "target": [
+                  62,
+                  2
+                ],
+                "target_hexagon": 71
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  116,
+                  1
+                ],
+                "target": [
+                  56,
+                  4
+                ],
+                "target_hexagon": 57
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  58,
+                  3
+                ],
+                "target": [
+                  56,
+                  0
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  57,
+                  4
+                ],
+                "target": [
+                  56,
+                  1
+                ],
+                "target_hexagon": 111
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  140,
+                  1
+                ],
+                "target": [
+                  32,
+                  3
+                ],
+                "target_hexagon": 35
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  46,
+                  2
+                ],
+                "target": [
+                  30,
+                  0
+                ],
+                "target_hexagon": 30
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  4
+                ],
+                "target": [
+                  133,
+                  4
+                ],
+                "target_hexagon": 50
+              }
+            ],
+            "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+            "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+            "node_ids": [
+              "short_ell2_r1_37:12:fz:root:0",
+              "short_ell2_r1_37:12:fz:13",
+              "short_ell2_r1_37:12:fz:3379",
+              "short_ell2_r1_37:12:fz:3380",
+              "short_ell2_r1_37:12:fz:3384",
+              "short_ell2_r1_37:12:fz:3386",
+              "short_ell2_r1_37:12:fz:39523",
+              "short_ell2_r1_37:12:fz:39524",
+              "short_ell2_r1_37:12:fz:39536",
+              "short_ell2_r1_37:12:fz:39538",
+              "short_ell2_r1_37:12:fz:39546"
+            ],
+            "replay_edge_count": 10,
+            "start_record_id": "short_ell2_r1_37:12:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:12",
+          "state_hash": "336a136779d27765e49ef5dd5b254b2cbfcc5411fa4c7ded671ee27a795a51b4",
+          "target_already_visited": false
+        },
+        "hex82_q42_p1": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "c8ddcd8c27a4d181bc6230d6f3ca233745285bf80e7881f1d8271be5f0bb2651",
+          "depth": 57,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            4,
+            0,
+            3,
+            2,
+            5,
+            1
+          ],
+          "literal_target": [
+            2,
+            5,
+            1,
+            3,
+            0,
+            4
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:12:fz:21",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  136,
+                  1
+                ],
+                "target_hexagon": 93
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  93,
+                  0
+                ],
+                "target": [
+                  31,
+                  1
+                ],
+                "target_hexagon": 80
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  142,
+                  2
+                ],
+                "target": [
+                  55,
+                  3
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  61,
+                  2
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              }
+            ],
+            "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+            "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+            "node_ids": [
+              "short_ell2_r1_37:12:fz:root:0",
+              "short_ell2_r1_37:12:fz:12",
+              "short_ell2_r1_37:12:fz:14",
+              "short_ell2_r1_37:12:fz:18",
+              "short_ell2_r1_37:12:fz:21"
+            ],
+            "replay_edge_count": 4,
+            "start_record_id": "short_ell2_r1_37:12:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:12",
+          "state_hash": "e56b54ede8703c6224d0c7f0e7544090ebd98516a22988f4a8cbc227afce2b65",
+          "target_already_visited": false
+        },
+        "hex82_q78_p3": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": false
+          },
+          "decorated_state_sha256": "84786d933d207ff50d444d2078b43fc50fb07e3f643075fdb80cec8914b18aec",
+          "depth": 57,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "literal_target": [
+            1,
+            3,
+            0,
+            4,
+            2,
+            5
+          ],
+          "macro_label": "rot^0;w3:120",
+          "node_id": "short_ell2_r1_37:12:fz:3228",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  136,
+                  1
+                ],
+                "target_hexagon": 93
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  93,
+                  0
+                ],
+                "target": [
+                  142,
+                  3
+                ],
+                "target_hexagon": 31
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  0
+                ],
+                "target": [
+                  142,
+                  4
+                ],
+                "target_hexagon": 53
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  53,
+                  0
+                ],
+                "target": [
+                  131,
+                  2
+                ],
+                "target_hexagon": 116
+              }
+            ],
+            "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+            "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+            "node_ids": [
+              "short_ell2_r1_37:12:fz:root:0",
+              "short_ell2_r1_37:12:fz:12",
+              "short_ell2_r1_37:12:fz:15",
+              "short_ell2_r1_37:12:fz:3226",
+              "short_ell2_r1_37:12:fz:3228"
+            ],
+            "replay_edge_count": 4,
+            "start_record_id": "short_ell2_r1_37:12:pilot:2"
+          },
+          "satisfied_condition_count": 3,
+          "seed_id": "short_ell2_r1_37:12",
+          "state_hash": "b43acee7c2c7cab232296f2573a503f68b2c3e0bac7d421f9f0ca8f62df9ab67",
+          "target_already_visited": false
+        },
+        "hex82_q82_p0": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "48903ce9560d7716b7052d65a152c833afa1c751016c6d6075380512a7d9f0dc",
+          "depth": 62,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "literal_target": [
+            0,
+            4,
+            2,
+            5,
+            1,
+            3
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:12:fz:46625",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  136,
+                  1
+                ],
+                "target_hexagon": 93
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  93,
+                  0
+                ],
+                "target": [
+                  142,
+                  3
+                ],
+                "target_hexagon": 31
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  0
+                ],
+                "target": [
+                  142,
+                  4
+                ],
+                "target_hexagon": 53
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  53,
+                  0
+                ],
+                "target": [
+                  131,
+                  2
+                ],
+                "target_hexagon": 116
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  116,
+                  0
+                ],
+                "target": [
+                  131,
+                  3
+                ],
+                "target_hexagon": 78
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  78,
+                  0
+                ],
+                "target": [
+                  130,
+                  0
+                ],
+                "target_hexagon": 10
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  10,
+                  0
+                ],
+                "target": [
+                  130,
+                  1
+                ],
+                "target_hexagon": 69
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  69,
+                  0
+                ],
+                "target": [
+                  37,
+                  1
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  140,
+                  2
+                ],
+                "target": [
+                  79,
+                  3
+                ],
+                "target_hexagon": 80
+              }
+            ],
+            "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+            "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+            "node_ids": [
+              "short_ell2_r1_37:12:fz:root:0",
+              "short_ell2_r1_37:12:fz:12",
+              "short_ell2_r1_37:12:fz:15",
+              "short_ell2_r1_37:12:fz:3226",
+              "short_ell2_r1_37:12:fz:3228",
+              "short_ell2_r1_37:12:fz:46476",
+              "short_ell2_r1_37:12:fz:46479",
+              "short_ell2_r1_37:12:fz:46620",
+              "short_ell2_r1_37:12:fz:46621",
+              "short_ell2_r1_37:12:fz:46625"
+            ],
+            "replay_edge_count": 9,
+            "start_record_id": "short_ell2_r1_37:12:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:12",
+          "state_hash": "1dd66049ede84e6995f4027e1b0dce4b75b04e1c693f2a26b447d90255b2a4af",
+          "target_already_visited": false
+        },
+        "hex82_q83_p4": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "c90fd2165c94e854e5785cdb8af4bb6c6c9bcb876f185df54114ff39ffcfefac",
+          "depth": 55,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "literal_target": [
+            3,
+            0,
+            4,
+            2,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:12:fz:3379",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              }
+            ],
+            "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+            "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+            "node_ids": [
+              "short_ell2_r1_37:12:fz:root:0",
+              "short_ell2_r1_37:12:fz:13",
+              "short_ell2_r1_37:12:fz:3379"
+            ],
+            "replay_edge_count": 2,
+            "start_record_id": "short_ell2_r1_37:12:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:12",
+          "state_hash": "9973e7458e14d43e1a8c0bbc04526a275cccdf60f3aed1e69c03eeb8a4198c60",
+          "target_already_visited": false
+        }
+      },
+      "nodes_replayed": 170773,
+      "route_counts": {
+        "hex82_q128_p2": {
+          "M1_orbit_phase_macro_match": 2460,
+          "first_failed:hex82_in_R1_component": 2460
+        },
+        "hex82_q42_p1": {
+          "M1_orbit_phase_macro_match": 7120,
+          "first_failed:hex82_in_R1_component": 7120
+        },
+        "hex82_q78_p3": {
+          "M1_orbit_phase_macro_match": 1949,
+          "first_failed:hex82_in_R1_component": 1949
+        },
+        "hex82_q82_p0": {
+          "M1_orbit_phase_macro_match": 8158,
+          "first_failed:hex82_in_R1_component": 8158
+        },
+        "hex82_q83_p4": {
+          "M1_orbit_phase_macro_match": 1845,
+          "first_failed:hex82_in_R1_component": 1845
+        }
+      },
+      "seed_id": "short_ell2_r1_37:12"
+    },
+    {
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\r1_37_first_component_z3_v1\\seed_6\\checkpoint.json",
+      "checkpoint_sha256": "a2211da5cc3a07a38a02cfc37a8ccb3fd5fceeae6dba83d2cb894251b5172d47",
+      "expanded_nodes": 425000,
+      "frontier_nodes": 34712,
+      "invariant_counts": {},
+      "nearest_route_states": {
+        "hex82_q128_p2": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "1322bbaff1aa48aef3b39684b383449f4302aa10492835290d2b877370d347aa",
+          "depth": 59,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          "literal_target": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:6:fz:1034",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  65,
+                  3
+                ],
+                "target": [
+                  32,
+                  2
+                ],
+                "target_hexagon": 45
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  112,
+                  1
+                ],
+                "target": [
+                  32,
+                  3
+                ],
+                "target_hexagon": 35
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  46,
+                  2
+                ],
+                "target": [
+                  30,
+                  0
+                ],
+                "target_hexagon": 30
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  4
+                ],
+                "target": [
+                  133,
+                  4
+                ],
+                "target_hexagon": 50
+              }
+            ],
+            "anchor_path_hash": "cde862bd0a6906f1bd30d5c219e6360f80064566457413135e5ed115a19b10e4",
+            "anchor_state_hash": "ff2b52ad1d463f020285524cdcdc704ca5a2c9969780271a32ff6340f22358b5",
+            "node_ids": [
+              "short_ell2_r1_37:6:fz:root:5",
+              "short_ell2_r1_37:6:fz:1010",
+              "short_ell2_r1_37:6:fz:1011",
+              "short_ell2_r1_37:6:fz:1015",
+              "short_ell2_r1_37:6:fz:1034"
+            ],
+            "replay_edge_count": 4,
+            "start_record_id": "short_ell2_r1_37:6:pilot:13"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:6",
+          "state_hash": "7f7eb8cb905b9ef8c56592c09a56794a2726ee5f986a6f977877c227334539a9",
+          "target_already_visited": false
+        },
+        "hex82_q42_p1": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "2b48f2e1ebc978c52099de1f10a614ea04d4e4f10facea2a505dfe97d3f30d17",
+          "depth": 54,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            0,
+            4,
+            3,
+            2,
+            5,
+            1
+          ],
+          "literal_target": [
+            2,
+            5,
+            1,
+            3,
+            0,
+            4
+          ],
+          "macro_label": "rot^5;w3:201",
+          "node_id": "short_ell2_r1_37:6:fz:25316",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  116,
+                  4
+                ],
+                "target": [
+                  132,
+                  1
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  81,
+                  0
+                ],
+                "target": [
+                  132,
+                  2
+                ],
+                "target_hexagon": 34
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  34,
+                  0
+                ],
+                "target": [
+                  134,
+                  4
+                ],
+                "target_hexagon": 101
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  101,
+                  0
+                ],
+                "target": [
+                  134,
+                  0
+                ],
+                "target_hexagon": 14
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  14,
+                  0
+                ],
+                "target": [
+                  134,
+                  1
+                ],
+                "target_hexagon": 87
+              }
+            ],
+            "anchor_path_hash": "c907b9f11d8bdca14b8e329a2f2a351b286f4e0bf37a708aed81fdf42d562ffe",
+            "anchor_state_hash": "888ce8e192f269a47068672f36d346ce7ebb27bb5bcd4b6e5b366ca54e3be31c",
+            "node_ids": [
+              "short_ell2_r1_37:6:fz:root:0",
+              "short_ell2_r1_37:6:fz:5",
+              "short_ell2_r1_37:6:fz:7119",
+              "short_ell2_r1_37:6:fz:7124",
+              "short_ell2_r1_37:6:fz:7125",
+              "short_ell2_r1_37:6:fz:25316"
+            ],
+            "replay_edge_count": 5,
+            "start_record_id": "short_ell2_r1_37:6:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:6",
+          "state_hash": "e5a93b8636dc9dbc0921cbc92e8120f5e44f7b9d9fff2e301bf6ed4cc3422aaa",
+          "target_already_visited": false
+        },
+        "hex82_q78_p3": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": false
+          },
+          "decorated_state_sha256": "9afab4714a38f4dc323da3efcbd00bdee5b0ce7f018b95362edf8af41d3fb5d9",
+          "depth": 56,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "literal_target": [
+            1,
+            3,
+            0,
+            4,
+            2,
+            5
+          ],
+          "macro_label": "rot^0;w3:120",
+          "node_id": "short_ell2_r1_37:6:fz:10244",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  116,
+                  4
+                ],
+                "target": [
+                  132,
+                  1
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  81,
+                  0
+                ],
+                "target": [
+                  122,
+                  3
+                ],
+                "target_hexagon": 66
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  66,
+                  0
+                ],
+                "target": [
+                  3,
+                  1
+                ],
+                "target_hexagon": 48
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  123,
+                  4
+                ],
+                "target": [
+                  33,
+                  3
+                ],
+                "target_hexagon": 30
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  27,
+                  2
+                ],
+                "target": [
+                  35,
+                  0
+                ],
+                "target_hexagon": 35
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  34,
+                  4
+                ],
+                "target": [
+                  131,
+                  1
+                ],
+                "target_hexagon": 71
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  71,
+                  0
+                ],
+                "target": [
+                  131,
+                  2
+                ],
+                "target_hexagon": 116
+              }
+            ],
+            "anchor_path_hash": "c907b9f11d8bdca14b8e329a2f2a351b286f4e0bf37a708aed81fdf42d562ffe",
+            "anchor_state_hash": "888ce8e192f269a47068672f36d346ce7ebb27bb5bcd4b6e5b366ca54e3be31c",
+            "node_ids": [
+              "short_ell2_r1_37:6:fz:root:0",
+              "short_ell2_r1_37:6:fz:5",
+              "short_ell2_r1_37:6:fz:7120",
+              "short_ell2_r1_37:6:fz:7121",
+              "short_ell2_r1_37:6:fz:10238",
+              "short_ell2_r1_37:6:fz:10241",
+              "short_ell2_r1_37:6:fz:10242",
+              "short_ell2_r1_37:6:fz:10244"
+            ],
+            "replay_edge_count": 7,
+            "start_record_id": "short_ell2_r1_37:6:pilot:2"
+          },
+          "satisfied_condition_count": 3,
+          "seed_id": "short_ell2_r1_37:6",
+          "state_hash": "5cff3c9393c0bcc8506f55df70f712473c8f87fe0171131663438ed6e8175270",
+          "target_already_visited": false
+        },
+        "hex82_q82_p0": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "af0c6c9762b312bde3787c489d683fc6b41dbf0bedcb99b5f9af830b0e5e288b",
+          "depth": 52,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "literal_target": [
+            0,
+            4,
+            2,
+            5,
+            1,
+            3
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:6:fz:34",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  141,
+                  2
+                ],
+                "target": [
+                  79,
+                  2
+                ],
+                "target_hexagon": 86
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  1
+                ],
+                "target": [
+                  79,
+                  3
+                ],
+                "target_hexagon": 80
+              }
+            ],
+            "anchor_path_hash": "9ec14aed3dcdab3475225fa6138abe28700c333ffc9114f8970b1d1990c327b8",
+            "anchor_state_hash": "d7b670f9e6ebb4c5978336401d859f84b953a188bbf2365762b870a8a27e1b26",
+            "node_ids": [
+              "short_ell2_r1_37:6:fz:root:1",
+              "short_ell2_r1_37:6:fz:13",
+              "short_ell2_r1_37:6:fz:34"
+            ],
+            "replay_edge_count": 2,
+            "start_record_id": "short_ell2_r1_37:6:pilot:5"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:6",
+          "state_hash": "de01a40f5219f4f9b5bce46fc5feeea38ca0d4c07030171b0be53907289b3626",
+          "target_already_visited": false
+        },
+        "hex82_q83_p4": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "b2fd803a608f4384dca6346ebc1ad50f1965ea70f5b43d63cab51731cc5c62ed",
+          "depth": 57,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "literal_target": [
+            3,
+            0,
+            4,
+            2,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:6:fz:61782",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  92,
+                  2
+                ],
+                "target": [
+                  85,
+                  0
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  84,
+                  4
+                ],
+                "target": [
+                  85,
+                  1
+                ],
+                "target_hexagon": 38
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  139,
+                  2
+                ],
+                "target": [
+                  61,
+                  3
+                ],
+                "target_hexagon": 62
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  2
+                ],
+                "target": [
+                  65,
+                  0
+                ],
+                "target_hexagon": 65
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              }
+            ],
+            "anchor_path_hash": "0f558114214fd29ecfff37e36e63083a7227ec53417001a2b112cc62f97cd017",
+            "anchor_state_hash": "05efc59d1d353674cbf05345c37bdeafc6504dd2cfc08bca171866e6d7d54010",
+            "node_ids": [
+              "short_ell2_r1_37:6:fz:root:3",
+              "short_ell2_r1_37:6:fz:25326",
+              "short_ell2_r1_37:6:fz:25327",
+              "short_ell2_r1_37:6:fz:25332",
+              "short_ell2_r1_37:6:fz:25396",
+              "short_ell2_r1_37:6:fz:25398",
+              "short_ell2_r1_37:6:fz:61782"
+            ],
+            "replay_edge_count": 6,
+            "start_record_id": "short_ell2_r1_37:6:pilot:7"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:6",
+          "state_hash": "010db299e9f72ba0d39c6f392b82821e2697a621ea16ca484f7b8401212a31bb",
+          "target_already_visited": false
+        }
+      },
+      "nodes_replayed": 459712,
+      "route_counts": {
+        "hex82_q128_p2": {
+          "M1_orbit_phase_macro_match": 6117,
+          "first_failed:hex82_in_R1_component": 6117
+        },
+        "hex82_q42_p1": {
+          "M1_orbit_phase_macro_match": 15306,
+          "first_failed:hex82_in_R1_component": 15306
+        },
+        "hex82_q78_p3": {
+          "M1_orbit_phase_macro_match": 2777,
+          "first_failed:hex82_in_R1_component": 2777
+        },
+        "hex82_q82_p0": {
+          "M1_orbit_phase_macro_match": 19329,
+          "first_failed:hex82_in_R1_component": 19329
+        },
+        "hex82_q83_p4": {
+          "M1_orbit_phase_macro_match": 8124,
+          "first_failed:hex82_in_R1_component": 8124
+        }
+      },
+      "seed_id": "short_ell2_r1_37:6"
+    },
+    {
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\r1_37_first_component_z3_v1\\seed_3\\checkpoint.json",
+      "checkpoint_sha256": "c5a21b3be31f752c99bdbfdbd5e65b182f66f8db308f87e5b5ddf37016715089",
+      "expanded_nodes": 425000,
+      "frontier_nodes": 34657,
+      "invariant_counts": {},
+      "nearest_route_states": {
+        "hex82_q128_p2": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "a021501eb4cced065c1e9a62cfa25156b3c79493266ab4411208898eaadc46f7",
+          "depth": 56,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          "literal_target": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:3:fz:13647",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  36,
+                  0
+                ],
+                "target": [
+                  131,
+                  0
+                ],
+                "target_hexagon": 11
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  11,
+                  0
+                ],
+                "target": [
+                  142,
+                  1
+                ],
+                "target_hexagon": 117
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  117,
+                  0
+                ],
+                "target": [
+                  142,
+                  2
+                ],
+                "target_hexagon": 80
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  80,
+                  0
+                ],
+                "target": [
+                  139,
+                  4
+                ],
+                "target_hexagon": 52
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  52,
+                  0
+                ],
+                "target": [
+                  106,
+                  1
+                ],
+                "target_hexagon": 69
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  130,
+                  1
+                ],
+                "target": [
+                  32,
+                  3
+                ],
+                "target_hexagon": 35
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  46,
+                  2
+                ],
+                "target": [
+                  30,
+                  0
+                ],
+                "target_hexagon": 30
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  4
+                ],
+                "target": [
+                  133,
+                  4
+                ],
+                "target_hexagon": 50
+              }
+            ],
+            "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+            "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+            "node_ids": [
+              "short_ell2_r1_37:3:fz:root:0",
+              "short_ell2_r1_37:3:fz:5",
+              "short_ell2_r1_37:3:fz:10335",
+              "short_ell2_r1_37:3:fz:13633",
+              "short_ell2_r1_37:3:fz:13640",
+              "short_ell2_r1_37:3:fz:13641",
+              "short_ell2_r1_37:3:fz:13642",
+              "short_ell2_r1_37:3:fz:13645",
+              "short_ell2_r1_37:3:fz:13647"
+            ],
+            "replay_edge_count": 8,
+            "start_record_id": "short_ell2_r1_37:3:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:3",
+          "state_hash": "15a2cd98340a29fc266615386f464017cc3959687b36880b6964714f69809d36",
+          "target_already_visited": false
+        },
+        "hex82_q42_p1": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "abc53df75c37bf79c155844ac1ee4dce57f15e090a3bfaab3f01ef9ae59b44fb",
+          "depth": 53,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            4,
+            0,
+            3,
+            2,
+            5,
+            1
+          ],
+          "literal_target": [
+            2,
+            5,
+            1,
+            3,
+            0,
+            4
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:3:fz:59",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  36,
+                  0
+                ],
+                "target": [
+                  130,
+                  4
+                ],
+                "target_hexagon": 75
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  75,
+                  0
+                ],
+                "target": [
+                  68,
+                  1
+                ],
+                "target_hexagon": 89
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  135,
+                  1
+                ],
+                "target": [
+                  68,
+                  2
+                ],
+                "target_hexagon": 65
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  92,
+                  1
+                ],
+                "target": [
+                  58,
+                  4
+                ],
+                "target_hexagon": 59
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  56,
+                  3
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              }
+            ],
+            "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+            "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+            "node_ids": [
+              "short_ell2_r1_37:3:fz:root:0",
+              "short_ell2_r1_37:3:fz:3",
+              "short_ell2_r1_37:3:fz:46",
+              "short_ell2_r1_37:3:fz:48",
+              "short_ell2_r1_37:3:fz:53",
+              "short_ell2_r1_37:3:fz:59"
+            ],
+            "replay_edge_count": 5,
+            "start_record_id": "short_ell2_r1_37:3:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:3",
+          "state_hash": "7b734eee51e7bfa3943c0afad14ac0147485cac7648a86995b45efdab1baca47",
+          "target_already_visited": false
+        },
+        "hex82_q78_p3": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": false
+          },
+          "decorated_state_sha256": "fd7c7e7f3c2aa8ce1ba9320ea62bbb2fa172be4dbcf0ff77f54617b423b85e27",
+          "depth": 51,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "literal_target": [
+            1,
+            3,
+            0,
+            4,
+            2,
+            5
+          ],
+          "macro_label": "rot^0;w3:120",
+          "node_id": "short_ell2_r1_37:3:fz:10336",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  36,
+                  0
+                ],
+                "target": [
+                  131,
+                  0
+                ],
+                "target_hexagon": 11
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  11,
+                  0
+                ],
+                "target": [
+                  131,
+                  1
+                ],
+                "target_hexagon": 71
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  71,
+                  0
+                ],
+                "target": [
+                  131,
+                  2
+                ],
+                "target_hexagon": 116
+              }
+            ],
+            "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+            "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+            "node_ids": [
+              "short_ell2_r1_37:3:fz:root:0",
+              "short_ell2_r1_37:3:fz:5",
+              "short_ell2_r1_37:3:fz:10334",
+              "short_ell2_r1_37:3:fz:10336"
+            ],
+            "replay_edge_count": 3,
+            "start_record_id": "short_ell2_r1_37:3:pilot:2"
+          },
+          "satisfied_condition_count": 3,
+          "seed_id": "short_ell2_r1_37:3",
+          "state_hash": "c3e1a586be08b7329bad9b7736b23f66aae95feb8902d624de02de10497ea4d2",
+          "target_already_visited": false
+        },
+        "hex82_q82_p0": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "bd9b9954795bc13c058a51bd8137cc6d6463112c4ce72f7316457f3441a0866f",
+          "depth": 53,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "literal_target": [
+            0,
+            4,
+            2,
+            5,
+            1,
+            3
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:3:fz:10356",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  36,
+                  0
+                ],
+                "target": [
+                  131,
+                  0
+                ],
+                "target_hexagon": 11
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  11,
+                  0
+                ],
+                "target": [
+                  131,
+                  1
+                ],
+                "target_hexagon": 71
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  71,
+                  0
+                ],
+                "target": [
+                  79,
+                  1
+                ],
+                "target_hexagon": 62
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  141,
+                  2
+                ],
+                "target": [
+                  79,
+                  2
+                ],
+                "target_hexagon": 86
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  1
+                ],
+                "target": [
+                  79,
+                  3
+                ],
+                "target_hexagon": 80
+              }
+            ],
+            "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+            "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+            "node_ids": [
+              "short_ell2_r1_37:3:fz:root:0",
+              "short_ell2_r1_37:3:fz:5",
+              "short_ell2_r1_37:3:fz:10334",
+              "short_ell2_r1_37:3:fz:10337",
+              "short_ell2_r1_37:3:fz:10339",
+              "short_ell2_r1_37:3:fz:10356"
+            ],
+            "replay_edge_count": 5,
+            "start_record_id": "short_ell2_r1_37:3:pilot:2"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:3",
+          "state_hash": "3855d55199aed261028fa8ebb47e2af88fc788f8f60bf607cc045c0653683648",
+          "target_already_visited": false
+        },
+        "hex82_q83_p4": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "7bb5f409d71c7d89c40cefa77d080bf88b6b6f86a99da67fad852ec8fa29b1a1",
+          "depth": 60,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "literal_target": [
+            3,
+            0,
+            4,
+            2,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:3:fz:149409",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  4
+                ],
+                "target": [
+                  89,
+                  3
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  76,
+                  2
+                ],
+                "target": [
+                  87,
+                  0
+                ],
+                "target_hexagon": 87
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  86,
+                  4
+                ],
+                "target": [
+                  87,
+                  1
+                ],
+                "target_hexagon": 14
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  134,
+                  0
+                ],
+                "target": [
+                  63,
+                  3
+                ],
+                "target_hexagon": 60
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  49,
+                  2
+                ],
+                "target": [
+                  65,
+                  0
+                ],
+                "target_hexagon": 65
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              }
+            ],
+            "anchor_path_hash": "f57c4320b9533d474eb0d4a1ab942db68e804f8529a2ad5583777d6cf6db767c",
+            "anchor_state_hash": "2cac581de372c4ca514311aed4254a8a8923f9daf0d416d965c9cacfd8eb3c38",
+            "node_ids": [
+              "short_ell2_r1_37:3:fz:root:5",
+              "short_ell2_r1_37:3:fz:15",
+              "short_ell2_r1_37:3:fz:18",
+              "short_ell2_r1_37:3:fz:1250",
+              "short_ell2_r1_37:3:fz:1254",
+              "short_ell2_r1_37:3:fz:1463",
+              "short_ell2_r1_37:3:fz:1465",
+              "short_ell2_r1_37:3:fz:149409"
+            ],
+            "replay_edge_count": 7,
+            "start_record_id": "short_ell2_r1_37:3:pilot:11"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:3",
+          "state_hash": "cb4581fbbe3d6d978379e46453c6522c0e1cafdebd618164a8d7b482e35d2fdd",
+          "target_already_visited": false
+        }
+      },
+      "nodes_replayed": 459657,
+      "route_counts": {
+        "hex82_q128_p2": {
+          "M1_orbit_phase_macro_match": 5937,
+          "first_failed:hex82_in_R1_component": 5937
+        },
+        "hex82_q42_p1": {
+          "M1_orbit_phase_macro_match": 13367,
+          "first_failed:hex82_in_R1_component": 13367
+        },
+        "hex82_q78_p3": {
+          "M1_orbit_phase_macro_match": 8379,
+          "first_failed:hex82_in_R1_component": 8379
+        },
+        "hex82_q82_p0": {
+          "M1_orbit_phase_macro_match": 22423,
+          "first_failed:hex82_in_R1_component": 22423
+        },
+        "hex82_q83_p4": {
+          "M1_orbit_phase_macro_match": 5551,
+          "first_failed:hex82_in_R1_component": 5551
+        }
+      },
+      "seed_id": "short_ell2_r1_37:3"
+    },
+    {
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\r1_37_first_component_z3_v1\\seed_303321\\checkpoint.json",
+      "checkpoint_sha256": "4ae07cb814299fe8a139e62eb1126000090ba7eac8e736beb42aace95e0c38d8",
+      "expanded_nodes": 5964,
+      "frontier_nodes": 0,
+      "invariant_counts": {},
+      "nearest_route_states": {
+        "hex82_q128_p2": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "121c65d3aa0e04638eba5c85dfbf696347e1d88e5bee690ebff70bb04b2e0293",
+          "depth": 68,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          "literal_target": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:303321:fz:103",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  58,
+                  2
+                ],
+                "target": [
+                  61,
+                  0
+                ],
+                "target_hexagon": 61
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  60,
+                  4
+                ],
+                "target": [
+                  61,
+                  1
+                ],
+                "target_hexagon": 32
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  138,
+                  2
+                ],
+                "target": [
+                  61,
+                  2
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  37,
+                  1
+                ],
+                "target": [
+                  61,
+                  3
+                ],
+                "target_hexagon": 62
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  2
+                ],
+                "target": [
+                  61,
+                  4
+                ],
+                "target_hexagon": 60
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  63,
+                  3
+                ],
+                "target": [
+                  32,
+                  2
+                ],
+                "target_hexagon": 45
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  112,
+                  1
+                ],
+                "target": [
+                  32,
+                  3
+                ],
+                "target_hexagon": 35
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  46,
+                  2
+                ],
+                "target": [
+                  30,
+                  0
+                ],
+                "target_hexagon": 30
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  4
+                ],
+                "target": [
+                  133,
+                  4
+                ],
+                "target_hexagon": 50
+              }
+            ],
+            "anchor_path_hash": "e4d56dce9f43b40a6e353885b222e10020c866af01b3c768253e574c6a6827fb",
+            "anchor_state_hash": "3f71420e66cbf61660438de208d2420868b74b409935c9f2c3d0ba983daa6e7d",
+            "node_ids": [
+              "short_ell2_r1_37:303321:fz:root:0",
+              "short_ell2_r1_37:303321:fz:8",
+              "short_ell2_r1_37:303321:fz:9",
+              "short_ell2_r1_37:303321:fz:12",
+              "short_ell2_r1_37:303321:fz:15",
+              "short_ell2_r1_37:303321:fz:82",
+              "short_ell2_r1_37:303321:fz:88",
+              "short_ell2_r1_37:303321:fz:89",
+              "short_ell2_r1_37:303321:fz:92",
+              "short_ell2_r1_37:303321:fz:103"
+            ],
+            "replay_edge_count": 9,
+            "start_record_id": "short_ell2_r1_37:303321:pilot:3"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:303321",
+          "state_hash": "73d830ae9a6e42e8adf38fa3400c58a04aea06821a0db56628ef60c912864a29",
+          "target_already_visited": false
+        },
+        "hex82_q42_p1": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "02091ddb9e3cda8820bf2405a2f7308070b386de046ae56ee128a75291e9629c",
+          "depth": 65,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            4,
+            0,
+            3,
+            2,
+            5,
+            1
+          ],
+          "literal_target": [
+            2,
+            5,
+            1,
+            3,
+            0,
+            4
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:303321:fz:5944",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  58,
+                  2
+                ],
+                "target": [
+                  60,
+                  0
+                ],
+                "target_hexagon": 60
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  61,
+                  4
+                ],
+                "target": [
+                  121,
+                  4
+                ],
+                "target_hexagon": 72
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  72,
+                  0
+                ],
+                "target": [
+                  34,
+                  1
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  132,
+                  1
+                ],
+                "target": [
+                  58,
+                  3
+                ],
+                "target_hexagon": 57
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  2
+                ],
+                "target": [
+                  58,
+                  4
+                ],
+                "target_hexagon": 59
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  56,
+                  3
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              }
+            ],
+            "anchor_path_hash": "e4d56dce9f43b40a6e353885b222e10020c866af01b3c768253e574c6a6827fb",
+            "anchor_state_hash": "3f71420e66cbf61660438de208d2420868b74b409935c9f2c3d0ba983daa6e7d",
+            "node_ids": [
+              "short_ell2_r1_37:303321:fz:root:0",
+              "short_ell2_r1_37:303321:fz:7",
+              "short_ell2_r1_37:303321:fz:62",
+              "short_ell2_r1_37:303321:fz:63",
+              "short_ell2_r1_37:303321:fz:65",
+              "short_ell2_r1_37:303321:fz:5943",
+              "short_ell2_r1_37:303321:fz:5944"
+            ],
+            "replay_edge_count": 6,
+            "start_record_id": "short_ell2_r1_37:303321:pilot:3"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:303321",
+          "state_hash": "10b0365c7556dfd8b465f72f720fb7f5792b0ab70dcc390f878e13ca07bce448",
+          "target_already_visited": false
+        },
+        "hex82_q78_p3": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": false
+          },
+          "decorated_state_sha256": "105dc76eea02bce43ed0c102d82e6e425783319f988593b1078754f64b3fee71",
+          "depth": 66,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "literal_target": [
+            1,
+            3,
+            0,
+            4,
+            2,
+            5
+          ],
+          "macro_label": "rot^4;w3:120",
+          "node_id": "short_ell2_r1_37:303321:fz:128",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  58,
+                  2
+                ],
+                "target": [
+                  61,
+                  0
+                ],
+                "target_hexagon": 61
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  60,
+                  4
+                ],
+                "target": [
+                  61,
+                  1
+                ],
+                "target_hexagon": 32
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  138,
+                  2
+                ],
+                "target": [
+                  61,
+                  2
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  37,
+                  1
+                ],
+                "target": [
+                  51,
+                  4
+                ],
+                "target_hexagon": 50
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  49,
+                  3
+                ],
+                "target": [
+                  30,
+                  2
+                ],
+                "target_hexagon": 44
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  109,
+                  1
+                ],
+                "target": [
+                  24,
+                  4
+                ],
+                "target_hexagon": 25
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  29,
+                  3
+                ],
+                "target": [
+                  102,
+                  2
+                ],
+                "target_hexagon": 116
+              }
+            ],
+            "anchor_path_hash": "e4d56dce9f43b40a6e353885b222e10020c866af01b3c768253e574c6a6827fb",
+            "anchor_state_hash": "3f71420e66cbf61660438de208d2420868b74b409935c9f2c3d0ba983daa6e7d",
+            "node_ids": [
+              "short_ell2_r1_37:303321:fz:root:0",
+              "short_ell2_r1_37:303321:fz:8",
+              "short_ell2_r1_37:303321:fz:9",
+              "short_ell2_r1_37:303321:fz:12",
+              "short_ell2_r1_37:303321:fz:17",
+              "short_ell2_r1_37:303321:fz:125",
+              "short_ell2_r1_37:303321:fz:127",
+              "short_ell2_r1_37:303321:fz:128"
+            ],
+            "replay_edge_count": 7,
+            "start_record_id": "short_ell2_r1_37:303321:pilot:3"
+          },
+          "satisfied_condition_count": 3,
+          "seed_id": "short_ell2_r1_37:303321",
+          "state_hash": "9dec5e05530dbffa1c49d734f970cf7e6d6b5d64af34b7a1cb4d42c048026720",
+          "target_already_visited": false
+        },
+        "hex82_q82_p0": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "0a1bf721e163f46b8588715d86c169ce362eac89e3231e6f118f1819cf4cd335",
+          "depth": 62,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "literal_target": [
+            0,
+            4,
+            2,
+            5,
+            1,
+            3
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:303321:fz:13",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  58,
+                  2
+                ],
+                "target": [
+                  61,
+                  0
+                ],
+                "target_hexagon": 61
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  60,
+                  4
+                ],
+                "target": [
+                  61,
+                  1
+                ],
+                "target_hexagon": 32
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  138,
+                  2
+                ],
+                "target": [
+                  79,
+                  3
+                ],
+                "target_hexagon": 80
+              }
+            ],
+            "anchor_path_hash": "e4d56dce9f43b40a6e353885b222e10020c866af01b3c768253e574c6a6827fb",
+            "anchor_state_hash": "3f71420e66cbf61660438de208d2420868b74b409935c9f2c3d0ba983daa6e7d",
+            "node_ids": [
+              "short_ell2_r1_37:303321:fz:root:0",
+              "short_ell2_r1_37:303321:fz:8",
+              "short_ell2_r1_37:303321:fz:9",
+              "short_ell2_r1_37:303321:fz:13"
+            ],
+            "replay_edge_count": 3,
+            "start_record_id": "short_ell2_r1_37:303321:pilot:3"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:303321",
+          "state_hash": "2d6a38f999ccd494e350490f55d703ef045604552212e19497aa366fc268d1ac",
+          "target_already_visited": false
+        },
+        "hex82_q83_p4": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "0f69ed80f67466e5128a9c77677274f9d2589eaea9ccf3b51e7913820fa59b62",
+          "depth": 66,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "literal_target": [
+            3,
+            0,
+            4,
+            2,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:303321:fz:238",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  58,
+                  2
+                ],
+                "target": [
+                  61,
+                  0
+                ],
+                "target_hexagon": 61
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  60,
+                  4
+                ],
+                "target": [
+                  61,
+                  1
+                ],
+                "target_hexagon": 32
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  138,
+                  2
+                ],
+                "target": [
+                  61,
+                  2
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  37,
+                  1
+                ],
+                "target": [
+                  61,
+                  3
+                ],
+                "target_hexagon": 62
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  2
+                ],
+                "target": [
+                  65,
+                  0
+                ],
+                "target_hexagon": 65
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              }
+            ],
+            "anchor_path_hash": "e4d56dce9f43b40a6e353885b222e10020c866af01b3c768253e574c6a6827fb",
+            "anchor_state_hash": "3f71420e66cbf61660438de208d2420868b74b409935c9f2c3d0ba983daa6e7d",
+            "node_ids": [
+              "short_ell2_r1_37:303321:fz:root:0",
+              "short_ell2_r1_37:303321:fz:8",
+              "short_ell2_r1_37:303321:fz:9",
+              "short_ell2_r1_37:303321:fz:12",
+              "short_ell2_r1_37:303321:fz:15",
+              "short_ell2_r1_37:303321:fz:83",
+              "short_ell2_r1_37:303321:fz:85",
+              "short_ell2_r1_37:303321:fz:238"
+            ],
+            "replay_edge_count": 7,
+            "start_record_id": "short_ell2_r1_37:303321:pilot:3"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:303321",
+          "state_hash": "35da38e0efd82416e5bff3315a26e4b4cc9856b35a92d941cb9711e29f2b654d",
+          "target_already_visited": false
+        }
+      },
+      "nodes_replayed": 5964,
+      "route_counts": {
+        "hex82_q128_p2": {
+          "M1_orbit_phase_macro_match": 117,
+          "first_failed:hex82_in_R1_component": 117
+        },
+        "hex82_q42_p1": {
+          "M1_orbit_phase_macro_match": 153,
+          "first_failed:hex82_in_R1_component": 153
+        },
+        "hex82_q78_p3": {
+          "M1_orbit_phase_macro_match": 157,
+          "first_failed:hex82_in_R1_component": 157
+        },
+        "hex82_q82_p0": {
+          "M1_orbit_phase_macro_match": 434,
+          "first_failed:hex82_in_R1_component": 434
+        },
+        "hex82_q83_p4": {
+          "M1_orbit_phase_macro_match": 130,
+          "first_failed:hex82_in_R1_component": 130
+        }
+      },
+      "seed_id": "short_ell2_r1_37:303321"
+    },
+    {
+      "checkpoint_path": "outputs\\checkpoints\\rr_short5\\r1_37_first_component_z3_v1\\seed_13\\checkpoint.json",
+      "checkpoint_sha256": "e56e37d970cbe4fb511c856ee118983d8260b0b8abfc2b05e64659cc17dca41e",
+      "expanded_nodes": 226128,
+      "frontier_nodes": 0,
+      "invariant_counts": {},
+      "nearest_route_states": {
+        "hex82_q42_p1": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "cc77a1cea66491ae21c0f3264ff64054d1c0656579171a8c54a97856c6985666",
+          "depth": 62,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            4,
+            0,
+            3,
+            2,
+            5,
+            1
+          ],
+          "literal_target": [
+            2,
+            5,
+            1,
+            3,
+            0,
+            4
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:13:fz:205307",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  53,
+                  4
+                ],
+                "target": [
+                  52,
+                  1
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  139,
+                  3
+                ],
+                "target": [
+                  52,
+                  2
+                ],
+                "target_hexagon": 61
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  76,
+                  1
+                ],
+                "target": [
+                  71,
+                  4
+                ],
+                "target_hexagon": 70
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  66,
+                  3
+                ],
+                "target": [
+                  35,
+                  2
+                ],
+                "target_hexagon": 25
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  11,
+                  1
+                ],
+                "target": [
+                  43,
+                  4
+                ],
+                "target_hexagon": 42
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  45,
+                  3
+                ],
+                "target": [
+                  58,
+                  2
+                ],
+                "target_hexagon": 63
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  82,
+                  1
+                ],
+                "target": [
+                  58,
+                  3
+                ],
+                "target_hexagon": 57
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  2
+                ],
+                "target": [
+                  58,
+                  4
+                ],
+                "target_hexagon": 59
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  56,
+                  3
+                ],
+                "target": [
+                  58,
+                  0
+                ],
+                "target_hexagon": 58
+              }
+            ],
+            "anchor_path_hash": "fd7cc5a3b13cc6627f4cddf592dbd60a3a987f80abb92a417a9b85fdb9234321",
+            "anchor_state_hash": "33e07b59afcadade63a02a2496e1043236f2ca9e4fb3e8e9abe4025b90aed6b9",
+            "node_ids": [
+              "short_ell2_r1_37:13:fz:root:0",
+              "short_ell2_r1_37:13:fz:184",
+              "short_ell2_r1_37:13:fz:186",
+              "short_ell2_r1_37:13:fz:189",
+              "short_ell2_r1_37:13:fz:1924",
+              "short_ell2_r1_37:13:fz:1926",
+              "short_ell2_r1_37:13:fz:1928",
+              "short_ell2_r1_37:13:fz:1930",
+              "short_ell2_r1_37:13:fz:1936",
+              "short_ell2_r1_37:13:fz:205307"
+            ],
+            "replay_edge_count": 9,
+            "start_record_id": "short_ell2_r1_37:13:pilot:3"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:13",
+          "state_hash": "127a28acdc61916d7f8a4670f99d1f713298c70744f22551cd8e01f2a1b0eb36",
+          "target_already_visited": false
+        },
+        "hex82_q78_p3": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": false
+          },
+          "decorated_state_sha256": "1d65d2ffb55a075da60e99870947c45d49a13c4be9aa646edee2ef9011c50fa8",
+          "depth": 60,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            5,
+            4,
+            2,
+            1,
+            3,
+            0
+          ],
+          "literal_target": [
+            1,
+            3,
+            0,
+            4,
+            2,
+            5
+          ],
+          "macro_label": "rot^0;w3:120",
+          "node_id": "short_ell2_r1_37:13:fz:88187",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  53,
+                  4
+                ],
+                "target": [
+                  52,
+                  1
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  139,
+                  3
+                ],
+                "target": [
+                  16,
+                  3
+                ],
+                "target_hexagon": 15
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  10,
+                  2
+                ],
+                "target": [
+                  12,
+                  0
+                ],
+                "target_hexagon": 12
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  13,
+                  4
+                ],
+                "target": [
+                  142,
+                  2
+                ],
+                "target_hexagon": 80
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  80,
+                  0
+                ],
+                "target": [
+                  142,
+                  3
+                ],
+                "target_hexagon": 31
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  31,
+                  0
+                ],
+                "target": [
+                  142,
+                  4
+                ],
+                "target_hexagon": 53
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  53,
+                  0
+                ],
+                "target": [
+                  131,
+                  2
+                ],
+                "target_hexagon": 116
+              }
+            ],
+            "anchor_path_hash": "fd7cc5a3b13cc6627f4cddf592dbd60a3a987f80abb92a417a9b85fdb9234321",
+            "anchor_state_hash": "33e07b59afcadade63a02a2496e1043236f2ca9e4fb3e8e9abe4025b90aed6b9",
+            "node_ids": [
+              "short_ell2_r1_37:13:fz:root:0",
+              "short_ell2_r1_37:13:fz:184",
+              "short_ell2_r1_37:13:fz:187",
+              "short_ell2_r1_37:13:fz:195",
+              "short_ell2_r1_37:13:fz:196",
+              "short_ell2_r1_37:13:fz:88184",
+              "short_ell2_r1_37:13:fz:88185",
+              "short_ell2_r1_37:13:fz:88187"
+            ],
+            "replay_edge_count": 7,
+            "start_record_id": "short_ell2_r1_37:13:pilot:3"
+          },
+          "satisfied_condition_count": 3,
+          "seed_id": "short_ell2_r1_37:13",
+          "state_hash": "9869458c2b3884b851ea6b6da16f8d87b1fcab643dcb203aa2b906314612db0f",
+          "target_already_visited": false
+        },
+        "hex82_q82_p0": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "67b622d734d4efa89668c6c43830140725c77e4d016ad5e0ff126a25a8ffa6c1",
+          "depth": 61,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            3,
+            1,
+            5,
+            0,
+            4,
+            2
+          ],
+          "literal_target": [
+            0,
+            4,
+            2,
+            5,
+            1,
+            3
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:13:fz:211",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  53,
+                  4
+                ],
+                "target": [
+                  52,
+                  1
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  139,
+                  3
+                ],
+                "target": [
+                  16,
+                  3
+                ],
+                "target_hexagon": 15
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  10,
+                  2
+                ],
+                "target": [
+                  12,
+                  0
+                ],
+                "target_hexagon": 12
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  13,
+                  4
+                ],
+                "target": [
+                  80,
+                  1
+                ],
+                "target_hexagon": 117
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  142,
+                  1
+                ],
+                "target": [
+                  38,
+                  3
+                ],
+                "target_hexagon": 41
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  44,
+                  2
+                ],
+                "target": [
+                  37,
+                  0
+                ],
+                "target_hexagon": 37
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  36,
+                  4
+                ],
+                "target": [
+                  37,
+                  1
+                ],
+                "target_hexagon": 56
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  140,
+                  2
+                ],
+                "target": [
+                  79,
+                  3
+                ],
+                "target_hexagon": 80
+              }
+            ],
+            "anchor_path_hash": "fd7cc5a3b13cc6627f4cddf592dbd60a3a987f80abb92a417a9b85fdb9234321",
+            "anchor_state_hash": "33e07b59afcadade63a02a2496e1043236f2ca9e4fb3e8e9abe4025b90aed6b9",
+            "node_ids": [
+              "short_ell2_r1_37:13:fz:root:0",
+              "short_ell2_r1_37:13:fz:184",
+              "short_ell2_r1_37:13:fz:187",
+              "short_ell2_r1_37:13:fz:195",
+              "short_ell2_r1_37:13:fz:197",
+              "short_ell2_r1_37:13:fz:202",
+              "short_ell2_r1_37:13:fz:204",
+              "short_ell2_r1_37:13:fz:206",
+              "short_ell2_r1_37:13:fz:211"
+            ],
+            "replay_edge_count": 8,
+            "start_record_id": "short_ell2_r1_37:13:pilot:3"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:13",
+          "state_hash": "99975cbcb9cf888d71be09259d4cac8586b41951e38db92298e8f6bcadd3a123",
+          "target_already_visited": false
+        },
+        "hex82_q83_p4": {
+          "conditions": {
+            "candidate_orbit_fresh": true,
+            "hex82_in_R1_component": false,
+            "resource_scope": true,
+            "target_window_fresh": true,
+            "w3_is_blocked": true
+          },
+          "decorated_state_sha256": "d3e60a6fb9bc02cc5505254dba5447fb441236f4a74cf06db494f8c7555ecdca",
+          "depth": 64,
+          "first_failed_condition": "hex82_in_R1_component",
+          "literal_joint_source": [
+            1,
+            5,
+            2,
+            3,
+            0,
+            4
+          ],
+          "literal_target": [
+            3,
+            0,
+            4,
+            2,
+            5,
+            1
+          ],
+          "macro_label": "rot^5;w3:210",
+          "node_id": "short_ell2_r1_37:13:fz:6535",
+          "representative_path": {
+            "accepted_macro_edges": [
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  69,
+                  3
+                ],
+                "target": [
+                  88,
+                  2
+                ],
+                "target_hexagon": 81
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  34,
+                  1
+                ],
+                "target": [
+                  88,
+                  3
+                ],
+                "target_hexagon": 87
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  82,
+                  2
+                ],
+                "target": [
+                  85,
+                  0
+                ],
+                "target_hexagon": 85
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  84,
+                  4
+                ],
+                "target": [
+                  85,
+                  1
+                ],
+                "target_hexagon": 38
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  139,
+                  2
+                ],
+                "target": [
+                  61,
+                  3
+                ],
+                "target_hexagon": 62
+              },
+              {
+                "joint": "w3:201",
+                "kind": "Z3",
+                "label": "rot^5;w3:201",
+                "rotation_length": 5,
+                "source": [
+                  55,
+                  2
+                ],
+                "target": [
+                  65,
+                  0
+                ],
+                "target_hexagon": 65
+              },
+              {
+                "joint": "w3:210",
+                "kind": "Z3",
+                "label": "rot^5;w3:210",
+                "rotation_length": 5,
+                "source": [
+                  64,
+                  4
+                ],
+                "target": [
+                  93,
+                  1
+                ],
+                "target_hexagon": 16
+              },
+              {
+                "joint": "w2:10",
+                "kind": "Z2",
+                "label": "rot^5;w2:10",
+                "rotation_length": 5,
+                "source": [
+                  136,
+                  0
+                ],
+                "target": [
+                  93,
+                  2
+                ],
+                "target_hexagon": 76
+              }
+            ],
+            "anchor_path_hash": "7a9d37fb21fef36b0faead72dfee5a10676a40a32df796621889a89189f0c44a",
+            "anchor_state_hash": "ac8b1faf11f22bf5365659fc07e81a17cf7e7141b53b3479061d1f432fa4314f",
+            "node_ids": [
+              "short_ell2_r1_37:13:fz:root:1",
+              "short_ell2_r1_37:13:fz:8",
+              "short_ell2_r1_37:13:fz:102",
+              "short_ell2_r1_37:13:fz:172",
+              "short_ell2_r1_37:13:fz:6236",
+              "short_ell2_r1_37:13:fz:6239",
+              "short_ell2_r1_37:13:fz:6364",
+              "short_ell2_r1_37:13:fz:6366",
+              "short_ell2_r1_37:13:fz:6535"
+            ],
+            "replay_edge_count": 8,
+            "start_record_id": "short_ell2_r1_37:13:pilot:7"
+          },
+          "satisfied_condition_count": 4,
+          "seed_id": "short_ell2_r1_37:13",
+          "state_hash": "538111c299fd08e44061425d45c0b52ce3963ca4501ff41cdf624123ca1b0b71",
+          "target_already_visited": false
+        }
+      },
+      "nodes_replayed": 226128,
+      "route_counts": {
+        "hex82_q128_p2": {},
+        "hex82_q42_p1": {
+          "M1_orbit_phase_macro_match": 7650,
+          "first_failed:hex82_in_R1_component": 7650
+        },
+        "hex82_q78_p3": {
+          "M1_orbit_phase_macro_match": 4070,
+          "first_failed:hex82_in_R1_component": 4070
+        },
+        "hex82_q82_p0": {
+          "M1_orbit_phase_macro_match": 10772,
+          "first_failed:hex82_in_R1_component": 10772
+        },
+        "hex82_q83_p4": {
+          "M1_orbit_phase_macro_match": 2726,
+          "first_failed:hex82_in_R1_component": 2726
+        }
+      },
+      "seed_id": "short_ell2_r1_37:13"
+    }
+  ],
+  "interpretation": "M1 is nonempty only as a local macro-target match; every such route fails before M2 because h82 never enters C_R1",
+  "invariant_counts": {},
+  "match_units": "route-specific one-step w3 macro candidates from exact stored nodes",
+  "per_route": [
+    {
+      "counts": {
+        "M1_orbit_phase_macro_match": 43720,
+        "first_failed:hex82_in_R1_component": 43720
+      },
+      "route_id": "hex82_q42_p1"
+    },
+    {
+      "counts": {
+        "M1_orbit_phase_macro_match": 17403,
+        "first_failed:hex82_in_R1_component": 17403
+      },
+      "route_id": "hex82_q78_p3"
+    },
+    {
+      "counts": {
+        "M1_orbit_phase_macro_match": 61294,
+        "first_failed:hex82_in_R1_component": 61294
+      },
+      "route_id": "hex82_q82_p0"
+    },
+    {
+      "counts": {
+        "M1_orbit_phase_macro_match": 18446,
+        "first_failed:hex82_in_R1_component": 18446
+      },
+      "route_id": "hex82_q83_p4"
+    },
+    {
+      "counts": {
+        "M1_orbit_phase_macro_match": 14675,
+        "first_failed:hex82_in_R1_component": 14675
+      },
+      "route_id": "hex82_q128_p2"
+    }
+  ],
+  "root_route_coarse_pairs_M0": 420,
+  "schema": "rr-short-ell2-r1-37-hex82-mitm-v1",
+  "scope": "read-only replay of all stored Stage-D exact/decorated nodes plus one-step route tests",
+  "shortest_exact_reachable_near_miss": {
+    "hex82_q128_p2": {
+      "conditions": {
+        "candidate_orbit_fresh": true,
+        "hex82_in_R1_component": false,
+        "resource_scope": true,
+        "target_window_fresh": true,
+        "w3_is_blocked": true
+      },
+      "decorated_state_sha256": "a021501eb4cced065c1e9a62cfa25156b3c79493266ab4411208898eaadc46f7",
+      "depth": 56,
+      "first_failed_condition": "hex82_in_R1_component",
+      "literal_joint_source": [
+        0,
+        3,
+        1,
+        4,
+        2,
+        5
+      ],
+      "literal_target": [
+        4,
+        2,
+        5,
+        1,
+        3,
+        0
+      ],
+      "macro_label": "rot^5;w3:210",
+      "node_id": "short_ell2_r1_37:3:fz:13647",
+      "representative_path": {
+        "accepted_macro_edges": [
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              36,
+              0
+            ],
+            "target": [
+              131,
+              0
+            ],
+            "target_hexagon": 11
+          },
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              11,
+              0
+            ],
+            "target": [
+              142,
+              1
+            ],
+            "target_hexagon": 117
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              117,
+              0
+            ],
+            "target": [
+              142,
+              2
+            ],
+            "target_hexagon": 80
+          },
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              80,
+              0
+            ],
+            "target": [
+              139,
+              4
+            ],
+            "target_hexagon": 52
+          },
+          {
+            "joint": "w3:201",
+            "kind": "Z3",
+            "label": "rot^5;w3:201",
+            "rotation_length": 5,
+            "source": [
+              52,
+              0
+            ],
+            "target": [
+              106,
+              1
+            ],
+            "target_hexagon": 69
+          },
+          {
+            "joint": "w3:201",
+            "kind": "Z3",
+            "label": "rot^5;w3:201",
+            "rotation_length": 5,
+            "source": [
+              130,
+              1
+            ],
+            "target": [
+              32,
+              3
+            ],
+            "target_hexagon": 35
+          },
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              46,
+              2
+            ],
+            "target": [
+              30,
+              0
+            ],
+            "target_hexagon": 30
+          },
+          {
+            "joint": "w3:201",
+            "kind": "Z3",
+            "label": "rot^5;w3:201",
+            "rotation_length": 5,
+            "source": [
+              31,
+              4
+            ],
+            "target": [
+              133,
+              4
+            ],
+            "target_hexagon": 50
+          }
+        ],
+        "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+        "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+        "node_ids": [
+          "short_ell2_r1_37:3:fz:root:0",
+          "short_ell2_r1_37:3:fz:5",
+          "short_ell2_r1_37:3:fz:10335",
+          "short_ell2_r1_37:3:fz:13633",
+          "short_ell2_r1_37:3:fz:13640",
+          "short_ell2_r1_37:3:fz:13641",
+          "short_ell2_r1_37:3:fz:13642",
+          "short_ell2_r1_37:3:fz:13645",
+          "short_ell2_r1_37:3:fz:13647"
+        ],
+        "replay_edge_count": 8,
+        "start_record_id": "short_ell2_r1_37:3:pilot:2"
+      },
+      "satisfied_condition_count": 4,
+      "seed_id": "short_ell2_r1_37:3",
+      "state_hash": "15a2cd98340a29fc266615386f464017cc3959687b36880b6964714f69809d36",
+      "target_already_visited": false
+    },
+    "hex82_q42_p1": {
+      "conditions": {
+        "candidate_orbit_fresh": true,
+        "hex82_in_R1_component": false,
+        "resource_scope": true,
+        "target_window_fresh": true,
+        "w3_is_blocked": true
+      },
+      "decorated_state_sha256": "abc53df75c37bf79c155844ac1ee4dce57f15e090a3bfaab3f01ef9ae59b44fb",
+      "depth": 53,
+      "first_failed_condition": "hex82_in_R1_component",
+      "literal_joint_source": [
+        4,
+        0,
+        3,
+        2,
+        5,
+        1
+      ],
+      "literal_target": [
+        2,
+        5,
+        1,
+        3,
+        0,
+        4
+      ],
+      "macro_label": "rot^5;w3:210",
+      "node_id": "short_ell2_r1_37:3:fz:59",
+      "representative_path": {
+        "accepted_macro_edges": [
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              36,
+              0
+            ],
+            "target": [
+              130,
+              4
+            ],
+            "target_hexagon": 75
+          },
+          {
+            "joint": "w3:201",
+            "kind": "Z3",
+            "label": "rot^5;w3:201",
+            "rotation_length": 5,
+            "source": [
+              75,
+              0
+            ],
+            "target": [
+              68,
+              1
+            ],
+            "target_hexagon": 89
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              135,
+              1
+            ],
+            "target": [
+              68,
+              2
+            ],
+            "target_hexagon": 65
+          },
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              92,
+              1
+            ],
+            "target": [
+              58,
+              4
+            ],
+            "target_hexagon": 59
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              56,
+              3
+            ],
+            "target": [
+              58,
+              0
+            ],
+            "target_hexagon": 58
+          }
+        ],
+        "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+        "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+        "node_ids": [
+          "short_ell2_r1_37:3:fz:root:0",
+          "short_ell2_r1_37:3:fz:3",
+          "short_ell2_r1_37:3:fz:46",
+          "short_ell2_r1_37:3:fz:48",
+          "short_ell2_r1_37:3:fz:53",
+          "short_ell2_r1_37:3:fz:59"
+        ],
+        "replay_edge_count": 5,
+        "start_record_id": "short_ell2_r1_37:3:pilot:2"
+      },
+      "satisfied_condition_count": 4,
+      "seed_id": "short_ell2_r1_37:3",
+      "state_hash": "7b734eee51e7bfa3943c0afad14ac0147485cac7648a86995b45efdab1baca47",
+      "target_already_visited": false
+    },
+    "hex82_q78_p3": {
+      "conditions": {
+        "candidate_orbit_fresh": true,
+        "hex82_in_R1_component": false,
+        "resource_scope": true,
+        "target_window_fresh": true,
+        "w3_is_blocked": false
+      },
+      "decorated_state_sha256": "fd7c7e7f3c2aa8ce1ba9320ea62bbb2fa172be4dbcf0ff77f54617b423b85e27",
+      "depth": 51,
+      "first_failed_condition": "hex82_in_R1_component",
+      "literal_joint_source": [
+        5,
+        4,
+        2,
+        1,
+        3,
+        0
+      ],
+      "literal_target": [
+        1,
+        3,
+        0,
+        4,
+        2,
+        5
+      ],
+      "macro_label": "rot^0;w3:120",
+      "node_id": "short_ell2_r1_37:3:fz:10336",
+      "representative_path": {
+        "accepted_macro_edges": [
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              36,
+              0
+            ],
+            "target": [
+              131,
+              0
+            ],
+            "target_hexagon": 11
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              11,
+              0
+            ],
+            "target": [
+              131,
+              1
+            ],
+            "target_hexagon": 71
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              71,
+              0
+            ],
+            "target": [
+              131,
+              2
+            ],
+            "target_hexagon": 116
+          }
+        ],
+        "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+        "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+        "node_ids": [
+          "short_ell2_r1_37:3:fz:root:0",
+          "short_ell2_r1_37:3:fz:5",
+          "short_ell2_r1_37:3:fz:10334",
+          "short_ell2_r1_37:3:fz:10336"
+        ],
+        "replay_edge_count": 3,
+        "start_record_id": "short_ell2_r1_37:3:pilot:2"
+      },
+      "satisfied_condition_count": 3,
+      "seed_id": "short_ell2_r1_37:3",
+      "state_hash": "c3e1a586be08b7329bad9b7736b23f66aae95feb8902d624de02de10497ea4d2",
+      "target_already_visited": false
+    },
+    "hex82_q82_p0": {
+      "conditions": {
+        "candidate_orbit_fresh": true,
+        "hex82_in_R1_component": false,
+        "resource_scope": true,
+        "target_window_fresh": true,
+        "w3_is_blocked": true
+      },
+      "decorated_state_sha256": "af0c6c9762b312bde3787c489d683fc6b41dbf0bedcb99b5f9af830b0e5e288b",
+      "depth": 52,
+      "first_failed_condition": "hex82_in_R1_component",
+      "literal_joint_source": [
+        3,
+        1,
+        5,
+        0,
+        4,
+        2
+      ],
+      "literal_target": [
+        0,
+        4,
+        2,
+        5,
+        1,
+        3
+      ],
+      "macro_label": "rot^5;w3:210",
+      "node_id": "short_ell2_r1_37:6:fz:34",
+      "representative_path": {
+        "accepted_macro_edges": [
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              141,
+              2
+            ],
+            "target": [
+              79,
+              2
+            ],
+            "target_hexagon": 86
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              55,
+              1
+            ],
+            "target": [
+              79,
+              3
+            ],
+            "target_hexagon": 80
+          }
+        ],
+        "anchor_path_hash": "9ec14aed3dcdab3475225fa6138abe28700c333ffc9114f8970b1d1990c327b8",
+        "anchor_state_hash": "d7b670f9e6ebb4c5978336401d859f84b953a188bbf2365762b870a8a27e1b26",
+        "node_ids": [
+          "short_ell2_r1_37:6:fz:root:1",
+          "short_ell2_r1_37:6:fz:13",
+          "short_ell2_r1_37:6:fz:34"
+        ],
+        "replay_edge_count": 2,
+        "start_record_id": "short_ell2_r1_37:6:pilot:5"
+      },
+      "satisfied_condition_count": 4,
+      "seed_id": "short_ell2_r1_37:6",
+      "state_hash": "de01a40f5219f4f9b5bce46fc5feeea38ca0d4c07030171b0be53907289b3626",
+      "target_already_visited": false
+    },
+    "hex82_q83_p4": {
+      "conditions": {
+        "candidate_orbit_fresh": true,
+        "hex82_in_R1_component": false,
+        "resource_scope": true,
+        "target_window_fresh": true,
+        "w3_is_blocked": true
+      },
+      "decorated_state_sha256": "c90fd2165c94e854e5785cdb8af4bb6c6c9bcb876f185df54114ff39ffcfefac",
+      "depth": 55,
+      "first_failed_condition": "hex82_in_R1_component",
+      "literal_joint_source": [
+        1,
+        5,
+        2,
+        3,
+        0,
+        4
+      ],
+      "literal_target": [
+        3,
+        0,
+        4,
+        2,
+        5,
+        1
+      ],
+      "macro_label": "rot^5;w3:210",
+      "node_id": "short_ell2_r1_37:12:fz:3379",
+      "representative_path": {
+        "accepted_macro_edges": [
+          {
+            "joint": "w3:210",
+            "kind": "Z3",
+            "label": "rot^5;w3:210",
+            "rotation_length": 5,
+            "source": [
+              64,
+              4
+            ],
+            "target": [
+              93,
+              1
+            ],
+            "target_hexagon": 16
+          },
+          {
+            "joint": "w2:10",
+            "kind": "Z2",
+            "label": "rot^5;w2:10",
+            "rotation_length": 5,
+            "source": [
+              136,
+              0
+            ],
+            "target": [
+              93,
+              2
+            ],
+            "target_hexagon": 76
+          }
+        ],
+        "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+        "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+        "node_ids": [
+          "short_ell2_r1_37:12:fz:root:0",
+          "short_ell2_r1_37:12:fz:13",
+          "short_ell2_r1_37:12:fz:3379"
+        ],
+        "replay_edge_count": 2,
+        "start_record_id": "short_ell2_r1_37:12:pilot:2"
+      },
+      "satisfied_condition_count": 4,
+      "seed_id": "short_ell2_r1_37:12",
+      "state_hash": "9973e7458e14d43e1a8c0bbc04526a275cccdf60f3aed1e69c03eeb8a4198c60",
+      "target_already_visited": false
+    }
+  }
+}

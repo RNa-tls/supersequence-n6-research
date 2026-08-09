@@ -1,0 +1,138 @@
+{
+  "SAT_CSP": "NOT_NEEDED: the one literal predecessor obligation is eliminated by exact no-repeat provenance",
+  "classification_by_route": [
+    {
+      "H4_exact_reachable": false,
+      "H5_exact_noncolliding_C4": false,
+      "first_failed_condition": "unique q91:p2 Z2 source was visited before every anchor and is not an anchor terminal",
+      "highest_backward_level": "H3",
+      "route_id": "hex82_q42_p1",
+      "terminal_predecessor_level": "H2"
+    },
+    {
+      "H4_exact_reachable": false,
+      "H5_exact_noncolliding_C4": false,
+      "first_failed_condition": "unique q91:p2 Z2 source was visited before every anchor and is not an anchor terminal",
+      "highest_backward_level": "H3",
+      "route_id": "hex82_q78_p3",
+      "terminal_predecessor_level": "H2"
+    },
+    {
+      "H4_exact_reachable": false,
+      "H5_exact_noncolliding_C4": false,
+      "first_failed_condition": "unique q91:p2 Z2 source was visited before every anchor and is not an anchor terminal",
+      "highest_backward_level": "H3",
+      "route_id": "hex82_q82_p0",
+      "terminal_predecessor_level": "H2"
+    },
+    {
+      "H4_exact_reachable": false,
+      "H5_exact_noncolliding_C4": false,
+      "first_failed_condition": "unique q91:p2 Z2 source was visited before every anchor and is not an anchor terminal",
+      "highest_backward_level": "H3",
+      "route_id": "hex82_q83_p4",
+      "terminal_predecessor_level": "H2"
+    },
+    {
+      "H4_exact_reachable": false,
+      "H5_exact_noncolliding_C4": false,
+      "first_failed_condition": "unique q91:p2 Z2 source was visited before every anchor and is not an anchor terminal",
+      "highest_backward_level": "H3",
+      "route_id": "hex82_q128_p2",
+      "terminal_predecessor_level": "H2"
+    }
+  ],
+  "closure_kind": "finite literal predecessor-obligation closure",
+  "deduplicated_predecessor_classes": 1,
+  "exact_noncolliding_C4_witnesses": 0,
+  "exact_reachable_classes": 0,
+  "levels": {
+    "H0": "locally impossible",
+    "H1": "locally realizable but predecessor illegal",
+    "H2": "predecessor locally legal but anchored provenance incompatible",
+    "H3": "route prerequisites are abstractly compatible",
+    "H4": "exact reachable state",
+    "H5": "exact noncolliding C4 witness"
+  },
+  "predecessor_classes": [
+    {
+      "all_84_roots_hex40_full": true,
+      "blocked_rotation_successor": [
+        4,
+        5,
+        1,
+        3,
+        0,
+        2
+      ],
+      "blocked_rotation_successor_orbit_phase": [
+        91,
+        1
+      ],
+      "classification": "H2_PREDECESSOR_LOCALLY_LEGAL_BUT_ANCHORED_PROVENANCE_INCOMPATIBLE",
+      "obligation_id": "register_q91_p2_to_attach_h82_to_C_R1",
+      "only_allowed_pre_R2_kind": "Z2",
+      "provenance_argument": [
+        "h40 is full at every frozen anchor, so the unique Z2 source window 245130 is already visited",
+        "no frozen anchor is terminal at 245130",
+        "exact.extend never enters an already-visited target window, hence no descendant can become terminal at 245130",
+        "therefore the q91:p2 incidence q91--h82 cannot be introduced by a pre-R2 Z2",
+        "a blocked w3 into existing q91 would be R2 and is recognized but never traversed"
+      ],
+      "root_hex82_mask_histogram": {
+        "0": 81,
+        "2": 1,
+        "4": 1,
+        "63": 1
+      },
+      "roots_terminal_at_unique_source": 0,
+      "roots_with_q91_p2_registered": 0,
+      "route_target_already_occupied_at_root_count": {
+        "q128:p2": 2,
+        "q42:p1": 2,
+        "q78:p3": 1,
+        "q82:p0": 1,
+        "q83:p4": 1
+      },
+      "target_hex_position": [
+        82,
+        3
+      ],
+      "target_orbit": 91,
+      "target_phase": 2,
+      "target_word": [
+        5,
+        1,
+        3,
+        0,
+        4,
+        2
+      ],
+      "unique_w2_source_hex_position": [
+        40,
+        1
+      ],
+      "unique_w2_source_word": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ]
+    }
+  ],
+  "provenance_consistent_classes": 0,
+  "route_classes": 5,
+  "schema": "rr-short-ell2-r1-37-hex82-backward-closure-v1",
+  "stabilized": true,
+  "strong_key": [
+    "literal target orbit/phase/window",
+    "required incidence component relation",
+    "candidate registration mask",
+    "target occupancy",
+    "joint kind and source",
+    "R-count and F/H scope",
+    "anchor visited-set provenance"
+  ]
+}

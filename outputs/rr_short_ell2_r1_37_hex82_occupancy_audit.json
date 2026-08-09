@@ -1,0 +1,726 @@
+{
+  "anchor_count": 84,
+  "five_case_analysis": [
+    {
+      "SAT_CSP_needed": false,
+      "failure_forced": true,
+      "first_forced_failure": "q91:p2 registration predecessor is provenance-incompatible",
+      "route_id": "hex82_q42_p1",
+      "shortest_abstract_prerequisite_chain": [
+        "introduce q91:p2 by blocked w2 so h82 joins C_R1",
+        "keep q42 fresh and its target window unvisited",
+        "execute the listed blocked w3 joint as Z3"
+      ],
+      "shortest_exact_reachable_near_miss": {
+        "conditions": {
+          "candidate_orbit_fresh": true,
+          "hex82_in_R1_component": false,
+          "resource_scope": true,
+          "target_window_fresh": true,
+          "w3_is_blocked": true
+        },
+        "decorated_state_sha256": "abc53df75c37bf79c155844ac1ee4dce57f15e090a3bfaab3f01ef9ae59b44fb",
+        "depth": 53,
+        "first_failed_condition": "hex82_in_R1_component",
+        "literal_joint_source": [
+          4,
+          0,
+          3,
+          2,
+          5,
+          1
+        ],
+        "literal_target": [
+          2,
+          5,
+          1,
+          3,
+          0,
+          4
+        ],
+        "macro_label": "rot^5;w3:210",
+        "node_id": "short_ell2_r1_37:3:fz:59",
+        "representative_path": {
+          "accepted_macro_edges": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                36,
+                0
+              ],
+              "target": [
+                130,
+                4
+              ],
+              "target_hexagon": 75
+            },
+            {
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "rotation_length": 5,
+              "source": [
+                75,
+                0
+              ],
+              "target": [
+                68,
+                1
+              ],
+              "target_hexagon": 89
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                135,
+                1
+              ],
+              "target": [
+                68,
+                2
+              ],
+              "target_hexagon": 65
+            },
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                92,
+                1
+              ],
+              "target": [
+                58,
+                4
+              ],
+              "target_hexagon": 59
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                56,
+                3
+              ],
+              "target": [
+                58,
+                0
+              ],
+              "target_hexagon": 58
+            }
+          ],
+          "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+          "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+          "node_ids": [
+            "short_ell2_r1_37:3:fz:root:0",
+            "short_ell2_r1_37:3:fz:3",
+            "short_ell2_r1_37:3:fz:46",
+            "short_ell2_r1_37:3:fz:48",
+            "short_ell2_r1_37:3:fz:53",
+            "short_ell2_r1_37:3:fz:59"
+          ],
+          "replay_edge_count": 5,
+          "start_record_id": "short_ell2_r1_37:3:pilot:2"
+        },
+        "satisfied_condition_count": 4,
+        "seed_id": "short_ell2_r1_37:3",
+        "state_hash": "7b734eee51e7bfa3943c0afad14ac0147485cac7648a86995b45efdab1baca47",
+        "target_already_visited": false
+      }
+    },
+    {
+      "SAT_CSP_needed": false,
+      "failure_forced": true,
+      "first_forced_failure": "q91:p2 registration predecessor is provenance-incompatible",
+      "route_id": "hex82_q78_p3",
+      "shortest_abstract_prerequisite_chain": [
+        "introduce q91:p2 by blocked w2 so h82 joins C_R1",
+        "keep q78 fresh and its target window unvisited",
+        "execute the listed blocked w3 joint as Z3"
+      ],
+      "shortest_exact_reachable_near_miss": {
+        "conditions": {
+          "candidate_orbit_fresh": true,
+          "hex82_in_R1_component": false,
+          "resource_scope": true,
+          "target_window_fresh": true,
+          "w3_is_blocked": false
+        },
+        "decorated_state_sha256": "fd7c7e7f3c2aa8ce1ba9320ea62bbb2fa172be4dbcf0ff77f54617b423b85e27",
+        "depth": 51,
+        "first_failed_condition": "hex82_in_R1_component",
+        "literal_joint_source": [
+          5,
+          4,
+          2,
+          1,
+          3,
+          0
+        ],
+        "literal_target": [
+          1,
+          3,
+          0,
+          4,
+          2,
+          5
+        ],
+        "macro_label": "rot^0;w3:120",
+        "node_id": "short_ell2_r1_37:3:fz:10336",
+        "representative_path": {
+          "accepted_macro_edges": [
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                36,
+                0
+              ],
+              "target": [
+                131,
+                0
+              ],
+              "target_hexagon": 11
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                11,
+                0
+              ],
+              "target": [
+                131,
+                1
+              ],
+              "target_hexagon": 71
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                71,
+                0
+              ],
+              "target": [
+                131,
+                2
+              ],
+              "target_hexagon": 116
+            }
+          ],
+          "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+          "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+          "node_ids": [
+            "short_ell2_r1_37:3:fz:root:0",
+            "short_ell2_r1_37:3:fz:5",
+            "short_ell2_r1_37:3:fz:10334",
+            "short_ell2_r1_37:3:fz:10336"
+          ],
+          "replay_edge_count": 3,
+          "start_record_id": "short_ell2_r1_37:3:pilot:2"
+        },
+        "satisfied_condition_count": 3,
+        "seed_id": "short_ell2_r1_37:3",
+        "state_hash": "c3e1a586be08b7329bad9b7736b23f66aae95feb8902d624de02de10497ea4d2",
+        "target_already_visited": false
+      }
+    },
+    {
+      "SAT_CSP_needed": false,
+      "failure_forced": true,
+      "first_forced_failure": "q91:p2 registration predecessor is provenance-incompatible",
+      "route_id": "hex82_q82_p0",
+      "shortest_abstract_prerequisite_chain": [
+        "introduce q91:p2 by blocked w2 so h82 joins C_R1",
+        "keep q82 fresh and its target window unvisited",
+        "execute the listed blocked w3 joint as Z3"
+      ],
+      "shortest_exact_reachable_near_miss": {
+        "conditions": {
+          "candidate_orbit_fresh": true,
+          "hex82_in_R1_component": false,
+          "resource_scope": true,
+          "target_window_fresh": true,
+          "w3_is_blocked": true
+        },
+        "decorated_state_sha256": "af0c6c9762b312bde3787c489d683fc6b41dbf0bedcb99b5f9af830b0e5e288b",
+        "depth": 52,
+        "first_failed_condition": "hex82_in_R1_component",
+        "literal_joint_source": [
+          3,
+          1,
+          5,
+          0,
+          4,
+          2
+        ],
+        "literal_target": [
+          0,
+          4,
+          2,
+          5,
+          1,
+          3
+        ],
+        "macro_label": "rot^5;w3:210",
+        "node_id": "short_ell2_r1_37:6:fz:34",
+        "representative_path": {
+          "accepted_macro_edges": [
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                141,
+                2
+              ],
+              "target": [
+                79,
+                2
+              ],
+              "target_hexagon": 86
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                55,
+                1
+              ],
+              "target": [
+                79,
+                3
+              ],
+              "target_hexagon": 80
+            }
+          ],
+          "anchor_path_hash": "9ec14aed3dcdab3475225fa6138abe28700c333ffc9114f8970b1d1990c327b8",
+          "anchor_state_hash": "d7b670f9e6ebb4c5978336401d859f84b953a188bbf2365762b870a8a27e1b26",
+          "node_ids": [
+            "short_ell2_r1_37:6:fz:root:1",
+            "short_ell2_r1_37:6:fz:13",
+            "short_ell2_r1_37:6:fz:34"
+          ],
+          "replay_edge_count": 2,
+          "start_record_id": "short_ell2_r1_37:6:pilot:5"
+        },
+        "satisfied_condition_count": 4,
+        "seed_id": "short_ell2_r1_37:6",
+        "state_hash": "de01a40f5219f4f9b5bce46fc5feeea38ca0d4c07030171b0be53907289b3626",
+        "target_already_visited": false
+      }
+    },
+    {
+      "SAT_CSP_needed": false,
+      "failure_forced": true,
+      "first_forced_failure": "q91:p2 registration predecessor is provenance-incompatible",
+      "route_id": "hex82_q83_p4",
+      "shortest_abstract_prerequisite_chain": [
+        "introduce q91:p2 by blocked w2 so h82 joins C_R1",
+        "keep q83 fresh and its target window unvisited",
+        "execute the listed blocked w3 joint as Z3"
+      ],
+      "shortest_exact_reachable_near_miss": {
+        "conditions": {
+          "candidate_orbit_fresh": true,
+          "hex82_in_R1_component": false,
+          "resource_scope": true,
+          "target_window_fresh": true,
+          "w3_is_blocked": true
+        },
+        "decorated_state_sha256": "c90fd2165c94e854e5785cdb8af4bb6c6c9bcb876f185df54114ff39ffcfefac",
+        "depth": 55,
+        "first_failed_condition": "hex82_in_R1_component",
+        "literal_joint_source": [
+          1,
+          5,
+          2,
+          3,
+          0,
+          4
+        ],
+        "literal_target": [
+          3,
+          0,
+          4,
+          2,
+          5,
+          1
+        ],
+        "macro_label": "rot^5;w3:210",
+        "node_id": "short_ell2_r1_37:12:fz:3379",
+        "representative_path": {
+          "accepted_macro_edges": [
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                64,
+                4
+              ],
+              "target": [
+                93,
+                1
+              ],
+              "target_hexagon": 16
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                136,
+                0
+              ],
+              "target": [
+                93,
+                2
+              ],
+              "target_hexagon": 76
+            }
+          ],
+          "anchor_path_hash": "2a31c83cf8c1a90ef3bacb7f6f46d2d4cb49c18a3fe73459fea4b459f9ba32ac",
+          "anchor_state_hash": "c214b2fb21fd6066ba584eb1386875a290ee2c7e353011788026a6ba263a7bbf",
+          "node_ids": [
+            "short_ell2_r1_37:12:fz:root:0",
+            "short_ell2_r1_37:12:fz:13",
+            "short_ell2_r1_37:12:fz:3379"
+          ],
+          "replay_edge_count": 2,
+          "start_record_id": "short_ell2_r1_37:12:pilot:2"
+        },
+        "satisfied_condition_count": 4,
+        "seed_id": "short_ell2_r1_37:12",
+        "state_hash": "9973e7458e14d43e1a8c0bbc04526a275cccdf60f3aed1e69c03eeb8a4198c60",
+        "target_already_visited": false
+      }
+    },
+    {
+      "SAT_CSP_needed": false,
+      "failure_forced": true,
+      "first_forced_failure": "q91:p2 registration predecessor is provenance-incompatible",
+      "route_id": "hex82_q128_p2",
+      "shortest_abstract_prerequisite_chain": [
+        "introduce q91:p2 by blocked w2 so h82 joins C_R1",
+        "keep q128 fresh and its target window unvisited",
+        "execute the listed blocked w3 joint as Z3"
+      ],
+      "shortest_exact_reachable_near_miss": {
+        "conditions": {
+          "candidate_orbit_fresh": true,
+          "hex82_in_R1_component": false,
+          "resource_scope": true,
+          "target_window_fresh": true,
+          "w3_is_blocked": true
+        },
+        "decorated_state_sha256": "a021501eb4cced065c1e9a62cfa25156b3c79493266ab4411208898eaadc46f7",
+        "depth": 56,
+        "first_failed_condition": "hex82_in_R1_component",
+        "literal_joint_source": [
+          0,
+          3,
+          1,
+          4,
+          2,
+          5
+        ],
+        "literal_target": [
+          4,
+          2,
+          5,
+          1,
+          3,
+          0
+        ],
+        "macro_label": "rot^5;w3:210",
+        "node_id": "short_ell2_r1_37:3:fz:13647",
+        "representative_path": {
+          "accepted_macro_edges": [
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                36,
+                0
+              ],
+              "target": [
+                131,
+                0
+              ],
+              "target_hexagon": 11
+            },
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                11,
+                0
+              ],
+              "target": [
+                142,
+                1
+              ],
+              "target_hexagon": 117
+            },
+            {
+              "joint": "w2:10",
+              "kind": "Z2",
+              "label": "rot^5;w2:10",
+              "rotation_length": 5,
+              "source": [
+                117,
+                0
+              ],
+              "target": [
+                142,
+                2
+              ],
+              "target_hexagon": 80
+            },
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                80,
+                0
+              ],
+              "target": [
+                139,
+                4
+              ],
+              "target_hexagon": 52
+            },
+            {
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "rotation_length": 5,
+              "source": [
+                52,
+                0
+              ],
+              "target": [
+                106,
+                1
+              ],
+              "target_hexagon": 69
+            },
+            {
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "rotation_length": 5,
+              "source": [
+                130,
+                1
+              ],
+              "target": [
+                32,
+                3
+              ],
+              "target_hexagon": 35
+            },
+            {
+              "joint": "w3:210",
+              "kind": "Z3",
+              "label": "rot^5;w3:210",
+              "rotation_length": 5,
+              "source": [
+                46,
+                2
+              ],
+              "target": [
+                30,
+                0
+              ],
+              "target_hexagon": 30
+            },
+            {
+              "joint": "w3:201",
+              "kind": "Z3",
+              "label": "rot^5;w3:201",
+              "rotation_length": 5,
+              "source": [
+                31,
+                4
+              ],
+              "target": [
+                133,
+                4
+              ],
+              "target_hexagon": 50
+            }
+          ],
+          "anchor_path_hash": "0053fa144d47efe5ad97a788beb190fa684937ad82784511ea09e776042283c6",
+          "anchor_state_hash": "e079b1054e3bc476422f0a3bf4f1f129d9eb6679246b7b07ace799b4a9a4300b",
+          "node_ids": [
+            "short_ell2_r1_37:3:fz:root:0",
+            "short_ell2_r1_37:3:fz:5",
+            "short_ell2_r1_37:3:fz:10335",
+            "short_ell2_r1_37:3:fz:13633",
+            "short_ell2_r1_37:3:fz:13640",
+            "short_ell2_r1_37:3:fz:13641",
+            "short_ell2_r1_37:3:fz:13642",
+            "short_ell2_r1_37:3:fz:13645",
+            "short_ell2_r1_37:3:fz:13647"
+          ],
+          "replay_edge_count": 8,
+          "start_record_id": "short_ell2_r1_37:3:pilot:2"
+        },
+        "satisfied_condition_count": 4,
+        "seed_id": "short_ell2_r1_37:3",
+        "state_hash": "15a2cd98340a29fc266615386f464017cc3959687b36880b6964714f69809d36",
+        "target_already_visited": false
+      }
+    }
+  ],
+  "hex82_rotation_table": [
+    {
+      "hex_position": 0,
+      "orbit": 82,
+      "phase": 0,
+      "word": [
+        0,
+        4,
+        2,
+        5,
+        1,
+        3
+      ]
+    },
+    {
+      "hex_position": 1,
+      "orbit": 128,
+      "phase": 2,
+      "word": [
+        4,
+        2,
+        5,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "hex_position": 2,
+      "orbit": 42,
+      "phase": 1,
+      "word": [
+        2,
+        5,
+        1,
+        3,
+        0,
+        4
+      ]
+    },
+    {
+      "hex_position": 3,
+      "orbit": 91,
+      "phase": 2,
+      "word": [
+        5,
+        1,
+        3,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "hex_position": 4,
+      "orbit": 78,
+      "phase": 3,
+      "word": [
+        1,
+        3,
+        0,
+        4,
+        2,
+        5
+      ]
+    },
+    {
+      "hex_position": 5,
+      "orbit": 83,
+      "phase": 4,
+      "word": [
+        3,
+        0,
+        4,
+        2,
+        5,
+        1
+      ]
+    }
+  ],
+  "hidden_forced_occupation_lemma": {
+    "monotonicity": "visited permutation windows never become unvisited",
+    "proof_steps": [
+      "h40 is full at every frozen anchor, so the unique Z2 source window 245130 is already visited",
+      "no frozen anchor is terminal at 245130",
+      "exact.extend never enters an already-visited target window, hence no descendant can become terminal at 245130",
+      "therefore the q91:p2 incidence q91--h82 cannot be introduced by a pre-R2 Z2",
+      "a blocked w3 into existing q91 would be R2 and is recognized but never traversed"
+    ],
+    "statement": "before R2, no legal descendant can introduce q91:p2, hence h82 never joins C_R1; every one of the five C4 route prerequisites is unreachable",
+    "status": "PROVED_FOR_THE_84_ANCHOR_DESCENDANT_FAMILY"
+  },
+  "q91_h82_incidence": {
+    "hex_position": 3,
+    "orbit": 91,
+    "phase": 2,
+    "word": [
+      5,
+      1,
+      3,
+      0,
+      4,
+      2
+    ]
+  },
+  "root_hex82_mask_histogram": {
+    "0": 81,
+    "2": 1,
+    "4": 1,
+    "63": 1
+  },
+  "schema": "rr-short-ell2-r1-37-hex82-occupancy-audit-v1",
+  "scope_warning": "This is branch-family closure below the 84 frozen Stage-D anchors, not a theorem for arbitrary short_ell2 or arbitrary RR states.",
+  "theorem_ladder": {
+    "T2": "PROVED: all 253,537 observed C4 attempts collide (Round 60)",
+    "T2+": "PROVED for the frozen 84-anchor descendant family: the complete first-component-Z3 C4 prerequisite space is obstructed",
+    "T2a": "PROVED: every route through full h40/h90/h91/h92 collides by monotonicity",
+    "T2b": "PROVED: all five h82 routes are exact-unreachable before R2",
+    "T3": "PROVED for the same family: a first R1-component-changing Z3 cannot occur",
+    "T4": "PROVED for the same family, using the prior direct-Z2 obstruction plus T3: a pre-R2 bridge cannot occur"
+  }
+}
