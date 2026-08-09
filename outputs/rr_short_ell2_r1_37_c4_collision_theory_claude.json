@@ -1,0 +1,112 @@
+{
+  "schema": "rr-short-ell2-r1-37-c4-collision-theory-claude-v1",
+  "author": "Claude",
+  "role": "attack on the local-possibility-vs-global-zero phenomenon, grounded in real Round 57/58 data after finding Round 59/Stage E claims contradicted",
+  "verification_status": {
+    "label": "CLAUDE_OBSERVATION -- discrepancy found, not merely absence",
+    "round_59_stage_e_c1_c6_status": "does not exist anywhere reachable this session",
+    "contradicted_by_real_data": [
+      "Round 58's own report states explicitly 'Stage E was optional and was not run', directly contradicting the claim that Stage E added 1,000,000 exact expansions",
+      "Round 58's real frontier figures (seed :6 = 34712, seed :3 = 34657) do not match the claimed figures (seed_6=560, seed_3=9483)",
+      "no C1-C6 classification appears anywhere in the real ledger; Round 58 uses a real, different classification (FZ0-FZ6) with all 800516 accepted Z3 transitions classified FZ0 and FZ1-FZ6 all zero"
+    ],
+    "real_branches_found_and_used": ["codex/round-r1-37-dangerous-entry-results (Round 57)", "codex/round-r1-37-first-component-z3-stage-d (Round 58)"],
+    "approach": "this document grounds the same underlying mathematical question in the real, independently-verified Round 57/58 data instead of attacking a fabricated C4 phenomenon"
+  },
+  "section_1_theorem_shape": {
+    "label": "CLAUDE_HAND_PROOF -- grounded in Round 57's real necessary-condition finding",
+    "round_57_quote": "for a direct Z3 dangerous entry, its target hexagon lies in the hub component. The new incidence can merge the components only if its target orbit already lies in the R1 component... None of the 88 target orbits is 91",
+    "proof": "Z3's own defining condition (om[q]==0, fresh) is logically incompatible with its target orbit already lying in the R1 component (which requires om[q]!=0, registered) -- a direct Z3 event can never simultaneously be the event that connects to C_R1, because freshness and prior-registration are mutually exclusive for the same orbit",
+    "object_definition": "the incidence-forest edge (target_orbit, target_hexagon) that a prior event must have already registered, such that target_orbit is a member of C_R1's vertex set before the dangerous Z3/Z2 is attempted",
+    "cross_validation": "the real 88 direct-Z3 / 108 next-Z2 split from Round 57 is an exact, independent match to the direct-FZ1 vs delayed-Z2-completion dichotomy derived in the prior round's document -- discovered twice, from two directions"
+  },
+  "section_2_first_touch_mechanism_applied_to_real_r4": {
+    "label": "CLAUDE_HAND_PROOF -- all 22 real R4 entries independently pulled and inspected",
+    "shared_structure": "every one of the 22 is a NEXT_Z2_HUB_HEX mechanism (zero DIRECT_Z3), each with observed_legal_values:[false] and exact_observation_count ranging 1-7",
+    "required_predecessor_orbits_17_distinct": [1,3,7,10,11,13,16,25,27,35,57,63,65,97,121,126,138],
+    "forced_chronology": "registration -> prior occupation -> local legality -> attempted bridge, confirmed by the data's field structure, terminating in an unfulfilled precondition, not a contradiction",
+    "cyclic_contradiction_found": false,
+    "cross_check_with_prior_candidate_lists": {
+      "overlap": ["126"],
+      "significance": "only orbit 126 among the 17 required orbits appears in this analyst's own previously-computed 1-hop candidate lists; the other 16 are second-or-later-generation members C_R1 would need to reach -- most of the 22 real R4 cases require a multi-hop chain, a genuine limitation of the prior single-hop lemma now precisely quantified"
+    },
+    "field_semantics_flag": "the orbit-126 R4 entry's resulting_z2_source_orbit(98) does not obviously match its own z2_target_orbit(126) in the way orbit-preserving Z2 would suggest -- flagged as an unresolved field-semantics question, not resolved by guessing"
+  },
+  "section_3_five_hub_touching_orbits_revisited": {
+    "label": "CLAUDE_OBSERVATION",
+    "cross_reference_result": "only orbit 126 appears among the real 22 R4 entries; orbits 96, 120, 128, 129 do not appear at all",
+    "possible_readings": ["not yet tested in the bounded region", "tested and resolved to class R3 instead of R4"],
+    "cannot_distinguish": "full 174-entry R3 list not pulled this round given scope already covered",
+    "finite_case_proof_offered": false,
+    "reasoning": "the real data shows this family is not uniform; asserting a uniform proof across all five would overreach what the data supports"
+  },
+  "section_4_empirical_vs_structural_collision": {
+    "label": "CLAUDE_PROPOSAL -- ranked routes against the real R4 data",
+    "ranked_routes": [
+      {"rank": 1, "route": "complete predecessor-state closure", "assessment": "for each of the 22, exhaustively enumerate registration-consistent states reaching that exact triple -- a finite, bounded question per entry"},
+      {"rank": 2, "route": "finite registration-order table", "assessment": "for each of the 17 required orbits, determine via the fixed-table method whether it is itself an FZ1-candidate for some other already-open orbit, recursively -- the multi-hop chain question section_2 flags as unresolved"},
+      {"rank": 3, "route": "forbidden-order lemma", "assessment": "actively sought in section_2, not found -- remains a target with no positive result"},
+      {"rank": 4, "route": "SAT/UNSAT of noncolliding state", "assessment": "Round 58 explicitly declined this route (would not improve theorem level without a separate suffix-completeness argument); this document agrees"},
+      {"rank": 5, "route": "exact continuation quotient", "assessment": "Round 57's own incremental-coordinate audit found the only zero-mixed-cell coordinate (registered-orbit mask) explicitly noted as descriptive, not a useful quotient theorem, by Codex itself -- this document agrees, no proved continuation equivalence found"}
+    ]
+  },
+  "section_5_arrow_2_revisited": {
+    "label": "CLAUDE_HAND_PROOF -- sharper split identified from real data",
+    "new_three_way_split": "local geometry -> exact noncolliding precursor state -> branch reachability",
+    "finding": "for all 22 R4 entries, abstract_distance_from_observed_domain=0 and exact_observation_count>=1 for every one -- an exact, reachable precursor state genuinely exists and was genuinely observed",
+    "actual_failure_point": "the LAST stage: the resulting Z2's bridge legality, checked at that exact reached state, evaluates false because the required orbit is simply not yet registered -- not because the precursor itself is unreachable",
+    "revision_of_prior_arrow_2": "the originally-identified Arrow 2 was too coarse for these 22 cases: reachability of a relevant precursor state is not the problem; the problem is a further, specific registration precondition failing at that precursor, now separated as its own distinct question"
+  },
+  "section_6_falsifiable_lemmas": [
+    {
+      "id": 1,
+      "name": "Direct-Z3 exclusion",
+      "statement": "no DIRECT_Z3_HUB_PHASE mechanism can ever be an FZ1/bridge witness for C_R1, for any orbit, under this engine's rules",
+      "why_data_suggests_it": "proved from Z3's own freshness definition; consistent with all 88 real direct-Z3 entries showing fixed_component_merge_possible:false",
+      "minimal_counterexample": "a single Z3 edge whose target orbit is simultaneously fresh and already a C_R1 member -- impossible by definition",
+      "status": "ALREADY_PROVED, not merely falsifiable",
+      "finite_check_needed": "none; follows from extend()'s own source"
+    },
+    {
+      "id": 2,
+      "name": "R4-to-single-hop scarcity",
+      "statement": "at most one of the 22 real R4 entries (orbit-126) can be resolved by a single-hop C_R1 expansion; the other 21 require a chain of length >=2",
+      "why_data_suggests_it": "direct cross-check: only orbit 126 among the 17 required orbits appears in this analyst's own 1-hop candidate lists",
+      "minimal_counterexample": "any of the other 16 required orbits shown to share a hexagon directly with orbit 91's own phase set",
+      "finite_check_needed": "repeat the table-lookup method for each of the 16 remaining required orbits -- bounded, cheap, non-search"
+    },
+    {
+      "id": 3,
+      "name": "Collision-object identity",
+      "statement": "in every R4 case, the specific failure is the target hexagon's permutation window already occupied by the branch's own prior traversal (an NR6-type object), not a component-registration gate",
+      "why_data_suggests_it": "genuinely uncertain -- the required_predecessor_condition language suggests a registration failure, not NR6, contradicting this lemma as stated",
+      "status": "flagged as plausible but genuinely uncertain, not strongly suggested by the data as read",
+      "minimal_counterexample": "a single R4 entry whose failure is a component-registration gate, not NR6 -- likely true for most or all 22, which would refute this lemma",
+      "finite_check_needed": "inspect the specific rejection-reason field for each of the 22 -- not available in files pulled this round"
+    },
+    {
+      "id": 4,
+      "name": "Chronology non-cyclicity",
+      "statement": "no pair of the 196 real dangerous mechanisms forces a mutually contradictory registration order",
+      "why_data_suggests_it": "active search this round and last found no such pair",
+      "minimal_counterexample": "two mechanisms whose required_predecessor_conditions each name the other's own target orbit as a prerequisite",
+      "finite_check_needed": "a direct pairwise scan of all 196 required_predecessor_condition fields -- small, bounded, non-search, not performed this round for lack of remaining scope"
+    },
+    {
+      "id": 5,
+      "name": "Multi-hop closure sufficiency",
+      "statement": "if a finite chain of table lookups shows each of the 16 unresolved R4 required orbits reachable from orbit 91 within a bounded hop count, a genuine multi-step bridge template exists for that R4 case",
+      "why_data_suggests_it": "section_2's chain-length finding directly motivates this as the natural next question",
+      "minimal_counterexample": "any of the 16 orbits shown unreachable at any finite hop count within the fixed tables",
+      "finite_check_needed": "a bounded breadth-first closure over the fixed orbit-hexagon adjacency graph starting from orbit 91 -- deterministic, non-search"
+    }
+  ],
+  "explicit_non_claims": [
+    "does not treat Round 59/Stage E/C1-C6 as real -- contradicted, not merely unverified, by Round 58's own explicit report",
+    "does not claim to have resolved all 22 R4 cases -- only cross-checked one (orbit 126) against prior work",
+    "does not assert Lemma 3 as likely true -- flagged explicitly as uncertain",
+    "does not perform the pairwise scan (Lemma 4) or multi-hop closure (Lemma 5) -- both specified as bounded non-search computations for a future round",
+    "no search run, no Codex artifact modified"
+  ],
+  "end_token": "CLAUDE_C4_COLLISION_THEORY_READY"
+}
