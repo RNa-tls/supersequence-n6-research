@@ -1,0 +1,65 @@
+{
+  "audited_distinctions": {
+    "orbit_pigeonhole_implies_exact_continuation_equivalence": false,
+    "same_orbit_different_component_or_provenance_possible": true,
+    "same_orbit_different_phase_possible": true,
+    "same_orbit_revisit_possible": true
+  },
+  "claim": "If FZ1 exists, it occurs within 144 Z3 events.",
+  "conclusion": "The proposed 144-event bound remains an unsupported conjecture and cannot justify exhaustion or pruning.",
+  "counterexample_scope": "the examples refute the continuation-equivalence premise, not the numerical implication itself",
+  "exact_revisit_examples": [
+    {
+      "component_digest": "5f5fbf89909464a658d5211dfa2cfafcb2553002bf0247fc70e547f50af6a95b",
+      "exact_state_hash": "d12d5f62c44b2149c694b9f2d35f53ab7330a09424a0a6e7cbfa872cb830194b",
+      "later_node_id": "short_ell2_r1_37:236166:fz:1",
+      "later_phase": 2,
+      "note": "same orbit recurs on one exact ancestry; orbit identity alone is not a continuation key",
+      "repeated_orbit": 10
+    },
+    {
+      "component_digest": "a92805105af13adfc3daa37716712baf7736fa469094e9fe60d57134924b8cf0",
+      "exact_state_hash": "ea30d06e776c7b4a437e4b0b0f72cdc2de1fc134cce1466ed3becdbafca147ee",
+      "later_node_id": "short_ell2_r1_37:12:fz:3",
+      "later_phase": 0,
+      "note": "same orbit recurs on one exact ancestry; orbit identity alone is not a continuation key",
+      "repeated_orbit": 27
+    },
+    {
+      "component_digest": "6e4988bc327c5719c8835895444e881816deb9582c67bf463918c23bb9e1ccf7",
+      "exact_state_hash": "3584e6e3efb732cecf7fefad53ce01362c2cce02b9553a3a398046cf029f01c1",
+      "later_node_id": "short_ell2_r1_37:6:fz:7",
+      "later_phase": 2,
+      "note": "same orbit recurs on one exact ancestry; orbit identity alone is not a continuation key",
+      "repeated_orbit": 81
+    },
+    {
+      "component_digest": "b37b5fe1590c4d32673c217c84902d5cf9202334decc3936f69f49a705d7e0e6",
+      "exact_state_hash": "24db2ef89909b1b304e1ad56f24d18f40b8730664990d064a920f79c5855fe25",
+      "later_node_id": "short_ell2_r1_37:3:fz:3",
+      "later_phase": 4,
+      "note": "same orbit recurs on one exact ancestry; orbit identity alone is not a continuation key",
+      "repeated_orbit": 130
+    },
+    {
+      "component_digest": "9457146575d3686ae0e4dc1363f270469ee0b9d925aa86e1188258556c3276d8",
+      "exact_state_hash": "9206a52249b0336f669805732d61ea47ab1c75f37cd7cc24fd470fb201641aea",
+      "later_node_id": "short_ell2_r1_37:303321:fz:3",
+      "later_phase": 0,
+      "note": "same orbit recurs on one exact ancestry; orbit identity alone is not a continuation key",
+      "repeated_orbit": 68
+    },
+    {
+      "component_digest": "5957c3dd021fe4692a09e2eb9ec95740f16f566e0806b80c33db2255db61794a",
+      "exact_state_hash": "11088cc5a198dabad5e74601f4b5d5722ffb93cbb119bd269774065040f82ce7",
+      "later_node_id": "short_ell2_r1_37:13:fz:3",
+      "later_phase": 4,
+      "note": "same orbit recurs on one exact ancestry; orbit identity alone is not a continuation key",
+      "repeated_orbit": 130
+    }
+  ],
+  "maximum_Z3_events_on_any_replayed_Stage_D_ancestry": 36,
+  "proof_gap": "an orbit repetition does not repeat hex masks, orbit phase masks, component partition, resource coordinates, or R1 provenance; no pumping/deletion lemma identifies the two continuations",
+  "schema": "rr-short-ell2-r1-37-144z3-bound-audit-v1",
+  "verdict": "NOT_PROVED_BY_ORBIT_PIGEONHOLE"
+}

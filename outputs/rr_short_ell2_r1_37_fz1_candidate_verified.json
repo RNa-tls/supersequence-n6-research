@@ -1,0 +1,74 @@
+{
+  "artifact_sha256": {
+    "bound_audit": "d5fd8c4072f5858881ef0ac262acaf7b38f4341582d9104472a0c2f424db6638",
+    "candidate_orbits": "6f5bb3dc75b6e300aea58139d75d992cc76a45edca03f3ea9350a9995ae1ca2f",
+    "condition_ledger": "02a9b435c899b912126ac8daf150e3b7447a4822818bd37980236d03067778ab",
+    "r4_crosscheck": "0975ab8dd6eda47c1b6a1d0945225285bef3a38f999bfcf2c546104fa95f9702",
+    "seed3_seed6": "d9c1d9dc8440ddf5e322422390f8a7d971f9101a40612790d7827a28099b8a15",
+    "stage_D_verified": "b8ad3edac38e6632c0056b229dca0648c5141f22ed02db3fcc2867f2f5633099"
+  },
+  "branches": [
+    {
+      "accepted_candidate_Z3": 336,
+      "checkpoint_sha256": "bfe42113ef4645f25580a87a7b41533422f1818d9e8ca45a8cd5e5386ce0a5b1",
+      "frontier": 0,
+      "nodes": 3158,
+      "seed_id": "short_ell2_r1_37:236166"
+    },
+    {
+      "accepted_candidate_Z3": 11105,
+      "checkpoint_sha256": "fa3f6706963a0778eed10728aa4659d4f07dd9299a5ebc690f7ca3568c10635b",
+      "frontier": 0,
+      "nodes": 170773,
+      "seed_id": "short_ell2_r1_37:12"
+    },
+    {
+      "accepted_candidate_Z3": 32549,
+      "checkpoint_sha256": "a2211da5cc3a07a38a02cfc37a8ccb3fd5fceeae6dba83d2cb894251b5172d47",
+      "frontier": 34712,
+      "nodes": 459712,
+      "seed_id": "short_ell2_r1_37:6"
+    },
+    {
+      "accepted_candidate_Z3": 29776,
+      "checkpoint_sha256": "c5a21b3be31f752c99bdbfdbd5e65b182f66f8db308f87e5b5ddf37016715089",
+      "frontier": 34657,
+      "nodes": 459657,
+      "seed_id": "short_ell2_r1_37:3"
+    },
+    {
+      "accepted_candidate_Z3": 513,
+      "checkpoint_sha256": "4ae07cb814299fe8a139e62eb1126000090ba7eac8e736beb42aace95e0c38d8",
+      "frontier": 0,
+      "nodes": 5964,
+      "seed_id": "short_ell2_r1_37:303321"
+    },
+    {
+      "accepted_candidate_Z3": 16472,
+      "checkpoint_sha256": "e56e37d970cbe4fb511c856ee118983d8260b0b8abfc2b05e64659cc17dca41e",
+      "frontier": 0,
+      "nodes": 226128,
+      "seed_id": "short_ell2_r1_37:13"
+    }
+  ],
+  "candidate_count": 20,
+  "global_unique_decorated_states": 1318577,
+  "hub_touching_candidates": [
+    96,
+    120,
+    126,
+    128,
+    129
+  ],
+  "schema": "rr-short-ell2-r1-37-fz1-candidate-independent-verification-v1",
+  "verification_scope": [
+    "independent fixed-table reproduction of 20 candidates, five hub-touch candidates, and degree 20",
+    "streamed immutable-checkpoint node/frontier conservation",
+    "accepted candidate-Z3 child counts reconstructed from stored literal edge records",
+    "C0-C6 arithmetic conservation and zero-C6 agreement with the existing full Stage-D literal verifier",
+    "global 1,318,577 decorated-state digest census",
+    "Round-57 R4 and seed_3/seed_6 ledger identities"
+  ],
+  "verified": true,
+  "verifier_sha256": "346efae3b6b79a6eafd7cead9660c1c5576164f33468b2344013d76af6aeda19"
+}
