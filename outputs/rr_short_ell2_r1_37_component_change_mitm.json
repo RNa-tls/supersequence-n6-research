@@ -1,0 +1,539 @@
+{
+  "analysis_script_sha256": "b1d49262c3117235ea8fb0b44c0fec50bdd173cdc267b991f9901619be8faf7d",
+  "backward_domain": {
+    "R3": 174,
+    "R4": 22,
+    "R5": 0,
+    "dangerous_transition_identities": 196,
+    "distinct_preceding_triples": 176
+  },
+  "backward_realizability_sha256": "a87b5b69ce9f99f632b8302c02f575166be293aeea43c2b029b959687c2fe539",
+  "dangerous_entries_sha256": "1329b9119bf4b1abfd8c66f7ab8024c9ff1a18add01fbcfcb28b96f173efe26a",
+  "forward_domain": {
+    "expanded_nodes": 1256023,
+    "frontier": 69369,
+    "replayed_nodes": 1325392,
+    "start_states": 84
+  },
+  "independent_verification_sha256": "b8ad3edac38e6632c0056b229dca0648c5141f22ed02db3fcc2867f2f5633099",
+  "intersection_ledger": {
+    "M0_abstract_triple_matches": {
+      "distinct_triples": 31,
+      "forward_occurrences": 55254
+    },
+    "M1_coarse_structural_matches": {
+      "certified": 0,
+      "not_decidable_from_round57_backward_artifact": 31,
+      "reason": "Round-57 backward rows serialize abstract triples and predecessor conditions, not exact component partitions or decorations."
+    },
+    "M2_exact_decorated_state_matches": {
+      "certified": 0,
+      "reason": "No Round-57 backward entry contains an exact decorated-state digest; zero is a certified-witness count, not a nonintersection theorem."
+    },
+    "M3_exact_predecessor_chain_to_first_component_Z3": 0,
+    "M4_exact_bridge_witness": 0
+  },
+  "key_sufficiency": {
+    "conclusion": "The available backward artifact supports M0 only. M1/M2 need exact backward decorations and were not inferred.",
+    "exact_forward_decorated_digest": "collision-free identity within the serialized forward DAG; continuation-equivalence theorem not claimed",
+    "round57_backward_exact_key_available": false
+  },
+  "manifest_sha256": "7fb263242d7358d0ddcf36c2d9159f5b1ff3cfd5ea0e0770dede8b0c5ba2ff6b",
+  "matched_abstract_triples": [
+    {
+      "accepted_forward_occurrences": 897,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q036|p0"
+    },
+    {
+      "accepted_forward_occurrences": 4166,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q036|p4"
+    },
+    {
+      "accepted_forward_occurrences": 3254,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q037|p2"
+    },
+    {
+      "accepted_forward_occurrences": 1848,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q043|p4"
+    },
+    {
+      "accepted_forward_occurrences": 1221,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q054|p0"
+    },
+    {
+      "accepted_forward_occurrences": 1385,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q054|p3"
+    },
+    {
+      "accepted_forward_occurrences": 1527,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q055|p2"
+    },
+    {
+      "accepted_forward_occurrences": 4005,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q061|p4"
+    },
+    {
+      "accepted_forward_occurrences": 2348,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q066|p0"
+    },
+    {
+      "accepted_forward_occurrences": 1404,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q067|p0"
+    },
+    {
+      "accepted_forward_occurrences": 1538,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q067|p1"
+    },
+    {
+      "accepted_forward_occurrences": 2280,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q067|p2"
+    },
+    {
+      "accepted_forward_occurrences": 1277,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q067|p3"
+    },
+    {
+      "accepted_forward_occurrences": 2552,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q130|p0"
+    },
+    {
+      "accepted_forward_occurrences": 1634,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q130|p3"
+    },
+    {
+      "accepted_forward_occurrences": 2097,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q132|p0"
+    },
+    {
+      "accepted_forward_occurrences": 725,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:201|q132|p3"
+    },
+    {
+      "accepted_forward_occurrences": 507,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q014|p3"
+    },
+    {
+      "accepted_forward_occurrences": 1732,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q026|p4"
+    },
+    {
+      "accepted_forward_occurrences": 1365,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q027|p2"
+    },
+    {
+      "accepted_forward_occurrences": 3238,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q049|p2"
+    },
+    {
+      "accepted_forward_occurrences": 1231,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q052|p2"
+    },
+    {
+      "accepted_forward_occurrences": 687,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q053|p2"
+    },
+    {
+      "accepted_forward_occurrences": 309,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q056|p0"
+    },
+    {
+      "accepted_forward_occurrences": 1722,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q056|p3"
+    },
+    {
+      "accepted_forward_occurrences": 1973,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q070|p3"
+    },
+    {
+      "accepted_forward_occurrences": 1710,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q074|p4"
+    },
+    {
+      "accepted_forward_occurrences": 1325,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R4"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q082|p0"
+    },
+    {
+      "accepted_forward_occurrences": 2164,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13",
+        "short_ell2_r1_37:236166",
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:303321",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q109|p1"
+    },
+    {
+      "accepted_forward_occurrences": 260,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:12",
+        "short_ell2_r1_37:13"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q131|p3"
+    },
+    {
+      "accepted_forward_occurrences": 2873,
+      "forward_seed_ids": [
+        "short_ell2_r1_37:3",
+        "short_ell2_r1_37:6"
+      ],
+      "round57_global_classes": [
+        "R3"
+      ],
+      "round57_mechanisms": [
+        "NEXT_Z2_HUB_HEX"
+      ],
+      "triple_id": "w3:210|q139|p4"
+    }
+  ],
+  "result_sha256": "569c3f371ed4d985ec9fde28fd16479b72d3453227782345b865ac49280a12ac",
+  "schema": "rr-short-ell2-r1-37-component-change-mitm-v1",
+  "stage": "D",
+  "status": "MITM_ABSTRACT_INTERSECTION_ONLY"
+}
