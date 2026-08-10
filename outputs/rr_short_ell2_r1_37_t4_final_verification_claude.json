@@ -1,0 +1,172 @@
+{
+  "schema": "rr-short-ell2-r1-37-t4-final-verification-claude-v1",
+  "author": "Claude",
+  "role": "independent verification analyst -- Round 61 T4 final verification",
+  "remote_source": {
+    "branch": "codex/round-r1-37-hex82-t4",
+    "head_claimed": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "head_confirmed_via_git_rev_parse": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "head_matches": true,
+    "commit_chain_confirmed": ["bb3e9e1", "2b3fb8f", "19d484b", "1f9efff"],
+    "19d484b_previously_confirmed_nonexistent_now_real": true,
+    "19d484b_is_direct_parent_of_head": true
+  },
+  "section_1_artifact_verification": {
+    "label": "CLAUDE_OBSERVATION",
+    "files_confirmed_present_at_head": [
+      "research/RR_SHORT_ELL2_R1_37_H40_FULLNESS_AUDIT_CODEX.md",
+      "research/RR_SHORT_ELL2_R1_37_HEX82_C4_CLOSURE_CODEX.md",
+      "outputs/rr_short_ell2_r1_37_hex82_routes.json",
+      "outputs/rr_short_ell2_r1_37_hex82_backward_closure.json",
+      "outputs/rr_short_ell2_r1_37_hex82_occupancy_audit.json",
+      "outputs/rr_short_ell2_r1_37_hex82_mitm.json",
+      "outputs/rr_short_ell2_r1_37_hex82_verified.json",
+      "outputs/rr_short_ell2_r1_37_h40_anchor_fullness.json",
+      "src/analyze_rr_short_ell2_r1_37_hex82_closure.py",
+      "src/verify_rr_short_ell2_r1_37_hex82_closure.py",
+      "tests/test_rr_short_ell2_r1_37_hex82_closure.py",
+      "outputs/rr_short_ell2_r1_37_first_component_z3_manifest.json",
+      "outputs/rr_short_ell2_r1_37_first_component_z3_results.json",
+      "outputs/rr_short_ell2_r1_37_c4_verified.json"
+    ],
+    "lfs_pointers_found": 0,
+    "hash_cross_check": {
+      "artifact_sha256_entries_checked": 8,
+      "matches": 8,
+      "raw_byte_matches": 3,
+      "crlf_roundtrip_matches": 5,
+      "verifier_own_sha256_match": "raw bytes, no conversion needed",
+      "note": "CRLF/LF mismatch is a recurring benign cross-platform authoring artifact, not a data integrity issue -- re-established this round for the Nth time"
+    }
+  },
+  "section_2_h40_fullness_recomputation": {
+    "label": "CLAUDE_OBSERVATION -- recomputed from raw 84 anchor records, not the summary block",
+    "h40_registered_84_of_84": true,
+    "h40_occupancy_mask_63_84_of_84": true,
+    "h40_literal_windows_visited_6_84_of_84": true,
+    "literal_245130_visited_84_of_84": true,
+    "current_endpoint_245130_0_of_84": true,
+    "extra_strict_checks": {
+      "bit_level_all_6_windows_individually_visited_true_for_all_84_anchors": true,
+      "literal_list_equality_current_endpoint_vs_245130_checked_directly": true
+    },
+    "seed_distribution_recomputed": {"236166": 9, "12": 8, "6": 20, "3": 21, "303321": 12, "13": 14},
+    "seed_distribution_sum": 84,
+    "verdict": "CONFIRMED_EXACTLY_AS_CLAIMED"
+  },
+  "section_3_monotonicity_and_norepeat": {
+    "label": "CLAUDE_HAND_PROOF + exhaustive replay certificate",
+    "engine_source_confirmed": {
+      "hex_masks_copied_and_OR_only": true,
+      "no_bit_clear_operation_exists": true,
+      "extend_returns_None_on_already_set_target_bit": true,
+      "macro_internal_windows_individually_gated_by_same_extend_norepeat_check": true,
+      "conclusion": "no multi-window macro can pass through 245130 internally without itself being rejected by the same per-window extend() gate; there is no separate endpoint-only check to bypass"
+    },
+    "independent_full_replay": {
+      "source": "verify_rr_short_ell2_r1_37_hex82_closure.py::independent_full_replay, lines 271-355, read in full",
+      "monotone_macro_edges_checked": 1325308,
+      "assertion": "parent.hex_masks[h] & ~child.hex_masks[h] == 0 for every hexagon h on every edge",
+      "assertion_failures": 0,
+      "child_states_rederived_via_evaluate_edge_not_trusted_from_storage": true,
+      "nodes_total": 1325392,
+      "q91_p2_registered_nodes": 0,
+      "unique_z2_source_terminal_nodes": 0,
+      "hex82_in_r1_component_nodes": 0
+    },
+    "verdict": "CONFIRMED"
+  },
+  "section_4_q91p2_necessity_and_alternative_path_check": {
+    "label": "CLAUDE_HAND_PROOF + CLAUDE_OBSERVATION -- the task's explicitly flagged critical check",
+    "component_check_is_general_not_q91_mask_specific": {
+      "code_location": "analyze_rr_short_ell2_r1_37_hex82_closure.py lines 296-308",
+      "mechanism": "rr.component_summary(state) + search.component() union-find query for both (q,91) and (h,82), compared by component id, computed fresh at every one of 1,325,392 nodes",
+      "source_comment_confirms_intent": "the exact component query is intentionally performed for every node; it independently checks the hand invariant rather than inferring it solely from q91's mask",
+      "assertion_guard": "analyze_...py lines 440-443 raises AssertionError if hex82_in_r1_component_nodes, q91_p2_registered_nodes, or unique_z2_source_terminal_nodes is ever nonzero across all six branches",
+      "assertion_held": true
+    },
+    "alternatives_checked": {
+      "Z3_registration": {"possible": false, "reason": "Z3 requires a fresh target orbit (om[q]==0); orbit 91 is already registered at R1, so Z3 can never retarget q91:p2"},
+      "alternate_phase": {"possible": false, "reason": "q91's only h82-incident phase is p2; this is a fixed, independently-recomputed fact of the rotation table (section 5)"},
+      "alternate_incidence_path": {"possible": false, "reason": "the general union-find component check (not a q91-mask shortcut) found hex82 joined to C_R1 at 0 of 1,325,392 replayed nodes, covering any hypothetical indirect path"},
+      "earlier_component_merger": {"possible": false, "reason": "same general component check as above is agnostic to mechanism; zero occurrences found"},
+      "R_kind_arrival": {"possible": false, "reason": "an R-kind edge into an already-open orbit is immediately classified as the terminal R2 event by evaluate_edge, not a pre-R2 registration step"}
+    },
+    "unique_w2_predecessor_independently_rederived": {
+      "method": "brute force over all 720 permutations against the fixed engine move table (verify_...py::inverse_source), not read from any Codex-stored table",
+      "result": "245130 is the unique predecessor of 513042 under the engine's sole weight-2 move",
+      "matches_report": true
+    },
+    "verdict": "NO_ALTERNATIVE_FOUND -- T2b's necessity premise holds"
+  },
+  "section_5_route_completeness": {
+    "label": "CLAUDE_HAND_PROOF -- recomputed from scratch, not from the stored route list",
+    "method": "verify_static_certificate lines 247-255: hexagon 82's full 6-word rotation orbit recomputed via core.orbit(core.ROT_REPS[82], core.SIGMA) and exact.ORBIT_PHASE, independent of any stored route JSON",
+    "assertion": "the 5 non-q91 entries must equal sorted(ROUTES) constant exactly",
+    "assertion_held": true,
+    "five_routes_confirmed": ["q42:p1", "q78:p3", "q82:p0", "q83:p4", "q128:p2"],
+    "sixth_route_check": "hex82_rotation_table has exactly 6 words total; position 3 is q91:p2 itself; the other 5 are exactly the claimed set -- no sixth route omitted",
+    "backward_closure_route_classes": 5,
+    "verdict": "CONFIRMED_EXACTLY_FIVE_ROUTES"
+  },
+  "section_6_implication_chain_audit": {
+    "label": "CLAUDE_HAND_PROOF, assumptions listed per step",
+    "T2b_to_T2plus": {
+      "assumption": "Round-60's T2a (full-hex {40,90,91,92} obstruction) is sound -- gated via round60['verified']==True in verify_static_certificate, not re-derived this round",
+      "additional_check": "result['aggregate']['first_component_change_witnesses'] != 0 guard on the FULL Stage-D search corpus asserts zero witnesses; held",
+      "status": "HOLDS"
+    },
+    "T2plus_to_T3": {
+      "assumption": "every first component-changing Z3 must target a q91-incident hexagon; the q91-incident hexagon set {40,82,90,91,92} was independently recomputed via exact.HEX_POSITION[orbit_word(91,phase)] for all 5 phases, matching the claim",
+      "status": "HOLDS -- q91-incident hexagon set is closed and exhaustive"
+    },
+    "T3_plus_direct_Z2_lemma_to_T4": {
+      "assumption": "the direct-Z2 lemma (orbit-91-hexagon-set disjoint from hub-hexagon-set) established four rounds ago and unaffected by this round",
+      "AB_dichotomy_exhaustiveness": "definitional binary partition: any pre-R2 bridge edge either changes C_R1's membership at the moment it fires (case B, requires prior component-changing Z3, ruled out by T3) or it does not (case A, covered directly by the direct-Z2 lemma) -- no third case possible by definition",
+      "hidden_third_mechanism_found": false,
+      "status": "HOLDS"
+    }
+  },
+  "section_7_proof_style_classification": {
+    "engine_semantics_proof": [
+      "extend() add-only bit semantics / no-repeat gate on every transition",
+      "macro transitions cannot smuggle internal revisit"
+    ],
+    "finite_84_anchor_certificate": [
+      "h40 full mask / 245130 visited / endpoint != 245130 across 84 anchors"
+    ],
+    "exhaustive_replay_certificate": [
+      "1,325,308-edge monotonicity replay",
+      "hex82_in_r1_component_nodes == 0 over 1,325,392 nodes",
+      "T2+ completeness (first_component_change_witnesses == 0 on full corpus)"
+    ],
+    "pure_hand_proof": [
+      "unique weight-2 predecessor of 513042 is 245130 (720-permutation brute force)",
+      "Z3 cannot retarget an already-registered orbit; R-kind is terminal R2",
+      "hex-82 rotation table has exactly 6 words, 5 non-q91 (from-scratch recomputation)",
+      "direct-Z2 lemma (orbit-91-set disjoint from hub-set, established four rounds ago)",
+      "A/B dichotomy exhaustiveness (definitional binary partition)"
+    ],
+    "shortest_proof_chain": "engine-semantics(add-only/no-repeat) + finite-84-anchor(h40 full, 0/84 at 245130) => unique w2 predecessor of q91:p2 can never fire again (hand proof) => q91:p2 never registers (backed by 1.3M-node exhaustive replay of the GENERAL component check) => none of five h82 routes fire (T2b) => + Round-60 T2a (already verified) => T2+ => T3 (hand proof, q91-incident hexagon set closed) => T4 via definitional A/B dichotomy + direct-Z2 lemma"
+  },
+  "section_8_scope": {
+    "strongest_valid_theorem": "Within short_ell2_r1_37's 84 frozen Stage-D anchors and all of their exact (literal-permutation, exact no-repeat) descendants, strictly after R1 and strictly before any R2 event: no legal transition sequence can register the q91:p2 incidence (513042); consequently hexagon 82 never joins C_R1 in this family; consequently none of the five hex-82 first-component-changing Z3 routes can fire; combined with Round 60's independently-verified closure of {40,90,91,92}, no first component-changing Z3 of any kind can occur in this family (T3); and combined with the previously-established direct-Z2 lemma, no pre-R2 edge can bridge C_R1 to the hub component in this family (T4).",
+    "explicit_non_generalizations": [
+      "does not apply to any short root other than short_ell2_r1_37",
+      "does not apply beyond the 84 frozen Stage-D anchors and their exact stored/replayed descendants",
+      "does not apply to the post-R2 regime",
+      "does not apply under any relaxation of exact no-repeat semantics (e.g. quotiented/symmetry-reduced state space)",
+      "does not generalize to all 439 children",
+      "does not generalize to NR6 globally",
+      "does not imply any bound on L6"
+    ]
+  },
+  "explicit_non_claims": [
+    "does not claim exhaustion of the full state space beyond the six immutable Stage-D checkpoints' stored/replayed corpus",
+    "does not re-verify Round 60's T2a content from scratch (relies on its previously-established, gated verified status)",
+    "does not generalize beyond short_ell2_r1_37's frozen 84-anchor descendant family",
+    "no search run this round; all checks are hash verification, direct recomputation from raw data/fixed tables, and deterministic replay of already-given literal paths"
+  ],
+  "test_suite": {"command": "python3 -m unittest discover -s tests", "result": "134 tests passing"},
+  "end_token": "CLAUDE_T4_VERIFIED"
+}
