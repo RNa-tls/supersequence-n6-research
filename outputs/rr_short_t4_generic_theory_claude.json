@@ -1,0 +1,117 @@
+{
+  "schema": "rr-short-t4-generic-theory-claude-v1",
+  "author": "Claude",
+  "role": "theory synthesis -- no new search run, generalizes already-verified short_ell2_r1_37 T4 proof",
+  "base_case": {
+    "branch": "short_ell2_r1_37",
+    "verification_document": "research/RR_SHORT_ELL2_R1_37_T4_FINAL_VERIFICATION_CLAUDE.md",
+    "end_token": "CLAUDE_T4_VERIFIED"
+  },
+  "section_1_layer_decomposition": [
+    {
+      "layer": "A_predecessor_blocking",
+      "engine_universal_mechanism": "extend() add-only occupancy + no-repeat gate; unique weight-2 bijection predecessor",
+      "branch_specific_certificate": "which literal window is the predecessor, and whether it is visited-everywhere/terminal-nowhere across the frozen anchor family"
+    },
+    {
+      "layer": "B_direct_bridge_blocking",
+      "engine_universal_mechanism": "non-abandoning Z2 target orbit must already be open (new_orbit=False); while a component is single-orbit, only that orbit is already-open",
+      "branch_specific_certificate": "R1-target orbit's phase-hexagon set disjoint from hub's touched-hexagon set"
+    },
+    {
+      "layer": "C_first_component_change_blocking",
+      "engine_universal_mechanism": "incidence edges union components only via a shared (h,hexagon) vertex, created only by a transition's target orbit/phase",
+      "branch_specific_certificate": "complete enumeration of every orbit-phase incidence landing in the R1-target orbit's hexagon set, each shown obstructed"
+    }
+  ],
+  "section_2_classification": {
+    "engine_universal": [
+      "extend() hex_masks copy + OR-only bit update, no clear operation exists",
+      "extend() rejects transitions targeting an already-visited window (no-repeat precondition on every legal transition)",
+      "exactly one weight-2 move among 550 total moves; word_after under a fixed move is a bijection on the 720-permutation space; every permutation has a unique weight-2 predecessor",
+      "joint_kind: Z2 (weight2, non-abandoning) requires new_orbit=False (target orbit already open); Z3 requires new_orbit=True (target orbit fresh); R (weight3, new_orbit=False) after R1 is immediately evaluated as terminal R2, never an intermediate registration step -- confirmed directly from analyze_f1_n2_defects.py::joint_kind this round",
+      "incidence-component vertices are (q,orbit) and (h,hexagon); edges created only by a transition's target orbit/phase and its fixed hexagon; two components merge only via a shared (h,hexagon) vertex",
+      "ORBIT_PHASE / HEX_POSITION are fixed global O(1) lookup tables, independent of branch"
+    ],
+    "branch_specific": [
+      "identity of q_R1 (fixes Phi(q_R1), a specific finite hexagon set)",
+      "the frozen anchor family A itself (which states, how many -- 84 for short_ell2_r1_37 -- and their exact content)",
+      "per-hexagon visited-everywhere/terminal-nowhere status across A",
+      "completeness of the candidate-incidence enumeration into Phi(q_R1) (no omitted route)"
+    ],
+    "uncertain_flagged_unresolved": [
+      "whether the hub's touched-hexagon set {0,1,4,6,8,9,18,24,96} is truly engine-universal (fixed regardless of which orbit is R1-target) or a branch-specific derived quantity that happens to coincide across branches examined so far -- NOT resolved in this document"
+    ]
+  },
+  "section_3_vnts_lemma": {
+    "name": "Visited Non-Terminal Source (VNTS) / predecessor-blocking lemma",
+    "statement": "Let tau be any literal window targeted by the unique weight-2 move, sigma its unique weight-2 predecessor, A a finite anchor family. If (H1) sigma is visited at every anchor in A, and (H2) no anchor's current endpoint equals sigma, then no exact descendant of A can ever have sigma as its current endpoint, so the weight-2 move into tau can never fire in any descendant.",
+    "proof_sketch": "H1 propagates by monotonicity (add-only bits). For sigma to become a descendant's endpoint, some transition must target it, but extend() rejects targeting an already-visited window, and sigma stays visited throughout by monotonicity; H2 rules out the anchor itself already being there. Hence sigma is never reached, so the move sourced there never fires.",
+    "why_no_search_needed": "the conclusion quantifies over all exact descendants (potentially enormous), but the proof only inspects the finite anchor family via H1/H2 plus fixed transition rules -- an induction argument, not enumeration",
+    "full_hex_corollary": {
+      "name": "Full-Hex Provenance Obstruction",
+      "statement": "if hex_masks[h]=0b111111 at every anchor and no anchor's endpoint lies in h, VNTS applies simultaneously to all six windows of h as sources",
+      "instance_this_round": "h=40, discharging sigma=245130 (window 1 of hex 40) as one of six free-by-product discharges"
+    }
+  },
+  "section_4_h82_generalization": {
+    "label": "CLAUDE_OBSERVATION + CLAUDE_HAND_PROOF",
+    "is_instance_of_broader_principle": true,
+    "key_correction": "h82's own occupancy mask is 0 at 81/84 anchors (histogram {0:81,2:1,4:1,63:1}) -- the naive 'h82 is full' framing is false and was explicitly rejected in Codex's own occupancy_audit.json text",
+    "actual_mechanism": "cross-hexagon VNTS instance: target tau=513042 sits in hexagon 82, but its unique weight-2 predecessor sigma=245130 sits in a DIFFERENT hexagon, 40; the Full-Hex corollary is applied to h=40, not h=82",
+    "generalization": "VNTS/Full-Hex obstruction never requires the target's own hexagon to be full -- only that SOME hexagon, wherever the predecessor lives, is full-and-non-terminal. Cross-hexagon discharge should be expected as the typical case in future branches, not a special exception."
+  },
+  "section_5_minimal_hypotheses": {
+    "no_direct_z2_bridge": [
+      "D1 [engine-universal]: non-abandoning Z2 target orbit must already be open (new_orbit=False)",
+      "D2 [branch-specific]: while C_qR1 consists of q_R1 alone, the only already-open orbit reachable is q_R1 itself, so Z2 reach is confined to Phi(q_R1)",
+      "D3 [branch-specific, finite table check]: Phi(q_R1) intersect H_hub = empty set"
+    ],
+    "no_first_component_changing_z3": [
+      "C1 [engine-universal]: incidence edges union components only via shared (h,hexagon) vertex, created only by target orbit/phase",
+      "C2 [branch-specific]: Phi(q_R1) is fixed and finite",
+      "C3 [branch-specific, completeness proof required]: complete enumeration of every orbit-phase incidence mapping into Phi(q_R1) other than q_R1's own phases",
+      "C4 [branch-specific, per-candidate]: every enumerated candidate individually obstructed via Full-Hex on its own hexagon or a cross-hexagon VNTS instance"
+    ],
+    "no_pre_r2_bridge_T4": [
+      "union of no_direct_z2_bridge and no_first_component_changing_z3 hypotheses",
+      "T4-dichotomy [purely definitional, no extra hypothesis]: any pre-R2 bridge either changes C_qR1's membership when it fires (needs a prior first component-changing Z3, blocked by C-set) or it does not (must itself be a direct bridge from single-orbit C_qR1, blocked by D-set); these two cases are exhaustive and mutually exclusive by definition"
+    ]
+  },
+  "section_6_counterexamples": [
+    {
+      "dropped_hypothesis": "H1 (sigma visited at every anchor)",
+      "counterexample": "if some anchor has sigma unvisited, a two-step descendant can first legally transition INTO sigma (legal since unvisited), making it simultaneously visited and current endpoint, then immediately fire the weight-2 move onward to tau -- directly registering tau, contradicting the conclusion"
+    },
+    {
+      "dropped_hypothesis": "H2 (no anchor terminal at sigma)",
+      "counterexample": "if some anchor's current endpoint is exactly sigma (consistent with H1, since being there implies visited), that anchor can fire the weight-2 move in one step, immediately registering tau -- exactly why Codex tracked '245130 visited: 84/84' and 'endpoint=245130: 0/84' as two separate, independently necessary metrics"
+    },
+    {
+      "dropped_hypothesis": "D3 (Phi(q_R1) intersect H_hub = empty)",
+      "counterexample": "if some hexagon h* belonged to both sets, registering q_R1's own remaining phase in h* is a fully legal Z2 transition (targets the already-open q_R1) that immediately unions C_qR1 with hub through the shared (h*,hexagon) vertex -- a literal one-step direct Z2 bridge"
+    },
+    {
+      "dropped_hypothesis": "C3 (completeness of candidate enumeration)",
+      "counterexample": "an omitted sixth route lets every enumerated candidate be individually proved obstructed (C4 holds vacuously) while T2+ is nonetheless false, since the omitted candidate can still fire and change C_qR1's membership -- undetectable from inside an incomplete enumeration, which is why the prior round required a from-scratch rotation-table recomputation rather than trusting a stored route list"
+    }
+  ],
+  "section_7_inheritance_checklist": [
+    {"item": 1, "name": "Phi(q') incidence set", "cost": "free, O(1) fixed-table lookup"},
+    {"item": 2, "name": "hub disjointness certificate Phi(q') intersect H_hub = empty", "cost": "free table check IF hub is engine-universal (open question); otherwise requires fresh recomputation"},
+    {"item": 3, "name": "full candidate enumeration into Phi(q'), from scratch via fixed rotation table", "cost": "finite, mechanically checkable, guards against the C3 counterexample"},
+    {"item": 4, "name": "per-candidate discharge (Full-Hex on own hexagon, or cross-hexagon VNTS)", "cost": "finite, per-candidate"},
+    {"item": 5, "name": "anchor-level ledger: per-anchor hex_masks[h_src]==63 and endpoint not in windows(h_src)", "cost": "finite, size = |A'|"},
+    {"item": 6, "name": "full-corpus monotonicity replay over every parent-to-child macro edge", "cost": "finite, size = full stored descendant corpus, not just frontier"},
+    {"item": 7, "name": "full-corpus general component-membership replay (union-find query, not a mask shortcut)", "cost": "finite; subsumes most of items 4-5's discharge burden; strongest single safety net against hidden alternative mechanisms"}
+  ],
+  "explicit_non_claims": [
+    "no new fact proved about any specific branch's state space",
+    "short_ell2_r1_37's own T4 scope is unchanged from the prior verification round",
+    "hub-hexagon-set engine-universality is explicitly left open, not resolved",
+    "candidate-enumeration completeness (item 3) is stated as a requirement, not proved achievable in bounded time for an arbitrary orbit q'",
+    "no claim that any given future branch's D3/C4 certificates will actually hold -- only that IF supplied, T4 follows automatically",
+    "no search run this round; all content is proof-structure reorganization plus one direct engine-source read (joint_kind) confirming the Z2/Z3/R classification used throughout"
+  ],
+  "end_token": "CLAUDE_T4_GENERIC_THEORY_READY"
+}
