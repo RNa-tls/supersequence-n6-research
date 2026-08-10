@@ -9,6 +9,12 @@
     "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
     "common_root_commit": "7dce52e"
   },
+  "freshness": {
+    "last_synced_against_codex_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "check_procedure": "git fetch --all --prune && git log --oneline origin/codex/round-r1-37-hex82-t4 -3; compare HEAD to last_synced_against_codex_commit",
+    "automated": false,
+    "note": "manual check only; no scheduled trigger currently re-runs this"
+  },
   "executive_summary": {
     "goal": "Determine L(6), the length of the shortest string containing all 720 permutations of 6 symbols as contiguous substrings",
     "proved_unconditional": {"lower_bound": 867, "lower_bound_source": "Houston/Pantone/Vatter, arXiv:1408.5108, cited not re-derived", "upper_bound": 872, "upper_bound_source": "explicit witness independently verified in this repo (data/verified_872_witness.txt)"},
@@ -40,6 +46,17 @@
     "R_event": "weight-3 non-abandoning joint with new_orbit=False (re-entry into an already-open orbit)",
     "Z2": "the engine's unique weight-2 non-abandoning move",
     "Z3": "weight-3 non-abandoning joint with new_orbit=True (opens a fresh orbit)",
+    "joint_kind_full_table": {
+      "source": "legacy_research/work/analyze_f1_n2_defects.py::joint_kind, all 8 (weight,abandoning,new_orbit) combinations",
+      "w2_no_abandon_existing": "Z2_blocked_w2_existing",
+      "w2_abandon_new": "Z2_abandon_w2_new",
+      "w2_abandon_existing": "A2_abandon_w2_existing",
+      "w2_no_abandon_new": "forbidden_blocked_w2_new (cannot occur)",
+      "w3_no_abandon_new": "Z3_blocked_w3_new",
+      "w3_no_abandon_existing": "R_blocked_w3_existing",
+      "w3_abandon_new": "A3_abandon_w3_new",
+      "w3_abandon_existing": "J_abandon_w3_existing_charge2 (this is the J-branch charge-2 joint referenced throughout sec4/sec5 of the master doc)"
+    },
     "R1_R2": "first and second R events in an RR word",
     "Target_A": "an R2 macro-edge whose child has F_def=1,H=0 and whose R2 source/target orbits share an incidence component",
     "Target_B": "an admissible R-free, F/H-preserving terminal continuation from a Target-A boundary",
@@ -67,7 +84,7 @@
     {"id": "move_weight_distribution", "claim": "550 total moves, weight distribution {1:1,2:1,3:3,4:13,5:71,6:461}", "scope": "n=6 engine move alphabet", "evidence": "EC, runtime-asserted", "source": "legacy_research/work/superperm_partial_f1.py lines ~108-122", "status": "valid"},
     {"id": "indecomposable_tail_counts", "claim": "(a) symbol-preservation count (w-1)!; (b) all indecomposable tails per weight = 1,1,3,13,71,461", "scope": "n=6 engine", "evidence": "HP+EC", "source": "KO-RECORD sec3.3; superperm_partial_f1.py", "status": "valid"},
     {"id": "direct_r_flip_weight4", "claim": "not found under this name in either branch tree", "scope": "n/a", "evidence": "NOT_FOUND", "source": "n/a", "status": "not_locatable"},
-    {"id": "f0_full_cassette", "claim": "F=0 => H>=6 => L>=873, restricted to the 24 complete cassettes", "scope": "explicitly restricted to the full-cassette range, not general F=0", "evidence": "HP+EC", "source": "KO-RECORD sec6", "status": "valid, scope-limited"},
+    {"id": "f0_full_cassette", "canonical_name": "G2", "claim": "F=0 => H>=6 => L>=873, restricted to the 24 complete cassettes", "scope": "explicitly restricted to the full-cassette range, not general F=0", "evidence": "HP+EC", "source": "KO-RECORD sec6 (section titled 'F=0 full-cassette branch: G2')", "status": "valid, scope-limited", "note": "G2 is the only member of a G-series found anywhere in either branch tree; no G1 or G3 exists in this repo as of the freshness check above -- do not cite either without first verifying via git grep"},
     {"id": "f_le_1_regime", "claim": "F_def<=1 is the active regime for the entire RR-short program", "scope": "RR-short program", "evidence": "HP (definitional) + engine constant TARGET_F=1", "source": "superperm_partial_f1.py; STATUS.md", "status": "valid, unretracted"},
     {"id": "saturated_cover_genus_zero", "claim": "every saturated 25-E-orbit cover has ribbon-surface genus 0", "scope": "saturated k=1 corner (F,D,N)=(5,0,0),H<=3", "evidence": "EC", "source": "KO-RECORD sec8, legacy_research/outputs/GENUS_ZERO_CERTIFICATE.md", "status": "valid"},
     {"id": "saturated_cover_multiplicity_2", "claim": "hexagon multiplicity is exactly 115x1+5x2, no triples", "scope": "same saturated corner", "evidence": "EC", "source": "KO-RECORD sec9, legacy_research/outputs/MULTIPLICITY_TWO_THEOREM.md", "status": "valid"},

@@ -23,6 +23,24 @@ that specific commit; facts from the Claude side are cited against this
 project's own branch. No merge between the two has occurred; this document
 is the first artifact that reads both trees together.
 
+**Freshness.** This document was last synchronized against
+`codex/round-r1-37-hex82-t4` at commit `1f9efff0809c47e7ca1857ed6c7734c20e78f081`
+(no commits beyond this were reachable at last check). Before trusting
+this document as current, or before adding a new round's results to it,
+run:
+
+```
+git fetch --all --prune
+git log --oneline origin/codex/round-r1-37-hex82-t4 -3
+```
+
+and compare the HEAD against the commit above. If it has moved, this
+document is stale until the new round's results are reviewed and folded
+in (§5's invalidated-results discipline applies to keeping this document
+itself honest, not just to the underlying research). This is a manual
+check, not an automated one — no trigger currently re-runs it on a
+schedule; that would be a separate, explicit setup if wanted.
+
 ---
 
 ## Executive summary
@@ -197,6 +215,25 @@ Definitions:
   source.
 - **Z3** — a weight-3, non-abandoning joint with `new_orbit=True`: opens a
   fresh E-orbit. Same source.
+- **A2, A3, J (the abandoning joint kinds)** — the `joint_kind` classifier
+  (`legacy_research/work/analyze_f1_n2_defects.py::joint_kind`) covers
+  eight `(weight, abandonment, new_orbit)` combinations in total; §3's Z2/
+  Z3/R entries above are only the three non-abandoning ones. The complete
+  table, added here because an earlier draft of this document omitted the
+  abandoning half:
+  | weight | abandoning | new_orbit | `joint_kind` label |
+  |---|---|---|---|
+  | 2 | no | no | `Z2_blocked_w2_existing` |
+  | 2 | yes | yes | `Z2_abandon_w2_new` |
+  | 2 | yes | no | **`A2_abandon_w2_existing`** |
+  | 2 | no | yes | `forbidden_blocked_w2_new` (this combination cannot occur) |
+  | 3 | no | yes | `Z3_blocked_w3_new` |
+  | 3 | no | no | `R_blocked_w3_existing` |
+  | 3 | yes | yes | **`A3_abandon_w3_new`** |
+  | 3 | yes | no | **`J_abandon_w3_existing_charge2`** — this is the
+    §4/§5's "J-branch" charge-2 joint (F=1,H=0,N=2 program) named
+    elsewhere in this document only informally as "J"; this row is its
+    precise engine-level definition. |
 - **R1 / R2** — the first and second R events in an "RR word" (an RR word
   is constructed to have exactly two R events). Source: `STATUS.md`.
 - **Target A** — an R2 macro-edge whose resulting child has `F_def=1,
@@ -326,7 +363,7 @@ and code). The closest adjacent material is the F=0 full-cassette result
 chain-end tails are two specific permutations, not a general theorem. This
 document does not invent a citation for this item.
 
-### 4.7 F=0 / "full-cassette" result
+### 4.7 F=0 / "full-cassette" result — canonical name **G2**
 
 - **CLAIM.** `F=0 => H>=6 => L>=873`, via a finite group-theoretic
   argument restricted to the 24 complete cassettes and their weight-3
@@ -337,7 +374,15 @@ document does not invent a citation for this item.
   group-theory theorem for the specified full-cassette range, and this
   distinction must be kept."
 - **EVIDENCE.** [HP] + [EC] (finite group computation over 24 cassettes).
-- **SOURCE.** KO-RECORD §6.
+- **SOURCE.** KO-RECORD §6, whose own section title is literally
+  *"`F=0` full-cassette 가지: G2"* — this document's earlier draft
+  described this result's content but never used its source-canonical
+  short name; corrected here. There is no "G1" or "G3" section anywhere
+  in KO-RECORD or elsewhere in either branch tree (checked directly via
+  `git grep` across every branch's full history) — G2 is the only member
+  of a "G-series" that exists in this repository. Do not assume a "G1" or
+  "G3" result exists without checking first; this document will not cite
+  either until one is actually found.
 - **STATUS.** "Proved in that range" per KO-RECORD's own final status
   table; currently valid, unretracted, still explicitly scope-limited.
 
