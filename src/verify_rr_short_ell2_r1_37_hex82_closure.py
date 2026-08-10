@@ -21,6 +21,7 @@ MANIFEST_PATH = ROOT / "outputs" / "rr_short_ell2_r1_37_first_component_z3_manif
 RESULT_PATH = ROOT / "outputs" / "rr_short_ell2_r1_37_first_component_z3_results.json"
 ROUND60_PATH = ROOT / "outputs" / "rr_short_ell2_r1_37_c4_verified.json"
 VERIFIED_OUT = ROOT / "outputs" / "rr_short_ell2_r1_37_hex82_verified.json"
+H40_OUT = ROOT / "outputs" / "rr_short_ell2_r1_37_h40_anchor_fullness.json"
 
 search, rr, exact, pilot, core, macro = fz1.search, fz1.rr, fz1.exact, fz1.pilot, fz1.core, fz1.macro
 W1 = macro.W1
@@ -90,7 +91,127 @@ def independently_build_entries():
     return route_rows, entries
 
 
-def verify_static_certificate(route_rows) -> dict[str, object]:
+def h40_incidences(state) -> list[dict[str, object]]:
+    rows = []
+    for q, mask in enumerate(state.orbit_masks):
+        for phase in range(5):
+            if not (mask & (1 << phase)):
+                continue
+            value = orbit_word(q, phase)
+            h, position = exact.HEX_POSITION[value]
+            if h == 40:
+                rows.append({
+                    "orbit": q, "phase": phase, "word": list(value),
+                    "hex_position": position,
+                })
+    return rows
+
+
+def build_h40_anchor_ledger(manifest: Mapping[str, object]) -> dict[str, object]:
+    """Cross-check every manifest anchor against its immutable source frontier."""
+    source_by_seed = {str(row["seed_id"]): row for row in manifest["source_checkpoints"]}
+    records_by_seed = defaultdict(list)
+    for row in manifest["start_domain"]["records"]:
+        records_by_seed[str(row["seed_id"])].append(row)
+    h40_words = tuple(core.orbit(core.ROT_REPS[40], core.SIGMA))
+    forbidden_source = (2, 4, 5, 1, 3, 0)
+    anchor_rows = []
+    checkpoint_rows = []
+    for seed_id in search.SOURCE_IDS:
+        source = source_by_seed[seed_id]
+        path = ROOT / source["checkpoint_path"]
+        actual_sha = sha256_file(path)
+        if actual_sha != source["checkpoint_sha256"]:
+            raise AssertionError(f"immutable source checkpoint changed: {seed_id}")
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        if raw.get("schema") != source["checkpoint_schema"]:
+            raise AssertionError(f"source checkpoint schema mismatch: {seed_id}")
+        frontier = {str(row["node_id"]): row for row in raw["frontier"]}
+        if len(frontier) != int(source["frontier_count"]):
+            raise AssertionError(f"source frontier count mismatch: {seed_id}")
+        expected = records_by_seed[seed_id]
+        if len(expected) != len(frontier):
+            raise AssertionError(f"manifest/source anchor count mismatch: {seed_id}")
+        for record in expected:
+            node_id = str(record["source_node_id"])
+            raw_row = frontier.get(node_id)
+            if raw_row is None:
+                raise AssertionError(f"manifest anchor absent from source checkpoint: {node_id}")
+            for field, manifest_field in (
+                ("state", "state"), ("decoration", "decoration"), ("path_hash", "source_path_hash"),
+                ("depth", "source_depth"), ("relative_depth", "source_relative_depth"),
+            ):
+                if raw_row[field] != record[manifest_field]:
+                    raise AssertionError(f"source anchor field mismatch: {node_id}: {field}")
+            state = exact.state_from_json(raw_row["state"])
+            if rr.state_hash(state) != str(record["exact_state_hash"]):
+                raise AssertionError(f"manifest exact-state hash mismatch: {node_id}")
+            mask = int(state.hex_masks[40])
+            windows = [{
+                "hex_position": position, "word": list(value),
+                "visited": bool(mask & (1 << position)),
+            } for position, value in enumerate(h40_words)]
+            incidences = h40_incidences(state)
+            anchor_rows.append({
+                "seed_id": seed_id,
+                "source_frontier_index": int(record["source_frontier_index"]),
+                "source_node_id": node_id,
+                "source_path_hash": str(record["source_path_hash"]),
+                "exact_state_hash": rr.state_hash(state),
+                "manifest_exact_state_hash": str(record["exact_state_hash"]),
+                "source_checkpoint_path": source["checkpoint_path"],
+                "source_checkpoint_sha256": actual_sha,
+                "h40_registered_in_incidence_graph": bool(incidences),
+                "h40_registration_incidences": incidences,
+                "h40_literal_window_count_visited": mask.bit_count(),
+                "h40_occupancy_mask": mask,
+                "h40_occupancy_mask_binary": format(mask, "06b"),
+                "h40_full": mask == exact.FULL_HEX,
+                "h40_windows": windows,
+                "current_endpoint": list(state.p),
+                "current_endpoint_is_245130": state.p == forbidden_source,
+                "literal_245130_already_visited": state.visited(forbidden_source),
+            })
+        checkpoint_rows.append({
+            "seed_id": seed_id, "path": source["checkpoint_path"],
+            "sha256": actual_sha, "schema": raw["schema"],
+            "frontier_count": len(frontier), "manifest_records": len(expected),
+        })
+    anchor_rows.sort(key=lambda row: (search.SOURCE_IDS.index(str(row["seed_id"])), int(row["source_frontier_index"])))
+    if len(anchor_rows) != 84:
+        raise AssertionError("h40 anchor ledger did not contain 84 rows")
+    registered = sum(bool(row["h40_registered_in_incidence_graph"]) for row in anchor_rows)
+    full = sum(bool(row["h40_full"]) for row in anchor_rows)
+    endpoint = sum(bool(row["current_endpoint_is_245130"]) for row in anchor_rows)
+    visited = sum(bool(row["literal_245130_already_visited"]) for row in anchor_rows)
+    if (registered, full, endpoint, visited) != (84, 84, 0, 84):
+        raise AssertionError(f"critical h40 premise failed: {(registered, full, endpoint, visited)}")
+    return {
+        "schema": "rr-short-ell2-r1-37-h40-anchor-fullness-v1",
+        "scope": "84 frozen Stage-D anchors copied from six immutable all-13 frontier checkpoints",
+        "anchor_count": len(anchor_rows),
+        "source_checkpoint_count": len(checkpoint_rows),
+        "summary": {
+            "h40_registered_count": registered,
+            "h40_full_count": full,
+            "h40_mask_histogram": dict(Counter(str(row["h40_occupancy_mask"]) for row in anchor_rows)),
+            "h40_window_count_histogram": dict(Counter(str(row["h40_literal_window_count_visited"]) for row in anchor_rows)),
+            "endpoint_245130_count": endpoint,
+            "literal_245130_visited_count": visited,
+            "required_premise_holds": full == 84 and endpoint == 0,
+        },
+        "semantic_separation": {
+            "registered": "at least one used E-orbit phase is incident with h40",
+            "full": "all six literal permutation-window bits of h40 are set",
+            "registered_was_not_used_as_a_substitute_for_full": True,
+        },
+        "h40_rotation_words": [list(value) for value in h40_words],
+        "source_checkpoints": checkpoint_rows,
+        "anchors": anchor_rows,
+    }
+
+
+def verify_static_certificate(route_rows, h40_ledger: Mapping[str, object] | None = None) -> dict[str, object]:
     routes = json.loads(ROUTES_PATH.read_text(encoding="utf-8"))
     backward = json.loads(BACKWARD_PATH.read_text(encoding="utf-8"))
     occupancy = json.loads(OCCUPANCY_PATH.read_text(encoding="utf-8"))
@@ -123,10 +244,28 @@ def verify_static_certificate(route_rows) -> dict[str, object]:
         raise AssertionError("q91:p2 was already registered at an anchor")
     if result["aggregate"]["first_component_change_witnesses"] != 0:
         raise AssertionError("Stage-D result already contains a component change")
+    # Route completeness is a fixed 144-orbit-table statement.  The five
+    # non-q91 windows of h82 are precisely the five unresolved cases.
+    all_h82_non_q91 = sorted(
+        (int(exact.ORBIT_PHASE[value][0]), int(exact.ORBIT_PHASE[value][1]), position)
+        for position, value in enumerate(core.orbit(core.ROT_REPS[82], core.SIGMA))
+        if int(exact.ORBIT_PHASE[value][0]) != 91
+    )
+    if all_h82_non_q91 != sorted(ROUTES):
+        raise AssertionError(f"hex82 route completeness failed: {all_h82_non_q91}")
+    r1_hexagons = sorted(exact.HEX_POSITION[orbit_word(91, phase)][0] for phase in range(5))
+    if r1_hexagons != [40, 82, 90, 91, 92]:
+        raise AssertionError("q91 phase-linked hexagon table changed")
+    if h40_ledger is not None and not h40_ledger["summary"]["required_premise_holds"]:
+        raise AssertionError("h40 per-anchor ledger rejected the critical premise")
     ladder = occupancy["theorem_ladder"]
     if not all(str(ladder[key]).startswith("PROVED") for key in ("T2", "T2a", "T2b", "T2+", "T3", "T4")):
         raise AssertionError("theorem ladder was not serialized as proved in its stated scope")
-    return {"q91_p2": list(q91p2), "unique_z2_source": list(z2_source), "anchor_count": len(roots)}
+    return {
+        "q91_p2": list(q91p2), "unique_z2_source": list(z2_source), "anchor_count": len(roots),
+        "hex82_non_q91_routes": [list(row) for row in all_h82_non_q91],
+        "q91_phase_linked_hexagons": r1_hexagons,
+    }
 
 
 def independent_full_replay(entries: Mapping[tuple[int, ...], list[tuple]]) -> dict[str, object]:
@@ -135,7 +274,7 @@ def independent_full_replay(entries: Mapping[tuple[int, ...], list[tuple]]) -> d
     result_by_seed = {str(row["seed_id"]): row for row in result["branches"]}
     per_route = {f"hex82_q{q}_p{phase}": Counter() for q, phase, _pos in ROUTES}
     nodes = expanded = frontier_total = 0
-    q91p2_nodes = source_nodes = 0
+    q91p2_nodes = source_nodes = monotone_macro_edges = 0
     z2_source = inverse_source(orbit_word(91, 2), W2)
     branches = []
     for seed_id in search.SOURCE_IDS:
@@ -162,6 +301,9 @@ def independent_full_replay(entries: Mapping[tuple[int, ...], list[tuple]]) -> d
             else:
                 parent_state, parent_dec = active[parent_id]
                 edge = pilot.edge_from_json(parent_state, stored["incoming_macro_edge"])
+                if any(before & ~after for before, after in zip(parent_state.hex_masks, edge.state.hex_masks)):
+                    raise AssertionError(f"literal-window occupancy decreased: {node_id}")
+                monotone_macro_edges += 1
                 verdict, dec, recognition = rr.evaluate_edge(
                     parent_state, parent_dec, edge, prune_profile=rr.TARGET_A_SAFE_PROFILE
                 )
@@ -204,6 +346,7 @@ def independent_full_replay(entries: Mapping[tuple[int, ...], list[tuple]]) -> d
     return {
         "nodes": nodes, "expanded": expanded, "frontier": frontier_total,
         "q91_p2_registered_nodes": q91p2_nodes, "unique_z2_source_terminal_nodes": source_nodes,
+        "monotone_macro_edges_checked": monotone_macro_edges,
         "M1_by_route": {key: int(value["M1_orbit_phase_macro_match"]) for key, value in per_route.items()},
         "M1_total": sum(int(value["M1_orbit_phase_macro_match"]) for value in per_route.values()),
         "branches": branches,
@@ -212,7 +355,10 @@ def independent_full_replay(entries: Mapping[tuple[int, ...], list[tuple]]) -> d
 
 def main() -> int:
     route_rows, entries = independently_build_entries()
-    static = verify_static_certificate(route_rows)
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    h40_ledger = build_h40_anchor_ledger(manifest)
+    write_json(H40_OUT, h40_ledger)
+    static = verify_static_certificate(route_rows, h40_ledger)
     replay = independent_full_replay(entries)
     mitm = json.loads(MITM_PATH.read_text(encoding="utf-8"))
     serialized_by_route = {row["route_id"]: int(row["counts"].get("M1_orbit_phase_macro_match", 0))
@@ -235,11 +381,13 @@ def main() -> int:
         "full_replay": replay,
         "verified_claims": [
             "five route specifications", "unique q91:p2 Z2 predecessor", "84-anchor h40 occupancy invariant",
-            "finite predecessor-obligation closure", "M1 count conservation", "M2-M5 absence",
+            "registered/full semantic separation", "literal-window occupancy monotonicity",
+            "finite predecessor-obligation closure", "route completeness", "M1 count conservation", "M2-M5 absence",
             "T2b/T2+/T3/T4 in the explicitly stated frozen-anchor descendant scope",
         ],
         "artifact_sha256": {str(path.relative_to(ROOT)): sha256_file(path) for path in (
-            ROUTES_PATH, BACKWARD_PATH, MITM_PATH, OCCUPANCY_PATH, MANIFEST_PATH, RESULT_PATH, ROUND60_PATH
+            ROUTES_PATH, BACKWARD_PATH, MITM_PATH, OCCUPANCY_PATH, H40_OUT,
+            MANIFEST_PATH, RESULT_PATH, ROUND60_PATH
         )},
         "verifier_sha256": sha256_file(Path(__file__)),
     }

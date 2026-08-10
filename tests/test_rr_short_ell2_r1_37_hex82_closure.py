@@ -43,10 +43,18 @@ class Hex82ClosureTests(unittest.TestCase):
 
     def test_independent_static_reconstruction(self) -> None:
         route_rows, _entries = verifier.independently_build_entries()
-        result = verifier.verify_static_certificate(route_rows)
+        manifest = json.loads(verifier.MANIFEST_PATH.read_text(encoding="utf-8"))
+        h40 = verifier.build_h40_anchor_ledger(manifest)
+        result = verifier.verify_static_certificate(route_rows, h40)
         self.assertEqual(result["q91_p2"], [5, 1, 3, 0, 4, 2])
         self.assertEqual(result["unique_z2_source"], [2, 4, 5, 1, 3, 0])
         self.assertEqual(result["anchor_count"], 84)
+        self.assertEqual(result["hex82_non_q91_routes"], [
+            [42, 1, 2], [78, 3, 4], [82, 0, 0], [83, 4, 5], [128, 2, 1],
+        ])
+        self.assertEqual(h40["summary"]["h40_registered_count"], 84)
+        self.assertEqual(h40["summary"]["h40_full_count"], 84)
+        self.assertEqual(h40["summary"]["endpoint_245130_count"], 0)
 
 
 if __name__ == "__main__":

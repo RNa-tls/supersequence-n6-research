@@ -3,6 +3,7 @@
     "outputs\\rr_short_ell2_r1_37_c4_verified.json": "09ef0051fb2c3b55b652ba04e869471a9eaf16689fa7c97dc43e046ae5579aae",
     "outputs\\rr_short_ell2_r1_37_first_component_z3_manifest.json": "7fb263242d7358d0ddcf36c2d9159f5b1ff3cfd5ea0e0770dede8b0c5ba2ff6b",
     "outputs\\rr_short_ell2_r1_37_first_component_z3_results.json": "569c3f371ed4d985ec9fde28fd16479b72d3453227782345b865ac49280a12ac",
+    "outputs\\rr_short_ell2_r1_37_h40_anchor_fullness.json": "16351859714568a1c6d32dabf0a4541fc902ea4909dac3a823f58d1ad5f34443",
     "outputs\\rr_short_ell2_r1_37_hex82_backward_closure.json": "b971a2495fb54f1169db9486baa81cb629bc7c1f37e1824aec54566daee5247e",
     "outputs\\rr_short_ell2_r1_37_hex82_mitm.json": "08eb7e7b069f85fbb928f91f88c246e2d2bba2e0625675b307f9e74e5510a8c0",
     "outputs\\rr_short_ell2_r1_37_hex82_occupancy_audit.json": "4cf0ce303a1b527197053a56b6361290a90656618909c4cfcf18db68bc7e649d",
@@ -63,6 +64,7 @@
     ],
     "expanded": 1256023,
     "frontier": 69369,
+    "monotone_macro_edges_checked": 1325308,
     "nodes": 1325392,
     "q91_p2_registered_nodes": 0,
     "unique_z2_source_terminal_nodes": 0
@@ -70,6 +72,33 @@
   "schema": "rr-short-ell2-r1-37-hex82-verified-v1",
   "static_certificate": {
     "anchor_count": 84,
+    "hex82_non_q91_routes": [
+      [
+        42,
+        1,
+        2
+      ],
+      [
+        78,
+        3,
+        4
+      ],
+      [
+        82,
+        0,
+        0
+      ],
+      [
+        83,
+        4,
+        5
+      ],
+      [
+        128,
+        2,
+        1
+      ]
+    ],
     "q91_p2": [
       5,
       1,
@@ -77,6 +106,13 @@
       0,
       4,
       2
+    ],
+    "q91_phase_linked_hexagons": [
+      40,
+      82,
+      90,
+      91,
+      92
     ],
     "unique_z2_source": [
       2,
@@ -93,10 +129,13 @@
     "five route specifications",
     "unique q91:p2 Z2 predecessor",
     "84-anchor h40 occupancy invariant",
+    "registered/full semantic separation",
+    "literal-window occupancy monotonicity",
     "finite predecessor-obligation closure",
+    "route completeness",
     "M1 count conservation",
     "M2-M5 absence",
     "T2b/T2+/T3/T4 in the explicitly stated frozen-anchor descendant scope"
   ],
-  "verifier_sha256": "d3b7cd10837c3bd38d454847b1cf2f108780c9d4735779ec7a2d44f1ce87940b"
+  "verifier_sha256": "51cefbdce8c8adda77c2258eec5f9adf463ae65d91cbaa8a6f51a514b7d5e4c3"
 }

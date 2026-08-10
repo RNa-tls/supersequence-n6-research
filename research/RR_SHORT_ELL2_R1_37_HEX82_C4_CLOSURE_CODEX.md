@@ -6,6 +6,23 @@
 
 방법: 고정 `HEX_POSITION / ORBIT_PHASE` 표, exact no-repeat 손증명, 여섯 immutable parent DAG의 독립 literal replay
 
+## Remote follow-up audit
+
+Round 61 원격 검증 요청에 따라 핵심 h40 전제를 원본 six all-13 checkpoint의
+84개 frontier state와 직접 대조했다.
+
+```text
+h40 registered                 84/84
+h40 occupancy mask = 63        84/84
+h40 literal windows visited    6/6 in every anchor
+literal 245130 visited         84/84
+current endpoint = 245130       0/84
+```
+
+`registered`는 incidence 조건이고 `full`은 여섯 literal-window bit 조건이다.
+증명은 후자를 사용하며 전자를 대신 쓰지 않는다. per-anchor 원장과 monotonicity
+검증은 `RR_SHORT_ELL2_R1_37_H40_FULLNESS_AUDIT_CODEX.md`에 분리했다.
+
 ## 결론
 
 Round 60에서 남은 다섯 hex-82 C4 route는 모두 막힌다.
@@ -96,6 +113,10 @@ h40 full이므로 rotation successor는 방문되어 있어 이 w2는 abstract s
 blocked Z2가 된다. 그러나 source `245130`도 이미 방문되어 있다. anchor가 그
 source에서 끝나지 않았으므로 exact descendant에서 source를 현재 끝점으로 다시
 만드는 경로가 없다.
+
+역상이 하나라는 사실은 engine의 단일 w2 move에서 자동으로 나오는 일반적
+사실이며 substantive obstruction은 아니다. 핵심은 그 역상 `245130`이 84개
+anchor에서 모두 이미 방문됐고 현재 endpoint인 anchor가 0개라는 provenance다.
 
 ### 2.3 H0–H5 분류
 
@@ -197,6 +218,12 @@ SAT/CSP는 실행하지 않았다. 미해결 finite quotient를 solver에 넘긴
 
 ## 6. Theorem ladder
 
+명시적 가정은 `short_ell2_r1_37`, 84개 frozen Stage-D anchor, R1 이후·R2
+이전, exact no-repeat semantics, fixed incidence table, 이전 direct-Z2 lemma와
+Round-60 T2a이다. Phi bound, 일반 phase-capacity helper, 미증명 full-pass
+정상형은 사용하지 않는다. h40 full은 full-pass 가정이 아니라 anchor별 6-bit
+occupancy의 직접 검산이다.
+
 | 층 | 상태 | 정확한 범위 |
 |---|---|---|
 | T2 | **증명됨** | 저장된 C4 253,537건은 모두 충돌 |
@@ -221,6 +248,9 @@ Z3 확장 자체를 배제하므로 그 lemma의 invalidation condition은 발�
 - 고정 표에서 다섯 route와 15개 w3 literal 역상
 - q91:p2와 unique w2 source
 - 84 anchor의 h40/full, terminal/source, q91:p2 조건
+- 원본 source checkpoint와 manifest anchor의 84/84 일대일 대조
+- 1,325,308 parent→child macro edge의 literal-window occupancy monotonicity
+- h82의 다섯 non-q91 route completeness
 - 여섯 checkpoint SHA와 모든 stored edge literal replay
 - route별 M1 합계 155,538
 - M2–M5가 0이라는 count conservation
