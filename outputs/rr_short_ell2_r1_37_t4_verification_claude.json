@@ -1,0 +1,82 @@
+{
+  "schema": "rr-short-ell2-r1-37-t4-verification-claude-v1",
+  "author": "Claude",
+  "role": "T4 verification attempt -- commit confirmed nonexistent, core lemma independently checked via engine tables",
+  "verification_status": {
+    "label": "REMOTE_DATA_INSUFFICIENT",
+    "commit": "19d484b2aff4344b619c536459d1a9155209751f",
+    "fetch_result": "git fetch origin <sha> returned 'fatal: remote error: upload-pack: not our ref' -- the git server explicitly confirms this object does not exist in the remote repository",
+    "stronger_than_unverified": true,
+    "no_new_branch_found": true,
+    "implication": "sections 1 (fetch/verify artifacts), 4's real 84-anchor h40-fullness check, and all numeric verification claims (replay nodes, M1-M5 figures, 7/7 regression tests) cannot be performed at all -- nothing to fetch, hash, or replay",
+    "exception": "the unique-predecessor lemma is stated in terms of specific literal permutation words checkable directly against this repository's own fixed engine tables, independent of any remote artifact -- performed in section_3"
+  },
+  "sections_1_2_commit_and_completeness": {
+    "label": "CANNOT_BE_PERFORMED",
+    "reason": "no commit, files, or hash values exist to check",
+    "five_route_list_note": "matches this analyst's own independently-derived table from three rounds ago exactly (structural credibility), but this round's specific completeness claim (no sixth route) cannot be newly verified without the nonexistent commit's own completeness argument"
+  },
+  "section_3_unique_predecessor_lemma": {
+    "label": "CLAUDE_HAND_PROOF -- independently verified via direct table query, no search",
+    "word_identification": {
+      "245130": {"permutation": [2,4,5,1,3,0], "hex_position": 40, "matches_report": true},
+      "513042": {"permutation": [5,1,3,0,4,2], "orbit_phase": [91,2], "hex_position": 82, "matches_report_q91p2": true}
+    },
+    "literal_transition_check": {
+      "moves_from_245130_to_513042": [{"weight": 2, "label": "w2:10"}, {"weight": 6, "label": "w6:234510"}],
+      "weight2_transition_confirmed": true
+    },
+    "uniqueness_check": {
+      "weight_distribution_across_all_550_moves": {"1": 1, "2": 1, "3": 3, "4": 13, "5": 71, "6": 461},
+      "n_weight2_moves_total": 1,
+      "every_target_has_exactly_one_weight2_predecessor": true,
+      "spot_checked_random_targets": 5,
+      "key_finding": "the 'uniqueness' of 245130-->513042 is NOT a special property of this configuration -- it is a trivial, universal consequence of this engine having only one weight-2 move total, true for every permutation in the state space without exception",
+      "does_not_weaken_report_argument": "the argument does not depend on uniqueness being special, only true, which it is -- but clarifies step 3 carries no logical weight beyond 'there is exactly one Z2 candidate to check'"
+    },
+    "alternate_mechanism_check": {
+      "Z3_can_target_q91p2": false,
+      "reason": "orbit 91 is already registered (opened at R1); Z3 requires a fresh target orbit by definition",
+      "R_kind_arrival": "structurally possible in principle but would itself be the terminal R2 event, not a prior registration step -- outside scope of 'pre-R2 predecessor'",
+      "conclusion": "the weight-2 route is indeed the only non-terminal route to q91:p2"
+    }
+  },
+  "section_4_h40_fullness_and_no_reentry": {
+    "label": "CLAUDE_HAND_PROOF for the logical argument; CLAUDE_OBSERVATION for the unconfirmed premise",
+    "logical_argument_validity": "sound -- extend()'s collision check means a visited permutation can never again be a move's target, and since every occupied state was necessarily reached as an earlier target, an already-visited permutation can never again be the walk's current position either",
+    "conditional_conclusion": "GIVEN hexagon 40 is genuinely full (all 6 windows visited), 245130 must already have been visited, so the walk can never again be positioned there, so the unique weight-2 move to 513042 can never fire again -- steps 6-9 of the report are sound, conditional entirely on this premise",
+    "premise_status": "CANNOT_BE_CONFIRMED_OR_REFUTED_THIS_ROUND",
+    "critical_distinction": "'h40 registered' (orbit_masks level, confirmed at all 22 real frontier states checked in a prior round) is NOT the same claim as 'h40 full' (hex_masks level, all 6 windows visited) -- only the weaker claim has been independently confirmed",
+    "hand_proof_or_finite_enumeration": "neither, as things stand -- a valid CONDITIONAL hand proof whose premise itself needs either a further hand argument (not attempted) or finite enumeration over the real 84 anchors (data unreachable this round)"
+  },
+  "section_5_theorem_implication_chain": {
+    "T2b": {
+      "status": "NOT_ESTABLISHED",
+      "pending": "the h40-fullness premise",
+      "credited_new_reduction": "the report's framing (steps 1-2) argues none of the five hex-82 routes matters unless hexagon 82 first becomes part of C_R1, and the only direct way is via orbit 91's own phase 2 (513042) -- the five candidate orbits are not yet part of C_R1 themselves, so their independent hex-82 touches would create only an isolated sub-component unless hex 82 is also independently linked via orbit 91. This is a genuinely valid structural point not made explicit in this analyst's own prior two-round framing, sharpening but not completing T2b"
+    },
+    "T2_plus": {"status": "NOT_ESTABLISHED", "reason": "T2b, even if fully proved, does not imply T2+ without a separate completeness argument over the full C4 prerequisite space -- nothing this round adds such an argument"},
+    "T3": {"status": "FAR_SHORT"},
+    "T4": {"status": "FAR_SHORT_OF_T3"},
+    "direct_z2_exclusion_reverified": "this analyst's own four-rounds-ago hand proof (orbit 91's 5-hexagon set disjoint from hub's 9-hexagon set) remains independently correct and unaffected -- this round's argument is about whether hex 82 enters C_R1 at all, a prerequisite question, not a revision of the disjointness fact"
+  },
+  "section_6_scope_leakage_audit": {
+    "label": "CLAUDE_OBSERVATION -- no leakage found",
+    "explicitly_scoped_to": ["short_ell2_r1_37 specifically (orbit 91 as the fixed R1-target orbit)", "the Phi=0/full-pass, F<=1 forced-move regime", "the unverified 84-anchor set specifically"],
+    "global_fact_correctly_flagged": "the weight-2-uniqueness fact is genuinely global/engine-wide (true for every permutation, not just this branch) -- correctly flagged as such rather than presented as branch-specific evidence"
+  },
+  "section_7_proof_compression": {
+    "label": "CLAUDE_HAND_PROOF for Lemmas A and B; CLAUDE_OBSERVATION that Lemma C is not a hand-proof candidate",
+    "lemma_A": {"statement": "direct Z2 from an unexpanded C_R1 cannot reach hub", "status": "hand proof, fully established (four rounds ago)"},
+    "lemma_B": {"statement": "if hexagon 40 is fully visited by the relevant point, the unique weight-2 route to q91:p2 can never fire again, since its sole predecessor (245130) can never be revisited", "status": "hand proof, sound, but conditional on Lemma C"},
+    "lemma_C": {"statement": "hexagon 40 is genuinely fully visited at all 84 real Stage-D anchors", "status": "NOT a hand proof -- an empirical, finite-certificate claim, unconfirmed"},
+    "theorem_conditional_on_lemma_C": "no q91:p2 registration possible in the 84-anchor descendant region via the direct route -- but this closes only the direct-orbit-91 path to hexagon 82, not automatically all five hex-82 routes (T2b gap) nor the full C4 space (T2+ gap)"
+  },
+  "explicit_non_claims": [
+    "does not verify any artifact, hash, or numeric figure from the claimed commit -- it does not exist",
+    "does not confirm or refute the h40-fullness premise -- flagged as the one remaining empirical gap in an otherwise sound conditional argument",
+    "does not claim T2b, T2+, T3, or T4 are established",
+    "no search run; section_3's verification is a direct, deterministic query of already-existing engine tables"
+  ],
+  "end_token": "REMOTE_DATA_INSUFFICIENT"
+}
