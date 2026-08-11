@@ -1,0 +1,369 @@
+{
+  "schema": "rr-short-g3-singleton-and-cocomponent-claude-v1",
+  "author": "Claude",
+  "report": "research/RR_SHORT_G3_SINGLETON_AND_COCOMPONENT_CLAUDE.md",
+  "search_run": false,
+  "method": "finite table lookups over the fixed engine (legacy_research/work/superperm_partial_f1.py) plus the supplied 1818-anchor corpus",
+  "part1_singleton": {
+    "anchor_id": "short_ell1_r1_94:frontier:76",
+    "node_id": "short_ell1_r1_94:5038",
+    "family": "short_ell1_r1_94",
+    "family_status": "R1_HUB_ALREADY_MERGED",
+    "mechanism": "MERGED_BY_R",
+    "class": "F7",
+    "depth": 74,
+    "coordinates": {
+      "F": 1,
+      "H": 0,
+      "M": -49,
+      "Ndef": 1,
+      "O": 25,
+      "P": 76,
+      "Phi": 2
+    },
+    "endpoint": [
+      3,
+      4,
+      5,
+      0,
+      1,
+      2
+    ],
+    "orbit_phase_of_endpoint": [
+      9,
+      2
+    ],
+    "hex_position_of_endpoint": [
+      0,
+      3
+    ],
+    "R1_hub_same_component": true,
+    "merged_component_orbits": [
+      0,
+      9
+    ],
+    "merged_component_hexagons": [
+      0,
+      1,
+      4,
+      18
+    ],
+    "q1_why_OTHER": {
+      "answer": "it is the UNIQUE anchor in the corpus whose hub-completer is a Z3",
+      "evidence_crosstab": {
+        "CH1": {
+          "completer_kind": "R",
+          "count": 318
+        },
+        "CH2": {
+          "completer_kind": "Z2_post_R1",
+          "count": 612
+        },
+        "PRE_R_COMPLETER_EVENT_ORDER": {
+          "completer_kind": "Z2_pre_R1",
+          "count": 783
+        },
+        "UNDECIDED": {
+          "completer_kind": null,
+          "count": 104
+        },
+        "OTHER_POST_R_COMPLETER_EVENT_ORDER": {
+          "completer_kind": "Z3",
+          "count": 1
+        }
+      },
+      "note": "OTHER is a correct descriptive name for the one anchor outside the {R,Z2} completer dichotomy, not a fallback bucket",
+      "second_uniqueness": "also the only anchor (1 of 1818) whose canonical hub_id equals the engine literal HUB=0; consistent because its completer targets q0:p0 = word [0,1,2,3,4,5] in hexagon 0, so its left-S6 canonicaliser fixes the hub hexagon"
+    },
+    "q1_event_history": [
+      {
+        "macro_index_literal": 2,
+        "macro_index_canonical": 3,
+        "event": "R1",
+        "macro_label": "rot^5;w3:201",
+        "stage": "R1_CHILD_PREPARATION",
+        "r_count": "0 -> 1",
+        "joint_source": "q31:p3 hex32:4 word [1,5,0,2,3,4]",
+        "joint_target": "q0:p2 hex18:3 word [2,3,4,0,1,5]",
+        "components": "before undefined -> after R1==hub (ef238a11f158a620)",
+        "hub_touch": "0 -> 0 (target hexagon 18 != 0)",
+        "completer": "still null, branch UNDECIDED"
+      },
+      {
+        "gap": "71 further macro edges, r_count stays 1"
+      },
+      {
+        "macro_index_canonical": 74,
+        "event": "COMPLETER",
+        "kind": "Z3",
+        "source": "q23:p2",
+        "target": "q0:p0 = word [0,1,2,3,4,5] = hexagon 0",
+        "hub_touch": "0 -> 1 (first and only touch of hexagon 0)",
+        "branch": "-> OTHER_OR_UNDECIDED",
+        "event_order_class": "-> OTHER_POST_R_COMPLETER_EVENT_ORDER"
+      },
+      {
+        "anchor_state": "immediately after that edge; completer.macro_index 74 == decoration.macro_index 74"
+      }
+    ],
+    "q1_key_observation": "R1 itself merged R1 with the hub at macro-index 2 (hence MERGED_BY_R like the other 1182 F7 anchors); 72 edges later a Z3 first touched hexagon 0 and became the completer. The two events are independent -- the merge did not involve hexagon 0 at all.",
+    "q2_q3_r_joint_enumeration": {
+      "candidates": "6 rotation lengths x 3 weight-3 moves = 18, computed against the real engine tables",
+      "co_component_options": 0,
+      "rows": [
+        {
+          "rot": 0,
+          "source_word": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "sq": 9,
+          "sq_in_comp": true,
+          "targets": [
+            {
+              "move": "w3:120",
+              "word": [
+                0,
+                1,
+                2,
+                4,
+                5,
+                3
+              ],
+              "tq": 3,
+              "in": false
+            },
+            {
+              "move": "w3:201",
+              "word": [
+                0,
+                1,
+                2,
+                5,
+                3,
+                4
+              ],
+              "tq": 4,
+              "in": false
+            },
+            {
+              "move": "w3:210",
+              "word": [
+                0,
+                1,
+                2,
+                5,
+                4,
+                3
+              ],
+              "tq": 5,
+              "in": false
+            }
+          ]
+        },
+        {
+          "rot": 1,
+          "source_word": [
+            4,
+            5,
+            0,
+            1,
+            2,
+            3
+          ],
+          "sq": 3,
+          "sq_in_comp": false,
+          "target_orbits": [
+            1,
+            72,
+            96
+          ],
+          "any_in": false
+        },
+        {
+          "rot": 2,
+          "source_word": [
+            5,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "sq": 1,
+          "sq_in_comp": false,
+          "target_orbits": [
+            0,
+            138,
+            32
+          ],
+          "note": "tq=0 IS in comp but source is not"
+        },
+        {
+          "rot": 3,
+          "source_word": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "sq": 0,
+          "sq_in_comp": true,
+          "target_orbits": [
+            120,
+            65,
+            129
+          ],
+          "any_in": false
+        },
+        {
+          "rot": 4,
+          "source_word": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0
+          ],
+          "sq": 120,
+          "sq_in_comp": false,
+          "target_orbits": [
+            33,
+            51,
+            57
+          ],
+          "any_in": false
+        },
+        {
+          "rot": 5,
+          "source_word": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "sq": 33,
+          "sq_in_comp": false,
+          "target_orbits": [
+            9,
+            13,
+            15
+          ],
+          "note": "tq=9 IS in comp but source is not"
+        }
+      ],
+      "structure": "perfectly anti-correlated -- whenever the source is in the component (rot 0, rot 3) every target is outside; whenever a target is in (rot 2, rot 5) the source is outside; no alignment"
+    },
+    "q4_target_a_reachability": "no one-step co-component R joint within the merged component; undecidable for other components (see part2 limits)",
+    "q5_known18": {
+      "verdict": "NOT APPLICABLE -- the question does not type-check",
+      "reason": "this is a PRE-R2 frontier state (r_count=1); the three known-18 witnesses are POST-R2 boundary states -- different kinds of object",
+      "hashes_for_the_record": {
+        "canonical_state_hash": "49020754d5fe572d5436982251931c045565132311548b5ebbfa378adb529f3a",
+        "proved_left_S6_canonical_hash": "e7e7cc2feeacdcffa63d7ca8a0980969b87d3487affc5442d32618b939fd0e97",
+        "known18_witness_hashes": [
+          "79f21d2f...",
+          "20585475...",
+          "f1a92555..."
+        ],
+        "match": false
+      },
+      "note": "a non-match between a frontier state and a boundary state carries no information; no known-18 claim is made either way"
+    },
+    "q6_verdict": {
+      "classification": "INCLUDED IN THE GENERIC THEOREM",
+      "not_a_counterexample": true,
+      "not_a_separate_exception": true,
+      "decisive_argument": "its distinguishing feature is INVISIBLE to the Target-A predicate: target_a_recognizer reads r_count, joint_kind, state.F, state.H, after.hub_touch_count and incidence_components, and NEVER reads completer, event_order_class or branch (chaining is computed and explicitly not an acceptance condition)",
+      "unexceptional_on_every_predicate_relevant_property": {
+        "mechanism": "MERGED_BY_R -- 1182 others identical",
+        "R1_hub_same_component": "true, as for all 1795 merged",
+        "F_H_Ndef_r_count": "1,0,1,1 -- identical for all 1818",
+        "hub_touch_count": "1 -- all 1818 are <=1",
+        "D3": "fails, as for all 1818",
+        "one_step_co_component_R_joints": "0 of 18, as for all 1818"
+      }
+    }
+  },
+  "part2_cocomponent": {
+    "orbit_changing_lemma": {
+      "status": "HAND THEOREM (exhaustive over fixed tables)",
+      "statement": "every move in this engine maps a permutation into a DIFFERENT E-orbit",
+      "evidence": {
+        "weight1": "0 self-pairs of 720",
+        "weight2": "0 self-pairs of 720",
+        "weight3": "0 self-pairs of 2160"
+      },
+      "consequence": "for every R joint sq != tq necessarily, so Target-A same_component can never be satisfied trivially by source and target sharing one orbit; it always demands two DISTINCT orbits genuinely co-component",
+      "scope": "engine-universal, independent of any branch"
+    },
+    "one_step_screen": {
+      "status": "EC over the corpus",
+      "candidates": "1818 anchors x 6 rotation lengths x 3 weight-3 moves = 32724",
+      "classification_by_membership_in_R1_hub_merged_component": {
+        "(False,False)": 32350,
+        "(False,True)": 323,
+        "(True,False)": 51,
+        "(True,True)": 0
+      },
+      "per_family": "0 / n anchors possess a co-component one-step R joint, for all 24 families, no exception"
+    },
+    "theorem": {
+      "name": "one-step R1-component obstruction",
+      "status": "EC over the corpus",
+      "statement": "at every one of the 1818 residual anchors, no immediately-firing R joint -- at any of the 6 rotation lengths, with any of the 3 weight-3 moves -- has both its literal joint-source orbit and its target orbit inside the R1/hub merged component. Exhaustive over 32724 candidates, zero exceptions."
+    },
+    "what_is_definitively_decided": {
+      "count": 374,
+      "status": "HAND THEOREM",
+      "detail": "the 323 (False,True) and 51 (True,False) candidates cannot yield Target A -- if exactly one of sq,tq is in the merged component they are in different components, so same_component is false"
+    },
+    "what_is_NOT_decided": {
+      "count": 32350,
+      "status": "explicitly OPEN",
+      "detail": "both orbits lie outside the R1/hub component and could still be co-component in some THIRD component; the corpus carries only the R1 and hub components while O runs as high as 40 open orbits"
+    },
+    "limits_all_load_bearing": [
+      "ONE STEP ONLY -- the immediate R joint from the anchor; says nothing about descendants whose p differs and whose components have grown monotonically",
+      "R1 COMPONENT ONLY -- a Target A lying wholly inside another component is untouched by this screen",
+      "COMPONENT RELATION ONLY -- legality is untested: target-window freshness, non-abandonment and om[tq]!=0 are all unchecked"
+    ],
+    "not_a_closure": true,
+    "G3_claimed": false,
+    "remaining_question": "can any descendant of a residual anchor reach a state where the R2 joint source orbit and target orbit are co-component -- in the merged component or any other?",
+    "data_request_that_would_make_this_decisive": "the FULL component partition per anchor, not just the R1 and hub components"
+  },
+  "proof_status": {
+    "EC": [
+      "singleton is OTHER because its completer is the corpus's only Z3",
+      "its event history",
+      "its 18 one-step R joints with 0 co-component",
+      "one-step R1-component obstruction 0 of 32724"
+    ],
+    "HAND_THEOREM": [
+      "the recognizer never reads completer/event_order_class/branch",
+      "verdict: singleton included in the generic theorem",
+      "orbit-changing lemma",
+      "374 candidates definitively not Target A"
+    ],
+    "NOT_APPLICABLE": [
+      "known-18 comparison for the singleton -- frontier vs boundary state"
+    ],
+    "OPEN": [
+      "32350 candidates undecidable because third components are unknown"
+    ],
+    "families_closed": 0,
+    "G3": "NOT CLAIMED"
+  },
+  "final_classification_of_the_singleton": "INCLUDED_IN_GENERIC_THEOREM",
+  "end_token": "CLAUDE_G3_SINGLETON_INCLUDED_COCOMPONENT_PARTIAL"
+}
