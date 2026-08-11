@@ -1,0 +1,62 @@
+{
+  "schema": "rr-short-merged-by-r-theory-claude-v1",
+  "author": "Claude",
+  "report": "research/RR_SHORT_MERGED_BY_R_THEORY_CLAUDE.md",
+  "search_run": false,
+  "artifact_status": {
+    "round62_artifacts_reachable": false,
+    "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "MERGED_BY_R_count_1183": "UNVERIFIED_PREMISE -- used nowhere as a proof input"
+  },
+  "headline_correction": {
+    "prior_claim_location": "RR_SHORT_G3_RESIDUAL_THEORY_CLAUDE.md sec3 (M2)",
+    "issue": "M2 carried the correct qualifier 'for every pair of orbits both lying in that merged component', but the surrounding prose invited the reading that merger discharges the same_component condition outright",
+    "correction": "merger does NOT make same_component automatic in general; it is automatic only for source/target pairs BOTH inside the merged component",
+    "why_it_matters": "a live source-orbit obligation survives merger, which structurally explains the reported [UP] datum that 6 of 8 post-Z2 states fail Target A by wrong source orbit"
+  },
+  "question_answers": {
+    "1_what_remains_relevant": ["whether the walk is positioned in a qualifying orbit at the R2 joint source (sq = ORBIT_PHASE[p], literal-source semantics)", "whether tq is co-component with that sq", "resource coordinates: r_count 1->2, F==1, H==0, hub_touch_count<=2"],
+    "2_is_r2_same_component_automatic": "NO -- automatic iff both the R2 source orbit and R2 target orbit lie in the already-merged component; the recognizer relates sq to tq, not 'C_R1 to C_H'",
+    "3_exact_remaining_source_conditions": {"kind": "R (weight 3, non-abandoning, existing orbit) -- forces new_orbit==False so tq is already open", "H": "automatic: all RR-admissible joints have weight<=3 so dH=0 and H never changes on a live path", "joint_condition": "ORBIT_PHASE[p_joint_source] must be co-component with ORBIT_PHASE[target]"},
+    "4_finite_table": "PARTLY -- the conditions reduce to a finite table of Omega-fields (the recognizer reads nothing else); the set of reachable Omega-states does not reduce to a small table on present evidence",
+    "5_can_a_new_target_a_arise": "NOT EXCLUDED, and structural pressure runs toward yes: merger enlarges the set of (sq,tq) pairs satisfying same_component and monotonicity only grows it further, so merger strictly RELAXES the Target-A predicate relative to an unmerged branch",
+    "6_all_known_18": "NOT PROVED and declined -- see falsification_attempt",
+    "7_weakest_exact_finite_alternative": "a conditional exit-set theorem SCHEMA: if the terminating Omega-closure enumerates E(A) and every element either fails a non-component condition or yields a known-18 left-S6 class, then no exact descendant of A yields a Target-A boundary outside known-18. Sound by OMEGA-SOUND, but contentless until E(A) is computed.",
+    "8_monotone_invariants_surviving": "YES -- merger costs exactly one invariant (component separation) and leaves the rest intact",
+    "9_missing_premise": "a complete characterisation of E = {(sq,sph,tq,tph,F,hub_touch_count) reachable as an R2 joint from some R1-merged descendant}, plus the claim that every element either fails a non-component condition or lies in a known-18 left-S6 class",
+    "10_falsification": "attempted and succeeded well enough to decline the theorem"
+  },
+  "theorems": [
+    {"id": "M2-prime", "status": "HAND_THEOREM", "statement": "If orbits a and b are co-component at state S, they remain co-component in every legal descendant. Hence if an R2 fires with both sq and tq inside an already-merged component, same_component holds automatically; if either lies outside it, same_component is NOT implied.", "ground": "incidence_components rebuilds from scratch unioning ('q',orbit)<->('h',hexagon_id(port)) per set orbit_masks phase bit; orbit_masks is add-only (extend line 245, no clearing operation exists); a union-find whose edge set only grows can only coarsen"},
+    {"id": "T4-DEAD-HERE", "status": "HAND_THEOREM", "statement": "Any argument closing a family by proving same_component unreachable cannot apply once the relevant pair is already merged; for those pairs the condition is permanently true. MERGED_BY_R is exactly the class where hypothesis D3 of the generic T4 template fails at R1 -- the template's own dropped-hypothesis counterexample, realized."},
+    {"id": "H-AUTO", "status": "HAND_THEOREM", "statement": "H==0 is automatic on live paths (all RR-admissible joints have weight<=3, dH=max(w-3,0)=0), and kind==R forces new_orbit==False so tq is drawn from the finite already-open orbit set."}
+  ],
+  "surviving_monotone_invariants": [
+    {"invariant": "popcount(orbit_masks)", "why": "om[q] |= 1<<phase, +1 per macro edge (extend 232-245, assertion 240-243)", "use": "bounds path length <= 720; gives acyclicity"},
+    {"invariant": "incidence partition (coarsening)", "why": "union-find over an add-only edge set", "use": "co-component is permanent (M2-prime)"},
+    {"invariant": "hex_masks occupancy", "why": "hm[h] |= 1<<bit, never cleared", "use": "underlies VNTS / no-repeat"},
+    {"invariant": "hub_touch_count", "why": "advance_decoration only does += 1", "use": "> 2 implies hereditarily Target-A-dead; evaluate_edge refuses the child at lines 831-832, 849-850"},
+    {"invariant": "F", "why": "dF = int(abandonment) >= 0", "use": "must be exactly 1 at R2"},
+    {"invariant": "H", "why": "dH = max(w-3,0) >= 0, and = 0 on live paths", "use": "invariant at 0"},
+    {"invariant": "r_count", "why": "+1 per R", "use": "budget 2, R2 terminal"}
+  ],
+  "falsification_attempt": {
+    "candidate": "Every legal R1-merged descendant reaching Target A is left-S6-equivalent to a known-18 boundary",
+    "outcome": "DECLINED -- not asserted",
+    "pressures_against": [
+      "merger relaxes, never restricts: the post-merger Target-A predicate is strictly weaker since condition 6 holds on a larger and monotonically growing set of (sq,tq) pairs; a 'no new boundaries' theorem fights the direction of the structure",
+      "the evidence base is three data points [UP], the same evidential shape that produced the preparation-parity retraction (master status sec5.1) which held over vastly larger samples and was still false, with an identical failure mode; here the corpus is not merely bounded but absent from every ref",
+      "the natural coarsening that would prove it is unsound: quotienting by the component partition fails because new_orbit=(om[q]==0) distinguishes unopened from opened while a singleton-component partition does not, so identical partitions can admit different joint kinds (Z3 vs R), changing r_count and hence Target A"
+    ],
+    "is_this_a_refutation": false,
+    "why_not": "no explicit exact counterexample state could be constructed -- that would require the residual anchors. This is a justified refusal to assert, not a refutation."
+  },
+  "proof_status": {
+    "HAND_THEOREM": ["M2-prime", "T4 structurally inapplicable here", "H==0 automatic; kind==R forces tq already open", "conditions reduce to a finite table of Omega-fields", "six monotone invariants survive merger"],
+    "NOT_PROVED": ["reachable instance set is small or canonical"],
+    "CONJECTURE_DECLINED": ["MR-Theorem: all Target-A exits known-18"],
+    "UNVERIFIED_PREMISE": ["every Round-62 count"],
+    "BOUNDED_OBSERVATION": ["the reported 3/3 known-18, which is additionally unverifiable"]
+  },
+  "end_token": "CLAUDE_MR_PARTIAL"
+}

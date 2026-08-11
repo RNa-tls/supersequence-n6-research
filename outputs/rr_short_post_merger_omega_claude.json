@@ -1,0 +1,75 @@
+{
+  "schema": "rr-short-post-merger-omega-claude-v1",
+  "author": "Claude",
+  "report": "research/RR_SHORT_POST_MERGER_OMEGA_CLAUDE.md",
+  "search_run": false,
+  "artifact_status": {
+    "round62_artifacts_reachable": false,
+    "codex_tip_branch": "codex/round-r1-37-hex82-t4",
+    "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "codex_tip_round": 61,
+    "new_branches_since_last_check": 0,
+    "consequence": "task 5 (compute the complete post-merger Omega image) cannot be performed; no residual anchors exist in any committed artifact"
+  },
+  "sources_read": [
+    "legacy_research/work/superperm_partial_f1.py::extend (lines 213-255)",
+    "src/search_rr_target_a_exhaustive.py::joint_kind (111)",
+    "src/search_rr_target_a_exhaustive.py::incidence_components (348)",
+    "src/search_rr_target_a_exhaustive.py::advance_decoration (~390)",
+    "src/search_rr_target_a_exhaustive.py::target_a_recognizer (690)",
+    "src/search_rr_target_a_exhaustive.py::evaluate_edge (815)"
+  ],
+  "omega_projection": {
+    "definition": "Omega(state, dec) = (orbit_masks, p, F, r_count, hub_touch_count)",
+    "H_droppable": true,
+    "H_droppable_reason": "every RR-admissible joint has weight <= 3, so dH = max(weight-3,0) = 0; H is invariant along every live path",
+    "p_note": "p is equivalent to ORBIT_PHASE[p] since perm <-> (orbit,phase) is a bijection on the 720 permutations",
+    "omitted": "hex_masks -- the 720-bit occupancy vector, the dominant part of exact state"
+  },
+  "recognizer_is_hex_masks_blind": {
+    "status": "HAND_THEOREM",
+    "inputs_read": ["before.r_count", "after.r_count", "joint_kind(weight,abandonment,new_orbit)", "transition.state.F", "transition.state.H", "after.hub_touch_count", "joint_source_state.p", "transition.target", "incidence_components(joint_source_state) which reads only state.orbit_masks"],
+    "never_reads": "hex_masks"
+  },
+  "abandonment_determinism": {
+    "status": "HAND_THEOREM",
+    "claim": "Omega needs no nondeterminism for abandonment: given weight and new_orbit (both Omega-computable), the RR joint_kind table admits at most one abandonment value; any other value maps to 'other' -> outside_RR_joint_model -> DEAD",
+    "rr_joint_table": {"(2,False,False)": "Z2", "(2,True,True)": "Z2abandon", "(3,False,False)": "R", "(3,False,True)": "Z3", "any_other": "other -> DEAD (no child)"},
+    "soundness": "assuming the unique RR-legal abandonment is a sound over-approximation: if the true hex_masks-determined value differs, the exact edge is DEAD and cannot reach Target A anyway"
+  },
+  "theorems": [
+    {"id": "OMEGA-SOUND", "status": "HAND_THEOREM", "statement": "Every exact RR-legal macro transition's Omega-image is an Omega-transition. Hence exact-reachable Target-A boundaries are a subset of Omega-reachable ones. If no Omega-path reaches Target A, no exact path does.", "proof_sketch": "exact legality is a conjunction; Omega retains every conjunct except the hex_masks no-repeat guard and relaxes the hex-dependent abandonment to its unique legal candidate, plus relaxes rotation-run length to all ell in 0..5; removing a conjunct only enlarges the relation. The Target-A predicate is computed identically since it reads only Omega-visible fields.", "direction_warning": "converse FAILS; an Omega-reachable Target-A boundary is NOT evidence of an exact one. Omega closes families, never witnesses them."},
+    {"id": "OMEGA-MONO", "status": "HAND_THEOREM", "statement": "Every macro edge, exact or Omega, increases popcount(orbit_masks) by exactly 1.", "ground": "extend guards the orbit_masks update by 'if move.weight >= 2', so weight-1 rotations leave it untouched; every joint sets om[q] |= 1<<phase; the assertion at extend lines 240-243 guarantees that bit was previously clear (implied by the visited check at line 221 plus the perm<->(orbit,phase) bijection). A macro edge is a rotation run plus exactly one joint.", "corollary": "hex_masks and orbit_masks are NOT redundant: hex_masks records every visited permutation, orbit_masks only the pass-start (joint-target) subset"},
+    {"id": "OMEGA-TERM", "status": "HAND_THEOREM", "statement": "The Omega transition relation is acyclic; every Omega-path from Omega(A) has length at most 720 - popcount(orbit_masks(A)); branching is at most 6 rotation lengths x 4 admissible joint moves = 24. Hence Omega-closure is computable by a terminating memoized DFS.", "answers_task_4": "yes -- all legal exact transitions induce a finite, acyclic, depth-bounded transition relation on Omega"},
+    {"id": "OMEGA-H-INV", "status": "HAND_THEOREM", "statement": "H is invariant on live paths; any exact edge of weight >= 4 is both outside the RR model and permanently Target-A-fatal (H is add-only and Target A requires H == 0)."},
+    {"id": "PARTITION-QUOTIENT-UNSOUND", "status": "HAND_THEOREM", "statement": "Quotienting Omega by the induced component partition (dropping orbit_masks) is UNSOUND: new_orbit = (om[q]==0) distinguishes 'orbit q unopened' from 'opened', but a partition in which q is a singleton component does not. Two states with identical partitions can admit different joint kinds (Z3 vs R), changing r_count and hence Target A."}
+  ],
+  "tractability_caveat": {
+    "finite_is_not_tractable": true,
+    "omega_size_bound": "<= 2^720 * 720 * 2 * 3 * 3",
+    "depth_bound": 720,
+    "branching_bound": 24,
+    "reachable_image_bounded": false,
+    "note": "nothing here bounds the reachable Omega image by a small number, and none was computed; claiming otherwise would repeat this project's history of over-scoped quotients"
+  },
+  "task_outcomes": {
+    "1_read_recognizer": "DONE",
+    "2_define_omega": "DONE",
+    "3_prove_sound_one_sided_simulation": "PROVED (OMEGA-SOUND)",
+    "4_finite_transition_relation": "PROVED (OMEGA-TERM): acyclic, depth <= 720, branching <= 24",
+    "5_compute_post_merger_omega_image": "BLOCKED -- no residual anchors in any committed artifact",
+    "6_finite_normal_form": "NOT FOUND; two candidate coarsenings considered and both rejected, one by an explicit unsoundness argument (PARTITION-QUOTIENT-UNSOUND); H droppable is the only real reduction",
+    "7_finite_canonical_exit_list": "NOT PROVED; trivially finite a priori, but no small/computed/branch-independent list obtained, and structural pressure runs against it (merger enlarges the admissible (sq,tq) set)",
+    "8_compare_to_known_18": "NOT PERFORMED -- requires outputs of 5 and 7",
+    "9_hex_masks_usage": "used in exactly one place: to establish that dropping it ENLARGES the transition relation (soundness direction). Not used in the projection, predicate, or termination argument.",
+    "10_status_separation": "DONE -- see proof_status table"
+  },
+  "proof_status": {
+    "HAND_THEOREM": ["recognizer is hex_masks-blind", "minimal Omega and H droppable", "abandonment needs no nondeterminism", "OMEGA-SOUND", "OMEGA-MONO", "OMEGA-TERM", "partition quotient unsound"],
+    "BLOCKED_NO_ARTIFACTS": ["complete post-merger Omega image", "known-18 comparison"],
+    "NOT_PROVED": ["small or canonical exit list"],
+    "UNVERIFIED_PREMISE": ["every count from the task request"]
+  },
+  "verdict": "Soundness and termination are PROVED: Omega exists, contains only recognizer-read fields, is a sound one-sided simulation, and its transition relation is acyclic with depth <= 720 and branching <= 24. The reachable image was NOT computed and is not shown to be small. CLAUDE_OMEGA_FINITE_IMAGE_PROVED would be read as claiming a computed finite image and would overclaim; the accurate token is the soundness one, noting termination was also proved (strictly more than soundness alone).",
+  "end_token": "CLAUDE_OMEGA_SOUND_ONLY"
+}

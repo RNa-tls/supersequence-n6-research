@@ -1,0 +1,57 @@
+{
+  "schema": "rr-short-separate-clear-transition-claude-v1",
+  "author": "Claude",
+  "report": "research/RR_SHORT_SEPARATE_CLEAR_TRANSITION_CLAUDE.md",
+  "search_run": false,
+  "blocking_status": {
+    "task_precondition": "explicitly conditioned on 'once the latest Codex Round-62 artifacts are reachable'",
+    "precondition_met": false,
+    "codex_tip_branch": "codex/round-r1-37-hex82-t4",
+    "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "codex_tip_round": 61,
+    "new_branches_since_last_check": 0,
+    "absent_artifacts_rechecked": ["outputs/rr_short_113_family_residuals.json", "outputs/rr_short_113_family_mechanisms.json", "research/RR_SHORT_113_FAMILY_G3_CODEX.md"],
+    "mechanism_vocabulary_matches_across_all_refs": 0,
+    "consequence": "the per-state work (enumerate every legal next macro transition; classify each child) CANNOT be performed for the seven anchors because the seven anchors are not published",
+    "fabrication_refused": "seven exact states, their legal transition sets, orbit/phase/hex targets and resource coordinates were NOT invented; doing so would produce a document indistinguishable in form from a real certificate and worthless in content"
+  },
+  "theorems": [
+    {"id": "SC-1", "status": "HAND_THEOREM", "name": "OTHER is impossible", "statement": "The mechanism-graph node set {MR,MZ,SM,SC,R2,DEAD} is exhaustive with respect to joint kind: no legal child is produced by any edge outside the four RR kinds.", "ground": "joint_kind (src/search_rr_target_a_exhaustive.py line 111) admits exactly {(2,False,False):Z2, (2,True,True):Z2abandon, (3,False,False):R, (3,False,True):Z3} and maps every other triple to 'other'; evaluate_edge line 821 returns outside_RR_joint_model with NO child for 'other'", "covers": "A2 (2,True,False), A3 (3,True,True), J (3,True,False), the impossible (2,False,True), and every joint of weight >= 4 -- all DEAD", "does_not_prove": "that no fifth MECHANISM exists; a fifth mechanism would be a new classification of surviving Z2/Z3 children, not a new joint kind"},
+    {"id": "SC-2", "status": "HAND_THEOREM", "name": "one orbit-phase bit per macro edge", "statement": "Every macro edge increases popcount(orbit_masks) by exactly 1.", "ground": "extend guards the orbit_masks update by 'if move.weight >= 2' so weight-1 rotations leave it untouched; every joint executes om[q] |= 1<<phase at line 245; lines 240-243 assert that bit was previously clear, guaranteed by the visited check at line 221 plus the perm<->(orbit,phase) bijection"},
+    {"id": "SC-3", "status": "HAND_THEOREM", "name": "SC recurrence finite and acyclic", "statement": "Any chain of macro edges, in particular any chain of SC->SC steps, from a state s has length at most 720 - popcount(orbit_masks(s)), and no state can recur along it.", "answers": "SEPARATE_CLEAR recurrence IS finite and acyclic: SC can repeat, but only finitely often and never in a cycle; every path terminates in R2 or DEAD after at most 720 macro edges", "scope_note": "holds for ALL residual mechanisms, not just SC"}
+  ],
+  "transition_graph": [
+    {"edge": "SC -> R2", "status": "PROVED_POSSIBLE", "ground": "evaluate_edge line 837: an R joint at r_count==1 is evaluated as the R2 boundary and never enqueued"},
+    {"edge": "SC -> DEAD", "status": "PROVED_POSSIBLE", "ground": "'other' kind (SC-1); rr_R_budget_exceeded (844-846); hub_touch_count_exceeded (849-850); prune profile (851-853)"},
+    {"edge": "SC -> MZ", "status": "PROVED_POSSIBLE", "ground": "a Z2/Z3 whose registered phase-hexagon lies in the other component merges them"},
+    {"edge": "SC -> MR", "status": "PROVED_IMPOSSIBLE", "ground": "MR is defined by R1 itself having created the merger; R1 is already in the past for every post-R1 state, and r_count is monotone"},
+    {"edge": "MR -> MR, MZ -> MZ", "status": "PROVED", "ground": "co-component is permanent (M2-prime)"},
+    {"edge": "MR -> SC, MR -> SM, MZ -> SC, MZ -> SM", "status": "PROVED_IMPOSSIBLE", "ground": "no un-merging (M2-prime)"},
+    {"edge": "every path terminates in <= 720 edges at R2 or DEAD", "status": "PROVED", "ground": "SC-3"},
+    {"edge": "SC -> SM, SC -> SC", "status": "UNDETERMINED", "ground": "depends on the uncommitted definition of SEPARATE_MONOTONE_BLOCKED"},
+    {"edge": "no fifth mechanism", "status": "CONJECTURE", "ground": "the (C)-level gap; '0 other residual families' is an observation on an unpublished corpus"}
+  ],
+  "main_theorem_target": {
+    "statement": "Every descendant of the seven SEPARATE_CLEAR anchors remains inside a finite closed mechanism graph until R2 or death",
+    "claimed": false,
+    "reason": "the task instructs not to claim it unless exact transition completeness is proved; it is not proved",
+    "proved_parts": ["finiteness and termination (SC-3), for all states not merely the seven", "closure of the node set under joint kind (SC-1): no edge escapes via an unmodelled joint"],
+    "unproved_part": "closure of the MECHANISM CLASSIFICATION -- needs (a) the published definition of SEPARATE_MONOTONE_BLOCKED and (b) the seven anchors, to check every surviving Z2/Z3 child falls into {MR,MZ,SM,SC} rather than a fifth class",
+    "summary": "proved modulo exactly one missing ingredient, and that ingredient is data, not mathematics"
+  },
+  "work_plan_when_artifacts_land": [
+    "read the seven anchors from rr_short_113_family_residuals.json",
+    "for each, enumerate the <= 24 candidate macro edges (<= 6 rotation lengths x 4 RR joint moves: one weight-2 and three weight-3, from the committed weight distribution {1:1,2:1,3:3,4:13,5:71,6:461})",
+    "run each through evaluate_edge and record the returned verdict verbatim; classify surviving children",
+    "confirm no child falls outside {MR,MZ,SM,SC,R2,DEAD}"
+  ],
+  "work_plan_notes": "terminates by SC-3; step 4 can only fail by discovering a genuinely new classification, never a new joint kind (SC-1). This is a bounded deterministic enumeration over seven published states, not a continuation search.",
+  "proof_status": {
+    "HAND_THEOREM": ["SC-1 OTHER impossible", "SC-2 one orbit bit per macro edge", "SC-3 finite acyclic recurrence", "SC does not reach MR", "merged stays merged", "SC->R2, SC->DEAD, SC->MZ possible"],
+    "UNDETERMINED": ["SC -> SM, SC -> SC (SM undefined in any committed artifact)"],
+    "CONJECTURE": ["no fifth mechanism"],
+    "BLOCKED_NO_ARTIFACTS": ["per-anchor enumeration for the seven states"],
+    "UNVERIFIED_PREMISE": ["the count 7 itself"]
+  },
+  "end_token": "CLAUDE_SC_PARTIAL"
+}
