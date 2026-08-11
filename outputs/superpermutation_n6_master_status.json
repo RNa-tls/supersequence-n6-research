@@ -279,7 +279,8 @@
   "Phi / unique-bridge invariant 6r <= 11 - Phi: at most one hexagon of the incidence forest ever has degree 2, hence at most one E-orbit pair is ever co-component and that pair is frozen once created; plus the sigma-adjacency admissibility lemma and the resulting closure of 1,415 of the 1,818 Round-68 residual anchors (root_ell in {1,2,3}) -- Q2 scope only",
   "ELL4 unique-bridge Target-A normal form: for root_ell=4 the bridge is uniquely the hub window (5,0,1,2,3,4), exactly two weight-3 transitions join E-orbits 0 and 1, one of them is structurally dead and the other fires only from the post-bridge state, so all 403 residual anchors are closed and the family's three same-component boundaries are exactly known-18 ell4_P2_* -- Q2 scope only",
   "the margin identity margin = 12 - D for Target-A boundaries (Ndef=2), turning the Round-30 coarse segment bound into a single defect threshold D <= 12 that closes all 1,398 Rounds-35-37 boundaries at once, plus its interpretable orbit-fill-density form P/O >= 5 - 12/O; and the monotone Phi-free dead-port bound D_dead <= 4",
-  "the Q2 frontier reconstruction: filtering the stored (never-exhausted) coverage frontier by the Q2-only prunes and capacity_slack, plus two new sound inequalities (monotone dead-port bound D_dead <= 4, and the orbit re-entry inequality), reducing 3,321,753 stored states to a 200,408-state residual concentrated in one uniform Ndef=0 band; and the identification of the uncharged E^2 within-segment R cost as the next theorem target"
+  "the Q2 frontier reconstruction: filtering the stored (never-exhausted) coverage frontier by the Q2-only prunes and capacity_slack, plus two new sound inequalities (monotone dead-port bound D_dead <= 4, and the orbit re-entry inequality), reducing 3,321,753 stored states to a 200,408-state residual concentrated in one uniform Ndef=0 band; and the identification of the uncharged E^2 within-segment R cost as the next theorem target",
+  "SKIP-COST: exactly two macro generators preserve the endpoint's E-orbit, E^1 = (ell=5,w2:10) free and E^2 = (ell=5,w3:120) which is always an R costing Ndef+1, so within-segment skips and orbit re-entries draw on one shared budget R_cap + Phi -- a charge capacity_slack omits; plus the LIVE-PORT SUPPLY bound"
  ],
  "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
  "open_problems_ranked": [
@@ -496,6 +497,49 @@
    "roots_fully_closed": 22,
    "roots_total": 33,
    "stored_frontier": 3321753
+  }
+ },
+ "round_72_skip_cost": {
+  "adversarial_gate": {
+   "engine": 4,
+   "passed": true,
+   "retracted_helper": 3,
+   "state": "long_found_142",
+   "this_formulation": 4
+  },
+  "engine_facts_verified": {
+   "E1": "(ell=5,w2:10) = E^1, Z2, free",
+   "E2": "(ell=5,w3:120) = E^2, always R, exactly Ndef+1",
+   "E2_sample": "3073/3073",
+   "orbit_preserving_generators": 2,
+   "partial_cases": 0
+  },
+  "json": "outputs/rr_skip_cost_claude.json",
+  "next_plus_one_candidates": [
+   "a sound re-introduction of rotation-run legality (where the old helper died)",
+   "a bound on how many orbits can supply full segments simultaneously given hexagon-disjointness of their ports"
+  ],
+  "refuted": "the Round-71 expectation that a forced-skip argument closes the tight band: E^2 is never locally forced, because a segment can end and the orbit be re-entered later; skips and re-entries are substitutes on the same budget",
+  "report": "research/RR_SKIP_COST_THEOREM_CLAUDE.md",
+  "reproducer": "src/prove_rr_skip_cost.py",
+  "scope": "Q2 / Area-A only",
+  "totals": {
+   "closed_by_capacity_slack": 2956692,
+   "closed_by_live_port_supply": 19073,
+   "closed_by_skip_cost": 95225,
+   "distinct_classes": 945,
+   "q2_admissible": 3248890,
+   "residual": 177900,
+   "roots_fully_closed": 22,
+   "survivors": 292198
+  },
+  "verdict": "SKIP_COST_PARTIAL",
+  "vs_round_71": {
+   "classes_after": 945,
+   "classes_before": 1570,
+   "newly_closed": 22508,
+   "residual_after": 177900,
+   "residual_before": 200408
   }
  },
  "rr_short_logical_chain": [

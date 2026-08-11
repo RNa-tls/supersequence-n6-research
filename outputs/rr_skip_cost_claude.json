@@ -1,0 +1,745 @@
+{
+ "adversarial_gate": {
+  "engine_achieved": 4,
+  "passed": true,
+  "retracted_helper_predicted": 3,
+  "state": "long_found_142 (the state that refuted true_phase_walk_capacity)",
+  "this_formulation_predicts": 4,
+  "why": "only port-level (permutation) visitation is tested; hexagon popcount is never consulted; the ell=5 rotation-run legality requirement is dropped; liveness is read at the current state and visitation only grows -- all three enlarge the estimate, the sound direction for an upper bound"
+ },
+ "author": "Claude",
+ "closure_hypothesis": {
+  "expected_in_round_71": "a forced-skip argument closes the tight band",
+  "outcome": "REFUTED as a closure tool: E^2 is never locally forced -- a segment can always end and the orbit be re-entered later, so skips and re-entries are substitutes on the same budget",
+  "what_the_theorem_does_give": "the shared-budget charge, which capacity_slack omits"
+ },
+ "comparison_with_round_71": {
+  "newly_closed": 22508,
+  "note": "the Round-72 pair strictly supersedes the Round-71 pair on this corpus",
+  "pct_of_round71_residual_closed": 11.2,
+  "round71_bounds": "dead-port (D_dead<=4) + orbit-reentry",
+  "round71_residual": 200408,
+  "round72_bounds": "live-port supply + skip-cost",
+  "round72_residual": 177900
+ },
+ "engine_facts": {
+  "E2_is_always_R": {
+   "delta_Ndef_plus_1": 3073,
+   "joint_kind_R": 3073,
+   "observed": 3073
+  },
+  "generators_tested": 24,
+  "orbit_preserving_for_all_720_words": 2,
+  "orbit_preserving_generators": [
+   {
+    "acts_as": "E^1",
+    "cost": "free",
+    "joint_kind": "Z2",
+    "macro_edge": "ell=5, w2:10",
+    "phase_shift": 1
+   },
+   {
+    "acts_as": "E^2",
+    "cost": "exactly one unit of Ndef",
+    "joint_kind": "R (always)",
+    "macro_edge": "ell=5, w3:120",
+    "phase_shift": 2
+   }
+  ],
+  "partial_cases": 0,
+  "structural_reason": "the E^2 target lies in the endpoint's own orbit, which already holds the endpoint as a registered port, so new_orbit is False; at ell=5 abandonment is False since sigma^6(p)=p is visited; R has dS=+1,dO=0,dF=0 so Ndef=S+F-O rises by exactly 1"
+ },
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY.",
+ "inequalities": [
+  {
+   "closed": 19073,
+   "ground": "every future joint registers a permutation unvisited at the time, and visitation is monotone, so every future registration is a port unvisited NOW",
+   "id": "LIVE-PORT SUPPLY",
+   "statement": "B <= sum over open orbits of live(q) + the O_cap largest live(q) over closed orbits",
+   "uses_capacity_theory": false,
+   "uses_hexagons": false,
+   "uses_phi": false
+  },
+  {
+   "closed": 95225,
+   "evaluation": "per-segment reach table on the 5-cycle from port-level liveness alone, with f = O_cap fresh segments; every segment is given the full remaining skip budget, which over-counts the budget and keeps the bound sound",
+   "gap_it_fills": "capacity_slack charges an R only when it CHANGES the orbit; the within-segment E^2 steps consume the identical Ndef and are not charged",
+   "id": "SKIP-COST",
+   "statement": "(orbit-changing joints into already-open orbits) + (E^2 skips) <= R_cap + Phi"
+  }
+ ],
+ "report": "research/RR_SKIP_COST_THEOREM_CLAUDE.md",
+ "reproducer": "src/prove_rr_skip_cost.py",
+ "residual_structure": {
+  "by_D": {
+   "1": 5,
+   "11": 1884,
+   "12": 308,
+   "16": 9505,
+   "17": 4474,
+   "21": 21478,
+   "22": 16743,
+   "24": 28,
+   "25": 2,
+   "26": 31888,
+   "27": 28946,
+   "29": 12,
+   "31": 23471,
+   "32": 25206,
+   "36": 5972,
+   "37": 7784,
+   "6": 193,
+   "7": 1
+  },
+  "by_Ndef": {
+   "0": 177858,
+   "1": 42
+  },
+  "by_O": {
+   "10": 13768,
+   "3": 5,
+   "4": 194,
+   "5": 2192,
+   "6": 13979,
+   "7": 38221,
+   "8": 60834,
+   "9": 48707
+  },
+  "by_P": {
+   "13": 83462,
+   "14": 94396,
+   "20": 2,
+   "21": 40
+  },
+  "by_Phi": {
+   "0": 3764,
+   "1": 4952,
+   "2": 13059,
+   "3": 30036,
+   "4": 54363,
+   "5": 71726
+  },
+  "by_skip_cost_slack_UB_minus_B": {
+   "0": 45574,
+   "1": 42561,
+   "2": 41247,
+   "3": 32410,
+   "4": 16108
+  },
+  "distinct_classes": 945,
+  "examples": [
+   {
+    "B": 101,
+    "D": 25,
+    "Ndef": 1,
+    "O": 9,
+    "P": 20,
+    "Phi": 5,
+    "UB": 102,
+    "root": "long_found_4",
+    "supply": 103,
+    "used": 5
+   },
+   {
+    "B": 100,
+    "D": 29,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "UB": 100,
+    "root": "long_found_4",
+    "supply": 102,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 29,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "UB": 100,
+    "root": "long_found_4",
+    "supply": 102,
+    "used": 3
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "UB": 100,
+    "root": "long_found_4",
+    "supply": 101,
+    "used": 4
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "UB": 102,
+    "root": "long_found_4",
+    "supply": 102,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "UB": 101,
+    "root": "long_found_9",
+    "supply": 101,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 29,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "UB": 100,
+    "root": "long_found_9",
+    "supply": 101,
+    "used": 1
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "UB": 101,
+    "root": "long_found_9",
+    "supply": 102,
+    "used": 4
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "UB": 101,
+    "root": "long_found_9",
+    "supply": 102,
+    "used": 4
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "UB": 101,
+    "root": "long_found_9",
+    "supply": 102,
+    "used": 5
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 3,
+    "UB": 101,
+    "root": "long_q1_2",
+    "supply": 104,
+    "used": 2
+   },
+   {
+    "B": 101,
+    "D": 25,
+    "Ndef": 1,
+    "O": 9,
+    "P": 20,
+    "Phi": 4,
+    "UB": 102,
+    "root": "long_q1_3",
+    "supply": 105,
+    "used": 5
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 4,
+    "UB": 101,
+    "root": "long_q1_3",
+    "supply": 103,
+    "used": 4
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 4,
+    "UB": 100,
+    "root": "long_q1_3",
+    "supply": 102,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 4,
+    "UB": 103,
+    "root": "long_q1_3",
+    "supply": 104,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 29,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 4,
+    "UB": 101,
+    "root": "long_q1_3",
+    "supply": 104,
+    "used": 1
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 3,
+    "UB": 100,
+    "root": "long_q1_7",
+    "supply": 103,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 4,
+    "UB": 100,
+    "root": "long_q1_8",
+    "supply": 102,
+    "used": 4
+   },
+   {
+    "B": 100,
+    "D": 24,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 4,
+    "UB": 102,
+    "root": "long_q1_8",
+    "supply": 103,
+    "used": 2
+   },
+   {
+    "B": 100,
+    "D": 29,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 4,
+    "UB": 100,
+    "root": "long_q1_8",
+    "supply": 103,
+    "used": 1
+   }
+  ],
+  "largest_class": {
+   "count": 3369,
+   "key": [
+    0,
+    5,
+    9,
+    13,
+    32,
+    1,
+    3
+   ],
+   "key_fields": [
+    "Ndef",
+    "Phi",
+    "O",
+    "P",
+    "D",
+    "used",
+    "UB_minus_B"
+   ],
+   "pct": 1.89
+  },
+  "per_root": {
+   "long_found_4": {
+    "RESIDUAL": 11,
+    "closed_capacity_slack": 99427,
+    "closed_live_port_supply": 780,
+    "closed_skip_cost": 1124,
+    "q2_admissible": 101342,
+    "survives_capacity_slack": 1915
+   },
+   "long_found_9": {
+    "RESIDUAL": 8,
+    "closed_capacity_slack": 98564,
+    "closed_live_port_supply": 894,
+    "closed_skip_cost": 1067,
+    "q2_admissible": 100533,
+    "survives_capacity_slack": 1969
+   },
+   "long_q1_2": {
+    "RESIDUAL": 1,
+    "closed_capacity_slack": 97025,
+    "closed_skip_cost": 9,
+    "q2_admissible": 97035,
+    "survives_capacity_slack": 10
+   },
+   "long_q1_3": {
+    "RESIDUAL": 11,
+    "closed_capacity_slack": 98591,
+    "closed_live_port_supply": 29,
+    "closed_skip_cost": 237,
+    "q2_admissible": 98868,
+    "survives_capacity_slack": 277
+   },
+   "long_q1_7": {
+    "RESIDUAL": 1,
+    "closed_capacity_slack": 97262,
+    "closed_live_port_supply": 2,
+    "closed_skip_cost": 7,
+    "q2_admissible": 97272,
+    "survives_capacity_slack": 10
+   },
+   "long_q1_8": {
+    "RESIDUAL": 10,
+    "closed_capacity_slack": 93481,
+    "closed_live_port_supply": 46,
+    "closed_skip_cost": 228,
+    "q2_admissible": 93765,
+    "survives_capacity_slack": 284
+   },
+   "short_ell0": {
+    "RESIDUAL": 5242,
+    "closed_capacity_slack": 101037,
+    "closed_live_port_supply": 470,
+    "closed_skip_cost": 6212,
+    "q2_admissible": 112961,
+    "survives_capacity_slack": 11924
+   },
+   "short_ell1": {
+    "RESIDUAL": 13743,
+    "closed_capacity_slack": 97420,
+    "closed_live_port_supply": 1042,
+    "closed_skip_cost": 16229,
+    "q2_admissible": 128434,
+    "survives_capacity_slack": 31014
+   },
+   "short_ell2": {
+    "RESIDUAL": 31018,
+    "closed_capacity_slack": 68612,
+    "closed_live_port_supply": 2262,
+    "closed_skip_cost": 27594,
+    "q2_admissible": 129486,
+    "survives_capacity_slack": 60874
+   },
+   "short_ell3": {
+    "RESIDUAL": 55271,
+    "closed_capacity_slack": 50351,
+    "closed_live_port_supply": 3286,
+    "closed_skip_cost": 21340,
+    "q2_admissible": 130248,
+    "survives_capacity_slack": 79897
+   },
+   "short_ell4": {
+    "RESIDUAL": 72584,
+    "closed_capacity_slack": 29794,
+    "closed_live_port_supply": 10146,
+    "closed_skip_cost": 21144,
+    "q2_admissible": 133668,
+    "survives_capacity_slack": 103874
+   }
+  },
+  "roots_fully_closed": 22,
+  "roots_with_residual": 11,
+  "short_root_share": {
+   "count": 177858,
+   "pct": 99.98
+  },
+  "top_classes": [
+   {
+    "count": 3369,
+    "key": [
+     0,
+     5,
+     9,
+     13,
+     32,
+     1,
+     3
+    ]
+   },
+   {
+    "count": 3023,
+    "key": [
+     0,
+     5,
+     10,
+     13,
+     37,
+     1,
+     0
+    ]
+   },
+   {
+    "count": 2576,
+    "key": [
+     0,
+     5,
+     10,
+     13,
+     37,
+     1,
+     1
+    ]
+   },
+   {
+    "count": 2572,
+    "key": [
+     0,
+     4,
+     9,
+     13,
+     32,
+     1,
+     2
+    ]
+   },
+   {
+    "count": 2463,
+    "key": [
+     0,
+     5,
+     9,
+     14,
+     31,
+     1,
+     3
+    ]
+   },
+   {
+    "count": 2224,
+    "key": [
+     0,
+     4,
+     9,
+     14,
+     31,
+     1,
+     2
+    ]
+   },
+   {
+    "count": 2177,
+    "key": [
+     0,
+     5,
+     10,
+     14,
+     36,
+     1,
+     0
+    ]
+   },
+   {
+    "count": 2039,
+    "key": [
+     0,
+     5,
+     10,
+     14,
+     36,
+     1,
+     1
+    ]
+   },
+   {
+    "count": 1983,
+    "key": [
+     0,
+     4,
+     9,
+     14,
+     31,
+     1,
+     0
+    ]
+   },
+   {
+    "count": 1952,
+    "key": [
+     0,
+     5,
+     9,
+     14,
+     31,
+     1,
+     0
+    ]
+   },
+   {
+    "count": 1920,
+    "key": [
+     0,
+     4,
+     9,
+     13,
+     32,
+     1,
+     0
+    ]
+   },
+   {
+    "count": 1807,
+    "key": [
+     0,
+     5,
+     9,
+     13,
+     32,
+     2,
+     3
+    ]
+   },
+   {
+    "count": 1806,
+    "key": [
+     0,
+     4,
+     9,
+     13,
+     32,
+     1,
+     1
+    ]
+   },
+   {
+    "count": 1761,
+    "key": [
+     0,
+     5,
+     9,
+     13,
+     32,
+     1,
+     0
+    ]
+   },
+   {
+    "count": 1759,
+    "key": [
+     0,
+     5,
+     8,
+     14,
+     26,
+     1,
+     2
+    ]
+   },
+   {
+    "count": 1702,
+    "key": [
+     0,
+     5,
+     8,
+     13,
+     27,
+     1,
+     3
+    ]
+   },
+   {
+    "count": 1679,
+    "key": [
+     0,
+     5,
+     9,
+     14,
+     31,
+     1,
+     1
+    ]
+   },
+   {
+    "count": 1640,
+    "key": [
+     0,
+     5,
+     9,
+     14,
+     31,
+     1,
+     2
+    ]
+   },
+   {
+    "count": 1583,
+    "key": [
+     0,
+     4,
+     8,
+     14,
+     26,
+     1,
+     4
+    ]
+   },
+   {
+    "count": 1581,
+    "key": [
+     0,
+     4,
+     9,
+     14,
+     31,
+     1,
+     1
+    ]
+   }
+  ],
+  "total": 177900
+ },
+ "round": 72,
+ "schema": "rr-skip-cost-claude-v1",
+ "scope": "Q2 / Area-A. No search run; no node-capped expansion used as a proof step.",
+ "totals": {
+  "closed_by_capacity_slack": 2956692,
+  "closed_by_live_port_supply": 19073,
+  "closed_by_skip_cost": 95225,
+  "q2_admissible": 3248890,
+  "residual": 177900,
+  "survives_capacity_slack": 292198
+ },
+ "verdict": "SKIP_COST_PARTIAL"
+}
