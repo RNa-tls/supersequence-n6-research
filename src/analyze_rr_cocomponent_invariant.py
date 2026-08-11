@@ -452,3 +452,123 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# --------------------------------------------------------------------------
+# section 7 (Round 69b): the ell0 = 4 residual family, closed exactly
+#
+# T8 leaves root_ell = 4 open because its bridged pair {0,1} is the one
+# sigma-adjacent (hence weight-3 admissible) pair in the hub.  This section
+# closes it without any continuation search.
+# --------------------------------------------------------------------------
+WSTAR = (5, 0, 1, 2, 3, 4)      # hub position 5, E-orbit 1 phase 4 -- the unique ell4 bridge
+IDENT = (0, 1, 2, 3, 4, 5)      # hub position 0, E-orbit 0 phase 0 -- registered by initial_state
+ORBIT1_PORT_HEX = {1: 0, 72: 1, 12: 2, 2: 3, 0: 4}   # hexagon -> E-orbit-1 phase
+
+
+def ell4_root_state():
+    """initial_state, four rotations, then the ONLY in-alphabet joint."""
+    st = exact.initial_state()
+    for _ in range(4):
+        st = exact.extend(st, macro.W1).state
+    out = []
+    for m in RR_MOVES:
+        tr = exact.extend(st, m)
+        if tr is None:
+            continue
+        k = KIND.get((tr.move.weight, tr.abandonment, tr.new_orbit), "other")
+        out.append((m.label, k, tuple(tr.target), core.hexagon_id(tr.target),
+                    core.e_orbit_id(tr.target)))
+    return st, out
+
+
+def ell4_r2_shapes():
+    """Every weight-3 transition between E-orbits 0 and 1 -- there are exactly two."""
+    rows = []
+    for src_orbit in (0, 1):
+        for u in core.ports_of_e_orbit(core.E_REPS[src_orbit]):
+            for m in W3_MOVES:
+                v = core.word_after(u, m.action)
+                if {src_orbit, core.e_orbit_id(v)} == {0, 1}:
+                    hu, pu = exact.HEX_POSITION[u]
+                    hv, pv = exact.HEX_POSITION[v]
+                    rows.append({"source": list(u), "source_hexagon": hu, "source_position": pu,
+                                 "source_orbit": src_orbit, "joint": m.label,
+                                 "target": list(v), "target_hexagon": hv, "target_position": pv,
+                                 "target_orbit": core.e_orbit_id(v),
+                                 "forced_ell": 0 if tuple(u) == WSTAR else 5})
+    return rows
+
+
+def ell4_bridge_backward_chain(steps=6):
+    """The forced pre-bridge chain.  Post-R1 the only enqueued joint that can
+    register an E-orbit-1 port is the weight-2 one (a weight-3 into an already
+    open orbit is an R, hence a terminal R2 boundary), and Phi must stay at 5
+    until the bridge, so ell = 5 and the macro action is exactly E."""
+    inv2 = core.inverse(mbl_w2().action)
+    chain = []
+    t = WSTAR
+    for _ in range(steps):
+        src = core.compose(t, inv2)
+        entry = core.word_after(src, core.SIGMA)
+        chain.append({"joint_target": list(t), "target_hexagon": core.hexagon_id(t),
+                      "unique_w2_source": list(src), "source_hexagon": core.hexagon_id(src),
+                      "forced_entry_point": list(entry),
+                      "entry_hexagon": core.hexagon_id(entry),
+                      "entry_orbit": core.e_orbit_id(entry)})
+        t = entry
+    return chain
+
+
+def mbl_w2():
+    return next(m for m in exact.ALL_MOVES if m.weight == 2)
+
+
+def reconstruct_r0_ell4_anchor(a):
+    """Rebuild the exact state of a root_ell=4, r=0 residual anchor from corpus
+    fields only.  Everything is forced: hexagon 0 carries the root's rotation run
+    (positions 0..4) with only position 0 registered; each hexagon holding a
+    registered E-orbit-1 port is FULL (gaps = 11 - Phi - 6r leaves exactly the one
+    hub gap); the endpoint's hexagon holds exactly the endpoint."""
+    hm = [0] * exact.HEX_COUNT
+    om = [0] * exact.ORBIT_COUNT
+    hm[HUB] = 0b011111
+    om[0] |= 1 << 0
+    for h in sorted(set(a["R1"]["component_hexagons"]) & set(ORBIT1_PORT_HEX)):
+        if h == HUB:
+            continue
+        hm[h] = exact.FULL_HEX
+        om[1] |= 1 << ORBIT1_PORT_HEX[h]
+    p = tuple(a["endpoint"])
+    h, bit = exact.HEX_POSITION[p]
+    q, ph = exact.ORBIT_PHASE[p]
+    hm[h] |= 1 << bit
+    om[q] |= 1 << ph
+    c = a["coordinates"]
+    return exact.ExactState(p, tuple(hm), tuple(om),
+                            F=c["F"], S=c["Ndef"] - c["F"] + c["O"], H=c["H"])
+
+
+def classify_ell4_anchor(a):
+    """The exact verdict for one root_ell=4 residual anchor."""
+    c = a["coordinates"]
+    r = (len(a["R1"]["component_orbits"]) - 1) + (
+        0 if a["R1_hub_same_component"] else len(a["hub"]["component_orbits"]) - 1)
+    p = tuple(a["endpoint"])
+    on_cycle = core.e_orbit_id(p) == 1
+    reasons = []
+    if 1 in a["R1"]["component_hexagons"]:
+        reasons.append("R2B_dead__hexagon_1_full__u_B_visited_unregistered")
+    if r == 1:
+        reasons.append("bridge_already_present__Phi=0__R2A_departure_costs_5")
+    else:
+        reasons.append("bridge_absent__E_cycle_broken" if not on_cycle
+                       else "bridge_still_reachable__endpoint_is_a_live_orbit1_port")
+    closed = ("bridge_still_reachable__endpoint_is_a_live_orbit1_port" not in reasons) and \
+             ("R2B_dead__hexagon_1_full__u_B_visited_unregistered" in reasons)
+    return {"anchor_id": a["anchor_id"], "r": r, "phi": c["Phi"], "P": c["P"],
+            "endpoint_orbit": core.e_orbit_id(p), "endpoint_hexagon": core.hexagon_id(p),
+            "endpoint_is_orbit1_port": on_cycle,
+            "hexagon_1_registered": 1 in a["R1"]["component_hexagons"],
+            "reasons": reasons,
+            "verdict": "PERMANENTLY_NO_TARGET_A" if closed else "OPEN"}

@@ -276,7 +276,8 @@
   "generic VNTS lemma and Full-Hex/cross-hexagon corollaries",
   "recognition that the h82 case is a cross-hexagon VNTS instance, not a special case",
   "computational certificates as artifacts (1,325,392-node exact replay, 84-anchor h40 ledger, H0-H5 backward-closure classification)",
-  "Phi / unique-bridge invariant 6r <= 11 - Phi: at most one hexagon of the incidence forest ever has degree 2, hence at most one E-orbit pair is ever co-component and that pair is frozen once created; plus the sigma-adjacency admissibility lemma and the resulting closure of 1,415 of the 1,818 Round-68 residual anchors (root_ell in {1,2,3}) -- Q2 scope only"
+  "Phi / unique-bridge invariant 6r <= 11 - Phi: at most one hexagon of the incidence forest ever has degree 2, hence at most one E-orbit pair is ever co-component and that pair is frozen once created; plus the sigma-adjacency admissibility lemma and the resulting closure of 1,415 of the 1,818 Round-68 residual anchors (root_ell in {1,2,3}) -- Q2 scope only",
+  "ELL4 unique-bridge Target-A normal form: for root_ell=4 the bridge is uniquely the hub window (5,0,1,2,3,4), exactly two weight-3 transitions join E-orbits 0 and 1, one of them is structurally dead and the other fires only from the post-bridge state, so all 403 residual anchors are closed and the family's three same-component boundaries are exactly known-18 ell4_P2_* -- Q2 scope only"
  ],
  "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
  "open_problems_ranked": [
@@ -393,6 +394,30 @@
    "nodes": 960000,
    "roots": 24
   },
+  "completed_by": {
+   "corpus_verdict": {
+    "all_1818_residual_anchors_closed_at_Q2_scope": true,
+    "closed": 403,
+    "ell4_anchors": 403,
+    "remaining": 0
+   },
+   "headline": "ELL4 unique-bridge Target-A normal form closes the remaining 403 root_ell=4 anchors",
+   "json": "outputs/rr_short_ell4_unique_bridge_normal_form_claude.json",
+   "report": "research/RR_SHORT_ELL4_UNIQUE_BRIDGE_NORMAL_FORM_CLAUDE.md",
+   "round": "69b",
+   "state_recovery": "Round 69 MP-1 withdrawn: no extra corpus fields are needed",
+   "target_a_classes": {
+    "distinct_canonical_R2_boundary_classes": 3,
+    "known18_classes": 3,
+    "known18_ids": [
+     "ell4_P2_fe82b0cd",
+     "ell4_P2_6f1ed828",
+     "ell4_P2_5d3f8cb9"
+    ],
+    "new_target_a_classes": 0,
+    "target_b": "helper-free EXHAUSTED_NO_PATH (phase_helper_used=false, truncated=false) reusable verbatim"
+   }
+  },
   "corpus_verdict": {
    "NOT_CLOSED_root_ell_4": 403,
    "PERMANENTLY_CLOSED_root_ell_1_2_3": 1415,
@@ -400,7 +425,7 @@
   },
   "headline": "6r <= 11 - Phi with Phi >= 0 forces r <= 1, so at most one E-orbit pair is ever co-component; root_ell decides admissibility via sigma-adjacency",
   "json": "outputs/rr_short_g3_cocomponent_invariant_claude.json",
-  "open": "the 403 root_ell=4 anchors; minimal data needed is sparse_hex()+sparse_orbits() per anchor",
+  "open": "none for the 24 residual families at Q2 scope; the Q1 form (MP-2) remains open",
   "report": "research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md",
   "reproducer": "src/analyze_rr_cocomponent_invariant.py",
   "scope_caveat": "Q2-level only: consumes Phi >= 0 (remaining_window_capacity_prune), a necessary condition for an Area-A NR6 completion. The committed is_target_a enforces it; the pure Q1 question does not."

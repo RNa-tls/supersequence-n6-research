@@ -1,0 +1,6950 @@
+{
+ "R2A_status": {
+  "child_phi": 0,
+  "cost": 5,
+  "forced_ell": 0,
+  "required_state": "endpoint = w*, hexagon 0 full, r = 1, Phi = 5",
+  "verdict": "REALISABLE_ONLY_FROM_THE_POST_BRIDGE_STATE"
+ },
+ "R2B_status": {
+  "note": "the R2-B shape does fire in these walks, but as the R1 event (r_count 0->1); afterwards its source is visited forever",
+  "reason": "its source (4,0,1,2,3,5) is hexagon 1 position 5, and hexagon 1 is full from depth 1; a visited permutation can be a rotation-run end only at ell=0, i.e. only as the endpoint, and no ell4 anchor's endpoint lies in hexagon 1 (0/403)",
+  "verdict": "STRUCTURALLY_DEAD_IN_THE_ELL4_FAMILY"
+ },
+ "author": "Claude",
+ "bridge_reachability": {
+  "backward_chain": [
+   {
+    "entry_hexagon": 2,
+    "entry_orbit": 1,
+    "forced_entry_point": [
+     3,
+     5,
+     0,
+     1,
+     2,
+     4
+    ],
+    "joint_target": [
+     5,
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "source_hexagon": 2,
+    "target_hexagon": 0,
+    "unique_w2_source": [
+     4,
+     3,
+     5,
+     0,
+     1,
+     2
+    ]
+   },
+   {
+    "entry_hexagon": 12,
+    "entry_orbit": 1,
+    "forced_entry_point": [
+     2,
+     3,
+     5,
+     0,
+     1,
+     4
+    ],
+    "joint_target": [
+     3,
+     5,
+     0,
+     1,
+     2,
+     4
+    ],
+    "source_hexagon": 12,
+    "target_hexagon": 2,
+    "unique_w2_source": [
+     4,
+     2,
+     3,
+     5,
+     0,
+     1
+    ]
+   },
+   {
+    "entry_hexagon": 72,
+    "entry_orbit": 1,
+    "forced_entry_point": [
+     1,
+     2,
+     3,
+     5,
+     0,
+     4
+    ],
+    "joint_target": [
+     2,
+     3,
+     5,
+     0,
+     1,
+     4
+    ],
+    "source_hexagon": 72,
+    "target_hexagon": 12,
+    "unique_w2_source": [
+     4,
+     1,
+     2,
+     3,
+     5,
+     0
+    ]
+   },
+   {
+    "entry_hexagon": 1,
+    "entry_orbit": 1,
+    "forced_entry_point": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     4
+    ],
+    "joint_target": [
+     1,
+     2,
+     3,
+     5,
+     0,
+     4
+    ],
+    "source_hexagon": 1,
+    "target_hexagon": 72,
+    "unique_w2_source": [
+     4,
+     0,
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   {
+    "entry_hexagon": 0,
+    "entry_orbit": 1,
+    "forced_entry_point": [
+     5,
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "joint_target": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     4
+    ],
+    "source_hexagon": 0,
+    "target_hexagon": 1,
+    "unique_w2_source": [
+     4,
+     5,
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "entry_hexagon": 2,
+    "entry_orbit": 1,
+    "forced_entry_point": [
+     3,
+     5,
+     0,
+     1,
+     2,
+     4
+    ],
+    "joint_target": [
+     5,
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "source_hexagon": 2,
+    "target_hexagon": 0,
+    "unique_w2_source": [
+     4,
+     3,
+     5,
+     0,
+     1,
+     2
+    ]
+   }
+  ],
+  "cycle": [
+   {
+    "hexagon": 1,
+    "phase": 0
+   },
+   {
+    "hexagon": 72,
+    "phase": 1
+   },
+   {
+    "hexagon": 12,
+    "phase": 2
+   },
+   {
+    "hexagon": 2,
+    "phase": 3
+   },
+   {
+    "hexagon": 0,
+    "phase": 4
+   }
+  ],
+  "induction": "if the endpoint is not an orbit-1 port, no macro edge from it registers one, because the only weight-2 route has ell=5 hence target E(p); off the cycle is permanent",
+  "macro_action": "sigma^5 . a_{w2:10} = E exactly, so the pre-bridge chain is the E-orbit-1 cycle",
+  "post_R1_route": "weight-2 only (a weight-3 into open orbit 1 is a terminal R at r_count=1)"
+ },
+ "consistency_check_not_a_proof": {
+  "all_roots_have_endpoint_w_star": true,
+  "all_shape": "ell=0, sq=1, tq=0, w3:120 (R2-A)",
+  "same_component_found": 3,
+  "source": "Round 69 bounded probe, 960,000 nodes over 24 certified post-R1 states",
+  "status": "NODE_CAP on every root; no exhaustion claimed"
+ },
+ "continuation_search_run": false,
+ "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+ "corpus_cross_checks": {
+  "endpoint_is_orbit1_port": {
+   "false": 403
+  },
+  "hexagon_1_registered": {
+   "true": 403
+  },
+  "hub_touch_equals_r": true,
+  "hub_touch_le_2_lemma": "subsumed by r <= 1 and never binding",
+  "phi_distribution": {
+   "0": 397,
+   "5": 6
+  },
+  "r_by_phi": {
+   "(0, 5)": 6,
+   "(1, 0)": 397
+  }
+ },
+ "corpus_sources": [
+  {
+   "file": "d00bee1c-round68_residual_24_families_part2.json",
+   "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+   "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549"
+  },
+  {
+   "file": "ef260575-round68_residual_24_families_part1.json",
+   "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+   "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549"
+  },
+  {
+   "file": "fcd33f8f-round68_residual_24_families_part3.json",
+   "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+   "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549"
+  }
+ ],
+ "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+ "evidence_grading": {
+  "BOUNDED_OBSERVATION": [
+   "consistency_check_not_a_proof"
+  ],
+  "EXHAUSTIVE_COMPUTATION": [
+   "the two-element R2 shape table over 2160 weight-3 orbit pairs",
+   "the ell4 root joint table"
+  ],
+  "HAND_PROOF": [
+   "root rigidity",
+   "unique bridge",
+   "R2-B death",
+   "R2-A shape",
+   "E-cycle induction",
+   "the 403 verdict"
+  ],
+  "INDEPENDENTLY_VERIFIED": [
+   "Phi in {0,5}",
+   "(r,Phi) split",
+   "hub_touch_count = r",
+   "hexagon 1 registered 403/403",
+   "six reconstructions",
+   "three known-18 hash matches",
+   "helper-free ledger rows"
+  ]
+ },
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY. The 1,398 Target-A boundaries of Rounds 35-37 were never run through the Target-B ledger and are untouched here.",
+ "node_capped_expansion_used_as_proof": false,
+ "r2_shape_count_is_exhaustive": "exactly 2 of the 2160 ordered weight-3 orbit transitions join E-orbits 0 and 1",
+ "r2_shapes": [
+  {
+   "forced_ell": 5,
+   "joint": "w3:120",
+   "source": [
+    4,
+    0,
+    1,
+    2,
+    3,
+    5
+   ],
+   "source_hexagon": 1,
+   "source_orbit": 0,
+   "source_position": 5,
+   "target": [
+    2,
+    3,
+    5,
+    0,
+    1,
+    4
+   ],
+   "target_hexagon": 12,
+   "target_orbit": 1,
+   "target_position": 3
+  },
+  {
+   "forced_ell": 0,
+   "joint": "w3:120",
+   "source": [
+    5,
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "source_hexagon": 0,
+   "source_orbit": 1,
+   "source_position": 5,
+   "target": [
+    2,
+    3,
+    4,
+    0,
+    1,
+    5
+   ],
+   "target_hexagon": 18,
+   "target_orbit": 0,
+   "target_position": 3
+  }
+ ],
+ "report": "research/RR_SHORT_ELL4_UNIQUE_BRIDGE_NORMAL_FORM_CLAUDE.md",
+ "reproducer": "src/analyze_rr_cocomponent_invariant.py (section 7)",
+ "root_rigidity": {
+  "consequences": [
+   "E-orbit 1 is open at every ell4 descendant, so a weight-3 joint into an orbit-1 port is an R, never a Z3",
+   "hexagon 1 is entered virgin and filled at depth 1 by the forced ell=5 run, so its positions 1-5 are DEAD from depth 1"
+  ],
+  "hub_dead_positions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "hub_free_position": 5,
+  "joints_at_the_root_position": [
+   {
+    "hexagon": 1,
+    "kind": "Z2abandon",
+    "orbit": 1,
+    "tail": "w2:10",
+    "target": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     4
+    ]
+   },
+   {
+    "hexagon": 72,
+    "kind": "other",
+    "orbit": 1,
+    "tail": "w3:120",
+    "target": [
+     1,
+     2,
+     3,
+     5,
+     0,
+     4
+    ]
+   },
+   {
+    "hexagon": 90,
+    "kind": "other",
+    "orbit": 72,
+    "tail": "w3:201",
+    "target": [
+     1,
+     2,
+     3,
+     0,
+     4,
+     5
+    ]
+   },
+   {
+    "hexagon": 114,
+    "kind": "other",
+    "orbit": 96,
+    "tail": "w3:210",
+    "target": [
+     1,
+     2,
+     3,
+     0,
+     5,
+     4
+    ]
+   }
+  ],
+  "root_ell": 4,
+  "root_phi": 5,
+  "unique_in_alphabet_joint": "w2:10 -> (0,1,2,3,5,4), hexagon 1 position 0, E-orbit 1 phase 0, kind Z2abandon"
+ },
+ "round": "69b",
+ "schema": "rr-short-ell4-unique-bridge-normal-form-claude-v1",
+ "scope": "Q2 / Area-A only: every theorem consumes Phi >= 0 (remaining_window_capacity_prune inside area_a_prune_reason, which is_target_a calls on its own R2 child). NOT a Q1 result.",
+ "state_recovery": {
+  "answer": "NO -- the six r=0 anchors reconstruct exactly from corpus fields alone",
+  "coordinate_agreement": "6/6",
+  "fields_used": [
+   "canonical_decoration.root_ell",
+   "coordinates",
+   "endpoint",
+   "R1.component_hexagons",
+   "R1.component_orbits",
+   "R1_hub_same_component"
+  ],
+  "question": "are sparse_hex / sparse_orbits needed from Codex?",
+  "reconstructions": [
+   {
+    "anchor_id": "short_ell4_r1_18:frontier:0",
+    "coordinates_match": true,
+    "endpoint": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "forced_ell": 5,
+    "r": 0,
+    "sparse_hex": [
+     [
+      0,
+      31
+     ],
+     [
+      1,
+      63
+     ],
+     [
+      2,
+      63
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      72,
+      63
+     ]
+    ],
+    "sparse_orbits": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      11
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    "visited": 24
+   },
+   {
+    "anchor_id": "short_ell4_r1_18:frontier:1",
+    "coordinates_match": true,
+    "endpoint": [
+     0,
+     1,
+     2,
+     5,
+     4,
+     3
+    ],
+    "forced_ell": 5,
+    "r": 0,
+    "sparse_hex": [
+     [
+      0,
+      31
+     ],
+     [
+      1,
+      63
+     ],
+     [
+      2,
+      63
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      72,
+      63
+     ]
+    ],
+    "sparse_orbits": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      11
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    "visited": 24
+   },
+   {
+    "anchor_id": "short_ell4_r1_71:frontier:0",
+    "coordinates_match": true,
+    "endpoint": [
+     5,
+     0,
+     1,
+     3,
+     2,
+     4
+    ],
+    "forced_ell": 5,
+    "r": 0,
+    "sparse_hex": [
+     [
+      0,
+      31
+     ],
+     [
+      1,
+      63
+     ],
+     [
+      6,
+      32
+     ],
+     [
+      12,
+      63
+     ]
+    ],
+    "sparse_orbits": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      7,
+      16
+     ]
+    ],
+    "visited": 18
+   },
+   {
+    "anchor_id": "short_ell4_r1_71:frontier:1",
+    "coordinates_match": true,
+    "endpoint": [
+     5,
+     0,
+     1,
+     3,
+     4,
+     2
+    ],
+    "forced_ell": 5,
+    "r": 0,
+    "sparse_hex": [
+     [
+      0,
+      31
+     ],
+     [
+      1,
+      63
+     ],
+     [
+      8,
+      32
+     ],
+     [
+      12,
+      63
+     ]
+    ],
+    "sparse_orbits": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      9,
+      16
+     ]
+    ],
+    "visited": 18
+   },
+   {
+    "anchor_id": "short_ell4_r1_71:frontier:2",
+    "coordinates_match": true,
+    "endpoint": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "forced_ell": 5,
+    "r": 0,
+    "sparse_hex": [
+     [
+      0,
+      31
+     ],
+     [
+      1,
+      63
+     ],
+     [
+      2,
+      63
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      12,
+      63
+     ]
+    ],
+    "sparse_orbits": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      13
+     ],
+     [
+      4,
+      1
+     ]
+    ],
+    "visited": 24
+   },
+   {
+    "anchor_id": "short_ell4_r1_71:frontier:3",
+    "coordinates_match": true,
+    "endpoint": [
+     0,
+     1,
+     2,
+     5,
+     4,
+     3
+    ],
+    "forced_ell": 5,
+    "r": 0,
+    "sparse_hex": [
+     [
+      0,
+      31
+     ],
+     [
+      1,
+      63
+     ],
+     [
+      2,
+      63
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      12,
+      63
+     ]
+    ],
+    "sparse_orbits": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      13
+     ],
+     [
+      5,
+      1
+     ]
+    ],
+    "visited": 24
+   }
+  ],
+  "round69_MP1_withdrawn": true
+ },
+ "target_a_classes": {
+  "both_hashes_matched": true,
+  "distinct_R2_shapes": 2,
+  "distinct_canonical_R2_boundary_classes_observed": 3,
+  "distinct_canonical_bridge_classes": 1,
+  "hash_recipe": "sha256(repr(stable_key()))[:16] raw; sha256(repr(canonicalize(state).stable_key()))[:16] canonical -- identical to verify_rr_target_a_coverage_status.known18_regression",
+  "known18_classes": 3,
+  "matches": [
+   {
+    "canonical": "20585475b28fe99d",
+    "known18_row": "ell4_P2_fe82b0cd",
+    "raw": "fe82b0cdb5126756"
+   },
+   {
+    "canonical": "79f21d2facc1ce2a",
+    "known18_row": "ell4_P2_6f1ed828",
+    "raw": "6f1ed828b231741d"
+   },
+   {
+    "canonical": "f1a925551da6109e",
+    "known18_row": "ell4_P2_5d3f8cb9",
+    "raw": "5d3f8cb9fdd40f22"
+   }
+  ],
+  "new_target_a_classes": 0,
+  "realisable_R2_shapes": 1
+ },
+ "target_b_reuse": {
+  "artifact": "outputs/rr_target_b_18_boundary_corrected_ledger.json",
+  "conclusion": "the helper-free EXHAUSTED_NO_PATH certificate applies verbatim; nothing needs re-running",
+  "counts": {
+   "COARSE_CAPACITY_IMPOSSIBLE": 9,
+   "EXHAUSTED_NO_PATH": 9,
+   "all_boundaries": 18
+  },
+  "incidental_confirmation": "its surviving_ells = [5] independently corroborates the forced-rotation-length theorem",
+  "phase_helper_used": false,
+  "provenance": "Round 39, commit 9b345c4, verified reachable in this repository's history",
+  "replacement_path": [
+   "Round-30 coarse capacity",
+   "Round-32 B+R bound",
+   "exact macro DFS"
+  ],
+  "rows_for_our_three_classes": [
+   {
+    "P_core": 2,
+    "boundary_id": "short_ell4_5d3f8cb9fdd4",
+    "canonical_state_hash": "5d3f8cb9fdd40f22",
+    "coordinates": {
+     "D": 4,
+     "Ndef": 2,
+     "O": 2,
+     "P": 6,
+     "phi": 0,
+     "visited": 25
+    },
+    "corrected_final_status": "EXHAUSTED_NO_PATH",
+    "dfs_nodes": 1206,
+    "root_ell": 4,
+    "surviving_ells": [
+     5
+    ],
+    "truncated": false
+   },
+   {
+    "P_core": 2,
+    "boundary_id": "short_ell4_6f1ed828b231",
+    "canonical_state_hash": "6f1ed828b231741d",
+    "coordinates": {
+     "D": 4,
+     "Ndef": 2,
+     "O": 2,
+     "P": 6,
+     "phi": 0,
+     "visited": 25
+    },
+    "corrected_final_status": "EXHAUSTED_NO_PATH",
+    "dfs_nodes": 1450,
+    "root_ell": 4,
+    "surviving_ells": [
+     5
+    ],
+    "truncated": false
+   },
+   {
+    "P_core": 2,
+    "boundary_id": "short_ell4_fe82b0cdb512",
+    "canonical_state_hash": "fe82b0cdb5126756",
+    "coordinates": {
+     "D": 4,
+     "Ndef": 2,
+     "O": 2,
+     "P": 6,
+     "phi": 0,
+     "visited": 25
+    },
+    "corrected_final_status": "EXHAUSTED_NO_PATH",
+    "dfs_nodes": 3558,
+    "root_ell": 4,
+    "surviving_ells": [
+     5
+    ],
+    "truncated": false
+   }
+  ]
+ },
+ "unique_bridge": {
+  "co_component_pair": [
+   0,
+   1
+  ],
+  "corpus_confirmation": "397/397 bridged ell4 anchors carry exactly the pair {0,1}",
+  "hexagon": 0,
+  "orbit": 1,
+  "partner": {
+   "orbit": 0,
+   "phase": 0,
+   "registered_by": "initial_state",
+   "window": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "phase": 4,
+  "proof": [
+   "r <= 1 (Round 69 T3) allows at most one degree-2 hexagon",
+   "the gap identity gaps = 11 - Phi - 6r leaves exactly one gap outside the current hexagon, at hub position 5",
+   "re-entering any hexagon first entered at or after the root costs >= 6 > Phi = 5 (Round 69 T6)"
+  ],
+  "window": [
+   5,
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "verdict": {
+  "anchors": 403,
+  "by_reason": {
+   "('R2B_dead__hexagon_1_full__u_B_visited_unregistered', 'bridge_absent__E_cycle_broken')": 6,
+   "('R2B_dead__hexagon_1_full__u_B_visited_unregistered', 'bridge_already_present__Phi=0__R2A_departure_costs_5')": 397
+  },
+  "closed": 403,
+  "families": [
+   "short_ell4_r1_18",
+   "short_ell4_r1_58",
+   "short_ell4_r1_60",
+   "short_ell4_r1_62",
+   "short_ell4_r1_71"
+  ],
+  "per_anchor": [
+   {
+    "P": 6,
+    "anchor_id": "short_ell4_r1_62:frontier:0",
+    "endpoint_hexagon": 105,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 32,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 6,
+    "anchor_id": "short_ell4_r1_62:frontier:1",
+    "endpoint_hexagon": 32,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 7,
+    "anchor_id": "short_ell4_r1_62:frontier:2",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 7,
+    "anchor_id": "short_ell4_r1_62:frontier:3",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 45,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_62:frontier:4",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_62:frontier:5",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 11,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 9,
+    "anchor_id": "short_ell4_r1_62:frontier:6",
+    "endpoint_hexagon": 2,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 2,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_62:frontier:7",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_62:frontier:8",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_62:frontier:9",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_62:frontier:10",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 33,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_62:frontier:11",
+    "endpoint_hexagon": 103,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_62:frontier:12",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 26,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_62:frontier:13",
+    "endpoint_hexagon": 39,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_62:frontier:14",
+    "endpoint_hexagon": 88,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 122,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 15,
+    "anchor_id": "short_ell4_r1_62:frontier:15",
+    "endpoint_hexagon": 78,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 81,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_62:frontier:16",
+    "endpoint_hexagon": 102,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 99,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_62:frontier:17",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 18,
+    "anchor_id": "short_ell4_r1_62:frontier:18",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 64,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 18,
+    "anchor_id": "short_ell4_r1_62:frontier:19",
+    "endpoint_hexagon": 64,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 120,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_62:frontier:20",
+    "endpoint_hexagon": 59,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 59,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_62:frontier:21",
+    "endpoint_hexagon": 58,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 58,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 21,
+    "anchor_id": "short_ell4_r1_62:frontier:22",
+    "endpoint_hexagon": 98,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 111,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 21,
+    "anchor_id": "short_ell4_r1_62:frontier:23",
+    "endpoint_hexagon": 20,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_62:frontier:24",
+    "endpoint_hexagon": 109,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 133,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_62:frontier:25",
+    "endpoint_hexagon": 44,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 109,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_62:frontier:26",
+    "endpoint_hexagon": 49,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 125,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_62:frontier:27",
+    "endpoint_hexagon": 84,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 49,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_62:frontier:28",
+    "endpoint_hexagon": 29,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 26,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_62:frontier:29",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 47,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_62:frontier:30",
+    "endpoint_hexagon": 13,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 12,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 28,
+    "anchor_id": "short_ell4_r1_62:frontier:31",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_62:frontier:32",
+    "endpoint_hexagon": 73,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 77,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_62:frontier:33",
+    "endpoint_hexagon": 81,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 81,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_62:frontier:34",
+    "endpoint_hexagon": 80,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 80,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_62:frontier:35",
+    "endpoint_hexagon": 50,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 63,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 33,
+    "anchor_id": "short_ell4_r1_62:frontier:36",
+    "endpoint_hexagon": 45,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 124,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 34,
+    "anchor_id": "short_ell4_r1_62:frontier:37",
+    "endpoint_hexagon": 37,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 41,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 35,
+    "anchor_id": "short_ell4_r1_62:frontier:38",
+    "endpoint_hexagon": 92,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 93,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 36,
+    "anchor_id": "short_ell4_r1_62:frontier:39",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 37,
+    "anchor_id": "short_ell4_r1_62:frontier:40",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 99,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 37,
+    "anchor_id": "short_ell4_r1_62:frontier:41",
+    "endpoint_hexagon": 99,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 128,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 38,
+    "anchor_id": "short_ell4_r1_62:frontier:42",
+    "endpoint_hexagon": 116,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 115,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 39,
+    "anchor_id": "short_ell4_r1_62:frontier:43",
+    "endpoint_hexagon": 104,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 104,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 39,
+    "anchor_id": "short_ell4_r1_62:frontier:44",
+    "endpoint_hexagon": 105,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 105,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_62:frontier:45",
+    "endpoint_hexagon": 65,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 68,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_62:frontier:46",
+    "endpoint_hexagon": 89,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 92,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 41,
+    "anchor_id": "short_ell4_r1_62:frontier:47",
+    "endpoint_hexagon": 78,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 25,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 41,
+    "anchor_id": "short_ell4_r1_62:frontier:48",
+    "endpoint_hexagon": 25,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 131,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_62:frontier:49",
+    "endpoint_hexagon": 46,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 42,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_62:frontier:50",
+    "endpoint_hexagon": 58,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 67,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 45,
+    "anchor_id": "short_ell4_r1_62:frontier:51",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 29,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 45,
+    "anchor_id": "short_ell4_r1_62:frontier:52",
+    "endpoint_hexagon": 25,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_62:frontier:53",
+    "endpoint_hexagon": 46,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 46,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_62:frontier:54",
+    "endpoint_hexagon": 47,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 47,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_62:frontier:55",
+    "endpoint_hexagon": 87,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 82,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_62:frontier:56",
+    "endpoint_hexagon": 63,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 58,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 48,
+    "anchor_id": "short_ell4_r1_62:frontier:57",
+    "endpoint_hexagon": 67,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 100,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_62:frontier:58",
+    "endpoint_hexagon": 104,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 103,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_62:frontier:59",
+    "endpoint_hexagon": 112,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 112,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 51,
+    "anchor_id": "short_ell4_r1_62:frontier:60",
+    "endpoint_hexagon": 63,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 128,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 52,
+    "anchor_id": "short_ell4_r1_62:frontier:61",
+    "endpoint_hexagon": 67,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 71,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 52,
+    "anchor_id": "short_ell4_r1_62:frontier:62",
+    "endpoint_hexagon": 53,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 50,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_62:frontier:63",
+    "endpoint_hexagon": 118,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 119,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_62:frontier:64",
+    "endpoint_hexagon": 115,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 114,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 54,
+    "anchor_id": "short_ell4_r1_62:frontier:65",
+    "endpoint_hexagon": 111,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 111,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 57,
+    "anchor_id": "short_ell4_r1_62:frontier:66",
+    "endpoint_hexagon": 93,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 80,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 57,
+    "anchor_id": "short_ell4_r1_62:frontier:67",
+    "endpoint_hexagon": 117,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 104,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 58,
+    "anchor_id": "short_ell4_r1_62:frontier:68",
+    "endpoint_hexagon": 50,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 133,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 60,
+    "anchor_id": "short_ell4_r1_62:frontier:69",
+    "endpoint_hexagon": 70,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 70,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 60,
+    "anchor_id": "short_ell4_r1_62:frontier:70",
+    "endpoint_hexagon": 71,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 71,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 61,
+    "anchor_id": "short_ell4_r1_62:frontier:71",
+    "endpoint_hexagon": 81,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 61,
+    "anchor_id": "short_ell4_r1_62:frontier:72",
+    "endpoint_hexagon": 39,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 34,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 63,
+    "anchor_id": "short_ell4_r1_62:frontier:73",
+    "endpoint_hexagon": 86,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 143,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 64,
+    "anchor_id": "short_ell4_r1_62:frontier:74",
+    "endpoint_hexagon": 65,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 62,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 64,
+    "anchor_id": "short_ell4_r1_62:frontier:75",
+    "endpoint_hexagon": 71,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 68,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 68,
+    "anchor_id": "short_ell4_r1_62:frontier:76",
+    "endpoint_hexagon": 60,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 49,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 69,
+    "anchor_id": "short_ell4_r1_62:frontier:77",
+    "endpoint_hexagon": 78,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 79,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 69,
+    "anchor_id": "short_ell4_r1_62:frontier:78",
+    "endpoint_hexagon": 80,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 81,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 71,
+    "anchor_id": "short_ell4_r1_62:frontier:79",
+    "endpoint_hexagon": 52,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 19,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 78,
+    "anchor_id": "short_ell4_r1_62:frontier:80",
+    "endpoint_hexagon": 111,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 106,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 82,
+    "anchor_id": "short_ell4_r1_62:frontier:81",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 130,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 83,
+    "anchor_id": "short_ell4_r1_62:frontier:82",
+    "endpoint_hexagon": 70,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 121,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 84,
+    "anchor_id": "short_ell4_r1_62:frontier:83",
+    "endpoint_hexagon": 111,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 112,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 89,
+    "anchor_id": "short_ell4_r1_62:frontier:84",
+    "endpoint_hexagon": 47,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 118,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 89,
+    "anchor_id": "short_ell4_r1_62:frontier:85",
+    "endpoint_hexagon": 118,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 125,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 89,
+    "anchor_id": "short_ell4_r1_62:frontier:86",
+    "endpoint_hexagon": 29,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 23,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 5,
+    "anchor_id": "short_ell4_r1_18:frontier:0",
+    "endpoint_hexagon": 4,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 4,
+    "hexagon_1_registered": true,
+    "phi": 5,
+    "r": 0,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_absent__E_cycle_broken"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 5,
+    "anchor_id": "short_ell4_r1_18:frontier:1",
+    "endpoint_hexagon": 5,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 5,
+    "hexagon_1_registered": true,
+    "phi": 5,
+    "r": 0,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_absent__E_cycle_broken"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 6,
+    "anchor_id": "short_ell4_r1_18:frontier:2",
+    "endpoint_hexagon": 105,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 32,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 6,
+    "anchor_id": "short_ell4_r1_18:frontier:3",
+    "endpoint_hexagon": 32,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 7,
+    "anchor_id": "short_ell4_r1_18:frontier:4",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 7,
+    "anchor_id": "short_ell4_r1_18:frontier:5",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 45,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_18:frontier:6",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_18:frontier:7",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 11,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_18:frontier:8",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_18:frontier:9",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_18:frontier:10",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_18:frontier:11",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 33,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 12,
+    "anchor_id": "short_ell4_r1_18:frontier:12",
+    "endpoint_hexagon": 12,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 13,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_18:frontier:13",
+    "endpoint_hexagon": 103,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_18:frontier:14",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 26,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_18:frontier:15",
+    "endpoint_hexagon": 39,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_18:frontier:16",
+    "endpoint_hexagon": 88,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 122,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_18:frontier:17",
+    "endpoint_hexagon": 83,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 83,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_18:frontier:18",
+    "endpoint_hexagon": 82,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 82,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_18:frontier:19",
+    "endpoint_hexagon": 100,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 117,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_18:frontier:20",
+    "endpoint_hexagon": 22,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 12,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 18,
+    "anchor_id": "short_ell4_r1_18:frontier:21",
+    "endpoint_hexagon": 35,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 121,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_18:frontier:22",
+    "endpoint_hexagon": 41,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 41,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_18:frontier:23",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 21,
+    "anchor_id": "short_ell4_r1_18:frontier:24",
+    "endpoint_hexagon": 97,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 107,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 21,
+    "anchor_id": "short_ell4_r1_18:frontier:25",
+    "endpoint_hexagon": 19,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 2,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_18:frontier:26",
+    "endpoint_hexagon": 102,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 129,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_18:frontier:27",
+    "endpoint_hexagon": 92,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 102,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_18:frontier:28",
+    "endpoint_hexagon": 27,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 137,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_18:frontier:29",
+    "endpoint_hexagon": 54,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_18:frontier:30",
+    "endpoint_hexagon": 77,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 74,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_18:frontier:31",
+    "endpoint_hexagon": 91,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 95,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_18:frontier:32",
+    "endpoint_hexagon": 9,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 8,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_18:frontier:33",
+    "endpoint_hexagon": 11,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 10,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 29,
+    "anchor_id": "short_ell4_r1_18:frontier:34",
+    "endpoint_hexagon": 63,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 82,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 29,
+    "anchor_id": "short_ell4_r1_18:frontier:35",
+    "endpoint_hexagon": 82,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 128,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_18:frontier:36",
+    "endpoint_hexagon": 74,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 73,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_18:frontier:37",
+    "endpoint_hexagon": 88,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 33,
+    "anchor_id": "short_ell4_r1_18:frontier:38",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 59,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 34,
+    "anchor_id": "short_ell4_r1_18:frontier:39",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 121,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 34,
+    "anchor_id": "short_ell4_r1_18:frontier:40",
+    "endpoint_hexagon": 70,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 114,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 35,
+    "anchor_id": "short_ell4_r1_18:frontier:41",
+    "endpoint_hexagon": 75,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 130,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 36,
+    "anchor_id": "short_ell4_r1_18:frontier:42",
+    "endpoint_hexagon": 98,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 37,
+    "anchor_id": "short_ell4_r1_18:frontier:43",
+    "endpoint_hexagon": 58,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 134,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 38,
+    "anchor_id": "short_ell4_r1_18:frontier:44",
+    "endpoint_hexagon": 47,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 125,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 39,
+    "anchor_id": "short_ell4_r1_18:frontier:45",
+    "endpoint_hexagon": 97,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_18:frontier:46",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 41,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_18:frontier:47",
+    "endpoint_hexagon": 37,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 36,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 41,
+    "anchor_id": "short_ell4_r1_18:frontier:48",
+    "endpoint_hexagon": 45,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 45,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_18:frontier:49",
+    "endpoint_hexagon": 94,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 108,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_18:frontier:50",
+    "endpoint_hexagon": 108,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 123,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 43,
+    "anchor_id": "short_ell4_r1_18:frontier:51",
+    "endpoint_hexagon": 107,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 104,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 43,
+    "anchor_id": "short_ell4_r1_18:frontier:52",
+    "endpoint_hexagon": 117,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 118,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_18:frontier:53",
+    "endpoint_hexagon": 35,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 34,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_18:frontier:54",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 32,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 45,
+    "anchor_id": "short_ell4_r1_18:frontier:55",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 42,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_18:frontier:56",
+    "endpoint_hexagon": 92,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 93,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 48,
+    "anchor_id": "short_ell4_r1_18:frontier:57",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 64,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 48,
+    "anchor_id": "short_ell4_r1_18:frontier:58",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_18:frontier:59",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 99,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_18:frontier:60",
+    "endpoint_hexagon": 99,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 128,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_18:frontier:61",
+    "endpoint_hexagon": 116,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 115,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_18:frontier:62",
+    "endpoint_hexagon": 106,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 102,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 51,
+    "anchor_id": "short_ell4_r1_18:frontier:63",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 77,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 52,
+    "anchor_id": "short_ell4_r1_18:frontier:64",
+    "endpoint_hexagon": 94,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 94,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_18:frontier:65",
+    "endpoint_hexagon": 20,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 111,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 54,
+    "anchor_id": "short_ell4_r1_18:frontier:66",
+    "endpoint_hexagon": 106,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 36,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 55,
+    "anchor_id": "short_ell4_r1_18:frontier:67",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 55,
+    "anchor_id": "short_ell4_r1_18:frontier:68",
+    "endpoint_hexagon": 61,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 76,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 56,
+    "anchor_id": "short_ell4_r1_18:frontier:69",
+    "endpoint_hexagon": 21,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 141,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 56,
+    "anchor_id": "short_ell4_r1_18:frontier:70",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 21,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 57,
+    "anchor_id": "short_ell4_r1_18:frontier:71",
+    "endpoint_hexagon": 110,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 137,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 60,
+    "anchor_id": "short_ell4_r1_18:frontier:72",
+    "endpoint_hexagon": 118,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 114,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 60,
+    "anchor_id": "short_ell4_r1_18:frontier:73",
+    "endpoint_hexagon": 112,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 108,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 61,
+    "anchor_id": "short_ell4_r1_18:frontier:74",
+    "endpoint_hexagon": 75,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 74,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 63,
+    "anchor_id": "short_ell4_r1_18:frontier:75",
+    "endpoint_hexagon": 105,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 64,
+    "anchor_id": "short_ell4_r1_18:frontier:76",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 117,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 65,
+    "anchor_id": "short_ell4_r1_18:frontier:77",
+    "endpoint_hexagon": 98,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 98,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 66,
+    "anchor_id": "short_ell4_r1_18:frontier:78",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 9,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 66,
+    "anchor_id": "short_ell4_r1_18:frontier:79",
+    "endpoint_hexagon": 9,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 129,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 70,
+    "anchor_id": "short_ell4_r1_18:frontier:80",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 51,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 73,
+    "anchor_id": "short_ell4_r1_18:frontier:81",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 114,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 74,
+    "anchor_id": "short_ell4_r1_18:frontier:82",
+    "endpoint_hexagon": 11,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 22,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 74,
+    "anchor_id": "short_ell4_r1_18:frontier:83",
+    "endpoint_hexagon": 53,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 71,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 75,
+    "anchor_id": "short_ell4_r1_18:frontier:84",
+    "endpoint_hexagon": 62,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 79,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 78,
+    "anchor_id": "short_ell4_r1_18:frontier:85",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 72,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 80,
+    "anchor_id": "short_ell4_r1_18:frontier:86",
+    "endpoint_hexagon": 25,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 29,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 81,
+    "anchor_id": "short_ell4_r1_18:frontier:87",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 33,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 85,
+    "anchor_id": "short_ell4_r1_18:frontier:88",
+    "endpoint_hexagon": 34,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 67,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_58:frontier:0",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_58:frontier:1",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_58:frontier:2",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_58:frontier:3",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 33,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_58:frontier:4",
+    "endpoint_hexagon": 15,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 15,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_58:frontier:5",
+    "endpoint_hexagon": 103,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_58:frontier:6",
+    "endpoint_hexagon": 37,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 36,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_58:frontier:7",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 41,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 15,
+    "anchor_id": "short_ell4_r1_58:frontier:8",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 15,
+    "anchor_id": "short_ell4_r1_58:frontier:9",
+    "endpoint_hexagon": 25,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 25,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_58:frontier:10",
+    "endpoint_hexagon": 68,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 54,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_58:frontier:11",
+    "endpoint_hexagon": 110,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 103,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_58:frontier:12",
+    "endpoint_hexagon": 101,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 14,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 18,
+    "anchor_id": "short_ell4_r1_58:frontier:13",
+    "endpoint_hexagon": 5,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 2,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 19,
+    "anchor_id": "short_ell4_r1_58:frontier:14",
+    "endpoint_hexagon": 21,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 21,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 19,
+    "anchor_id": "short_ell4_r1_58:frontier:15",
+    "endpoint_hexagon": 20,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 20,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_58:frontier:16",
+    "endpoint_hexagon": 55,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 53,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_58:frontier:17",
+    "endpoint_hexagon": 31,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 29,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 21,
+    "anchor_id": "short_ell4_r1_58:frontier:18",
+    "endpoint_hexagon": 47,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 118,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 22,
+    "anchor_id": "short_ell4_r1_58:frontier:19",
+    "endpoint_hexagon": 108,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 48,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_58:frontier:20",
+    "endpoint_hexagon": 73,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 4,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_58:frontier:21",
+    "endpoint_hexagon": 46,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 127,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_58:frontier:22",
+    "endpoint_hexagon": 59,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 46,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 25,
+    "anchor_id": "short_ell4_r1_58:frontier:23",
+    "endpoint_hexagon": 119,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 143,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_58:frontier:24",
+    "endpoint_hexagon": 85,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 139,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_58:frontier:25",
+    "endpoint_hexagon": 62,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 61,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_58:frontier:26",
+    "endpoint_hexagon": 56,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 55,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 28,
+    "anchor_id": "short_ell4_r1_58:frontier:27",
+    "endpoint_hexagon": 74,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 75,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 29,
+    "anchor_id": "short_ell4_r1_58:frontier:28",
+    "endpoint_hexagon": 88,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_58:frontier:29",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 69,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_58:frontier:30",
+    "endpoint_hexagon": 69,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 130,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_58:frontier:31",
+    "endpoint_hexagon": 61,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 65,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_58:frontier:32",
+    "endpoint_hexagon": 51,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 52,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_58:frontier:33",
+    "endpoint_hexagon": 94,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 95,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_58:frontier:34",
+    "endpoint_hexagon": 91,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 90,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 34,
+    "anchor_id": "short_ell4_r1_58:frontier:35",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 59,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 35,
+    "anchor_id": "short_ell4_r1_58:frontier:36",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 121,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 35,
+    "anchor_id": "short_ell4_r1_58:frontier:37",
+    "endpoint_hexagon": 70,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 114,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 36,
+    "anchor_id": "short_ell4_r1_58:frontier:38",
+    "endpoint_hexagon": 36,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 75,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 37,
+    "anchor_id": "short_ell4_r1_58:frontier:39",
+    "endpoint_hexagon": 98,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 39,
+    "anchor_id": "short_ell4_r1_58:frontier:40",
+    "endpoint_hexagon": 100,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 132,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_58:frontier:41",
+    "endpoint_hexagon": 21,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 22,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_58:frontier:42",
+    "endpoint_hexagon": 11,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 8,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_58:frontier:43",
+    "endpoint_hexagon": 97,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 97,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 43,
+    "anchor_id": "short_ell4_r1_58:frontier:44",
+    "endpoint_hexagon": 34,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 43,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_58:frontier:45",
+    "endpoint_hexagon": 50,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 13,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 45,
+    "anchor_id": "short_ell4_r1_58:frontier:46",
+    "endpoint_hexagon": 45,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 124,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_58:frontier:47",
+    "endpoint_hexagon": 108,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 123,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_58:frontier:48",
+    "endpoint_hexagon": 94,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 108,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_58:frontier:49",
+    "endpoint_hexagon": 51,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 136,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_58:frontier:50",
+    "endpoint_hexagon": 60,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 61,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_58:frontier:51",
+    "endpoint_hexagon": 21,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 8,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_58:frontier:52",
+    "endpoint_hexagon": 60,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 63,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 54,
+    "anchor_id": "short_ell4_r1_58:frontier:53",
+    "endpoint_hexagon": 98,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 111,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 57,
+    "anchor_id": "short_ell4_r1_58:frontier:54",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 64,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 58,
+    "anchor_id": "short_ell4_r1_58:frontier:55",
+    "endpoint_hexagon": 97,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 122,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 60,
+    "anchor_id": "short_ell4_r1_58:frontier:56",
+    "endpoint_hexagon": 102,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 103,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 61,
+    "anchor_id": "short_ell4_r1_58:frontier:57",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 93,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 61,
+    "anchor_id": "short_ell4_r1_58:frontier:58",
+    "endpoint_hexagon": 16,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 18,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 63,
+    "anchor_id": "short_ell4_r1_58:frontier:59",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 45,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 66,
+    "anchor_id": "short_ell4_r1_58:frontier:60",
+    "endpoint_hexagon": 73,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 72,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 66,
+    "anchor_id": "short_ell4_r1_58:frontier:61",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 77,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 67,
+    "anchor_id": "short_ell4_r1_58:frontier:62",
+    "endpoint_hexagon": 81,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 81,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 68,
+    "anchor_id": "short_ell4_r1_58:frontier:63",
+    "endpoint_hexagon": 71,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 62,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 70,
+    "anchor_id": "short_ell4_r1_58:frontier:64",
+    "endpoint_hexagon": 52,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 69,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 72,
+    "anchor_id": "short_ell4_r1_58:frontier:65",
+    "endpoint_hexagon": 21,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 141,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 73,
+    "anchor_id": "short_ell4_r1_58:frontier:66",
+    "endpoint_hexagon": 110,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 137,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 74,
+    "anchor_id": "short_ell4_r1_58:frontier:67",
+    "endpoint_hexagon": 71,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 68,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 76,
+    "anchor_id": "short_ell4_r1_58:frontier:68",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 72,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 77,
+    "anchor_id": "short_ell4_r1_58:frontier:69",
+    "endpoint_hexagon": 88,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 84,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 80,
+    "anchor_id": "short_ell4_r1_58:frontier:70",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 117,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_60:frontier:0",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_60:frontier:1",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 11,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_60:frontier:2",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_60:frontier:3",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_60:frontier:4",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 33,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_60:frontier:5",
+    "endpoint_hexagon": 6,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 3,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 12,
+    "anchor_id": "short_ell4_r1_60:frontier:6",
+    "endpoint_hexagon": 29,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 29,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 12,
+    "anchor_id": "short_ell4_r1_60:frontier:7",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 28,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_60:frontier:8",
+    "endpoint_hexagon": 110,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 103,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_60:frontier:9",
+    "endpoint_hexagon": 68,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 54,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_60:frontier:10",
+    "endpoint_hexagon": 51,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 16,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_60:frontier:11",
+    "endpoint_hexagon": 16,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 136,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 15,
+    "anchor_id": "short_ell4_r1_60:frontier:12",
+    "endpoint_hexagon": 6,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 9,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_60:frontier:13",
+    "endpoint_hexagon": 36,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 37,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_60:frontier:14",
+    "endpoint_hexagon": 97,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 107,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_60:frontier:15",
+    "endpoint_hexagon": 19,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 2,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 18,
+    "anchor_id": "short_ell4_r1_60:frontier:16",
+    "endpoint_hexagon": 15,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 89,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 19,
+    "anchor_id": "short_ell4_r1_60:frontier:17",
+    "endpoint_hexagon": 102,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 129,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 19,
+    "anchor_id": "short_ell4_r1_60:frontier:18",
+    "endpoint_hexagon": 92,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 102,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 21,
+    "anchor_id": "short_ell4_r1_60:frontier:19",
+    "endpoint_hexagon": 14,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 134,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 22,
+    "anchor_id": "short_ell4_r1_60:frontier:20",
+    "endpoint_hexagon": 77,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 74,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 22,
+    "anchor_id": "short_ell4_r1_60:frontier:21",
+    "endpoint_hexagon": 91,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 95,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_60:frontier:22",
+    "endpoint_hexagon": 9,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 8,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_60:frontier:23",
+    "endpoint_hexagon": 11,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 10,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_60:frontier:24",
+    "endpoint_hexagon": 13,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 13,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 25,
+    "anchor_id": "short_ell4_r1_60:frontier:25",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 26,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_60:frontier:26",
+    "endpoint_hexagon": 119,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 86,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_60:frontier:27",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 141,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_60:frontier:28",
+    "endpoint_hexagon": 79,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 28,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 28,
+    "anchor_id": "short_ell4_r1_60:frontier:29",
+    "endpoint_hexagon": 22,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 142,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 28,
+    "anchor_id": "short_ell4_r1_60:frontier:30",
+    "endpoint_hexagon": 53,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 22,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 29,
+    "anchor_id": "short_ell4_r1_60:frontier:31",
+    "endpoint_hexagon": 118,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 125,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_60:frontier:32",
+    "endpoint_hexagon": 93,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 94,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_60:frontier:33",
+    "endpoint_hexagon": 83,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 80,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_60:frontier:34",
+    "endpoint_hexagon": 113,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 112,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 31,
+    "anchor_id": "short_ell4_r1_60:frontier:35",
+    "endpoint_hexagon": 111,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 110,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_60:frontier:36",
+    "endpoint_hexagon": 115,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 115,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_60:frontier:37",
+    "endpoint_hexagon": 114,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 114,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 33,
+    "anchor_id": "short_ell4_r1_60:frontier:38",
+    "endpoint_hexagon": 5,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 23,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 35,
+    "anchor_id": "short_ell4_r1_60:frontier:39",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 18,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 36,
+    "anchor_id": "short_ell4_r1_60:frontier:40",
+    "endpoint_hexagon": 106,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 130,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 37,
+    "anchor_id": "short_ell4_r1_60:frontier:41",
+    "endpoint_hexagon": 45,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 46,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 37,
+    "anchor_id": "short_ell4_r1_60:frontier:42",
+    "endpoint_hexagon": 35,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 32,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_60:frontier:43",
+    "endpoint_hexagon": 78,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 25,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_60:frontier:44",
+    "endpoint_hexagon": 25,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 131,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 41,
+    "anchor_id": "short_ell4_r1_60:frontier:45",
+    "endpoint_hexagon": 46,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 42,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 41,
+    "anchor_id": "short_ell4_r1_60:frontier:46",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 36,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_60:frontier:47",
+    "endpoint_hexagon": 97,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 96,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_60:frontier:48",
+    "endpoint_hexagon": 100,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_60:frontier:49",
+    "endpoint_hexagon": 80,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 31,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_60:frontier:50",
+    "endpoint_hexagon": 31,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 142,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_60:frontier:51",
+    "endpoint_hexagon": 36,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 36,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_60:frontier:52",
+    "endpoint_hexagon": 61,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 76,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_60:frontier:53",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_60:frontier:54",
+    "endpoint_hexagon": 83,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 83,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_60:frontier:55",
+    "endpoint_hexagon": 78,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 79,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_60:frontier:56",
+    "endpoint_hexagon": 58,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 43,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_60:frontier:57",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 134,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 51,
+    "anchor_id": "short_ell4_r1_60:frontier:58",
+    "endpoint_hexagon": 33,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 34,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 52,
+    "anchor_id": "short_ell4_r1_60:frontier:59",
+    "endpoint_hexagon": 95,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 94,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_60:frontier:60",
+    "endpoint_hexagon": 78,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 78,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 54,
+    "anchor_id": "short_ell4_r1_60:frontier:61",
+    "endpoint_hexagon": 8,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 13,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 56,
+    "anchor_id": "short_ell4_r1_60:frontier:62",
+    "endpoint_hexagon": 65,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 65,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 56,
+    "anchor_id": "short_ell4_r1_60:frontier:63",
+    "endpoint_hexagon": 64,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 64,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 57,
+    "anchor_id": "short_ell4_r1_60:frontier:64",
+    "endpoint_hexagon": 99,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 113,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 59,
+    "anchor_id": "short_ell4_r1_60:frontier:65",
+    "endpoint_hexagon": 6,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 59,
+    "anchor_id": "short_ell4_r1_60:frontier:66",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 7,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 60,
+    "anchor_id": "short_ell4_r1_60:frontier:67",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 62,
+    "anchor_id": "short_ell4_r1_60:frontier:68",
+    "endpoint_hexagon": 95,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 92,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 63,
+    "anchor_id": "short_ell4_r1_60:frontier:69",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 56,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 67,
+    "anchor_id": "short_ell4_r1_60:frontier:70",
+    "endpoint_hexagon": 34,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 67,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 70,
+    "anchor_id": "short_ell4_r1_60:frontier:71",
+    "endpoint_hexagon": 61,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 70,
+    "anchor_id": "short_ell4_r1_60:frontier:72",
+    "endpoint_hexagon": 32,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 61,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 72,
+    "anchor_id": "short_ell4_r1_60:frontier:73",
+    "endpoint_hexagon": 16,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 12,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 72,
+    "anchor_id": "short_ell4_r1_60:frontier:74",
+    "endpoint_hexagon": 22,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 18,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 73,
+    "anchor_id": "short_ell4_r1_60:frontier:75",
+    "endpoint_hexagon": 79,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 78,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 74,
+    "anchor_id": "short_ell4_r1_60:frontier:76",
+    "endpoint_hexagon": 75,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 75,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 75,
+    "anchor_id": "short_ell4_r1_60:frontier:77",
+    "endpoint_hexagon": 70,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 60,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 4,
+    "anchor_id": "short_ell4_r1_71:frontier:0",
+    "endpoint_hexagon": 6,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 7,
+    "hexagon_1_registered": true,
+    "phi": 5,
+    "r": 0,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_absent__E_cycle_broken"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 4,
+    "anchor_id": "short_ell4_r1_71:frontier:1",
+    "endpoint_hexagon": 8,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 9,
+    "hexagon_1_registered": true,
+    "phi": 5,
+    "r": 0,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_absent__E_cycle_broken"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 5,
+    "anchor_id": "short_ell4_r1_71:frontier:2",
+    "endpoint_hexagon": 4,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 4,
+    "hexagon_1_registered": true,
+    "phi": 5,
+    "r": 0,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_absent__E_cycle_broken"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 5,
+    "anchor_id": "short_ell4_r1_71:frontier:3",
+    "endpoint_hexagon": 5,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 5,
+    "hexagon_1_registered": true,
+    "phi": 5,
+    "r": 0,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_absent__E_cycle_broken"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 6,
+    "anchor_id": "short_ell4_r1_71:frontier:4",
+    "endpoint_hexagon": 105,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 32,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 6,
+    "anchor_id": "short_ell4_r1_71:frontier:5",
+    "endpoint_hexagon": 32,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 138,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 7,
+    "anchor_id": "short_ell4_r1_71:frontier:6",
+    "endpoint_hexagon": 28,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 24,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 7,
+    "anchor_id": "short_ell4_r1_71:frontier:7",
+    "endpoint_hexagon": 42,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 45,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_71:frontier:8",
+    "endpoint_hexagon": 7,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 6,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 8,
+    "anchor_id": "short_ell4_r1_71:frontier:9",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 11,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_71:frontier:10",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 10,
+    "anchor_id": "short_ell4_r1_71:frontier:11",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_71:frontier:12",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 11,
+    "anchor_id": "short_ell4_r1_71:frontier:13",
+    "endpoint_hexagon": 30,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 33,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_71:frontier:14",
+    "endpoint_hexagon": 103,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 13,
+    "anchor_id": "short_ell4_r1_71:frontier:15",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 26,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_71:frontier:16",
+    "endpoint_hexagon": 39,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 14,
+    "anchor_id": "short_ell4_r1_71:frontier:17",
+    "endpoint_hexagon": 88,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 122,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 15,
+    "anchor_id": "short_ell4_r1_71:frontier:18",
+    "endpoint_hexagon": 72,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 75,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_71:frontier:19",
+    "endpoint_hexagon": 83,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 83,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 16,
+    "anchor_id": "short_ell4_r1_71:frontier:20",
+    "endpoint_hexagon": 82,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 82,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_71:frontier:21",
+    "endpoint_hexagon": 100,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 117,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 17,
+    "anchor_id": "short_ell4_r1_71:frontier:22",
+    "endpoint_hexagon": 22,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 12,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 19,
+    "anchor_id": "short_ell4_r1_71:frontier:23",
+    "endpoint_hexagon": 115,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 127,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 19,
+    "anchor_id": "short_ell4_r1_71:frontier:24",
+    "endpoint_hexagon": 46,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 115,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_71:frontier:25",
+    "endpoint_hexagon": 73,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 124,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 20,
+    "anchor_id": "short_ell4_r1_71:frontier:26",
+    "endpoint_hexagon": 60,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 73,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_71:frontier:27",
+    "endpoint_hexagon": 101,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 134,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 23,
+    "anchor_id": "short_ell4_r1_71:frontier:28",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 101,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_71:frontier:29",
+    "endpoint_hexagon": 13,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 133,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 24,
+    "anchor_id": "short_ell4_r1_71:frontier:30",
+    "endpoint_hexagon": 50,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 13,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_71:frontier:31",
+    "endpoint_hexagon": 41,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 38,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 26,
+    "anchor_id": "short_ell4_r1_71:frontier:32",
+    "endpoint_hexagon": 47,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 44,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_71:frontier:33",
+    "endpoint_hexagon": 87,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 86,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 27,
+    "anchor_id": "short_ell4_r1_71:frontier:34",
+    "endpoint_hexagon": 89,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 88,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 29,
+    "anchor_id": "short_ell4_r1_71:frontier:35",
+    "endpoint_hexagon": 55,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 29,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 29,
+    "anchor_id": "short_ell4_r1_71:frontier:36",
+    "endpoint_hexagon": 29,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 143,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_71:frontier:37",
+    "endpoint_hexagon": 38,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 37,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 30,
+    "anchor_id": "short_ell4_r1_71:frontier:38",
+    "endpoint_hexagon": 32,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 31,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_71:frontier:39",
+    "endpoint_hexagon": 106,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 115,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 32,
+    "anchor_id": "short_ell4_r1_71:frontier:40",
+    "endpoint_hexagon": 46,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 36,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 33,
+    "anchor_id": "short_ell4_r1_71:frontier:41",
+    "endpoint_hexagon": 25,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 11,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 34,
+    "anchor_id": "short_ell4_r1_71:frontier:42",
+    "endpoint_hexagon": 22,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 117,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 36,
+    "anchor_id": "short_ell4_r1_71:frontier:43",
+    "endpoint_hexagon": 24,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 129,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 38,
+    "anchor_id": "short_ell4_r1_71:frontier:44",
+    "endpoint_hexagon": 31,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 30,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 39,
+    "anchor_id": "short_ell4_r1_71:frontier:45",
+    "endpoint_hexagon": 27,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 27,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 40,
+    "anchor_id": "short_ell4_r1_71:frontier:46",
+    "endpoint_hexagon": 92,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 78,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 41,
+    "anchor_id": "short_ell4_r1_71:frontier:47",
+    "endpoint_hexagon": 99,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 8,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 42,
+    "anchor_id": "short_ell4_r1_71:frontier:48",
+    "endpoint_hexagon": 13,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 83,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 43,
+    "anchor_id": "short_ell4_r1_71:frontier:49",
+    "endpoint_hexagon": 43,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 134,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 43,
+    "anchor_id": "short_ell4_r1_71:frontier:50",
+    "endpoint_hexagon": 58,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 43,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 44,
+    "anchor_id": "short_ell4_r1_71:frontier:51",
+    "endpoint_hexagon": 98,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 45,
+    "anchor_id": "short_ell4_r1_71:frontier:52",
+    "endpoint_hexagon": 23,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 20,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 45,
+    "anchor_id": "short_ell4_r1_71:frontier:53",
+    "endpoint_hexagon": 17,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 14,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_71:frontier:54",
+    "endpoint_hexagon": 112,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 113,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 46,
+    "anchor_id": "short_ell4_r1_71:frontier:55",
+    "endpoint_hexagon": 101,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 98,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 47,
+    "anchor_id": "short_ell4_r1_71:frontier:56",
+    "endpoint_hexagon": 41,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 44,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 48,
+    "anchor_id": "short_ell4_r1_71:frontier:57",
+    "endpoint_hexagon": 84,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 49,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 48,
+    "anchor_id": "short_ell4_r1_71:frontier:58",
+    "endpoint_hexagon": 49,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 125,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 49,
+    "anchor_id": "short_ell4_r1_71:frontier:59",
+    "endpoint_hexagon": 64,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 60,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 50,
+    "anchor_id": "short_ell4_r1_71:frontier:60",
+    "endpoint_hexagon": 101,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 100,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 51,
+    "anchor_id": "short_ell4_r1_71:frontier:61",
+    "endpoint_hexagon": 110,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 110,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 52,
+    "anchor_id": "short_ell4_r1_71:frontier:62",
+    "endpoint_hexagon": 57,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 126,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_71:frontier:63",
+    "endpoint_hexagon": 66,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 69,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 53,
+    "anchor_id": "short_ell4_r1_71:frontier:64",
+    "endpoint_hexagon": 52,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 48,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 55,
+    "anchor_id": "short_ell4_r1_71:frontier:65",
+    "endpoint_hexagon": 76,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 93,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 55,
+    "anchor_id": "short_ell4_r1_71:frontier:66",
+    "endpoint_hexagon": 16,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 18,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 57,
+    "anchor_id": "short_ell4_r1_71:frontier:67",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 91,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 59,
+    "anchor_id": "short_ell4_r1_71:frontier:68",
+    "endpoint_hexagon": 38,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 139,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 64,
+    "anchor_id": "short_ell4_r1_71:frontier:69",
+    "endpoint_hexagon": 92,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 91,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 67,
+    "anchor_id": "short_ell4_r1_71:frontier:70",
+    "endpoint_hexagon": 49,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 48,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 68,
+    "anchor_id": "short_ell4_r1_71:frontier:71",
+    "endpoint_hexagon": 38,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 31,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 69,
+    "anchor_id": "short_ell4_r1_71:frontier:72",
+    "endpoint_hexagon": 29,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 23,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 76,
+    "anchor_id": "short_ell4_r1_71:frontier:73",
+    "endpoint_hexagon": 60,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 60,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 77,
+    "anchor_id": "short_ell4_r1_71:frontier:74",
+    "endpoint_hexagon": 37,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 77,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 80,
+    "anchor_id": "short_ell4_r1_71:frontier:75",
+    "endpoint_hexagon": 16,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 136,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 84,
+    "anchor_id": "short_ell4_r1_71:frontier:76",
+    "endpoint_hexagon": 10,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 69,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   },
+   {
+    "P": 88,
+    "anchor_id": "short_ell4_r1_71:frontier:77",
+    "endpoint_hexagon": 40,
+    "endpoint_is_orbit1_port": false,
+    "endpoint_orbit": 40,
+    "hexagon_1_registered": true,
+    "phi": 0,
+    "r": 1,
+    "reasons": [
+     "R2B_dead__hexagon_1_full__u_B_visited_unregistered",
+     "bridge_already_present__Phi=0__R2A_departure_costs_5"
+    ],
+    "verdict": "PERMANENTLY_NO_TARGET_A"
+   }
+  ],
+  "remaining": 0
+ }
+}
