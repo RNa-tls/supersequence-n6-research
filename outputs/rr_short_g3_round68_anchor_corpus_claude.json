@@ -1,0 +1,347 @@
+{
+  "schema": "rr-short-g3-round68-anchor-corpus-claude-v1",
+  "author": "Claude",
+  "report": "research/RR_SHORT_G3_ROUND68_ANCHOR_CORPUS_CLAUDE.md",
+  "search_run": false,
+  "corpus": {
+    "parts": 3,
+    "families": 24,
+    "anchors_declared": 1818,
+    "anchors_recounted": 1818,
+    "declared_matches_actual": true,
+    "schema": "rr-short-t4-direct-z2-families-v1",
+    "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549",
+    "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+    "sha256_verifiable": false,
+    "round68_pushed": false,
+    "codex_tip": "1f9efff (Round 61)"
+  },
+  "task1_omega_reconstruction": {
+    "recovered": {
+      "p": "anchor.endpoint",
+      "F": "coordinates.F",
+      "H": "coordinates.H",
+      "r_count": "len(canonical_decoration.r_events)",
+      "hub_touch_count": "canonical_decoration.hub_touch_count",
+      "popcount_orbit_masks": "coordinates.P",
+      "open_orbit_count": "coordinates.O"
+    },
+    "not_recovered": {
+      "orbit_masks_bitvector": "absent at anchors; present at merge events for the 1795 merged anchors via first_R1_hub_merge_provenance literal_predecessor_state / literal_child_state"
+    },
+    "fields_recovered": "4.5 of 5",
+    "consequence": "Omega-closure still cannot be run: the bit-vector is what evaluates new_orbit per orbit and recomputes component membership at descendants",
+    "monotonicity_use": "merge-point states are ancestors, so by monotonicity they are a certified LOWER bound on anchor occupancy -- sound for VNTS 'already visited' inferences"
+  },
+  "omega_mono_empirical_confirmation": {
+    "status": "EC -- empirical confirmation of a HAND THEOREM",
+    "test": "P - depth",
+    "result": "= 2 for all 1818/1818 anchors (constant)",
+    "theorem": "OMEGA-MONO: every macro edge increases popcount(orbit_masks) by exactly 1",
+    "merge_edge_check": {
+      "edges": 1795,
+      "orbit_popcount_delta": "+1 on all, zero exceptions",
+      "hex_popcount_delta": "+1 on all",
+      "explanation": "literal_predecessor_state is the LITERAL JOINT SOURCE (post-rotation-run) per the Round-48 correction, verified by joint_source.word == predecessor.p and joint_target.word == child.p; so the recorded step is the joint alone, not the whole macro edge"
+    }
+  },
+  "certified_capacity_bounds": {
+    "P_range": [
+      4,
+      93
+    ],
+    "remaining_macro_edges_le_720_minus_P": [
+      627,
+      716
+    ],
+    "O_range": [
+      2,
+      40
+    ],
+    "remaining_Z3_capacity_le_144_minus_O": [
+      104,
+      142
+    ],
+    "tractability_verdict": "NEGATIVE -- with branching <=24 and depth bounds in the 600s a naive Omega-closure is not computable; prior caveat sharpened from 'unestablished' to 'implausible by brute force'"
+  },
+  "task2_mechanism_split": {
+    "reproduced_from_raw_anchors": {
+      "MERGED_BY_R": 1183,
+      "MERGED_BY_Z2": 612,
+      "SEPARATE_MONOTONE_BLOCKED": 16,
+      "SEPARATE_CLEAR": 7
+    },
+    "matches_codex": true,
+    "resolves_prior_audit_issue": "#2 -- split now confirmed against DATA, not duplicated logic",
+    "F7_equals_MERGED_BY_R": {
+      "confirmed_at_anchor_level": true,
+      "families": 16,
+      "anchors": 1183,
+      "all_100pct": true
+    },
+    "F8_fine_structure": {
+      "every_family_has_exactly_2_SM": true,
+      "SM_total": 16,
+      "SC_in_4_of_8_families": {
+        "short_ell1_r1_39": 1,
+        "short_ell2_r1_17": 2,
+        "short_ell3_r1_58": 2,
+        "short_ell4_r1_71": 2
+      },
+      "per_family_MZ": {
+        "short_ell1_r1_39": 64,
+        "short_ell1_r1_5": 79,
+        "short_ell2_r1_17": 77,
+        "short_ell2_r1_57": 78,
+        "short_ell3_r1_58": 77,
+        "short_ell3_r1_61": 76,
+        "short_ell4_r1_18": 87,
+        "short_ell4_r1_71": 74
+      }
+    },
+    "two_merge_mechanisms_distinguished": {
+      "MERGED_BY_R": {
+        "r_count_transition": "(0,1) -- the merge edge IS R1",
+        "stage": "R1_CHILD_PREPARATION",
+        "macro_labels": "weight-3 (w3:120 / w3:201)",
+        "hub_touch": {
+          "0": 81,
+          "1": 1102
+        },
+        "branch": {
+          "CH1": 318,
+          "PRE_R_COMPLETER": 783,
+          "other": 1,
+          "undecided": 81
+        }
+      },
+      "MERGED_BY_Z2": {
+        "r_count_transition": "(1,1) -- strictly post-R1",
+        "stage": "V5_CONTINUATION",
+        "macro_label": "rot^5;w2:10 on all 612 -- the unique weight-2 move",
+        "hub_touch": {
+          "1": 612
+        },
+        "branch": "CH2 on all 612"
+      },
+      "exact_correspondence": "CH2 <=> MERGED_BY_Z2 (612 = 612)",
+      "methodological_note": "provenance.macro_index vs r_events[0].macro_index are literal vs canonical indexing and are NOT comparable; the r_count 0->1 transition is the decisive evidence"
+    }
+  },
+  "resource_half_of_omega": {
+    "status": "EC",
+    "F": {
+      "1": 1818
+    },
+    "H": {
+      "0": 1818
+    },
+    "Ndef": {
+      "1": 1818
+    },
+    "r_count": {
+      "1": 1818
+    },
+    "hub_touch_count": {
+      "0": 104,
+      "1": 1714
+    },
+    "resource_dead_anchors": 0,
+    "verdict": "ZERO closure leverage -- by M3 the only surviving Target-A obstructions in a merged family are the five non-component conditions, and ALL FIVE are satisfied at every residual anchor",
+    "hub_budget_shortcut_killed": {
+      "merges": 1795,
+      "targeted_hex0_incrementing_hub_touch": 930,
+      "targeted_other_hub_component_hexagon_no_increment": 865,
+      "other_targets": {
+        "hex18": 382,
+        "hex4": 289,
+        "hex1": 194
+      },
+      "conclusion": "merging does NOT reliably cost a hub touch; no universal hub-budget argument exists"
+    }
+  },
+  "task3_target_a_exits": {
+    "total": 3,
+    "all_known18": true,
+    "all_in_short_ell4": true,
+    "split": "1 F7 / 2 F8",
+    "new_clarification": "none of the 1818 anchors is itself a Target-A boundary -- every anchor has r_count=1 (pre-R2 frontier); the 3 hits live in downstream R2 telemetry, not the anchor set"
+  },
+  "task4_separate_clear": {
+    "fully_characterised": true,
+    "anchors": [
+      {
+        "id": "short_ell1_r1_39:frontier:0",
+        "family": "short_ell1_r1_39",
+        "q_R1": 33,
+        "source": "q32:p4 hex33:5",
+        "target": "q33:p1 -> hex0:2"
+      },
+      {
+        "id": "short_ell2_r1_17:frontier:0",
+        "family": "short_ell2_r1_17",
+        "q_R1": 9,
+        "source": "q129:p4 hex24:1",
+        "target": "q9:p2 -> hex0:3"
+      },
+      {
+        "id": "short_ell2_r1_17:frontier:1",
+        "family": "short_ell2_r1_17",
+        "q_R1": 9,
+        "source": "q129:p4 hex24:1",
+        "target": "q9:p2 -> hex0:3"
+      },
+      {
+        "id": "short_ell3_r1_58:frontier:0",
+        "family": "short_ell3_r1_58",
+        "q_R1": 3,
+        "source": "q57:p1 hex6:2",
+        "target": "q3:p3 -> hex0:4"
+      },
+      {
+        "id": "short_ell3_r1_58:frontier:1",
+        "family": "short_ell3_r1_58",
+        "q_R1": 3,
+        "source": "q57:p1 hex6:2",
+        "target": "q3:p3 -> hex0:4"
+      },
+      {
+        "id": "short_ell4_r1_71:frontier:0",
+        "family": "short_ell4_r1_71",
+        "q_R1": 1,
+        "source": "q15:p2 hex2:3",
+        "target": "q1:p4 -> hex0:5"
+      },
+      {
+        "id": "short_ell4_r1_71:frontier:1",
+        "family": "short_ell4_r1_71",
+        "q_R1": 1,
+        "source": "q15:p2 hex2:3",
+        "target": "q1:p4 -> hex0:5"
+      }
+    ],
+    "uniform_properties": {
+      "depth": 2,
+      "coordinates": {
+        "F": 1,
+        "H": 0,
+        "Ndef": 1,
+        "O": 3,
+        "P": 4,
+        "M": -11
+      },
+      "r_count": 1,
+      "hub_touch_count": 0,
+      "R1_hub_same_component": false,
+      "merge_events": 0,
+      "candidates_each": 1,
+      "cross_hex": true,
+      "unique_weight2_predecessor": true,
+      "status": "SOURCE_AND_TARGET_CLEAR_REQUIRES_PRIOR_STATE_CHANGE",
+      "bridge_relevance": "WOULD_MERGE_IF_ACCEPTED",
+      "source_hex_mask": 0,
+      "source_visited": false,
+      "target_visited": false,
+      "endpoint_is_source": false
+    },
+    "structural_pattern": "the target is always a phase of the R1 orbit itself landing in hexagon 0 (the hub hexagon), marching with the root index: ell1->q33:p1->hex0:2, ell2->q9:p2->hex0:3, ell3->q3:p3->hex0:4, ell4->q1:p4->hex0:5",
+    "why_VNTS_cannot_block": "hypothesis H1 fails outright -- the source is unvisited and its entire hexagon is empty (mask 0); the obstruction is pure reachability and this corpus does not decide it",
+    "fate": "OPEN"
+  },
+  "retraction": {
+    "item": "the all()-over-empty-list vacuity concern raised last round (sec5.1)",
+    "finding": "does NOT occur in this corpus -- all 23 non-merged anchors have exactly 1 candidate, none zero",
+    "action": "concern withdrawn; the recommended SEPARATE_NO_CANDIDATE / SEPARATE_ALL_BLOCKED label split is unnecessary"
+  },
+  "sm_anchors_are_full_hex_vnts": {
+    "status": "HAND THEOREM (VNTS) + EC",
+    "count": 16,
+    "status_label": "SOURCE_VNTS on all 16",
+    "source_visited": "true on all 16 (VNTS H1)",
+    "source_hex_mask": "63 = FULL on all 16 (Full-Hex corollary)",
+    "endpoint_is_source": "false on all 16 (VNTS H2)",
+    "proved": "the single direct-Z2 candidate of each of these 16 anchors is permanently dead in every descendant",
+    "NOT_proved": "Target-A closure for those anchors -- they could still obtain same_component(sq,tq) via a component-changing Z3 or without any hub merger"
+  },
+  "task5_D3_failure_characterisation": {
+    "status": "EC over the corpus",
+    "headline": "the residual is exactly the D3-failure class",
+    "D3": "Phi(q_R1) intersect H_hub = empty (hypothesis of RR_SHORT_T4_GENERIC_THEORY sec5a)",
+    "anchors_with_hub_hexagon_0_in_Phi": "1818 / 1818",
+    "anchors_whose_Phi_meets_hub_component": "1818 / 1818",
+    "per_family": "ALL FAIL on all 24; no mixed family",
+    "contrast": "the T4-verified branch short_ell2_r1_37 has Phi(91)={40,82,90,91,92}, which does NOT contain hexagon 0 -- precisely why T4 went through there",
+    "theorem": "the direct-Z2 disjointness lemma, and therefore T4 as proved for short_ell2_r1_37, is STRUCTURALLY INAPPLICABLE to every residual family -- not merely unproved for them",
+    "predicted_by": "the dropped-hypothesis counterexample in RR_SHORT_T4_GENERIC_THEORY sec6, written as a hypothetical and now verified universal",
+    "one_directional": "D3-failure verified NECESSARY for being residual; NOT shown sufficient -- the 89 closed families' anchors are not in this extract, and the 21 F5 families are also A4-class and may fail D3 while closing by monotone blocking"
+  },
+  "residual_reduction": {
+    "status": "HAND THEOREM",
+    "statement": "the 24 residual families reduce to a single question: for each anchor, can a legal R-kind joint fire post-R1 whose literal joint-source orbit is co-component with its target orbit?",
+    "because": [
+      "all resource conditions are live at all 1818 anchors (sec2.4)",
+      "co-component is permanent (M2-prime)",
+      "M3 leaves only the five non-component obstructions",
+      "D3 fails universally so no direct-Z2 disjointness argument applies"
+    ],
+    "is_this_a_closure": false,
+    "families_closed_this_round": 0,
+    "G3_claimed": false,
+    "observed_consistency": "R2 telemetry dominated by not_same_component and recognizer_geometry_failure with 3 TARGET_A_HIT -- consistent with 'rarely, and known-18 when yes', which remains BO"
+  },
+  "items_for_codex": [
+    {
+      "id": 1,
+      "finding": "a singleton anchor class",
+      "detail": "exactly 1 of 1818 has event_order_class=OTHER_POST_R_COMPLETER_EVENT_ORDER: short_ell1_r1_94:frontier:76, depth 74, O=25 P=76, merged by an R edge (rot^5;w3:201, target hex 18), with a Z3 completer (q23:p2 -> q0:p0). A class of size 1 in a 1818-anchor corpus is worth checking before it is relied on."
+    },
+    {
+      "id": 2,
+      "finding": "canonical_decoration.hub_id is not the engine HUB",
+      "detail": "it ranges over all 120 hexagons (1817/1818 differ from hub.hub_id=0) while the literal decorations inside the merge provenance correctly carry hub_id=0. This is left-S6 canonicalisation, NOT a bug -- checked before reporting. But since hub_touch_count is defined relative to dec.hub_id, an explicit test that the count is transported correctly by the canonicaliser is warranted."
+    },
+    {
+      "id": 3,
+      "finding": "prior audit issue #1 stands",
+      "detail": "the true_phase_walk_capacity firewall greps 2 of 5 proof-path files"
+    },
+    {
+      "id": 4,
+      "finding": "still outstanding",
+      "detail": "rr_short_113_family_mechanisms.json (the earlier item 4 was a duplicate), and pushing Round 68 so hashes become checkable"
+    }
+  ],
+  "proof_status": {
+    "EC": [
+      "corpus integrity",
+      "mechanism split from raw anchors",
+      "F7<=>MERGED_BY_R at anchor level",
+      "every F8 family has exactly 2 SM",
+      "OMEGA-MONO empirical confirmation",
+      "certified capacity bounds",
+      "resource half gives zero closure",
+      "merging does not reliably cost a hub touch",
+      "D3 fails 1818/1818"
+    ],
+    "HAND_THEOREM": [
+      "the 16 SM anchors' direct-Z2 candidates are permanently dead (VNTS)",
+      "T4 structurally inapplicable to the residual",
+      "residual reduces to the co-component R2-source question"
+    ],
+    "OPEN": [
+      "the 7 SC anchors' fate -- VNTS cannot apply since H1 fails"
+    ],
+    "NOT_RUN": [
+      "Omega-closure of F7/F8 -- orbit_masks bit-vector absent at anchors"
+    ],
+    "CONJECTURE_DECLINED": [
+      "MR-Theorem: all merged Target-A exits are known-18"
+    ],
+    "WITHDRAWN": [
+      "the all()-over-empty-list vacuity concern from last round"
+    ],
+    "families_closed": 0,
+    "G3": "NOT CLAIMED"
+  },
+  "end_token": "CLAUDE_G3_ROUND68_CORPUS_PARTIAL"
+}
