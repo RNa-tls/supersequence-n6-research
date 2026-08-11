@@ -1091,6 +1091,19 @@ not mean "first in the world."**
 - The recognition that the h82 case is a cross-hexagon VNTS instance
   rather than a special case (§8) — original within this project;
   external priority not established.
+- The **Φ / unique-bridge invariant** `6r <= 11 - Phi` and its corollary
+  that at most one hexagon of the incidence forest ever has degree 2,
+  hence at most one E-orbit pair is ever co-component and that pair is
+  frozen once created — plus the σ-adjacency admissibility lemma
+  (two co-hexagonal orbits admit a weight-3 transition iff their ports
+  are rotation-neighbours, 1,800/1,800 exhaustive) and the resulting
+  `root_ell ∈ {1,2,3}` closure of 1,415 of the 1,818 Round-68 residual
+  anchors (Round 69, Claude branch;
+  `research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md`). Original
+  within this project; external priority not established. **Scope: this
+  is a Q2-level result — it consumes `Phi >= 0`, i.e.
+  `remaining_window_capacity_prune`, which the committed `is_target_a`
+  enforces but which is not available for the pure Q1 question.**
 - The computational certificates themselves (the 1,325,392-node exact
   replay, the 84-anchor h40 ledger, the finite backward-closure
   H0-H5 classification) — original within this project as artifacts;
@@ -1112,6 +1125,7 @@ not mean "first in the world."**
 | C4 collision obstruction | `research/RR_SHORT_ELL2_R1_37_C4_COLLISION_OBSTRUCTION_CODEX.md` | `rr_short_ell2_r1_37_c4_collision_ledger.json`, `..._predecessor_closure.json` | `outputs/rr_short_ell2_r1_37_c4_collision_theory_claude.json` (end token `CLAUDE_C4_COLLISION_THEORY_READY`, flags contradictions with Round 59/Stage-E claims); codex's `..._c4_verified.json` (verified=true, T2 only) | `analyze/verify_..._c4_collision.py` | codex_tip / Claude branch | `[BO]` at T2, `[EC]` for T2a specifically |
 | hex82 5-route closure / final replay | `RR_SHORT_ELL2_R1_37_HEX82_C4_CLOSURE_CODEX.md`, `H40_FULLNESS_AUDIT_CODEX.md` | `rr_short_ell2_r1_37_hex82_routes.json`, `..._mitm.json`, `..._occupancy_audit.json`, `..._backward_closure.json` | `rr_short_ell2_r1_37_hex82_theory_claude.json` (`CLAUDE_HEX82_PARTIAL`, flagged a gap) superseded by final `..._t4_final_verification_claude.json` (`CLAUDE_T4_VERIFIED`), which itself supersedes the interim `..._t4_verification_claude.json` (`REMOTE_DATA_INSUFFICIENT`, written when the round-61 commit was not yet fetchable); codex's `..._hex82_verified.json` (verified=true) | `analyze/verify_..._hex82_closure.py`, `test_..._hex82_closure.py` | codex_tip commit `1f9efff` / Claude branch | `[T4][HP+EC+ER+IV]` |
 | Final T4 theorem | claim lives inside the two hex82 markdown files above (no separate `..._T4_...CODEX.md` file exists) | same hex82 outputs (no separate "t4" JSON on the Codex side) | `outputs/rr_short_ell2_r1_37_t4_final_verification_claude.json` (author: this project's Claude branch, end token `CLAUDE_T4_VERIFIED`, confirms head `1f9efff` and all 14 referenced files/hashes) | analytical cross-check against engine tables (no standalone script) | codex_tip commit `1f9efff` / Claude branch | `[T4][HP+EC+ER+IV]` |
+| Φ / unique-bridge invariant, Round 69 | `research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md` (Claude) | Round-68 residual corpus supplied by the user as three JSON parts (`payload_sha256 eae160b9…`, `source_round62_sha256 5e8b9650…`); **not present in any git ref at time of writing** | `outputs/rr_short_g3_cocomponent_invariant_claude.json` | `src/analyze_rr_cocomponent_invariant.py` (runs standalone; `--corpus` optional) | Claude branch | `[HP]` T1/T2/T3/T5/T6/T8, `[EC]` T4/T7, `[BO]` the 960k-node probe; **Q2-scope only (see §13)** |
 
 Prefer the currently-verified remote commit (`1f9efff0809c47e7ca1857ed6c7734c20e78f081`
 on `codex/round-r1-37-hex82-t4`) over any historical local-only reference
@@ -1144,6 +1158,8 @@ through `codex/round-r1-37-hex82-t4`'s HEAD, confirmed via
 | 60 | C4 collision obstruction: T2 (253,537 collisions), T2a (four-hexagon closure) | `2b3fb8f` |
 | 61 | Hex-82 five-route closure (T2b); h40-fullness follow-up audit; T4 asserted | `19d484b`, `1f9efff` |
 | 61 (this project's Claude branch) | Independent T4 verification (`CLAUDE_T4_VERIFIED`); generic VNTS theory | this branch, commits `3f24a49`, `f7a7211` |
+| 62-68 (Claude branch) | Master status document; G3 residual theory; Ω projection soundness/monotonicity/termination; Round-68 1,818-anchor corpus analysis; singleton `short_ell1_r1_94:frontier:76` resolved as generic | this branch, commits `2730c99`, `ab51db1`, `c4eaff9`, `f47a24a`, `af1f57a`, `eb7fc72`, `3370be4` |
+| 69 (Claude branch) | Φ / unique-bridge invariant `6r <= 11 - Phi`; σ-adjacency admissibility lemma; 1,415 of 1,818 residual anchors permanently closed; 960k-node bounded falsification probe (3 same-component witnesses, all `root_ell = 4`) | this branch, `research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md` |
 
 This appendix is intentionally terse — the logical structure in §6-8 is
 the primary account of this program; this table exists only to anchor

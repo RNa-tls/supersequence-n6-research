@@ -1,0 +1,2484 @@
+{
+ "adversarial_probe": {
+  "aggregate": {
+   "frl_edges": 3411563,
+   "frl_violations": 0,
+   "max_depth": 12,
+   "merges": 118,
+   "nodes": 960000,
+   "pct_different_components": 2.89,
+   "pct_not_in_forest": 97.11,
+   "r2": {
+    "SAME_COMPONENT": 3,
+    "different_components": 26127,
+    "not_in_forest": 877875
+   },
+   "r2_total": 904005,
+   "roots": 24,
+   "rotation_lengths": {
+    "0": 12,
+    "1": 12,
+    "2": 12,
+    "3": 10,
+    "5": 3411517
+   },
+   "same_component": 3,
+   "same_component_roots": [
+    {
+     "root_gaps_outside": 0,
+     "root_index": 0,
+     "root_phi": 5,
+     "witnesses": [
+      {
+       "P": 6,
+       "depth": 1,
+       "ell": 0,
+       "joint": "w3:120",
+       "phi": 0,
+       "sq": 1,
+       "tq": 0
+      }
+     ]
+    },
+    {
+     "root_gaps_outside": 0,
+     "root_index": 8,
+     "root_phi": 5,
+     "witnesses": [
+      {
+       "P": 6,
+       "depth": 1,
+       "ell": 0,
+       "joint": "w3:120",
+       "phi": 0,
+       "sq": 1,
+       "tq": 0
+      }
+     ]
+    },
+    {
+     "root_gaps_outside": 0,
+     "root_index": 20,
+     "root_phi": 5,
+     "witnesses": [
+      {
+       "P": 6,
+       "depth": 1,
+       "ell": 0,
+       "joint": "w3:120",
+       "phi": 0,
+       "sq": 1,
+       "tq": 0
+      }
+     ]
+    }
+   ],
+   "statuses": {
+    "NODE_CAP": 24
+   },
+   "virgin_hexagon_targets": {
+    "false": 427,
+    "true": 2507131
+   }
+  },
+  "design": "bounded forward expansion from the 24 certified literal post-R1 states, mirroring search_rr_target_a_exhaustive (macro_edges -> area_a_prune_reason -> joint_kind -> R at r_count=1 evaluated as an R2 boundary and never enqueued); the hub-touch decoration is omitted, which makes the probe a SUPERSET of the real search",
+  "per_root": [
+   {
+    "ell_used": {
+     "0": 4,
+     "5": 143970
+    },
+    "frl_ok": 143974,
+    "frl_viol": 0,
+    "frontier": 65873,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "SAME_COMPONENT": 1,
+     "different_components": 1096,
+     "not_in_forest": 36986
+    },
+    "r2_true": [
+     {
+      "P": 6,
+      "depth": 1,
+      "ell": 0,
+      "joint": "w3:120",
+      "phi": 0,
+      "sq": 1,
+      "tq": 0
+     }
+    ],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 6,
+    "root_gaps_outside": 0,
+    "root_hash": "cb49621887d83ec8",
+    "root_index": 0,
+    "root_kind": "child",
+    "root_phi": 5,
+    "seconds": 52.6,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105891
+    }
+   },
+   {
+    "ell_used": {
+     "3": 4,
+     "5": 144138
+    },
+    "frl_ok": 144142,
+    "frl_viol": 0,
+    "frontier": 66068,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1133,
+     "not_in_forest": 36920
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 3,
+    "root_gaps_outside": 0,
+    "root_hash": "a22422585fb79e0c",
+    "root_index": 1,
+    "root_kind": "child",
+    "root_phi": 2,
+    "seconds": 48.8,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 106089
+    }
+   },
+   {
+    "ell_used": {
+     "2": 4,
+     "5": 143911
+    },
+    "frl_ok": 143915,
+    "frl_viol": 0,
+    "frontier": 65680,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1145,
+     "not_in_forest": 37069
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 4,
+    "root_gaps_outside": 0,
+    "root_hash": "d1ad0fae86114037",
+    "root_index": 2,
+    "root_kind": "child",
+    "root_phi": 3,
+    "seconds": 62.7,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105701
+    }
+   },
+   {
+    "ell_used": {
+     "1": 4,
+     "5": 143891
+    },
+    "frl_ok": 143895,
+    "frl_viol": 0,
+    "frontier": 65674,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1163,
+     "not_in_forest": 37039
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 5,
+    "root_gaps_outside": 0,
+    "root_hash": "469be5b7070df933",
+    "root_index": 3,
+    "root_kind": "child",
+    "root_phi": 4,
+    "seconds": 62.0,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105693
+    }
+   },
+   {
+    "ell_used": {
+     "5": 141589
+    },
+    "frl_ok": 141589,
+    "frl_viol": 0,
+    "frontier": 64071,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1047,
+     "not_in_forest": 36452
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 7,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "4505e1c8f7d07682",
+    "root_index": 4,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 48.5,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 104090
+    }
+   },
+   {
+    "ell_used": {
+     "3": 3,
+     "5": 143780
+    },
+    "frl_ok": 143783,
+    "frl_viol": 0,
+    "frontier": 65810,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1080,
+     "not_in_forest": 36877
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 3,
+    "root_gaps_outside": 0,
+    "root_hash": "a8fc0ea7cce358d7",
+    "root_index": 5,
+    "root_kind": "child",
+    "root_phi": 2,
+    "seconds": 53.8,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105826
+    }
+   },
+   {
+    "ell_used": {
+     "5": 138941
+    },
+    "frl_ok": 138941,
+    "frl_viol": 0,
+    "frontier": 61984,
+    "maxd": 12,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1012,
+     "not_in_forest": 35932
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 8,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "542cafe022c2181c",
+    "root_index": 6,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 53.1,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 101997
+    }
+   },
+   {
+    "ell_used": {
+     "5": 142710
+    },
+    "frl_ok": 142710,
+    "frl_viol": 0,
+    "frontier": 64747,
+    "maxd": 10,
+    "merge_examples": [
+     {
+      "depth": 5,
+      "hex": 0,
+      "joint": "w2:10",
+      "kind": "Z2",
+      "orbit": 3,
+      "phi_after": 2,
+      "phi_before": 2
+     },
+     {
+      "depth": 7,
+      "hex": 0,
+      "joint": "w2:10",
+      "kind": "Z2",
+      "orbit": 3,
+      "phi_after": 2,
+      "phi_before": 2
+     },
+     {
+      "depth": 8,
+      "hex": 0,
+      "joint": "w2:10",
+      "kind": "Z2",
+      "orbit": 1,
+      "phi_after": 2,
+      "phi_before": 2
+     },
+     {
+      "depth": 8,
+      "hex": 0,
+      "joint": "w2:10",
+      "kind": "Z2",
+      "orbit": 1,
+      "phi_after": 2,
+      "phi_before": 2
+     },
+     {
+      "depth": 8,
+      "hex": 0,
+      "joint": "w2:10",
+      "kind": "Z2",
+      "orbit": 1,
+      "phi_after": 2,
+      "phi_before": 2
+     }
+    ],
+    "merges": 118,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1070,
+     "not_in_forest": 36876
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 1,
+    "root_gaps_outside": 4,
+    "root_hash": "2e1535626cae384d",
+    "root_index": 7,
+    "root_kind": "child",
+    "root_phi": 2,
+    "seconds": 49.2,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "false": 427,
+     "true": 104337
+    }
+   },
+   {
+    "ell_used": {
+     "0": 4,
+     "5": 144039
+    },
+    "frl_ok": 144043,
+    "frl_viol": 0,
+    "frontier": 65894,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "SAME_COMPONENT": 1,
+     "different_components": 1094,
+     "not_in_forest": 37036
+    },
+    "r2_true": [
+     {
+      "P": 6,
+      "depth": 1,
+      "ell": 0,
+      "joint": "w3:120",
+      "phi": 0,
+      "sq": 1,
+      "tq": 0
+     }
+    ],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 6,
+    "root_gaps_outside": 0,
+    "root_hash": "de41553e0e313ee7",
+    "root_index": 8,
+    "root_kind": "child",
+    "root_phi": 5,
+    "seconds": 48.6,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105912
+    }
+   },
+   {
+    "ell_used": {
+     "2": 4,
+     "5": 143932
+    },
+    "frl_ok": 143936,
+    "frl_viol": 0,
+    "frontier": 65670,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1157,
+     "not_in_forest": 37088
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 4,
+    "root_gaps_outside": 0,
+    "root_hash": "7a788e1c451c1381",
+    "root_index": 9,
+    "root_kind": "child",
+    "root_phi": 3,
+    "seconds": 48.8,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105691
+    }
+   },
+   {
+    "ell_used": {
+     "5": 141194
+    },
+    "frl_ok": 141194,
+    "frl_viol": 0,
+    "frontier": 63811,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1074,
+     "not_in_forest": 36289
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 7,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "5e4c62b207d60db5",
+    "root_index": 10,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 51.5,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 103831
+    }
+   },
+   {
+    "ell_used": {
+     "5": 140123
+    },
+    "frl_ok": 140123,
+    "frl_viol": 0,
+    "frontier": 63019,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 995,
+     "not_in_forest": 36089
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 8,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "3d4abdaf377322d8",
+    "root_index": 11,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 50.5,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 103039
+    }
+   },
+   {
+    "ell_used": {
+     "5": 141613
+    },
+    "frl_ok": 141613,
+    "frl_viol": 0,
+    "frontier": 64125,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1035,
+     "not_in_forest": 36433
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 7,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "ae9c68bdb3968cde",
+    "root_index": 12,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 49.7,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 104145
+    }
+   },
+   {
+    "ell_used": {
+     "5": 139702
+    },
+    "frl_ok": 139702,
+    "frl_viol": 0,
+    "frontier": 62541,
+    "maxd": 12,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1097,
+     "not_in_forest": 36039
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 8,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "ae7b581e33fbf073",
+    "root_index": 13,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 68.2,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 102566
+    }
+   },
+   {
+    "ell_used": {
+     "5": 138941
+    },
+    "frl_ok": 138941,
+    "frl_viol": 0,
+    "frontier": 61998,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1035,
+     "not_in_forest": 35891
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 9,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "8331b22aab5bf9fb",
+    "root_index": 14,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 50.8,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 102015
+    }
+   },
+   {
+    "ell_used": {
+     "3": 3,
+     "5": 143816
+    },
+    "frl_ok": 143819,
+    "frl_viol": 0,
+    "frontier": 65891,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1088,
+     "not_in_forest": 36823
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 3,
+    "root_gaps_outside": 0,
+    "root_hash": "aa303687ebd87497",
+    "root_index": 15,
+    "root_kind": "child",
+    "root_phi": 2,
+    "seconds": 69.7,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105908
+    }
+   },
+   {
+    "ell_used": {
+     "5": 140327
+    },
+    "frl_ok": 140327,
+    "frl_viol": 0,
+    "frontier": 63213,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1046,
+     "not_in_forest": 36049
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 8,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "58733fd4dc706a47",
+    "root_index": 16,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 49.1,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 103232
+    }
+   },
+   {
+    "ell_used": {
+     "5": 141634
+    },
+    "frl_ok": 141634,
+    "frl_viol": 0,
+    "frontier": 64248,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1042,
+     "not_in_forest": 36324
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 7,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "16ef8f21a3fe1b21",
+    "root_index": 17,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 49.2,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 104268
+    }
+   },
+   {
+    "ell_used": {
+     "1": 4,
+     "5": 143793
+    },
+    "frl_ok": 143797,
+    "frl_viol": 0,
+    "frontier": 65708,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1169,
+     "not_in_forest": 36900
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 5,
+    "root_gaps_outside": 0,
+    "root_hash": "717a6b497269078e",
+    "root_index": 18,
+    "root_kind": "child",
+    "root_phi": 4,
+    "seconds": 48.7,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105728
+    }
+   },
+   {
+    "ell_used": {
+     "1": 4,
+     "5": 143894
+    },
+    "frl_ok": 143898,
+    "frl_viol": 0,
+    "frontier": 65721,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1138,
+     "not_in_forest": 37020
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 5,
+    "root_gaps_outside": 0,
+    "root_hash": "8d976263af0da6df",
+    "root_index": 19,
+    "root_kind": "child",
+    "root_phi": 4,
+    "seconds": 49.5,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105740
+    }
+   },
+   {
+    "ell_used": {
+     "0": 4,
+     "5": 143934
+    },
+    "frl_ok": 143938,
+    "frl_viol": 0,
+    "frontier": 65802,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "SAME_COMPONENT": 1,
+     "different_components": 1118,
+     "not_in_forest": 36999
+    },
+    "r2_true": [
+     {
+      "P": 6,
+      "depth": 1,
+      "ell": 0,
+      "joint": "w3:120",
+      "phi": 0,
+      "sq": 1,
+      "tq": 0
+     }
+    ],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 6,
+    "root_gaps_outside": 0,
+    "root_hash": "9161065247c83317",
+    "root_index": 20,
+    "root_kind": "child",
+    "root_phi": 5,
+    "seconds": 48.6,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105820
+    }
+   },
+   {
+    "ell_used": {
+     "2": 4,
+     "5": 143838
+    },
+    "frl_ok": 143842,
+    "frl_viol": 0,
+    "frontier": 65611,
+    "maxd": 10,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1160,
+     "not_in_forest": 37050
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 5,
+    "root_bcur": 4,
+    "root_gaps_outside": 0,
+    "root_hash": "24140a3ca16e3f9c",
+    "root_index": 21,
+    "root_kind": "child",
+    "root_phi": 3,
+    "seconds": 48.9,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 105632
+    }
+   },
+   {
+    "ell_used": {
+     "5": 139178
+    },
+    "frl_ok": 139178,
+    "frl_viol": 0,
+    "frontier": 62221,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1070,
+     "not_in_forest": 35870
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 9,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "997bf651dceb147a",
+    "root_index": 22,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 48.4,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 102238
+    }
+   },
+   {
+    "ell_used": {
+     "5": 138629
+    },
+    "frl_ok": 138629,
+    "frl_viol": 0,
+    "frontier": 61725,
+    "maxd": 11,
+    "merge_examples": [],
+    "merges": 0,
+    "nodes": 40000,
+    "r2": {
+     "different_components": 1063,
+     "not_in_forest": 35824
+    },
+    "r2_true": [],
+    "root_F": 1,
+    "root_H": 0,
+    "root_O": 2,
+    "root_P": 9,
+    "root_bcur": 1,
+    "root_gaps_outside": 0,
+    "root_hash": "7f0ef491069071f8",
+    "root_index": 23,
+    "root_kind": "child",
+    "root_phi": 0,
+    "seconds": 47.5,
+    "status": "NODE_CAP",
+    "virgin_hex_target": {
+     "true": 101742
+    }
+   }
+  ]
+ },
+ "author": "Claude",
+ "central_quantity": {
+  "committed_at": "src/build_rr_target_a_roots.py line 68",
+  "definition": "5 + 6*(TARGET_P - P) - (720 - visited_count)",
+  "delta_per_macro_edge": "ell - 5",
+  "enforced_by": "superperm_partial_f1_macro.remaining_window_capacity_prune inside area_a_prune_reason, which build_rr_target_a_roots.is_target_a itself calls on the R2 child",
+  "name": "Phi",
+  "total_spend_from_initial_state": "6 - Phi(s)",
+  "visited_identity": "visited_count = 6*P + Phi - 11"
+ },
+ "certified_literal_post_R1_states": {
+  "all_satisfy_r_le_1": true,
+  "bridge_hexagons_observed": [
+   0
+  ],
+  "count": 24,
+  "max_hexagon_degree": 2,
+  "provenance": "first_R1_hub_merge_provenance.literal_child_state, deduplicated by stable_key",
+  "states": [
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      1
+     ]
+    ],
+    "current_hexagon_occupancy": 6,
+    "dead_permutation_count": 19,
+    "forced_ell": 0,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     5,
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "phi": 5,
+    "touched_hexagons": 4,
+    "visited_count": 24,
+    "visited_identity_6P_plus_phi_minus_11": 24
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      33
+     ]
+    ],
+    "current_hexagon_occupancy": 3,
+    "dead_permutation_count": 16,
+    "forced_ell": 3,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     5,
+     0,
+     1
+    ],
+    "phi": 2,
+    "touched_hexagons": 4,
+    "visited_count": 21,
+    "visited_identity_6P_plus_phi_minus_11": 21
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      9
+     ]
+    ],
+    "current_hexagon_occupancy": 4,
+    "dead_permutation_count": 17,
+    "forced_ell": 2,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     5,
+     0,
+     1,
+     2
+    ],
+    "phi": 3,
+    "touched_hexagons": 4,
+    "visited_count": 22,
+    "visited_identity_6P_plus_phi_minus_11": 22
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      3
+     ]
+    ],
+    "current_hexagon_occupancy": 5,
+    "dead_permutation_count": 18,
+    "forced_ell": 1,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     4,
+     5,
+     0,
+     1,
+     2,
+     3
+    ],
+    "phi": 4,
+    "touched_hexagons": 4,
+    "visited_count": 23,
+    "visited_identity_6P_plus_phi_minus_11": 23
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 7,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      33
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 24,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     0,
+     1,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 6,
+    "visited_count": 31,
+    "visited_identity_6P_plus_phi_minus_11": 31
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      33
+     ]
+    ],
+    "current_hexagon_occupancy": 3,
+    "dead_permutation_count": 16,
+    "forced_ell": 3,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     5,
+     0,
+     1
+    ],
+    "phi": 2,
+    "touched_hexagons": 4,
+    "visited_count": 21,
+    "visited_identity_6P_plus_phi_minus_11": 21
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 8,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      3
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 29,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     0,
+     1,
+     2,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 7,
+    "visited_count": 37,
+    "visited_identity_6P_plus_phi_minus_11": 37
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [],
+    "bridged_orbits": [],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 16,
+    "forced_ell": 5,
+    "gaps_outside_current": {
+     "0": 4
+    },
+    "incidence_excess_r": 0,
+    "max_hexagon_degree": 1,
+    "p": [
+     2,
+     3,
+     4,
+     0,
+     1,
+     5
+    ],
+    "phi": 2,
+    "touched_hexagons": 5,
+    "visited_count": 21,
+    "visited_identity_6P_plus_phi_minus_11": 21
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      1
+     ]
+    ],
+    "current_hexagon_occupancy": 6,
+    "dead_permutation_count": 19,
+    "forced_ell": 0,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     5,
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "phi": 5,
+    "touched_hexagons": 4,
+    "visited_count": 24,
+    "visited_identity_6P_plus_phi_minus_11": 24
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      9
+     ]
+    ],
+    "current_hexagon_occupancy": 4,
+    "dead_permutation_count": 17,
+    "forced_ell": 2,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     5,
+     0,
+     1,
+     2
+    ],
+    "phi": 3,
+    "touched_hexagons": 4,
+    "visited_count": 22,
+    "visited_identity_6P_plus_phi_minus_11": 22
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 7,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      3
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 24,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     0,
+     1,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 6,
+    "visited_count": 31,
+    "visited_identity_6P_plus_phi_minus_11": 31
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 8,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      9
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 29,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     0,
+     1,
+     2,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 7,
+    "visited_count": 37,
+    "visited_identity_6P_plus_phi_minus_11": 37
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 7,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      9
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 24,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     0,
+     1,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 6,
+    "visited_count": 31,
+    "visited_identity_6P_plus_phi_minus_11": 31
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 8,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      1
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 29,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     0,
+     1,
+     2,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 7,
+    "visited_count": 37,
+    "visited_identity_6P_plus_phi_minus_11": 37
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 9,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      3
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 34,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     4,
+     0,
+     1,
+     2,
+     3,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 8,
+    "visited_count": 43,
+    "visited_identity_6P_plus_phi_minus_11": 43
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      33
+     ]
+    ],
+    "current_hexagon_occupancy": 3,
+    "dead_permutation_count": 16,
+    "forced_ell": 3,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     5,
+     0,
+     1
+    ],
+    "phi": 2,
+    "touched_hexagons": 4,
+    "visited_count": 21,
+    "visited_identity_6P_plus_phi_minus_11": 21
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 8,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      33
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 29,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     0,
+     1,
+     2,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 7,
+    "visited_count": 37,
+    "visited_identity_6P_plus_phi_minus_11": 37
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 7,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      1
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 24,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     2,
+     3,
+     4,
+     0,
+     1,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 6,
+    "visited_count": 31,
+    "visited_identity_6P_plus_phi_minus_11": 31
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      3
+     ]
+    ],
+    "current_hexagon_occupancy": 5,
+    "dead_permutation_count": 18,
+    "forced_ell": 1,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     4,
+     5,
+     0,
+     1,
+     2,
+     3
+    ],
+    "phi": 4,
+    "touched_hexagons": 4,
+    "visited_count": 23,
+    "visited_identity_6P_plus_phi_minus_11": 23
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      3
+     ]
+    ],
+    "current_hexagon_occupancy": 5,
+    "dead_permutation_count": 18,
+    "forced_ell": 1,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     4,
+     5,
+     0,
+     1,
+     2,
+     3
+    ],
+    "phi": 4,
+    "touched_hexagons": 4,
+    "visited_count": 23,
+    "visited_identity_6P_plus_phi_minus_11": 23
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      1
+     ]
+    ],
+    "current_hexagon_occupancy": 6,
+    "dead_permutation_count": 19,
+    "forced_ell": 0,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     5,
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "phi": 5,
+    "touched_hexagons": 4,
+    "visited_count": 24,
+    "visited_identity_6P_plus_phi_minus_11": 24
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 5,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      9
+     ]
+    ],
+    "current_hexagon_occupancy": 4,
+    "dead_permutation_count": 17,
+    "forced_ell": 2,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     3,
+     4,
+     5,
+     0,
+     1,
+     2
+    ],
+    "phi": 3,
+    "touched_hexagons": 4,
+    "visited_count": 22,
+    "visited_identity_6P_plus_phi_minus_11": 22
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 9,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      33
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 34,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     4,
+     0,
+     1,
+     2,
+     3,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 8,
+    "visited_count": 43,
+    "visited_identity_6P_plus_phi_minus_11": 43
+   },
+   {
+    "F": 1,
+    "H": 0,
+    "Ndef": 1,
+    "O": 2,
+    "P": 9,
+    "S": 2,
+    "bound_6r_le_11_minus_phi": true,
+    "bridge_hexagons": [
+     0
+    ],
+    "bridged_orbits": [
+     [
+      0,
+      9
+     ]
+    ],
+    "current_hexagon_occupancy": 1,
+    "dead_permutation_count": 34,
+    "forced_ell": 5,
+    "gaps_outside_current": {},
+    "incidence_excess_r": 1,
+    "max_hexagon_degree": 2,
+    "p": [
+     4,
+     0,
+     1,
+     2,
+     3,
+     5
+    ],
+    "phi": 0,
+    "touched_hexagons": 8,
+    "visited_count": 43,
+    "visited_identity_6P_plus_phi_minus_11": 43
+   }
+  ]
+ },
+ "continuation_search_run": false,
+ "core_sha256": "18f75735b08fc061765e33cc661a084c8735e433e80ee8035a163b113ee39d60",
+ "corpus_application": {
+  "anchors": 1818,
+  "bridged_pair_distribution": {
+   "(0, 1)": 397,
+   "(0, 3)": 435,
+   "(0, 33)": 441,
+   "(0, 9)": 441,
+   "none_r0": 104
+  },
+  "incidence_excess_r_distribution": {
+   "0": 104,
+   "1": 1714
+  },
+  "note": "root_ell alone decides the verdict: it fixes the bridged pair for r=1 anchors and the forced bridge position for r=0 anchors",
+  "pair_w3_admissible": {
+   "False": 1317,
+   "None": 104,
+   "True": 397
+  },
+  "phi_distribution": {
+   "0": 1713,
+   "2": 87,
+   "3": 6,
+   "4": 6,
+   "5": 6
+  },
+  "r_by_phi": {
+   "(0, 2)": 86,
+   "(0, 3)": 6,
+   "(0, 4)": 6,
+   "(0, 5)": 6,
+   "(1, 0)": 1713,
+   "(1, 2)": 1
+  },
+  "root_ell_distribution": {
+   "1": 528,
+   "2": 446,
+   "3": 441,
+   "4": 403
+  },
+  "root_ell_to_bridged_pair": {
+   "(1, 'none_r0')": 86,
+   "(1, (0, 33))": 441,
+   "(1, (0, 9))": 1,
+   "(2, 'none_r0')": 6,
+   "(2, (0, 9))": 440,
+   "(3, 'none_r0')": 6,
+   "(3, (0, 3))": 435,
+   "(4, 'none_r0')": 6,
+   "(4, (0, 1))": 397
+  },
+  "verdict": {
+   "NOT_CLOSED_root_ell_4": 403,
+   "PERMANENTLY_CLOSED_root_ell_1_2_3": 1415
+  }
+ },
+ "corpus_sources": [
+  {
+   "families": 8,
+   "file": "d00bee1c-round68_residual_24_families_part2.json",
+   "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+   "schema": "rr-short-t4-direct-z2-families-v1",
+   "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549"
+  },
+  {
+   "families": 8,
+   "file": "ef260575-round68_residual_24_families_part1.json",
+   "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+   "schema": "rr-short-t4-direct-z2-families-v1",
+   "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549"
+  },
+  {
+   "families": 8,
+   "file": "fcd33f8f-round68_residual_24_families_part3.json",
+   "payload_sha256": "eae160b9b860067fbd125d5ba99b9a958d9118fac27716bdf7955c18b4d80904",
+   "schema": "rr-short-t4-direct-z2-families-v1",
+   "source_round62_sha256": "5e8b9650d48d5306e4c5e693ae2208a376331702c457c0580aadd0effb586549"
+  }
+ ],
+ "engine_sha256": "9196dcc17b3081aeb777001a1c5366e787fe15c1dad0614ec760953b785801a8",
+ "evidence_grading": {
+  "BOUNDED_OBSERVATION": [
+   "everything in adversarial_probe"
+  ],
+  "EXHAUSTIVE_COMPUTATION": [
+   "T4",
+   "T7",
+   "incidence_geometry"
+  ],
+  "HAND_PROOF": [
+   "T1",
+   "T2",
+   "T3",
+   "T5",
+   "T6",
+   "T8"
+  ],
+  "INDEPENDENTLY_VERIFIED": [
+   "r<=1 on all 47 certified literal states",
+   "visited = 6P+Phi-11",
+   "bridge always at hexagon 0"
+  ],
+  "OPEN": [
+   "the 403 root_ell=4 anchors (MP-1)",
+   "the Q1 form of the theorem (MP-2)"
+  ]
+ },
+ "exact_missing_premise": [
+  {
+   "gap": "the 403 root_ell=4 anchors are not closed",
+   "id": "MP-1",
+   "minimal_data_request": "for each root_ell=4 residual anchor, the two sparse lists sparse_hex() and sparse_orbits() of its ExactState -- nothing else",
+   "why": "the bridged pair {0,1} is weight-3 admissible in both directions so T7 gives nothing; deciding each anchor needs the literal occupancy at the ports of orbits 0 and 1"
+  },
+  {
+   "detail": "Phi>=0 is remaining_window_capacity_prune, a necessary condition for an Area-A NR6 completion (P=121). It is unconditional inside the committed corrected-v5 program because is_target_a calls area_a_prune_reason on its own child, but build_rr_target_a_roots.py's docstring warns that capacity reasoning is unsound for Q1.",
+   "gap": "the theorem is Q2-level, not Q1-level",
+   "id": "MP-2",
+   "sensitivity_test": "with the window-capacity prune dropped the search reached Phi = -3 within 20,000 nodes, so the premise is load-bearing; at Phi=-1 the bound only gives r<=2"
+  },
+  {
+   "gap": "whether hub position 2 is reachable for root_ell=1 was not decided",
+   "id": "MP-3",
+   "impact": "none on the verdict: the pair {0,33} is inadmissible either way"
+  }
+ ],
+ "exhaustion_claimed": false,
+ "finite_residual_mechanisms": [
+  {
+   "id": "M-A",
+   "mechanism": "bridge already present (r=1); pair fixed = {0, orbit at hub position root_ell+1}",
+   "status": "closed for root_ell in {1,2,3} by T7; open for root_ell=4"
+  },
+  {
+   "id": "M-B",
+   "mechanism": "no bridge yet (r=0); a joint enters hub gap g",
+   "status": "fully enumerated in short_root_table; only g=root_ell+1 survives, and its pair is inadmissible for root_ell in {1,2,3}"
+  },
+  {
+   "id": "M-C",
+   "mechanism": "bridge in a hexagon other than the hub",
+   "status": "EXCLUDED by the gap-count identity and T6"
+  },
+  {
+   "id": "M-D",
+   "mechanism": "length-4 path: source and target joined through a THIRD component",
+   "status": "EXCLUDED by T3"
+  },
+  {
+   "id": "M-E",
+   "mechanism": "sq = tq (self-pair)",
+   "status": "EXCLUDED by T4 (0 of 17280)"
+  },
+  {
+   "id": "M-F",
+   "mechanism": "source orbit not in the forest at all",
+   "status": "not a route to co-componentness; it is the dominant failure mode, 97.11% of all probed R2 evaluations"
+  }
+ ],
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY",
+ "incidence_geometry": {
+  "connected": true,
+  "diameter": 8,
+  "distance_2_pairs_with_a_w3_transition": 360,
+  "distance_2_pairs_without_any_w3_transition": 1080,
+  "generator_hexagon_fixed_points": 0,
+  "generator_orbit_fixed_points": 0,
+  "hexagon_node_degree": [
+   6
+  ],
+  "hexagon_nodes": 120,
+  "hub_hexagon": 0,
+  "hub_pairs_admissible": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    120
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    9,
+    33
+   ],
+   [
+    33,
+    120
+   ]
+  ],
+  "hub_port_position_by_orbit": {
+   "0": 0,
+   "1": 5,
+   "120": 1,
+   "3": 4,
+   "33": 2,
+   "9": 3
+  },
+  "incidence_edges": 720,
+  "macro_generators": 24,
+  "orbit_node_degree": [
+   5
+  ],
+  "orbit_nodes": 144,
+  "sigma_adjacency_lemma_agree": 1800,
+  "sigma_adjacency_lemma_disagree": 0,
+  "sigma_adjacency_tally": {
+   "rotdist=1,admissible=True": 720,
+   "rotdist=2,admissible=False": 720,
+   "rotdist=3,admissible=False": 360
+  },
+  "unordered_orbit_pairs_at_distance_2": 1440,
+  "w3_ordered_orbit_pairs": 2160,
+  "w3_ordered_pairs_by_incidence_distance": {
+   "2": 720,
+   "4": 1440
+  }
+ },
+ "proved_theorems": [
+  {
+   "ground": "extend sets abandonment = not visited(sigma(u)) at the run end and dF = int(abandonment); area_a_prune_reason returns F_exceeded for F>1; F is monotone",
+   "id": "T1",
+   "name": "Forced rotation length (FRL)",
+   "statement": "With F at TARGET_F, the only F-preserving rotation length is ell = m-1, m = min{j>=1 : sigma^j(p) visited}: only the maximal rotation run survives. Branching <= 4.",
+   "status": "HAND_PROOF"
+  },
+  {
+   "id": "T2",
+   "name": "Phi ledger",
+   "statement": "dP=1 and d(visited)=ell+1 per macro edge, so dPhi = ell-5, cost = 5-ell >= 0, Phi non-increasing, Phi(initial)=6, total spend = 6 - Phi(s)",
+   "status": "HAND_PROOF"
+  },
+  {
+   "consequences": [
+    "at most one hexagon has degree 2, none has degree 3",
+    "every component of B is an orbit-star except at most one, which is two orbit-stars bridged at a single hexagon",
+    "AT MOST ONE unordered E-orbit pair is ever co-component",
+    "r is non-decreasing, so once r=1 the co-component pair is frozen and the future cannot change the answer",
+    "a length-4 incidence path (the third-component merge) would need r>=2 and is impossible"
+   ],
+   "id": "T3",
+   "name": "UNIQUE BRIDGE: 6r <= 11 - Phi hence r <= 1",
+   "statement": "r := P - |T| = sum over hexagon nodes of (deg-1). Every hexagon holds at most 6 windows so 6|T| >= visited = 6P + Phi - 11, giving 6r <= 11 - Phi; with Phi>=0, r <= 1.",
+   "status": "HAND_PROOF",
+   "tightness": {
+    "Phi_eq_-1": "r<=2",
+    "Phi_ge_6": "r<=0",
+    "Phi_in_0_to_5": "r<=1"
+   }
+  },
+  {
+   "evidence": {
+    "hexagon_fixed_points": 0,
+    "orbit_fixed_points": 0,
+    "pairs_checked": 17280
+   },
+   "id": "T4",
+   "name": "Orbit-changing lemma over the macro alphabet",
+   "statement": "For all 24 macro generators sigma^ell.a and all 720 words, orbit and hexagon both change",
+   "status": "EXHAUSTIVE_COMPUTATION"
+  },
+  {
+   "id": "T5",
+   "name": "LIVE/DEAD incidence (one-sided, partition-free)",
+   "one_sidedness": "partial knowledge of the dead set yields a LARGER graph, so separation certificates from partial data stay valid",
+   "statement": "visited-but-unregistered permutations can never be registered; dead-ness is monotone; every rotation target is dead at once; B(s') is a subgraph of B_live(s) for every descendant. Orbits separated in B_live(s) are separated forever.",
+   "status": "HAND_PROOF"
+  },
+  {
+   "id": "T6",
+   "name": "Re-entry cost",
+   "statement": "Entering a hexagon holding a>=1 visited windows forces the next macro edge to cost >= a; leaving a hexagon with gaps and returning costs >= 6 in total. With Phi <= 5 no hexagon first entered at or after s can ever be bridged.",
+   "status": "HAND_PROOF"
+  },
+  {
+   "evidence": {
+    "agree": 1800,
+    "co_hexagonal_port_pairs": 1800,
+    "disagree": 0,
+    "distance_2_pairs": 1440,
+    "distance_2_pairs_with_w3": 360,
+    "distance_2_pairs_without_w3": 1080,
+    "tally": {
+     "rotdist=1,admissible=True": 720,
+     "rotdist=2,admissible=False": 720,
+     "rotdist=3,admissible=False": 360
+    }
+   },
+   "id": "T7",
+   "name": "sigma-adjacency admissibility lemma",
+   "statement": "Two distinct E-orbits sharing a hexagon admit a weight-3 transition iff their ports in it are sigma-adjacent; all such pairs are bidirectional; the same 360 pairs are weight-2-admissible",
+   "status": "EXHAUSTIVE_COMPUTATION"
+  },
+  {
+   "id": "T8",
+   "name": "POST-R1 R-COCOMPONENT OBSTRUCTION (short-root form)",
+   "proof_sketch": [
+    "hub hexagon 0 has positions 1..ell0 DEAD (root rotation targets) and ell0+1..5 free; Phi(root)=ell0+1",
+    "r=0 forces b_cur=1, so the gaps outside the current hexagon number 6-Phi and all lie in the hub",
+    "a joint into hub position g makes the NEXT macro edge cost exactly g; g<=Phi is required for the bridged state to have any legal successor",
+    "free positions start at ell0+1, so the only survivable bridge is g=ell0+1, whose pair is at sigma-distance 2 or 3 for ell0 in {1,2,3} and admits no weight-3 transition (T7)",
+    "the one sigma-adjacent live partner sits at position 5 and costs 5 > Phi <= 4, so bridging to it yields a state with ZERO legal macro edges",
+    "the other sigma-adjacent partner (position 1) is dead by T5",
+    "no second bridge is ever possible by T3"
+   ],
+   "sanity_check": "root_ell=0 comes out LIVE (g=1, pair {0,120}, cost 1 <= Phi=1), consistent with the project's known ell=0 Target-A boundaries: the criterion does not over-close",
+   "statement": "For a short root with root_ell in {1,2,3}, no legal R joint in any descendant of any of its post-R1 states satisfies same_component",
+   "status": "HAND_PROOF"
+  }
+ ],
+ "refuted_conjectures": [
+  {
+   "claim": "a post-R1 legal R joint can never become co-component",
+   "id": "RC-1",
+   "refutation": "3 SAME_COMPONENT R2 evaluations found from certified post-R1 states, all with orbit pair (0,1), all from root_ell=4 roots",
+   "verdict": "FALSE"
+  },
+  {
+   "claim": "a group-theoretic / parity invariant separates the orbits",
+   "id": "RC-2",
+   "refutation": "the 24 macro generators mix sign, B_full is connected of diameter 8, no generator fixes either coordinate; the obstruction is a resource (Phi) obstruction",
+   "verdict": "FALSE"
+  },
+  {
+   "claim": "deciding future co-componentness requires the full component partition",
+   "id": "RC-3",
+   "refutation": "r <= 1 follows from P and visited_count alone; the corpus verdict follows from root_ell alone",
+   "verdict": "FALSE"
+  },
+  {
+   "claim": "the universal D3 failure is the mechanism",
+   "id": "RC-4",
+   "refutation": "D3 fails because the bridge is always at hexagon 0; the mechanism is the sigma-position of the bridge inside the hub",
+   "verdict": "DOWNGRADED_TO_SYMPTOM"
+  },
+  {
+   "claim": "(my own Round-68 note) the one-step screen leaves 32,350 candidates undecidable because third components are unknown",
+   "id": "RC-5",
+   "refutation": "T3 removes the third-component case entirely: a length-4 path needs r>=2, which Phi>=0 forbids",
+   "verdict": "SUPERSEDED"
+  }
+ ],
+ "report": "research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md",
+ "reproducer": "src/analyze_rr_cocomponent_invariant.py",
+ "round": 69,
+ "schema": "rr-short-g3-cocomponent-invariant-claude-v1",
+ "short_root_table": [
+  {
+   "bridge_entry_analysis": [
+    {
+     "bridged_pair": [
+      0,
+      120
+     ],
+     "cost_of_next_edge": 1,
+     "hub_position": 1,
+     "hub_rotation_distance": 1,
+     "outcome": "LIVE",
+     "survivable": true,
+     "w3_admissible": true
+    },
+    {
+     "bridged_pair": [
+      0,
+      33
+     ],
+     "cost_of_next_edge": 2,
+     "hub_position": 2,
+     "hub_rotation_distance": 2,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      9
+     ],
+     "cost_of_next_edge": 3,
+     "hub_position": 3,
+     "hub_rotation_distance": 3,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      3
+     ],
+     "cost_of_next_edge": 4,
+     "hub_position": 4,
+     "hub_rotation_distance": 2,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      1
+     ],
+     "cost_of_next_edge": 5,
+     "hub_position": 5,
+     "hub_rotation_distance": 1,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": true
+    }
+   ],
+   "bridged_pair": [
+    0,
+    120
+   ],
+   "forced_bridge_position": 1,
+   "hub_dead_positions": [],
+   "hub_free_positions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "hub_rotation_distance": 1,
+   "root_ell": 0,
+   "root_phi": 1,
+   "verdict": "TARGET_A_REACHABLE_NOT_EXCLUDED",
+   "w3_admissible": true
+  },
+  {
+   "bridge_entry_analysis": [
+    {
+     "bridged_pair": [
+      0,
+      33
+     ],
+     "cost_of_next_edge": 2,
+     "hub_position": 2,
+     "hub_rotation_distance": 2,
+     "outcome": "SURVIVES_BUT_PAIR_HAS_NO_WEIGHT_3_TRANSITION",
+     "survivable": true,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      9
+     ],
+     "cost_of_next_edge": 3,
+     "hub_position": 3,
+     "hub_rotation_distance": 3,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      3
+     ],
+     "cost_of_next_edge": 4,
+     "hub_position": 4,
+     "hub_rotation_distance": 2,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      1
+     ],
+     "cost_of_next_edge": 5,
+     "hub_position": 5,
+     "hub_rotation_distance": 1,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": true
+    }
+   ],
+   "bridged_pair": [
+    0,
+    33
+   ],
+   "forced_bridge_position": 2,
+   "hub_dead_positions": [
+    1
+   ],
+   "hub_free_positions": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "hub_rotation_distance": 2,
+   "root_ell": 1,
+   "root_phi": 2,
+   "verdict": "PERMANENTLY_NO_SAME_COMPONENT_R_JOINT",
+   "w3_admissible": false
+  },
+  {
+   "bridge_entry_analysis": [
+    {
+     "bridged_pair": [
+      0,
+      9
+     ],
+     "cost_of_next_edge": 3,
+     "hub_position": 3,
+     "hub_rotation_distance": 3,
+     "outcome": "SURVIVES_BUT_PAIR_HAS_NO_WEIGHT_3_TRANSITION",
+     "survivable": true,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      3
+     ],
+     "cost_of_next_edge": 4,
+     "hub_position": 4,
+     "hub_rotation_distance": 2,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      1
+     ],
+     "cost_of_next_edge": 5,
+     "hub_position": 5,
+     "hub_rotation_distance": 1,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": true
+    }
+   ],
+   "bridged_pair": [
+    0,
+    9
+   ],
+   "forced_bridge_position": 3,
+   "hub_dead_positions": [
+    1,
+    2
+   ],
+   "hub_free_positions": [
+    3,
+    4,
+    5
+   ],
+   "hub_rotation_distance": 3,
+   "root_ell": 2,
+   "root_phi": 3,
+   "verdict": "PERMANENTLY_NO_SAME_COMPONENT_R_JOINT",
+   "w3_admissible": false
+  },
+  {
+   "bridge_entry_analysis": [
+    {
+     "bridged_pair": [
+      0,
+      3
+     ],
+     "cost_of_next_edge": 4,
+     "hub_position": 4,
+     "hub_rotation_distance": 2,
+     "outcome": "SURVIVES_BUT_PAIR_HAS_NO_WEIGHT_3_TRANSITION",
+     "survivable": true,
+     "w3_admissible": false
+    },
+    {
+     "bridged_pair": [
+      0,
+      1
+     ],
+     "cost_of_next_edge": 5,
+     "hub_position": 5,
+     "hub_rotation_distance": 1,
+     "outcome": "DEAD_END_no_legal_macro_edge",
+     "survivable": false,
+     "w3_admissible": true
+    }
+   ],
+   "bridged_pair": [
+    0,
+    3
+   ],
+   "forced_bridge_position": 4,
+   "hub_dead_positions": [
+    1,
+    2,
+    3
+   ],
+   "hub_free_positions": [
+    4,
+    5
+   ],
+   "hub_rotation_distance": 2,
+   "root_ell": 3,
+   "root_phi": 4,
+   "verdict": "PERMANENTLY_NO_SAME_COMPONENT_R_JOINT",
+   "w3_admissible": false
+  },
+  {
+   "bridge_entry_analysis": [
+    {
+     "bridged_pair": [
+      0,
+      1
+     ],
+     "cost_of_next_edge": 5,
+     "hub_position": 5,
+     "hub_rotation_distance": 1,
+     "outcome": "LIVE",
+     "survivable": true,
+     "w3_admissible": true
+    }
+   ],
+   "bridged_pair": [
+    0,
+    1
+   ],
+   "forced_bridge_position": 5,
+   "hub_dead_positions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "hub_free_positions": [
+    5
+   ],
+   "hub_rotation_distance": 1,
+   "root_ell": 4,
+   "root_phi": 5,
+   "verdict": "TARGET_A_REACHABLE_NOT_EXCLUDED",
+   "w3_admissible": true
+  },
+  {
+   "note": "no free hub position",
+   "root_ell": 5
+  }
+ ]
+}

@@ -1,218 +1,535 @@
 {
-  "schema": "superpermutation-n6-master-status-v1",
-  "author": "Claude",
-  "source_of_truth_policy": "This file and research/SUPERPERMUTATION_N6_MASTER_STATUS.md are the human/machine-readable research index. Individual machine certificates under outputs/*.json and their verifier scripts under src/*.py remain the source of truth for exact counts. Update both files whenever a new result invalidates an old one.",
-  "master_document": "research/SUPERPERMUTATION_N6_MASTER_STATUS.md",
-  "repo_tree_roots": {
-    "claude_branch": "claude/n6-supersequence-length-rn17wf",
-    "codex_tip_branch": "codex/round-r1-37-hex82-t4",
-    "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
-    "common_root_commit": "7dce52e"
-  },
-  "freshness": {
-    "last_synced_against_codex_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
-    "check_procedure": "git fetch --all --prune && git log --oneline origin/codex/round-r1-37-hex82-t4 -3; compare HEAD to last_synced_against_codex_commit",
-    "automated": false,
-    "note": "manual check only; no scheduled trigger currently re-runs this"
-  },
-  "executive_summary": {
-    "goal": "Determine L(6), the length of the shortest string containing all 720 permutations of 6 symbols as contiguous substrings",
-    "proved_unconditional": {"lower_bound": 867, "lower_bound_source": "Houston/Pantone/Vatter, arXiv:1408.5108, cited not re-derived", "upper_bound": 872, "upper_bound_source": "explicit witness independently verified in this repo (data/verified_872_witness.txt)"},
-    "strongest_current_result": "T4 for short_ell2_r1_37: no pre-R2 bridge from the R1-target component to the hub component, for the 84 frozen Stage-D anchors and their exact descendants. Tag: [T4][HP+EC+ER+IV]",
-    "headline_caveat": "THIS PROJECT HAS NOT PROVED L(6) >= 872 UNCONDITIONALLY.",
-    "not_proved": ["L(6)>=872 unconditional", "L(6)=872", "NR6 universality", "all 439 short children closed", "all short roots T4", "all Target A eliminated globally"],
-    "next_breakthrough_candidates": ["generalize VNTS/T4 template to the other top-8 short children and then all 439", "an entirely different, non-search-based combinatorial argument extending the 867 bound"]
-  },
-  "problem_statement": {
-    "known_bounds": {"L6_lower": 867, "L6_upper": 872, "gap_open": true},
-    "NR6_definition": "the assumption that a minimal n=6 superpermutation can be represented as a non-repeating walk visiting all 720 permutations exactly once -- an unproved, unaddressed premise underlying the entire RR/ExactState research program",
-    "NR6_status": "OPEN, explicitly not addressed by this project",
-    "conditionality_note": "every RR-branch result including T4 is conditional on NR6; if NR6 is false these results are true facts about the ExactState model only, not about L(6)"
-  },
-  "notation": {
-    "S": "strand/rotation-run counter (stored ExactState field)",
-    "F": "abandonment counter (F_def, TARGET_F=1 for the whole RR program)",
-    "P": "sum of used orbit phases (computed property)",
-    "O": "number of open E-orbits (computed property)",
-    "D": "sum of unused phases per open orbit (computed property)",
-    "N": "Ndef = S+F-O (computed property)",
-    "H": "hub-defect counter (stored field)",
-    "k": "k = O-24 (n=6 coordinate)",
-    "length_relation": "L = 867 + (k+N+H)",
-    "E_orbit": "orbit of a permutation word under right-multiplication by E=sigma^(n-1)*tau; 144 orbits in S6",
-    "hexagon": "orbit of a word under rotation sigma alone; 120 hexagons in S6",
-    "phase": "a word's position (0-4) within its own E-orbit",
-    "hub": "in an F<=1 word, the unique hexagon (if any) that is the target of >=2 distinct joints over the whole word",
-    "R_event": "weight-3 non-abandoning joint with new_orbit=False (re-entry into an already-open orbit)",
-    "Z2": "the engine's unique weight-2 non-abandoning move",
-    "Z3": "weight-3 non-abandoning joint with new_orbit=True (opens a fresh orbit)",
-    "joint_kind_full_table": {
-      "source": "legacy_research/work/analyze_f1_n2_defects.py::joint_kind, all 8 (weight,abandoning,new_orbit) combinations",
-      "w2_no_abandon_existing": "Z2_blocked_w2_existing",
-      "w2_abandon_new": "Z2_abandon_w2_new",
-      "w2_abandon_existing": "A2_abandon_w2_existing",
-      "w2_no_abandon_new": "forbidden_blocked_w2_new (cannot occur)",
-      "w3_no_abandon_new": "Z3_blocked_w3_new",
-      "w3_no_abandon_existing": "R_blocked_w3_existing",
-      "w3_abandon_new": "A3_abandon_w3_new",
-      "w3_abandon_existing": "J_abandon_w3_existing_charge2 (this is the J-branch charge-2 joint referenced throughout sec4/sec5 of the master doc)"
-    },
-    "R1_R2": "first and second R events in an RR word",
-    "Target_A": "an R2 macro-edge whose child has F_def=1,H=0 and whose R2 source/target orbits share an incidence component",
-    "Target_B": "an admissible R-free, F/H-preserving terminal continuation from a Target-A boundary",
-    "bridge": "the mechanism merging the R1-orbit's incidence component with another (e.g. the hub's) via a shared hexagon vertex",
-    "component_changing_Z3": "a Z3 edge whose target hexagon is already in an existing incidence-forest component",
-    "C_R1": "the incidence-forest component containing vertex (q, R1_target_orbit)",
-    "C_H": "hub's incidence-forest component -- Claude-branch-only notation, not found in the Codex research corpus",
-    "Phi_name_collision": "Phi is used for two different things in this project: (1) the project-wide monotone capacity potential Phi(S)=5+6*(TARGET_P-S.P)-(720-S.visited_count); (2) an informal Claude-branch-only notation Phi(q) meaning the fixed phase-to-hexagon incidence set of orbit q, used only in the VNTS lemma discussion",
-    "VNTS": "Visited Non-Terminal Source lemma, introduced in research/RR_SHORT_T4_GENERIC_THEORY_CLAUDE.md"
-  },
-  "evidence_tags": {
-    "HP": "hand proof",
-    "EC": "exact complete finite certificate",
-    "ER": "exact exhaustive replay",
-    "IV": "independent verification",
-    "BO": "bounded observation -- never described as proof",
-    "HE": "heuristic / exploratory",
-    "RF": "refuted / invalid",
-    "OPEN": "unresolved"
-  },
-  "foundational_results": [
-    {"id": "cover_theorem", "claim": "(n-1)S+(n-2)F >= (n-1)! for any non-repeating covering permutation walk, n>=4", "scope": "all S_n, n>=4, under NR6-type assumption", "evidence": "HP+EC(396/396)", "source": "legacy_research/outputs/SUPERPERMUTATION_RESEARCH_RECORD_KO.md sec4", "status": "valid"},
-    {"id": "flip_rinv_eq_E", "claim": "flip . r^-1 = E, i.e. sigma^-1.tau = E", "scope": "all S_n, specialized to n=6", "evidence": "HP+EC(720/720)", "source": "KO-RECORD sec2, sec4.5", "status": "valid"},
-    {"id": "E_order_orbit_count", "claim": "E has order n-1; 144 E-orbits in S6", "scope": "S6", "evidence": "HP+EC", "source": "KO-RECORD sec2; legacy_research/work/superperm_partial_f1.py ORBIT_COUNT", "status": "valid"},
-    {"id": "move_weight_distribution", "claim": "550 total moves, weight distribution {1:1,2:1,3:3,4:13,5:71,6:461}", "scope": "n=6 engine move alphabet", "evidence": "EC, runtime-asserted", "source": "legacy_research/work/superperm_partial_f1.py lines ~108-122", "status": "valid"},
-    {"id": "indecomposable_tail_counts", "claim": "(a) symbol-preservation count (w-1)!; (b) all indecomposable tails per weight = 1,1,3,13,71,461", "scope": "n=6 engine", "evidence": "HP+EC", "source": "KO-RECORD sec3.3; superperm_partial_f1.py", "status": "valid"},
-    {"id": "direct_r_flip_weight4", "claim": "not found under this name in either branch tree", "scope": "n/a", "evidence": "NOT_FOUND", "source": "n/a", "status": "not_locatable"},
-    {"id": "f0_full_cassette", "canonical_name": "G2", "claim": "F=0 => H>=6 => L>=873, restricted to the 24 complete cassettes", "scope": "explicitly restricted to the full-cassette range, not general F=0", "evidence": "HP+EC", "source": "KO-RECORD sec6 (section titled 'F=0 full-cassette branch: G2')", "status": "valid, scope-limited", "note": "G2 is the only member of a G-series found anywhere in either branch tree; no G1 or G3 exists in this repo as of the freshness check above -- do not cite either without first verifying via git grep"},
-    {"id": "f_le_1_regime", "claim": "F_def<=1 is the active regime for the entire RR-short program", "scope": "RR-short program", "evidence": "HP (definitional) + engine constant TARGET_F=1", "source": "superperm_partial_f1.py; STATUS.md", "status": "valid, unretracted"},
-    {"id": "saturated_cover_genus_zero", "claim": "every saturated 25-E-orbit cover has ribbon-surface genus 0", "scope": "saturated k=1 corner (F,D,N)=(5,0,0),H<=3", "evidence": "EC", "source": "KO-RECORD sec8, legacy_research/outputs/GENUS_ZERO_CERTIFICATE.md", "status": "valid"},
-    {"id": "saturated_cover_multiplicity_2", "claim": "hexagon multiplicity is exactly 115x1+5x2, no triples", "scope": "same saturated corner", "evidence": "EC", "source": "KO-RECORD sec9, legacy_research/outputs/MULTIPLICITY_TWO_THEOREM.md", "status": "valid"},
-    {"id": "known_18_target_ab_ledger", "claim": "18 known Target-A boundaries all closed against Target B (18->9->8->7->0)", "scope": "only the original 18, not the later-found 1398", "evidence": "HP+EC", "source": "STATUS.md rounds 29-38", "status": "valid, explicitly scope-limited"}
+ "author": "Claude",
+ "evidence_tags": {
+  "BO": "bounded observation -- never described as proof",
+  "EC": "exact complete finite certificate",
+  "ER": "exact exhaustive replay",
+  "HE": "heuristic / exploratory",
+  "HP": "hand proof",
+  "IV": "independent verification",
+  "OPEN": "unresolved",
+  "RF": "refuted / invalid"
+ },
+ "executive_summary": {
+  "goal": "Determine L(6), the length of the shortest string containing all 720 permutations of 6 symbols as contiguous substrings",
+  "headline_caveat": "THIS PROJECT HAS NOT PROVED L(6) >= 872 UNCONDITIONALLY.",
+  "next_breakthrough_candidates": [
+   "generalize VNTS/T4 template to the other top-8 short children and then all 439",
+   "an entirely different, non-search-based combinatorial argument extending the 867 bound"
   ],
-  "invalidated_results": [
-    {"id": "parity_k_ge_1", "original_claim": "several parity propositions (|P| odd, #Z_->O* even, k>=1 consequence)", "why_failed": "depth-capped observations; genuine counterexample needs depth>=8", "counterexample": "abandonment ell=4 witness with L=7 odd preparation, outputs/rr_long_prefix_extension_results.json", "corrected_statement": "parity conjecture false; note Round 27's own k>=1 reading was itself wrong, corrected in Round 28 to k=0 in all 6 witnesses", "downstream_impact": "isolated to RR parity program rounds 21-28; 867/872 bounds and NR6 status unaffected", "source": "research/RR_PARITY_CONJECTURE_REFUTATION.md; research/RR_NR6_IMPACT_ASSESSMENT.md", "commits": ["a61e85d", "4d9bdc7"], "tag": "RF"},
-    {"id": "v1_r1_completeness_bug", "original_claim": "every R-kind macro edge treated as terminal, never enqueued", "why_failed": "wrong for bare short roots (r_count=0) which must enqueue the first R edge as an R1 child", "counterexample": "n/a (systemic omission)", "corrected_statement": "asymmetric rule by r_count (0: enqueue: 1: test boundary; >=2: reject)", "downstream_impact": "no pre-fix short-root statistic citable as exact-search result", "source": "research/RR_SHORT5_R1_COMPLETENESS_CORRECTION_CODEX.md", "commits": ["d8600b9", "e9ff19c"], "tag": "RF"},
-    {"id": "v2_o_gt_25_prune_bug", "original_claim": "corrected v2 traversal pruned on state.O>25 before Target-A test", "why_failed": "O<=25 is a Target-B coordinate, not part of Target-A definition; discards legal Target-A-reachable states", "counterexample": "short_ell0 depth-69 child (P,O,D,Ndef,F,H)=(71,26,59,1,1,0), wrongly pruned as O_exceeded", "corrected_statement": "two hash-separated profiles: target_a_semantic_v1 vs legacy_area_a_q2_comparison_v1; namespace bumped to v3", "downstream_impact": "100,250-node v2 medium run marked PREMATURELY_PRUNED_INVALID_FOR_TARGET_A_COVERAGE", "source": "research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md", "commits": ["d90b69a", "785ddab"], "tag": "RF"},
-    {"id": "hierarchy_macro_entry_bug_38405", "original_claim": "Target-A predicates evaluated at macro-entry state, reporting 38,406 macro-entry Target-A claims", "why_failed": "literal joint source after a rotation run can differ from macro-entry state; wrong state for same-component/source-orbit predicates", "counterexample": "fixture with macro-entry same-component=true vs literal joint-source same-component=false for the same trace", "corrected_statement": "R2Source(rot^ell;J)=edge.run.state; corrected replay: 38,406 historical claims -> 38,405 real failures -> 1 real Target-A hit", "downstream_impact": "correction of a capped-prefix result only, does not establish or refute L6>=872 by itself", "source": "research/RR_R2_LITERAL_SOURCE_CORRECTION_CODEX.md; research/RR_R2_SOURCE_SEMANTICS_CLAUDE.md", "commits": ["b09f1d5", "0266a55"], "tag": "RF"},
-    {"id": "true_phase_walk_capacity_overscope", "original_claim": "true_phase_walk_capacity used generically for single-landing port-availability questions", "why_failed": "sound only under a full-segment (Phi=0) precondition; unsound for single-landing questions", "counterexample": "root long_found_142: predicted capacity undercounted real legal-edge count by at least one", "corrected_statement": "generic interpretation retracted; full-segment use (rounds 33-35) stands; replaced by an occupancy-independent universal port bound of 4 plus a helper-free re-audit", "downstream_impact": "does not reopen the 18 historical Target-B boundary states, reconfirmed 0 open", "source": "research/RR_TARGET_B_18_BOUNDARY_REAUDIT_CODEX.md; research/RR_CAPACITY_HELPER_SOUNDNESS_AUDIT.md", "commits": ["9b345c4"], "tag": "RF"},
-    {"id": "v5_v6_checkpoint_provenance_loss", "original_claim": "v6 checkpoints assumed to carry their v6 wrapper through every atomic rewrite", "why_failed": "shared v5 writer's payload serializer is a whitelist that silently drops the v6-specific wrapper on the first rewrite", "counterexample": "n/a (systemic bookkeeping bug)", "corrected_statement": "classified AUXILIARY_PROVENANCE_NOT_CLOSED_UNDER_V5_CHECKPOINT_SERIALIZER; v5-native fields intact, v6 driver must not resume affected payloads", "downstream_impact": "no completed analysis/ledger result affected, each anchored to its own v5 source SHA", "source": "research/RR_V6_PROVENANCE_LOSS_AUDIT_CODEX.md", "commits": ["4792891"], "tag": "RF"},
-    {"id": "144_z3_bound_retraction", "original_claim": "(720-visited) decreases by exactly 6 per move, grounding a <=144 Z3 events pigeonhole bound", "why_failed": "extend() actually advances visited_count by exactly 1 per call, not 6; separately, naive orbit-pigeonhole proof of <=144 found unproved due to real orbit revisits (max 36 per ancestry, 6 exact counterexamples)", "counterexample": "branches with rotation lengths 0,1,2,3 at different points; 6 exact revisit counterexamples in Round 59 certificate", "corrected_statement": "two separate bounds instead: (1) <=144 Z3 events, still asserted but proof route now OPEN; (2) <=720 window-advancing moves total, HP and solid", "downstream_impact": "confined to short_ell2_r1_37 FZ1 line; T4 (sec7) does not rely on the 144-Z3 bound at all", "source": "research/RR_SHORT_ELL2_R1_37_LOCAL_GLOBAL_FZ1_GAP_CLAUDE.md; research/RR_SHORT_ELL2_R1_37_FZ1_CANDIDATE_REACHABILITY_CODEX.md", "commits": ["2797e61", "bb3e9e1"], "tag": "RF_method_OPEN_value"}
+  "not_proved": [
+   "L(6)>=872 unconditional",
+   "L(6)=872",
+   "NR6 universality",
+   "all 439 short children closed",
+   "all short roots T4",
+   "all Target A eliminated globally"
   ],
-  "rr_short_logical_chain": [
-    "known Target-A boundaries (18)",
-    "Target-B closure: 18->9->8->7->0",
-    "five short roots identified as open frontier",
-    "short-root searches v1-v5 (bugs found+fixed at v1,v2,v3; see invalidated_results)",
-    "439-child ledger (v5 fair pilot)",
-    "top-8 selection",
-    "v6 endpoint / v7 replay plan (v7 never executed)",
-    "7/8 branch exhaustion at v6",
-    "short_ell2_r1_37 residual branch",
-    "22 frontier states",
-    "9 exact closures + 13 unresolved",
-    "all-13 pilot: 7 EXHAUSTED_NO_BRIDGE + 6 INCOMPLETE, 84-state frontier",
-    "6 survivor seeds become the six immutable Stage-D checkpoints",
-    "Z2/Z3 bridge analysis (direct-Z2 lemma)",
-    "dangerous-entry reduction (196 mechanisms, T1-level)",
-    "Stage D first-component-Z3 search (1,325,392 nodes, 0 witnesses)",
-    "C4 collision obstruction (T2: 253,537 collisions; T2a: four-hexagon closure)",
-    "hex-82 five-route reduction (T2b)",
-    "final T4 closure (T2b->T2+->T3->T4)"
-  ],
-  "t4_theorem": {
-    "tag": "T4",
-    "evidence": "HP+EC+ER+IV",
-    "scope": {
-      "branch": "short_ell2_r1_37",
-      "state_family": "84 frozen Stage-D anchors and all exact descendants",
-      "temporal_window": "post-R1, pre-R2",
-      "semantics": "exact no-repeat only"
-    },
-    "direct_z2_obstruction": "orbit 91's phase-hexagon set {40,82,90,91,92} disjoint from hub's {0,1,4,6,8,9,18,24,96}; Z2 target orbit must already be open, and while C_R1 is single-orbit only orbit 91 qualifies, so Z2 reach is confined to {40,82,90,91,92}",
-    "non_h82_c4_obstruction_T2a": "hexagons {40,90,91,92} full and monotone at relevant anchors -> collision on any fresh visit",
-    "h82_obstruction_T2b": {
-      "transition": "245130 --w2--> 513042 = q91:p2",
-      "h40_registered_84_of_84": true,
-      "h40_full_84_of_84": true,
-      "literal_245130_visited_84_of_84": true,
-      "endpoint_245130_0_of_84": true,
-      "five_closed_routes": ["q42:p1", "q78:p3", "q82:p0", "q83:p4", "q128:p2"]
-    },
-    "independent_replay": {
-      "nodes": 1325392,
-      "monotone_macro_edges_checked": 1325308,
-      "q91_p2_registered_nodes": 0,
-      "hex82_in_r1_component_nodes": 0,
-      "M1_orbit_phase_matches": 155538,
-      "M2_M3_M4_M5": 0
-    },
-    "implication_chain": "T2b -> T2+ -> T3 -> T4",
-    "reproducibility": {
-      "codex_report": ["research/RR_SHORT_ELL2_R1_37_HEX82_C4_CLOSURE_CODEX.md", "research/RR_SHORT_ELL2_R1_37_H40_FULLNESS_AUDIT_CODEX.md"],
-      "codex_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
-      "claude_verification": ["research/RR_SHORT_ELL2_R1_37_T4_FINAL_VERIFICATION_CLAUDE.md", "outputs/rr_short_ell2_r1_37_t4_final_verification_claude.json"],
-      "claude_end_token": "CLAUDE_T4_VERIFIED"
-    }
+  "proved_unconditional": {
+   "lower_bound": 867,
+   "lower_bound_source": "Houston/Pantone/Vatter, arXiv:1408.5108, cited not re-derived",
+   "upper_bound": 872,
+   "upper_bound_source": "explicit witness independently verified in this repo (data/verified_872_witness.txt)"
   },
-  "vnts_lemma": {
-    "name": "Visited Non-Terminal Source (VNTS)",
-    "statement": "Let tau be a literal window targeted by the engine's unique weight-2 move, sigma its unique weight-2 predecessor, A a finite anchor family. If (H1) sigma visited at every anchor and (H2) no anchor's endpoint equals sigma, then no exact descendant of A can ever be at sigma, so the move into tau can never fire in any descendant.",
-    "engine_universal_assumptions": ["extend() add-only occupancy", "extend() rejects already-visited targets", "unique weight-2 move, bijective action -> unique predecessor per target"],
-    "per_anchor_assumptions": ["H1: sigma visited at every anchor", "H2: no anchor terminal at sigma"],
-    "full_hex_corollary": "if an entire hexagon is full and no anchor's endpoint lies in it, VNTS applies to all six windows simultaneously",
-    "cross_hexagon_use": "h82's own occupancy is irrelevant (mostly empty, histogram {0:81,2:1,4:1,63:1}); the obstruction comes from hexagon 40 being full, a different hexagon from the target's own",
-    "why_h82_not_a_fullness_obstruction": "VNTS never requires the target's own hexagon to be full, only that some hexagon (wherever the predecessor lives) is full-and-non-terminal",
-    "unresolved_generalization": "hub-hexagon-set engine-universality is explicitly left open; no branch other than short_ell2_r1_37 has attempted the 7-item certificate checklist",
-    "reproducibility": {
-      "report": "research/RR_SHORT_T4_GENERIC_THEORY_CLAUDE.md",
-      "json": "outputs/rr_short_t4_generic_theory_claude.json",
-      "end_token": "CLAUDE_T4_GENERIC_THEORY_READY"
-    }
+  "strongest_current_result": "T4 for short_ell2_r1_37: no pre-R2 bridge from the R1-target component to the hub component, for the 84 frozen Stage-D anchors and their exact descendants. Tag: [T4][HP+EC+ER+IV]"
+ },
+ "foundational_results": [
+  {
+   "claim": "(n-1)S+(n-2)F >= (n-1)! for any non-repeating covering permutation walk, n>=4",
+   "evidence": "HP+EC(396/396)",
+   "id": "cover_theorem",
+   "scope": "all S_n, n>=4, under NR6-type assumption",
+   "source": "legacy_research/outputs/SUPERPERMUTATION_RESEARCH_RECORD_KO.md sec4",
+   "status": "valid"
   },
-  "quantitative_ledger": [
-    {"stage": "v5 top-8 pilot", "file": "outputs/rr_short5_child_outcomes.json", "children": 439, "expansions": 596537, "notes": "NATURALLY_EXHAUSTED=326, CAPPED_INCOMPLETE=113"},
-    {"stage": "v6 endpoint", "file": "outputs/rr_short5_top8_official_ledger.json", "top_children": 8, "additional_expansions": 167820, "r2_literal_replays": 99438, "naturally_exhausted": 6, "capped_nonempty": 2, "bridge_template_occurrences": 0},
-    {"stage": "v7 continuation (v7 replay itself: plan only, never executed)", "file": "outputs/rr_short5_top8_continuation_verified.json", "branches": 8, "r2_paths": 99438, "naturally_exhausted": 6, "cap_reached_nonempty_frontier": 2},
-    {"stage": "all-13 pilot", "file": "outputs/rr_short_ell2_r1_37_all13_pilot_results.json", "states": 13, "expansions": 66096, "frontier_size": 84, "exhausted_no_bridge": 7, "incomplete": 6},
-    {"stage": "Stage D first_component_z3", "file": "outputs/rr_short_ell2_r1_37_first_component_z3_results.json", "start_states": 84, "seed_branches": 6, "expansions": 1256023, "frontier": 69369, "first_component_change_witnesses": 0},
-    {"stage": "Stage E FZ1 candidate-distance", "file": "outputs/rr_short_ell2_r1_37_stage_e_verified.json", "branches": 2, "expanded_nodes_replayed": 1000000, "nodes_replayed": 1010043, "status": "STAGE_E_INCOMPLETE"},
-    {"stage": "C4 ledger/collision", "file": "outputs/rr_short_ell2_r1_37_c4_verified.json", "C4_attempts": 253537, "exact_signatures": 86, "left_s6_canonical_signatures": 17, "theorem_level": "T2 only at this stage"},
-    {"stage": "C4 predecessor closure", "file": "outputs/rr_short_ell2_r1_37_c4_predecessor_closure.json", "observed_predecessor_closure_nodes": 712083, "complete_finite_C4_prerequisite_closure": false},
-    {"stage": "final replay (hex82/T4)", "file": "outputs/rr_short_ell2_r1_37_hex82_verified.json", "nodes": 1325392, "monotone_macro_edges_checked": 1325308, "M1_total": 155538, "M2_M5": 0},
-    {"stage": "depth-4 graph", "file": "NOT_FOUND_in_RR_short_line", "note": "only depth4-named file belongs to an unrelated earlier A2 program"}
-  ],
-  "theorem_ladder": {
-    "A_unconditional": ["L6>=867 (literature, cited)", "L6<=872 (verified witness)", "L1..4 exact (this repo)", "foundational E-orbit/hexagon group theory"],
-    "B_nr6_conditional": "entire RR/short-root program, including C, D, E below",
-    "C_rr_short_family": ["known-18 Target-B closure", "direct-Z2 lemma", "Stage-D 0-witnesses observation", "C4 collision observation T2 (BO-flavored until combined with T2a/T2b exact closures)"],
-    "D_r1_37_t4": "[T4][HP+EC+ER+IV], single branch only",
-    "E_generic_vnts": "[HP], reusable template, not yet applied beyond short_ell2_r1_37",
-    "not_proved": ["L6>=872 unconditional", "L6=872", "NR6 universality", "all 439 short children closed", "all short roots T4", "all Target A eliminated globally"]
+  {
+   "claim": "flip . r^-1 = E, i.e. sigma^-1.tau = E",
+   "evidence": "HP+EC(720/720)",
+   "id": "flip_rinv_eq_E",
+   "scope": "all S_n, specialized to n=6",
+   "source": "KO-RECORD sec2, sec4.5",
+   "status": "valid"
   },
-  "open_problems_ranked": [
-    "1. generalize VNTS/T4 template to the other top-8 children",
-    "2. determine hub-component universality vs branch dependence",
-    "3. apply automatic certificate checklist to sufficiently-covered short children",
-    "4. resolve remaining capped/incomplete children (2 of top-8, plus 431 non-top-8)",
-    "5. bridge RR-short results to a wider NR6 lower-bound proof",
-    "6. ultimately establish k+N+H>=5 under the full project coordinate scope"
-  ],
-  "novel_contributions_conservative": [
-    "explicit parity/k>=1 counterexample and its own self-correction",
-    "macro-entry vs literal-joint-source-semantics false-positive diagnosis (38,405 figure)",
-    "helper-free known-18 Target-B closure without true_phase_walk_capacity",
-    "short_ell2_r1_37 branch-local T4 theorem",
-    "generic VNTS lemma and Full-Hex/cross-hexagon corollaries",
-    "recognition that the h82 case is a cross-hexagon VNTS instance, not a special case",
-    "computational certificates as artifacts (1,325,392-node exact replay, 84-anchor h40 ledger, H0-H5 backward-closure classification)"
-  ],
-  "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
-  "test_suite": {"command": "python -m unittest discover -s tests", "expected": "134 tests passing"},
-  "validation": {
-    "referenced_paths_checked": true,
-    "referenced_commits_checked": true,
-    "stale_results_presented_as_current": false,
-    "json_mirror_validated": true
+  {
+   "claim": "E has order n-1; 144 E-orbits in S6",
+   "evidence": "HP+EC",
+   "id": "E_order_orbit_count",
+   "scope": "S6",
+   "source": "KO-RECORD sec2; legacy_research/work/superperm_partial_f1.py ORBIT_COUNT",
+   "status": "valid"
+  },
+  {
+   "claim": "550 total moves, weight distribution {1:1,2:1,3:3,4:13,5:71,6:461}",
+   "evidence": "EC, runtime-asserted",
+   "id": "move_weight_distribution",
+   "scope": "n=6 engine move alphabet",
+   "source": "legacy_research/work/superperm_partial_f1.py lines ~108-122",
+   "status": "valid"
+  },
+  {
+   "claim": "(a) symbol-preservation count (w-1)!; (b) all indecomposable tails per weight = 1,1,3,13,71,461",
+   "evidence": "HP+EC",
+   "id": "indecomposable_tail_counts",
+   "scope": "n=6 engine",
+   "source": "KO-RECORD sec3.3; superperm_partial_f1.py",
+   "status": "valid"
+  },
+  {
+   "claim": "not found under this name in either branch tree",
+   "evidence": "NOT_FOUND",
+   "id": "direct_r_flip_weight4",
+   "scope": "n/a",
+   "source": "n/a",
+   "status": "not_locatable"
+  },
+  {
+   "canonical_name": "G2",
+   "claim": "F=0 => H>=6 => L>=873, restricted to the 24 complete cassettes",
+   "evidence": "HP+EC",
+   "id": "f0_full_cassette",
+   "note": "G2 is the only member of a G-series found anywhere in either branch tree; no G1 or G3 exists in this repo as of the freshness check above -- do not cite either without first verifying via git grep",
+   "scope": "explicitly restricted to the full-cassette range, not general F=0",
+   "source": "KO-RECORD sec6 (section titled 'F=0 full-cassette branch: G2')",
+   "status": "valid, scope-limited"
+  },
+  {
+   "claim": "F_def<=1 is the active regime for the entire RR-short program",
+   "evidence": "HP (definitional) + engine constant TARGET_F=1",
+   "id": "f_le_1_regime",
+   "scope": "RR-short program",
+   "source": "superperm_partial_f1.py; STATUS.md",
+   "status": "valid, unretracted"
+  },
+  {
+   "claim": "every saturated 25-E-orbit cover has ribbon-surface genus 0",
+   "evidence": "EC",
+   "id": "saturated_cover_genus_zero",
+   "scope": "saturated k=1 corner (F,D,N)=(5,0,0),H<=3",
+   "source": "KO-RECORD sec8, legacy_research/outputs/GENUS_ZERO_CERTIFICATE.md",
+   "status": "valid"
+  },
+  {
+   "claim": "hexagon multiplicity is exactly 115x1+5x2, no triples",
+   "evidence": "EC",
+   "id": "saturated_cover_multiplicity_2",
+   "scope": "same saturated corner",
+   "source": "KO-RECORD sec9, legacy_research/outputs/MULTIPLICITY_TWO_THEOREM.md",
+   "status": "valid"
+  },
+  {
+   "claim": "18 known Target-A boundaries all closed against Target B (18->9->8->7->0)",
+   "evidence": "HP+EC",
+   "id": "known_18_target_ab_ledger",
+   "scope": "only the original 18, not the later-found 1398",
+   "source": "STATUS.md rounds 29-38",
+   "status": "valid, explicitly scope-limited"
   }
+ ],
+ "freshness": {
+  "automated": false,
+  "check_procedure": "git fetch --all --prune && git log --oneline origin/codex/round-r1-37-hex82-t4 -3; compare HEAD to last_synced_against_codex_commit",
+  "last_synced_against_codex_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+  "note": "manual check only; no scheduled trigger currently re-runs this. Round 69 (Claude branch) added the Phi/unique-bridge invariant; the Round-68 residual corpus it consumes was supplied out-of-band by the user and is not present in any git ref."
+ },
+ "invalidated_results": [
+  {
+   "commits": [
+    "a61e85d",
+    "4d9bdc7"
+   ],
+   "corrected_statement": "parity conjecture false; note Round 27's own k>=1 reading was itself wrong, corrected in Round 28 to k=0 in all 6 witnesses",
+   "counterexample": "abandonment ell=4 witness with L=7 odd preparation, outputs/rr_long_prefix_extension_results.json",
+   "downstream_impact": "isolated to RR parity program rounds 21-28; 867/872 bounds and NR6 status unaffected",
+   "id": "parity_k_ge_1",
+   "original_claim": "several parity propositions (|P| odd, #Z_->O* even, k>=1 consequence)",
+   "source": "research/RR_PARITY_CONJECTURE_REFUTATION.md; research/RR_NR6_IMPACT_ASSESSMENT.md",
+   "tag": "RF",
+   "why_failed": "depth-capped observations; genuine counterexample needs depth>=8"
+  },
+  {
+   "commits": [
+    "d8600b9",
+    "e9ff19c"
+   ],
+   "corrected_statement": "asymmetric rule by r_count (0: enqueue: 1: test boundary; >=2: reject)",
+   "counterexample": "n/a (systemic omission)",
+   "downstream_impact": "no pre-fix short-root statistic citable as exact-search result",
+   "id": "v1_r1_completeness_bug",
+   "original_claim": "every R-kind macro edge treated as terminal, never enqueued",
+   "source": "research/RR_SHORT5_R1_COMPLETENESS_CORRECTION_CODEX.md",
+   "tag": "RF",
+   "why_failed": "wrong for bare short roots (r_count=0) which must enqueue the first R edge as an R1 child"
+  },
+  {
+   "commits": [
+    "d90b69a",
+    "785ddab"
+   ],
+   "corrected_statement": "two hash-separated profiles: target_a_semantic_v1 vs legacy_area_a_q2_comparison_v1; namespace bumped to v3",
+   "counterexample": "short_ell0 depth-69 child (P,O,D,Ndef,F,H)=(71,26,59,1,1,0), wrongly pruned as O_exceeded",
+   "downstream_impact": "100,250-node v2 medium run marked PREMATURELY_PRUNED_INVALID_FOR_TARGET_A_COVERAGE",
+   "id": "v2_o_gt_25_prune_bug",
+   "original_claim": "corrected v2 traversal pruned on state.O>25 before Target-A test",
+   "source": "research/RR_TARGET_A_PRUNE_SCOPE_AUDIT_CODEX.md",
+   "tag": "RF",
+   "why_failed": "O<=25 is a Target-B coordinate, not part of Target-A definition; discards legal Target-A-reachable states"
+  },
+  {
+   "commits": [
+    "b09f1d5",
+    "0266a55"
+   ],
+   "corrected_statement": "R2Source(rot^ell;J)=edge.run.state; corrected replay: 38,406 historical claims -> 38,405 real failures -> 1 real Target-A hit",
+   "counterexample": "fixture with macro-entry same-component=true vs literal joint-source same-component=false for the same trace",
+   "downstream_impact": "correction of a capped-prefix result only, does not establish or refute L6>=872 by itself",
+   "id": "hierarchy_macro_entry_bug_38405",
+   "original_claim": "Target-A predicates evaluated at macro-entry state, reporting 38,406 macro-entry Target-A claims",
+   "source": "research/RR_R2_LITERAL_SOURCE_CORRECTION_CODEX.md; research/RR_R2_SOURCE_SEMANTICS_CLAUDE.md",
+   "tag": "RF",
+   "why_failed": "literal joint source after a rotation run can differ from macro-entry state; wrong state for same-component/source-orbit predicates"
+  },
+  {
+   "commits": [
+    "9b345c4"
+   ],
+   "corrected_statement": "generic interpretation retracted; full-segment use (rounds 33-35) stands; replaced by an occupancy-independent universal port bound of 4 plus a helper-free re-audit",
+   "counterexample": "root long_found_142: predicted capacity undercounted real legal-edge count by at least one",
+   "downstream_impact": "does not reopen the 18 historical Target-B boundary states, reconfirmed 0 open",
+   "id": "true_phase_walk_capacity_overscope",
+   "original_claim": "true_phase_walk_capacity used generically for single-landing port-availability questions",
+   "source": "research/RR_TARGET_B_18_BOUNDARY_REAUDIT_CODEX.md; research/RR_CAPACITY_HELPER_SOUNDNESS_AUDIT.md",
+   "tag": "RF",
+   "why_failed": "sound only under a full-segment (Phi=0) precondition; unsound for single-landing questions"
+  },
+  {
+   "commits": [
+    "4792891"
+   ],
+   "corrected_statement": "classified AUXILIARY_PROVENANCE_NOT_CLOSED_UNDER_V5_CHECKPOINT_SERIALIZER; v5-native fields intact, v6 driver must not resume affected payloads",
+   "counterexample": "n/a (systemic bookkeeping bug)",
+   "downstream_impact": "no completed analysis/ledger result affected, each anchored to its own v5 source SHA",
+   "id": "v5_v6_checkpoint_provenance_loss",
+   "original_claim": "v6 checkpoints assumed to carry their v6 wrapper through every atomic rewrite",
+   "source": "research/RR_V6_PROVENANCE_LOSS_AUDIT_CODEX.md",
+   "tag": "RF",
+   "why_failed": "shared v5 writer's payload serializer is a whitelist that silently drops the v6-specific wrapper on the first rewrite"
+  },
+  {
+   "commits": [
+    "2797e61",
+    "bb3e9e1"
+   ],
+   "corrected_statement": "two separate bounds instead: (1) <=144 Z3 events, still asserted but proof route now OPEN; (2) <=720 window-advancing moves total, HP and solid",
+   "counterexample": "branches with rotation lengths 0,1,2,3 at different points; 6 exact revisit counterexamples in Round 59 certificate",
+   "downstream_impact": "confined to short_ell2_r1_37 FZ1 line; T4 (sec7) does not rely on the 144-Z3 bound at all",
+   "id": "144_z3_bound_retraction",
+   "original_claim": "(720-visited) decreases by exactly 6 per move, grounding a <=144 Z3 events pigeonhole bound",
+   "source": "research/RR_SHORT_ELL2_R1_37_LOCAL_GLOBAL_FZ1_GAP_CLAUDE.md; research/RR_SHORT_ELL2_R1_37_FZ1_CANDIDATE_REACHABILITY_CODEX.md",
+   "tag": "RF_method_OPEN_value",
+   "why_failed": "extend() actually advances visited_count by exactly 1 per call, not 6; separately, naive orbit-pigeonhole proof of <=144 found unproved due to real orbit revisits (max 36 per ancestry, 6 exact counterexamples)"
+  }
+ ],
+ "master_document": "research/SUPERPERMUTATION_N6_MASTER_STATUS.md",
+ "notation": {
+  "C_H": "hub's incidence-forest component -- Claude-branch-only notation, not found in the Codex research corpus",
+  "C_R1": "the incidence-forest component containing vertex (q, R1_target_orbit)",
+  "D": "sum of unused phases per open orbit (computed property)",
+  "E_orbit": "orbit of a permutation word under right-multiplication by E=sigma^(n-1)*tau; 144 orbits in S6",
+  "F": "abandonment counter (F_def, TARGET_F=1 for the whole RR program)",
+  "H": "hub-defect counter (stored field)",
+  "N": "Ndef = S+F-O (computed property)",
+  "O": "number of open E-orbits (computed property)",
+  "P": "sum of used orbit phases (computed property)",
+  "Phi_name_collision": "Phi is used for two different things in this project: (1) the project-wide monotone capacity potential Phi(S)=5+6*(TARGET_P-S.P)-(720-S.visited_count); (2) an informal Claude-branch-only notation Phi(q) meaning the fixed phase-to-hexagon incidence set of orbit q, used only in the VNTS lemma discussion",
+  "R1_R2": "first and second R events in an RR word",
+  "R_event": "weight-3 non-abandoning joint with new_orbit=False (re-entry into an already-open orbit)",
+  "S": "strand/rotation-run counter (stored ExactState field)",
+  "Target_A": "an R2 macro-edge whose child has F_def=1,H=0 and whose R2 source/target orbits share an incidence component",
+  "Target_B": "an admissible R-free, F/H-preserving terminal continuation from a Target-A boundary",
+  "VNTS": "Visited Non-Terminal Source lemma, introduced in research/RR_SHORT_T4_GENERIC_THEORY_CLAUDE.md",
+  "Z2": "the engine's unique weight-2 non-abandoning move",
+  "Z3": "weight-3 non-abandoning joint with new_orbit=True (opens a fresh orbit)",
+  "bridge": "the mechanism merging the R1-orbit's incidence component with another (e.g. the hub's) via a shared hexagon vertex",
+  "component_changing_Z3": "a Z3 edge whose target hexagon is already in an existing incidence-forest component",
+  "hexagon": "orbit of a word under rotation sigma alone; 120 hexagons in S6",
+  "hub": "in an F<=1 word, the unique hexagon (if any) that is the target of >=2 distinct joints over the whole word",
+  "joint_kind_full_table": {
+   "source": "legacy_research/work/analyze_f1_n2_defects.py::joint_kind, all 8 (weight,abandoning,new_orbit) combinations",
+   "w2_abandon_existing": "A2_abandon_w2_existing",
+   "w2_abandon_new": "Z2_abandon_w2_new",
+   "w2_no_abandon_existing": "Z2_blocked_w2_existing",
+   "w2_no_abandon_new": "forbidden_blocked_w2_new (cannot occur)",
+   "w3_abandon_existing": "J_abandon_w3_existing_charge2 (this is the J-branch charge-2 joint referenced throughout sec4/sec5 of the master doc)",
+   "w3_abandon_new": "A3_abandon_w3_new",
+   "w3_no_abandon_existing": "R_blocked_w3_existing",
+   "w3_no_abandon_new": "Z3_blocked_w3_new"
+  },
+  "k": "k = O-24 (n=6 coordinate)",
+  "length_relation": "L = 867 + (k+N+H)",
+  "phase": "a word's position (0-4) within its own E-orbit"
+ },
+ "novel_contributions_conservative": [
+  "explicit parity/k>=1 counterexample and its own self-correction",
+  "macro-entry vs literal-joint-source-semantics false-positive diagnosis (38,405 figure)",
+  "helper-free known-18 Target-B closure without true_phase_walk_capacity",
+  "short_ell2_r1_37 branch-local T4 theorem",
+  "generic VNTS lemma and Full-Hex/cross-hexagon corollaries",
+  "recognition that the h82 case is a cross-hexagon VNTS instance, not a special case",
+  "computational certificates as artifacts (1,325,392-node exact replay, 84-anchor h40 ledger, H0-H5 backward-closure classification)",
+  "Phi / unique-bridge invariant 6r <= 11 - Phi: at most one hexagon of the incidence forest ever has degree 2, hence at most one E-orbit pair is ever co-component and that pair is frozen once created; plus the sigma-adjacency admissibility lemma and the resulting closure of 1,415 of the 1,818 Round-68 residual anchors (root_ell in {1,2,3}) -- Q2 scope only"
+ ],
+ "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
+ "open_problems_ranked": [
+  "1. generalize VNTS/T4 template to the other top-8 children",
+  "2. determine hub-component universality vs branch dependence",
+  "3. apply automatic certificate checklist to sufficiently-covered short children",
+  "4. resolve remaining capped/incomplete children (2 of top-8, plus 431 non-top-8)",
+  "5. bridge RR-short results to a wider NR6 lower-bound proof",
+  "6. ultimately establish k+N+H>=5 under the full project coordinate scope"
+ ],
+ "problem_statement": {
+  "NR6_definition": "the assumption that a minimal n=6 superpermutation can be represented as a non-repeating walk visiting all 720 permutations exactly once -- an unproved, unaddressed premise underlying the entire RR/ExactState research program",
+  "NR6_status": "OPEN, explicitly not addressed by this project",
+  "conditionality_note": "every RR-branch result including T4 is conditional on NR6; if NR6 is false these results are true facts about the ExactState model only, not about L(6)",
+  "known_bounds": {
+   "L6_lower": 867,
+   "L6_upper": 872,
+   "gap_open": true
+  }
+ },
+ "quantitative_ledger": [
+  {
+   "children": 439,
+   "expansions": 596537,
+   "file": "outputs/rr_short5_child_outcomes.json",
+   "notes": "NATURALLY_EXHAUSTED=326, CAPPED_INCOMPLETE=113",
+   "stage": "v5 top-8 pilot"
+  },
+  {
+   "additional_expansions": 167820,
+   "bridge_template_occurrences": 0,
+   "capped_nonempty": 2,
+   "file": "outputs/rr_short5_top8_official_ledger.json",
+   "naturally_exhausted": 6,
+   "r2_literal_replays": 99438,
+   "stage": "v6 endpoint",
+   "top_children": 8
+  },
+  {
+   "branches": 8,
+   "cap_reached_nonempty_frontier": 2,
+   "file": "outputs/rr_short5_top8_continuation_verified.json",
+   "naturally_exhausted": 6,
+   "r2_paths": 99438,
+   "stage": "v7 continuation (v7 replay itself: plan only, never executed)"
+  },
+  {
+   "exhausted_no_bridge": 7,
+   "expansions": 66096,
+   "file": "outputs/rr_short_ell2_r1_37_all13_pilot_results.json",
+   "frontier_size": 84,
+   "incomplete": 6,
+   "stage": "all-13 pilot",
+   "states": 13
+  },
+  {
+   "expansions": 1256023,
+   "file": "outputs/rr_short_ell2_r1_37_first_component_z3_results.json",
+   "first_component_change_witnesses": 0,
+   "frontier": 69369,
+   "seed_branches": 6,
+   "stage": "Stage D first_component_z3",
+   "start_states": 84
+  },
+  {
+   "branches": 2,
+   "expanded_nodes_replayed": 1000000,
+   "file": "outputs/rr_short_ell2_r1_37_stage_e_verified.json",
+   "nodes_replayed": 1010043,
+   "stage": "Stage E FZ1 candidate-distance",
+   "status": "STAGE_E_INCOMPLETE"
+  },
+  {
+   "C4_attempts": 253537,
+   "exact_signatures": 86,
+   "file": "outputs/rr_short_ell2_r1_37_c4_verified.json",
+   "left_s6_canonical_signatures": 17,
+   "stage": "C4 ledger/collision",
+   "theorem_level": "T2 only at this stage"
+  },
+  {
+   "complete_finite_C4_prerequisite_closure": false,
+   "file": "outputs/rr_short_ell2_r1_37_c4_predecessor_closure.json",
+   "observed_predecessor_closure_nodes": 712083,
+   "stage": "C4 predecessor closure"
+  },
+  {
+   "M1_total": 155538,
+   "M2_M5": 0,
+   "file": "outputs/rr_short_ell2_r1_37_hex82_verified.json",
+   "monotone_macro_edges_checked": 1325308,
+   "nodes": 1325392,
+   "stage": "final replay (hex82/T4)"
+  },
+  {
+   "file": "NOT_FOUND_in_RR_short_line",
+   "note": "only depth4-named file belongs to an unrelated earlier A2 program",
+   "stage": "depth-4 graph"
+  }
+ ],
+ "repo_tree_roots": {
+  "claude_branch": "claude/n6-supersequence-length-rn17wf",
+  "codex_tip_branch": "codex/round-r1-37-hex82-t4",
+  "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+  "common_root_commit": "7dce52e"
+ },
+ "round_69_cocomponent_invariant": {
+  "adversarial_probe": {
+   "FRL_edges": 3411563,
+   "FRL_violations": 0,
+   "R2_evaluations": 904005,
+   "SAME_COMPONENT": 3,
+   "exhaustion_claimed": false,
+   "nodes": 960000,
+   "roots": 24
+  },
+  "corpus_verdict": {
+   "NOT_CLOSED_root_ell_4": 403,
+   "PERMANENTLY_CLOSED_root_ell_1_2_3": 1415,
+   "total": 1818
+  },
+  "headline": "6r <= 11 - Phi with Phi >= 0 forces r <= 1, so at most one E-orbit pair is ever co-component; root_ell decides admissibility via sigma-adjacency",
+  "json": "outputs/rr_short_g3_cocomponent_invariant_claude.json",
+  "open": "the 403 root_ell=4 anchors; minimal data needed is sparse_hex()+sparse_orbits() per anchor",
+  "report": "research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md",
+  "reproducer": "src/analyze_rr_cocomponent_invariant.py",
+  "scope_caveat": "Q2-level only: consumes Phi >= 0 (remaining_window_capacity_prune), a necessary condition for an Area-A NR6 completion. The committed is_target_a enforces it; the pure Q1 question does not."
+ },
+ "rr_short_logical_chain": [
+  "known Target-A boundaries (18)",
+  "Target-B closure: 18->9->8->7->0",
+  "five short roots identified as open frontier",
+  "short-root searches v1-v5 (bugs found+fixed at v1,v2,v3; see invalidated_results)",
+  "439-child ledger (v5 fair pilot)",
+  "top-8 selection",
+  "v6 endpoint / v7 replay plan (v7 never executed)",
+  "7/8 branch exhaustion at v6",
+  "short_ell2_r1_37 residual branch",
+  "22 frontier states",
+  "9 exact closures + 13 unresolved",
+  "all-13 pilot: 7 EXHAUSTED_NO_BRIDGE + 6 INCOMPLETE, 84-state frontier",
+  "6 survivor seeds become the six immutable Stage-D checkpoints",
+  "Z2/Z3 bridge analysis (direct-Z2 lemma)",
+  "dangerous-entry reduction (196 mechanisms, T1-level)",
+  "Stage D first-component-Z3 search (1,325,392 nodes, 0 witnesses)",
+  "C4 collision obstruction (T2: 253,537 collisions; T2a: four-hexagon closure)",
+  "hex-82 five-route reduction (T2b)",
+  "final T4 closure (T2b->T2+->T3->T4)"
+ ],
+ "schema": "superpermutation-n6-master-status-v1",
+ "source_of_truth_policy": "This file and research/SUPERPERMUTATION_N6_MASTER_STATUS.md are the human/machine-readable research index. Individual machine certificates under outputs/*.json and their verifier scripts under src/*.py remain the source of truth for exact counts. Update both files whenever a new result invalidates an old one.",
+ "t4_theorem": {
+  "direct_z2_obstruction": "orbit 91's phase-hexagon set {40,82,90,91,92} disjoint from hub's {0,1,4,6,8,9,18,24,96}; Z2 target orbit must already be open, and while C_R1 is single-orbit only orbit 91 qualifies, so Z2 reach is confined to {40,82,90,91,92}",
+  "evidence": "HP+EC+ER+IV",
+  "h82_obstruction_T2b": {
+   "endpoint_245130_0_of_84": true,
+   "five_closed_routes": [
+    "q42:p1",
+    "q78:p3",
+    "q82:p0",
+    "q83:p4",
+    "q128:p2"
+   ],
+   "h40_full_84_of_84": true,
+   "h40_registered_84_of_84": true,
+   "literal_245130_visited_84_of_84": true,
+   "transition": "245130 --w2--> 513042 = q91:p2"
+  },
+  "implication_chain": "T2b -> T2+ -> T3 -> T4",
+  "independent_replay": {
+   "M1_orbit_phase_matches": 155538,
+   "M2_M3_M4_M5": 0,
+   "hex82_in_r1_component_nodes": 0,
+   "monotone_macro_edges_checked": 1325308,
+   "nodes": 1325392,
+   "q91_p2_registered_nodes": 0
+  },
+  "non_h82_c4_obstruction_T2a": "hexagons {40,90,91,92} full and monotone at relevant anchors -> collision on any fresh visit",
+  "reproducibility": {
+   "claude_end_token": "CLAUDE_T4_VERIFIED",
+   "claude_verification": [
+    "research/RR_SHORT_ELL2_R1_37_T4_FINAL_VERIFICATION_CLAUDE.md",
+    "outputs/rr_short_ell2_r1_37_t4_final_verification_claude.json"
+   ],
+   "codex_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+   "codex_report": [
+    "research/RR_SHORT_ELL2_R1_37_HEX82_C4_CLOSURE_CODEX.md",
+    "research/RR_SHORT_ELL2_R1_37_H40_FULLNESS_AUDIT_CODEX.md"
+   ]
+  },
+  "scope": {
+   "branch": "short_ell2_r1_37",
+   "semantics": "exact no-repeat only",
+   "state_family": "84 frozen Stage-D anchors and all exact descendants",
+   "temporal_window": "post-R1, pre-R2"
+  },
+  "tag": "T4"
+ },
+ "test_suite": {
+  "command": "python -m unittest discover -s tests",
+  "expected": "134 tests passing"
+ },
+ "theorem_ladder": {
+  "A_unconditional": [
+   "L6>=867 (literature, cited)",
+   "L6<=872 (verified witness)",
+   "L1..4 exact (this repo)",
+   "foundational E-orbit/hexagon group theory"
+  ],
+  "B_nr6_conditional": "entire RR/short-root program, including C, D, E below",
+  "C_rr_short_family": [
+   "known-18 Target-B closure",
+   "direct-Z2 lemma",
+   "Stage-D 0-witnesses observation",
+   "C4 collision observation T2 (BO-flavored until combined with T2a/T2b exact closures)"
+  ],
+  "D_r1_37_t4": "[T4][HP+EC+ER+IV], single branch only",
+  "E_generic_vnts": "[HP], reusable template, not yet applied beyond short_ell2_r1_37",
+  "not_proved": [
+   "L6>=872 unconditional",
+   "L6=872",
+   "NR6 universality",
+   "all 439 short children closed",
+   "all short roots T4",
+   "all Target A eliminated globally"
+  ]
+ },
+ "validation": {
+  "json_mirror_validated": true,
+  "referenced_commits_checked": true,
+  "referenced_paths_checked": true,
+  "stale_results_presented_as_current": false
+ },
+ "vnts_lemma": {
+  "cross_hexagon_use": "h82's own occupancy is irrelevant (mostly empty, histogram {0:81,2:1,4:1,63:1}); the obstruction comes from hexagon 40 being full, a different hexagon from the target's own",
+  "engine_universal_assumptions": [
+   "extend() add-only occupancy",
+   "extend() rejects already-visited targets",
+   "unique weight-2 move, bijective action -> unique predecessor per target"
+  ],
+  "full_hex_corollary": "if an entire hexagon is full and no anchor's endpoint lies in it, VNTS applies to all six windows simultaneously",
+  "name": "Visited Non-Terminal Source (VNTS)",
+  "per_anchor_assumptions": [
+   "H1: sigma visited at every anchor",
+   "H2: no anchor terminal at sigma"
+  ],
+  "reproducibility": {
+   "end_token": "CLAUDE_T4_GENERIC_THEORY_READY",
+   "json": "outputs/rr_short_t4_generic_theory_claude.json",
+   "report": "research/RR_SHORT_T4_GENERIC_THEORY_CLAUDE.md"
+  },
+  "statement": "Let tau be a literal window targeted by the engine's unique weight-2 move, sigma its unique weight-2 predecessor, A a finite anchor family. If (H1) sigma visited at every anchor and (H2) no anchor's endpoint equals sigma, then no exact descendant of A can ever be at sigma, so the move into tau can never fire in any descendant.",
+  "unresolved_generalization": "hub-hexagon-set engine-universality is explicitly left open; no branch other than short_ell2_r1_37 has attempted the 7-item certificate checklist",
+  "why_h82_not_a_fullness_obstruction": "VNTS never requires the target's own hexagon to be full, only that some hexagon (wherever the predecessor lives) is full-and-non-terminal"
+ }
 }
