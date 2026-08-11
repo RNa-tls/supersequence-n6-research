@@ -1,0 +1,176 @@
+{
+  "schema": "rr-short-g3-residual-theory-claude-v1",
+  "author": "Claude",
+  "role": "independent verification analyst / theory derivation -- no search run",
+  "report": "research/RR_SHORT_G3_RESIDUAL_THEORY_CLAUDE.md",
+  "artifact_verification": {
+    "verdict": "ALL_CITED_ROUND62_ARTIFACTS_NONEXISTENT",
+    "method": "git fetch --all --prune; existence check against worktree and codex tip; search across every ref and all reachable history; content search for the mechanism vocabulary",
+    "codex_tip_branch": "codex/round-r1-37-hex82-t4",
+    "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "codex_tip_round": 61,
+    "new_branches_found": 0,
+    "cited_artifacts_absent": [
+      "research/RR_SHORT_113_FAMILY_G3_CODEX.md",
+      "outputs/rr_short_113_family_status.json",
+      "outputs/rr_short_113_family_residuals.json",
+      "outputs/rr_short_113_family_mechanisms.json",
+      "outputs/rr_short_113_family_g3_verified.json",
+      "research/RR_SHORT_Z2_MERGER_USEFULNESS_CODEX.md",
+      "research/RR_SHORT_T4_A3_EXCEPTIONAL_ROUTES_CODEX.md",
+      "research/RR_SHORT_T4_A3_OPEN_W2_REACHABILITY_CODEX.md",
+      "research/RR_SHORT_TOP8_G2_FINALIZATION_CODEX.md",
+      "research/RR_SHORT_T4_TEMPLATE_GENERALIZATION_CODEX.md"
+    ],
+    "mechanism_vocabulary_matches_across_all_refs": {"MERGED_BY_R": 0, "MERGED_BY_Z2": 0, "SEPARATE_MONOTONE_BLOCKED": 0, "SEPARATE_CLEAR": 0},
+    "premise_arithmetic_selfconsistent": true,
+    "premise_arithmetic_checks": ["326+89=415", "439-415=24", "89+16+8+0=113", "1183+612+16+7=1818", "326+113=439"],
+    "note": "arithmetic self-consistency is not evidence the corpus exists; all counts are treated as unverified premises"
+  },
+  "naming_collision_flagged": {
+    "symbol": "G2",
+    "committed_meaning": "the F=0 full-cassette theorem (F=0 => H>=6 => L>=873), KO-RECORD sec6 titled 'F=0 full-cassette 가지: G2', recorded in master status sec4.7",
+    "task_meaning": "an RR-short program milestone (top-8 ledger closed)",
+    "G3_committed_meaning": "none -- G3 does not exist anywhere in the repository",
+    "recommendation": "Codex should adopt a distinct milestone prefix (e.g. M2/M3 or LEDGER-G2/LEDGER-G3) before this collision reaches a certificate"
+  },
+  "verifiable_ground_truth": {
+    "source_file": "src/search_rr_target_a_exhaustive.py (codex tip 1f9efff)",
+    "functions_read": ["target_a_recognizer (line 690)", "incidence_components (line 348)", "advance_decoration (line ~390)", "evaluate_edge (line 815)", "target-A prune registry (line ~280)"],
+    "target_a_six_conditions": [
+      "exactly_two_R_events: before.r_count==1 and after.r_count==2",
+      "immediately_after_R2: joint_kind(...)=='R'",
+      "F_def_equals_1: transition.state.F==1",
+      "H_equals_0: transition.state.H==0",
+      "hub_touch_count_le_2: after.hub_touch_count<=2",
+      "same_component: find(('q',sq))==find(('q',tq))"
+    ],
+    "same_component_relates": "the R2 SOURCE orbit sq to the R2 TARGET orbit tq -- NOT 'C_R1 vs C_H' by definition; chaining (r1.target_orbit==sq) is computed separately and is explicitly NOT an acceptance condition",
+    "sq_definition": "ORBIT_PHASE[joint_source_state.p] where joint_source_state is the literal joint source after the rotation run (Round-48 correction)"
+  },
+  "section_2_g3_logical_gap": {
+    "levels": {
+      "A_observed_anchor_classification": {"evidence": "EC over the frozen anchor set", "status": "claimed by premise"},
+      "B_observed_descendant_closure": {"evidence": "BO -- bounded", "status": "what capped F7/F8 families currently supply"},
+      "C_complete_descendant_mechanism_classification": {"evidence": "must be HP or EC", "status": "MISSING"},
+      "D_family_level_closure": {"evidence": "the goal", "status": "MISSING"}
+    },
+    "minimum_missing_implication": "(B) => (D) does not hold; bounded absence is not absence. The gap is bridged only by (C) plus a per-mechanism Target-A closure theorem.",
+    "g3_requires": [
+      "a closure theorem for the mechanism transition system (every legal descendant stays in {MR,MZ,SM,SC} until death or R2)",
+      "a per-mechanism Target-A theorem for MR and MZ"
+    ],
+    "more_search_cannot_help": "expansion moves evidence within level (B) and can never by itself reach (D)"
+  },
+  "theorems": [
+    {"id": "M1", "name": "component monotonicity; merger is irreversible", "status": "CLAUDE_HAND_PROOF", "statement": "incidence_components unions ('q',orbit)<->('h',hexagon) for every set orbit_masks phase bit and nothing else; orbit_masks bits are only ever set, never cleared; a union-find whose edge set only grows can only coarsen. Hence same-component is permanent and mergers are irreversible."},
+    {"id": "M2", "name": "component-separation arguments are structurally dead in merged families", "status": "CLAUDE_HAND_PROOF", "statement": "In a family already merged before R2, condition 6 (same_component) is satisfied at every descendant for every orbit pair in the merged component. No T4-style argument -- which works exclusively by proving same_component unreachable -- can close such a family. This PROVES rather than assumes the premise that ordinary T4 is inapplicable.", "relation_to_generic_template": "MERGED_BY_R is exactly the class where hypothesis D3 (Phi(q_R1) intersect H_hub = empty) of RR_SHORT_T4_GENERIC_THEORY_CLAUDE.md sec5a fails at R1; the template's own sec6 counterexample for dropping D3 predicted this family"},
+    {"id": "M3", "name": "residual obstruction set for merged families", "status": "CLAUDE_HAND_PROOF", "statement": "In a merged family the only Target-A obstructions that can bind are conditions 1-5: exactly_two_R_events, immediately_after_R2, F==1, H==0, hub_touch_count<=2. Exhaustive because the recognizer accepts iff all six named conditions hold and condition 6 is discharged by M2."},
+    {"id": "M4", "name": "the Target-A predicate is hex_masks-blind", "status": "CLAUDE_HAND_PROOF", "statement": "target_a_recognizer reads only r_count(before/after), joint_kind, transition.state.F, transition.state.H, after.hub_touch_count, joint_source_state.p, transition.target, and incidence_components(joint_source_state) which reads only state.orbit_masks. It never reads hex_masks."},
+    {"id": "M5", "name": "sound one-sided simulation for impossibility", "status": "CLAUDE_HAND_PROOF", "statement": "Let Omega(state,dec)=(orbit_masks,p,F,H,r_count,hub_touch_count). Legality is conjunctive, so dropping the hex_masks no-repeat guard only ADDS transitions; every legal exact descent maps to a legal Omega-descent. Hence exact-reachable Target-A boundaries are a SUBSET of Omega-reachable ones. If an Omega-search finds no Target-A boundary, no exact descendant has one.", "direction_warning": "converse FAILS and must never be used: an Omega-reachable Target-A boundary is not evidence of an exact one", "practical_value": "Omega discards the 720-bit occupancy vector -- the dominant part of exact state and the reason F7/F8 families cap out; a negative Omega result is a proof, upgrading (B) to (D) without a larger exact search", "caveat": "Omega still carries orbit_masks (144x5 bits); tractability NOT verified and NOT claimed"},
+    {"id": "M6", "name": "hub-touch hereditary death", "status": "CLAUDE_HAND_PROOF", "statement": "advance_decoration only ever does touch_count+=1 with no decrement path anywhere; evaluate_edge refuses to produce a child when it would exceed 2; Target-A condition 5 requires <=2. Hence hub_touch_count>2 is hereditarily Target-A-dead and the engine will not generate the subtree.", "committed_lemma": "the project's own prune registry records 'with F <= 1, no hexagon can be a joint target more than twice', scope universally_safe_under_F_le_1, test test_hub_touch_counter_is_monotone"},
+    {"id": "M7", "name": "SEPARATE_CLEAR transition dichotomy", "status": "CLAUDE_HAND_PROOF for the enumerated cases; CONJECTURE for exhaustiveness", "statement": "Every legal macro edge out of an SC state is exactly one of: R at r_count==1 (terminal R2, never enqueued); R at r_count>=2 (DEAD); Z2 (may connect -> MZ); Z3 (connects only if the fresh orbit's registered phase-hexagon already lies in the other component -- a component-changing Z3); or a budget-exceeding edge (DEAD).", "provable_asymmetry": "SC can NEVER transition to MR, because MR is defined by R1 having created the merger and R1 is already in the past for every post-R1 state"}
+  ],
+  "unification": {
+    "answer": "YES -- MR and MZ are the same concept: already-connected-before-R2",
+    "proof": "M1 makes connection irreversible and M2 makes it permanently satisfied; the recognizer recomputes incidence_components fresh from orbit_masks (docstring: 'Fresh union-find from ExactState; no history summary is trusted'), so the PROVENANCE of the merger has no effect whatsoever on the Target-A predicate",
+    "post_merger_normal_form": {
+      "statement": "Once the R2 source and target orbits are co-component before R2, the only remaining freedom relevant to Target A is the literal R2 source orbit/phase plus the resource coordinates (F,H,r_count,hub_touch_count).",
+      "proved_half": "'only remaining freedom' -- proved by M3 + M4",
+      "unproved_half": "that the admissible source set is finite AND branch-independent -- NOT proved and NOT asserted; branch-independence looks doubtful since sq ranges over whatever orbits a branch has actually opened",
+      "defensible_version": "mechanism-dependent and family-finite"
+    },
+    "separate_document_created": false,
+    "separate_document_rationale": "the result is one theorem plus one open half, it lives naturally in the main report, and this project has just endorsed consolidation over file proliferation; split it out only once the finite-image half is proved"
+  },
+  "merged_by_r": {
+    "MR_theorem_target": "Every legal R1-merged descendant reaching Target A is left-S6-equivalent to a known-18 boundary",
+    "status": "CONJECTURE -- explicitly NOT stated as a theorem, and not provable from what is committed",
+    "why_hard": "M2 removes ALL component leverage, so any proof must come entirely from constraining the R2 source/target orbit pair and the resource coordinates",
+    "missing_step": "Characterize S_MR = {(sq,sph,tq,tph) reachable as a literal R2 joint from some R1-merged descendant with F=1,H=0,hub_touch<=2} and show every element yields a known-18 left-S6 class",
+    "why_plausibly_finite": ["tq must be an already-open orbit (R has new_orbit=False) and sq is the orbit of the literal joint source, both drawn from the finite registered set", "by M1 the merged component only grows, so S_MR is monotone and can be safely over-approximated via M5 rather than enumerated exactly"]
+  },
+  "merged_by_z2": {
+    "structural_relation_to_MR": "differs ONLY in how the merger arose; M1, M2, M3 apply verbatim",
+    "reported_reduction_UP": "612 literal witnesses -> 8 exact post-Z2 states -> all 8 immediate R2 -> 6 fail by wrong source orbit -> 2 reach Target A -> both known-18 -> helper-free Target-B closed",
+    "why_the_shape_is_meaningful": "the discriminating condition is the SOURCE ORBIT, exactly as M3 predicts (component is free; the source orbit is what bites)",
+    "completion_routes": [
+      {"id": "Z2-a", "name": "post-merger finite-image theorem", "recommended": true, "statement": "show the Omega-projection has image of size 8 over ALL legal post-Z2 descendants, not merely observed ones; by M4 this tuple is exactly what the recognizer reads, so bounding its image bounds every Target-A outcome", "safety_note": "NOT a coarse quotient of the kind repeatedly found unsafe -- it claims only bounded image of the recognizer-relevant projection, not continuation equivalence"},
+      {"id": "Z2-b", "name": "second-merger impossibility", "statement": "show any distinct second Z2 merger requires a predecessor that VNTS or the same-hexagon occupancy argument forbids"}
+    ]
+  },
+  "three_target_a_boundaries": {
+    "status": "UP -- not inspectable, residual corpus absent from every ref",
+    "candidate_explanations": ["coincidence of the bounded corpus", "consequence of terminal normal form", "consequence of R2 source geometry (the M3 route)", "consequence of component ancestry (weak: ancestry is invisible to the recognizer per M1/M4)"],
+    "current_evidence_can_distinguish_them": false,
+    "verdict": "DO NOT promote 3/3 to universality. Three data points is exactly the regime that burned the parity conjecture family (master status sec5.1), which held over far larger samples and was still false, with an identical failure mode: a bounded corpus that structurally could not contain the counterexample.",
+    "honest_reading": "consistent with the R2-source-geometry explanation, hence a reason to attempt the M3-route proof -- not evidence for it"
+  },
+  "sixteen_separate_monotone_blocked": {
+    "hereditary_device_available": "M6 (hub-touch) is a genuine hereditary closure device and is proved",
+    "gap": "'monotone blocked' as a mechanism label presumably refers to OCCUPANCY-monotone blocking (T2a-style full-hexagon collision), not the hub counter",
+    "missing_step": "show the blocking quantity is monotone in the same add-only sense as hex_masks/orbit_masks/hub_touch_count, and that the blocked predicate is upward closed under it; hereditary closure is then immediate by the same one-line induction as M1",
+    "assessment": "very likely to go through if the blocking quantity is occupancy, since occupancy monotonicity is already proved and independently replayed over 1,325,308 macro edges in the T4 round; 16 anchors is small enough to settle by hand, not by search"
+  },
+  "seven_separate_clear": {
+    "per_anchor_analysis_performed": false,
+    "reason": "the 7 anchors are not in any committed artifact; seven state descriptions will not be fabricated",
+    "what_is_provable_now": "M7, the transition dichotomy, including the provable asymmetry SC -> MR is impossible",
+    "open_half": "clause (a) 'remains in the finite clear set' -- finiteness of the clear set is NOT established and is the whole content of a real closure theorem"
+  },
+  "transition_graph": {
+    "nodes": ["MR", "MZ", "SM", "SC", "R2", "DEAD"],
+    "edges": [
+      {"edge": "MR->MR, MZ->MZ (merged stays merged)", "status": "PROVED", "ground": "M1"},
+      {"edge": "MR->SC, MR->SM, MZ->SC, MZ->SM (un-merging)", "status": "PROVED IMPOSSIBLE", "ground": "M1"},
+      {"edge": "SC->MR", "status": "PROVED IMPOSSIBLE", "ground": "R1 is in the past; MR is defined by R1's own registration"},
+      {"edge": "SC->R2, MR->R2, MZ->R2, SM->R2", "status": "PROVED POSSIBLE", "ground": "evaluate_edge line 837: any R at r_count==1 is evaluated as R2"},
+      {"edge": "*->DEAD", "status": "PROVED POSSIBLE", "ground": "budget guards at lines 831, 844-850"},
+      {"edge": "SC->MZ", "status": "PROVED POSSIBLE", "ground": "a connecting Z2 / component-changing Z3 is a legal edge shape"},
+      {"edge": "SC->SM, SC->SC", "status": "OBSERVED", "ground": "depends on the uncommitted SM definition"},
+      {"edge": "no fifth mechanism exists", "status": "CONJECTURED", "ground": "the (C)-level gap; '0 other residual families' is an observation on the current corpus, not a closure proof"}
+    ],
+    "is_the_graph_closed": "the merged half is provably closed and absorbing (M1); the separate half is closed ONLY up to the conjectured non-existence of a fifth mechanism",
+    "key_reduction": "G3(milestone) reduces to finitely checking the R2 exits IFF the fifth-mechanism conjecture is discharged -- this converts G3 from 'search more' into 'prove one closure statement, then check finitely many R2 exits'"
+  },
+  "invalidated_machinery_audit": {
+    "old_parity_k_ge_1": "NOT USED -- cited only as a cautionary precedent about small samples",
+    "v1_short_root_completeness": "NOT USED -- uses the corrected asymmetric rule read from the current evaluate_edge",
+    "v2_O_gt_25_target_a_prune": "NOT USED -- area_a_prune_reason appears in target_a_recognizer line 723 but is explicitly marked 'intentionally diagnostic only' and is NOT among the six acceptance conditions",
+    "macro_entry_r2_source_semantics": "NOT USED -- literal joint source only; the recognizer now rejects untagged states via R2_LITERAL_JOINT_SOURCE_TAG",
+    "true_phase_walk_capacity_outside_scope": "NOT USED anywhere",
+    "stale_v6_provenance": "NOT USED -- no v6 checkpoint field relied on",
+    "144_z3_naive_pigeonhole": "NOT USED -- sec10 deliberately PROVES its quotient's soundness rather than assuming an orbit-count bound; this is the direct lesson of that retraction",
+    "additional_self_restraint": ["sec5 declines to assert branch-independence of the admissible source set", "sec6 declines to promote 3/3 to universality"]
+  },
+  "next_codex_targets_ranked": [
+    {"rank": 1, "target": "MZ post-merger finite-image theorem (Z2-a)", "payoff": "closes 8 families", "concretely": "compute the forward Omega-closure from the 8 post-merger states under all legal joints; show it is finite and contains no new Target-A boundary", "why_sufficient": "by M4 the recognizer reads nothing beyond the Omega projection"},
+    {"rank": 2, "target": "MR source-set theorem (S_MR characterization)", "payoff": "largest mechanism (1,183 anchors UP)", "difficulty": "harder because M2 removes all component leverage", "method": "attack via the Omega over-approximation of M5, not by exact continuation"},
+    {"rank": 3, "target": "SM hereditary-monotonicity lemma", "payoff": "16 anchors", "difficulty": "cheapest -- one induction reusing already-verified occupancy monotonicity, by hand"},
+    {"rank": 4, "target": "SC finite-clear-set theorem", "blocked_on": "the 7 states must be published first; M7 already lays out the dichotomy, only finiteness is open"},
+    {"rank": 5, "target": "fifth-mechanism non-existence", "note": "the formal (C)-level gap; may fall out of 1-4 rather than needing separate work"}
+  ],
+  "explicitly_not_recommended": "deeper continuation search on the F7/F8 families -- more expansion moves evidence within level (B) and can never by itself reach (D)",
+  "prerequisite_before_any_target": "push the Round-62 artifacts; none of the ten cited files exists in any ref, so targets 1-4 currently cannot be checked by anyone",
+  "master_status_patch_note": {
+    "applied": false,
+    "reason": "every figure is an unverified premise and the master document's own source-of-truth policy forbids recording unverifiable counts; apply verbatim once Round-62 artifacts land and counts are recomputed from them",
+    "content": {
+      "children_total": 439,
+      "exact_exhausted": 326,
+      "nonempty_families": 113,
+      "t4_closed": 89,
+      "handled": "415 / 439",
+      "residual_families": 24,
+      "residual_anchors": 1818,
+      "mechanisms": {"MERGED_BY_R": 1183, "MERGED_BY_Z2": 612, "SEPARATE_MONOTONE_BLOCKED": 16, "SEPARATE_CLEAR": 7},
+      "target_a_in_residual_corpus": {"count": 3, "all_known_18": true, "all_helper_free_target_b_closed": true, "evidence": "BO -- bounded corpus, not universal"},
+      "G2_milestone": "achieved for the designated top-8 corrected-v5 ledger",
+      "G3_milestone": "NOT achieved -- descendant completeness unproved for the capped F7/F8 families",
+      "naming_note": "G2/G3 here are RR-short program milestones and collide with the committed meaning of G2 (the F=0 full-cassette theorem, master status sec4.7); rename before this reaches a certificate"
+    }
+  },
+  "historical_certificates_modified": 0,
+  "search_run": false,
+  "end_token": "CLAUDE_G3_THEORY_PARTIAL"
+}
