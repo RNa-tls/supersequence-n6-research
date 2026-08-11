@@ -277,7 +277,8 @@
   "recognition that the h82 case is a cross-hexagon VNTS instance, not a special case",
   "computational certificates as artifacts (1,325,392-node exact replay, 84-anchor h40 ledger, H0-H5 backward-closure classification)",
   "Phi / unique-bridge invariant 6r <= 11 - Phi: at most one hexagon of the incidence forest ever has degree 2, hence at most one E-orbit pair is ever co-component and that pair is frozen once created; plus the sigma-adjacency admissibility lemma and the resulting closure of 1,415 of the 1,818 Round-68 residual anchors (root_ell in {1,2,3}) -- Q2 scope only",
-  "ELL4 unique-bridge Target-A normal form: for root_ell=4 the bridge is uniquely the hub window (5,0,1,2,3,4), exactly two weight-3 transitions join E-orbits 0 and 1, one of them is structurally dead and the other fires only from the post-bridge state, so all 403 residual anchors are closed and the family's three same-component boundaries are exactly known-18 ell4_P2_* -- Q2 scope only"
+  "ELL4 unique-bridge Target-A normal form: for root_ell=4 the bridge is uniquely the hub window (5,0,1,2,3,4), exactly two weight-3 transitions join E-orbits 0 and 1, one of them is structurally dead and the other fires only from the post-bridge state, so all 403 residual anchors are closed and the family's three same-component boundaries are exactly known-18 ell4_P2_* -- Q2 scope only",
+  "the margin identity margin = 12 - D for Target-A boundaries (Ndef=2), turning the Round-30 coarse segment bound into a single defect threshold D <= 12 that closes all 1,398 Rounds-35-37 boundaries at once, plus its interpretable orbit-fill-density form P/O >= 5 - 12/O; and the monotone Phi-free dead-port bound D_dead <= 4"
  ],
  "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
  "open_problems_ranked": [
@@ -429,6 +430,38 @@
   "report": "research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md",
   "reproducer": "src/analyze_rr_cocomponent_invariant.py",
   "scope_caveat": "Q2-level only: consumes Phi >= 0 (remaining_window_capacity_prune), a necessary condition for an Area-A NR6 completion. The committed is_target_a enforces it; the pure Q1 question does not."
+ },
+ "round_70_1398_reclassification": {
+  "headline_counting_theorem": "margin = 12 - D, so an Area-A NR6 completion needs D <= 12; the corpus has D in [19,68]",
+  "helpers_not_used": [
+   "true_phase_walk_capacity",
+   "phase-derived pruning",
+   "old parity conjecture",
+   "v1/v2 completeness",
+   "invalidated hierarchy source semantics"
+  ],
+  "json": [
+   "outputs/rr_target_a_1398_status_claude.json",
+   "outputs/rr_target_a_1398_mechanisms_claude.json",
+   "outputs/rr_target_a_1398_residuals_claude.json"
+  ],
+  "new_invariant": "D_dead <= 4 (monotone, Phi-free, helper-free); closes 750 here but is subsumed by the defect threshold on this corpus",
+  "report": "research/RR_TARGET_A_1398_RECLASSIFICATION_CLAUDE.md",
+  "reproducer": "src/reclassify_rr_target_a_1398.py",
+  "scope": "Q2 / Area-A for Phi-consuming statements; all 1,398 remain genuine Q1 Target-A boundaries",
+  "totals": {
+   "boundaries": 1398,
+   "bridge_hexagons": 1,
+   "distinct_R2_mechanisms": 3,
+   "distinct_canonical_classes": 1398,
+   "distinct_mechanisms_with_root_ell": 7,
+   "known18": 6,
+   "new_target_a_classes_q2": 0,
+   "q2_admissible": 6,
+   "replay_verified": 1398,
+   "target_b_closed": 1398,
+   "target_b_survivors": 0
+  }
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

@@ -445,6 +445,14 @@ Restricted to the saturated k=1 corner `(F,D,N)=(5,0,0), H<=3`
   subsequently found **1,398 new** Target-A boundaries via a separately
   rebuilt search; these were **not** re-run through the Target-B ledger —
   the `18 -> 0` result applies only to the original 18, not to the 1,398.
+  **Round 70 update (Claude branch).** The 1,398 have now been reclassified
+  (`research/RR_TARGET_A_1398_RECLASSIFICATION_CLAUDE.md`): all 1,398 are
+  replay-confirmed Q1 boundaries, only **6** are Q2/Area-A admissible and
+  those 6 are already among the 18, and Target B is closed for all 1,398 by
+  the margin identity `margin = 12 - D` (the occupancy-independent coarse
+  segment bound; `D >= 19` throughout). **0 Target-B survivors, 0 new
+  Target-A classes at Q2 scope.** The 1,392 remain genuine Q1 boundaries and
+  are not deleted.
 - **EVIDENCE.** [HP] + [EC] (capacity accounting is exact/finite, not
   sampled).
 - **SOURCE.** `STATUS.md` rounds 29-38 narrative
@@ -1167,6 +1175,7 @@ through `codex/round-r1-37-hex82-t4`'s HEAD, confirmed via
 | 61 (this project's Claude branch) | Independent T4 verification (`CLAUDE_T4_VERIFIED`); generic VNTS theory | this branch, commits `3f24a49`, `f7a7211` |
 | 62-68 (Claude branch) | Master status document; G3 residual theory; Ω projection soundness/monotonicity/termination; Round-68 1,818-anchor corpus analysis; singleton `short_ell1_r1_94:frontier:76` resolved as generic | this branch, commits `2730c99`, `ab51db1`, `c4eaff9`, `f47a24a`, `af1f57a`, `eb7fc72`, `3370be4` |
 | 69 (Claude branch) | Φ / unique-bridge invariant `6r <= 11 - Phi`; σ-adjacency admissibility lemma; 1,415 of 1,818 residual anchors permanently closed; 960k-node bounded falsification probe (3 same-component witnesses, all `root_ell = 4`) | this branch, `research/RR_SHORT_G3_COCOMPONENT_INVARIANT_CLAUDE.md` |
+| 70 (Claude branch) | 1,398 Rounds-35-37 Target-A boundaries fully reclassified: 1,398/1,398 replay-verified, only 6 Q2-admissible (all known-18), 7 mechanism classes (3 R2 shapes, one bridge hexagon), Target B closed 1,398/1,398 by the margin identity `margin = 12 - D`; 0 survivors | this branch, `research/RR_TARGET_A_1398_RECLASSIFICATION_CLAUDE.md` |
 | 69b (Claude branch) | ELL4 unique-bridge Target-A normal form: the remaining 403 `root_ell = 4` anchors closed; the 3 same-component boundaries identified as known-18 `ell4_P2_*` with the helper-free `EXHAUSTED_NO_PATH` certificate reusable; 0 new Target-A classes | this branch, `research/RR_SHORT_ELL4_UNIQUE_BRIDGE_NORMAL_FORM_CLAUDE.md` |
 
 This appendix is intentionally terse — the logical structure in §6-8 is
