@@ -155,7 +155,25 @@ margin  =  bound − (B + 1)  =  12 − (5·O − P)  =  12 − D
 > **An Area-A NR6 completion from a Target-A boundary requires `D ≤ 12`.**
 
 The observed defects are `D ∈ [19, 68]`, minimum 19. **One inequality closes 1,398 / 1,398.**
-It is occupancy-independent, uses no `Phi`, and uses no capacity helper.
+
+> ### CORRECTION (Round 71)
+>
+> This section originally added "and it uses no `Phi`". **That was wrong.** The segment count
+> `m ≤ O_cap + R_cap` silently omits a term: an orbit-changing macro edge with `ell < 5` consumes
+> neither an `O` nor an `N` — only `Phi`. The sound general statement is
+> `m ≤ O_cap + R_cap + Phi`, exactly as `build_rr_target_a_roots.capacity_slack` already says
+> ("*Hence future segments <= O_rem + N_rem + Phi*"), which is also why
+> `outputs/rr_target_b_survivors.json` records the scope as "needs only Phi=0".
+>
+> The sound general forms are
+> **`D ≤ 9 − used(q0) + 4·(R_cap + Phi)`** (the D-form of `capacity_slack`, sharpest) and the
+> weaker **`D ≤ 8 + 5·(R_cap + Phi)`** (Round-32 bound A). `D ≤ 12` is their
+> `Phi = 0, Ndef = 2, used = 1` specialisation.
+>
+> **The totals in this document are unchanged.** Re-checked: the sound form
+> `D ≤ 8 + 5(R_cap + Phi)` closes **1,398 / 1,398** on its own — at `Ndef = 2` and `Phi ≤ 0` the
+> threshold is at most 13 and the observed minimum is `D = 19`. What changes is only the
+> attribution: the closure is not "Phi-free".
 
 ### The same theorem, in interpretable form
 
@@ -254,6 +272,7 @@ occupancy-independent coarse bound **and** the dead-port bound **and** the orbit
 | label | statement |
 |---|---|
 | **HP** | the margin identity `margin = 12 − D`; the defect threshold; the dead-port bound and its selection form; the Q1/Q2 reading of the single failing recognizer condition |
+| **corrected** | §4's claim that the defect threshold is `Phi`-free — see the Round-71 correction box above; totals unchanged |
 | **EC** | the literal replay and both hashes for all 1,398; the 7-way and 3-way mechanism collapse; the `6r ≤ 11 − Phi` and forced-rotation-length audits |
 | **IV** | agreement with the recorded artifact (1,398/1,398 on both hashes); the six known-18 matches; the helper-free ledger rows |
 | **BO** | none — no bounded observation is used in this document |

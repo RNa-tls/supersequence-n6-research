@@ -1,0 +1,977 @@
+{
+ "author": "Claude",
+ "best_next_theorem_target": {
+  "estimated_payoff": {
+   "exactly_tight_residual_states": 86654,
+   "note": "states at re-entry margin 0 are closed by any inequality that adds >= 1 to the demand side",
+   "pct_of_residual": 43.2
+  },
+  "id": "SKIP-COST",
+  "statement": "a within-orbit segment advances by E^1 (free) or E^2 (one unit of Ndef); therefore every dead port a segment steps over costs one unit of Ndef, and two consecutive visited ports terminate the segment. Summing over the future: (orbit-changing R steps) + (dead ports skipped over) <= R_cap + Phi.",
+  "why_it_is_sound_where_the_retracted_helper_was_not": "it charges resource consumption (Ndef) per skip rather than bounding how many ports a segment can register, so it never invokes hexagon freshness",
+  "why_it_is_the_right_target": "capacity_slack charges an R only when it CHANGES the orbit; it does not charge the within-segment E^2 steps, which cost the same Ndef. The residual sits exactly on the tight band of the current bounds, so any strictly positive extra charge bites."
+ },
+ "d_descent_analysis": {
+  "committed_sharpest_bound": {
+   "D_form": "D <= 9 - used(q0) + 4*(R_cap + Phi)",
+   "raw": "TARGET_P - P <= (5 - used(q0)) + 5*O_rem + 4*(N_rem + Phi)",
+   "source": "build_rr_target_a_roots.capacity_slack",
+   "verified_symbolically": "0 mismatches over 259,360 grid points"
+  },
+  "descent_is_arithmetically_automatic": "with O_final = 25 and P_final = 121, D_final = 4 follows from the identity, so the descent itself imposes no constraint; the obstruction lives entirely in the SEGMENT structure",
+  "identity": "D = 5*O - P; dD = +4 at a fresh-orbit joint, -1 at every other joint",
+  "minimum_extra_cost": {
+   "each_re_entry_costs": "one unit of Ndef (an R) or at least one unit of Phi (an ell<5 edge)",
+   "statement": "bringing D down to 4 needs at least g >= ceil((D + used(q0) - 9)/4) orbit re-entries"
+  },
+  "segment_model": {
+   "consequence": "a segment advances around its orbit's 5-cycle by +1 (free) or +2 (costing one R); two consecutive visited ports end the segment",
+   "verified": "exhaustively over all 24 macro generators x 720 words: exactly these two preserve the endpoint's E-orbit, for all 720 words",
+   "within_orbit_generators": [
+    {
+     "acts_as": "E^1",
+     "cost": "free",
+     "kind": "Z2",
+     "macro_edge": "ell=5, w2:10"
+    },
+    {
+     "acts_as": "E^2",
+     "cost": "one unit of Ndef",
+     "kind": "R (always: the target is the endpoint's own, already-open orbit)",
+     "macro_edge": "ell=5, w3:120"
+    }
+   ]
+  },
+  "tradeoffs": {
+   "F": "a weight-2 joint opening a fresh orbit needs an abandonment, so F would exceed 1; fresh openings must be weight 3",
+   "H": "any weight >= 4 joint makes H > 0; joints are weight 2 or 3 only",
+   "Ndef": "+1 per R; capped by n_limit = 3",
+   "Phi": "non-increasing, must stay >= 0; every ell<5 edge spends 5 - ell",
+   "r": "6r <= 11 - Phi, so inside Q2 (Phi >= 0) r <= 1 UNCONDITIONALLY: at most one co-component E-orbit pair anywhere in the Q2 region"
+  }
+ },
+ "dependency_reconstruction": {
+  "already_closed_not_reanalysed": [
+   {
+    "item": "corrected-v5 residual 24 families / 1,818 anchors",
+    "rounds": "69, 69b",
+    "status": "CLOSED at Q2"
+   },
+   {
+    "item": "Rounds 35-37 1,398 Target-A boundaries",
+    "round": 70,
+    "status": "Target B CLOSED, 0 survivors"
+   },
+   {
+    "item": "known-18 Target-A boundaries",
+    "rounds": "34, 39 (helper-free)",
+    "status": "CLOSED, certificate reused"
+   }
+  ],
+  "hence_the_q2_frontier_is": "the Q2-admissible subset of the stored, unexpanded search frontier",
+  "what_those_closures_do_not_cover": "Target-B closure applies only to boundaries that have been FOUND. All 33 Rounds-35-37 coverage searches stopped on a time cap with a non-empty frontier, so the Target-A boundary list is not exhaustive."
+ },
+ "exact_logical_gap": "Target-B closure applies only to Target-A boundaries that have been found, and no coverage search has ever been exhausted: all 33 stopped on a time cap with a non-empty frontier. The Q2 proof is therefore blocked not by a hard mechanism among the known boundaries -- those are all closed -- but by 200,408 stored, unexpanded, Area-A-admissible frontier states from which an as-yet-unfound Target-A boundary could still arise.",
+ "frontier": {
+  "RESIDUAL": 200408,
+  "all_stopped_incomplete": true,
+  "closed_by_capacity_slack": 2956692,
+  "closed_by_dead_port_bound": 19073,
+  "closed_by_orbit_reentry_inequality": 72717,
+  "frontier_emptied_naturally": {
+   "false": 33,
+   "true": 0
+  },
+  "new_inequalities_share_of_survivors": 31.4,
+  "q2_admissible": 3248890,
+  "removed_by_q2_only_prunes": 72863,
+  "roots": 33,
+  "stored_frontier_states": 3321753,
+  "survives_capacity_slack": 292198
+ },
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY.",
+ "helpers_not_used": [
+  "true_phase_walk_capacity and any phase-derived port-count bound",
+  "old parity conjecture",
+  "v1/v2 completeness claims",
+  "invalidated hierarchy macro-entry source semantics"
+ ],
+ "new_inequalities_this_round": [
+  {
+   "closed": 19073,
+   "id": "DEAD-PORT",
+   "statement": "D_dead <= 4, where D_dead counts visited-but-unregistered ports of open orbits; monotone",
+   "uses": "no-repeat rule + the Area-A target arithmetic only"
+  },
+  {
+   "closed": 72717,
+   "id": "ORBIT-REENTRY",
+   "soundness": "counts SEGMENTS needed, never ports per segment, so it does not repeat the retracted phase-capacity helper's failure mode",
+   "statement": "let Q = {open orbits q != q0 with a live unregistered port}; each q in Q either receives a later registration (costing one orbit-changing joint, i.e. one unit of R_cap + Phi) or is abandoned entirely (its live ports die, charged against the remaining dead budget 4 - D_dead). Hence |Q| - k <= R_cap + Phi, where k is the largest number of members of Q whose live-port counts sum to at most 4 - D_dead."
+  }
+ ],
+ "node_capped_expansion_used_as_proof": false,
+ "payoff_ranked_targets": [
+  {
+   "closes_at_least": 86654,
+   "pct": 43.2,
+   "rank": 1,
+   "target": "SKIP-COST inequality (above)"
+  },
+  {
+   "closes": 80733,
+   "pct": 40.3,
+   "rank": 2,
+   "target": "short_ell4 root alone"
+  },
+  {
+   "closes": 200239,
+   "pct": 99.9,
+   "rank": 3,
+   "target": "the Ndef = 0 band (all five short roots)"
+  },
+  {
+   "closes": 200239,
+   "pct": 99.9,
+   "rank": 4,
+   "target": "the P in {13,14} shallow band"
+  },
+  {
+   "closes": 169,
+   "pct": 0.08,
+   "rank": 5,
+   "target": "the 169 long-root residual states"
+  }
+ ],
+ "report": "research/RR_Q2_AREA_A_PROOF_FRONTIER_CLAUDE.md",
+ "reproducer": "src/rebuild_q2_area_a_frontier.py",
+ "residual_structure": {
+  "by_D": {
+   "1": 5,
+   "6": 194,
+   "7": 1,
+   "11": 1917,
+   "12": 312,
+   "16": 10190,
+   "17": 4647,
+   "21": 22788,
+   "22": 17813,
+   "24": 32,
+   "25": 4,
+   "26": 35157,
+   "27": 31342,
+   "29": 125,
+   "30": 8,
+   "31": 29335,
+   "32": 30218,
+   "36": 7395,
+   "37": 8925
+  },
+  "by_D_dead": {
+   "0": 42084,
+   "1": 65035,
+   "2": 51129,
+   "3": 29562,
+   "4": 12598
+  },
+  "by_Ndef": {
+   "0": 200239,
+   "1": 169
+  },
+  "by_O": {
+   "3": 5,
+   "4": 195,
+   "5": 2229,
+   "6": 14837,
+   "7": 40601,
+   "8": 66499,
+   "9": 59589,
+   "10": 16453
+  },
+  "by_P": {
+   "13": 93258,
+   "14": 106981,
+   "20": 12,
+   "21": 157
+  },
+  "by_Phi": {
+   "0": 4169,
+   "1": 5720,
+   "2": 15243,
+   "3": 34403,
+   "4": 61026,
+   "5": 79847
+  },
+  "by_reentry_margin": {
+   "-7": 4,
+   "-6": 100,
+   "-5": 874,
+   "-4": 4051,
+   "-3": 14422,
+   "-2": 34366,
+   "-1": 59937,
+   "0": 86654
+  },
+  "distinct_classes": 1570,
+  "examples": [
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 6,
+    "used": 1
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 6,
+    "used": 1
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 5,
+    "used": 2
+   },
+   {
+    "D": 25,
+    "Ddead": 4,
+    "Ndef": 1,
+    "O": 9,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 7,
+    "used": 5
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 3,
+    "used": 4
+   },
+   {
+    "D": 25,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 9,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 6,
+    "root": "long_found_4",
+    "slack": 7,
+    "used": 5
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 5,
+    "used": 2
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 5,
+    "used": 2
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 3,
+    "used": 4
+   },
+   {
+    "D": 30,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 20,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 3,
+    "used": 4
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 7,
+    "used": 1
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 6,
+    "used": 2
+   },
+   {
+    "D": 29,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 6,
+    "used": 2
+   },
+   {
+    "D": 29,
+    "Ddead": 2,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 5,
+    "used": 3
+   },
+   {
+    "D": 24,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 9,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 6,
+    "root": "long_found_4",
+    "slack": 9,
+    "used": 4
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 7,
+    "used": 1
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 7,
+    "used": 1
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 6,
+    "used": 2
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 6,
+    "used": 2
+   },
+   {
+    "D": 29,
+    "Ddead": 3,
+    "Ndef": 1,
+    "O": 10,
+    "P": 21,
+    "Phi": 5,
+    "budget": 7,
+    "r": 0,
+    "reentry_need": 7,
+    "root": "long_found_4",
+    "slack": 5,
+    "used": 3
+   }
+  ],
+  "largest_class": {
+   "count": 3969,
+   "key": [
+    0,
+    5,
+    3,
+    10,
+    13,
+    37,
+    1,
+    8,
+    1
+   ],
+   "key_fields": [
+    "Ndef",
+    "Phi",
+    "R_cap",
+    "O",
+    "P",
+    "D",
+    "D_dead",
+    "reentry_need",
+    "used"
+   ],
+   "pct_of_residual": 1.98
+  },
+  "per_root": {
+   "long_found_4": {
+    "RESIDUAL": 66,
+    "closed_capacity_slack": 99427,
+    "closed_dead_port": 780,
+    "closed_orbit_reentry": 1069,
+    "q2_admissible": 101342,
+    "survives_capacity_slack": 1915
+   },
+   "long_found_9": {
+    "RESIDUAL": 54,
+    "closed_capacity_slack": 98564,
+    "closed_dead_port": 894,
+    "closed_orbit_reentry": 1021,
+    "q2_admissible": 100533,
+    "survives_capacity_slack": 1969
+   },
+   "long_q1_2": {
+    "RESIDUAL": 1,
+    "closed_capacity_slack": 97025,
+    "closed_orbit_reentry": 9,
+    "q2_admissible": 97035,
+    "survives_capacity_slack": 10
+   },
+   "long_q1_3": {
+    "RESIDUAL": 28,
+    "closed_capacity_slack": 98591,
+    "closed_dead_port": 29,
+    "closed_orbit_reentry": 220,
+    "q2_admissible": 98868,
+    "survives_capacity_slack": 277
+   },
+   "long_q1_7": {
+    "RESIDUAL": 1,
+    "closed_capacity_slack": 97262,
+    "closed_dead_port": 2,
+    "closed_orbit_reentry": 7,
+    "q2_admissible": 97272,
+    "survives_capacity_slack": 10
+   },
+   "long_q1_8": {
+    "RESIDUAL": 19,
+    "closed_capacity_slack": 93481,
+    "closed_dead_port": 46,
+    "closed_orbit_reentry": 219,
+    "q2_admissible": 93765,
+    "survives_capacity_slack": 284
+   },
+   "short_ell0": {
+    "RESIDUAL": 6087,
+    "closed_capacity_slack": 101037,
+    "closed_dead_port": 470,
+    "closed_orbit_reentry": 5367,
+    "q2_admissible": 112961,
+    "survives_capacity_slack": 11924
+   },
+   "short_ell1": {
+    "RESIDUAL": 15981,
+    "closed_capacity_slack": 97420,
+    "closed_dead_port": 1042,
+    "closed_orbit_reentry": 13991,
+    "q2_admissible": 128434,
+    "survives_capacity_slack": 31014
+   },
+   "short_ell2": {
+    "RESIDUAL": 35456,
+    "closed_capacity_slack": 68612,
+    "closed_dead_port": 2262,
+    "closed_orbit_reentry": 23156,
+    "q2_admissible": 129486,
+    "survives_capacity_slack": 60874
+   },
+   "short_ell3": {
+    "RESIDUAL": 61982,
+    "closed_capacity_slack": 50351,
+    "closed_dead_port": 3286,
+    "closed_orbit_reentry": 14629,
+    "q2_admissible": 130248,
+    "survives_capacity_slack": 79897
+   },
+   "short_ell4": {
+    "RESIDUAL": 80733,
+    "closed_capacity_slack": 29794,
+    "closed_dead_port": 10146,
+    "closed_orbit_reentry": 12995,
+    "q2_admissible": 133668,
+    "survives_capacity_slack": 103874
+   }
+  },
+  "roots_fully_closed": 22,
+  "roots_with_residual": 11,
+  "short_root_share": {
+   "count": 200239,
+   "pct": 99.92
+  },
+  "top_classes": [
+   {
+    "count": 3969,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     13,
+     37,
+     1,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 3292,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 3025,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2696,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2543,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     14,
+     36,
+     2,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 2477,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     14,
+     36,
+     1,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 2424,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     14,
+     31,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2417,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2357,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     13,
+     37,
+     2,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 2231,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     14,
+     31,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2227,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     0,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2216,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     13,
+     32,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2013,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 1807,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     2
+    ]
+   },
+   {
+    "count": 1667,
+    "key": [
+     0,
+     5,
+     3,
+     8,
+     14,
+     26,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "count": 1629,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     0,
+     7,
+     2
+    ]
+   },
+   {
+    "count": 1556,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     4,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 1529,
+    "key": [
+     0,
+     5,
+     3,
+     8,
+     13,
+     27,
+     1,
+     6,
+     1
+    ]
+   },
+   {
+    "count": 1485,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     13,
+     37,
+     1,
+     8,
+     2
+    ]
+   },
+   {
+    "count": 1373,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     3,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 1365,
+    "key": [
+     0,
+     4,
+     3,
+     8,
+     14,
+     26,
+     0,
+     5,
+     1
+    ]
+   },
+   {
+    "count": 1322,
+    "key": [
+     0,
+     5,
+     3,
+     8,
+     14,
+     26,
+     1,
+     6,
+     1
+    ]
+   },
+   {
+    "count": 1321,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     2
+    ]
+   },
+   {
+    "count": 1258,
+    "key": [
+     0,
+     3,
+     3,
+     8,
+     14,
+     26,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "count": 1252,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     14,
+     31,
+     0,
+     6,
+     1
+    ]
+   }
+  ],
+  "total": 200408
+ },
+ "round": 71,
+ "schema": "rr-q2-area-a-frontier-claude-v1",
+ "scope": "Q2 / Area-A only. Nothing here is claimed for Q1: the frontier states remain valid Q1 objects.",
+ "search_run": false
+}

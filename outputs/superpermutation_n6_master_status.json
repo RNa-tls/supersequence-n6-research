@@ -278,7 +278,8 @@
   "computational certificates as artifacts (1,325,392-node exact replay, 84-anchor h40 ledger, H0-H5 backward-closure classification)",
   "Phi / unique-bridge invariant 6r <= 11 - Phi: at most one hexagon of the incidence forest ever has degree 2, hence at most one E-orbit pair is ever co-component and that pair is frozen once created; plus the sigma-adjacency admissibility lemma and the resulting closure of 1,415 of the 1,818 Round-68 residual anchors (root_ell in {1,2,3}) -- Q2 scope only",
   "ELL4 unique-bridge Target-A normal form: for root_ell=4 the bridge is uniquely the hub window (5,0,1,2,3,4), exactly two weight-3 transitions join E-orbits 0 and 1, one of them is structurally dead and the other fires only from the post-bridge state, so all 403 residual anchors are closed and the family's three same-component boundaries are exactly known-18 ell4_P2_* -- Q2 scope only",
-  "the margin identity margin = 12 - D for Target-A boundaries (Ndef=2), turning the Round-30 coarse segment bound into a single defect threshold D <= 12 that closes all 1,398 Rounds-35-37 boundaries at once, plus its interpretable orbit-fill-density form P/O >= 5 - 12/O; and the monotone Phi-free dead-port bound D_dead <= 4"
+  "the margin identity margin = 12 - D for Target-A boundaries (Ndef=2), turning the Round-30 coarse segment bound into a single defect threshold D <= 12 that closes all 1,398 Rounds-35-37 boundaries at once, plus its interpretable orbit-fill-density form P/O >= 5 - 12/O; and the monotone Phi-free dead-port bound D_dead <= 4",
+  "the Q2 frontier reconstruction: filtering the stored (never-exhausted) coverage frontier by the Q2-only prunes and capacity_slack, plus two new sound inequalities (monotone dead-port bound D_dead <= 4, and the orbit re-entry inequality), reducing 3,321,753 stored states to a 200,408-state residual concentrated in one uniform Ndef=0 band; and the identification of the uncharged E^2 within-segment R cost as the next theorem target"
  ],
  "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
  "open_problems_ranked": [
@@ -432,6 +433,16 @@
   "scope_caveat": "Q2-level only: consumes Phi >= 0 (remaining_window_capacity_prune), a necessary condition for an Area-A NR6 completion. The committed is_target_a enforces it; the pure Q1 question does not."
  },
  "round_70_1398_reclassification": {
+  "correction_round_71": {
+   "D_le_12_is": "the Phi = 0, Ndef = 2, used = 1 specialisation",
+   "recheck": "the sound form closes 1398/1398 on its own; threshold <= 13 at Ndef=2, Phi<=0, observed min D = 19",
+   "sound_general_forms": [
+    "D <= 9 - used(q0) + 4*(R_cap + Phi)  (D-form of capacity_slack, sharpest)",
+    "D <= 8 + 5*(R_cap + Phi)  (Round-32 bound A)"
+   ],
+   "totals_changed": false,
+   "what_was_wrong": "Round 70 called the defect threshold D <= 12 'Phi-free'. The segment count m <= O_cap + R_cap omits the Phi term: an orbit-changing macro edge with ell < 5 costs neither O nor N, only Phi."
+  },
   "headline_counting_theorem": "margin = 12 - D, so an Area-A NR6 completion needs D <= 12; the corpus has D in [19,68]",
   "helpers_not_used": [
    "true_phase_walk_capacity",
@@ -461,6 +472,30 @@
    "replay_verified": 1398,
    "target_b_closed": 1398,
    "target_b_survivors": 0
+  }
+ },
+ "round_71_q2_frontier": {
+  "best_next_theorem": "SKIP-COST: a within-orbit segment advances by E^1 (free) or E^2 (one Ndef), so every dead port skipped costs one Ndef -- a resource capacity_slack does not charge; >= 86,654 residual states sit at margin exactly 0",
+  "corrections": [
+   "Round 70's 'Phi-free' claim for D <= 12 (totals unchanged)",
+   "the segment model: (ell=5,w3:120) also preserves the E-orbit, acting as E^2 and always as an R"
+  ],
+  "exact_logical_gap": "Target-B closure covers only FOUND boundaries; no coverage search was ever exhausted (all 33 stopped on a time cap with a non-empty frontier)",
+  "json": "outputs/rr_q2_area_a_frontier_claude.json",
+  "largest_class": "Ndef=0, Phi=5, R_cap=3, O=10, P=13, D=37, D_dead=1, reentry_need=8, used=1 -> 3969 states",
+  "report": "research/RR_Q2_AREA_A_PROOF_FRONTIER_CLAUDE.md",
+  "reproducer": "src/rebuild_q2_area_a_frontier.py",
+  "scope": "Q2 / Area-A only; nothing claimed for Q1",
+  "totals": {
+   "closed_by_capacity_slack": 2956692,
+   "closed_by_dead_port": 19073,
+   "closed_by_orbit_reentry": 72717,
+   "distinct_classes": 1570,
+   "q2_admissible": 3248890,
+   "residual": 200408,
+   "roots_fully_closed": 22,
+   "roots_total": 33,
+   "stored_frontier": 3321753
   }
  },
  "rr_short_logical_chain": [
