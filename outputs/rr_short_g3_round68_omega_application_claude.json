@@ -1,0 +1,171 @@
+{
+  "schema": "rr-short-g3-round68-omega-application-claude-v1",
+  "author": "Claude",
+  "report": "research/RR_SHORT_G3_ROUND68_OMEGA_APPLICATION_CLAUDE.md",
+  "search_run": false,
+  "provenance": {
+    "artifacts_supplied": "inline in conversation, not via git",
+    "git_state_rechecked": true,
+    "codex_tip_branch": "codex/round-r1-37-hex82-t4",
+    "codex_tip_commit": "1f9efff0809c47e7ca1857ed6c7734c20e78f081",
+    "round68_files_present_in_any_ref": false,
+    "hash_verification_possible": false,
+    "round_number_conflict": {
+      "request_says": "Round 62",
+      "artifact_self_identifies_as": "Round 68 (report title, analyzer output)",
+      "note": "analyzer separately binds ROUND62 to outputs/rr_short_t4_child_classification.json, a distinct artifact; this document uses Round 68"
+    },
+    "supplied": [
+      {"item": 1, "identity": "RR_SHORT_113_FAMILY_G3_CODEX.md", "usable": true},
+      {"item": 2, "identity": "rr-short-113-family-status-v1", "usable": true},
+      {"item": 3, "identity": "rr-short-113-family-residuals-v1", "usable": true},
+      {"item": 4, "described_as": "mechanism ledger", "identity": "rr-short-113-family-residuals-v1 (DUPLICATE of item 3)", "usable": false},
+      {"item": 5, "identity": "rr-short-113-family-g3-verified-v1", "usable": true},
+      {"item": 6, "identity": "analyze_rr_short_113_family_g3.py", "usable": true},
+      {"item": 7, "identity": "verify_rr_short_113_family_g3.py", "usable": true}
+    ],
+    "missing_and_load_bearing": [
+      {"file": "outputs/rr_short_t4_direct_z2_families.json", "why": "sole source of per-anchor first_R1_hub_merge_provenance / R1_hub_same_component / direct_Z2_candidates; blocks tasks 1, 2, 4"},
+      {"file": "outputs/rr_short_113_family_mechanisms.json", "why": "not supplied; item 4 duplicated the residuals ledger"},
+      {"file": "439 corrected-v5 checkpoints", "why": "10,939,666,873 bytes per checkpoint_aggregate; source of anchor states"}
+    ]
+  },
+  "arithmetic_verification": {
+    "method": "recomputed from the 24 residual family rows, not from summary blocks",
+    "evidence": "EC",
+    "all_checks_pass": true,
+    "checks": {
+      "partition_sums_to_439": true,
+      "nonempty_113": true,
+      "T4_closed_F1_F2_F4_F5_equals_89": true,
+      "residual_F7_F8_equals_24": true,
+      "A4_equals_F5_F7_F8_equals_45": true,
+      "historical_9_47_12_45_equals_113": true,
+      "residual_families_16_F7_plus_8_F8": true,
+      "residual_anchor_total_from_rows_equals_1818": true,
+      "mechanism_counts_sum_to_1818": true,
+      "target_a_hits_equals_3_all_known18": true
+    },
+    "not_re_derivable_from_supplied_data": [
+      "the 5332 total nonempty anchor count",
+      "every SHA-256 in input_sha256 and checkpoint_aggregate"
+    ]
+  },
+  "structural_discovery": {
+    "label": "NEW -- not stated in any supplied Codex document",
+    "evidence": "EC",
+    "finding": "the four anchor mechanisms are not distributed across the residual; they are sharply localized by family class",
+    "F7": {"families": 16, "anchors": 1183, "mechanism": "MERGED_BY_R", "correspondence": "exact, 100% -- every F7 anchor is already R1-merged"},
+    "F8": {"families": 8, "anchors": 635, "split": {"MERGED_BY_Z2": 612, "SEPARATE_MONOTONE_BLOCKED": 16, "SEPARATE_CLEAR": 7}},
+    "why_it_matters": [
+      "the F8 label is LITERAL_DIRECT_Z2_BRIDGE_IN_ANCESTRY -- 'in ancestry' -- and 23 of its 635 frozen anchors are NOT merged at all",
+      "this localizes the 7 SEPARATE_CLEAR and 16 SEPARATE_MONOTONE_BLOCKED anchors to F8 families, a fact needed for the SC transition graph and recorded nowhere in the supplied data",
+      "it removes all cross-terms from the closure decomposition (see closure_decomposition)"
+    ]
+  },
+  "task_1_omega_projection": {
+    "status": "BLOCKED",
+    "reason": "none of Omega's five fields (orbit_masks, p, F, r_count, hub_touch_count) appear in any supplied artifact",
+    "needed_per_anchor": ["state.orbit_masks", "state.p", "state.F", "dec.r_count", "dec.hub_touch_count"],
+    "not_needed": "state.hex_masks -- by M4 the Target-A predicate never reads it, and by OMEGA-SOUND dropping it is the sound direction",
+    "fabrication_refused": "1818 state vectors were not synthesized"
+  },
+  "task_2_omega_closure": {
+    "status": "BLOCKED_BUT_FULLY_SPECIFIED",
+    "theorem": {
+      "name": "residual Omega-closure is a terminating, sound decision procedure",
+      "status": "HAND_THEOREM",
+      "applies_to": "the 1795 merged anchors (1183 MERGED_BY_R + 612 MERGED_BY_Z2)",
+      "steps": [
+        "M2-prime: co-component is permanent, so same_component is discharged for every pair inside the merged component at every descendant and cannot be re-blocked",
+        "M3: only the five non-component recognizer conditions remain (r_count 1->2, kind==R, F==1, H==0, hub_touch_count<=2)",
+        "M4: all six inputs are Omega-computable; the predicate never reads hex_masks",
+        "OMEGA-TERM: closure is acyclic, depth <= 720 - popcount(orbit_masks), branching <= 24; memoized DFS terminates",
+        "OMEGA-SOUND: a negative result transfers to exact -- no Omega-reachable Target-A exit implies no exact-reachable Target-A exit"
+      ],
+      "conclusion": "family-level closure of F7 and the merged part of F8 reduces to 1795 terminating, sound one-sided Omega-closures"
+    },
+    "caveat": "termination is proved; tractability is NOT. Omega retains a 720-bit orbit_masks and nothing bounds the reachable image by a small number. The reported 8-post-Z2-state collapse is an observation over witnessed mergers, not a proved bound on the Omega-image."
+  },
+  "task_3_target_a_exits": {
+    "status": "COMPLETE for the observed corpus",
+    "evidence": "EC for enumeration; BO as a general claim",
+    "total": 3,
+    "exits": [
+      {"family": "short_ell4_r1_18", "class": "F8", "mechanism": "Z2 merger", "witness": "short_ell4_target_a_00000", "canonical_state_hash": "79f21d2facc1ce2a122382375d4452e8c89555cc4fdf55d0322f23075f99e1c4", "known18": "EXACT_KNOWN18_MATCH", "target_b": "KNOWN18_HELPER_FREE_CERTIFICATE_REUSED"},
+      {"family": "short_ell4_r1_62", "class": "F7", "mechanism": "R1 merged", "witness": "short_ell4_target_a_00001", "canonical_state_hash": "20585475b28fe99dc1d3c0e44fde44a6a507d9e3a57dbeba58350b7e6f365616", "known18": "EXACT_KNOWN18_MATCH", "target_b": "KNOWN18_HELPER_FREE_CERTIFICATE_REUSED"},
+      {"family": "short_ell4_r1_71", "class": "F8", "mechanism": "Z2 merger", "witness": "short_ell4_target_a_00002", "canonical_state_hash": "f1a925551da6109ef5d061b3ad04e214b0679538f95c1c467d2e458ab7b89aa9", "known18": "EXACT_KNOWN18_MATCH", "target_b": "KNOWN18_HELPER_FREE_CERTIFICATE_REUSED"}
+    ],
+    "observations": {
+      "all_three_in_short_ell4": true,
+      "no_residual_family_under_ell1_ell2_ell3_has_a_hit": true,
+      "structural_or_prefix_artifact": "NOT DETERMINABLE from this data",
+      "split": "1 F7 / 2 F8 -- exits occur under BOTH merger mechanisms",
+      "frequency": "3 hits against 1818 anchors and ~53,000 serialized R2 path records; BO only"
+    },
+    "direction_note": "these are literal TARGET_A_HIT recognizer outcomes, i.e. exact-reachable, not Omega artifacts. Omega can only close, never witness (OMEGA-SOUND direction warning), so an exact exit is strictly stronger evidence than anything Omega could produce."
+  },
+  "falsification_confirmed": {
+    "prior_claim": "RR_SHORT_MERGED_BY_R_THEORY_CLAUDE.md sec5/sec10 argued merger RELAXES the Target-A predicate (enlarges the qualifying (sq,tq) set monotonically), so 'no new boundary post-merger' fights the direction of the structure; the MR-Theorem was declined",
+    "borne_out_by": "entry 2 -- an F7/R1-merged family did produce a Target-A exit",
+    "codex_independent_agreement": "the supplied report states the proposed universal wrong-R2-source obstruction is false because literal Target-A counterexamples exist",
+    "still_open": "whether every such exit is known-18",
+    "position": "3/3 is consistent with it and is NOT evidence for it -- the same evidential shape that produced the parity retraction (master status sec5.1). MR-Theorem remains DECLINED."
+  },
+  "task_4_separate_clear": {
+    "status": "PARTIALLY_UNBLOCKED",
+    "newly_established": "the 7 SC anchors and 16 SM anchors live inside F8 families, not F7 (from the structural discovery)",
+    "still_missing": ["which F8 families contain them", "their exact states"],
+    "why_ledger_cannot_localize": "every residual family's anchor_class_counts is uniformly {A4: n}, which is the historical class, not the mechanism",
+    "theory_composition": {
+      "statement": "SC anchors flow into the mechanism that already dominates their own family",
+      "ground": "by M7 every SC successor lies in {SC, MZ, R2, DEAD}, and SC -> MR is provably impossible since R1 is in the past; their families are already LEGAL_Z2_MERGER families",
+      "consequence": "closing MERGED_BY_Z2 closes most of SC as a by-product; by SC-3 the residual SC -> SC recurrence is finite and acyclic with depth <= 720, so no separate termination argument is needed"
+    },
+    "classification_edge_case": {
+      "issue": "all() over an EMPTY list returns True, so an anchor with NO direct_Z2_candidates is labelled SEPARATE_MONOTONE_BLOCKED rather than SEPARATE_CLEAR",
+      "aggregate_counts_wrong": false,
+      "why_it_matters": "the label conflates 'candidates exist and all are monotone-blocked' with 'no candidate exists at all'; the SM closure route turns on the blocking quantity being monotone and the blocked predicate upward-closed, and a vacuous anchor has no blocking quantity to be monotone about",
+      "recommendation": "split into SEPARATE_NO_CANDIDATE and SEPARATE_ALL_BLOCKED before proving anything over the 16"
+    }
+  },
+  "closure_decomposition": {
+    "status": "HAND_THEOREM",
+    "statement": "family-level closure of the 24 residual families decomposes with NO cross-terms",
+    "F7": {"families": 16, "anchors": 1183, "needs": ["merged-anchor Omega-closure only"]},
+    "F8": {"families": 8, "anchors": 635, "needs": ["merged-anchor Omega-closure (612)", "SM argument (16)", "SC transition closure (7)"]},
+    "why_no_cross_terms": "every F7 anchor is merged, so no F7 anchor requires the SM or SC arguments",
+    "closure_follows_from": [
+      "1795 terminating, sound Omega-closures yielding only known-18 Target-A exits or none",
+      "an SM argument over 16 anchors, after the label split",
+      "an SC transition closure over 7 anchors, largely subsumed by the first item"
+    ],
+    "is_this_a_proof": false,
+    "G3_claimed": false,
+    "irreducible_unknown": "whether the Omega-closures return only known-18 exits -- expected to be the hard part, not a formality"
+  },
+  "analyzer_verifier_audit": {
+    "overall": "discipline is good -- genuinely independent re-derivation of the A1-A4 family classification by streaming every frontier from SHA-checked immutable checkpoints",
+    "issues": [
+      {"id": 1, "severity": "moderate", "finding": "the true_phase_walk_capacity firewall greps only 2 of 5 proof-path files", "detail": "the three imported replay modules (verify_rr_short_t4_template.py, verify_rr_short_t4_direct_z2.py, verify_rr_short_t4_a3_open_w2.py) are not grepped, yet the certificate asserts true_phase_walk_capacity_called: false unqualified", "context": "master status sec5.5 records that helper as retracted outside full-segment scope"},
+      {"id": 2, "severity": "moderate", "finding": "the residual-mechanism logic is duplicated, not independently derived", "detail": "the verifier recomputes the four mechanism counts with byte-identical logic to the analyzer over the same input file; a wrong first_R1_hub_merge_provenance would be reproduced identically by both. The A1-A4 classification IS independently re-derived; the mechanism split is not."},
+      {"id": 3, "severity": "worth resolving", "finding": "an unchecked NEGATIVE telemetry delta", "detail": "short_ell4_r1_18 has serialized_R2_path_records=2321 but telemetry_R2_outcome_events=2320 (delta=-1); every other residual family has delta >= 0. A negative delta means a serialized R2 path record with no telemetry counterpart -- the opposite of the benign capped-serialization pattern. Neither file asserts anything about this field's sign, and this is the same family as Target-A witness _00000."},
+      {"id": 4, "severity": "cosmetic", "finding": "a fifth mechanism branch exists and is silently empty", "detail": "SAME_COMPONENT_NO_REPLAY_PROVENANCE is a live branch in both files but appears in no output; it came out 0, but the '0 other residual' claim would read more honestly if the empty class were reported explicitly"}
+    ],
+    "none_invalidate_the_ledger": true
+  },
+  "proof_status": {
+    "EC": ["ledger arithmetic over 24 families / 1818 anchors / 3 Target-A hits", "F7 <=> MERGED_BY_R and F8 = 612+16+7", "enumeration of the 3 Target-A exits"],
+    "HAND_THEOREM": ["residual Omega-closure terminating and sound", "F7/F8 closure decomposition with no cross-terms", "SC subset of F8 and SC feeds the MZ analysis"],
+    "BO": ["3/3 known-18 as a general claim", "Target-A frequency"],
+    "CONJECTURE_DECLINED": ["MR-Theorem: all merged Target-A exits are known-18"],
+    "BLOCKED": ["Omega-projection of 1818 anchors", "MR/MZ Omega-closure computation", "per-state SC transition graph", "all SHA-256 verification", "the 5332 anchor total"],
+    "G3": "NOT ACHIEVED -- agrees with the supplied verdict G3_FINITE_MECHANISMS_REMAIN"
+  },
+  "next_items_requested_in_priority_order": [
+    {"rank": 1, "item": "outputs/rr_short_t4_direct_z2_families.json", "unblocks": ["task 1", "task 2", "task 4"], "why": "carries the per-anchor records and is the only source of the mechanism split"},
+    {"rank": 2, "item": "outputs/rr_short_113_family_mechanisms.json", "why": "the actual one -- the supplied item 4 was a duplicate of the residuals ledger"},
+    {"rank": 3, "item": "push Round 68 to a branch", "why": "so the SHA-256 chain and checkpoint_aggregate become checkable; all arithmetic verification here is currently hash-free"}
+  ],
+  "end_token": "CLAUDE_G3_ROUND68_OMEGA_PARTIAL"
+}
