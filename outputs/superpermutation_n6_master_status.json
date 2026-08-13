@@ -595,29 +595,78 @@
  },
  "round_76_bridge_charge": {
   "candidate": "MANDATORY-FINAL-BRIDGE / BRIDGE-CHARGE",
-  "premise_status": "sound (HP): dr = dP - dT in {0,1}; r rises only on a joint into an already-touched hexagon; r_final = 1 exactly at Area-A completion",
   "census": {
+   "observations_bounded": "every Phi=5 residual state has r=0; every Phi=0 residual state has r=1 (corpus-only, not theorems)",
    "r0": 196056,
-   "r1": 4352,
-   "r0_share": "97.83%",
    "r0_canonical_classes": 1475,
-   "observations_bounded": "every Phi=5 residual state has r=0; every Phi=0 residual state has r=1 (corpus-only, not theorems)"
+   "r0_share": "97.83%",
+   "r1": 4352
   },
-  "forgone_payoff_if_lemma_held": {
-   "orbit_reentry_budget_minus_1": 83914,
-   "capacity_slack_budget_minus_1": 30772,
-   "dead_port_plus_1": 12514
-  },
-  "refutation": "exactly one macro transition type is free in every budgeted resource -- (ell=5, w2:10) = E^1, joint_kind Z2 -- and it realises an r:0->1 event: 10 Q2-admissible corpus witnesses plus an independent from-initial_state walk rot^0;w3:120 -> rot^5;w3:120 -> rot^5;w2:10 with dPhi = dNdef = dO = dF = 0",
   "fallback_reading": "the one thing an E^1 bridge consumes is a pass-start out of (5 - used(q0)), which capacity_slack already charges every joint; the event is exactly slack-neutral",
+  "forgone_payoff_if_lemma_held": {
+   "capacity_slack_budget_minus_1": 30772,
+   "dead_port_plus_1": 12514,
+   "orbit_reentry_budget_minus_1": 83914
+  },
   "geometry_fact": "no joint lands in the current hexagon at any rotation-run length (0 of 720 words x 24 macro generators)",
   "json": "outputs/rr_bridge_charge_claude.json",
-  "predicted_closure": 0,
-  "q2_residual_unchanged": 200408,
-  "reproducer": "src/probe_rr_bridge_charge.py",
-  "report": "research/RR_BRIDGE_CHARGE_CLAUDE.md",
   "pre_filter_rule": "test any new candidate against E^1 first: if E^1 can realise the event the candidate forbids or charges, the candidate is dead before the residual is consulted",
+  "predicted_closure": 0,
+  "premise_status": "sound (HP): dr = dP - dT in {0,1}; r rises only on a joint into an already-touched hexagon; r_final = 1 exactly at Area-A completion",
+  "q2_residual_unchanged": 200408,
+  "refutation": "exactly one macro transition type is free in every budgeted resource -- (ell=5, w2:10) = E^1, joint_kind Z2 -- and it realises an r:0->1 event: 10 Q2-admissible corpus witnesses plus an independent from-initial_state walk rot^0;w3:120 -> rot^5;w3:120 -> rot^5;w2:10 with dPhi = dNdef = dO = dF = 0",
+  "report": "research/RR_BRIDGE_CHARGE_CLAUDE.md",
+  "reproducer": "src/probe_rr_bridge_charge.py",
   "verdict": "CLAUDE_BRIDGE_CHARGE_REFUTED"
+ },
+ "round_77_orbit_hexagon_cover": {
+  "adversarial_checks": {
+   "e1_closure_invariance": "0 changes in 7,332 E^1 steps (run before payoff measurement)",
+   "feasibility": "a 25-orbit set covering all 120 hexagons with excess exactly 5 exists; 24 orbits give a perfect cover -- the bound is restrictive, not vacuous",
+   "identity_and_monotonicity": "0 violations over 13,336 macro steps of 400 random legal walks"
+  },
+  "candidate": "E^1 QUOTIENT -> ORBIT-HEXAGON COVER",
+  "derivation": "area_a_final requires visited_count==720 so every hexagon ends full; hexagons are entered only by registering joints; hence c(h)>=1 for all 120; the 25 open orbits carry exactly 125 incidences; so sum_h (c(h)-1) = 5; orbit masks only ever set, so c_open <= c_final pointwise",
+  "e1_closure": "bounded: E^1 advances phase +1 on q0's 5-cycle, so the closure has at most 5 states (observed chain lengths 0-4, never more), and each step needs a fresh hexagon",
+  "e1_freely_repairable_quantities": [
+   "D = 5O - P",
+   "P",
+   "orbit_reentry_demand"
+  ],
+  "e1_invariant_quantities": [
+   "O",
+   "Phi",
+   "Ndef",
+   "Rcap",
+   "Rcap+Phi",
+   "F",
+   "covered_hexagons",
+   "incidence_collisions"
+  ],
+  "e1_monotone_worsening": [
+   "dead_port_count",
+   "r",
+   "used(q0)"
+  ],
+  "geometry": "biregular: 5 distinct hexagons per orbit (144/144, zero self-collisions), 6 orbits per hexagon (120/120), 720 incidences",
+  "json": "outputs/rr_orbit_hexagon_cover_claude.json",
+  "method_rule": "classify a candidate quantity under free E^1 motion BEFORE proposing an inequality on it; E^1 freely repairs D, P and re-entry demand, so no bound built on those alone can bite",
+  "payoff": {
+   "classes_after": 1312,
+   "classes_before": 1570,
+   "closed": 122194,
+   "residual_after": 78214,
+   "residual_before": 200408,
+   "roots_fully_closed": "25 of 33",
+   "share": "60.97%",
+   "sharpened_form_closed": 0,
+   "survivors_at_margin_zero": 33564
+  },
+  "prior_art": "'a fresh segment covers at most 5 hexagons, one per port' is already in src/verify_rr_target_b_flow.py (Round-32 capacity, supply direction); the global consequence for the final open set is new",
+  "report": "research/RR_ORBIT_HEXAGON_COVER_CLAUDE.md",
+  "reproducer": "src/prove_rr_orbit_hexagon_cover.py",
+  "theorem": "COLLISIONS(s) = sum_h max(c_open(h)-1,0) = 5*O - |covered(s)| <= 5, equivalently 120 - covered <= 5*(25-O); demand-side and monotone",
+  "verdict": "CLAUDE_E1_QUOTIENT_MAJOR_PAYOFF"
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

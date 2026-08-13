@@ -1,0 +1,327 @@
+{
+ "round": 77,
+ "author": "Claude (independent verification track)",
+ "candidate": "E^1 QUOTIENT -> ORBIT-HEXAGON COVER",
+ "verdict": "CLAUDE_E1_QUOTIENT_MAJOR_PAYOFF",
+ "scope": "Q2 / Area-A. No search, no frontier re-run, no bounded completion search. Corpus statistics are used only to measure payoff, never to derive the theorem.",
+ "e1_structure": {
+  "definition": "E^1 = macro edge (ell=5, w2:10), joint_kind Z2; the unique generator free in Phi, Ndef, O and F (Round 76)",
+  "legality": "legal exactly when the current hexagon holds only the endpoint p; agreement pc(hex(p))==1 <-> ell_max==5 on 4000/4000 residual states",
+  "closure_is_bounded": "E^1 advances the phase within q0 by +1 on a 5-cycle, so the E^1-closure of any state has at most 5 elements; observed chain lengths 0..4, never more",
+  "closure_chain_length": {
+   "0": 897,
+   "1": 916,
+   "2": 802,
+   "3": 728,
+   "4": 657
+  },
+  "conclusion": "E^1 is not an unbounded free escape: it is capped at 4 uses per orbit visit and each use consumes a fresh hexagon"
+ },
+ "e1_quantity_classification": {
+  "e1_steps": 7332,
+  "quantities": {
+   "D": {
+    "deltas": {
+     "-1": 7332
+    },
+    "classification": "MONOTONE (non-increasing)"
+   },
+   "F": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "Ndef": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "P": {
+    "deltas": {
+     "1": 7332
+    },
+    "classification": "MONOTONE (non-decreasing)"
+   },
+   "Phi": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "Rcap": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "covered_hexagons": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "dead_port_count": {
+    "deltas": {
+     "0": 5627,
+     "1": 1509,
+     "2": 165,
+     "3": 30,
+     "5": 1
+    },
+    "classification": "MONOTONE (non-decreasing)"
+   },
+   "full_hexagons": {
+    "deltas": {
+     "1": 7332
+    },
+    "classification": "MONOTONE (non-decreasing)"
+   },
+   "hexagon_deficiency": {
+    "deltas": {
+     "-6": 15,
+     "0": 7317
+    },
+    "classification": "MONOTONE (non-increasing)"
+   },
+   "incidence_collisions": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "noncurrent_partial": {
+    "deltas": {
+     "-1": 15,
+     "0": 7317
+    },
+    "classification": "MONOTONE (non-increasing)"
+   },
+   "open_orbits": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "orbit_reentry_demand": {
+    "deltas": {
+     "-2": 3,
+     "-1": 7,
+     "0": 6673,
+     "1": 640,
+     "2": 9
+    },
+    "classification": "FREELY MOVABLE (both signs)"
+   },
+   "partial_hexagons": {
+    "deltas": {
+     "-1": 15,
+     "0": 7317
+    },
+    "classification": "MONOTONE (non-increasing)"
+   },
+   "phase_of_p": {
+    "deltas": {
+     "-4": 1446,
+     "1": 5886
+    },
+    "classification": "FREELY MOVABLE (both signs)"
+   },
+   "r": {
+    "deltas": {
+     "0": 7317,
+     "1": 15
+    },
+    "classification": "MONOTONE (non-decreasing)"
+   },
+   "shared_budget": {
+    "deltas": {
+     "0": 7332
+    },
+    "classification": "INVARIANT"
+   },
+   "touched_hexagons": {
+    "deltas": {
+     "0": 15,
+     "1": 7317
+    },
+    "classification": "MONOTONE (non-decreasing)"
+   },
+   "used_q0": {
+    "deltas": {
+     "1": 7332
+    },
+    "classification": "MONOTONE (non-decreasing)"
+   }
+  }
+ },
+ "geometry": {
+  "distinct_hexagons_per_orbit": {
+   "5": 144
+  },
+  "orbits_per_hexagon": {
+   "6": 120
+  },
+  "total_incidences": 720,
+  "biregular": true,
+  "status": "EC (exhaustive computation over all 144 orbits and 120 hexagons)"
+ },
+ "theorem": {
+  "name": "ORBIT-HEXAGON COVER",
+  "statement": "COLLISIONS(s) = sum_h max(c_open(h) - 1, 0) = 5*O - |covered(s)| <= 5",
+  "equivalent_form": "120 - |covered(s)| <= 5*(25 - O)",
+  "derivation": [
+   "area_a_final requires visited_count == 720, so every one of the 120 hexagons ends full",
+   "a hexagon is entered only by a joint landing in it (rotations never leave the current hexagon)",
+   "every joint has weight >= 2 and therefore registers its target's (orbit, phase); the initial window is registered too",
+   "hence every hexagon contains at least one registered port, so c(h) >= 1 for all 120 hexagons",
+   "each of the 25 final open orbits has 5 ports in 5 distinct hexagons, so sum_h c(h) = 125",
+   "therefore sum_h (c(h) - 1) = 125 - 120 = 5",
+   "orbit masks are only ever set, never cleared, so c_open(h) <= c_final(h) pointwise and the bound holds at every earlier state"
+  ],
+  "side": "demand-side (which orbits must end up open); indifferent to entry multiplicity, q0 return and repeated re-entry",
+  "e1_invariance": "0 changes in 7,332 E^1 steps",
+  "status": "HP (hand-proof) with EC-verified geometry and engine premises"
+ },
+ "adversarial_checks": {
+  "identity_5O_minus_covered": "0 violations over 13,336 macro steps of 400 random legal walks",
+  "monotonicity_collisions_never_decrease": "0 violations over the same 13,336 steps",
+  "feasibility": "a 25-orbit set covering all 120 hexagons with excess exactly 5 exists (greedy witness); 24 orbits give a perfect cover -- the bound is restrictive, not vacuous",
+  "e1_closure_test": "run BEFORE payoff measurement: incidence_collisions and covered_hexagons are literally invariant across every E^1 step"
+ },
+ "payoff": {
+  "residual_before": 200408,
+  "canonical_classes_before": 1570,
+  "closed_cover_plain": 122194,
+  "closed_cover_sharp": 0,
+  "residual_after": 78214,
+  "canonical_classes_after": 1312,
+  "share_closed": "60.97%",
+  "closed_by_root": {
+   "long_found_4": 66,
+   "long_found_9": 54,
+   "long_q1_3": 13,
+   "long_q1_7": 1,
+   "long_q1_8": 8,
+   "short_ell0": 2329,
+   "short_ell1": 5074,
+   "short_ell2": 17326,
+   "short_ell3": 36055,
+   "short_ell4": 61268
+  },
+  "surviving_by_root": {
+   "long_q1_2": 1,
+   "long_q1_3": 15,
+   "long_q1_8": 11,
+   "short_ell0": 3758,
+   "short_ell1": 10907,
+   "short_ell2": 18130,
+   "short_ell3": 25927,
+   "short_ell4": 19465
+  },
+  "surviving_by_coordinate": {
+   "P": {
+    "13": 34325,
+    "14": 43862,
+    "20": 1,
+    "21": 26
+   },
+   "O": {
+    "3": 5,
+    "4": 195,
+    "5": 2079,
+    "6": 11144,
+    "7": 23273,
+    "8": 26196,
+    "9": 13423,
+    "10": 1899
+   },
+   "Phi": {
+    "0": 3654,
+    "1": 3470,
+    "2": 10236,
+    "3": 17167,
+    "4": 25036,
+    "5": 18651
+   },
+   "Ndef": {
+    "0": 78187,
+    "1": 27
+   },
+   "Ddead": {
+    "0": 31392,
+    "1": 29931,
+    "2": 13288,
+    "3": 3296,
+    "4": 307
+   },
+   "r": {
+    "0": 74528,
+    "1": 3686
+   },
+   "used": {
+    "1": 34874,
+    "2": 21278,
+    "3": 12149,
+    "4": 6579,
+    "5": 3334
+   }
+  },
+  "collision_distribution_on_residual": {
+   "1": 1001,
+   "2": 5369,
+   "3": 13446,
+   "4": 24834,
+   "5": 33564,
+   "6": 36525,
+   "7": 32906,
+   "8": 24452,
+   "9": 15323,
+   "10": 7915,
+   "11": 3463,
+   "12": 1180,
+   "13": 348,
+   "14": 69,
+   "15": 10,
+   "16": 2,
+   "17": 1
+  },
+  "collision_distribution_all_q2_admissible": {
+   "1": 1195,
+   "2": 6937,
+   "3": 18892,
+   "4": 39468,
+   "5": 62485,
+   "6": 84938,
+   "7": 102359,
+   "8": 112782,
+   "9": 120195,
+   "10": 126633,
+   "11": 136222,
+   "12": 147479,
+   "13": 163357,
+   "14": 178250,
+   "15": 193038,
+   "16": 202824,
+   "17": 206322,
+   "18": 202210,
+   "19": 193748,
+   "20": 949556
+  },
+  "margin_distribution": {
+   "0": 33564,
+   "1": 24834,
+   "2": 13446,
+   "3": 5369,
+   "4": 1001
+  },
+  "states_at_margin_zero": 33564
+ },
+ "notes": {
+  "sharp_form_added_nothing": "the sharpened cover capacity (top 25-O closed orbits by uncovered-hexagon contribution) closed 0 further states: on every survivor the top orbits each still reach 5 uncovered hexagons",
+  "prior_art": "the per-orbit observation 'a fresh segment covers at most 5 hexagons, one per port' is already in src/verify_rr_target_b_flow.py (Round-32 capacity, supply direction). What is new here is the GLOBAL consequence for the final open set, which no committed bound levies.",
+  "roots_fully_closed_now": "long_found_4, long_found_9 and long_q1_7 join the fully-closed set: 25 of 33 roots have empty Q2 residual"
+ },
+ "disclaimer": "This project has not proved L6 >= 872, and nothing here bears on that."
+}
