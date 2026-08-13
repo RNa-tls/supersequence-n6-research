@@ -1,5 +1,7 @@
 # Status: n = 6 minimal superpermutation length
 
+A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
+
 ## The problem
 
 A *superpermutation* on n symbols is a string containing every one of the

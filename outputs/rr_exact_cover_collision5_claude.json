@@ -1,0 +1,266 @@
+{
+ "round": 78,
+ "author": "Claude (independent verification track)",
+ "candidate": "EXACT-COVER OBSTRUCTION AT COLLISIONS = 5",
+ "verdict": "CLAUDE_EXACT_COVER_MAJOR_PAYOFF",
+ "scope": "Q2 / Area-A. No frontier re-run, no continuation search. The only search is a finite static exact-cover decision on the fixed orbit-hexagon incidence system.",
+ "premise": {
+  "round_77_theorem": "COLLISIONS(s) = 5*O - |covered(s)| <= 5",
+  "at_collisions_5": "the whole collision budget is spent, so every orbit still to be opened must add zero collision: its 5 port-hexagons must lie in U and the chosen blocks must be pairwise disjoint",
+  "identity": "|U| = 120 - (5*O - 5) = 5*(25 - O) = 5K",
+  "identity_check": "verified on all 33564 states, 0 failures",
+  "conclusion": "the K orbits still to open must form an EXACT COVER of U by 5-element incidence blocks",
+  "canonical_key": "a block lies inside U only if its orbit is still closed, so the instance is a function of U alone"
+ },
+ "census": {
+  "collisions_eq_5_states": 33564,
+  "collision_distribution_round77_residual": {
+   "1": 1001,
+   "2": 5369,
+   "3": 13446,
+   "4": 24834,
+   "5": 33564
+  },
+  "K_distribution": {
+   "15": 1234,
+   "16": 7254,
+   "17": 12135,
+   "18": 9104,
+   "19": 3411,
+   "20": 419,
+   "21": 7
+  },
+  "distinct_exact_cover_instances": 33255,
+  "instance_multiplicity_histogram": {
+   "1": 32951,
+   "2": 300,
+   "3": 3,
+   "4": 1
+  }
+ },
+ "tests": {
+  "A_coverability": {
+   "instances": 24309,
+   "states": 24419
+  },
+  "B_supply": {
+   "instances": 0,
+   "states": 0
+  },
+  "C_forced_conflict": {
+   "instances": 5244,
+   "states": 5315
+  },
+  "D_component_hall": {
+   "instances": 0,
+   "states": 0
+  },
+  "E_exact_cover_unsat": {
+   "instances": 3570,
+   "states": 3682
+  },
+  "SAT_survivors": {
+   "instances": 132,
+   "states": 148
+  },
+  "UNKNOWN_node_cap": {
+   "instances": 0,
+   "states": 0
+  }
+ },
+ "validation": {
+  "positive_control_ok": true,
+  "positive_control_nodes": 24,
+  "negative_control_solutions": 0,
+  "negative_control_complete": true,
+  "unsat_recheck_instances": 3570,
+  "unsat_recheck_disagreements": 0,
+  "unsat_recheck_max_nodes": 7768,
+  "sat_witnesses_verified": 132,
+  "invalid_sat_witnesses": 0
+ },
+ "e1_safety": {
+  "states_tested": 763,
+  "e1_steps": 1402,
+  "uncovered_set_changed": 0,
+  "candidate_family_changed": 0
+ },
+ "sat_survivor_analysis": {
+  "states": 148,
+  "instances": 132,
+  "canonical_classes": 98,
+  "unique_cover_survivors": 0,
+  "exact_cover_count_distribution": {
+   "6": 1,
+   "8": 7,
+   "10": 3,
+   "12": 2,
+   "13": 2,
+   "14": 4,
+   "15": 3,
+   "18": 1,
+   "19": 4,
+   "22": 1,
+   "23": 1,
+   "24": 1,
+   "28": 10,
+   "29": 3,
+   "30": 2,
+   "34": 7,
+   "37": 1,
+   "38": 2,
+   "41": 6,
+   "44": 5,
+   "48": 3,
+   "53": 1,
+   "54": 8,
+   "58": 2,
+   "59": 7,
+   "62": 2,
+   "64": 2,
+   "69": 1,
+   "74": 2,
+   "100": 2,
+   "104": 1,
+   "116": 22,
+   "132": 4,
+   "143": 4,
+   "404": 5
+  },
+  "minimum_exact_covers": 6,
+  "maximum_exact_covers": 404,
+  "all_counts_complete": true,
+  "by_root": {
+   "short_ell0": 14,
+   "short_ell1": 18,
+   "short_ell2": 34,
+   "short_ell3": 28,
+   "short_ell4": 54
+  },
+  "coordinates": {
+   "P": {
+    "13": 74,
+    "14": 74
+   },
+   "O": {
+    "4": 1,
+    "5": 10,
+    "6": 22,
+    "7": 45,
+    "8": 44,
+    "9": 23,
+    "10": 3
+   },
+   "Phi": {
+    "0": 3,
+    "1": 14,
+    "2": 18,
+    "3": 34,
+    "4": 28,
+    "5": 51
+   },
+   "Ddead": {
+    "0": 6,
+    "1": 25,
+    "2": 80,
+    "3": 37
+   },
+   "r": {
+    "0": 145,
+    "1": 3
+   },
+   "K": {
+    "15": 3,
+    "16": 23,
+    "17": 44,
+    "18": 45,
+    "19": 22,
+    "20": 10,
+    "21": 1
+   },
+   "used": {
+    "1": 70,
+    "2": 43,
+    "3": 21,
+    "4": 10,
+    "5": 4
+   }
+  },
+  "components": "123 of 132 instances are a single connected component; 9 split into 2"
+ },
+ "ledger": {
+  "residual_before": 78214,
+  "canonical_classes_before": 1312,
+  "closed": 33416,
+  "share_of_collisions5": "99.56%",
+  "residual_after": 44798,
+  "canonical_classes_after": 1050,
+  "roots_fully_closed": "26 of 33",
+  "surviving_by_root": {
+   "long_q1_3": 6,
+   "long_q1_8": 5,
+   "short_ell0": 2131,
+   "short_ell1": 7278,
+   "short_ell2": 10914,
+   "short_ell3": 15244,
+   "short_ell4": 9220
+  },
+  "surviving_collision_distribution": {
+   "1": 1001,
+   "2": 5369,
+   "3": 13446,
+   "4": 24834,
+   "5": 148
+  },
+  "surviving_by_coordinate": {
+   "P": {
+    "13": 19104,
+    "14": 25683,
+    "20": 1,
+    "21": 10
+   },
+   "O": {
+    "3": 5,
+    "4": 189,
+    "5": 1670,
+    "6": 7755,
+    "7": 14214,
+    "8": 14105,
+    "9": 6192,
+    "10": 668
+   },
+   "Phi": {
+    "0": 2865,
+    "1": 1950,
+    "2": 6730,
+    "3": 10116,
+    "4": 14482,
+    "5": 8655
+   },
+   "Ndef": {
+    "0": 44787,
+    "1": 11
+   },
+   "Ddead": {
+    "0": 22547,
+    "1": 16508,
+    "2": 5053,
+    "3": 690
+   },
+   "r": {
+    "0": 41921,
+    "1": 2877
+   },
+   "used": {
+    "1": 19031,
+    "2": 12045,
+    "3": 7251,
+    "4": 4227,
+    "5": 2244
+   }
+  }
+ },
+ "certificates": "outputs/rr_exact_cover_collision5_certificates_claude.json.gz -- one row per distinct instance, keyed by a 120-bit hex encoding of U; UNSAT_coverability rows carry the uncoverable hexagons, UNSAT_forced_conflict rows the conflicting forced orbit pair and its shared hexagons, UNSAT_exact_cover rows the completed-enumeration node count",
+ "next_target": "generalise to COLLISIONS = c < 5: the future orbits may add up to 5 - c collisions, turning the exact cover into a bounded-excess cover. That population is 44,650 states -- the entire remaining residual.",
+ "disclaimer": "This project has not proved L6 >= 872, and nothing here bears on that."
+}
