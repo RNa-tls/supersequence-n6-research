@@ -14,6 +14,7 @@
   "what_the_theorem_does_give": "the shared-budget charge, which capacity_slack omits"
  },
  "comparison_with_round_71": {
+  "VOID_SEE_RETRACTION": true,
   "newly_closed": 22508,
   "note": "the Round-72 pair strictly supersedes the Round-71 pair on this corpus",
   "pct_of_round71_residual_closed": 11.2,
@@ -71,6 +72,7 @@
  "report": "research/RR_SKIP_COST_THEOREM_CLAUDE.md",
  "reproducer": "src/prove_rr_skip_cost.py",
  "residual_structure": {
+  "VOID_SEE_RETRACTION": true,
   "by_D": {
    "1": 5,
    "11": 1884,
@@ -730,10 +732,22 @@
   ],
   "total": 177900
  },
+ "retraction_round_73": {
+  "closures_void": 95225,
+  "current_proof_valid_residual": 200408,
+  "evaluator_status": "UNSOUND",
+  "reason": "the evaluator omitted q0 re-entry and repeated re-entry, so the supply-side upper bound under-estimated reachable ports",
+  "repair_document": "research/RR_Q2_LEDGER_REPAIR_CLAUDE.md",
+  "surviving": [
+   "the E^1/E^2 engine facts",
+   "the LIVE-PORT SUPPLY bound (19,073)"
+  ]
+ },
  "round": 72,
  "schema": "rr-skip-cost-claude-v1",
  "scope": "Q2 / Area-A. No search run; no node-capped expansion used as a proof step.",
  "totals": {
+  "VOID_SEE_RETRACTION": true,
   "closed_by_capacity_slack": 2956692,
   "closed_by_live_port_supply": 19073,
   "closed_by_skip_cost": 95225,
@@ -741,5 +755,5 @@
   "residual": 177900,
   "survives_capacity_slack": 292198
  },
- "verdict": "SKIP_COST_PARTIAL"
+ "verdict": "SKIP_COST_RETRACTED"
 }

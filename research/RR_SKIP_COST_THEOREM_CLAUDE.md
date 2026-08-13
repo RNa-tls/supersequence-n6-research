@@ -1,3 +1,21 @@
+> # ⛔ RETRACTED (Round 73)
+>
+> **The closure result in §5 is void.** Codex's independent audit found, and I independently
+> confirmed with my own exact-engine `q0`-return witness, that the segment evaluator omitted
+> re-entry into the current orbit `q0` and repeated re-entry into the same orbit. SKIP-COST is a
+> **supply-side upper bound**; removing reachable ports made it under-estimate, so the closure test
+> `UB < B` fired without justification. **All 95,225 SKIP-COST closures are retracted** and the
+> evaluator in `src/prove_rr_skip_cost.py` is marked **UNSOUND**.
+>
+> The `long_found_142` gate in §1 passed and was necessary but **not sufficient**: it tests the
+> hexagon-vs-port conflation, not the entry-multiplicity assumption.
+>
+> **What survives:** the engine facts of §2 (`E¹`/`E²`, and that every `E²` is an `R` costing
+> exactly `Ndef` +1) and the LIVE-PORT SUPPLY bound of §4, which caps registrations in `q` by
+> `live(q)` and is indifferent to how often `q` is entered.
+>
+> See `research/RR_Q2_LEDGER_REPAIR_CLAUDE.md`. Current proof-valid Q2 residual: **200,408**.
+
 # SKIP-COST: the uncharged `E²` resource, proved and evaluated
 
 **Author:** Claude (independent verification track)

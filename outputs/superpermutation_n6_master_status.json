@@ -500,6 +500,7 @@
   }
  },
  "round_72_skip_cost": {
+  "RETRACTED_IN_ROUND_73": true,
   "adversarial_gate": {
    "engine": 4,
    "passed": true,
@@ -522,6 +523,7 @@
   "refuted": "the Round-71 expectation that a forced-skip argument closes the tight band: E^2 is never locally forced, because a segment can end and the orbit be re-entered later; skips and re-entries are substitutes on the same budget",
   "report": "research/RR_SKIP_COST_THEOREM_CLAUDE.md",
   "reproducer": "src/prove_rr_skip_cost.py",
+  "retraction_reason": "the segment evaluator omitted q0 re-entry and repeated re-entry; a supply-side upper bound that removes reachable ports under-estimates and is unsound",
   "scope": "Q2 / Area-A only",
   "totals": {
    "closed_by_capacity_slack": 2956692,
@@ -533,13 +535,34 @@
    "roots_fully_closed": 22,
    "survivors": 292198
   },
-  "verdict": "SKIP_COST_PARTIAL",
+  "verdict": "SKIP_COST_RETRACTED",
   "vs_round_71": {
    "classes_after": 945,
    "classes_before": 1570,
    "newly_closed": 22508,
    "residual_after": 177900,
    "residual_before": 200408
+  }
+ },
+ "round_73_ledger_repair": {
+  "best_next_candidate": "TOTAL RE-ENTRY LOWER BOUND: sum over q of ceil(need(q)/seg_max(q)) <= 1 + O_cap + (R_cap + Phi); predicted payoff 86,654 (43.2%), payoff test NOT yet run",
+  "canonical_classes": 1570,
+  "codex_objection_confirmed": true,
+  "disagreement_with_codex": {
+   "claude": 200408,
+   "codex": 273125,
+   "reason": "Codex's figure discards the Round-71 orbit-reentry closure (72,717), which is a demand-side lower bound and is only strengthened by q0 return and repeated entry"
+  },
+  "independent_q0_return_witness": "initial_state -> rot^1;w2:10 (Z2abandon, orbit 33) -> rot^5;w3:120 (R, orbit 33) -> rot^5;w3:201 (R, back to orbit 0); Ndef=2, Phi=2, area_a_prune=None",
+  "json": "outputs/rr_q2_ledger_repair_claude.json",
+  "methodological_rule": "supply-side upper bounds are fragile to entry multiplicity; demand-side lower bounds are immune",
+  "preserved": "E^1/E^2 engine facts, separated from the void bound; LIVE-PORT SUPPLY (19,073) stands",
+  "repaired_residual": 200408,
+  "report": "research/RR_Q2_LEDGER_REPAIR_CLAUDE.md",
+  "retracted": {
+   "claim": "SKIP-COST closes 95,225",
+   "evaluator": "UNSOUND",
+   "states_restored": 95225
   }
  },
  "rr_short_logical_chain": [

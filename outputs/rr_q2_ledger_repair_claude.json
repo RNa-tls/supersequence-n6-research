@@ -1,0 +1,555 @@
+{
+ "author": "Claude",
+ "best_next_candidate": {
+  "adversarial_protocol": [
+   "long_found_142",
+   "the q0-return witness above",
+   "a repeated-re-entry witness",
+   "a sample of states restored by this retraction"
+  ],
+  "assumptions": [
+   "Area-A completion target (P,O,D) = (121,25,4) with Ndef <= 3",
+   "Phi >= 0",
+   "the no-repeat rule",
+   "the E^1/E^2 generator facts"
+  ],
+  "id": "TOTAL RE-ENTRY LOWER BOUND",
+  "payoff_test_status": "NOT RUN -- per the brief's Task 6 it must be evaluated on the residual before proof effort; that is the immediate next action",
+  "predicted_payoff": {
+   "basis": "Round-71 margin distribution -- a PREDICTION, not a measurement of the new bound",
+   "pct_of_residual": 43.2,
+   "states_at_demand_equals_budget": 86654,
+   "supporting": "158,324 of 200,408 have D_dead >= 1, the configurations where an orbit's outstanding ports cannot fit in one segment"
+  },
+  "statement": "sum over orbits q of ceil(need(q) / seg_max(q)) <= 1 + O_cap + (R_cap + Phi), where need(q) is the ports of q a completion must still register and seg_max(q) upper-bounds what ONE segment can register in q (a single +1/+2 forward walk on the 5-cycle landing only on currently-unvisited ports)",
+  "why_it_survives_the_audit": "seg_max bounds one segment, not the future; entering q again adds another term; q0 is included with its own need(q0); repeats are the mechanism it counts, not an assumption it forbids; live(q) is literal port visitation, never hexagon popcount"
+ },
+ "codex_objection": {
+  "code_evidence": "src/prove_rr_skip_cost.py: `for q in openq if q != q0` and `[:g]` over distinct orbits",
+  "confirmed": true,
+  "independent_q0_return_witness": {
+   "conclusion": "q0 return is legal inside the Q2 slab",
+   "final": {
+    "Ndef": 2,
+    "Phi": 2,
+    "area_a_prune_reason": null
+   },
+   "from": "initial_state (orbit 0)",
+   "path": [
+    {
+     "edge": "rot^1;w2:10",
+     "kind": "Z2abandon",
+     "orbit": 33
+    },
+    {
+     "edge": "rot^5;w3:120",
+     "kind": "R",
+     "orbit": 33
+    },
+    {
+     "edge": "rot^5;w3:201",
+     "kind": "R",
+     "orbit": 0
+    }
+   ]
+  },
+  "omissions_in_historical_evaluator": [
+   "re-entry into the current orbit q0",
+   "repeated re-entry into the same orbit"
+  ],
+  "why_fatal": "SKIP-COST was a SUPPLY-side upper bound on registrable ports; deleting q0 and forbidding repeats removes reachable ports, so the estimate was too SMALL and the closure test UB < B fired without justification"
+ },
+ "disagreement_with_audited_baseline": {
+  "argument": "the orbit-reentry inequality is a DEMAND-side lower bound on segment starts, and every omission it makes (q0 excluded, each orbit counted once, partly-reentered-partly-abandoned charged once) REDUCES the demand it computes. A lower bound that under-counts is still a lower bound; the q0 / repeated-entry witnesses make the true demand larger, never smaller, so they cannot invalidate a closure.",
+  "arithmetic": "273,125 = 292,198 - 19,073 (LIVE only); it discards the Round-71 orbit-reentry closure of 72,717",
+  "claude_figure": 200408,
+  "codex_figure": 273125,
+  "dead_port_bound": "a fortiori unaffected: D_dead <= 4 mentions neither segments nor entries nor reachability",
+  "status": "OPEN DISAGREEMENT -- if Codex has a specific defect in the orbit-reentry inequality rather than simply not having applied it, I have not been shown it"
+ },
+ "downstream_dependency_repair": [
+  {
+   "action": "retraction banner; closure table void; engine facts and gate survive",
+   "artifact": "research/RR_SKIP_COST_THEOREM_CLAUDE.md",
+   "depended": true
+  },
+  {
+   "action": "verdict -> SKIP_COST_RETRACTED",
+   "artifact": "outputs/rr_skip_cost_claude.json",
+   "depended": true
+  },
+  {
+   "action": "rewritten to the retraction",
+   "artifact": "master status Round-72 entries",
+   "depended": true
+  },
+  {
+   "action": "unchanged; its 200,408 is current again",
+   "artifact": "outputs/rr_q2_area_a_frontier_claude.json (Round 71)",
+   "depended": false
+  },
+  {
+   "action": "unchanged",
+   "artifact": "research/RR_Q2_AREA_A_PROOF_FRONTIER_CLAUDE.md (Round 71)",
+   "depended": false
+  },
+  {
+   "action": "unchanged",
+   "artifact": "Rounds 69/69b (1,818 anchors)",
+   "depended": false
+  },
+  {
+   "action": "unchanged -- closed by capacity_slack and Phi >= 0",
+   "artifact": "Round 70 (1,398 boundaries)",
+   "depended": false
+  },
+  {
+   "action": "unchanged",
+   "artifact": "known-18 closure",
+   "depended": false
+  },
+  {
+   "action": "STANDS -- caps registrations in q by live(q); entry multiplicity is irrelevant since no walk can register an already-visited port",
+   "artifact": "LIVE-PORT SUPPLY (19,073)",
+   "depended": false
+  }
+ ],
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY.",
+ "methodological_rule": "supply-side upper bounds are fragile to entry multiplicity and must model q0 return and arbitrary repeats; demand-side lower bounds are only strengthened by them",
+ "preserved_engine_facts": {
+  "facts": [
+   "exactly two macro generators preserve the endpoint's E-orbit (24 x 720 exhaustive, 0 partial cases)",
+   "(ell=5,w2:10) = E^1, joint_kind Z2, free",
+   "(ell=5,w3:120) = E^2, joint_kind R always, exactly Ndef +1 (3073/3073 sampled)"
+  ],
+  "separated_from": "the retracted future-capacity bound",
+  "status": "VERIFIED, unaffected -- these are statements about single edges"
+ },
+ "repaired_residual": {
+  "by_D": {
+   "1": 5,
+   "11": 1917,
+   "12": 312,
+   "16": 10190,
+   "17": 4647,
+   "21": 22788,
+   "22": 17813,
+   "24": 32,
+   "25": 4,
+   "26": 35157,
+   "27": 31342,
+   "29": 125,
+   "30": 8,
+   "31": 29335,
+   "32": 30218,
+   "36": 7395,
+   "37": 8925,
+   "6": 194,
+   "7": 1
+  },
+  "by_D_dead": {
+   "0": 42084,
+   "1": 65035,
+   "2": 51129,
+   "3": 29562,
+   "4": 12598
+  },
+  "by_Ndef": {
+   "0": 200239,
+   "1": 169
+  },
+  "by_O": {
+   "10": 16453,
+   "3": 5,
+   "4": 195,
+   "5": 2229,
+   "6": 14837,
+   "7": 40601,
+   "8": 66499,
+   "9": 59589
+  },
+  "by_P": {
+   "13": 93258,
+   "14": 106981,
+   "20": 12,
+   "21": 157
+  },
+  "by_Phi": {
+   "0": 4169,
+   "1": 5720,
+   "2": 15243,
+   "3": 34403,
+   "4": 61026,
+   "5": 79847
+  },
+  "by_R_cap": {
+   "2": 169,
+   "3": 200239
+  },
+  "by_reentry_margin": {
+   "-1": 59937,
+   "-2": 34366,
+   "-3": 14422,
+   "-4": 4051,
+   "-5": 874,
+   "-6": 100,
+   "-7": 4,
+   "0": 86654
+  },
+  "canonical_classes": 1570,
+  "concentration": {
+   "top10": 27431,
+   "top10_pct": 13.7,
+   "top20": 44933,
+   "top20_pct": 22.4,
+   "top5": 15525,
+   "top5_pct": 7.7
+  },
+  "derivation": "292,198 capacity-slack survivors - 19,073 (LIVE / dead-port) - 72,717 (orbit-reentry)",
+  "largest_class": {
+   "count": 3969,
+   "key": [
+    0,
+    5,
+    3,
+    10,
+    13,
+    37,
+    1,
+    8,
+    1
+   ],
+   "key_fields": [
+    "Ndef",
+    "Phi",
+    "R_cap",
+    "O",
+    "P",
+    "D",
+    "D_dead",
+    "reentry_need",
+    "used"
+   ],
+   "pct": 1.98
+  },
+  "per_root": {
+   "long_found_4": 66,
+   "long_found_9": 54,
+   "long_q1_2": 1,
+   "long_q1_3": 28,
+   "long_q1_7": 1,
+   "long_q1_8": 19,
+   "short_ell0": 6087,
+   "short_ell1": 15981,
+   "short_ell2": 35456,
+   "short_ell3": 61982,
+   "short_ell4": 80733
+  },
+  "roots_total": 33,
+  "roots_with_residual": 11,
+  "short_root_share": {
+   "count": 200239,
+   "pct": 99.92
+  },
+  "top20_classes": [
+   {
+    "count": 3969,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     13,
+     37,
+     1,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 3292,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 3025,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2696,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2543,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     14,
+     36,
+     2,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 2477,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     14,
+     36,
+     1,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 2424,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     14,
+     31,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2417,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     1,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2357,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     13,
+     37,
+     2,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 2231,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     14,
+     31,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2227,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     0,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2216,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     13,
+     32,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 2013,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     2,
+     7,
+     1
+    ]
+   },
+   {
+    "count": 1807,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     13,
+     32,
+     1,
+     7,
+     2
+    ]
+   },
+   {
+    "count": 1667,
+    "key": [
+     0,
+     5,
+     3,
+     8,
+     14,
+     26,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "count": 1629,
+    "key": [
+     0,
+     4,
+     3,
+     9,
+     13,
+     32,
+     0,
+     7,
+     2
+    ]
+   },
+   {
+    "count": 1556,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     4,
+     8,
+     1
+    ]
+   },
+   {
+    "count": 1529,
+    "key": [
+     0,
+     5,
+     3,
+     8,
+     13,
+     27,
+     1,
+     6,
+     1
+    ]
+   },
+   {
+    "count": 1485,
+    "key": [
+     0,
+     5,
+     3,
+     10,
+     13,
+     37,
+     1,
+     8,
+     2
+    ]
+   },
+   {
+    "count": 1373,
+    "key": [
+     0,
+     5,
+     3,
+     9,
+     14,
+     31,
+     3,
+     8,
+     1
+    ]
+   }
+  ],
+  "value": 200408,
+  "verdict": "not one normal form (no class exceeds 2%, top 20 hold 22.4%) but not 200,408 mechanisms either: one narrow region -- shallow P in {13,14}, Ndef = 0, R_cap = 3, five short roots -- finely stratified by coordinates"
+ },
+ "report": "research/RR_Q2_LEDGER_REPAIR_CLAUDE.md",
+ "retractions": [
+  {
+   "claim": "SKIP-COST closes 95,225 states",
+   "states_restored": 95225,
+   "status": "RETRACTED"
+  },
+  {
+   "artifact": "src/prove_rr_skip_cost.py segment evaluator",
+   "note": "its long_found_142 adversarial gate passed and was necessary but not sufficient: it tests the hexagon-vs-port conflation, not the entry-multiplicity assumption",
+   "status": "UNSOUND -- must not be cited"
+  }
+ ],
+ "round": 73,
+ "schema": "rr-q2-ledger-repair-claude-v1",
+ "trigger": "Codex independent audit + deterministic reconstruction of all 33 roots"
+}
