@@ -1,0 +1,130 @@
+{
+ "author": "Claude",
+ "baseline": {
+  "canonical_classes": 1570,
+  "q2_residual": 200408
+ },
+ "family_retired": "movement/reachability-based bounds generally, at both granularities: Round 74 killed within-orbit segment capacity (a +1/+2 walk sweeps a 5-cycle), this round kills between-orbit sequencing (the generators make the space strongly connected with uniform out-degree 10-55). The engine's group action is too transitive for reachability arguments to obstruct anything.",
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY.",
+ "ledger_unchanged": {
+  "canonical_classes": 1570,
+  "closed_by_sequencing": 0,
+  "q2_residual": 200408
+ },
+ "lesson": "every bound that has ever bitten in this project is a resource-counting bound (Phi, Ndef, O, dead ports, incidence excess r); never a reachability bound",
+ "near_miss_caught": {
+  "corrected": "adding E^1 collapses the graph to a single SCC on all 720 nodes",
+  "error": "it OMITTED E^1 (ell=5, w2:10), which is also free; E^1 makes each orbit's five phases a directed 5-cycle",
+  "what": "my first free-movement graph used only the ell=5 w3:201/210 edges and reported 15 SCCs, largest 48 -- which looks exactly like the obstruction being sought",
+  "why_it_matters": "omitting a free move deletes legal transitions, inflating the crossing count and yielding an UNSOUND lower bound -- exactly the discipline the brief sets out (when uncertain, ADD edges rather than remove them). Had this graph been used it would have produced a second retraction."
+ },
+ "payoff": {
+  "pct_of_residual": 0.0,
+  "predicted_closure": 0,
+  "stop_reason": "condensation crossings are 0 for every state regardless of the corpus",
+  "sweep_run": false
+ },
+ "report": "research/RR_ORBIT_SEQUENCING_CLAUDE.md",
+ "round": 75,
+ "scc_structure": [
+  {
+   "graph": "all transitions",
+   "largest": 144,
+   "nodes": 144,
+   "out_degree": 55,
+   "sccs": 1
+  },
+  {
+   "graph": "cost <= 1 into an open orbit",
+   "largest": 144,
+   "nodes": 144,
+   "out_degree": 15,
+   "sccs": 1
+  },
+  {
+   "graph": "cost <= 2",
+   "largest": 144,
+   "nodes": 144,
+   "out_degree": 15,
+   "sccs": 1
+  },
+  {
+   "graph": "free (ell=5 w3:201/210)",
+   "largest": 144,
+   "nodes": 144,
+   "out_degree": 10,
+   "sccs": 1
+  },
+  {
+   "graph": "all transitions, refined",
+   "largest": 720,
+   "nodes": 720,
+   "out_degree": 22,
+   "sccs": 1
+  },
+  {
+   "graph": "FREE MOVEMENT, refined (E^1 + w3:201/210)",
+   "largest": 720,
+   "nodes": 720,
+   "out_degree": 12,
+   "sccs": 1
+  }
+ ],
+ "schema": "rr-orbit-sequencing-claude-v1",
+ "scope": "Q2 / Area-A. No search, no frontier re-run, no bounded continuation. Per-orbit segment-capacity family retired and not revisited.",
+ "sequencing_lower_bounds": {
+  "articulation_or_separator_structure": "none -- the graph is vertex-transitive",
+  "mandatory_cut_crossings": 0,
+  "mandatory_scc_crossings": 0,
+  "minimum_directed_path_cover_extra_cost": 0,
+  "note": "every candidate form listed in the brief evaluates to zero; the condensation is a property of the generators, not of the corpus, so no residual sweep was needed",
+  "predecessor_scarcity": 0,
+  "successor_scarcity": 0
+ },
+ "successor_scarcity_in_band": {
+  "conclusion": "blocking would require the open set to contain one specific 10-element successor set -- impossible at O < 10 -- and even then it forces a single paid move that ORBIT-REENTRY may already charge",
+  "free_successor_set_size_per_orbit": 10,
+  "residual_open_orbit_count": "O in 3..10, so at least 134 of 144 orbits are still fresh",
+  "uniform": true
+ },
+ "transition_digraph": {
+  "cost_model": "into an already-open orbit: (5-ell) units of Phi plus 1 unit of Ndef if weight 3 (an R). Into a fresh orbit the O is charged separately so only Phi remains; weight 2 into a fresh orbit is impossible (needs an abandonment -> F=2)",
+  "min_cost_into_fresh_orbit_phi_only": {
+   "0": 1440,
+   "1": 720,
+   "2": 720,
+   "3": 2160,
+   "4": 1440,
+   "5": 1440
+  },
+  "min_cost_into_open_orbit": {
+   "1": 2160,
+   "3": 1440,
+   "4": 1440,
+   "5": 1440,
+   "6": 1440
+  },
+  "of_possible": 20592,
+  "orbit_only_graph_sufficient": false,
+  "ordered_orbit_pairs_with_a_transition": 7920,
+  "out_degree_all_transitions": 55,
+  "phase_support": {
+   "1": 5040,
+   "2": 1440,
+   "3": 1440,
+   "4": 0,
+   "5": 0
+  },
+  "reason": "not one of the 7,920 transitions is available from all five source phases, so a 144-node orbit-only graph would assert movements the engine cannot make from the port actually occupied",
+  "weakest_sound_refinement": "(orbit, phase) -- 720 nodes, i.e. the permutations themselves"
+ },
+ "weakest_theorem_worth_proving_next": {
+  "cheap_to_test": "r = P - |T| is computable from the stored masks alone; whether the residual band sits at r = 0 or r = 1 decides the payoff",
+  "combined_with": "Round 69: r is non-decreasing, and 6r <= 11 - Phi forces r <= 1 throughout the Q2 region",
+  "derivation": "at an Area-A NR6 completion P = 121 and all 720 windows are visited, so all 120 hexagons are touched: |T| = 120, hence r_final = P - |T| = 121 - 120 = 1 EXACTLY",
+  "id": "EXACT-BRIDGE-DEMAND",
+  "statement": "a completion needs r to be exactly 1 at the end; a state with r = 1 must never create a second doubly-registered hexagon (already proved), and a state with r = 0 must still create exactly one -- which by Round 69's re-entry accounting requires re-entering a hexagon that already holds visited windows, costing Phi",
+  "status": "NOT measured this round",
+  "why_it_survives_the_audits": "it is a DEMAND-side charge on Phi that no current bound levies, and it survives q0 return and repeated re-entry because creating a bridge is a specific event, not a movement assumption"
+ }
+}

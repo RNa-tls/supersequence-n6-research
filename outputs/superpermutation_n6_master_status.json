@@ -281,7 +281,8 @@
   "the margin identity margin = 12 - D for Target-A boundaries (Ndef=2), turning the Round-30 coarse segment bound into a single defect threshold D <= 12 that closes all 1,398 Rounds-35-37 boundaries at once, plus its interpretable orbit-fill-density form P/O >= 5 - 12/O; and the monotone Phi-free dead-port bound D_dead <= 4",
   "the Q2 frontier reconstruction: filtering the stored (never-exhausted) coverage frontier by the Q2-only prunes and capacity_slack, plus two new sound inequalities (monotone dead-port bound D_dead <= 4, and the orbit re-entry inequality), reducing 3,321,753 stored states to a 200,408-state residual concentrated in one uniform Ndef=0 band; and the identification of the uncharged E^2 within-segment R cost as the next theorem target",
   "SKIP-COST: exactly two macro generators preserve the endpoint's E-orbit, E^1 = (ell=5,w2:10) free and E^2 = (ell=5,w3:120) which is always an R costing Ndef+1, so within-segment skips and orbit re-entries draw on one shared budget R_cap + Phi -- a charge capacity_slack omits; plus the LIVE-PORT SUPPLY bound",
-  "the 5-cycle segment-sweep fact: seg_max(q) = |live(q)| for every live-port mask, so a single segment can always register every reachable live port of an orbit -- which retires the entire family of per-orbit segment-count lower bounds"
+  "the 5-cycle segment-sweep fact: seg_max(q) = |live(q)| for every live-port mask, so a single segment can always register every reachable live port of an orbit -- which retires the entire family of per-orbit segment-count lower bounds",
+  "the transition-digraph negative result: every one of the 7,920 orbit transitions is phase-dependent so the orbit-only quotient is unsound, yet the required (orbit,phase) refinement and its free-movement subgraph are strongly connected with uniform out-degree -- which retires reachability-based sequencing bounds at both granularities"
  ],
  "novel_contributions_disclaimer": "Original within this project; external literature priority has not been checked and is not established.",
  "open_problems_ranked": [
@@ -577,6 +578,20 @@
   "structural_theorem": "no orbit ever needs two segments on within-orbit port-supply grounds: a +1/+2 walk with displacement <= 4 sweeps the whole 5-cycle from a suitable entry",
   "vacuity": "seg_max(q) == |live(q)| for all 32 live-port masks, so ceil(need/seg_max) <= 1 always; the bound degenerates to Round-71 ORBIT-REENTRY with +1 added to both sides",
   "verdict": "CLAUDE_TOTAL_REENTRY_NO_PAYOFF"
+ },
+ "round_75_orbit_sequencing": {
+  "family_retired": "reachability/movement-based bounds at both granularities",
+  "json": "outputs/rr_orbit_sequencing_claude.json",
+  "near_miss": "a free-movement graph omitting E^1 showed 15 SCCs and would have produced an unsound lower bound; adding E^1 collapses it to one SCC",
+  "next_candidate": "EXACT-BRIDGE-DEMAND: r_final = P - |T| = 121 - 120 = 1 exactly, so an r=0 state must still pay Phi to create one bridge",
+  "orbit_only_graph_sufficient": false,
+  "phase_dependence": "0 of 7,920 transitions are available from all five source phases",
+  "predicted_closure": 0,
+  "q2_residual_unchanged": 200408,
+  "refinement_required": "(orbit, phase), 720 nodes",
+  "report": "research/RR_ORBIT_SEQUENCING_CLAUDE.md",
+  "scc": "every graph at every cost level and both granularities is strongly connected with uniform out-degree; condensation crossings 0",
+  "verdict": "CLAUDE_ORBIT_SEQUENCE_NO_PAYOFF"
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
