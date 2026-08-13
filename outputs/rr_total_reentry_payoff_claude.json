@@ -1,0 +1,81 @@
+{
+ "adversarial_witnesses": [
+  {
+   "live_q0": 3,
+   "orbits_with_seg_max_lt_live": 0,
+   "q0": 1,
+   "seg_max_q0": 3,
+   "under_estimate": false,
+   "witness": "long_found_142"
+  },
+  {
+   "live_q0": 3,
+   "orbits_with_seg_max_lt_live": 0,
+   "q0": 0,
+   "seg_max_q0": 3,
+   "under_estimate": false,
+   "witness": "Round-73 q0-return witness"
+  },
+  {
+   "live_q0": 1,
+   "orbits_with_seg_max_lt_live": 0,
+   "q0": 0,
+   "seg_max_q0": 1,
+   "under_estimate": false,
+   "witness": "repeated-entry continuation (two further E^2 inside q0)"
+  },
+  {
+   "live_q0": 0,
+   "orbits_with_seg_max_lt_live": 0,
+   "q0": 92,
+   "seg_max_q0": 0,
+   "under_estimate": false,
+   "witness": "residual-band state restored by the SKIP-COST retraction (short_ell4, P in {13,14}, Ndef=0)"
+  }
+ ],
+ "author": "Claude",
+ "baseline": {
+  "canonical_classes": 1570,
+  "note": "Round-71 ORBIT-REENTRY confirmed sound by Codex; SKIP-COST retracted in Round 73 and not revisited",
+  "q2_residual": 200408
+ },
+ "candidate": "sum over q of ceil(need(q)/seg_max(q)) <= 1 + O_cap + (R_cap + Phi)",
+ "definitions": {
+  "dead(q)": "5 - reg(q) - live(q); visited but unregistered, hence unregistrable forever",
+  "live(q)": "ports of q UNVISITED -- a single-permutation test against hex_masks, never a hexagon popcount",
+  "need(q)": "ports of q a completion must still register; need(q) <= live(q) always, and the total abandonment slack is 4 - D_dead",
+  "q0_included": true,
+  "reg(q)": "popcount(orbit_masks[q])",
+  "repeated_entry_allowed": true,
+  "seg_max(q)": "UPPER bound on ports ONE segment can register in q: a forward +1/+2 walk on the 5-cycle landing only on currently-unvisited ports, displacement <= 4, with every skip given away FREE (the enlarging, sound direction)"
+ },
+ "family_retired": "per-orbit segment-count bounds generally: any theorem of the form 'orbit q requires >= 2 entries' cannot come from within-orbit capacity",
+ "global_status_unchanged": "THIS PROJECT HAS NOT PROVED L6 >= 872 UNCONDITIONALLY.",
+ "ledger_unchanged": {
+  "canonical_classes": 1570,
+  "closed_by_this_candidate": 0,
+  "q2_residual": 200408
+ },
+ "payoff": {
+  "pct_of_residual": 0.0,
+  "predicted_closure": 0,
+  "reason": "the degeneracy is a property of the 5-cycle, not of the corpus, so the 32-case computation settles it before any sweep",
+  "stop_rule": "triggered (< 10,000): stopped before proof development",
+  "sweep_run": false
+ },
+ "report": "research/RR_TOTAL_REENTRY_PAYOFF_TEST_CLAUDE.md",
+ "round": 74,
+ "schema": "rr-total-reentry-payoff-claude-v1",
+ "scope": "Q2 / Area-A. No search, no frontier re-run, no bounded continuation.",
+ "soundness": "PASSES all four; does not assume an orbit is entered at most once; no hexagon popcount",
+ "vacuity_proof": {
+  "consequence": "ceil(need(q)/seg_max(q)) <= ceil(live(q)/live(q)) = 1 for every orbit, always",
+  "degeneration": "the left side collapses to the number of orbits still needing a segment, so the inequality becomes |Q| + [q0] <= 1 + (R_cap + Phi) -- the Round-71 ORBIT-REENTRY bound with 1 added to BOTH sides",
+  "method": "exhaustive over all 32 live-port masks of a 5-port orbit",
+  "result": "seg_max(q) == |live(q)| for all 32 masks, zero exceptions",
+  "structural_reason": "a forward +1/+2 walk with displacement <= 4 sweeps the entire 5-cycle from a suitably chosen entry: a single dead port is stepped over by +2, and any run of dead ports can be placed behind the entry. With five ports per orbit there is never a live port one segment cannot reach.",
+  "theorem": "no orbit ever needs two segments on within-orbit port-supply grounds"
+ },
+ "where_a_real_bound_would_live": "inter-orbit SEQUENCING, not per-orbit capacity: consecutive segments must be linked by a legal orbit-changing joint, so the orbit sequence is a walk in a fixed digraph on the 144 orbits rather than an unordered selection. All current bounds treat the orbit set as an unordered supply and ignore adjacency entirely. This is a new investigation; nothing here establishes it.",
+ "why_not_revivable": "the only way to force seg_max(q) < live(q) is to charge the E^2 skips, making seg_max budget-dependent; but R_cap + Phi is a single global budget, so attributing it per orbit is exactly the shared-budget supply-side reasoning retracted in Round 73"
+}
