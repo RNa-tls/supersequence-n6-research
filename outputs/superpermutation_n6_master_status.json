@@ -583,7 +583,7 @@
   "family_retired": "reachability/movement-based bounds at both granularities",
   "json": "outputs/rr_orbit_sequencing_claude.json",
   "near_miss": "a free-movement graph omitting E^1 showed 15 SCCs and would have produced an unsound lower bound; adding E^1 collapses it to one SCC",
-  "next_candidate": "EXACT-BRIDGE-DEMAND: r_final = P - |T| = 121 - 120 = 1 exactly, so an r=0 state must still pay Phi to create one bridge",
+  "next_candidate": "EXACT-BRIDGE-DEMAND: r_final = P - |T| = 121 - 120 = 1 exactly, so an r=0 state must still create one bridge -- the 'must pay Phi' half of this suggestion was REFUTED in Round 76 (E^1 creates a bridge free of Phi, Ndef, O and F); the r_final = 1 premise stands",
   "orbit_only_graph_sufficient": false,
   "phase_dependence": "0 of 7,920 transitions are available from all five source phases",
   "predicted_closure": 0,
@@ -592,6 +592,32 @@
   "report": "research/RR_ORBIT_SEQUENCING_CLAUDE.md",
   "scc": "every graph at every cost level and both granularities is strongly connected with uniform out-degree; condensation crossings 0",
   "verdict": "CLAUDE_ORBIT_SEQUENCE_NO_PAYOFF"
+ },
+ "round_76_bridge_charge": {
+  "candidate": "MANDATORY-FINAL-BRIDGE / BRIDGE-CHARGE",
+  "premise_status": "sound (HP): dr = dP - dT in {0,1}; r rises only on a joint into an already-touched hexagon; r_final = 1 exactly at Area-A completion",
+  "census": {
+   "r0": 196056,
+   "r1": 4352,
+   "r0_share": "97.83%",
+   "r0_canonical_classes": 1475,
+   "observations_bounded": "every Phi=5 residual state has r=0; every Phi=0 residual state has r=1 (corpus-only, not theorems)"
+  },
+  "forgone_payoff_if_lemma_held": {
+   "orbit_reentry_budget_minus_1": 83914,
+   "capacity_slack_budget_minus_1": 30772,
+   "dead_port_plus_1": 12514
+  },
+  "refutation": "exactly one macro transition type is free in every budgeted resource -- (ell=5, w2:10) = E^1, joint_kind Z2 -- and it realises an r:0->1 event: 10 Q2-admissible corpus witnesses plus an independent from-initial_state walk rot^0;w3:120 -> rot^5;w3:120 -> rot^5;w2:10 with dPhi = dNdef = dO = dF = 0",
+  "fallback_reading": "the one thing an E^1 bridge consumes is a pass-start out of (5 - used(q0)), which capacity_slack already charges every joint; the event is exactly slack-neutral",
+  "geometry_fact": "no joint lands in the current hexagon at any rotation-run length (0 of 720 words x 24 macro generators)",
+  "json": "outputs/rr_bridge_charge_claude.json",
+  "predicted_closure": 0,
+  "q2_residual_unchanged": 200408,
+  "reproducer": "src/probe_rr_bridge_charge.py",
+  "report": "research/RR_BRIDGE_CHARGE_CLAUDE.md",
+  "pre_filter_rule": "test any new candidate against E^1 first: if E^1 can realise the event the candidate forbids or charges, the candidate is dead before the residual is consulted",
+  "verdict": "CLAUDE_BRIDGE_CHARGE_REFUTED"
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

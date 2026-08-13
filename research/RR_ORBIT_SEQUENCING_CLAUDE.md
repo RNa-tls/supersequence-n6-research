@@ -130,6 +130,13 @@ repeated re-entry (creating a bridge is a specific event, not a movement assumpt
 cheap to test: `r = P − |T|` is computable from the stored masks alone. Whether the residual band
 sits at `r = 0` or `r = 1` decides the payoff, and that measurement is the natural next step.
 
+> **Round-76 correction.** The measurement was made and the `Φ`-charge half of this suggestion is
+> **refuted**. `r = 0` does dominate the residual (196,056 of 200,408, 97.83 %), but giving a
+> hexagon its second registered window does **not** require `Φ`: `E¹` (`ℓ = 5, w2:10`, kind `Z2`)
+> creates a bridge with `ΔΦ = ΔNdef = ΔO = ΔF = 0`, witnessed both on corpus and by an independent
+> three-edge walk from `initial_state`. The `r_final = 1` premise stands; the charge does not.
+> See `research/RR_BRIDGE_CHARGE_CLAUDE.md`.
+
 ## 5. Ledger
 
 | | |
