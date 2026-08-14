@@ -1318,6 +1318,282 @@
    "resource timing -- deliberately not charged this round per the brief"
   ]
  },
+ "round_82_port_occupancy": {
+  "candidate": "PORT OCCUPANCY / LEGAL E^1 PHASE REPAIR",
+  "definitions": {
+   "E1": "macro edge (ell=5, w2:10); orbit-preserving, phase +1",
+   "E2": "macro edge (ell=5, w3:120); orbit-preserving, phase +2, costs one Ndef -- affordable since every residual state has Ndef=0 (verified)",
+   "NEXT_pinned": "cover-candidate orbits openable by one macro edge from PhaseClosure(s). DIAGNOSTIC ONLY -- closing on it would be unsound, since the walk may re-enter another open orbit first and open from there.",
+   "NEXT_sound": "the above plus everything openable from any already-open orbit reachable through open orbits, arrival phase over-approximated to all five. Only this may close a state.",
+   "PhaseClosure": "positions of q0 reachable from the endpoint by any sequence of orbit-preserving macro edges. Until the walk leaves q0 these are its only moves, so the first orbit-changing edge of any continuation departs from this set.",
+   "cover_compatibility": "exact: force q into the cover and re-decide the Round-79 instance on U minus block(q) with K-1 blocks and slack b - waste(q)",
+   "legality": "both need a full five-step rotation run, legal exactly when the current hexagon holds only the endpoint, and both need their joint target unvisited. Taken from the engine itself via macro.rotation_runs + exact.extend, not inferred from orbit identity."
+  },
+  "headroom_ceiling": {
+   "current_phase_only_next_size_histogram": {
+    "1": 5,
+    "10": 334,
+    "11": 323,
+    "12": 403,
+    "13": 633,
+    "14": 661,
+    "15": 933,
+    "16": 1190,
+    "17": 1181,
+    "2": 17,
+    "3": 41,
+    "4": 67,
+    "5": 103,
+    "6": 154,
+    "7": 182,
+    "8": 195,
+    "9": 235
+   },
+   "interpretation": "even forbidding ALL phase repair -- assuming away E1 and E2 entirely, which is false -- the first-open test closes only 13 of 6,657 (0.20%). Allowing the true phase closure drops that to 1. So E1 costs this direction 12 states; the direction was worth at most 13 to begin with.",
+   "measurement": "how many states WOULD close under deliberately unsound strengthenings, bounding everything this direction could ever deliver",
+   "no_phase_repair_at_all_current_phase_only": {
+    "survives": 6644,
+    "would_close": 13
+   },
+   "pinned_next_size_histogram": {
+    "10": 40,
+    "11": 48,
+    "12": 41,
+    "13": 87,
+    "14": 65,
+    "15": 108,
+    "16": 161,
+    "17": 36,
+    "18": 62,
+    "19": 67,
+    "20": 60,
+    "21": 86,
+    "22": 88,
+    "23": 95,
+    "24": 108,
+    "25": 121,
+    "26": 165,
+    "27": 129,
+    "28": 254,
+    "29": 71,
+    "30": 85,
+    "31": 118,
+    "32": 133,
+    "33": 150,
+    "34": 139,
+    "35": 143,
+    "36": 212,
+    "37": 206,
+    "38": 237,
+    "39": 356,
+    "4": 4,
+    "40": 124,
+    "41": 158,
+    "42": 180,
+    "43": 191,
+    "44": 202,
+    "45": 221,
+    "46": 275,
+    "47": 357,
+    "48": 168,
+    "49": 173,
+    "5": 6,
+    "50": 128,
+    "51": 145,
+    "52": 126,
+    "53": 183,
+    "54": 268,
+    "6": 5,
+    "7": 23,
+    "8": 11,
+    "9": 38
+   },
+   "pinned_to_q0_phase_closure": {
+    "pinned_survives": 6656,
+    "pinned_would_close": 1
+   }
+  },
+  "json": "outputs/rr_port_occupancy_claude.json",
+  "ledger": {
+   "classes": "761 (Claude-computed; NOT independently audited)",
+   "closed": 0,
+   "residual_after": 6657,
+   "residual_before": 6657
+  },
+  "report": "research/RR_PORT_OCCUPANCY_CLAUDE.md",
+  "reproducer": "src/probe_rr_port_occupancy.py",
+  "stage_A_e1_closure_census": {
+   "e1_chain_length_with_area_a_prune": {
+    "0": 493,
+    "1": 748,
+    "2": 1142,
+    "3": 1749,
+    "4": 2525
+   },
+   "e1_only_chain_length_histogram": {
+    "0": 493,
+    "1": 748,
+    "2": 1142,
+    "3": 1749,
+    "4": 2525
+   },
+   "e2_matters": "448 states have PhaseClosure size 1 while 493 have E1-chain 0, so 45 states have E1 blocked but E2 available",
+   "phase_closure_size_histogram": {
+    "1": 448,
+    "2": 737,
+    "3": 1160,
+    "4": 1787,
+    "5": 2525
+   },
+   "round_77_cross_check": "maximal consecutive E1 chain is 4, exactly as Round 77 observed; the Area-A prune never blocks an E1 step here, the two histograms are identical",
+   "states_with_closure_size_1": 448
+  },
+  "stage_B_phase_pinned_first_open": {
+   "NEXT_pinned_range": [
+    4,
+    54
+   ],
+   "NEXT_sound_range": [
+    15,
+    80
+   ],
+   "by_collision_count": {
+    "1": {
+     "cover_compatible_next_opening": 1001
+    },
+    "2": {
+     "cover_compatible_next_opening": 3218
+    },
+    "3": {
+     "cover_compatible_next_opening": 1651
+    },
+    "4": {
+     "cover_compatible_next_opening": 639
+    },
+    "5": {
+     "cover_compatible_next_opening": 148
+    }
+   },
+   "classification": {
+    "cover_compatible_next_opening": 6657
+   },
+   "closed": 0,
+   "input_states": 6657,
+   "next_pinned_histogram": {
+    "10": 40,
+    "11": 48,
+    "12": 41,
+    "13": 87,
+    "14": 65,
+    "15": 108,
+    "16": 161,
+    "17": 36,
+    "18": 62,
+    "19": 67,
+    "20": 60,
+    "21": 86,
+    "22": 88,
+    "23": 95,
+    "24": 108,
+    "25": 121,
+    "26": 165,
+    "27": 129,
+    "28": 254,
+    "29": 71,
+    "30": 85,
+    "31": 118,
+    "32": 133,
+    "33": 150,
+    "34": 139,
+    "35": 143,
+    "36": 212,
+    "37": 206,
+    "38": 237,
+    "39": 356,
+    "4": 4,
+    "40": 124,
+    "41": 158,
+    "42": 180,
+    "43": 191,
+    "44": 202,
+    "45": 221,
+    "46": 275,
+    "47": 357,
+    "48": 168,
+    "49": 173,
+    "5": 6,
+    "50": 128,
+    "51": 145,
+    "52": 126,
+    "53": 183,
+    "54": 268,
+    "6": 5,
+    "7": 23,
+    "8": 11,
+    "9": 38
+   },
+   "next_sound_histogram": {
+    "15": 1,
+    "17": 1,
+    "22": 1,
+    "41": 2,
+    "43": 2,
+    "45": 1,
+    "46": 1,
+    "47": 2,
+    "48": 2,
+    "49": 10,
+    "50": 6,
+    "51": 4,
+    "52": 7,
+    "53": 12,
+    "54": 6,
+    "55": 6,
+    "56": 4,
+    "57": 14,
+    "58": 7,
+    "59": 12,
+    "60": 21,
+    "61": 18,
+    "62": 11,
+    "63": 4,
+    "64": 3,
+    "65": 9,
+    "66": 13,
+    "67": 12,
+    "68": 8,
+    "69": 12,
+    "70": 12,
+    "71": 13,
+    "72": 14,
+    "73": 17,
+    "74": 14,
+    "75": 28,
+    "76": 40,
+    "77": 34,
+    "78": 24,
+    "79": 23,
+    "80": 6226
+   },
+   "states_where_all_E1_reachable_phases_are_dead": 0,
+   "states_where_current_phase_alone_is_dead": 0,
+   "survivors": 6657,
+   "unknown": 0
+  },
+  "stage_C_e1_depletion": "NOT ATTEMPTED -- the brief's payoff gate stops the round when B closes 0",
+  "stage_D_phase_level_continuation_solver": "NOT ATTEMPTED, per the brief",
+  "structural_reason_for_zero_payoff": {
+   "conclusion": "first-open tests are exhausted at every refinement level -- orbit (Round 81) and (orbit,phase)+occupancy (this round). The measured ceiling for the whole family is 13 states.",
+   "not_E1": "E1 is not the bottleneck here. Port occupancy genuinely pins the phase in 448 states and caps NEXT_pinned at 4-54 against a candidate family of about 130 -- a real restriction. It simply does not matter.",
+   "the_actual_cause": "a first-open test can only close a state when EVERY orbit it can open is cover-incompatible. Round 81 measured that the median state has 128 of 144 orbits individually cover-compatible, because SLACK-COVER constrains which K-subsets work, not which single orbits are usable. With about 90% of all orbits individually usable, and 1-17 openable even from a single pinned phase, at least one is cover-compatible in 6,644 of 6,657 states."
+  },
+  "verdict": "CLAUDE_PORT_OCCUPANCY_NO_PAYOFF",
+  "what_would_be_needed_next": [
+   "a condition on a SEQUENCE or a SET rather than the next single step: the cover is a set constraint and only a set/sequence constraint can interact with it",
+   "the leak in NEXT_sound is re-entry into another open orbit with the arrival phase over-approximated to all five; the arrival phase is actually determined by the entering joint, so a phase-exact multi-step relation is possible -- but that is the phase-level continuation solver the brief defers",
+   "fragment repair, explicitly deferred by the brief until the occupancy test is exhausted; it now is"
+  ]
+ },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
   "Target-B closure: 18->9->8->7->0",
