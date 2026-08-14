@@ -1,0 +1,93 @@
+{
+ "round": 85,
+ "author": "Claude (독립 검증 트랙)",
+ "candidate": "G5 생성 + 최대 2회 ell<5 예외",
+ "verdict": "CLAUDE_TWO_EXCEPTION_PARTIAL",
+ "scope": "Q2 / Area-A. 잔여 상태는 라운드-80 아카이브에서 읽음. frontier 재실행 없음, 무제한 continuation 탐색 없음, 전체 Z3 관계 재검토 없음.",
+ "two_exception_lemma": {
+  "statement": "앞으로의 매크로 간선 중 ell < 5 인 것은 최대 2개",
+  "scope_proved": "모든 미래 매크로 간선 (fresh-orbit opening 만이 아님) -- 논증이 간선이 '출발하는 육각형'에 대한 것이고 joint 가 무엇을 하는지와 무관하기 때문",
+  "step_1_F1_forbids_abandonment": "extend() 에서 dF = int(abandonment) 이고 F <= TARGET_F = 1 이 F_exceeded (Q1-SAFE) 로 강제된다. 잔여 6,657 상태 전부 F = 1 (라운드 83에서 실측) 이므로 abandonment = True 인 전이는 F = 2 가 되어 즉시 제거된다.",
+  "step_2_fresh_hexagon_forces_ell5": "pass 가 새 육각형에 진입점 e 로 들어오면 진입 시점에 6개 창이 모두 미방문이다. 떠나려면 joint 가 필요하고, abandonment = not visited(sigma(p')) 가 False 여야 하므로 sigma(p') 가 방문돼 있어야 한다. p' = sigma^j(e) 일 때 sigma^{j+1}(e) 가 {e..sigma^j(e)} 에 들어가는 것은 j+1 = 0 (mod 6), 즉 j = 5 뿐이다. 따라서 ell = 5.",
+  "step_3_at_most_two": "F = 1 이므로 새 육각형에 들어간 pass 는 그 육각형을 가득 채우고 나온다. 가득 찬 육각형은 다시 진입할 수 없다(joint target 이 미방문이어야 하므로). 따라서 새로운 부분방문 육각형은 앞으로 생기지 않는다. 현재 부분방문 육각형은 f1_normal_form 의 제약(비현재 부분육각형은 최대 1개)에 의해 현재 육각형 hc 와 fragment 뿐이다. ell < 5 로 출발할 수 있는 매크로 간선은 현재 pass 의 출발 간선(hc 가 부분방문일 때)과 fragment 수리 pass 의 출발 간선뿐이다. 그러므로 최대 2개.",
+  "exact_count": "정확히는 [pc(hc) > 1] + [fragment 수리 pass 가 마지막이 아님] 이며 0, 1, 2 가 모두 가능하다. <= 2 로 완화해 사용했다.",
+  "round_84_wording": "라운드 84의 서술과 일치. 수정 불필요. 다만 적용 범위가 '모든 매크로 간선'임을 이번에 명시했다.",
+  "safe_relaxation": "보조정리가 모든 매크로 간선에 대한 것이므로, opening 간선에만 예산 2를 쓰는 것은 필요조건을 약화시키는 안전한 완화다."
+ },
+ "relations": {
+  "G5_edges": 1440,
+  "G5_out_degree": {
+   "10": 144
+  },
+  "Gshort_edges": 7920,
+  "Gshort_out_degree": {
+   "55": 144
+  },
+  "Gshort_beyond_G5": 6480,
+  "G5_scc": 1,
+  "G5_scc_largest": 144,
+  "note": "Gshort 는 전체 Z3 관계와 동일하다(7,920 간선, out-degree 55). G5 는 그 부분집합이며 out-degree 10 으로 5.5배 성기다. G5 는 여전히 강연결(SCC 1개)."
+ },
+ "stage_4_zero_exception_diagnostic": {
+  "SAT_one_step": 31,
+  "SAT_multistep": 6365,
+  "SAT_total": 6396,
+  "FAIL": 261,
+  "meaning": "예외를 전혀 허용하지 않는(따라서 건전한 정리보다 강한) 진단. 261개만 실패하므로 이 방향의 최대 여유는 261개다."
+ },
+ "stage_5_two_exception_sound_test": {
+  "input": 261,
+  "SAT": 248,
+  "UNSAT": 13,
+  "UNKNOWN": 0
+ },
+ "min_exception_histogram": {
+  "0": 6396,
+  "1": 147,
+  "2": 101,
+  "3": 13
+ },
+ "by_collision_band": {
+  "1": {
+   "zero_SAT": 1001
+  },
+  "2": {
+   "zero_SAT": 3061,
+   "two_SAT": 149,
+   "two_UNSAT": 8
+  },
+  "3": {
+   "zero_SAT": 1550,
+   "two_SAT": 96,
+   "two_UNSAT": 5
+  },
+  "4": {
+   "zero_SAT": 636,
+   "two_SAT": 3
+  },
+  "5": {
+   "zero_SAT": 148
+  }
+ },
+ "verification": {
+  "independent_reimplementation": "min_exceptions 를 부분집합 전수 탐색으로 독립 재구현하여 13개 UNSAT 을 재판정",
+  "alternate_search_order": "MRV 를 끄고 최저 인덱스 육각형을 고르는 순서로 재판정",
+  "disagreements": 0,
+  "cover_solution_counts": "13개 인스턴스의 cover 해는 각각 1~4개뿐이며 전부 완전 열거됨",
+  "UNKNOWN": 0,
+  "soundness_direction": "min_exceptions 를 과대평가하면 잘못 닫게 되어 UNSOUND 이므로, G5 로 도달 가능한 것은 항상 먼저 무료로 닫고(단조이므로 미룰 이유 없음) 예외 대상만 전수 분기했다."
+ },
+ "ledger": {
+  "residual_before": 6657,
+  "closed": 13,
+  "residual_after": 6644,
+  "unknown": 0,
+  "closed_by_band": {
+   "c=2": 8,
+   "c=3": 5
+  }
+ },
+ "why_only_13": "닫힌 13개는 cover 해 자체가 1~4개뿐인 극도로 제약된 인스턴스다. 나머지는 cover 해가 많아 그중 하나는 거의 항상 0회 예외로 생성된다 -- 6,396/6,657 (96.1%) 이 예외 0회로 생성 가능하다.",
+ "orbit_level_not_fully_exhausted": "모든 상태가 <=2 예외로 생성 가능한 것은 아니므로 §10의 종료 조건은 성립하지 않는다. 다만 남은 여유는 매우 작다: 예외 0회 실패가 261개뿐이고 그중 248개는 <=2로 통과한다.",
+ "disclaimer": "이 프로젝트는 L6 >= 872 를 증명하지 않았으며, 여기의 어떤 내용도 그에 관한 주장이 아니다."
+}
