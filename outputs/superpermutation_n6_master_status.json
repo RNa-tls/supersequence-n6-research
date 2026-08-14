@@ -917,9 +917,9 @@
    "u_identity_failures": 0
   },
   "audit_status": {
-   "caveat": "6,657 must NOT be described as independently confirmed until Codex replays the exported archive",
-   "independent_count_audit": "PENDING",
-   "state_counts": "CLAUDE-REPRODUCED (re-derived with 0 mismatches; replayed from the exported artifact alone)",
+   "baseline": "6,657 residual states is the independently audited Q2 baseline",
+   "independent_count_audit": "CONFIRMED",
+   "state_counts": "INDEPENDENTLY CONFIRMED (Codex replayed the Round-80 archive)",
    "theorem": "SOUND (independently audited by Codex)"
   },
   "candidate": "SLACK-COVER (static final-orbit-set condition at COLLISIONS = c < 5)",
@@ -1252,6 +1252,71 @@
   "source": "read-only pass over outputs/rr_target_a_checkpoints/*.json; no state re-generated, no search run",
   "verdict": "CLAUDE_ROUND79_AUDIT_ARTIFACT_READY",
   "verifier": "src/verify_rr_slack_cover_archive.py (standard library only; imports nothing from this repo)"
+ },
+ "round_81_cover_order": {
+  "Ndef_verified_from_preserved_ledger": {
+   "0": 6657
+  },
+  "candidate": "COVER-COMPATIBLE ORBIT ORDERING",
+  "conservative_opening_relation": {
+   "cross_check": "reproduces Round 75's 7,920 orbit-changing pairs and uniform out-degree 55 exactly",
+   "definition": "q -> r iff there exist a phase f in {0..4}, a rotation-run length l in {0..5} and a non-rotation joint a in {w2:10,w3:120,w3:201,w3:210} with word_after(sigma^l(port(q,f)), a) a port of r",
+   "exclusion_justification": "an excluded (q,r) means r appears nowhere in the 120-element target multiset of q under the full macro generator set; this is exhaustion over the fixed group action, independent of visitation, resources and history",
+   "in_degree": {
+    "55": 144
+   },
+   "no_weight2_exclusion": "a weight-2 joint into a fresh orbit is a legal engine transition -- extend() computes abandonment and new_orbit independently and gates neither -- so w2:10 stays in the joint set even though at l=5 it is the orbit-preserving E^1",
+   "ordered_pairs_total": 20592,
+   "ordered_pairs_with_an_edge": 7920,
+   "out_degree": {
+    "55": 144
+   },
+   "over_approximation_proof": "a genuine opening of r from q is a macro edge from the walk's endpoint in q: l rotations then one joint landing in r. The engine imposes strictly more conditions -- every rotation target unvisited, the joint target unvisited, the child surviving area_a_prune_reason, and one specific endpoint phase. All are dropped here and the phase is existentially quantified over all five, which in particular permits arbitrary legal E^1 closure beforehand. Dropping conditions only adds edges."
+  },
+  "do_not_do": "no stronger exclusion was invented to manufacture payoff; every edge the relation omits is omitted by exhaustion over the fixed group action, not by absence from a search",
+  "json": "outputs/rr_cover_order_claude.json",
+  "ledger": {
+   "classes": 761,
+   "closed": 0,
+   "residual_after": 6657,
+   "residual_before": 6657
+  },
+  "negative_structural_result": {
+   "statement": "static incidence + orbit-level ordering is exhausted: every one of the 6,657 residual states admits a cover-compatible final orbit set that is entirely reachable under a maximally conservative opening relation",
+   "the_decisive_obstacle": "phase. The phase-refined relation has uniform out-degree 17, not 55, and a walk pinned to one (orbit,phase) could open at most 17 candidates -- often as few as 5, and as few as 0 from the worst open phase. That is a factor of roughly 3.2 of unused restriction. It is unusable because E^1 moves the phase for free, so the conservative relation must quantify over all five phases.",
+   "why": "two independent reasons, both measured. (1) SLACK-COVER barely restricts individual orbit membership: the median state has 128 of 144 orbits cover-compatible, so the candidate family is nearly the whole orbit set even though the K-subsets it admits are heavily constrained. (2) the orbit-level relation has uniform out-degree 55 of 143, and the union over 7-10 open orbits reaches 71-100% of those candidates in a single step."
+  },
+  "report": "research/RR_COVER_ORDER_CLAUDE.md",
+  "reproducer": "src/probe_rr_cover_order.py",
+  "stage_A_relation": {
+   "density": "55/143 = 38.5%",
+   "nodes": 144,
+   "out_degree": 55
+  },
+  "stage_B_first_open": {
+   "closed": 0,
+   "input_states": 6657,
+   "reason": "every residual state has at least 41 cover-compatible candidate orbits openable in one step from its currently-open set; the minimum over all 6,657 states is 71% of its candidates and the median is 96-98%",
+   "survivors": 6657,
+   "unknown": 0
+  },
+  "stage_C_iterated_reachability": {
+   "closed": 0,
+   "input_states": 6657,
+   "reason": "the reachable fixpoint contains EVERY cover-compatible candidate in all 6,657 states, so the restricted slack-cover instance is identical to the unrestricted one and was never re-decided",
+   "states_with_any_unreachable_candidate": 0,
+   "states_with_every_candidate_reachable": 6657,
+   "survivors": 6657,
+   "unknown": 0
+  },
+  "stage_D_joint_cover_reachability": "NOT ATTEMPTED -- the payoff gate in the brief forbids spending computation once stages A-C close nothing, and with zero unreachable candidates the joint formulation is provably identical to Round 79's",
+  "verdict": "CLAUDE_COVER_ORDER_NO_PAYOFF",
+  "what_finer_information_is_required": [
+   "port-level occupancy / the no-repeat rule -- this is the single lever that would let phase be pinned, because it is exactly what gates E^1 (E^1 needs the current hexagon to hold only the endpoint and its target port unvisited). Charging E^1 is charging port occupancy.",
+   "which specific port of r an opening joint lands on, and whether that port is still unvisited",
+   "fragment repair: the unique doubly-passed hexagon must be re-entered at one specific window",
+   "resource timing -- deliberately not charged this round per the brief"
+  ]
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

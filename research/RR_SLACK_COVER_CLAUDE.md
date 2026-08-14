@@ -3,10 +3,9 @@
 > **Theorem: SOUND** — independently audited by Codex.
 > **State counts: CLAUDE-REPRODUCED** — re-derived from the checkpoint archive with 0
 > mismatches, and replayed from the exported artifact alone.
-> **Independent count audit: PENDING.** Codex could not originally reproduce 38,141 / 6,657
-> because Round 79 preserved only aggregate counters. The input ledger and the full instance
-> archive (SAT *and* UNSAT) are now exported to `outputs/rr_slack_cover_archive/` with a
-> stdlib-only verifier. **6,657 is not yet independently confirmed.**
+> **Independent count audit: CONFIRMED (Round 81).** Codex replayed the Round-80 archive
+> (`outputs/rr_slack_cover_archive/`) and confirmed the counts. 6,657 is the independently
+> audited baseline.
 
 # SLACK-COVER: the excess is forced, not budgeted — and it closes 38,141 of 44,650
 
