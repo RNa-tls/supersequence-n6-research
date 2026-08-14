@@ -916,6 +916,12 @@
    "trials": 20000,
    "u_identity_failures": 0
   },
+  "audit_status": {
+   "caveat": "6,657 must NOT be described as independently confirmed until Codex replays the exported archive",
+   "independent_count_audit": "PENDING",
+   "state_counts": "CLAUDE-REPRODUCED (re-derived with 0 mismatches; replayed from the exported artifact alone)",
+   "theorem": "SOUND (independently audited by Codex)"
+  },
   "candidate": "SLACK-COVER (static final-orbit-set condition at COLLISIONS = c < 5)",
   "census": {
    "K_by_c": {
@@ -1192,6 +1198,60 @@
    }
   },
   "verdict": "CLAUDE_SLACK_COVER_MAJOR_PAYOFF"
+ },
+ "round_80_audit_artifact": {
+  "archive": {
+   "SCHEMA.md": "bit/orbit/hexagon numbering, weighting, field meanings, replay recipe",
+   "collision5_survivors.jsonl.gz": "the 148 Round-78 c=5 SAT states, untouched",
+   "dir": "outputs/rr_slack_cover_archive/",
+   "incidence_table.json": "orbit/hexagon numbering pinned to explicit permutations plus the 144 blocks",
+   "instances.jsonl.gz": "43,643 rows, SAT and UNSAT alike: U, candidate orbits and blocks, verdict reason, SAT witness, state_ids mapping",
+   "states.jsonl.gz": "44,650 rows: stable sha256 sid, root+frontier index, c/b/O/K, C/U/open-orbit masks, coordinates, iid, weight"
+  },
+  "exporter": "src/export_rr_slack_cover_archive.py",
+  "outstanding": "the 37,630 UNSAT instances are exported with U, b, K and full candidate blocks so an independent solver can re-decide them; that re-decision is the remaining half of the audit",
+  "purpose": "artifact repair only; no new theorem developed",
+  "re_derivation_vs_round_79": {
+   "duplicate_state_ids": 0,
+   "mismatches": []
+  },
+  "reason": "Round 79 preserved only aggregate counters, so Codex could not reproduce 38,141 closed / 6,657 residual",
+  "self_replay": {
+   "c5_survivors": 148,
+   "c=1": {
+    "closed": 0,
+    "sat": 1001,
+    "states": 1001
+   },
+   "c=2": {
+    "closed": 2151,
+    "sat": 3218,
+    "states": 5369
+   },
+   "c=3": {
+    "closed": 11795,
+    "sat": 1651,
+    "states": 13446
+   },
+   "c=4": {
+    "closed": 24195,
+    "sat": 639,
+    "states": 24834
+   },
+   "instances": 43643,
+   "residual": 6657,
+   "result": "all counts replay; verifier exits 0",
+   "sat_instances": 6013,
+   "total": {
+    "closed": 38141,
+    "sat": 6509,
+    "states": 44650
+   },
+   "unsat_instances": 37630
+  },
+  "source": "read-only pass over outputs/rr_target_a_checkpoints/*.json; no state re-generated, no search run",
+  "verdict": "CLAUDE_ROUND79_AUDIT_ARTIFACT_READY",
+  "verifier": "src/verify_rr_slack_cover_archive.py (standard library only; imports nothing from this repo)"
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

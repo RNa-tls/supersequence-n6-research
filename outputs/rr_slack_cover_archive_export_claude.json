@@ -1,0 +1,59 @@
+{
+ "schema": "rr-slack-cover-archive-v1",
+ "per_band": {
+  "c=1": {
+   "states": 1001,
+   "closed": 0,
+   "sat": 1001,
+   "unknown": 0,
+   "by_verdict": {
+    "SAT": 1001
+   }
+  },
+  "c=2": {
+   "states": 5369,
+   "closed": 2151,
+   "sat": 3218,
+   "unknown": 0,
+   "by_verdict": {
+    "SAT": 3218,
+    "UNSAT_slack_cover": 2144,
+    "UNSAT_waste_floor": 7
+   }
+  },
+  "c=3": {
+   "states": 13446,
+   "closed": 11795,
+   "sat": 1651,
+   "unknown": 0,
+   "by_verdict": {
+    "SAT": 1651,
+    "UNSAT_slack_cover": 11274,
+    "UNSAT_waste_floor": 521
+   }
+  },
+  "c=4": {
+   "states": 24834,
+   "closed": 24195,
+   "sat": 639,
+   "unknown": 0,
+   "by_verdict": {
+    "UNSAT_waste_floor": 8688,
+    "UNSAT_slack_cover": 15040,
+    "UNSAT_coverability": 461,
+    "SAT": 639,
+    "UNSAT_forced_excess": 6
+   }
+  }
+ },
+ "totals": {
+  "states": 44650,
+  "closed": 38141,
+  "sat": 6509,
+  "instances": 43643,
+  "c5_survivors": 148,
+  "residual": 6657
+ },
+ "duplicate_state_ids": 0,
+ "mismatches_vs_round_79": []
+}
