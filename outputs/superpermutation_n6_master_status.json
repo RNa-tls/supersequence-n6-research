@@ -2186,6 +2186,127 @@
   "scope": "Q2 / Area-A. 잔여는 라운드-80 아카이브에서 읽음. frontier 재실행 없음, 무제한 continuation 탐색 없음, 위상 도달성 재검토 없음, 순서 제약은 §9에 따라 도입하지 않음(관대 = 안전).",
   "verdict": "CLAUDE_SOURCE_CAPACITY_NO_PAYOFF"
  },
+ "round_88_universal_cover": {
+  "author": "Claude (독립 검증 트랙)",
+  "backbone": {
+   "finding": "forced 궤도는 실재한다 -- 표본 1,000 중 397 상태가 최소 1개, 최대 17개를 갖는다. universal core 가 비어 있다는 가설은 기각된다.",
+   "forbidden_distribution": {
+    "0": 17,
+    "11": 3,
+    "12": 5,
+    "13": 2,
+    "14": 1,
+    "16": 4,
+    "17": 6,
+    "18": 3,
+    "19": 13,
+    "20": 941,
+    "3": 2,
+    "6": 2,
+    "9": 1
+   },
+   "forced_orbit_count_distribution": {
+    "0": 603,
+    "1": 192,
+    "11": 1,
+    "12": 2,
+    "13": 1,
+    "14": 2,
+    "17": 4,
+    "2": 52,
+    "3": 47,
+    "4": 42,
+    "5": 16,
+    "6": 16,
+    "7": 10,
+    "8": 9,
+    "9": 3
+   },
+   "max_forced": 17,
+   "method": "§10 완전 유한 판정. q FORCED <=> q 금지 시 UNSAT, q FORBIDDEN <=> q 강제 시 UNSAT. 표본 추출은 진단용일 뿐 폐쇄 근거로 쓰지 않았다.",
+   "optional_distribution": {
+    "0": 7,
+    "10": 4,
+    "100": 3,
+    "120": 1,
+    "20": 32,
+    "30": 54,
+    "40": 105,
+    "50": 197,
+    "60": 235,
+    "70": 233,
+    "80": 90,
+    "90": 39
+   },
+   "sample": 1000,
+   "share_with_forced_core": "39.7%",
+   "states_with_at_least_one_forced_orbit": 397
+  },
+  "candidate": "UNIVERSAL COVER CORE + 예산 공유 결합 판정",
+  "cover_family": {
+   "correction_to_earlier_rounds": "라운드 81 이후 여러 문서가 '개별 궤도의 median 128/144 가 cover-compatible' 이라는 관찰을 'cover 자유도가 거대하다' 로 서술해 왔다. 이번 측정은 그 서술을 정량적으로 정정한다 -- candidate 궤도 수는 많지만 실제 cover 해는 대부분 100개 이하이고, candidate 중 20개 이상이 어떤 cover 에도 속하지 못한다(1,000개 중 941개 상태).",
+   "counts": {
+    "<=10": 75,
+    "<=100": 635,
+    "<=1000": 289,
+    "<=2000": 1
+   },
+   "finding": "캡 2,000 에 도달한 상태는 1,000개 중 단 1개다. 즉 Covers(s) 는 거의 언제나 완전 열거 가능하며 대부분 100개 이하다.",
+   "method": "완전 열거 (캡 2,000). 표본 1,000 상태."
+  },
+  "disclaimer": "이 프로젝트는 L6 >= 872 를 증명하지 않았으며, 여기의 어떤 내용도 그에 관한 주장이 아니다.",
+  "headline": "universal core 는 실재한다 -- cover 가족은 작고 forced 궤도가 상태의 약 40%에 존재한다. 그러나 그것을 이미 증명된 동적 제약과 예산을 공유시켜 결합해도 새 폐쇄는 0이다.",
+  "joint_decision": {
+   "by_collision_band": {
+    "1": {
+     "SAT": 1001
+    },
+    "2": {
+     "SAT": 3210,
+     "UNSAT": 8
+    },
+    "3": {
+     "SAT": 1646,
+     "UNSAT": 5
+    },
+    "4": {
+     "SAT": 639
+    },
+    "5": {
+     "SAT": 148
+    }
+   },
+   "identical_to_round_85": "UNSAT 13개는 라운드 85 가 닫은 13개와 sid 단위로 정확히 동일하다 (교집합 13, 양방향 차집합 0). capacity 조건은 단 한 개의 추가 폐쇄도 만들지 못했다.",
+   "necessary_condition": "cover S 가 실현 가능하려면 |T| <= 2 인 T ⊆ S 가 존재해 (a) S∖T 가 A ∪ S 안에서 G5 로 induced-reachable 이고 (b) S∖T 가 G5 source-port 매칭 가능이어야 한다. 두 조건이 같은 short-edge 예산 2 를 공유한다.",
+   "new_closures": 0,
+   "quantified_over": "모든 valid cover (완전 열거)",
+   "result": {
+    "SAT": 6644,
+    "UNSAT": 13
+   },
+   "short_edges_used_by_SAT_states": {
+    "0": 2544,
+    "1": 2846,
+    "2": 1254
+   },
+   "tightness": "SAT 상태의 절반 이상이 예산을 실제로 소비한다 (0회 2,544 / 1회 2,846 / 2회 1,254). 제약은 느슨하지 않다 -- 예산 2 가 정확히 충분할 뿐이다.",
+   "why_stronger": "라운드 85 는 (a) 만, 라운드 87 은 (b) 만 검사하며 예산을 각각 따로 썼다. (a) 를 통과하는 cover 와 (b) 를 통과하는 cover 가 서로 다를 수 있으므로 결합은 두 검사 어느 쪽보다도 약하지 않다. (a) 만 보면 라운드 85, (b) 만 보면 라운드 87 로 환원된다."
+  },
+  "json": "outputs/rr_universal_cover_claude.json",
+  "payoff": {
+   "closed": 0,
+   "input": 6644,
+   "residual": 6644,
+   "unknown": 0
+  },
+  "report": "research/RR_UNIVERSAL_COVER_CLAUDE.md",
+  "reproducer": "src/probe_rr_universal_cover.py",
+  "round": 88,
+  "scope": "Q2 / Area-A. 잔여는 라운드-80 아카이브에서 읽음. frontier 재실행 없음, 무제한 continuation 탐색 없음. 라운드 81/82/84/86/87 의 소진된 방향은 재실행하지 않고 검증된 구조 데이터만 사용했다.",
+  "verdict": "CLAUDE_UNIVERSAL_COVER_PARTIAL",
+  "what_this_changes": "다음 라운드는 cover 자유도를 더 줄이려 하기보다, forced core 자체가 위반하는 제약을 찾아야 한다. 이번 라운드가 처음으로 그 core 를 완전 판정으로 확정했으므로 그것이 가능해졌다.",
+  "why_zero": "universal core 는 존재하지만 그 core 가 동적 제약을 위반하지 않는다. forced 궤도를 가진 상태에서도 forced 궤도들은 G5 도달성과 source-port 매칭을 모두 만족하며, 남은 optional 자유도(중앙값 60~70)가 나머지를 흡수한다. 벽은 'cover 해가 무수히 많다' 가 아니라 '해가 100개 남짓뿐인데도 그중 하나는 언제나 모든 제약을 통과한다' 이다."
+ },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
   "Target-B closure: 18->9->8->7->0",
