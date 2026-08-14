@@ -1,0 +1,103 @@
+{
+ "round": 86,
+ "author": "Claude (독립 검증 트랙)",
+ "candidate": "다단계 위치 정보 — Z3 착지 위상 연쇄",
+ "verdict": "CLAUDE_PHASE_CHAIN_NO_PAYOFF",
+ "scope": "Q2 / Area-A. 잔여는 라운드-80 아카이브에서 읽음. frontier 재실행 없음, 무제한 continuation 탐색 없음, 720개 방문창을 추적하지 않음.",
+ "codex_corrections_accepted": {
+  "1_lemma_proof": {
+   "status": "수용, 기록 완료",
+   "what_was_incomplete": "라운드 85의 fragment-only 설명은 '이중 pass 육각형이 정확히 fragment 하나'라는 연결을 명시하지 않았다.",
+   "repaired_argument": "각 pass 는 등록된 시작점을 정확히 하나 가지므로 총 pass 수 = P = 121. 육각형 120개가 각각 최소 1 pass 를 받으므로 잉여 pass 수 = P - 120 = 1 = F. 즉 이중 pass 를 받는 육각형의 수는 정확히 F 개이고 F = 1 이므로 정확히 하나이며, 그것이 abandonment 로 생긴 fragment 다. 여기에 무-abandonment / fresh-hexagon 구조(새 육각형에 든 pass 는 ell = 5 로 채우고 나온다)를 결합하면 ell < 5 로 출발 가능한 매크로 간선은 현재 pass 와 fragment 수리 pass 뿐 -- 최대 2개.",
+   "note": "결론(<=2)과 라운드 85의 13개 폐쇄는 변경 없음. 향후 모든 참조는 이 P = 120 + F = 121 논증을 사용한다."
+  },
+  "2_histogram": {
+   "status": "수용. 내 147/101 분할은 틀렸고 231/17 이 맞다.",
+   "corrected": {
+    "0": 6396,
+    "1": 231,
+    "2": 17,
+    ">=3": 13
+   },
+   "root_cause": "x2_census.py 의 solve() 가 e <= maxexc 인 첫 cover 해를 찾자마자 return True 로 중단한다. 기록된 st['minexc'] 는 '발견된 첫 해의 예외 수'이지 모든 cover 해에 걸친 최소값이 아니어서 1/2 구간이 과대평가됐다.",
+   "impact": "폐쇄 판정에는 영향 없음. UNSAT 13개는 모든 cover 해를 완전 열거해 전부 >=3 임을 확인한 것이므로 유효하며 Codex 도 독립 확인했다. 오류는 히스토그램의 1/2 분할에 국한된다."
+  }
+ },
+ "stage_A_phase_labelled_table": {
+  "nodes": "(orbit, phase) 720개",
+  "G5_phase_edges": 1440,
+  "G5_phase_out_degree": {
+   "2": 720
+  },
+  "Gshort_phase_edges": 10800,
+  "Gshort_phase_out_degree": {
+   "15": 720
+  },
+  "ell5_joint_geometry": "ell = 5 에서 w3:120 은 720/720 전부 같은 궤도(E^2)이고 w3:201 과 w3:210 은 720/720 전부 다른 궤도. 따라서 G5_phase 의 out-degree 는 정확히 2.",
+  "consistency": "2 + 15 = 17 로 라운드 84가 측정한 phase-level out-degree 17 과 일치."
+ },
+ "stage_B_post_open_endpoint": {
+  "engine_fact": {
+   "target": [
+    2,
+    3,
+    4,
+    1,
+    5,
+    0
+   ],
+   "land_orbit": 138,
+   "land_phase": 2,
+   "endpoint_orbit": 138,
+   "endpoint_phase": 2,
+   "endpoint_is_target": true,
+   "registered": true
+  },
+  "statement": "Z3 opening 직후 엔진의 새 endpoint 는 joint target 그 자체이고, 착지 port 가 곧 등록 port 이며 현재 위상은 착지 위상과 동일하다. 진입 직후에는 위상 자유도가 전혀 없다."
+ },
+ "stage_C_local_phase_closure": {
+  "shifts": {
+   "('E1', True, 1)": 720,
+   "('E2', True, 2)": 720
+  },
+  "statement": "ell = 5 의 같은 궤도 이동은 정확히 둘뿐이다. E^1 (w2:10) 은 720/720 에서 위상 +1, E^2 (w3:120) 은 720/720 에서 위상 +2. E^1 하나만으로 5-주기 전체가 생성된다.",
+  "legality": "E^1 은 ell = 5 (현재 육각형이 endpoint 만 방문) 와 target 미방문을 요구한다. 라운드 85 보조정리에 의해 미래의 모든 pass 는 fresh 육각형에 진입하므로 ell = 5 조건은 자동으로 만족되고, target 미방문은 과대근사(건전성 요구)에 의해 참으로 간주해야 한다.",
+  "cost": "E^1 은 dNdef = dPhi = dO = dF = 0 이며 P 를 1 소비할 뿐이다. 최종 25궤도 x 5 port 중 121개가 등록되므로 궤도당 평균 4.84 port 가 등록된다 -- 즉 궤도 안에서 위상을 옮기는 것은 정상적인 진행이지 사치가 아니다.",
+  "conclusion": "국소 수리 폐포 = 5개 위상 전체. 위상 정보는 완전히 소실되고 관계는 궤도 수준 자유도로 붕괴한다."
+ },
+ "stage_D_two_step_diagnostic": {
+  "orbit_level_G5_two_step_chains": 14400,
+  "phase_exact_no_repair": 2880,
+  "killed_by_no_repair": "80.0%",
+  "with_sound_local_repair": "0% -- 붕괴하여 궤도 수준과 동일"
+ },
+ "ceiling_measurement": {
+  "assumption": "국소 위상 수리를 전면 금지 (명백히 UNSOUND). A 의 시작 위상만 자유로 두고 연쇄 내부는 착지 위상 고정.",
+  "result": {
+   "SAT": 6639,
+   "UNSAT_coverability": 8,
+   "UNSAT_forced_excess": 10
+  },
+  "closed": 18,
+  "share": "0.27%",
+  "all_in_band": "c = 5",
+  "reachable_candidate_percent": {
+   "75": 1,
+   "80": 3,
+   "85": 12,
+   "90": 23,
+   "95": 48,
+   "100": 6570
+  },
+  "interpretation": "6,570 상태(98.7%)에서 phase-exact 폐포만으로도 candidate 100% 에 도달한다. G5_phase 의 out-degree 가 2뿐인데도 A 의 열린 궤도 7~10개 x 5 위상 = 35~50 개 출발 노드에서 폐포가 거의 전부를 덮기 때문이다. 따라서 전역 occupancy 를 추가해 붕괴를 막더라도 이 방향(위상 연쇄 + cover)의 최대 소득은 18개다."
+ },
+ "payoff": {
+  "input": 6644,
+  "closed": 0,
+  "unknown": 0,
+  "residual": 6644
+ },
+ "why_zero": "E^1 이 위상을 무료로 옮긴다. 착지 위상은 정확히 결정되지만(2단계에서 확인) 그 직후 E^1 사슬이 5개 위상 전체를 복구하므로, 건전한 과대근사에서는 위상 상관이 남지 않는다. 이는 라운드 82의 결론과 같은 벽이며, 이번에는 다단계 연쇄 수준에서 재확인된 것이다.",
+ "structural_diagnosis": "위상만으로는 부족하고 어느 port 가 방문됐는지에 대한 전역 occupancy 가 있어야 E^1 을 막을 수 있다. 그러나 천장 측정이 보여주듯 그것을 넣더라도 이 조합에서는 18개(0.27%)가 상한이므로, 전역 occupancy 추적은 이 방향에서는 정당화되지 않는다.",
+ "disclaimer": "이 프로젝트는 L6 >= 872 를 증명하지 않았으며, 여기의 어떤 내용도 그에 관한 주장이 아니다."
+}
