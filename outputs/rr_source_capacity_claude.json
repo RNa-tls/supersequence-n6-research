@@ -1,0 +1,87 @@
+{
+ "round": 87,
+ "author": "Claude (독립 검증 트랙)",
+ "candidate": "누적 출발-port 용량",
+ "verdict": "CLAUDE_SOURCE_CAPACITY_NO_PAYOFF",
+ "scope": "Q2 / Area-A. 잔여는 라운드-80 아카이브에서 읽음. frontier 재실행 없음, 무제한 continuation 탐색 없음, 위상 도달성 재검토 없음, 순서 제약은 §9에 따라 도입하지 않음(관대 = 안전).",
+ "departure_semantics": {
+  "theorem": "각 port 는 최대 1개의 매크로 edge 를 발사한다.",
+  "proof": "모든 매크로 edge 는 walk 의 현재 endpoint 에서 출발하고, endpoint 는 언제나 직전 joint 의 target 이며 weight >= 2 인 joint 는 항상 target 을 등록하므로 endpoint 는 등록된 port 다(초기 endpoint 도 등록됨). no-repeat 에 의해 각 window 는 정확히 한 번 방문되므로 각 port 가 endpoint 인 시점은 최대 한 번이고, 그때 발사되는 매크로 edge 도 최대 하나다.",
+  "engine_check": "임의 legal walk 400 스텝에서 매크로 edge 직후 endpoint 가 등록 port 인 사례 39/39, 위반 0",
+  "cap_s": "cap_s(q) = (q 의 미방문 port 수) + [q 가 현재 endpoint 를 포함]",
+  "cap_new": "cap_new(r) = (r 의 미방문 port 수)",
+  "direction": "용량 과대평가는 안전, 과소평가는 UNSOUND. 이번 라운드는 전부 과대평가 쪽(모든 궤도의 5 port 전부 허용)으로 계산했다.",
+  "reuse_impossible": "재진입은 새 출발 기회를 만들지 못한다 -- 재진입은 아직 미방문인 다른 port 를 등록할 뿐이고, 이미 소비된 port 는 복원되지 않는다. E^1/E^2 도 마찬가지로 새 port 를 소비할 뿐이다."
+ },
+ "labelled_G5": {
+  "targets_per_source_port": {
+   "2": 720
+  },
+  "distinct_targets_per_orbit": {
+   "10": 144
+  },
+  "same_orbit_two_port_target_overlap": {
+   "0": 1440
+  },
+  "supplier_ports_per_target": {
+   "10": 144
+  },
+  "supplier_orbits_per_target": {
+   "10": 144
+  },
+  "structure": "(궤도, 위상) 당 정확히 2개 target. 같은 궤도의 서로 다른 두 port 는 target 을 전혀 공유하지 않는다(1,440쌍 모두 겹침 0) -- 궤도의 10개 out-neighbour 가 5개 port 에 2개씩 완전 분할된다. 역으로 target 하나를 열 수 있는 것은 정확히 10개 궤도이며, 각 궤도에서 특정 1개 port 뿐이다."
+ },
+ "adversarial_checks": {
+  "port_reuse_via_reentry": "불가 -- port 는 1회 방문",
+  "E1_E2_restoring_a_consumed_departure": "불가 -- 새 port 를 소비할 뿐",
+  "opening_from_a_port_absent_from_the_table": "ell=5 Z3 는 이 표가 전부",
+  "short_edge_evasion": "가능하며 결정적이다. ell<5 Z3 opening 은 이 매칭을 우회하고 그 예산이 2 이므로(라운드 85), 최대 2개 target 이 자원 없이 열릴 수 있다. 따라서 건전한 폐쇄 기준은 매칭 결손 >= 3 이다. 이 항목을 반영하지 않았다면 결손 1 인 4개 상태를 잘못 닫았을 것이다."
+ },
+ "generous_ceiling": {
+  "model": "모든 궤도의 5 port 전부 사용 가능(미방문 여부 무시), 순서 무시",
+  "tested_on": "라운드-79 첫 cover witness (6,509개; c=5 148개는 witness 미보유로 제외)",
+  "matchable": 6504,
+  "infeasible": 5,
+  "deficit_histogram": {
+   "0": 6504,
+   "1": 4,
+   "4": 1
+  },
+  "reading": "첫 witness 기준으로 5개가 매칭 불가이지만 결손은 4개가 1, 1개가 4다. short-edge 예산 2를 반영하면 폐쇄 후보는 결손 >= 3 인 1개뿐이다."
+ },
+ "full_decision": {
+  "criterion": "모든 valid cover 에서 결손 >= 3 이어야 폐쇄",
+  "result": {
+   "SAT": 6657
+  },
+  "by_c": {
+   "1": {
+    "SAT": 1001
+   },
+   "2": {
+    "SAT": 3218
+   },
+   "3": {
+    "SAT": 1651
+   },
+   "4": {
+    "SAT": 639
+   },
+   "5": {
+    "SAT": 148
+   }
+  },
+  "closed": 0,
+  "unknown": 0,
+  "min_deficit_over_all_covers": "모든 상태에서 0 -- 첫 witness 가 결손 4였던 그 1개도 다른 cover 를 고르면 결손 0 이 된다"
+ },
+ "hall_diagnostics": "첫 witness 고정 시에는 Hall 위반 집합이 실제로 존재한다(결손 1~4). 그러나 cover 선택의 자유도가 그것을 회피한다 -- 이것이 라운드 81 이후 반복되는 동일한 이유다.",
+ "payoff": {
+  "input": 6644,
+  "closed": 0,
+  "unknown": 0,
+  "residual": 6644
+ },
+ "conclusion": "누적 출발-port 용량은 소진되었다. 자원 총량이 남는 것이 아니라(K ~ 17 targets 대 A ∪ S 의 125 port 자원), 특정 cover 에서 생기는 Hall 결손을 다른 cover 로 언제나 피할 수 있기 때문이다.",
+ "disclaimer": "이 프로젝트는 L6 >= 872 를 증명하지 않았으며, 여기의 어떤 내용도 그에 관한 주장이 아니다."
+}
