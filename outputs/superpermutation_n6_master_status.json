@@ -907,6 +907,292 @@
   },
   "verdict": "CLAUDE_EXACT_COVER_MAJOR_PAYOFF"
  },
+ "round_79_slack_cover": {
+  "algebra_check": {
+   "census_identity_failures_on_all_44650_states": 0,
+   "excess_equals_b_failures": 0,
+   "excess_identity_failures": 0,
+   "open_orbit_meets_U_failures": 0,
+   "trials": 20000,
+   "u_identity_failures": 0
+  },
+  "candidate": "SLACK-COVER (static final-orbit-set condition at COLLISIONS = c < 5)",
+  "census": {
+   "K_by_c": {
+    "1": {
+     "16": 61,
+     "17": 207,
+     "18": 304,
+     "19": 275,
+     "20": 118,
+     "21": 31,
+     "22": 5
+    },
+    "2": {
+     "15": 26,
+     "16": 485,
+     "17": 1405,
+     "18": 1768,
+     "19": 1240,
+     "20": 381,
+     "21": 64
+    },
+    "3": {
+     "15": 128,
+     "16": 1609,
+     "17": 3981,
+     "18": 4521,
+     "19": 2538,
+     "20": 610,
+     "21": 59
+    },
+    "4": {
+     "15": 511,
+     "16": 4014,
+     "17": 8468,
+     "18": 7576,
+     "19": 3680,
+     "20": 551,
+     "21": 34
+    }
+   },
+   "distinct_instances": 43643,
+   "instances_per_band": {
+    "1": 24425,
+    "2": 13154,
+    "3": 5126,
+    "4": 938
+   },
+   "states_by_c": {
+    "1": 1001,
+    "2": 5369,
+    "3": 13446,
+    "4": 24834
+   }
+  },
+  "derivation": {
+   "candidate_family_is_a_function_of_U_and_b": "any orbit meeting U is automatically closed (0 failures in 20,000 random configurations)",
+   "excess_identity": "for any K blocks, 5K - |union \\ C| = sum_{h in C} m(h) + sum_{h in U} max(m(h)-1,0)",
+   "excess_is_forced": "if the chosen blocks cover U then union \\ C = U exactly, so EXCESS = 5K - |U| = b EXACTLY -- 'excess at most b' is not an independent constraint but the counting slack in the cover, attained automatically",
+   "identity_U": "|U| = 5K - b, with K = 25 - O and b = 5 - c",
+   "machine_check": {
+    "identity_failures": 0
+   },
+   "reduction_at_b0": "at b = 0 every block must lie in U and the blocks must be disjoint, recovering Round 78's exact cover exactly",
+   "surviving_constraint": "SLACK-COVER: exactly K currently-closed orbits whose 5-hexagon blocks COVER U; per-block consequence |block & C| <= b"
+  },
+  "e1_safety": {
+   "states": 1600,
+   "steps": 4325,
+   "violations": {}
+  },
+  "json": "outputs/rr_slack_cover_claude.json",
+  "ledger": {
+   "c5_SAT_carried_from_round_78": 148,
+   "classes_after": 761,
+   "classes_before": 1050,
+   "closed": 38141,
+   "input": 44650,
+   "residual_after": 6657,
+   "residual_before": 44798,
+   "roots_fully_closed": "28 of 33 -- every long root now clear",
+   "share": "85.42%",
+   "slack_cover_SAT": 6509,
+   "surviving_by_c": {
+    "1": 1001,
+    "2": 3218,
+    "3": 1651,
+    "4": 639,
+    "5": 148
+   },
+   "surviving_by_coordinate": {
+    "Ddead": {
+     "0": 3293,
+     "1": 2548,
+     "2": 735,
+     "3": 81
+    },
+    "K": {
+     "15": 75,
+     "16": 608,
+     "17": 1619,
+     "18": 2107,
+     "19": 1589,
+     "20": 553,
+     "21": 101,
+     "22": 5
+    },
+    "Ndef": {
+     "0": 6657
+    },
+    "O": {
+     "10": 75,
+     "3": 5,
+     "4": 101,
+     "5": 553,
+     "6": 1589,
+     "7": 2107,
+     "8": 1619,
+     "9": 608
+    },
+    "P": {
+     "13": 2960,
+     "14": 3697
+    },
+    "Phi": {
+     "0": 710,
+     "1": 445,
+     "2": 985,
+     "3": 1410,
+     "4": 1620,
+     "5": 1487
+    },
+    "c": {
+     "1": 1001,
+     "2": 3218,
+     "3": 1651,
+     "4": 639,
+     "5": 148
+    },
+    "r": {
+     "0": 5947,
+     "1": 710
+    },
+    "used": {
+     "1": 2578,
+     "2": 1771,
+     "3": 1149,
+     "4": 716,
+     "5": 443
+    }
+   },
+   "surviving_by_root": {
+    "short_ell0": 513,
+    "short_ell1": 1124,
+    "short_ell2": 1592,
+    "short_ell3": 1804,
+    "short_ell4": 1624
+   }
+  },
+  "method_status": {
+   "assessment": "the static final-orbit-set method decays monotonically with slack and has ZERO power at b = 4: all 1,001 c=1 states are SAT. Every band was decided completely, so the static incidence condition is saturated as stated; going further needs a mechanism it cannot see -- the ORDER in which the K orbits may legally be opened, or their interaction with the fragment-repair obligation.",
+   "closure_by_slack": {
+    "b=1": "97.43%",
+    "b=2": "87.72%",
+    "b=3": "40.06%",
+    "b=4": "0.00%"
+   }
+  },
+  "per_band": {
+   "c=1": {
+    "SAT": 1001,
+    "UNKNOWN": 0,
+    "b": 4,
+    "cheap_test_closures": {
+     "A_coverability": 0,
+     "B_waste_floor": 0,
+     "C_forced_excess": 0,
+     "D_component_hall": 0
+    },
+    "closed_share": "0.00%",
+    "complete_solver_UNSAT": 0,
+    "distinct_instances": 938,
+    "input_states": 1001,
+    "search_nodes_max": 3318,
+    "search_nodes_total": 203396,
+    "state_weighted_closed": 0
+   },
+   "c=2": {
+    "SAT": 3218,
+    "UNKNOWN": 0,
+    "b": 3,
+    "cheap_test_closures": {
+     "A_coverability": 0,
+     "B_waste_floor": 7,
+     "C_forced_excess": 0,
+     "D_component_hall": 0
+    },
+    "closed_share": "40.06%",
+    "complete_solver_UNSAT": 2144,
+    "distinct_instances": 5126,
+    "input_states": 5369,
+    "search_nodes_max": 20178,
+    "search_nodes_total": 3511037,
+    "state_weighted_closed": 2151
+   },
+   "c=3": {
+    "SAT": 1651,
+    "UNKNOWN": 0,
+    "b": 2,
+    "cheap_test_closures": {
+     "A_coverability": 0,
+     "B_waste_floor": 521,
+     "C_forced_excess": 0,
+     "D_component_hall": 0
+    },
+    "closed_share": "87.72%",
+    "complete_solver_UNSAT": 11274,
+    "distinct_instances": 13154,
+    "input_states": 13446,
+    "search_nodes_max": 7951,
+    "search_nodes_total": 2951850,
+    "state_weighted_closed": 11795
+   },
+   "c=4": {
+    "SAT": 639,
+    "UNKNOWN": 0,
+    "b": 1,
+    "cheap_test_closures": {
+     "A_coverability": 461,
+     "B_waste_floor": 8688,
+     "C_forced_excess": 6,
+     "D_component_hall": 0
+    },
+    "closed_share": "97.43%",
+    "complete_solver_UNSAT": 15040,
+    "distinct_instances": 24425,
+    "input_states": 24834,
+    "search_nodes_max": 720,
+    "search_nodes_total": 427689,
+    "state_weighted_closed": 24195
+   }
+  },
+  "report": "research/RR_SLACK_COVER_CLAUDE.md",
+  "reproducer": "src/prove_rr_slack_cover.py",
+  "validation": {
+   "negative_control": {
+    "complete": true,
+    "sat": false
+   },
+   "no_unknowns": "0 node-cap UNKNOWNs in any band; max search 20,178 nodes",
+   "positive_control": "620 instances synthesised from a known 25-orbit covering family (guaranteed satisfiable), spread over slack 0-4: 0 solver failures",
+   "positive_control_detail": {
+    "by_slack": {
+     "0": 7,
+     "1": 57,
+     "2": 120,
+     "3": 210,
+     "4": 226
+    },
+    "failures": 0,
+    "trials": 620
+   },
+   "sat_witnesses": {
+    "checked": 6013,
+    "invalid": 0
+   },
+   "unsat_recheck": {
+    "disagreements": 0,
+    "incomplete": 0,
+    "instances": {
+     "1": 3000,
+     "2": 3000,
+     "3": 2141
+    }
+   }
+  },
+  "verdict": "CLAUDE_SLACK_COVER_MAJOR_PAYOFF"
+ },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
   "Target-B closure: 18->9->8->7->0",

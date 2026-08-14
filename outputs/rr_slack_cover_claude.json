@@ -1,0 +1,287 @@
+{
+ "round": 79,
+ "author": "Claude (independent verification track)",
+ "candidate": "SLACK-COVER (static final-orbit-set condition at COLLISIONS = c < 5)",
+ "verdict": "CLAUDE_SLACK_COVER_MAJOR_PAYOFF",
+ "scope": "Q2 / Area-A. No frontier re-run, no continuation search, no revisiting of the Round-78 c=5 UNSAT instances. The only search is a finite static feasibility decision on the fixed orbit-hexagon incidence system.",
+ "derivation": {
+  "identity_U": "|U| = 5K - b, with K = 25 - O and b = 5 - c",
+  "excess_identity": "for any K blocks, 5K - |union \\ C| = sum_{h in C} m(h) + sum_{h in U} max(m(h)-1,0)",
+  "excess_is_forced": "if the chosen blocks cover U then union \\ C = U exactly, so EXCESS = 5K - |U| = b EXACTLY -- 'excess at most b' is not an independent constraint but the counting slack in the cover, attained automatically",
+  "surviving_constraint": "SLACK-COVER: exactly K currently-closed orbits whose 5-hexagon blocks COVER U; per-block consequence |block & C| <= b",
+  "reduction_at_b0": "at b = 0 every block must lie in U and the blocks must be disjoint, recovering Round 78's exact cover exactly",
+  "candidate_family_is_a_function_of_U_and_b": "any orbit meeting U is automatically closed (0 failures in 20,000 random configurations)",
+  "machine_check": {
+   "identity_failures": 0
+  }
+ },
+ "algebra_check": {
+  "trials": 20000,
+  "u_identity_failures": 0,
+  "excess_identity_failures": 0,
+  "excess_equals_b_failures": 0,
+  "open_orbit_meets_U_failures": 0,
+  "census_identity_failures_on_all_44650_states": 0
+ },
+ "census": {
+  "states_by_c": {
+   "1": 1001,
+   "2": 5369,
+   "3": 13446,
+   "4": 24834
+  },
+  "distinct_instances": 43643,
+  "instances_per_band": {
+   "1": 24425,
+   "2": 13154,
+   "3": 5126,
+   "4": 938
+  },
+  "K_by_c": {
+   "4": {
+    "15": 511,
+    "16": 4014,
+    "17": 8468,
+    "18": 7576,
+    "19": 3680,
+    "20": 551,
+    "21": 34
+   },
+   "3": {
+    "15": 128,
+    "16": 1609,
+    "17": 3981,
+    "18": 4521,
+    "19": 2538,
+    "20": 610,
+    "21": 59
+   },
+   "2": {
+    "15": 26,
+    "16": 485,
+    "17": 1405,
+    "18": 1768,
+    "19": 1240,
+    "20": 381,
+    "21": 64
+   },
+   "1": {
+    "16": 61,
+    "17": 207,
+    "18": 304,
+    "19": 275,
+    "20": 118,
+    "21": 31,
+    "22": 5
+   }
+  }
+ },
+ "per_band": {
+  "c=4": {
+   "b": 1,
+   "input_states": 24834,
+   "distinct_instances": 24425,
+   "cheap_test_closures": {
+    "A_coverability": 461,
+    "B_waste_floor": 8688,
+    "C_forced_excess": 6,
+    "D_component_hall": 0
+   },
+   "complete_solver_UNSAT": 15040,
+   "SAT": 639,
+   "UNKNOWN": 0,
+   "state_weighted_closed": 24195,
+   "closed_share": "97.43%",
+   "search_nodes_total": 427689,
+   "search_nodes_max": 720
+  },
+  "c=3": {
+   "b": 2,
+   "input_states": 13446,
+   "distinct_instances": 13154,
+   "cheap_test_closures": {
+    "A_coverability": 0,
+    "B_waste_floor": 521,
+    "C_forced_excess": 0,
+    "D_component_hall": 0
+   },
+   "complete_solver_UNSAT": 11274,
+   "SAT": 1651,
+   "UNKNOWN": 0,
+   "state_weighted_closed": 11795,
+   "closed_share": "87.72%",
+   "search_nodes_total": 2951850,
+   "search_nodes_max": 7951
+  },
+  "c=2": {
+   "b": 3,
+   "input_states": 5369,
+   "distinct_instances": 5126,
+   "cheap_test_closures": {
+    "A_coverability": 0,
+    "B_waste_floor": 7,
+    "C_forced_excess": 0,
+    "D_component_hall": 0
+   },
+   "complete_solver_UNSAT": 2144,
+   "SAT": 3218,
+   "UNKNOWN": 0,
+   "state_weighted_closed": 2151,
+   "closed_share": "40.06%",
+   "search_nodes_total": 3511037,
+   "search_nodes_max": 20178
+  },
+  "c=1": {
+   "b": 4,
+   "input_states": 1001,
+   "distinct_instances": 938,
+   "cheap_test_closures": {
+    "A_coverability": 0,
+    "B_waste_floor": 0,
+    "C_forced_excess": 0,
+    "D_component_hall": 0
+   },
+   "complete_solver_UNSAT": 0,
+   "SAT": 1001,
+   "UNKNOWN": 0,
+   "state_weighted_closed": 0,
+   "closed_share": "0.00%",
+   "search_nodes_total": 203396,
+   "search_nodes_max": 3318
+  }
+ },
+ "validation": {
+  "positive_control": "620 instances synthesised from a known 25-orbit covering family (guaranteed satisfiable), spread over slack 0-4: 0 solver failures",
+  "positive_control_detail": {
+   "trials": 620,
+   "failures": 0,
+   "by_slack": {
+    "1": 57,
+    "0": 7,
+    "3": 210,
+    "4": 226,
+    "2": 120
+   }
+  },
+  "negative_control": {
+   "sat": false,
+   "complete": true
+  },
+  "unsat_recheck": {
+   "instances": {
+    "1": 3000,
+    "2": 3000,
+    "3": 2141
+   },
+   "disagreements": 0,
+   "incomplete": 0
+  },
+  "sat_witnesses": {
+   "checked": 6013,
+   "invalid": 0
+  },
+  "no_unknowns": "0 node-cap UNKNOWNs in any band; max search 20,178 nodes"
+ },
+ "e1_safety": {
+  "states": 1600,
+  "steps": 4325,
+  "violations": {}
+ },
+ "ledger": {
+  "input": 44650,
+  "closed": 38141,
+  "share": "85.42%",
+  "slack_cover_SAT": 6509,
+  "c5_SAT_carried_from_round_78": 148,
+  "residual_after": 6657,
+  "classes_after": 761,
+  "residual_before": 44798,
+  "classes_before": 1050,
+  "roots_fully_closed": "28 of 33 -- every long root now clear",
+  "surviving_by_root": {
+   "short_ell0": 513,
+   "short_ell1": 1124,
+   "short_ell2": 1592,
+   "short_ell3": 1804,
+   "short_ell4": 1624
+  },
+  "surviving_by_c": {
+   "1": 1001,
+   "2": 3218,
+   "3": 1651,
+   "4": 639,
+   "5": 148
+  },
+  "surviving_by_coordinate": {
+   "P": {
+    "13": 2960,
+    "14": 3697
+   },
+   "O": {
+    "3": 5,
+    "4": 101,
+    "5": 553,
+    "6": 1589,
+    "7": 2107,
+    "8": 1619,
+    "9": 608,
+    "10": 75
+   },
+   "Phi": {
+    "0": 710,
+    "1": 445,
+    "2": 985,
+    "3": 1410,
+    "4": 1620,
+    "5": 1487
+   },
+   "Ndef": {
+    "0": 6657
+   },
+   "Ddead": {
+    "0": 3293,
+    "1": 2548,
+    "2": 735,
+    "3": 81
+   },
+   "r": {
+    "0": 5947,
+    "1": 710
+   },
+   "used": {
+    "1": 2578,
+    "2": 1771,
+    "3": 1149,
+    "4": 716,
+    "5": 443
+   },
+   "K": {
+    "15": 75,
+    "16": 608,
+    "17": 1619,
+    "18": 2107,
+    "19": 1589,
+    "20": 553,
+    "21": 101,
+    "22": 5
+   },
+   "c": {
+    "1": 1001,
+    "2": 3218,
+    "3": 1651,
+    "4": 639,
+    "5": 148
+   }
+  }
+ },
+ "method_status": {
+  "closure_by_slack": {
+   "b=1": "97.43%",
+   "b=2": "87.72%",
+   "b=3": "40.06%",
+   "b=4": "0.00%"
+  },
+  "assessment": "the static final-orbit-set method decays monotonically with slack and has ZERO power at b = 4: all 1,001 c=1 states are SAT. Every band was decided completely, so the static incidence condition is saturated as stated; going further needs a mechanism it cannot see -- the ORDER in which the K orbits may legally be opened, or their interaction with the fragment-repair obligation."
+ },
+ "disclaimer": "This project has not proved L6 >= 872, and nothing here bears on that."
+}
