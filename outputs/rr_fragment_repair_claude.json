@@ -1,0 +1,182 @@
+{
+ "round": 83,
+ "author": "Claude (independent verification track)",
+ "candidate": "FRAGMENT-REPAIR OBLIGATION",
+ "verdict": "CLAUDE_FRAGMENT_REPAIR_NO_PAYOFF",
+ "scope": "Q2 / Area-A. Residual fetched by Round-80 provenance from stored checkpoints; no frontier replay, no path search.",
+ "stage_A_taxonomy": {
+  "engine_semantics": {
+   "registration": "extend() sets om[q] |= 1<<phase whenever move.weight >= 2; a weight-1 rotation never registers. initial_state registers its endpoint.",
+   "abandonment": "abandonment = not state.visited(word_after(p, SIGMA)), evaluated at the pre-joint endpoint p' and only for weight >= 2",
+   "fragment": "f1_normal_form's fragment_hex -- the unique non-current partially visited hexagon. It is created by an abandonment (F: 0->1) and repaired when a later joint re-enters it and the pass fills it. Distinct from Ndef.",
+   "Ndef": "Ndef = S + F - O, with dS = int(weight>=3), dF = int(abandonment), dO = int(new_orbit); so dNdef = dS + dF - dO",
+   "R_vs_Z": "R = weight-3 into an already-open orbit (dNdef = +1); Z3 = weight-3 into a fresh orbit (dNdef = 0); Z2 = weight-2 into an already-open orbit (dNdef = 0)"
+  },
+  "table": [
+   {
+    "weight": 2,
+    "abandonment": false,
+    "new_orbit": false,
+    "dF": 0,
+    "dS": 0,
+    "dO": 0,
+    "dNdef": 0,
+    "name": "Z2",
+    "creates_fragment": false,
+    "opens_fresh_orbit": false,
+    "reenters_open_orbit": true,
+    "observed_area_a_admissible": 112105,
+    "observed_pruned": 248
+   },
+   {
+    "weight": 2,
+    "abandonment": false,
+    "new_orbit": true,
+    "dF": 0,
+    "dS": 0,
+    "dO": 1,
+    "dNdef": -1,
+    "name": "FORBIDDEN (blocked-w2 fresh)",
+    "creates_fragment": false,
+    "opens_fresh_orbit": true,
+    "reenters_open_orbit": false,
+    "observed_area_a_admissible": 0,
+    "observed_pruned": 0
+   },
+   {
+    "weight": 2,
+    "abandonment": true,
+    "new_orbit": false,
+    "dF": 1,
+    "dS": 0,
+    "dO": 0,
+    "dNdef": 1,
+    "name": "A2",
+    "creates_fragment": true,
+    "opens_fresh_orbit": false,
+    "reenters_open_orbit": true,
+    "observed_area_a_admissible": 217,
+    "observed_pruned": 7594
+   },
+   {
+    "weight": 2,
+    "abandonment": true,
+    "new_orbit": true,
+    "dF": 1,
+    "dS": 0,
+    "dO": 1,
+    "dNdef": 0,
+    "name": "Z2abandon",
+    "creates_fragment": true,
+    "opens_fresh_orbit": true,
+    "reenters_open_orbit": false,
+    "observed_area_a_admissible": 17408,
+    "observed_pruned": 519952
+   },
+   {
+    "weight": 3,
+    "abandonment": false,
+    "new_orbit": false,
+    "dF": 0,
+    "dS": 1,
+    "dO": 0,
+    "dNdef": 1,
+    "name": "R",
+    "creates_fragment": false,
+    "opens_fresh_orbit": false,
+    "reenters_open_orbit": true,
+    "observed_area_a_admissible": 91564,
+    "observed_pruned": 22192
+   },
+   {
+    "weight": 3,
+    "abandonment": false,
+    "new_orbit": true,
+    "dF": 0,
+    "dS": 1,
+    "dO": 1,
+    "dNdef": 0,
+    "name": "Z3",
+    "creates_fragment": false,
+    "opens_fresh_orbit": true,
+    "reenters_open_orbit": false,
+    "observed_area_a_admissible": 224495,
+    "observed_pruned": 489
+   },
+   {
+    "weight": 3,
+    "abandonment": true,
+    "new_orbit": false,
+    "dF": 1,
+    "dS": 1,
+    "dO": 0,
+    "dNdef": 2,
+    "name": "J",
+    "creates_fragment": true,
+    "opens_fresh_orbit": false,
+    "reenters_open_orbit": true,
+    "observed_area_a_admissible": 1013,
+    "observed_pruned": 49456
+   },
+   {
+    "weight": 3,
+    "abandonment": true,
+    "new_orbit": true,
+    "dF": 1,
+    "dS": 1,
+    "dO": 1,
+    "dNdef": 1,
+    "name": "A3",
+    "creates_fragment": true,
+    "opens_fresh_orbit": true,
+    "reenters_open_orbit": false,
+    "observed_area_a_admissible": 47506,
+    "observed_pruned": 1553244
+   }
+  ],
+  "observed_macro_edges": 2647483,
+  "nodes_expanded": 120000
+ },
+ "blocked_w2_lemma": {
+  "status": "PROVED (HP) -- previously cited from prior work and explicitly recorded in src/analyze_j_completion.py as 'a bounded empirical check, not a proof'",
+  "why_it_matters": "area_a_prune_reason's N_exceeded_monotone is Q1-SAFE and used by every search in the repo; its soundness needs dNdef >= 0, which needs exactly this lemma",
+  "geometric_fact": "for every one of the 720 words and all 6 rotation lengths, the w2 joint target t and the blocking window sigma(p') lie in the SAME E-orbit with t exactly one phase past the blocker: t = E(sigma(p')). 720 x 6 = 4,320 cases, 0 exceptions.",
+  "proof": "A window becomes visited in exactly three ways: as a joint target (weight >= 2, hence REGISTERED), as the initial endpoint (registered), or as a rotation target. A rotation reaches blocker = sigma(p') only from p'. By the no-repeat rule p' is visited exactly once, and that visit is the current one at the end of the current rotation run, which has not gone past p'. So a visited blocker cannot have been rotation-visited, hence it is registered. The blocker is a port of the target's orbit, so that orbit already holds a registered port and new_orbit is False. At ell = 5 the blocker is p itself -- the pass entry, a joint target -- which is also why E^1 preserves the orbit. QED",
+  "computational_confirmation": "the forbidden row (weight 2, abandonment False, new_orbit True) occurs 0 times among 2,647,483 macro edges over 120,000 expanded nodes -- and 0 times even among PRUNED transitions, so it is absent structurally rather than filtered",
+  "consequence": "dNdef >= 0 for every legal macro joint; Ndef is monotone non-decreasing; N_exceeded_monotone is sound",
+  "regression_test": "tests/test_blocked_w2_lemma.py"
+ },
+ "stage_B_minimum_unavoidable_defect_count": {
+  "F_distribution_over_residual": {
+   "1": 6657
+  },
+  "consequence_of_F_equals_1": "every residual state has F = 1, so no further abandonment is legal (F_exceeded). Combined with the blocked-w2 lemma, the remaining joint alphabet is exactly {rotation, Z2 (w2 -> open, dNdef 0), Z3 (w3 -> fresh, dNdef 0), R (w3 -> open, dNdef +1)}.",
+  "no_new_fragment_can_be_created": "fragment creation requires an abandonment, which requires F budget, which is exhausted. So there is no fragment-creation obligation to charge at all; the single existing fragment is the unique doubly-passed hexagon already accounted for by the Round-77/78 collision and cover machinery.",
+  "zero_defect_openings": "Z3 opens a fresh orbit at dNdef = 0, and all 144 orbits admit a Z3 opening (each from 56 distinct source orbits, over-approximated over all words, rotation lengths and w3 joints)",
+  "M_def_distribution": {
+   "0": 6657
+  },
+  "result": "M_def = 0 for all 6,657 states: every cover candidate has a zero-defect opening available"
+ },
+ "stage_C_repair_supply": "NOT ATTEMPTED -- the payoff gate stops the round when every state has a cover solution with zero unavoidable defect creation, which it does",
+ "stage_D_matching_flow": "NOT ATTEMPTED, same reason",
+ "adversarial_checks": {
+  "weight2_fresh_orbit_without_abandonment": "searched for explicitly; 0 occurrences in 2.6M macro edges, and now proved impossible rather than merely unobserved",
+  "negative_dNdef_rows": "the taxonomy shows (2, False, True) is the ONLY negative row; it is exactly the forbidden one",
+  "e1_e2_interaction": "E^1 is the ell = 5 instance of the Z2 row (dNdef = 0) and E^2 the ell = 5 instance of the R row (dNdef = +1); neither can create or repair a fragment, since neither abandons"
+ },
+ "diagnostics": {
+  "states": 6657,
+  "closed": 0,
+  "unknown": 0,
+  "minimum_unavoidable_defect_count": "0 for every state, in every c band",
+  "opening_transition_type_responsible": "Z3 throughout -- the only legal opening once F = 1",
+  "repair_opportunity_counts": "not computed; no creation obligation exists to repair"
+ },
+ "ledger": {
+  "residual_before": 6657,
+  "closed": 0,
+  "residual_after": 6657
+ },
+ "disclaimer": "This project has not proved L6 >= 872, and nothing here bears on that."
+}
