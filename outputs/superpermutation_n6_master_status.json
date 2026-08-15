@@ -393,6 +393,7 @@
   }
  ],
  "quantitative_ledger_note_round_90c": "Audited Q2/Area-A residual: 6,586 (6,657 archive - 13 Round 85 - 58 Round 90).",
+ "quantitative_ledger_note_round_92": "Q2/Area-A residual: 6,396 (6,657 archive - 13 R85 - 58 R90 - 4 R91 - 186 R92).",
  "repo_tree_roots": {
   "claude_branch": "claude/n6-supersequence-length-rn17wf",
   "codex_tip_branch": "codex/round-r1-37-hex82-t4",
@@ -2669,6 +2670,132 @@
   "round": "90c / 91-A",
   "scope_note": "라운드 90 전체가 반박된 것이 아니다. 58개 폐쇄는 예산 계수만 사용한다.",
   "wording_correction": "부분 육각형이 항상 2개는 아니다: r=0 이면 fragment + 현재, r=1 이면 현재만."
+ },
+ "round_92_short_local": {
+  "artifacts": [
+   "outputs/rr_short_local_ledger.jsonl.gz",
+   "outputs/rr_short_local_claude.json"
+  ],
+  "author": "Claude (독립 검증 트랙)",
+  "baseline": {
+   "already_closed": 75,
+   "archive": 6657,
+   "input": 6582,
+   "note": "이미 닫힌 75 = 라운드 85 의 13 + 라운드 90 의 58 + 라운드 91 의 4"
+  },
+  "controls": {
+   "A": {
+    "matches_round85_sid_for_sid": true,
+    "model": "generic budget 2",
+    "unsat": 13
+   },
+   "B": {
+    "matches_round90_sid_for_sid": true,
+    "model": "state-dependent budget 0/1, generic Gshort",
+    "unsat": 71
+   }
+  },
+  "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+  "documents": [
+   "research/RR_SHORT_LOCAL_CLAUDE.md"
+  ],
+  "model": "fragment-local short 기회 (SHORT_LOCAL) 로 일반 Gshort 예외를 대체한 결합 필요조건",
+  "next_boundary_set": {
+   "count": 64,
+   "description": "결합 조건을 통과하는 cover 가 정확히 1개인 생존자. 전부 short 를 쓰지 않는다."
+  },
+  "reason_classification": {
+   "E_target_outside_SHORT_LOCAL": 186,
+   "note": "186/186. 일반 모델 witness 의 short target 이 SHORT_LOCAL 안에 있었던 경우는 0건이고, short 를 아예 쓰지 않은 경우도 0건이다. 즉 payoff 는 전적으로 target 제한에서 나오며 공유 port 규칙은 추가 폐쇄를 만들지 않았다."
+  },
+  "reproduce": [
+   "python3 src/probe_rr_short_local.py build",
+   "python3 src/probe_rr_short_local.py control --model budget2",
+   "python3 src/probe_rr_short_local.py control --model generic1",
+   "python3 src/probe_rr_short_local.py sweep --exclude <closed75.json>"
+  ],
+  "residual_after": 6396,
+  "results": {
+   "SAT": 6396,
+   "UNKNOWN": 0,
+   "UNSAT": 186,
+   "by_budget": {
+    "1": 186
+   },
+   "by_c": {
+    "2": 105,
+    "3": 78,
+    "4": 3
+   },
+   "by_root": {
+    "short_ell1": 61,
+    "short_ell2": 78,
+    "short_ell3": 47
+   },
+   "input": 6582,
+   "new_closures": 186,
+   "residual_after": 6396,
+   "seconds": 33
+  },
+  "round": 92,
+  "round91_witness_recheck": "네 경계 witness: local 모델 4/4 UNSAT, 일반 모델 4/4 SAT — 라운드 91 독립 판정과 일치",
+  "short_local_census": {
+   "budget": {
+    "0": 710,
+    "1": 5947
+   },
+   "budget1_with_zero_fresh_targets": 0,
+   "by_collision_band": {
+    "1": {
+     "2": 857
+    },
+    "2": {
+     "1": 77,
+     "2": 2792
+    },
+    "3": {
+     "1": 138,
+     "2": 1335
+    },
+    "4": {
+     "1": 27,
+     "2": 576
+    },
+    "5": {
+     "1": 6,
+     "2": 139
+    }
+   },
+   "c_f_histogram": {
+    "1": 445,
+    "2": 985,
+    "3": 1410,
+    "4": 1620,
+    "5": 1487
+   },
+   "distinct_target_orbits": {
+    "3": 5947
+   },
+   "fresh_target_count": {
+    "1": 248,
+    "2": 5699
+   },
+   "source_ports_per_state": {
+    "1": 5947
+   }
+  },
+  "survivor_diagnostic": {
+   "note": "생존자 중 short 기회를 쓰는 통과 cover 를 가진 상태는 0개다. short-edge 계열은 폐쇄 지렛대로 소진됐다.",
+   "surviving_cover_histogram": {
+    "1": 64,
+    "2-5": 1335,
+    "6-20": 3782,
+    ">20": 1215
+   },
+   "survivors_using_short": 0,
+   "survivors_with_no_short_cover": 6396,
+   "unique_surviving_cover": 64
+  }
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
