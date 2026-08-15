@@ -3098,6 +3098,47 @@
   "purpose": "r=1 비대칭 falsification. 정리 강화 없음, 원장 변경 없음.",
   "round": "94b"
  },
+ "round_94c_layer_a_soundness": {
+  "artifacts": [
+   "outputs/rr_layer_a_archive/layer_a_closures.jsonl.gz",
+   "outputs/rr_layer_a_claude.json"
+  ],
+  "author": "Claude (독립 검증 트랙)",
+  "bijection_argument": "121-P = empty + fragment holds on 6,657/6,657, and future pass starts = 121-P, so future passes correspond 1:1 to obligations; no unrepresented intermediate pass exists (dangerous case C cannot arise)",
+  "classifier_bug_note": "첫 실행의 10,989 는 분류기가 다른 cover 의 그래프를 참조한 버그였고 재바인딩 후 0",
+  "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+  "documents": [
+   "research/RR_LAYER_A_SOUNDNESS_CLAUDE.md"
+  ],
+  "exhaustive_predecessor_classification": {
+   "already_visited": 3570,
+   "legal_and_represented": 19077,
+   "outside_final_cover": 155481,
+   "source_hex_not_empty": 1,
+   "wrong_ell_geometry": 10079
+  },
+  "gate": "Outcome B — Layer A 204 를 감사에 우선 제출, B2 32 보류",
+  "gmax": {
+   "rescued": 227,
+   "still_unreachable": 1
+  },
+  "gmax_interpretation": "모든 ell 허용 시 227/228 구제 — payoff 전체가 감사된 ell=5 제약에 달려 있으며 여유 마진 0",
+  "ledger": {
+   "audited_residual": 5030,
+   "changed": false
+  },
+  "legal_but_omitted": 0,
+  "lemma": "genuine continuation => root reaches every obligation vertex; vertices=empty hexagons(+fragment), root=current pass, edge via ell=5 (fragment 5-c_f) joint targets between final-orbit entry candidates",
+  "r1_repaired_ports": "both already fired: hexagon full, not current hexagon, one edge per pass, one fire per port (Round 87)",
+  "round": "94c",
+  "section5_gap": "실현 이력 컷 검증 불가 — 아카이브에 리터럴 접미(완성)가 없고 새 탐색은 금지",
+  "split": {
+   "A_including": 204,
+   "B2_including": 32,
+   "both": 8,
+   "union": 228
+  }
+ },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
   "Target-B closure: 18->9->8->7->0",
