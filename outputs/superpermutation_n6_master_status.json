@@ -2307,6 +2307,206 @@
   "what_this_changes": "다음 라운드는 cover 자유도를 더 줄이려 하기보다, forced core 자체가 위반하는 제약을 찾아야 한다. 이번 라운드가 처음으로 그 core 를 완전 판정으로 확정했으므로 그것이 가능해졌다.",
   "why_zero": "universal core 는 존재하지만 그 core 가 동적 제약을 위반하지 않는다. forced 궤도를 가진 상태에서도 forced 궤도들은 G5 도달성과 source-port 매칭을 모두 만족하며, 남은 optional 자유도(중앙값 60~70)가 나머지를 흡수한다. 벽은 'cover 해가 무수히 많다' 가 아니라 '해가 100개 남짓뿐인데도 그중 하나는 언제나 모든 제약을 통과한다' 이다."
  },
+ "round_89_forced_core": {
+  "author": "Claude (독립 검증 트랙)",
+  "broader_sample": {
+   "dynamically_admissible_cover_histogram": {
+    "21-100": 120,
+    "6-20": 23,
+    ">100": 157
+   },
+   "reading": "tight 하지 않은 상태에서는 동적 허용 cover 가 대부분 20개를 넘는다. §11 의 종료 조건 -- '모든 상태가 여전히 다수의 동적 허용 cover 를 갖고 forced core 가 풍부한 지원을 받는다' -- 가 성립한다.",
+   "sample": "순차 300 상태(전체 dyn 계산은 비용 문제로 tight 부분집합에 한정)"
+  },
+  "candidate": "FORCED CORE 의 동역학",
+  "conditional_propagation": {
+   "note": "조건부 backbone 전파는 cover 자유도를 줄이는 절차다. 동적 허용 cover 가 1개인 19 상태에서는 최종 궤도 집합이 이미 결정되어 전파의 극한이고, 그 밖의 상태는 §9 표본에서 여전히 20개 초과의 허용 cover 를 가지므로 전파가 유일성에 도달하지 못한다.",
+   "status": "19개 유일 상태에서 자명하게 완결"
+  },
+  "disclaimer": "이 프로젝트는 L6 >= 872 를 증명하지 않았으며, 여기의 어떤 내용도 그에 관한 주장이 아니다.",
+  "document": "research/RR_FORCED_CORE_CLAUDE.md",
+  "fcore_source_hall": {
+   "closures": 0,
+   "deficit_distribution": {
+    "0": 2637
+   },
+   "model": "forced target 만 left, right 는 가장 관대한 source 우주 -- 현재 열린 궤도 A 와 모든 candidate(OPTIONAL 포함)의 5 port 전부. optional 을 중간 source 로 쓸 가능성을 배제하지 않기 위해 의도적으로 최대한 관대하게 잡았다.",
+   "result": "2,637 상태 전부 결손 0. forced core 는 언제나 풍부한 source 지원을 받는다.",
+   "states_with_positive_deficit": 0
+  },
+  "full_census": {
+   "cover_count_histogram": {
+    "1": 24,
+    "101-1000": 1847,
+    "2-5": 123,
+    "21-100": 3609,
+    "6-20": 1049,
+    ">1000": 5
+   },
+   "forbidden_histogram_40plus_merged": {
+    "0": 101,
+    "10": 6,
+    "11": 10,
+    "12": 25,
+    "13": 29,
+    "14": 4,
+    "15": 1,
+    "16": 13,
+    "17": 54,
+    "18": 14,
+    "19": 69,
+    "20": 24,
+    "21": 11,
+    "22": 46,
+    "23": 46,
+    "24": 14,
+    "25": 51,
+    "26": 36,
+    "27": 8,
+    "28": 37,
+    "29": 25,
+    "3": 6,
+    "30": 18,
+    "31": 22,
+    "32": 22,
+    "33": 19,
+    "34": 41,
+    "35": 37,
+    "36": 12,
+    "37": 9,
+    "38": 47,
+    "39": 70,
+    "40": 5716,
+    "6": 3,
+    "7": 4,
+    "8": 5,
+    "9": 2
+   },
+   "forced_count_histogram": {
+    "0": 4020,
+    "1": 1248,
+    "10": 7,
+    "11": 10,
+    "12": 7,
+    "13": 6,
+    "14": 6,
+    "15": 2,
+    "16": 8,
+    "17": 14,
+    "18": 6,
+    "19": 3,
+    "2": 395,
+    "20": 1,
+    "3": 296,
+    "4": 246,
+    "5": 131,
+    "6": 112,
+    "7": 72,
+    "8": 50,
+    "9": 17
+   },
+   "max_forced": 20,
+   "note": "라운드 88 의 표본 결과(39.7%)가 전수에서 39.6% 로 확인됐다. cover 해가 정확히 1개인 상태가 24개, 5개 이하가 147개 있다.",
+   "share": "39.6%",
+   "states": 6657,
+   "states_with_forced_core": 2637,
+   "unknown": 0
+  },
+  "headline": "전수 forced/forbidden census 를 완료했다(6,657, UNKNOWN 0). forced core 는 2,637 상태(39.6%)에 실재하지만 가장 관대한 source 우주에서 Hall 결손이 전부 0이며, 새 폐쇄는 0이다. 다만 동적으로 허용되는 cover 가 정확히 1개인 상태 19개를 발견했다 -- 이것이 다음 정리의 표적이다.",
+  "method": {
+   "complete_finite_decision": "cover 를 완전 열거하면 FORCED = 모든 cover 의 교집합, FORBIDDEN = candidate ∖ 합집합 이다. 열거가 캡(5,000 해 / 1.5M 노드)에 닿지 않고 끝나면 §10 이 요구하는 완전 유한 판정이며, 상태당 260회 개별 solver 호출을 1회 열거로 대체한다.",
+   "seconds": 938,
+   "unknown": 0
+  },
+  "next_target": "동적 허용 cover 가 유일한 19개 상태. 그 경우 최종 궤도 집합 S 가 결정되므로, S 위에서 순서/위상/port 를 동시에 요구하는 정리를 만들 수 있고 cover 선택의 회피 경로가 존재하지 않는다.",
+  "optional_support": {
+   "note": "§3 의 source 우주에 OPTIONAL 궤도를 의도적으로 전부 포함시켰다. optional 이 중간 source 로 쓰일 수 없음을 증명하지 않은 상태에서 optional 을 제외한 결손을 폐쇄에 쓰면 UNSOUND 이므로 시도하지 않았다.",
+   "status": "측정만, 폐쇄 근거 아님"
+  },
+  "payoff": {
+   "closed": 0,
+   "input": 6644,
+   "residual": 6644,
+   "unknown": 0
+  },
+  "predecessor_cut": {
+   "argument": "entry cut 은 '어떤 forced target 도 사용 가능한 공급 port 를 갖지 못한다'를 요구한다. §3 의 매칭 결손이 0이면 forced target 전체에 대한 완전 매칭이 존재하므로 개별 target 은 반드시 공급자를 갖는다. 따라서 결손 0인 2,637 상태에서 predecessor/entry cut 의 폐쇄는 0이며, 이는 관찰이 아니라 함의다.",
+   "closures": 0,
+   "status": "§3 에 의해 지배됨(별도 폐쇄 시도 없음)"
+  },
+  "reproduce": [
+   "python3 src/probe_rr_forced_core.py 6657 nodyn",
+   "python3 src/probe_rr_forced_core_dynamics.py hall --census c1_census_6657.json",
+   "python3 src/probe_rr_forced_core_dynamics.py unique --census c1_census_6657.json"
+  ],
+  "round": 89,
+  "scope": "Q2 / Area-A. 잔여는 라운드-80 아카이브에서 읽음. frontier 재실행 없음, 무제한 continuation 탐색 없음, short-edge 예산 재정의 없음, 단일 스텝 테스트 재실행 없음.",
+  "tight_states": {
+   "dynamically_admissible_cover_histogram": {
+    "0": 13,
+    "1": 19,
+    "2-5": 115,
+    "6-20": 1043
+   },
+   "identical_to_round_85": "동적 허용 cover 가 0개인 13 상태는 라운드 85 가 닫은 13개와 sid 단위로 정확히 동일하다(교집합 13, 새로 닫힘 0).",
+   "incomplete": 0,
+   "lead": "동적으로 허용되는 cover 가 **정확히 하나뿐인 상태가 19개** 있다. 이들은 최종 궤도 집합이 사실상 유일하게 결정되므로, 다음 구조 정리가 조준할 자연스러운 표적이다.",
+   "selection": "forced >= 1 이고 cover 해 <= 20 인 1,190 상태 (§8 우선순위)",
+   "states_with_exactly_one": 19,
+   "states_with_zero": 13,
+   "unique_profile": {
+    "K": {
+     "16": 5,
+     "17": 12,
+     "18": 2
+    },
+    "c": {
+     "2": 11,
+     "3": 8
+    },
+    "forced_subset_of_unique_cover": true,
+    "root": {
+     "short_ell1": 1,
+     "short_ell2": 8,
+     "short_ell3": 10
+    },
+    "short_edges_used": {
+     "1": 4,
+     "2": 15
+    }
+   },
+   "unique_state_artifact": "outputs/rr_forced_core_unique_states.json"
+  },
+  "unique_states": {
+   "artifact": "outputs/rr_forced_core_unique_states.json",
+   "completeness": "1,190 tight 상태 모두 캡(5,000해 / 1.5M 노드) 미도달, INCOMPLETE 0. 따라서 이 개수들은 완전 유한 판정이다.",
+   "count": 19,
+   "profile": {
+    "K": {
+     "16": 5,
+     "17": 12,
+     "18": 2
+    },
+    "c": {
+     "2": 11,
+     "3": 8
+    },
+    "forced_subset_of_unique_cover": true,
+    "root": {
+     "short_ell1": 1,
+     "short_ell2": 8,
+     "short_ell3": 10
+    },
+    "short_edges_used": {
+     "1": 4,
+     "2": 15
+    }
+   },
+   "share_of_residual": "0.29% (19 / 6,644); 전부 닫혀도 잔여 6,625"
+  },
+  "verdict": "CLAUDE_DYNAMIC_UNIQUE_COVER_LEAD",
+  "why_zero": "forced core 는 실재하지만 동적 제약을 위반하지 않는다. 가장 관대한 source 우주에서 Hall 결손이 전부 0이고, OPTIONAL 궤도가 언제나 필요한 지원을 공급한다. 라운드 88 이 관찰한 벽 -- 해가 적은데도 그중 하나는 늘 통과한다 -- 이 forced core 수준에서도 그대로 재현된다."
+ },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
   "Target-B closure: 18->9->8->7->0",
