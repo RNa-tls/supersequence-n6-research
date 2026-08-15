@@ -397,6 +397,7 @@
  "quantitative_ledger_note_round_94": "Audited Q2/Area-A residual: 5,030 (Round 93 Codex-confirmed). Round-94 closures (228) are provisional and blocked on the r=1 asymmetry.",
  "quantitative_ledger_note_round_94d": "Audited Q2/Area-A residual: 4,834 (5,030 - 196 Layer-A closures, Codex-corrected).",
  "quantitative_ledger_note_round_95": "Audited Q2/Area-A residual: 4,802 (5,030 - 196 Layer A - 32 B2-only). Round 95 closed 0.",
+ "quantitative_ledger_note_round_96": "Audited Q2/Area-A residual: 4,802 unchanged. Round 96 D1 closed 4 provisionally (pending audit); D2/E1 zero.",
  "repo_tree_roots": {
   "claude_branch": "claude/n6-supersequence-length-rn17wf",
   "codex_tip_branch": "codex/round-r1-37-hex82-t4",
@@ -3245,6 +3246,62 @@
    "SAT": 4802
   },
   "why_vacuous": "A+B2 를 통과한 그래프에서는 source 가 m+1 개, target 이 m 개이고 root 가 모든 의무에 도달하므로 증가경로가 항상 root 를 편입시킨다 — 차수 완화는 Hall+A+B2 를 넘어서지 못한다."
+ },
+ "round_96_separator": {
+  "D0": {
+   "pairs": 19955,
+   "states": 4802
+  },
+  "D1": {
+   "pair_fail": 184,
+   "pair_pass": 19771,
+   "r": {
+    "0": 3,
+    "1": 1
+   },
+   "state_closed": 4
+  },
+  "D2": {
+   "note": "저차수 정점 쌍으로 제한한 건전한 부분 검사; UNIQUE_AB 1,069 파일럿에서도 0",
+   "pair_fail": 0,
+   "state_closed": 0
+  },
+  "D3": {
+   "status": "미실시 — D2 가 0 이므로 §4 게이트에서 중단"
+  },
+  "D4": {
+   "status": "미실시 — 이번 라운드 예산 밖. 다음 라운드 후보로 남긴다"
+  },
+  "Ddir": {
+   "status": "미실시 — source/sink SCC 상한은 증명 전이라 사용하지 않았다"
+  },
+  "E1": {
+   "distribution": {
+    "0": 19421,
+    "1": 534
+   },
+   "pair_fail": 0,
+   "rule": "root 아닌 무향 차수-1 정점 <= 1"
+  },
+  "artifacts": [
+   "outputs/rr_separator_ledger.jsonl.gz"
+  ],
+  "author": "Claude (독립 검증 트랙)",
+  "baseline": 4802,
+  "disclaimer": "This project has not proved L6 >= 872. Complete closure of this Q2 residual would still leave the outer Q1/NR6 reduction as a separate proof obligation.",
+  "lemma": "c(U(G)-S) <= |S|+1, root 를 정점으로 포함한 그래프에서. 끝점은 root 와 terminal 뿐.",
+  "next": "D4 강제-간선 전파, 그리고 그 다음은 경계 크기를 키운 컷 생성 또는 UNIQUE_AB 한정 정확 Hamilton",
+  "positive_control": {
+   "explicit_hamilton_graphs": 400,
+   "false_rejections": 0
+  },
+  "provisional_residual": 4798,
+  "round": 96,
+  "unique_ab": {
+   "closed": 0,
+   "non_unique_closed": 4,
+   "total": 1069
+  }
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

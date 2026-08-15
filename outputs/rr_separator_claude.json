@@ -1,0 +1,56 @@
+{
+ "round": 96,
+ "author": "Claude (독립 검증 트랙)",
+ "baseline": 4802,
+ "lemma": "c(U(G)-S) <= |S|+1, root 를 정점으로 포함한 그래프에서. 끝점은 root 와 terminal 뿐.",
+ "D0": {
+  "pairs": 19955,
+  "states": 4802
+ },
+ "E1": {
+  "rule": "root 아닌 무향 차수-1 정점 <= 1",
+  "distribution": {
+   "0": 19421,
+   "1": 534
+  },
+  "pair_fail": 0
+ },
+ "D1": {
+  "pair_fail": 184,
+  "pair_pass": 19771,
+  "state_closed": 4,
+  "r": {
+   "0": 3,
+   "1": 1
+  }
+ },
+ "D2": {
+  "pair_fail": 0,
+  "state_closed": 0,
+  "note": "저차수 정점 쌍으로 제한한 건전한 부분 검사; UNIQUE_AB 1,069 파일럿에서도 0"
+ },
+ "D3": {
+  "status": "미실시 — D2 가 0 이므로 §4 게이트에서 중단"
+ },
+ "D4": {
+  "status": "미실시 — 이번 라운드 예산 밖. 다음 라운드 후보로 남긴다"
+ },
+ "Ddir": {
+  "status": "미실시 — source/sink SCC 상한은 증명 전이라 사용하지 않았다"
+ },
+ "positive_control": {
+  "explicit_hamilton_graphs": 400,
+  "false_rejections": 0
+ },
+ "unique_ab": {
+  "total": 1069,
+  "closed": 0,
+  "non_unique_closed": 4
+ },
+ "provisional_residual": 4798,
+ "next": "D4 강제-간선 전파, 그리고 그 다음은 경계 크기를 키운 컷 생성 또는 UNIQUE_AB 한정 정확 Hamilton",
+ "artifacts": [
+  "outputs/rr_separator_ledger.jsonl.gz"
+ ],
+ "disclaimer": "This project has not proved L6 >= 872. Complete closure of this Q2 residual would still leave the outer Q1/NR6 reduction as a separate proof obligation."
+}
