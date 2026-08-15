@@ -2,7 +2,7 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Current Q2 / Area-A residual: 4,834 states** (6,657 archived baseline − 13 closed in
+> **Current Q2 / Area-A residual: 4,802 states** (6,657 archived baseline − 13 closed in
 > Round 85 − 58 in Round 90 − 4 in Round 91 − 186 in Round 92). SHORT-PASS LOCALITY and the
 > four former boundary witnesses are Codex-audited; Round 92 replaced the generic short
 > exception with the state's fragment-local short opportunity. This project has not proved

@@ -1,0 +1,48 @@
+{
+ "round": 95,
+ "author": "Claude (독립 검증 트랙)",
+ "baseline": 4802,
+ "census": {
+  "ab_passing_cover_counts": {
+   ">20": 60,
+   "2-5": 2685,
+   "6-20": 988,
+   "1": 1069
+  },
+  "total_pairs": 19955,
+  "codex_cross_check": "B2 PASS 19,955 와 정확히 일치",
+  "UNIQUE_AB": 1069
+ },
+ "C1": {
+  "theorem": "genuine path 에서 terminal 을 제외한 모든 의무는 서로 다른 후속을 가진다 — source 포화 매칭 (terminal 1개 허용)",
+  "pair_pass": 19955,
+  "pair_fail": 0,
+  "state_closed": 0
+ },
+ "C2": {
+  "theorem": "배정은 ({root} ∪ 의무∖{terminal}) → 의무 의 전단사이므로 root 가 반드시 쓰인다. Hall 은 root 미사용을 허용하므로 이것이 진짜 강화다.",
+  "pair_pass": 19955,
+  "pair_fail": 0,
+  "state_closed": 0
+ },
+ "why_vacuous": "A+B2 를 통과한 그래프에서는 source 가 m+1 개, target 이 m 개이고 root 가 모든 의무에 도달하므로 증가경로가 항상 root 를 편입시킨다 — 차수 완화는 Hall+A+B2 를 넘어서지 못한다.",
+ "r_split": {
+  "0": {
+   "SAT": 4476
+  },
+  "1": {
+   "SAT": 326
+  }
+ },
+ "state": {
+  "SAT": 4802
+ },
+ "UNIQUE_AB_payoff": 0,
+ "C3": "미실시 — subtour/컷 제거는 §6 대로 C2 payoff 측정 후에만이고, 차수+subtour 는 사실상 뿌리 Hamilton 경로와 동치라 정확 경로 복잡도가 시작되는 지점이다.",
+ "provisional_residual": 4802,
+ "next_missing": "선택된 후속 간선이 root 와 분리된 사이클을 만들지 않아야 한다는 조건(subtour 제거). 그 지점부터 exact Hamilton 구조다.",
+ "artifacts": [
+  "outputs/rr_degree_assignment_ledger.jsonl.gz"
+ ],
+ "disclaimer": "This project has not proved L6 >= 872. Even complete closure of the Q2 residual would establish only the stated Q2/Area-A conditional region; the outer Q1/NR6 reduction remains a separate proof obligation."
+}
