@@ -1,0 +1,679 @@
+{
+ "round": 90,
+ "author": "Claude (독립 검증 트랙)",
+ "theorem": "단일 short pass 정리 — F=1 이고 현재 육각형 방문 칸이 1개인 잔여 상태에서 미래 ell<5 매크로 edge 는 fragment 가 있으면 정확히 1개, 없으면 0개이며, 있을 때 출발 port 와 ell 이 상태에 의해 유일하게 결정된다.",
+ "premise_census": {
+  "states": 6657,
+  "current_hex_one_cell": 6657,
+  "F1": 6657,
+  "future_short_pass_budget": {
+   "1": 5947,
+   "0": 710
+  },
+  "pass_count_identity_holds": 6657,
+  "note": "121 - P == 빈 육각형 수 + fragment 수 가 6,657 전부에서 성립"
+ },
+ "control": {
+  "budget2_reproduces_round85": true,
+  "budget2_unsat": 13,
+  "note": "같은 파이프라인을 예산 2로 돌리면 라운드 85/88 의 13개와 sid 단위로 동일하다. 13 -> 71 의 차이는 오직 예산 정정에서 나온다."
+ },
+ "results": {
+  "budget1_joint": {
+   "unsat": 71,
+   "sat": 6586,
+   "unknown": 0,
+   "seconds": 24
+  },
+  "M2_on_19": {
+   "unsat": 19,
+   "unknown": 0
+  },
+  "already_closed_in_round85": 13,
+  "new_closures": 62,
+  "residual_before": 6644,
+  "residual_after": 6582
+ },
+ "closures": [
+  {
+   "sid": "05360600fd58e267b8c4064108d2f477296b735d4bbdc62289f53ee77e1e3361",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "0e8f45b4863f8f66054fcf9fd4aeeefe3c7c2a76f198050e78c89a70b9aecc7b",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "0f65b85c92d4d42962ce2d23ec79a362d197656dc8e19d529302c194d46d9c51",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 21,
+   "budget": 0,
+   "covers": 52,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "12c57c9948a450178268f2a1dc1719e6418bc6f1d3f4c247ab78b7e4f4e8b884",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 16,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "135799ba17635adefc88c0361ec075c5f67c514f8157192fa1c1412ad78cf92c",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "1445bc8e1febe6310bb7fc4ffd7f3cb5cd9ba2a1457857b3615a4b4bdd27f723",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 16,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "178c912d99f93dc8f36b690f45080baff9b4a1d8b5969092faf84b74aa640879",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 19,
+   "budget": 0,
+   "covers": 4,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "18ea8897ef4c865dd0227be937446003937d4b18dab07b45700edbc3538652e5",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 17,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "282863d865a5f165c7f7e2b765f8fab66aa5a12bce7a47ae0eea10898150bcd2",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 19,
+   "budget": 0,
+   "covers": 4,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "28af3b552690b5d1470c57616fcdfebd97298986fa1c19d23ea14eee2a7d9e1d",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 18,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "2ca0f8e4fef1ff05f0ef615e0b1f0659b7e40b81aa60feb9c8d0e755081dda9c",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 19,
+   "budget": 0,
+   "covers": 52,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "2f44feafbd63712a311753d85ccc3e0d7fd2dd984b483a73d8d12dce1f599f5f",
+   "root": "short_ell2",
+   "c": 3,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "30154cc0288f3a15e9512d1f11536e4e48aef84d1844da428e32b7a7d93ae5f6",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 79,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "3123905e20c34d0ba0f66ba3a0cc0a28c47cae511becb0ff940574fade6b648c",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 52,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "374a5d768b3c7f52b7cbff41e482f83ce03ca4b0c24a6d0d9d6a19602b5b6192",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 28,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "388768651828df0e0ffe838e79afb1a6ad38e7727e3a4e2320d3fc95666a5506",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 25,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "38ff6a7e2281cb453032adf134a730e62434db37f4d56d72558a9efdb387cab7",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 7,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "397d913bd644babbacc50d9141c285c788a60ae50634db74e978274c4b8d8ea3",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 82,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "3a5eca08aca35e13f950bd7fc9513e46afe9c6324e717862f145734be787cdb8",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 14,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "3d4a9db4e3af13f7aee0a66fe52ffd19036f4c925a2ef42f80c8abaf9425caa9",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "3e55e096ae4b739226f46dde02b83e68dfd600f5ab82b29d1facee03b29d9db0",
+   "root": "short_ell2",
+   "c": 3,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "3e73296af016365f68522acce814a9970aebde0d5e8baf5a6235e270fa3b13c7",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 11,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "3fe8e0927f98e0467323769d555a160c9a12926489c805727339288c78166693",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "487b699a65a0c27a9c8f1e9513c7a6c7933237ecd22661d41c3c56445c1b6750",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 12,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "5b29094d40c096fc50623a1b5338434b181864b6662156e89e0986962e36d8aa",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 13,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "5d220f5606c91cfa6cac4d61578c1bcf17b464a033d6157d8aed3136b347b78c",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 29,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "5fd183e15cb27af0b04c39242c86a7a892fecc5ee91cb58a0651911a3573bb4d",
+   "root": "short_ell1",
+   "c": 2,
+   "K": 21,
+   "budget": 0,
+   "covers": 12,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "61d154fdf7237fd4b24431f1c48f8f6ffb3985277cef9f81895b3c4bc7d6090b",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 9,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "67a3cc84ed1684e9319c08002294d4f221170221021767104327719eb39d880b",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 68,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "6afa15d99fd597b685f015cf37e0c903c32466e12047c0e9844c832af18815fa",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 16,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "M2_arborescence",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "7e1d613901f92de5d63ddb92fd17321b007ea5507763df36eae0936c8fe5ccc9",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 18,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "7fbc3589dbabdd43681bebe72e8a00257bbe5f21c1f3f60d16fc600597f44beb",
+   "root": "short_ell2",
+   "c": 3,
+   "K": 16,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "83f14c9efe8dec0c75c9d336cdd997c3dc464eb94f94354fc2b81e137526ba1f",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 52,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "8adc201dba6ad7827c0a55349c348761101e2f9f3b1ddd455b0ee2c6819164c4",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 5,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "8ef843f02a516fe42469b24e7a06e751d2b1365db5134d12616ad606c7854b19",
+   "root": "short_ell1",
+   "c": 2,
+   "K": 21,
+   "budget": 0,
+   "covers": 12,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "970ec1765889d96859b587265f3a7eef93221baf8a3e0694b6ea8f14410c26a9",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 8,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "9ac4153f1e0f8de0db527f907111989c307d1c7a77c8f992c24532ae37630e3a",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 19,
+   "budget": 0,
+   "covers": 4,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "9dbbe9ab25bc0531a85c0ab7b5ee2917570ba3c4387c013eb152d699e9b7c290",
+   "root": "short_ell2",
+   "c": 3,
+   "K": 20,
+   "budget": 0,
+   "covers": 60,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "a38a6e24a434d89b7f49e4ae35befd4e71630eb0016ae5f0467f4b6c2714e57b",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 21,
+   "budget": 0,
+   "covers": 64,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "a7a10ac58de2548d0339385681c4fcd5f342617731470174416ee96a4b44ae34",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 20,
+   "budget": 0,
+   "covers": 4,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "a99a544180676d80784c0260dd0b82f0d66c01d9c27366b5604b1faece749898",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 13,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "afb081789d4a52644332b85aac0f91d6e27463fb9096b142035330f296a5365e",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "M2_arborescence",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "b3cd052f402a93a57cc153063af1244320e9ebe19853040e0886684520ba9651",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 16,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "M2_arborescence",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "b62d7f23ef358f25405c63dbd55dd7c358545f896b3e54c9cdbad9fac9be2257",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 18,
+   "budget": 1,
+   "covers": 2,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "b73ee4fe7ee8266f8ad605168ebcb8e5e50f7e0002202ac32c474c0f70922664",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 20,
+   "budget": 0,
+   "covers": 60,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "b8920f9cdf59de595ad32e956c4e883cc481cbcb3831685cdc6b4381153055b8",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 19,
+   "budget": 0,
+   "covers": 12,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "b9b04ff2ec0443f61cd41a02c6eafc735a6ba5e84313dbaffa086d3da5cf2ff8",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 39,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "bd6e82ed8a19c690713b13568741a897a7d76a33142d85c27159a61c59642c4d",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "bd968c971939c3f1ffdeb8db219d682a3a7539eb64b3701f909cd801edfe613c",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 18,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "c3f8e02d3cc205f55b12c4e67f413e92a6566e36f31f5a7399428ee232a02dd1",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 3,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "d5a8f9b47dd320d79cb874fd0b27bb5c8bc20c1b92b23c39c3b605aee362d110",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 23,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "d7f9094fc6e651d2a905ef7e300626f77387965f6df99855354dbbd031c208fd",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 76,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "ecfcbf2e4fb72607b1e6777110fe1664f30c4c9d2d810bd71155524c35bdc4bb",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 21,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "ed0e44ffea3a0265d8d9955b73b9f05ebe7417fe68485829fc939b4c68d71977",
+   "root": "short_ell1",
+   "c": 3,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "M2_arborescence",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "ed979a19d2eb212bb9a09a07c44c6ae92703d45a07e4474576c73025abe2d51e",
+   "root": "short_ell2",
+   "c": 3,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  },
+  {
+   "sid": "ef78ea4d86f836e0f7a0ed729c13abd241964157b15ef2e022baa580e0ea8577",
+   "root": "short_ell2",
+   "c": 3,
+   "K": 20,
+   "budget": 0,
+   "covers": 8,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "f112adda20b705321d578098f3871d0048d58a1e704ff6a375888255c9060c01",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 52,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "f537158aae48aa831e62a5742cc2097b89c95f9028234861ae79a9d5e6aeccec",
+   "root": "short_ell2",
+   "c": 2,
+   "K": 20,
+   "budget": 0,
+   "covers": 18,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "f60f5f072bd1202e35c519f432c267f2bc9bea2e9920c93818d717fcf11f620e",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 8,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "f623edc0b3e166eb9e90b6191b36bce41aea6b743b7f5a02396b75e722b39302",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 19,
+   "budget": 0,
+   "covers": 34,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "f7425b39d8218ad80283f80e481773f728c146b9426e5cb18a225c8dbc16aa5f",
+   "root": "short_ell1",
+   "c": 3,
+   "K": 20,
+   "budget": 0,
+   "covers": 4,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": false
+  },
+  {
+   "sid": "fe96f93734695509756c714fb2108ed30c881bab0a6af83d2b560e80e00262e4",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 17,
+   "budget": 1,
+   "covers": 1,
+   "closed_by": "budget1_joint",
+   "unique_cover_state": true
+  }
+ ],
+ "closure_profile": {
+  "root": {
+   "short_ell2": 23,
+   "short_ell3": 35,
+   "short_ell1": 4
+  },
+  "c": {
+   "2": 44,
+   "3": 18
+  },
+  "budget": {
+   "1": 21,
+   "0": 41
+  },
+  "by_method": {
+   "budget1_joint": 58,
+   "M2_arborescence": 4
+  }
+ },
+ "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework."
+}

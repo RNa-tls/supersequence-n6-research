@@ -2507,6 +2507,86 @@
   "verdict": "CLAUDE_DYNAMIC_UNIQUE_COVER_LEAD",
   "why_zero": "forced core 는 실재하지만 동적 제약을 위반하지 않는다. 가장 관대한 source 우주에서 Hall 결손이 전부 0이고, OPTIONAL 궤도가 언제나 필요한 지원을 공급한다. 라운드 88 이 관찰한 벽 -- 해가 적은데도 그중 하나는 늘 통과한다 -- 이 forced core 수준에서도 그대로 재현된다."
  },
+ "round_90_single_short_pass": {
+  "artifacts": [
+   "outputs/rr_single_short_pass_claude.json",
+   "outputs/rr_unique_cover_autopsy_claude.json"
+  ],
+  "audits": [
+   "engine SRC agreement 0/19 mismatches",
+   "non-MRV independent reimplementation: all-G5 UNSAT 19/19, complete",
+   "repair-pass legality verified cell by cell 19/19",
+   "pass-count identity 121-P == empty + fragments on all 6,657",
+   "budget-2 control reproduces Round 85/88's 13 closures by sid"
+  ],
+  "author": "Claude (독립 검증 트랙)",
+  "closure_profile": {
+   "budget": {
+    "0": 41,
+    "1": 21
+   },
+   "by_method": {
+    "M2_arborescence": 4,
+    "budget1_joint": 58
+   },
+   "c": {
+    "2": 44,
+    "3": 18
+   },
+   "root": {
+    "short_ell1": 4,
+    "short_ell2": 23,
+    "short_ell3": 35
+   }
+  },
+  "control": {
+   "budget2_reproduces_round85": true,
+   "budget2_unsat": 13,
+   "note": "같은 파이프라인을 예산 2로 돌리면 라운드 85/88 의 13개와 sid 단위로 동일하다. 13 -> 71 의 차이는 오직 예산 정정에서 나온다."
+  },
+  "corrections": [
+   "Rounds 88/89 cover counts are derivation counts, not distinct-set counts; 19 is a lower bound on unique-cover states"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+  "documents": [
+   "research/RR_SINGLE_SHORT_PASS_CLAUDE.md"
+  ],
+  "premise_census": {
+   "F1": 6657,
+   "current_hex_one_cell": 6657,
+   "future_short_pass_budget": {
+    "0": 710,
+    "1": 5947
+   },
+   "note": "121 - P == 빈 육각형 수 + fragment 수 가 6,657 전부에서 성립",
+   "pass_count_identity_holds": 6657,
+   "states": 6657
+  },
+  "reproduce": [
+   "python3 src/probe_rr_single_short_pass.py census",
+   "python3 src/probe_rr_single_short_pass.py pin --sids outputs/rr_forced_core_unique_states.json",
+   "python3 src/probe_rr_single_short_pass.py decide --sids outputs/rr_forced_core_unique_states.json"
+  ],
+  "residual_after": 6582,
+  "results": {
+   "M2_on_19": {
+    "unknown": 0,
+    "unsat": 19
+   },
+   "already_closed_in_round85": 13,
+   "budget1_joint": {
+    "sat": 6586,
+    "seconds": 24,
+    "unknown": 0,
+    "unsat": 71
+   },
+   "new_closures": 62,
+   "residual_after": 6582,
+   "residual_before": 6644
+  },
+  "round": 90,
+  "theorem": "단일 short pass 정리 — F=1 이고 현재 육각형 방문 칸이 1개인 잔여 상태에서 미래 ell<5 매크로 edge 는 fragment 가 있으면 정확히 1개, 없으면 0개이며, 있을 때 출발 port 와 ell 이 상태에 의해 유일하게 결정된다."
+ },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",
   "Target-B closure: 18->9->8->7->0",
