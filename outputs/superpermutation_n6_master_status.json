@@ -2801,7 +2801,7 @@
   "artifacts": [
    "outputs/rr_port_path_ledger.jsonl.gz"
   ],
-  "audit_status": "PENDING — 이 라운드의 1,366 폐쇄는 Codex 독립 감사 전이다. 감사된 기준선은 6,396 으로 유지한다.",
+  "audit_status": "HALL NECESSITY SOUND / STATE COUNTS CLAUDE-REPRODUCED / INDEPENDENT COUNT AUDIT PENDING",
   "author": "Claude (독립 검증 트랙)",
   "baseline": {
    "input": 6396,
@@ -2814,6 +2814,10 @@
    "literal_dissection": "상태 14fda65d 의 육각형 101 은 최종 궤도 단어가 1개뿐이고 그 단어의 전임자 4개는 2개가 비선택 궤도, 2개가 이미 방문됨 — 엔진 대조로 4개 전부 sigma^5+joint 관계 확인",
    "semantics_on_archive": "육각형별 등록 port 수: empty 0 / passed 1 / passed 2 는 정확히 710 (= 이미 수리된 fragment) / current 1 / fragment 1 — 6,657 전부 일치"
   },
+  "corrections_round_93c": [
+   "'1,760 states have exactly one Hall-passing cover' RETRACTED — first-success truncation; complete enumeration gives {0:1366, 1:746, 2-5:2791, 6-20:1340, >20:153}",
+   "deficit histogram {1:812,...} was the LAST evaluated cover per state, not a complete statistic; per-state minimum deficit is {1:1206, 2:156, 3:4}"
+  ],
   "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
   "documents": [
    "research/RR_PORT_PATH_CLAUDE.md"
@@ -2915,6 +2919,49 @@
    "finding": "64개 전부 G5-only 실현을 가진다 — 이 부분집합에서 short 구조는 무관하다",
    "method": "집합 기준 중복 제거 후 모든 valid cover 완전 열거",
    "reverified": 64
+  }
+ },
+ "round_93c_hall_audit_artifact": {
+  "archive": "outputs/rr_port_path_hall_archive/",
+  "author": "Claude (독립 검증 트랙)",
+  "corrections": [
+   "'1,760 states have exactly one Hall-passing cover' RETRACTED — first-success truncation; complete enumeration gives {0:1366, 1:746, 2-5:2791, 6-20:1340, >20:153}",
+   "deficit histogram {1:812,...} was the LAST evaluated cover per state, not a complete statistic; per-state minimum deficit is {1:1206, 2:156, 3:4}"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+  "documents": [
+   "research/RR_PORT_PATH_HALL_AUDIT_CLAUDE.md"
+  ],
+  "example": "14fda65d — hexagon 101 has one final-orbit word whose four predecessors are two non-selected orbits and two already-visited words; replayable via --example",
+  "files": {
+   "covers": 90396,
+   "geometry": 720,
+   "hall_results": 90396,
+   "sat_witnesses": 5030,
+   "schema": "SCHEMA.md",
+   "states": 6396,
+   "unsat_certificates": 1366
+  },
+  "ledger": {
+   "audited_residual": 6396,
+   "provisional_hall_residual": 5030,
+   "round93_status": "HALL NECESSITY SOUND / STATE COUNTS CLAUDE-REPRODUCED / INDEPENDENT COUNT AUDIT PENDING"
+  },
+  "purpose": "라운드 93 의 Hall 계수를 독립 재현 가능하게 만드는 아티팩트 수리. 새 정리 없음.",
+  "round": "93c",
+  "verifier": {
+   "bad_sat_witnesses": 0,
+   "bad_unsat_certificates": 0,
+   "deficit_histogram_match": true,
+   "imports_repo_search_code": false,
+   "path": "src/verify_rr_port_path_hall_archive.py",
+   "replayed": {
+    "SAT": 5030,
+    "UNSAT": 1366
+   },
+   "state_row_problems": 0,
+   "stdlib_only": true,
+   "stored_vs_recomputed_mismatches": 0
   }
  },
  "rr_short_logical_chain": [
