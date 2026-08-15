@@ -1,0 +1,50 @@
+{
+ "round": "94b",
+ "author": "Claude (독립 검증 트랙)",
+ "purpose": "r=1 비대칭 falsification. 정리 강화 없음, 원장 변경 없음.",
+ "attribution": {
+  "r=0": {
+   "A_only": 6,
+   "B2_only": 23,
+   "both": 1,
+   "SAT": 4476
+  },
+  "r=1": {
+   "A_only": 190,
+   "B2_only": 1,
+   "both": 7,
+   "SAT": 326
+  },
+  "finding": "r=1 폐쇄 198 중 190 이 순수 층 A — B2 투영 보조정리가 원인이 아니다"
+ },
+ "projection_lemma": {
+  "status": "이 표현에서는 투영이 아니라 동형 — 미래 pass 는 빈 육각형(+fragment)과 정확히 대응하므로 생략되는 중간 꼭짓점이 없다",
+  "residual_risk": "간선 관계의 완전성. 실현 이력 대조는 통과(도달 불가 등록 port 상태당 최대 1개, 2개 이상 0/6,396)"
+ },
+ "mechanism_experiment": {
+  "description": "r=0 상태에서 fragment 꼭짓점과 그 간선만 제거",
+  "still_SAT": 4069,
+  "closed": 407,
+  "rate_before": "0.7%",
+  "rate_after": "9.1%",
+  "conclusion": "fragment 수리 edge 의 ell=5-c_f 오프셋이 만드는 연결성이 비대칭의 약 1/4 을 설명한다"
+ },
+ "control_R1B": {
+  "description": "수리 육각형의 두 등록 port 에 모든 ell 의 joint target 부여(의도적 불건전 과대근사)",
+  "rescued": 43,
+  "still_closed": 155,
+  "conclusion": "155/198 이 불건전한 완화에서도 살아남지만 43 은 수리-육각형 표현에 민감하다"
+ },
+ "model_note": "수리된 육각형의 두 등록 port 는 둘 다 이미 발사를 마쳤다(가득 참, 현재 육각형 아님, port 당 1회 발사) — 따라서 미래 source 가 될 수 없다",
+ "not_done": [
+  "§7 수동 리터럴 해부 5+5+5",
+  "§5 실현 이력 컷 재구성(ground-truth 완성이 아카이브에 없어 새 탐색 필요, §12 금지)"
+ ],
+ "outcome": "D — 진단 미결. 228 전부 잠정 유지, Codex 전달 보류.",
+ "ledger": {
+  "audited_residual": 5030,
+  "provisional_closures": 228,
+  "ledger_changed": false
+ },
+ "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework."
+}
