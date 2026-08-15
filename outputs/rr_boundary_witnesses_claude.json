@@ -1,0 +1,1692 @@
+{
+ "round": "90c / 91-A",
+ "author": "Claude (독립 검증 트랙)",
+ "what": "라운드 90 이 잘못 닫았던 네 상태 — Codex 가 SAT 로 독립 판정한 적대적 경계 witness.",
+ "status": "OPEN — Q2 잔여 6,586 에 포함된다",
+ "why_valuable": "가용 short 예산 1 = 최소 필요 예산 1. 현재 검증된 모든 조건을 등호에서 동시에 만족한다.",
+ "rule": "앞으로 이 넷 중 하나를 닫는 정리는 아래 witness 를 무효화하는 NEW 제약을 명시해야 한다.",
+ "states": [
+  {
+   "sid": "ed0e44ffea3a0265d8d9955b73b9f05ebe7417fe68485829fc939b4c68d71977",
+   "root": "short_ell1",
+   "c": 3,
+   "K": 17,
+   "b": 2,
+   "open_orbits_A": [
+    0,
+    2,
+    17,
+    33,
+    39,
+    94,
+    112,
+    118
+   ],
+   "unique_cover_S": [
+    6,
+    22,
+    29,
+    43,
+    48,
+    57,
+    63,
+    65,
+    70,
+    77,
+    81,
+    87,
+    89,
+    91,
+    100,
+    103,
+    115
+   ],
+   "forced_core": [
+    6,
+    22,
+    29,
+    43,
+    48,
+    57,
+    63,
+    65,
+    70,
+    77,
+    81,
+    87,
+    89,
+    91,
+    100,
+    103,
+    115
+   ],
+   "available_short_budget": 1,
+   "minimum_required_short_budget": 1,
+   "one_short_witnesses_enumerated": 400001,
+   "enumeration_complete": false,
+   "distinct_short_edges": 24,
+   "short_source_hexagons": {
+    "18": 20136,
+    "20": 33560,
+    "9": 24540,
+    "15": 24540,
+    "116": 33560,
+    "117": 17960,
+    "63": 10920,
+    "82": 6760,
+    "47": 10920,
+    "45": 4160,
+    "98": 6552,
+    "26": 35110,
+    "108": 8736,
+    "65": 10920,
+    "92": 10920,
+    "105": 10920,
+    "107": 10920,
+    "7": 24190,
+    "24": 24190,
+    "49": 24077,
+    "62": 24010,
+    "79": 18240,
+    "27": 4160
+   },
+   "witnesses_using_pinned_repair_port": 0,
+   "fragment": {
+    "hex": 0,
+    "c_f": 2,
+    "repair_start_port": [
+     33,
+     1
+    ],
+    "repair_ell": 3,
+    "repair_target_orbits": [
+     0,
+     32,
+     138
+    ]
+   },
+   "representative_witness": [
+    {
+     "target_orbit": 65,
+     "kind": "G5",
+     "source_orbit": 33,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      1
+     ],
+     "source_hex": 33,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 70,
+     "kind": "G5",
+     "source_orbit": 112,
+     "source_phase": 1,
+     "source_word": [
+      5,
+      3,
+      4,
+      1,
+      0,
+      2
+     ],
+     "source_hex": 45,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 81,
+     "kind": "G5",
+     "source_orbit": 39,
+     "source_phase": 1,
+     "source_word": [
+      2,
+      4,
+      3,
+      5,
+      0,
+      1
+     ],
+     "source_hex": 2,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 48,
+     "kind": "G5",
+     "source_orbit": 2,
+     "source_phase": 4,
+     "source_word": [
+      3,
+      0,
+      1,
+      2,
+      4,
+      5
+     ],
+     "source_hex": 3,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 77,
+     "kind": "G5",
+     "source_orbit": 17,
+     "source_phase": 1,
+     "source_word": [
+      1,
+      4,
+      5,
+      3,
+      0,
+      2
+     ],
+     "source_hex": 27,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 115,
+     "kind": "G5",
+     "source_orbit": 70,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      3,
+      5,
+      4,
+      1,
+      2
+     ],
+     "source_hex": 70,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 22,
+     "kind": "SHORT",
+     "source_orbit": 0,
+     "source_phase": 2,
+     "source_word": [
+      2,
+      3,
+      4,
+      0,
+      1,
+      5
+     ],
+     "source_hex": 18,
+     "ell": 0,
+     "joint": "w3:201",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 57,
+     "kind": "G5",
+     "source_orbit": 33,
+     "source_phase": 1,
+     "source_word": [
+      2,
+      3,
+      4,
+      5,
+      0,
+      1
+     ],
+     "source_hex": 0,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 6,
+     "kind": "G5",
+     "source_orbit": 48,
+     "source_phase": 1,
+     "source_word": [
+      3,
+      1,
+      2,
+      4,
+      0,
+      5
+     ],
+     "source_hex": 108,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 89,
+     "kind": "G5",
+     "source_orbit": 39,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      2,
+      4,
+      3,
+      5,
+      1
+     ],
+     "source_hex": 39,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 63,
+     "kind": "G5",
+     "source_orbit": 57,
+     "source_phase": 2,
+     "source_word": [
+      2,
+      4,
+      5,
+      0,
+      3,
+      1
+     ],
+     "source_hex": 48,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 100,
+     "kind": "G5",
+     "source_orbit": 22,
+     "source_phase": 1,
+     "source_word": [
+      1,
+      5,
+      4,
+      2,
+      0,
+      3
+     ],
+     "source_hex": 53,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 91,
+     "kind": "G5",
+     "source_orbit": 77,
+     "source_phase": 2,
+     "source_word": [
+      1,
+      5,
+      3,
+      0,
+      4,
+      2
+     ],
+     "source_hex": 79,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 29,
+     "kind": "G5",
+     "source_orbit": 22,
+     "source_phase": 4,
+     "source_word": [
+      2,
+      0,
+      1,
+      5,
+      4,
+      3
+     ],
+     "source_hex": 23,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 87,
+     "kind": "G5",
+     "source_orbit": 63,
+     "source_phase": 1,
+     "source_word": [
+      3,
+      4,
+      2,
+      5,
+      0,
+      1
+     ],
+     "source_hex": 8,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 43,
+     "kind": "G5",
+     "source_orbit": 29,
+     "source_phase": 2,
+     "source_word": [
+      1,
+      5,
+      4,
+      0,
+      2,
+      3
+     ],
+     "source_hex": 31,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 103,
+     "kind": "G5",
+     "source_orbit": 43,
+     "source_phase": 1,
+     "source_word": [
+      2,
+      5,
+      1,
+      4,
+      0,
+      3
+     ],
+     "source_hex": 58,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    }
+   ],
+   "witness_fields": "target_orbit / kind / source_orbit / source_phase / source_word / source_hex / ell / joint / landing_phase (여는 순서대로)",
+   "literal_classification": {
+    "EMPTY_SOURCE_HEX": 336011,
+    "FULL_SOURCE_HEX": 63990
+   },
+   "uses_fragment_hex": 0,
+   "enumeration": {
+    "witnesses": 400001,
+    "complete": false,
+    "nodes": 555605
+   }
+  },
+  {
+   "sid": "6afa15d99fd597b685f015cf37e0c903c32466e12047c0e9844c832af18815fa",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 16,
+   "b": 2,
+   "open_orbits_A": [
+    0,
+    3,
+    63,
+    87,
+    90,
+    93,
+    97,
+    117,
+    119
+   ],
+   "unique_cover_S": [
+    24,
+    30,
+    32,
+    40,
+    47,
+    59,
+    65,
+    71,
+    81,
+    83,
+    113,
+    130,
+    135,
+    137,
+    139,
+    140
+   ],
+   "forced_core": [
+    24,
+    30,
+    32,
+    40,
+    47,
+    59,
+    65,
+    71,
+    81,
+    83,
+    113,
+    130,
+    135,
+    137,
+    139,
+    140
+   ],
+   "available_short_budget": 1,
+   "minimum_required_short_budget": 1,
+   "one_short_witnesses_enumerated": 400001,
+   "enumeration_complete": false,
+   "distinct_short_edges": 26,
+   "short_source_hexagons": {
+    "2": 44064,
+    "39": 19872,
+    "43": 19872,
+    "65": 19872,
+    "92": 12096,
+    "101": 12384,
+    "6": 10944,
+    "28": 10944,
+    "32": 10944,
+    "61": 35136,
+    "79": 8081,
+    "98": 10752,
+    "3": 8064,
+    "30": 12096,
+    "41": 12096,
+    "86": 12096,
+    "119": 12096,
+    "51": 8640,
+    "31": 24192,
+    "47": 24192,
+    "80": 24192,
+    "76": 15120,
+    "97": 24192,
+    "118": 8064
+   },
+   "witnesses_using_pinned_repair_port": 0,
+   "fragment": {
+    "hex": 0,
+    "c_f": 4,
+    "repair_start_port": [
+     3,
+     3
+    ],
+    "repair_ell": 1,
+    "repair_target_orbits": [
+     0,
+     32,
+     138
+    ]
+   },
+   "representative_witness": [
+    {
+     "target_orbit": 135,
+     "kind": "SHORT",
+     "source_orbit": 3,
+     "source_phase": 4,
+     "source_word": [
+      5,
+      0,
+      1,
+      2,
+      4,
+      3
+     ],
+     "source_hex": 2,
+     "ell": 1,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 32,
+     "kind": "G5",
+     "source_orbit": 0,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "source_hex": 0,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 24,
+     "kind": "G5",
+     "source_orbit": 0,
+     "source_phase": 1,
+     "source_word": [
+      1,
+      2,
+      3,
+      4,
+      0,
+      5
+     ],
+     "source_hex": 96,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 59,
+     "kind": "G5",
+     "source_orbit": 87,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      4,
+      3,
+      2,
+      5,
+      1
+     ],
+     "source_hex": 87,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 65,
+     "kind": "G5",
+     "source_orbit": 63,
+     "source_phase": 3,
+     "source_word": [
+      2,
+      5,
+      0,
+      3,
+      4,
+      1
+     ],
+     "source_hex": 60,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 40,
+     "kind": "G5",
+     "source_orbit": 3,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      3
+     ],
+     "source_hex": 3,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 113,
+     "kind": "G5",
+     "source_orbit": 63,
+     "source_phase": 4,
+     "source_word": [
+      5,
+      0,
+      3,
+      4,
+      2,
+      1
+     ],
+     "source_hex": 62,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 83,
+     "kind": "G5",
+     "source_orbit": 63,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      3,
+      4,
+      2,
+      5,
+      1
+     ],
+     "source_hex": 63,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 130,
+     "kind": "G5",
+     "source_orbit": 135,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      4,
+      3,
+      5,
+      2,
+      0
+     ],
+     "source_hex": 15,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 71,
+     "kind": "G5",
+     "source_orbit": 65,
+     "source_phase": 2,
+     "source_word": [
+      4,
+      5,
+      2,
+      0,
+      3,
+      1
+     ],
+     "source_hex": 51,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 137,
+     "kind": "G5",
+     "source_orbit": 135,
+     "source_phase": 2,
+     "source_word": [
+      3,
+      5,
+      2,
+      1,
+      4,
+      0
+     ],
+     "source_hex": 68,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 30,
+     "kind": "G5",
+     "source_orbit": 24,
+     "source_phase": 2,
+     "source_word": [
+      1,
+      3,
+      4,
+      0,
+      2,
+      5
+     ],
+     "source_hex": 42,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 47,
+     "kind": "G5",
+     "source_orbit": 59,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      3,
+      2,
+      5,
+      4,
+      1
+     ],
+     "source_hex": 59,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 139,
+     "kind": "G5",
+     "source_orbit": 130,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      3,
+      5,
+      2,
+      4,
+      0
+     ],
+     "source_hex": 10,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 140,
+     "kind": "G5",
+     "source_orbit": 130,
+     "source_phase": 1,
+     "source_word": [
+      3,
+      5,
+      2,
+      4,
+      1,
+      0
+     ],
+     "source_hex": 69,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 81,
+     "kind": "G5",
+     "source_orbit": 83,
+     "source_phase": 3,
+     "source_word": [
+      5,
+      3,
+      0,
+      4,
+      2,
+      1
+     ],
+     "source_hex": 79,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 0
+    }
+   ],
+   "witness_fields": "target_orbit / kind / source_orbit / source_phase / source_word / source_hex / ell / joint / landing_phase (여는 순서대로)",
+   "literal_classification": {
+    "FULL_SOURCE_HEX": 66912,
+    "EMPTY_SOURCE_HEX": 333089
+   },
+   "uses_fragment_hex": 0,
+   "enumeration": {
+    "witnesses": 400001,
+    "complete": false,
+    "nodes": 246543
+   }
+  },
+  {
+   "sid": "afb081789d4a52644332b85aac0f91d6e27463fb9096b142035330f296a5365e",
+   "root": "short_ell3",
+   "c": 2,
+   "K": 17,
+   "b": 3,
+   "open_orbits_A": [
+    0,
+    3,
+    27,
+    128,
+    134,
+    136,
+    142,
+    143
+   ],
+   "unique_cover_S": [
+    32,
+    37,
+    40,
+    60,
+    69,
+    72,
+    89,
+    95,
+    107,
+    111,
+    125,
+    127,
+    129,
+    131,
+    132,
+    133,
+    141
+   ],
+   "forced_core": [
+    32,
+    37,
+    40,
+    60,
+    69,
+    72,
+    89,
+    95,
+    107,
+    111,
+    125,
+    127,
+    129,
+    131,
+    132,
+    133,
+    141
+   ],
+   "available_short_budget": 1,
+   "minimum_required_short_budget": 1,
+   "one_short_witnesses_enumerated": 400001,
+   "enumeration_complete": false,
+   "distinct_short_edges": 30,
+   "short_source_hexagons": {
+    "70": 14400,
+    "49": 9600,
+    "67": 11520,
+    "55": 14400,
+    "2": 17640,
+    "39": 20088,
+    "84": 17640,
+    "9": 17640,
+    "51": 9840,
+    "86": 10740,
+    "38": 12672,
+    "114": 15840,
+    "5": 15840,
+    "102": 31320,
+    "100": 14525,
+    "104": 8640,
+    "29": 4800,
+    "96": 15480,
+    "56": 15480,
+    "57": 15480,
+    "112": 15480,
+    "109": 9720,
+    "3": 9936,
+    "41": 16560,
+    "90": 16560,
+    "101": 16560,
+    "23": 16560,
+    "92": 5040
+   },
+   "witnesses_using_pinned_repair_port": 0,
+   "fragment": {
+    "hex": 0,
+    "c_f": 4,
+    "repair_start_port": [
+     3,
+     3
+    ],
+    "repair_ell": 1,
+    "repair_target_orbits": [
+     0,
+     32,
+     138
+    ]
+   },
+   "representative_witness": [
+    {
+     "target_orbit": 72,
+     "kind": "G5",
+     "source_orbit": 0,
+     "source_phase": 4,
+     "source_word": [
+      4,
+      0,
+      1,
+      2,
+      3,
+      5
+     ],
+     "source_hex": 1,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 32,
+     "kind": "G5",
+     "source_orbit": 0,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "source_hex": 0,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 37,
+     "kind": "G5",
+     "source_orbit": 27,
+     "source_phase": 2,
+     "source_word": [
+      1,
+      4,
+      5,
+      0,
+      2,
+      3
+     ],
+     "source_hex": 30,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 60,
+     "kind": "G5",
+     "source_orbit": 32,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      2,
+      3,
+      4,
+      1,
+      5
+     ],
+     "source_hex": 32,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 127,
+     "kind": "G5",
+     "source_orbit": 134,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      4,
+      3,
+      2,
+      5,
+      0
+     ],
+     "source_hex": 14,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 40,
+     "kind": "G5",
+     "source_orbit": 3,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      3
+     ],
+     "source_hex": 3,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 129,
+     "kind": "G5",
+     "source_orbit": 128,
+     "source_phase": 3,
+     "source_word": [
+      2,
+      5,
+      1,
+      3,
+      4,
+      0
+     ],
+     "source_hex": 42,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 133,
+     "kind": "G5",
+     "source_orbit": 128,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      3,
+      4,
+      2,
+      5,
+      0
+     ],
+     "source_hex": 8,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 141,
+     "kind": "G5",
+     "source_orbit": 128,
+     "source_phase": 4,
+     "source_word": [
+      5,
+      1,
+      3,
+      4,
+      2,
+      0
+     ],
+     "source_hex": 99,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 131,
+     "kind": "G5",
+     "source_orbit": 129,
+     "source_phase": 2,
+     "source_word": [
+      4,
+      5,
+      2,
+      1,
+      3,
+      0
+     ],
+     "source_hex": 92,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 132,
+     "kind": "G5",
+     "source_orbit": 133,
+     "source_phase": 3,
+     "source_word": [
+      5,
+      3,
+      1,
+      4,
+      2,
+      0
+     ],
+     "source_hex": 109,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 69,
+     "kind": "SHORT",
+     "source_orbit": 60,
+     "source_phase": 2,
+     "source_word": [
+      4,
+      1,
+      2,
+      0,
+      3,
+      5
+     ],
+     "source_hex": 70,
+     "ell": 0,
+     "joint": "w3:201",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 125,
+     "kind": "G5",
+     "source_orbit": 127,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      3,
+      2,
+      5,
+      4,
+      0
+     ],
+     "source_hex": 7,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 111,
+     "kind": "G5",
+     "source_orbit": 69,
+     "source_phase": 1,
+     "source_word": [
+      3,
+      5,
+      2,
+      4,
+      0,
+      1
+     ],
+     "source_hex": 10,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 107,
+     "kind": "G5",
+     "source_orbit": 69,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      3,
+      5,
+      2,
+      4,
+      1
+     ],
+     "source_hex": 69,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 89,
+     "kind": "G5",
+     "source_orbit": 69,
+     "source_phase": 4,
+     "source_word": [
+      4,
+      0,
+      3,
+      5,
+      2,
+      1
+     ],
+     "source_hex": 68,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 95,
+     "kind": "G5",
+     "source_orbit": 89,
+     "source_phase": 2,
+     "source_word": [
+      3,
+      5,
+      2,
+      0,
+      4,
+      1
+     ],
+     "source_hex": 75,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    }
+   ],
+   "witness_fields": "target_orbit / kind / source_orbit / source_phase / source_word / source_hex / ell / joint / landing_phase (여는 순서대로)",
+   "literal_classification": {
+    "EMPTY_SOURCE_HEX": 355865,
+    "FULL_SOURCE_HEX": 44136
+   },
+   "uses_fragment_hex": 0,
+   "enumeration": {
+    "witnesses": 400001,
+    "complete": false,
+    "nodes": 350831
+   }
+  },
+  {
+   "sid": "b3cd052f402a93a57cc153063af1244320e9ebe19853040e0886684520ba9651",
+   "root": "short_ell3",
+   "c": 3,
+   "K": 16,
+   "b": 2,
+   "open_orbits_A": [
+    0,
+    3,
+    27,
+    128,
+    129,
+    134,
+    136,
+    142,
+    143
+   ],
+   "unique_cover_S": [
+    32,
+    37,
+    40,
+    60,
+    69,
+    72,
+    89,
+    95,
+    107,
+    111,
+    125,
+    127,
+    131,
+    132,
+    133,
+    141
+   ],
+   "forced_core": [
+    32,
+    37,
+    40,
+    60,
+    69,
+    72,
+    89,
+    95,
+    107,
+    111,
+    125,
+    127,
+    131,
+    132,
+    133,
+    141
+   ],
+   "available_short_budget": 1,
+   "minimum_required_short_budget": 1,
+   "one_short_witnesses_enumerated": 398976,
+   "enumeration_complete": true,
+   "distinct_short_edges": 30,
+   "short_source_hexagons": {
+    "70": 15360,
+    "49": 10240,
+    "67": 11520,
+    "55": 15360,
+    "2": 15360,
+    "39": 18432,
+    "84": 15360,
+    "9": 15360,
+    "51": 15360,
+    "86": 9600,
+    "38": 12288,
+    "114": 15360,
+    "5": 15360,
+    "102": 30720,
+    "100": 15360,
+    "104": 9600,
+    "29": 5120,
+    "96": 15360,
+    "56": 15360,
+    "57": 15360,
+    "112": 15360,
+    "109": 11520,
+    "3": 9216,
+    "41": 15360,
+    "90": 15360,
+    "101": 15360,
+    "23": 15360,
+    "92": 9600
+   },
+   "witnesses_using_pinned_repair_port": 0,
+   "fragment": {
+    "hex": 0,
+    "c_f": 4,
+    "repair_start_port": [
+     3,
+     3
+    ],
+    "repair_ell": 1,
+    "repair_target_orbits": [
+     0,
+     32,
+     138
+    ]
+   },
+   "representative_witness": [
+    {
+     "target_orbit": 131,
+     "kind": "G5",
+     "source_orbit": 129,
+     "source_phase": 2,
+     "source_word": [
+      4,
+      5,
+      2,
+      1,
+      3,
+      0
+     ],
+     "source_hex": 92,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 72,
+     "kind": "G5",
+     "source_orbit": 0,
+     "source_phase": 4,
+     "source_word": [
+      4,
+      0,
+      1,
+      2,
+      3,
+      5
+     ],
+     "source_hex": 1,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 32,
+     "kind": "G5",
+     "source_orbit": 0,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "source_hex": 0,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 37,
+     "kind": "G5",
+     "source_orbit": 27,
+     "source_phase": 2,
+     "source_word": [
+      1,
+      4,
+      5,
+      0,
+      2,
+      3
+     ],
+     "source_hex": 30,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    },
+    {
+     "target_orbit": 60,
+     "kind": "G5",
+     "source_orbit": 32,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      2,
+      3,
+      4,
+      1,
+      5
+     ],
+     "source_hex": 32,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 127,
+     "kind": "G5",
+     "source_orbit": 134,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      4,
+      3,
+      2,
+      5,
+      0
+     ],
+     "source_hex": 14,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 40,
+     "kind": "G5",
+     "source_orbit": 3,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      3
+     ],
+     "source_hex": 3,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 133,
+     "kind": "G5",
+     "source_orbit": 128,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      3,
+      4,
+      2,
+      5,
+      0
+     ],
+     "source_hex": 8,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 141,
+     "kind": "G5",
+     "source_orbit": 128,
+     "source_phase": 4,
+     "source_word": [
+      5,
+      1,
+      3,
+      4,
+      2,
+      0
+     ],
+     "source_hex": 99,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 132,
+     "kind": "G5",
+     "source_orbit": 133,
+     "source_phase": 3,
+     "source_word": [
+      5,
+      3,
+      1,
+      4,
+      2,
+      0
+     ],
+     "source_hex": 109,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 69,
+     "kind": "SHORT",
+     "source_orbit": 60,
+     "source_phase": 2,
+     "source_word": [
+      4,
+      1,
+      2,
+      0,
+      3,
+      5
+     ],
+     "source_hex": 70,
+     "ell": 0,
+     "joint": "w3:201",
+     "landing_phase": 0
+    },
+    {
+     "target_orbit": 125,
+     "kind": "G5",
+     "source_orbit": 127,
+     "source_phase": 0,
+     "source_word": [
+      1,
+      3,
+      2,
+      5,
+      4,
+      0
+     ],
+     "source_hex": 7,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 111,
+     "kind": "G5",
+     "source_orbit": 69,
+     "source_phase": 1,
+     "source_word": [
+      3,
+      5,
+      2,
+      4,
+      0,
+      1
+     ],
+     "source_hex": 10,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 3
+    },
+    {
+     "target_orbit": 107,
+     "kind": "G5",
+     "source_orbit": 69,
+     "source_phase": 0,
+     "source_word": [
+      0,
+      3,
+      5,
+      2,
+      4,
+      1
+     ],
+     "source_hex": 69,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 1
+    },
+    {
+     "target_orbit": 89,
+     "kind": "G5",
+     "source_orbit": 69,
+     "source_phase": 4,
+     "source_word": [
+      4,
+      0,
+      3,
+      5,
+      2,
+      1
+     ],
+     "source_hex": 68,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 2
+    },
+    {
+     "target_orbit": 95,
+     "kind": "G5",
+     "source_orbit": 89,
+     "source_phase": 2,
+     "source_word": [
+      3,
+      5,
+      2,
+      0,
+      4,
+      1
+     ],
+     "source_hex": 75,
+     "ell": 5,
+     "joint": "w3:210",
+     "landing_phase": 4
+    }
+   ],
+   "witness_fields": "target_orbit / kind / source_orbit / source_phase / source_word / source_hex / ell / joint / landing_phase (여는 순서대로)",
+   "literal_classification": {
+    "EMPTY_SOURCE_HEX": 343680,
+    "FULL_SOURCE_HEX": 39936,
+    "CURRENT_HEX": 15360
+   },
+   "uses_fragment_hex": 0,
+   "enumeration": {
+    "witnesses": 398976,
+    "complete": true,
+    "nodes": 478964
+   }
+  }
+ ],
+ "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+ "literal_autopsy": {
+  "classes": {
+   "EMPTY_SOURCE_HEX": "신선한 육각형에서 ℓ<5 로 떠나면 abandonment → F=2 > TARGET_F",
+   "FULL_SOURCE_HEX": "가득 찬 육각형에는 미방문 시작 칸이 없어 edge 자체가 발사 불가",
+   "CURRENT_HEX": "그 육각형의 pass 는 현재 pass 뿐이고 엔진 확인상 ℓ=5 만 합법",
+   "FRAGMENT_HEX": "short pass 가 합법일 수 있는 유일한 자리 — 40만 witness 중 0개"
+  },
+  "rotation_fact_exhaustively_verified": true,
+  "classification": "B — witness 는 구체적이고 회피 불가능한 이유로 리터럴 수준에서 실패한다"
+ },
+ "candidate_constraint": {
+  "name": "SHORT-PASS LOCALITY",
+  "statement": "ℓ<5 매크로 edge 는 그 시점에 방문 칸이 있고 아직 가득 차지 않은 육각형에서 출발해야 한다. F=1=TARGET_F 와 pass 계수 항등식 아래에서 그런 육각형은 fragment 뿐이며, 시작 칸은 v_{c_f}, 회전 길이는 5-c_f 로 유일하게 결정된다.",
+  "status": "CODEX 감사 대기 — 이번 라운드에서 원장을 움직이는 데 쓰지 않았다",
+  "audit_points": [
+   "pass 는 한 육각형 안의 연속 구간을 방문한다 (σ 는 육각형 내부 6-순환)",
+   "F=TARGET_F 에서 abandonment 금지 ⟹ 출발 칸 w 는 σ(w) 방문 필요",
+   "120 육각형 · P=121 ⟹ 정확히 한 육각형만 2 pass, 그것이 fragment"
+  ]
+ },
+ "headroom_diagnostic": {
+  "sample": 200,
+  "source": "감사된 6,586 기준선에서 무작위 추출(seed 7)",
+  "node_cap": 150000,
+  "aggregate": {
+   "SAT": 193,
+   "UNKNOWN": 5,
+   "UNSAT": 2
+  },
+  "reading": "제약이 감사를 통과하면 추가 폐쇄는 대략 1 % 규모다. 원장 변경 아님."
+ }
+}

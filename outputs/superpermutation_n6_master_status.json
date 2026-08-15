@@ -392,6 +392,7 @@
    "stage": "depth-4 graph"
   }
  ],
+ "quantitative_ledger_note_round_90c": "Audited Q2/Area-A residual: 6,586 (6,657 archive - 13 Round 85 - 58 Round 90).",
  "repo_tree_roots": {
   "claude_branch": "claude/n6-supersequence-length-rn17wf",
   "codex_tip_branch": "codex/round-r1-37-hex82-t4",
@@ -2539,6 +2540,7 @@
     "short_ell3": 35
    }
   },
+  "codex_correction": "라운드 90c 참조 — 새 폐쇄 58, 잔여 6,586, 19/19 subclaim 철회(15 UNSAT / 4 SAT)",
   "control": {
    "budget2_reproduces_round85": true,
    "budget2_unsat": 13,
@@ -2567,7 +2569,7 @@
    "python3 src/probe_rr_single_short_pass.py pin --sids outputs/rr_forced_core_unique_states.json",
    "python3 src/probe_rr_single_short_pass.py decide --sids outputs/rr_forced_core_unique_states.json"
   ],
-  "residual_after": 6582,
+  "residual_after": 6586,
   "results": {
    "M2_on_19": {
     "unknown": 0,
@@ -2580,12 +2582,93 @@
     "unknown": 0,
     "unsat": 71
    },
-   "new_closures": 62,
-   "residual_after": 6582,
+   "new_closures": 58,
+   "residual_after": 6586,
    "residual_before": 6644
   },
   "round": 90,
   "theorem": "단일 short pass 정리 — F=1 이고 현재 육각형 방문 칸이 1개인 잔여 상태에서 미래 ell<5 매크로 edge 는 fragment 가 있으면 정확히 1개, 없으면 0개이며, 있을 때 출발 port 와 ell 이 상태에 의해 유일하게 결정된다."
+ },
+ "round_90c_codex_correction": {
+  "author": "Claude (독립 검증 트랙)",
+  "boundary_witnesses": {
+   "artifact": "outputs/rr_boundary_witnesses_claude.json",
+   "count": 4,
+   "literal_autopsy": {
+    "6afa15d9": {
+     "EMPTY_SOURCE_HEX": 333089,
+     "FULL_SOURCE_HEX": 66912
+    },
+    "afb08178": {
+     "EMPTY_SOURCE_HEX": 355865,
+     "FULL_SOURCE_HEX": 44136
+    },
+    "b3cd052f": {
+     "CURRENT_HEX": 15360,
+     "EMPTY_SOURCE_HEX": 343680,
+     "FULL_SOURCE_HEX": 39936
+    },
+    "ed0e44ff": {
+     "EMPTY_SOURCE_HEX": 336011,
+     "FULL_SOURCE_HEX": 63990
+    }
+   },
+   "rule": "이 넷 중 하나를 닫는 정리는 witness 를 무효화하는 NEW 제약을 명시해야 한다.",
+   "uses_fragment_hex": {
+    "6afa15d9": 0,
+    "afb08178": 0,
+    "b3cd052f": 0,
+    "ed0e44ff": 0
+   }
+  },
+  "candidate_constraint": {
+   "audit_points": [
+    "pass 는 한 육각형 안의 연속 구간을 방문한다 (σ 는 육각형 내부 6-순환)",
+    "F=TARGET_F 에서 abandonment 금지 ⟹ 출발 칸 w 는 σ(w) 방문 필요",
+    "120 육각형 · P=121 ⟹ 정확히 한 육각형만 2 pass, 그것이 fragment"
+   ],
+   "name": "SHORT-PASS LOCALITY",
+   "statement": "ℓ<5 매크로 edge 는 그 시점에 방문 칸이 있고 아직 가득 차지 않은 육각형에서 출발해야 한다. F=1=TARGET_F 와 pass 계수 항등식 아래에서 그런 육각형은 fragment 뿐이며, 시작 칸은 v_{c_f}, 회전 길이는 5-c_f 로 유일하게 결정된다.",
+   "status": "CODEX 감사 대기 — 이번 라운드에서 원장을 움직이는 데 쓰지 않았다"
+  },
+  "codex_confirmed": [
+   "future_short_budget = 1 - r",
+   "archive budget histogram {1: 5947, 0: 710}, no exceptions",
+   "current hexagon has exactly one visited window on all 6,657",
+   "uniform budget 2 closes exactly Round 85's 13 SIDs",
+   "corrected budget closes 71 in total",
+   "58 new closures",
+   "audited residual 6,586"
+  ],
+  "codex_refuted": [
+   "'all 19 unique-cover states UNSAT' — independent result 15 UNSAT / 4 SAT"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+  "documents": [
+   "research/RR_BOUNDARY_WITNESSES_CLAUDE.md"
+  ],
+  "headroom_diagnostic": {
+   "aggregate": {
+    "SAT": 193,
+    "UNKNOWN": 5,
+    "UNSAT": 2
+   },
+   "node_cap": 150000,
+   "reading": "제약이 감사를 통과하면 추가 폐쇄는 대략 1 % 규모다. 원장 변경 아님.",
+   "sample": 200,
+   "source": "감사된 6,586 기준선에서 무작위 추출(seed 7)"
+  },
+  "port_registration_finding": "D == 5*O - P on all 6,657 and TARGET_D = 4, so '121 of 125 registered' is exactly D_final = 4 — an existing engine coordinate, not a new one. Registered port != visited window: all 720 words are visited at the end.",
+  "residual": 6586,
+  "retracted_closures": [
+   "ed0e44ffea3a0265d8d9955b73b9f05ebe7417fe68485829fc939b4c68d71977",
+   "6afa15d99fd597b685f015cf37e0c903c32466e12047c0e9844c832af18815fa",
+   "afb081789d4a52644332b85aac0f91d6e27463fb9096b142035330f296a5365e",
+   "b3cd052f402a93a57cc153063af1244320e9ebe19853040e0886684520ba9651"
+  ],
+  "round": "90c / 91-A",
+  "scope_note": "라운드 90 전체가 반박된 것이 아니다. 58개 폐쇄는 예산 계수만 사용한다.",
+  "wording_correction": "부분 육각형이 항상 2개는 아니다: r=0 이면 fragment + 현재, r=1 이면 현재만."
  },
  "rr_short_logical_chain": [
   "known Target-A boundaries (18)",

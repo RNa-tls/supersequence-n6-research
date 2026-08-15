@@ -26,13 +26,15 @@
    "seconds": 24
   },
   "M2_on_19": {
-   "unsat": 19,
-   "unknown": 0
+   "claimed_unsat": 19,
+   "independently_confirmed_unsat": 15,
+   "refuted_sat": 4,
+   "note": "M2 의 출발 port 고정은 독립 재현되지 않았다"
   },
   "already_closed_in_round85": 13,
-  "new_closures": 62,
+  "new_closures": 58,
   "residual_before": 6644,
-  "residual_after": 6582
+  "residual_after": 6586
  },
  "closures": [
   {
@@ -326,16 +328,6 @@
    "unique_cover_state": false
   },
   {
-   "sid": "6afa15d99fd597b685f015cf37e0c903c32466e12047c0e9844c832af18815fa",
-   "root": "short_ell3",
-   "c": 3,
-   "K": 16,
-   "budget": 1,
-   "covers": 1,
-   "closed_by": "M2_arborescence",
-   "unique_cover_state": true
-  },
-  {
    "sid": "7e1d613901f92de5d63ddb92fd17321b007ea5507763df36eae0936c8fe5ccc9",
    "root": "short_ell3",
    "c": 2,
@@ -446,26 +438,6 @@
    "unique_cover_state": false
   },
   {
-   "sid": "afb081789d4a52644332b85aac0f91d6e27463fb9096b142035330f296a5365e",
-   "root": "short_ell3",
-   "c": 2,
-   "K": 17,
-   "budget": 1,
-   "covers": 1,
-   "closed_by": "M2_arborescence",
-   "unique_cover_state": true
-  },
-  {
-   "sid": "b3cd052f402a93a57cc153063af1244320e9ebe19853040e0886684520ba9651",
-   "root": "short_ell3",
-   "c": 3,
-   "K": 16,
-   "budget": 1,
-   "covers": 1,
-   "closed_by": "M2_arborescence",
-   "unique_cover_state": true
-  },
-  {
    "sid": "b62d7f23ef358f25405c63dbd55dd7c358545f896b3e54c9cdbad9fac9be2257",
    "root": "short_ell2",
    "c": 2,
@@ -566,16 +538,6 @@
    "unique_cover_state": false
   },
   {
-   "sid": "ed0e44ffea3a0265d8d9955b73b9f05ebe7417fe68485829fc939b4c68d71977",
-   "root": "short_ell1",
-   "c": 3,
-   "K": 17,
-   "budget": 1,
-   "covers": 1,
-   "closed_by": "M2_arborescence",
-   "unique_cover_state": true
-  },
-  {
    "sid": "ed979a19d2eb212bb9a09a07c44c6ae92703d45a07e4474576c73025abe2d51e",
    "root": "short_ell2",
    "c": 3,
@@ -659,21 +621,43 @@
  "closure_profile": {
   "root": {
    "short_ell2": 23,
-   "short_ell3": 35,
-   "short_ell1": 4
+   "short_ell3": 32,
+   "short_ell1": 3
   },
   "c": {
-   "2": 44,
-   "3": 18
+   "2": 43,
+   "3": 15
   },
   "budget": {
-   "1": 21,
+   "1": 17,
    "0": 41
   },
   "by_method": {
-   "budget1_joint": 58,
-   "M2_arborescence": 4
+   "budget1_joint": 58
   }
  },
- "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework."
+ "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+ "codex_correction": {
+  "status": "라운드 90c — Codex 독립 감사 반영",
+  "confirmed": [
+   "corrected state-dependent short budget = 1 - r (archive 6,657: budget 1 -> 5,947, budget 0 -> 710, no exceptions)",
+   "uniform budget 2 closes 13, exactly the Round-85 SID set",
+   "corrected budget closes 71 in total"
+  ],
+  "refuted": [
+   "'all 19 unique-cover states UNSAT' — independent result is 15 UNSAT / 4 SAT"
+  ],
+  "retracted_closures": [
+   "6afa15d99fd597b685f015cf37e0c903c32466e12047c0e9844c832af18815fa",
+   "afb081789d4a52644332b85aac0f91d6e27463fb9096b142035330f296a5365e",
+   "b3cd052f402a93a57cc153063af1244320e9ebe19853040e0886684520ba9651",
+   "ed0e44ffea3a0265d8d9955b73b9f05ebe7417fe68485829fc939b4c68d71977"
+  ],
+  "new_closures_corrected": 58,
+  "new_closures_reported_before": 62,
+  "residual_corrected": 6586,
+  "residual_reported_before": 6582,
+  "wording_correction": "부분 육각형이 항상 2개인 것은 아니다: r=0 이면 fragment 부분 + 현재 부분, r=1 이면 현재 육각형만 부분.",
+  "scope": "정리 자체는 무효가 아니다. 58개 폐쇄는 예산 계수만 사용한다. 철회된 4개만이 short edge 출발 port 고정을 사용했다."
+ }
 }

@@ -2,6 +2,11 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
+> **Current Q2 / Area-A residual: 6,586 states** (Codex-audited, Round 90 correction —
+> 6,657 archived baseline − 13 closed in Round 85 − 58 in Round 90). Round 90's
+> "all 19 unique-cover states closed" subclaim is retracted: 15 closed, 4 survive as
+> adversarial boundary witnesses. This project has not proved `L₆ ≥ 872`.
+
 ## The problem
 
 A *superpermutation* on n symbols is a string containing every one of the
