@@ -395,6 +395,7 @@
  "quantitative_ledger_note_round_90c": "Audited Q2/Area-A residual: 6,586 (6,657 archive - 13 Round 85 - 58 Round 90).",
  "quantitative_ledger_note_round_92": "Q2/Area-A residual: 6,396 (6,657 archive - 13 R85 - 58 R90 - 4 R91 - 186 R92).",
  "quantitative_ledger_note_round_94": "Audited Q2/Area-A residual: 5,030 (Round 93 Codex-confirmed). Round-94 closures (228) are provisional and blocked on the r=1 asymmetry.",
+ "quantitative_ledger_note_round_94d": "Audited Q2/Area-A residual: 4,834 (5,030 - 196 Layer-A closures, Codex-corrected).",
  "repo_tree_roots": {
   "claude_branch": "claude/n6-supersequence-length-rn17wf",
   "codex_tip_branch": "codex/round-r1-37-hex82-t4",
@@ -3137,6 +3138,63 @@
    "B2_including": 32,
    "both": 8,
    "union": 228
+  }
+ },
+ "round_94d_layer_a_correction": {
+  "artifacts": [
+   "outputs/rr_layer_a_archive_v2/layer_a_closures_v2.jsonl.gz",
+   "outputs/rr_layer_a_archive_v2/false_submissions_8.jsonl.gz"
+  ],
+  "author": "Claude (독립 검증 트랙)",
+  "b2_status": "provisional, outside the audited ledger, not promoted",
+  "bug": "상태 집계가 any(cover fails A) 였다. 올바른 술어는 all(cover fails A). 다른 cover 가 B2 로 죽은 상태까지 섞여 집계가 B2 로 오염됐다.",
+  "codex_correction": {
+   "audited_residual": 4834,
+   "corrected_closures": 196,
+   "layer_a_necessity": "CONFIRMED",
+   "submission_204": "REFUTED"
+  },
+  "disclaimer": "This project has not proved L6 >= 872. The results here are conditional progress toward that goal within the stated Q2/Area-A framework.",
+  "documents": [
+   "research/RR_LAYER_A_CORRECTION_CLAUDE.md"
+  ],
+  "example": "5c461c58: cover 7 PASS (107/107 도달), cover 10 FAIL (92/107)",
+  "false_submissions": 8,
+  "local_recomputation": {
+   "A_closed": 196,
+   "A_fail": 5344,
+   "A_pass": 21751,
+   "matches_codex": "SID-for-SID",
+   "pairs": 27095,
+   "states": 5030
+  },
+  "round": "94d",
+  "set_arithmetic": {
+   "A_closed": 196,
+   "B2_closed": 186,
+   "intersection": 154,
+   "superseded": "A involved 204 / B2 involved 32 / intersection 8",
+   "union": 228
+  },
+  "survivor_census": {
+   "exactly_one_layerA_cover": 921,
+   "hall_passing": {
+    "1": 735,
+    "2-5": 2722,
+    "6-20": 1246,
+    ">20": 131
+   },
+   "layerA_passing": {
+    "1": 921,
+    "2-5": 2724,
+    "6-20": 1119,
+    ">20": 70
+   },
+   "r": {
+    "0": 4500,
+    "1": 334
+   },
+   "survivors": 4834
   }
  },
  "rr_short_logical_chain": [
