@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "180 tests passing"
+  "expected": "186 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -3927,5 +3927,100 @@
   ],
   "reproduce": "python3 src/replay_rr_word_lift.py",
   "disclaimer": "This project has not proved L6 >= 872. Even total closure of this Q2 region would still leave the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_101": "AUDITED 4,782 (unchanged). CLAUDE COMPLETE/REPLAYED 4,230 (unchanged). Round 101 closed 0 new states: word-level arc consistency and refined Hall matching fail only 5 of 15,781 W-A-passing pairs, because word domains are never larger than 2 and 96.9% are singleton.",
+ "round_101_word_csp": {
+  "round": 101,
+  "author": "Claude only — NOT independently audited",
+  "audited_baseline": 4782,
+  "claude_replayed_baseline": 4230,
+  "wa_survivors": {
+   "pairs": 15781,
+   "states": 4230,
+   "states_with_one_wa_cover": 1259,
+   "cover_histogram_note": "Round-98's UNIQUE_PATH 1,112 is superseded — that was a pre-W-A count"
+  },
+  "domain_census": {
+   "obligations": 1697539,
+   "sizes": {
+    "1": 1645277,
+    "2": 52262
+   },
+   "max": 2,
+   "singleton_fraction": 0.9692,
+   "pairs_all_singleton": 233
+  },
+  "W_C": {
+   "rules": {
+    "P": "delete a candidate word with no predecessor support (ROOT-direct counts)",
+    "S": "reject if two or more obligations have no successor at all (one global terminal)",
+    "R": "reject if live domains break root reachability",
+    "E": "reject on an empty domain"
+   },
+   "deliberately_not_done": "never delete a word for lacking successors — the terminal is unknown",
+   "pair_pass": 15776,
+   "pair_fail": 5,
+   "failure_reasons": {
+    "W_C_TWO_TERMINALS": 5
+   },
+   "state_closures": 0,
+   "deletion_histogram": {
+    "0": 14377,
+    "1": 1195,
+    "2": 139,
+    "3": 70
+   },
+   "domains_after": {
+    "1": 1646425,
+    "2": 50574
+   }
+  },
+  "W_D": {
+   "rule": "perfect matching of every obligation to a distinct supplier (another obligation or ROOT)",
+   "pair_fail": 0,
+   "reason": "same degeneracy that made Round-95 C1/C2 vacuous"
+  },
+  "failure_classification": {
+   "A_no_candidate": 0,
+   "B_singleton_conflict": 0,
+   "C_predecessor_conflict": 0,
+   "D_successor_global_terminal": 5,
+   "E_matching_deficiency": 0,
+   "F_root": 0
+  },
+  "r_comparison": {
+   "r0": {
+    "pairs": 15512,
+    "mean_domain": 1.031,
+    "nonsingleton_per_pair": 3.32
+   },
+   "r1": {
+    "pairs": 269,
+    "mean_domain": 1.024,
+    "nonsingleton_per_pair": 2.6
+   },
+   "finding": "W-A has already consumed the r asymmetry"
+  },
+  "positive_controls": {
+   "lift_passing_witnesses": "27/27 pass W-C and W-D",
+   "witness_chain_words_deleted": 0,
+   "engine_built_chains": 585,
+   "pairs_rejected": 0,
+   "chain_words_deleted_by_AC": 0
+  },
+  "ell_dependency": "every W-C/W-D verdict carries a depends_on field: the layers rest on the audited Rounds 90/91 ell-forcing theorem, exactly as W-A does",
+  "ledger_labels": {
+   "AUDITED": 4782,
+   "CLAUDE_COMPLETE_REPLAYED": 4230,
+   "ROUND_101_PROVISIONAL": 0
+  },
+  "verdict": "C — local word consistency is exhausted; the remaining difficulty is genuinely global ordering",
+  "artifacts": [
+   "outputs/rr_word_csp_census.json",
+   "outputs/rr_word_csp_ledger.jsonl.gz",
+   "outputs/rr_word_lift_archive/wc_wd.jsonl.gz"
+  ],
+  "reproduce": "python3 src/probe_rr_word_csp.py census|layers|control",
+  "disclaimer": "This project has not proved L6 >= 872. Even closure of the current Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }
