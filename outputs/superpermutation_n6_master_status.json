@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "207 tests passing"
+  "expected": "215 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -4294,5 +4294,91 @@
   ],
   "reproduce": "python3 src/probe_rr_weighted_path.py witnesses",
   "disclaimer": "This project has not proved L6 >= 872. Even total closure of the current Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_105": "AUDITED 4,782 (unchanged). Round 105 was a pure falsification round: it refuted the Round-104 component bound AS STATED (false for general digraphs, 111 counterexamples), verified the missing precondition on all 173,409 real assignments, and recorded that the collapse is fragile (3,359 pairs close with margin 1). Label: CLAUDE-FALSIFICATION-SURVIVED Q2 residual 0 — not an audit.",
+ "round_105_falsification": {
+  "round": 105,
+  "type": "pure falsification — no new closures, no ledger change",
+  "successful_attack": {
+   "target": "L2 = c - 1 component lower bound",
+   "method": "exhaustive enumeration of all rooted Hamilton paths on random 0/1 digraphs vs the solver",
+   "pairs_checked": 42052,
+   "counterexamples": 111,
+   "all_of_form": "solver UNSAT / truth SAT",
+   "root_cause": "the component merge inspects only ONE cost-0 successor per vertex, so a vertex with two cost-0 successors makes the component count too large and the bound unsound",
+   "restricted_half": "0 mismatches",
+   "corrected_statement": "valid only when every vertex has cost-0 out-degree <= 1",
+   "precondition_check": {
+    "assignments": 173409,
+    "max_cost0_outdegree": 1,
+    "violations": 0
+   },
+   "code_change": "assert added in probe_rr_weighted_path.weighted_hamilton"
+  },
+  "delta_F_correction": {
+   "generic_claim": "FALSE — from an arbitrary endpoint, ell<5 always abandons (~148k contexts each for ell=0..4)",
+   "model_specific": "ell=5 never abandons (147,782 contexts); fragment repair verified on all 5,732 r=0 states (c_f split 1487/1562/1323/915/445, 0 exceptions)",
+   "sharpened_reason": "the fragment rotations end on the boundary of the already-visited part of the fragment hexagon"
+  },
+  "H_semantics": {
+   "table": {
+    "w=2": "dS=0 dH=0",
+    "w=3": "dS=1 dH=0",
+    "w=4": "dS=1 dH=1",
+    "w=5": "dS=1 dH=2",
+    "w=6": "dS=1 dH=3"
+   },
+   "answer": "A — H can never decrease, so future dH=0 is a safe optimistic relaxation"
+  },
+  "positive_controls": {
+   "synthetic_instances": 10000,
+   "solves": 20000,
+   "all_SAT": true,
+   "false_unsat": 0,
+   "witness_bound_violations": 0
+  },
+  "two_implementations": {
+   "L2_union_find_vs_functional_chain": "6,692 assignments, 0 mismatches"
+  },
+  "fragility": {
+   "root_margin_histogram": {
+    "-3": 162,
+    "-2": 686,
+    "-1": 1414,
+    "0": 3313,
+    "1": 3359,
+    "2": 3311,
+    "3": 2396,
+    "4": 1042,
+    "5": 98
+   },
+   "pairs_not_closed_by_root_bound": 5575,
+   "pairs_with_margin_exactly_1": 3359,
+   "reading": "the collapse is not comfortable; one extra free connector or B+1 would revive thousands of pairs"
+  },
+  "not_done": [
+   "section 16 full recomputation from scratch",
+   "section 19 deliberate rescue experiments"
+  ],
+  "dependency_status": {
+   "Q2_framework": "independently audited",
+   "pass_obligation_bijection": "independently audited",
+   "ell_forcing": "independently audited",
+   "short_pass_locality": "independently audited",
+   "WORD_NEXT_partial_function": "Claude self-replayed (structural proof)",
+   "W_A_552_and_W_E_178": "Claude self-replayed",
+   "budget_and_L2": "Claude only, after correction",
+   "conclusion_inherits": "Claude self-replayed — the weakest link"
+  },
+  "ledger_labels": {
+   "AUDITED": 4782,
+   "CLAUDE_SELF_REPLAYED_WA": 4230,
+   "CLAUDE_SELF_REPLAYED_WE": 4052,
+   "CLAUDE_FALSIFICATION_SURVIVED_Q2_RESIDUAL": 0
+  },
+  "artifacts": [
+   "outputs/rr_falsification_105.json"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872. Even a sound complete closure of the Q2/Area-A residual leaves the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }

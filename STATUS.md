@@ -2,15 +2,15 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Audited Q2 / Area-A residual: 4,782 states.** Round 103 identified the engine's `Ndef + H ≤ 3`
-> budget as the coordinate the concrete-word model was missing. Round 104 promoted it to a
-> necessary condition — `E ≤ B := 3 + K − Ndef − H`, verified against the engine on all 22
-> literal witnesses — and found that the cost-0 (`T1`) map's ~17 cycles leave ~24 components
-> against `B ≈ 21`. Under that condition **all 173,409 word assignments are UNSAT and all
-> 4,230 remaining states close**. That collapse is *provisional, Claude-only, and deliberately
-> flagged as suspicious*: the research note lists what would invalidate it, the largest risk
-> being that no genuine target-reaching completion exists in the archive to serve as a positive
-> control. The audited ledger stays **4,782**. This project has not proved `L₆ ≥ 872`.
+> **Audited Q2 / Area-A residual: 4,782 states.** Rounds 103–104 identified the engine's
+> `Ndef + H ≤ 3` budget and used it to close the whole remaining population provisionally.
+> Round 105 attacked that result: the component lower bound `L2 = c − 1` is **false for general
+> 0/1 digraphs** (111 brute-force counterexamples) and silently requires cost-0 out-degree ≤ 1 —
+> a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
+> survive with a corrected statement. The collapse is nonetheless **fragile**: 3,359 of 15,781
+> pairs close with margin exactly 1. Status label: **CLAUDE-FALSIFICATION-SURVIVED Q2 residual 0**,
+> which is *not* an audit. The audited ledger stays **4,782**. This project has not proved
+> `L₆ ≥ 872`.
 
 ## The problem
 
