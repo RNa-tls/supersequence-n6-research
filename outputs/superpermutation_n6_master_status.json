@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "192 tests passing"
+  "expected": "199 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -4115,6 +4115,97 @@
    "outputs/rr_word_assign_exact.json"
   ],
   "reproduce": "python3 src/probe_rr_word_assign.py census|we",
+  "disclaimer": "This project has not proved L6 >= 872. Even complete closure of this Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_103": "AUDITED 4,782 (unchanged). CLAUDE SELF-REPLAYED 4,052: the 178 W-E closures were reproduced exactly by a second implementation (SID set difference 0). Round 103's main result is not a closure: all 22 concrete SAT witnesses replay literally in the exact engine but violate Ndef+H <= 3, identifying the N+H budget as the missing coordinate.",
+ "round_103_literal_replay": {
+  "round": 103,
+  "author": "Claude only — NOT independently audited",
+  "literal_replay": {
+   "witnesses": 22,
+   "LITERAL_REPLAY_PASS": 22,
+   "LITERAL_REPLAY_FAIL": 0,
+   "engine": "legacy_research/work/superperm_partial_f1.py ExactState/extend",
+   "method": "each pass expanded as ell rotations (weight 1) + one joint (weight >= 2); the engine itself enforces window no-repeat and port re-registration",
+   "endpoints": "after trailing rotations all 22 reach visited_count=720, F=1, P=121, O=25, D=4",
+   "final_target": "FAILS for all 22 — the engine also requires Ndef + H <= 3 and the measured values are 35..58"
+  },
+  "missing_coordinate": {
+   "name": "N+H budget",
+   "identity": "Ndef = S + F - O",
+   "cause": "the obligation/word graph treats the four joint targets as equal, but T1 is weight 2 (dS=0) while T2/T3/T4 are weight 3 (dS=1, dH=0)",
+   "constraint": "future weight-3 joints E <= B := 3 + K - Ndef_now - H_now (since delta O = K is fixed)",
+   "measured_B": {
+    "median": 21,
+    "min": 18,
+    "max": 24,
+    "obligations": "107-108"
+   },
+   "implication": "at least ~86 of ~107 future passes must use the unique free joint T1",
+   "witness_usage": "the 22 replayed witnesses use E ~ 56-79, far over budget",
+   "cheapest_test_so_far": "obligations with no cheap (T1) incoming edge <= B — never fires (median 4 vs 21), so Round 104 needs the weighted path constraint"
+  },
+  "we_independent_replay": {
+   "implementation": "claude-r103-independent-we-replay/1 (imports neither Round-102 nor Round-100 code)",
+   "pairs": 15781,
+   "assignments": 173409,
+   "k_raw": {
+    "0": 233,
+    "1": 289,
+    "2": 1698,
+    "3": 5667,
+    "4": 7894
+   },
+   "k_propagated": {
+    "0": 545,
+    "1": 420,
+    "2": 1956,
+    "3": 5195,
+    "4": 7665
+   },
+   "assignments_killed_by_layer": {
+    "A": 100174,
+    "B2": 31434,
+    "D4": 6188,
+    "D1": 37
+   },
+   "pair_verdicts": {
+    "PASS": 10552,
+    "FAIL": 5229
+   },
+   "state_closures": 178,
+   "sid_set_difference_vs_round_102": 0
+  },
+  "closure_set_checks": {
+   "all_inside_wa_survivors": true,
+   "intersection_with_the_552": 0,
+   "cover_count_distribution": {
+    "1": 106,
+    "2": 32,
+    "3": 22,
+    "4": 6,
+    "5": 5,
+    "7": 4,
+    "8": 2,
+    "17": 1
+   },
+   "cap_or_heuristic_based": false
+  },
+  "ledger_labels": {
+   "AUDITED": 4782,
+   "CLAUDE_COMPLETE_REPLAYED": 4230,
+   "ROUND_102_103_SELF_REPLAYED": 4052
+  },
+  "next": [
+   "promote the N+H budget to a necessary condition: a rooted Hamilton path using at most B expensive edges",
+   "count the chain decomposition of the functional T1 subgraph and test <= B+1 pieces"
+  ],
+  "artifacts": [
+   "outputs/rr_literal_replay.json",
+   "outputs/rr_word_assign_replay.json",
+   "outputs/rr_word_assign_178_sids.json"
+  ],
+  "reproduce": "python3 src/replay_rr_literal_engine.py; python3 src/replay_rr_word_assign.py",
   "disclaimer": "This project has not proved L6 >= 872. Even complete closure of this Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }

@@ -2,14 +2,14 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Audited Q2 / Area-A residual: 4,782 states; Claude-replayed 4,230; Round-102 provisional
-> 4,052.** Rounds 99–100 proved the word lift deterministic and closed 552 states (reproduced
-> exactly by a second implementation). Round 101 found local word consistency exhausted.
-> Round 102 measured the binary word dimension at **k ≤ 4**, enumerated all 173,409 word
-> assignments, and closed a further **178** states by requiring every assignment to fail an
-> already-proved graph condition; exact Hamilton on the concrete graphs added none. No Codex
-> audit is available, so nothing below 4,782 is independently audited. This project has not
-> proved `L₆ ≥ 872`.
+> **Audited Q2 / Area-A residual: 4,782 states; Claude self-replayed 4,052.** Rounds 99–102
+> built a concrete-word model that closed 552 + 178 states, all reproduced by second
+> implementations. Round 103 drove the exact engine on the model's 22 SAT witnesses: every one
+> replays literally and reaches `visited=720, F=1, P=121, O=25, D=4`, but **every one violates
+> the engine's `Ndef + H ≤ 3` budget** (35–58). The missing coordinate is the **N+H budget** —
+> of the four joint targets exactly one is weight 2 and three are weight 3, so at most
+> `B ≈ 21` of ~107 future passes may be expensive. No Codex audit is available, so nothing
+> below 4,782 is independently audited. This project has not proved `L₆ ≥ 872`.
 
 ## The problem
 
