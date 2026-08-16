@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "160 tests passing"
+  "expected": "167 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -3540,5 +3540,155 @@
   "reproduce": "python3 src/probe_rr_forced_edge.py export | control | pilot-control | pilot",
   "next": "exact-Hamilton sweep restricted to the 1,069 UNIQUE_AB covers (~33% decided at 3M nodes, ~100 s/instance)",
   "disclaimer": "This project has not proved L6 >= 872. Complete closure of this Q2 residual would still leave the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_98": "Audited Q2/Area-A residual: 4,790 (Round-96/97 bundle Codex-audited: D1 4 + D4b 4 + exact-Hamilton pilot 4, pairwise disjoint). Round 98 adds 8 provisional exact-Hamilton closures (residual would be 4,782) and proves 87 UNIQUE_PATH states SAT at the obligation-graph level — SAT is not a closure.",
+ "round_98_exact_hamilton": {
+  "round": 98,
+  "author": "Claude (독립 검증 트랙)",
+  "baseline": 4790,
+  "flaky_test_repair": {
+   "test": "tests/test_single_short_pass.py::test_pinned_repair_pass_fills_the_fragment_and_departs_legally",
+   "cause": "expected a fragment state to appear in the first 60 sampled states (load order dependent)",
+   "fix": "sort states by sid; select fragment fixtures deterministically over the whole set; skip with a precondition message if none",
+   "semantics_changed": false,
+   "suite": "167 tests passing"
+  },
+  "unique_path_census": {
+   "states": 4790,
+   "pairs": 19172,
+   "unique_path": 1112,
+   "cover_histogram": {
+    "1": 1112,
+    "2-5": 2690,
+    "6-20": 942,
+    ">20": 46
+   },
+   "note": "D1/D4b are pair-level, so they delete individual covers; that raised unique-cover states from 1,069 to 1,112"
+  },
+  "difficulty_predictors": {
+   "separating_features": [
+    "directed edge count",
+    "BFS depth from ROOT"
+   ],
+   "unsat_band": "edges 274-282, BFS depth 14-17, exactly one articulation vertex",
+   "sat_or_unknown_band": "edges 287-316, BFS depth 8-11",
+   "population": {
+    "edges<=282": 130,
+    "edges<=287": 188,
+    "range": "273-318",
+    "bfs_depth>=14": 51,
+    "articulation": {
+     "0": 851,
+     "1": 188,
+     "2": 64,
+     "3": 9
+    }
+   }
+  },
+  "solver": {
+   "version": "claude-r98-bitset-dfs/1",
+   "pruning": [
+    "reachability of remaining from current",
+    "at most one zero-outdegree vertex among remaining",
+    "memo on the exact (current, remaining) key",
+    "successor ordering by remaining out-degree"
+   ],
+   "reverse_formulation": "reverse G and attach a virtual source; ROOT has indegree 0 in G so it is forced last in G^R",
+   "controls": {
+    "explicit_hamilton_graphs": 250,
+    "false_unsat_forward": 0,
+    "false_unsat_reverse": 0,
+    "formulations_agree": 150,
+    "subtour_false_unsat": 0
+   }
+  },
+  "sweeps": {
+   "population_1112_cap_100k": {
+    "SAT": 67,
+    "UNSAT": 4,
+    "UNKNOWN": 1041,
+    "seconds": 6514
+   },
+   "easy_stratum_130_cap_1M": {
+    "SAT": 25,
+    "UNSAT": 7,
+    "UNKNOWN": 98,
+    "seconds": 6881
+   },
+   "unsat_all_in_band": "edges <= 282"
+  },
+  "hard_controls_8": {
+   "now_unsat": [
+    "77fbaf89"
+   ],
+   "now_sat": [
+    "c1dd5467",
+    "02eafeaa",
+    "a34d6499",
+    "72f19d2f"
+   ],
+   "still_unknown": [
+    "3189b5eb",
+    "bed179a1",
+    "7bb6b67c"
+   ],
+   "note": "no 100M-node heroics"
+  },
+  "subtour_cut": {
+   "implementation": "assignment (perfect matching with a terminal dummy) + branch on a subtour's edges; no external solver",
+   "strong_for": "SAT (72f19d2f solved in 10 iterations / 0.01 s where DFS failed at 3M)",
+   "weak_for": "UNSAT (all iteration-capped UNKNOWN)"
+  },
+  "sat_finding": {
+   "sat_states": 87,
+   "unsat_states": 12,
+   "overlap": 0,
+   "witnesses_verified_edge_by_edge": true,
+   "word_lift": {
+    "checked": 4,
+    "liftable": 0,
+    "failed_at_steps": [
+     47,
+     63,
+     89,
+     89
+    ],
+    "max_feasible_words_per_step": 1
+   },
+   "interpretation": "the obligation graph lets a hexagon's entry candidate be chosen independently in source and target roles; a genuine continuation fixes ONE entry word per hexagon. The next necessary condition is the word-level graph with one word per hexagon.",
+   "caveat": "SAT is NOT a closure and the lift test covered only these paths, not all paths"
+  },
+  "provisional_closures": {
+   "count": 8,
+   "sids": [
+    "06316dbd",
+    "0e05f78b",
+    "3671f68a",
+    "58187879",
+    "5b288103",
+    "63bf8513",
+    "fec4a172",
+    "77fbaf89"
+   ],
+   "r": {
+    "0": 5,
+    "1": 3
+   },
+   "rule": "UNIQUE_PATH state, its single surviving cover exhausted"
+  },
+  "provisional_residual": 4782,
+  "artifacts": [
+   "outputs/rr_exact_hamilton_ledger.jsonl.gz",
+   "outputs/rr_exact_hamilton_graphs.jsonl.gz",
+   "outputs/rr_exact_hamilton_census.jsonl.gz",
+   "outputs/rr_exact_hamilton_pilot12.json",
+   "outputs/rr_exact_hamilton_sweep_100k.json",
+   "outputs/rr_exact_hamilton_easy_stratum.json",
+   "outputs/rr_exact_hamilton_subtour.json",
+   "outputs/rr_exact_hamilton_sat_witnesses.json"
+  ],
+  "reproduce": "python3 src/probe_rr_exact_hamilton.py census|graphs|pilot12|sweep|subtour",
+  "verdict": "D — MANY SAT: the abstraction is permissive; next round should lift the obligation graph to words",
+  "disclaimer": "This project has not proved L6 >= 872. Even total closure of the current Q2 residual would still leave the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }

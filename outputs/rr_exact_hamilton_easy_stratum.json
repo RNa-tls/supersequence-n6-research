@@ -1,0 +1,13476 @@
+{
+ "round": 98,
+ "solver": "claude-r98-bitset-dfs/1",
+ "node_cap": 1000000,
+ "verdicts": {
+  "UNKNOWN": 98,
+  "UNSAT": 7,
+  "SAT": 25
+ },
+ "rows": [
+  {
+   "sid": "042d7b5b6265c106033feda728657df10a8cfff17e36868f62b4fa549b148be4",
+   "cover_id": 8,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "fac1a78b3607f3b365a0525e9380fba73bcb7a96e1ac1dd7cecd607285af9488",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.66,
+   "prune": {
+    "prune_reach": 326405,
+    "prune_dead_end": 17213,
+    "prune_two_terminals": 104513,
+    "prune_memo": 16862
+   }
+  },
+  {
+   "sid": "0529a684fb061022c680cbd6e1453b432b213ed1fbdae2a1d3263695bf13a166",
+   "cover_id": 7,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "719a4cdc203b04e59195105a43e2530a135f7f1e61078931e83cc8c4ee28b2af",
+   "m": 107,
+   "edges": 276,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 38.4,
+   "prune": {
+    "prune_reach": 290221,
+    "prune_two_terminals": 136456,
+    "prune_dead_end": 5077,
+    "prune_memo": 13620
+   }
+  },
+  {
+   "sid": "05a2ab6cc12d81fd3100f9413a308b4f819c93b4352e86f7a16cdc86c15c1466",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "69daefde2e0f31f0b023dd30b40ca7dc485b465f3867e7a3c3cadb8fa2126bbf",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.26,
+   "prune": {
+    "prune_reach": 364408,
+    "prune_two_terminals": 88329,
+    "prune_dead_end": 13412,
+    "prune_memo": 15698
+   }
+  },
+  {
+   "sid": "06316dbd6608aa8f216fae44dc78496c8624c22d0316178bf51ae823784cdb82",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "f8179a6f0dc18ec1ab631af3942f843d194ce2a07bedd0e0b8e6ce58dcf40cd2",
+   "m": 108,
+   "edges": 276,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 542273,
+   "seconds": 22.95,
+   "prune": {
+    "prune_reach": 147398,
+    "prune_two_terminals": 66748,
+    "prune_dead_end": 5319,
+    "prune_memo": 11687
+   }
+  },
+  {
+   "sid": "0ad7467bd8153e8c99f03e61a5da8d061e1685d486cee33d8d5ed2c09b6bce38",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "5c12022182388063ddcc6e33c1b6afeb1f802d712b35110f6d6f4a54b67560b9",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.58,
+   "prune": {
+    "prune_two_terminals": 129037,
+    "prune_reach": 274338,
+    "prune_memo": 17962
+   }
+  },
+  {
+   "sid": "0bc17a9c4021472467f759c9dce1ae6231681967ad354ef5c3d2405331644a36",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "bc332483a22626e43590afa093e232d212345cfb7260136e178cf2dff7de1f1e",
+   "m": 107,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.45,
+   "prune": {
+    "prune_reach": 309099,
+    "prune_dead_end": 18328,
+    "prune_two_terminals": 103142,
+    "prune_memo": 15429
+   }
+  },
+  {
+   "sid": "0e05f78bc3fd45f6dadba85681d03f93fd307ff2155ef0f75f221ac35f9461b3",
+   "cover_id": 6,
+   "r": 1,
+   "root": "short_ell1",
+   "graph_hash": "356a31db0375eb9accdfd579130ac7932d02b89726c9e699d328fb3e3f79fb05",
+   "m": 107,
+   "edges": 280,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 452,
+   "seconds": 0.02,
+   "prune": {
+    "prune_reach": 203,
+    "prune_two_terminals": 50,
+    "prune_memo": 3
+   }
+  },
+  {
+   "sid": "110f0dbe10ecf0b9e487487f29f7e680056597a4d8a8cb15f40d135f31aa8ea8",
+   "cover_id": 15,
+   "r": 1,
+   "root": "short_ell1",
+   "graph_hash": "c829adc5120b543f453307ca78e41f759ea5cb1482694f53455d3451d864ed1a",
+   "m": 107,
+   "edges": 278,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 24042,
+   "seconds": 0.88,
+   "prune": {
+    "prune_reach": 6041,
+    "prune_two_terminals": 2940,
+    "prune_dead_end": 325,
+    "prune_memo": 750
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     105
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "12408416664e679ffac75b825083dbb60e46319ddeb7d28403da49c98dc7e279",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "1947d5ff45acef4bbed1db3864bb95645c18164f3edb199a5d94b5d33c7b2bcf",
+   "m": 107,
+   "edges": 274,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 38.7,
+   "prune": {
+    "prune_reach": 293154,
+    "prune_two_terminals": 146904,
+    "prune_dead_end": 13370,
+    "prune_memo": 9490
+   }
+  },
+  {
+   "sid": "1545455886922571786946eb39c61d32ced64c6e6e586d6b21c11565fede9221",
+   "cover_id": 6,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "5b5814b8b698c997d3eceb33499f5c1e4967b431572042ba320b2c42de94c462",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.45,
+   "prune": {
+    "prune_reach": 310128,
+    "prune_two_terminals": 106371,
+    "prune_dead_end": 19170,
+    "prune_memo": 16386
+   }
+  },
+  {
+   "sid": "175f6c71d1d9773b4f8bf51a0e96adb7669cec1077dfa3aaa8ff286bbe9b41db",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "14fb6eaad1aee48393ad59d9589258a8fd772e753c748860d272246df8cc6bba",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 38.6,
+   "prune": {
+    "prune_reach": 337589,
+    "prune_dead_end": 9962,
+    "prune_two_terminals": 115757,
+    "prune_memo": 17692
+   }
+  },
+  {
+   "sid": "1c06f87a6ce67995356ecd4c8ec24d14109176460a8ee00de12a4a585fa55e0a",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "b7df8d115ae6363df4f4fe940a1335cfcb7666992d9df0cc71c521b4b96258b3",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.4,
+   "prune": {
+    "prune_two_terminals": 124642,
+    "prune_reach": 287509,
+    "prune_memo": 10222
+   }
+  },
+  {
+   "sid": "23a8a6344f136a4f54c76910419720b53c46538707e8f9c04c804e69bc9a5cac",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "92fd503d7f4eaaaf395a259dd7042ee97c1870fe2d012094d5a86e00664ca262",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.76,
+   "prune": {
+    "prune_reach": 328225,
+    "prune_two_terminals": 90361,
+    "prune_dead_end": 13516,
+    "prune_memo": 20901
+   }
+  },
+  {
+   "sid": "278791c9d8a9890ba979a36e93968d0133cd0f6a6d489d90be0d92d631a027bb",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "a989435c23c7db51ec342eed63410d97d6a2923af13f96a77c3c9594db1e1f17",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.68,
+   "prune": {
+    "prune_reach": 278453,
+    "prune_two_terminals": 135309,
+    "prune_memo": 11285
+   }
+  },
+  {
+   "sid": "28d72dba01b4f4201fe1f5366a5dce27117c0c65a26072072b69d6b1aab82854",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "7780c5b5a977102b66123eef5fc4d045a47cf878146882e2a4fa3ae5d9b9bf2e",
+   "m": 107,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.54,
+   "prune": {
+    "prune_reach": 337526,
+    "prune_two_terminals": 101186,
+    "prune_dead_end": 6358,
+    "prune_memo": 11269
+   }
+  },
+  {
+   "sid": "2c30824ad5a0d26c57d7bd5a2d82bed318cdc459efeb10016c63e5811933df54",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "353c71caad93ba8ed8d43c68bf2eae08ac82cfeacf52a0aa7769802329abee04",
+   "m": 107,
+   "edges": 274,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.85,
+   "prune": {
+    "prune_reach": 264668,
+    "prune_two_terminals": 152332,
+    "prune_dead_end": 6959,
+    "prune_memo": 15292
+   }
+  },
+  {
+   "sid": "2cd0230e05c8b4b946fb9b0ba1e77ee5aa023c3b655a0d99d4e7de9887678c23",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "f4b36a3cbfc627e468492ad5866c1cf9115656335eaaa49e2a86fa3ce8dd0a4c",
+   "m": 107,
+   "edges": 279,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 72277,
+   "seconds": 2.31,
+   "prune": {
+    "prune_reach": 20114,
+    "prune_two_terminals": 10063,
+    "prune_dead_end": 282,
+    "prune_memo": 827
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "2e364a01b995a311ec4bf5080ffc77f20664ea6c214e66cea2bb81f9f7557e05",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "dae06926cc09631eaf1eee4e6d8f9f37833a2114117154fc8b7c83a590fd6330",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.53,
+   "prune": {
+    "prune_dead_end": 2,
+    "prune_reach": 338345,
+    "prune_two_terminals": 108615,
+    "prune_memo": 14902
+   }
+  },
+  {
+   "sid": "2fbe94e8c66e8927215857a5402fac0918db00fdc5f6b570ee8b87eec9db3b9e",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "6b2d61c7e17c75820783865461e0b15f1a46ab7c1a96267b12de263700b924a4",
+   "m": 107,
+   "edges": 276,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 207065,
+   "seconds": 6.87,
+   "prune": {
+    "prune_reach": 68008,
+    "prune_two_terminals": 16699,
+    "prune_dead_end": 4129,
+    "prune_memo": 3402
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     99
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "3031ff7356f2669a8ef63480885d4b8ac637f601ba3bf4fce09b4abd3aaf707c",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "43132a5dcbcd4cfffd275b39f85fda67547c59d47a6316aa5426200688ae6d3d",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.02,
+   "prune": {
+    "prune_reach": 322195,
+    "prune_dead_end": 20911,
+    "prune_two_terminals": 107256,
+    "prune_memo": 13984
+   }
+  },
+  {
+   "sid": "3303ae56948ceae26b8cb33ae45d699b90d6587a587cb387b41aa464defc516f",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "95c63a09e04160052211014cf5f95a77077ba7437738d1a3c975461726304520",
+   "m": 107,
+   "edges": 274,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.57,
+   "prune": {
+    "prune_reach": 325766,
+    "prune_two_terminals": 99231,
+    "prune_dead_end": 16038,
+    "prune_memo": 7523
+   }
+  },
+  {
+   "sid": "330a3bb0142cccb57ce3425c8373b2d1d0e10e7c4c63209d01a8db6735a798e8",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "06c5fa6cebd954e46d65fbdb66809fca6f26213b00baff5c38651293bbe5e0f0",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.57,
+   "prune": {
+    "prune_reach": 319928,
+    "prune_two_terminals": 96169,
+    "prune_dead_end": 21834,
+    "prune_memo": 15486
+   }
+  },
+  {
+   "sid": "332fe9fba1ed30a61abd17cfe7963d0c0b4112704379f40604e5e304c491ff16",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "d7fe15211066b728f883050aa6cb11b317d6907ae51740e4286f4d54c60bb5a3",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.22,
+   "prune": {
+    "prune_reach": 306723,
+    "prune_two_terminals": 130197,
+    "prune_memo": 15910
+   }
+  },
+  {
+   "sid": "334880fb50f4fed65489505600adea7feb73e15cb00d156a8cdb2ddc0a8f475b",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "40630dcc847adcdb4efae3a156ad6617108e7f1d8002e62840a98a03cc170989",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 31.61,
+   "prune": {
+    "prune_reach": 370785,
+    "prune_two_terminals": 66231,
+    "prune_dead_end": 17503,
+    "prune_memo": 13730
+   }
+  },
+  {
+   "sid": "340d62fd285a0df748aeefa28616e5d516d9a9b21c60b5e2369adba982cdbe9b",
+   "cover_id": 7,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "60f1a77a9642b07432aa789152178831a42f095bb133d9f067432958f8d924df",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.38,
+   "prune": {
+    "prune_reach": 271415,
+    "prune_dead_end": 7172,
+    "prune_two_terminals": 145443,
+    "prune_memo": 25817
+   }
+  },
+  {
+   "sid": "34215b8353c51439f4bf749130d093177f2fc856e75f5db6a2c5c3d3bc317cc5",
+   "cover_id": 15,
+   "r": 1,
+   "root": "short_ell1",
+   "graph_hash": "37ec3f85b67cb601c59032234782f15bf291da2c32702fe4b648e75a11d04c0d",
+   "m": 107,
+   "edges": 278,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 12325,
+   "seconds": 0.26,
+   "prune": {
+    "prune_reach": 3639,
+    "prune_two_terminals": 1493,
+    "prune_dead_end": 297,
+    "prune_memo": 46
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     105
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "3671f68a7ff9d2dee14be1c19335834aa46f5a6b3a913f449e1b1e31aa0b087c",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "d22ae75818f834728a1610d46e5d3bd932f9602dc1a7e51e371a08e339eae056",
+   "m": 108,
+   "edges": 277,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 117,
+   "seconds": 0.0,
+   "prune": {
+    "prune_reach": 111,
+    "prune_dead_end": 1
+   }
+  },
+  {
+   "sid": "36e12bc4fd875c09ab3b32fc1f2ee19e3feb928c514e01e3c7f996ce75bd8e41",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "a4fd07356afe86b77bfc665e0678ea0ee4adabd747b1d4a27362e689cca23f0f",
+   "m": 107,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.72,
+   "prune": {
+    "prune_two_terminals": 118922,
+    "prune_reach": 331845,
+    "prune_memo": 12104
+   }
+  },
+  {
+   "sid": "37fdb4da6601091b56040f5ad98bede47163f4613e2c5e56b8101e06ba2ef7fe",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "f82e0046e962cf65ec1607cad5f3a5ecb2ff7b65d49b6960257e5294ff19cd2c",
+   "m": 107,
+   "edges": 276,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.59,
+   "prune": {
+    "prune_reach": 357821,
+    "prune_dead_end": 15815,
+    "prune_two_terminals": 75496,
+    "prune_memo": 13252
+   }
+  },
+  {
+   "sid": "3954c7cb8b290435ed4d32a338d2c010c422cc6a93a568ffda8f59badde498c2",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "e0b39e48167a61042df3eba601dce6a5d458d403a3e96ebd7b38ac3c0c049e34",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.44,
+   "prune": {
+    "prune_dead_end": 8219,
+    "prune_two_terminals": 112741,
+    "prune_reach": 286439,
+    "prune_memo": 22029
+   }
+  },
+  {
+   "sid": "39ad0d16b9cebc5cec0fcec0b203b7391665d4f7694ef64591c3309dc501af45",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "720c98af1460eb3f510b6aaddb853a145bb52c4844be976c61ff993fe0a18827",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.74,
+   "prune": {
+    "prune_two_terminals": 129070,
+    "prune_reach": 296906,
+    "prune_memo": 3792,
+    "prune_dead_end": 17748
+   }
+  },
+  {
+   "sid": "3a3659abc327d07ba02612a13304ab37ae41a2e03380056f678c68b0488d9147",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "6b37269cde21ed108e21ebb199b9fb444df49429d3482297325ee2f159e914bb",
+   "m": 108,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 38.99,
+   "prune": {
+    "prune_two_terminals": 108297,
+    "prune_reach": 311165,
+    "prune_dead_end": 15557,
+    "prune_memo": 22042
+   }
+  },
+  {
+   "sid": "3ca2251ffb1f9f68499573dea6b110a7033b2629287742c95b22d1953b7a7cbf",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "7830296556d05f8792c4ff086bc07e96b433a02a20a135c9e956e095d699a7da",
+   "m": 108,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.85,
+   "prune": {
+    "prune_dead_end": 663,
+    "prune_reach": 284107,
+    "prune_two_terminals": 135250,
+    "prune_memo": 11064
+   }
+  },
+  {
+   "sid": "3cbf49002ef73cd1371ccd0a290a248b4514fdcb65a2853efb66e37af99f9751",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "f0ec9055371588d7dcfaad9a6171c8ad308e5e99253c8c9604f89bb7d5b49d55",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.62,
+   "prune": {
+    "prune_two_terminals": 141770,
+    "prune_reach": 282233,
+    "prune_memo": 11959
+   }
+  },
+  {
+   "sid": "3d26e541636609a115a6e12b641f8871f780a70819c7ab86b0727c8b5ad0ab30",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "14b18b429c11b1ac08e80b6647ca70e17666f6d167b8f5621a54695a48ab22f1",
+   "m": 107,
+   "edges": 276,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.63,
+   "prune": {
+    "prune_reach": 315558,
+    "prune_two_terminals": 94451,
+    "prune_dead_end": 16928,
+    "prune_memo": 17117
+   }
+  },
+  {
+   "sid": "464ff37a3c42c95816586d220f71d054b4f1c6517a64dcaa2ca2e53fa47ae881",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "90b27a97631cdb30d60e1e8ffe99859227db18f87eaa03d071b193b08603e90d",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.16,
+   "prune": {
+    "prune_dead_end": 19336,
+    "prune_reach": 271636,
+    "prune_two_terminals": 133113,
+    "prune_memo": 22524
+   }
+  },
+  {
+   "sid": "4d4a4d1f6fd5ae7437e65e3dcb82fe10d65da867af4f1a2ae641d87870eebcab",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "60d3eb50ae1409407c7e7899fdae75e20a24bf9f30fa260ab7ea190b60db7d13",
+   "m": 107,
+   "edges": 276,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.25,
+   "prune": {
+    "prune_reach": 304415,
+    "prune_dead_end": 15676,
+    "prune_two_terminals": 105171,
+    "prune_memo": 13810
+   }
+  },
+  {
+   "sid": "4ee5a6b2bf5004262793c77dd0ada8772a5c6af5d6ea80f02f0cb7b44dec4c0a",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "4a87f6f90fd50942adf3704317cec580d2639c27e10111d0b14265a546ddc6ac",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.64,
+   "prune": {
+    "prune_two_terminals": 137256,
+    "prune_reach": 294809,
+    "prune_memo": 19703
+   }
+  },
+  {
+   "sid": "5161bfe8843468a1d7fd91428343ee9d3f1210aad0bc9a09e4d0301e029c5cbc",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "4747550c66d779eba948bca9cc9c889bf79030fb214a2d9eccb5e016be7222a6",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.32,
+   "prune": {
+    "prune_reach": 313292,
+    "prune_two_terminals": 129113,
+    "prune_memo": 14381
+   }
+  },
+  {
+   "sid": "54c4d10497c1603781eee69f9f25aa578a52424ce552be2640d0683734570d81",
+   "cover_id": 2,
+   "r": 1,
+   "root": "short_ell4",
+   "graph_hash": "b93c2aadf59fda4dd6514256a7b2709a403897c8e63616d46e5a15eda758eb26",
+   "m": 107,
+   "edges": 275,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 776236,
+   "seconds": 29.0,
+   "prune": {
+    "prune_two_terminals": 99556,
+    "prune_reach": 231103,
+    "prune_dead_end": 15812,
+    "prune_memo": 10655
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     3
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "574f92f8a5ef5aa6d2fe898717773b16ae46e7c9896d7e818e1d250bbab38ff0",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "51219ca5107094e15e401975c61d2fe8835b4f532fb2ed76bf7c3e528112dacc",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.56,
+   "prune": {
+    "prune_two_terminals": 141995,
+    "prune_reach": 303109,
+    "prune_memo": 11236
+   }
+  },
+  {
+   "sid": "57671b6bd6f36597d1363c6eced0c1502222a524c6048695fde3d2c180e066e5",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "26629bfceef28202e5b33218d4b097108d70e33b44386dca5c9cc97daaa545d7",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.47,
+   "prune": {
+    "prune_two_terminals": 97229,
+    "prune_reach": 334448,
+    "prune_dead_end": 13872,
+    "prune_memo": 17973
+   }
+  },
+  {
+   "sid": "579bc7f116d3adc4fc6d9ade33a05cd372cc09c76b34381d20e2efd1e42e3cdf",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "ee28eb20d7edca21099a7e6f8c11980e342ba0102f7cd226a6d16cca72526ea8",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.4,
+   "prune": {
+    "prune_two_terminals": 143138,
+    "prune_dead_end": 2493,
+    "prune_reach": 298684,
+    "prune_memo": 18058
+   }
+  },
+  {
+   "sid": "58187879ebb6241138a08860790384f76672d0d8d170536ce09831c684e16714",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "e2599739cfcfa524f60644d04840501d42c895438b6e01446ecb0cff7317ac37",
+   "m": 108,
+   "edges": 273,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 793801,
+   "seconds": 32.77,
+   "prune": {
+    "prune_reach": 236455,
+    "prune_two_terminals": 85979,
+    "prune_dead_end": 15413,
+    "prune_memo": 13366
+   }
+  },
+  {
+   "sid": "585573f50e8949df41f373a2e79ea6af287a0b897c01e419b1cece5e16f31ad7",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "24219e25514fc875ba6297c8cd3f30455b2b67dc5574e57896e1c3230ed734de",
+   "m": 107,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.39,
+   "prune": {
+    "prune_two_terminals": 149782,
+    "prune_reach": 291642,
+    "prune_memo": 13805
+   }
+  },
+  {
+   "sid": "5b2881038ec4be0f1864b687c533af43940d2707182f8926049243323cef9f29",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "430059f6ea452b302758a87c4d3383124e90f205b28a22a27617f11c62d6ef7c",
+   "m": 108,
+   "edges": 276,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 320465,
+   "seconds": 14.03,
+   "prune": {
+    "prune_reach": 107019,
+    "prune_two_terminals": 34774,
+    "prune_dead_end": 1920,
+    "prune_memo": 5030
+   }
+  },
+  {
+   "sid": "5b891736491440a27dd302577c5d01a6e5d908636ff6fe14250ea4e12684e37f",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "8af58d1ea32a1b7fbd06cde7469622b8baaebf7593308ad91b9bdceb5cabdabb",
+   "m": 107,
+   "edges": 281,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 971474,
+   "seconds": 33.18,
+   "prune": {
+    "prune_reach": 323066,
+    "prune_dead_end": 21945,
+    "prune_two_terminals": 78697,
+    "prune_memo": 14551
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     35
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "5babe8bb0b5336767a99c27a76cec98cefc002006ca8cfe7e8aed3e4a2fa2b2f",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "78c9e645725a31bcb369581c362f8283329f550eff29a55e50ecaf5746102b4d",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.2,
+   "prune": {
+    "prune_reach": 350509,
+    "prune_dead_end": 15033,
+    "prune_two_terminals": 79619,
+    "prune_memo": 11902
+   }
+  },
+  {
+   "sid": "611e221d5990b7711f48ff0044937569489d7365f1a0e076bba26756be5097e0",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "b5312487f5653b165a907f9319f87d68c169580a6c486fc7459b3208b7332e93",
+   "m": 107,
+   "edges": 274,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 88114,
+   "seconds": 3.15,
+   "prune": {
+    "prune_reach": 29901,
+    "prune_dead_end": 1354,
+    "prune_two_terminals": 6536,
+    "prune_memo": 635
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     99
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "613e1dadf8bf2289570d1797464cd86e634e6c038379ea472049bd33d98d7473",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "f33501afa771a26f6393353bd101a0ffe6104688a86b2de7010d94132953cb11",
+   "m": 108,
+   "edges": 282,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 273298,
+   "seconds": 7.43,
+   "prune": {
+    "prune_reach": 72660,
+    "prune_dead_end": 4780,
+    "prune_two_terminals": 39596,
+    "prune_memo": 4531
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "61e0d27a5ca896b946672d86b18ebb8de68b777dc9811de7c1062542949bf603",
+   "cover_id": 8,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "adc44a418cae9d312c5fa4133528d8d39e16785829f5a22b474bcbde93b64377",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 38.57,
+   "prune": {
+    "prune_two_terminals": 160102,
+    "prune_reach": 269623,
+    "prune_memo": 11668
+   }
+  },
+  {
+   "sid": "63bf8513bb94696cef283f3228e4fbdfaae632e708d8f400566ccb3311c96523",
+   "cover_id": 9,
+   "r": 1,
+   "root": "short_ell1",
+   "graph_hash": "e1340e24ac02541462e96f03e1d3c3003aa7b4c923869519709eb6415db64c2b",
+   "m": 107,
+   "edges": 281,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 452,
+   "seconds": 0.02,
+   "prune": {
+    "prune_reach": 203,
+    "prune_two_terminals": 50,
+    "prune_memo": 3
+   }
+  },
+  {
+   "sid": "663b15ae28edc3c9b848676ad9ba773e3f8a0c6058065f008a30478d95ed86cc",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "0823705ffe1c7f70c5f4355b08e8a22705478b94194b3e2189c2aa8b4666a7c3",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.4,
+   "prune": {
+    "prune_two_terminals": 78301,
+    "prune_reach": 335218,
+    "prune_memo": 15650,
+    "prune_dead_end": 19149
+   }
+  },
+  {
+   "sid": "691848b0d1baf21757a24bee68f4dfe93ba513d69709cfbe12f1537016e9a48f",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "eb8412c42cfdcc92310e496b1e9807f45659b2b76a8436cc625ed2865364008e",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 39.61,
+   "prune": {
+    "prune_reach": 311314,
+    "prune_two_terminals": 133693,
+    "prune_dead_end": 6919,
+    "prune_memo": 6416
+   }
+  },
+  {
+   "sid": "69b0d7ae111d43935c16b17b70d80c010ed1b9adbadd07c59dce5810cbe5d061",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "3b580f09a5de48dff68041fb544a9631bff0b55e8769de6c7e142c4635078e9e",
+   "m": 107,
+   "edges": 280,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 280981,
+   "seconds": 7.93,
+   "prune": {
+    "prune_reach": 78126,
+    "prune_two_terminals": 33984,
+    "prune_dead_end": 2696,
+    "prune_memo": 5993
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "69db79d99a2a2bf1b06690b9b800a03575128db7848c914d53a9205daea8172a",
+   "cover_id": 1,
+   "r": 1,
+   "root": "short_ell4",
+   "graph_hash": "a833573c1dbe47cb1f7dc976e0da039ee416c441940cefc081066aca6214efc5",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 40.64,
+   "prune": {
+    "prune_dead_end": 6698,
+    "prune_reach": 286152,
+    "prune_two_terminals": 116192,
+    "prune_memo": 24743
+   }
+  },
+  {
+   "sid": "6a4b6072ffa0deb1782114fc8e1960896a0ce3a08987683e9cc10688454e5e7c",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "473348b7ffd7eb80e53f6d8e4a5d61b0500b563d0770c4adf399b36e5e4c9c62",
+   "m": 108,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 40.72,
+   "prune": {
+    "prune_reach": 248431,
+    "prune_two_terminals": 144034,
+    "prune_memo": 27921,
+    "prune_dead_end": 3945
+   }
+  },
+  {
+   "sid": "6b9236b2d1b2d1a81fc3bb5476b4a1fc9efb7c645ac2a269b7768a12e2a10320",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "c026c674b468ac3bea15e8d25797500921defda5162b7b6b220b1585e8d5adfc",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.39,
+   "prune": {
+    "prune_reach": 286810,
+    "prune_two_terminals": 144223,
+    "prune_dead_end": 6310,
+    "prune_memo": 12480
+   }
+  },
+  {
+   "sid": "6be2d281b7008b46e996d7f97785f2be5f947dbbcad6f750545559f436bbb4e2",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "e7df7035839644e53fa930a94e9697c58aad5fc1b60fe6f64938e3f439f41e23",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.91,
+   "prune": {
+    "prune_two_terminals": 122503,
+    "prune_reach": 300892,
+    "prune_memo": 14756
+   }
+  },
+  {
+   "sid": "6c269d530eb0975864ab43c6ffc68daa15b9d1aad4381ecac1aa06eaed88fdb9",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "05d5888f8560f1c1e953fc5a3efc7c96c7152bbf817c802353395ad0340eea2d",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 31.94,
+   "prune": {
+    "prune_dead_end": 20470,
+    "prune_reach": 333349,
+    "prune_two_terminals": 98099,
+    "prune_memo": 14687
+   }
+  },
+  {
+   "sid": "6d14253d485c2800f71ecc6c768c8490870a652c2718c85893d067a2428a220e",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "5ad53588f6f64a87179c476190a0cd85c31e2a06a6369b1bf530aadab456e0e3",
+   "m": 107,
+   "edges": 278,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 116919,
+   "seconds": 2.87,
+   "prune": {
+    "prune_reach": 32357,
+    "prune_two_terminals": 13956,
+    "prune_dead_end": 1569,
+    "prune_memo": 2096
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "7063d540f10ddf52ff1da7c10a5b486bf627a782282a2fb9f7e505aec78c2e1c",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "03b90b36ecfcc01eac492904d41b03a6cfcb368d0aa0999b6f9fc5061958d0e1",
+   "m": 108,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.56,
+   "prune": {
+    "prune_reach": 280482,
+    "prune_two_terminals": 138578,
+    "prune_dead_end": 1086,
+    "prune_memo": 10759
+   }
+  },
+  {
+   "sid": "73f3d77491bea97f41c73731df9bafd9d501516c439f8b813fa5e312c53cc3df",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "8e2a0df0a2029fa6cdd4055cc6fdb829a92bc88eee77553f2e55ead5f74e4930",
+   "m": 107,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 31.31,
+   "prune": {
+    "prune_reach": 332646,
+    "prune_two_terminals": 92215,
+    "prune_dead_end": 15861,
+    "prune_memo": 14269
+   }
+  },
+  {
+   "sid": "76a03f09734d47681404e4bc3f228793d24cad0edb520696bcfcb1d26154bc26",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "2f697109016030cb8ac29b0f869eda3c3fb8fd1a135d2fec0974e932c4a6d4e3",
+   "m": 107,
+   "edges": 274,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.54,
+   "prune": {
+    "prune_reach": 320563,
+    "prune_two_terminals": 100086,
+    "prune_dead_end": 11384,
+    "prune_memo": 15968
+   }
+  },
+  {
+   "sid": "77857a9b45e965e2ed7d08e9fa6e68240eb2da72b5402c43a7b2139bfdefaa8a",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "7c77bd24a69f93b75bdfd50fbef5002c1242f9f0d30bcc0e540bbf6ce7e59db9",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.77,
+   "prune": {
+    "prune_dead_end": 15931,
+    "prune_reach": 338847,
+    "prune_two_terminals": 99543,
+    "prune_memo": 11607
+   }
+  },
+  {
+   "sid": "77fbaf89b32847ec603c84e8a60ab86aaff39dfe03ea2298026e7d6c7a7c4c4a",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "634b01fde4b8666da7cfbebfc8d58ef6a25da368b1a56f0521c048f82a5d2061",
+   "m": 108,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 43.12,
+   "prune": {
+    "prune_two_terminals": 105568,
+    "prune_reach": 324358,
+    "prune_dead_end": 10602,
+    "prune_memo": 25173
+   }
+  },
+  {
+   "sid": "799667401b61841f8d219566332987c45dda210492b9e071f8ae4f356cd80ac8",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "8770dc9bfe45ca1c8162b314978e666622fc02176dfba9df0a282114971cc9a6",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.71,
+   "prune": {
+    "prune_two_terminals": 86572,
+    "prune_reach": 356176,
+    "prune_dead_end": 19536,
+    "prune_memo": 5023
+   }
+  },
+  {
+   "sid": "7c39dcb865eb638f93de4a86c16460d75994ca3dbc0d98d26044a2b77554f388",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "2fc9ca6e5dced4dbf998e47d1c7b0ba1325fdc8122675a8e740e581c8d2ae2b8",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.11,
+   "prune": {
+    "prune_reach": 335573,
+    "prune_two_terminals": 113925,
+    "prune_dead_end": 8226,
+    "prune_memo": 14559
+   }
+  },
+  {
+   "sid": "820ed82dc383be8c44ae0fbe8ae0f899815e521c2ef2189d3ced238f6b1b9b9e",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "1f5b98f49200b302ed745a3c2444b4ae3e2340170178adbff9ffd8bbeffdecc3",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 39.05,
+   "prune": {
+    "prune_reach": 275571,
+    "prune_two_terminals": 145103,
+    "prune_dead_end": 13143,
+    "prune_memo": 17461
+   }
+  },
+  {
+   "sid": "8316dc6a28caa12fb6063ab6f1a9cb310c779ac7e6860727cb1b80ceef498eb6",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "3559b58624b4858dba9005e3d03a1e66f9ae92922e3dcf7dc7f384710d722d34",
+   "m": 107,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.75,
+   "prune": {
+    "prune_reach": 312729,
+    "prune_two_terminals": 126856,
+    "prune_memo": 14515
+   }
+  },
+  {
+   "sid": "8b5c5e6a10e895dff15061f81a2c208f8e9652c26c89a4e2eebb71915fe67909",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "1076d17ef663eb754c44a7feaefbb59016ca1bed903b2e59987541418b0f4800",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 40.07,
+   "prune": {
+    "prune_two_terminals": 138187,
+    "prune_reach": 303089,
+    "prune_dead_end": 13590,
+    "prune_memo": 12899
+   }
+  },
+  {
+   "sid": "8c1efb93a56858596516b311ea090f1d6e463a5480c252dccf76ea4ac2dc6fd5",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "99a6062ab1c46df5ebf836d59a47e038ba5c2a407314601c774d6a1cf1b6ff74",
+   "m": 108,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 42.14,
+   "prune": {
+    "prune_dead_end": 10073,
+    "prune_two_terminals": 105651,
+    "prune_reach": 314133,
+    "prune_memo": 20969
+   }
+  },
+  {
+   "sid": "8e81066d2068f60223d8f9634cc469509f2ca525a000b87b0cedfef73a12dc72",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "6adf07ca5a4efc17078bb71c7bc21e61f1164b06aba31214e014c83e23ec3564",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.65,
+   "prune": {
+    "prune_dead_end": 2,
+    "prune_reach": 314889,
+    "prune_two_terminals": 103471,
+    "prune_memo": 25347
+   }
+  },
+  {
+   "sid": "8f47dd37ab53db53b1ce8a7df97a1022828e861f9d5cae6a143395c7f81a0784",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "48fcd20fe195bb2e29dc3dda83bcf0ded95991df650a2f472db5342172111a1b",
+   "m": 107,
+   "edges": 273,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.47,
+   "prune": {
+    "prune_two_terminals": 128608,
+    "prune_dead_end": 9546,
+    "prune_reach": 280509,
+    "prune_memo": 19785
+   }
+  },
+  {
+   "sid": "900feb08584101a636a6de2e9195f9ff1afa41b8f410527bc292d0d029f8b8d9",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "14ed69d003b355ddd6121acc7a4d05e46127764a2cd4ab77041772fee69de730",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.83,
+   "prune": {
+    "prune_reach": 304926,
+    "prune_two_terminals": 138753,
+    "prune_memo": 13497
+   }
+  },
+  {
+   "sid": "90124d3fc2c808504edd60ee172f4d0cecc098db405158cc73de8e338a813c91",
+   "cover_id": 9,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "9b069ebe6a309ddba1d685f4dd7aeac68dd43fffd7adbc2fdb81a899f4a085a7",
+   "m": 108,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.21,
+   "prune": {
+    "prune_reach": 284455,
+    "prune_two_terminals": 136071,
+    "prune_dead_end": 865,
+    "prune_memo": 11876
+   }
+  },
+  {
+   "sid": "917fbe5fe0555d01aca6b270f8f0fac686d91542ad2155b5e7c66e79536e217e",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "7c094fac6f536cba785fd5e05a2d52401f91ce4248ddb6db269dd5790c804a2f",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.2,
+   "prune": {
+    "prune_reach": 309557,
+    "prune_dead_end": 9244,
+    "prune_two_terminals": 114693,
+    "prune_memo": 20857
+   }
+  },
+  {
+   "sid": "940379602616b8357936dc0b6f3df796eb0fe0f0ca4ab79486d12320607db1d4",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "7dadfaeb841a5b292c292c05f33524fa1946d70240b828150a720f4fe3dffce0",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.36,
+   "prune": {
+    "prune_dead_end": 9690,
+    "prune_reach": 267538,
+    "prune_two_terminals": 128311,
+    "prune_memo": 16529
+   }
+  },
+  {
+   "sid": "984646957f7ae530983b9256853bc69ac76f7492a480f9fbfe1a58537dfc6306",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "4335def7a04c5f183963f4d0f8799b13773f76809829877fc21eede34c3d9a87",
+   "m": 107,
+   "edges": 278,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 32255,
+   "seconds": 1.04,
+   "prune": {
+    "prune_reach": 8879,
+    "prune_two_terminals": 3950,
+    "prune_dead_end": 628,
+    "prune_memo": 403
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "99e7a23f8f5ece678a1a955a97cb9c16ab0c7099fbed69f0fc7e32e745c6466d",
+   "cover_id": 7,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "a77816a4fe8c60664d8cf6da6d20ec7e8e7a11ece017f62c11393d71d1fc23a1",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.87,
+   "prune": {
+    "prune_reach": 324613,
+    "prune_dead_end": 2,
+    "prune_two_terminals": 116147,
+    "prune_memo": 20487
+   }
+  },
+  {
+   "sid": "9b7bfe72ec603eb385255c3707c893a41115cf2f98a0e4ee358ac2d1202721b7",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "5d3329296fa58d376ca2cf5c49dcc559b8ac5e628b222e0b4230a7a34a67f293",
+   "m": 107,
+   "edges": 276,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 531252,
+   "seconds": 14.81,
+   "prune": {
+    "prune_reach": 153431,
+    "prune_two_terminals": 66677,
+    "prune_dead_end": 6702,
+    "prune_memo": 8135
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "9db9949bc8a8799f7b093da4f341240d2dee2e11ef1d5e3357aa6c49e5e8741c",
+   "cover_id": 12,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "bad19a5f9a1c14d7c8850c23859157cd60e0dc8362ee2a774ab074c9880c9a49",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.33,
+   "prune": {
+    "prune_reach": 359670,
+    "prune_two_terminals": 92288,
+    "prune_dead_end": 14673,
+    "prune_memo": 6508
+   }
+  },
+  {
+   "sid": "a32bc78b538ec9944b293e43fc33c86aad5fcbd6e5c566a22d471376cab0590a",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "85975b99a7c53ab4a41d95a143f9c7b9961d9c03d5a2265b310eee62fea7bef5",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.56,
+   "prune": {
+    "prune_two_terminals": 128095,
+    "prune_reach": 274670,
+    "prune_memo": 20544
+   }
+  },
+  {
+   "sid": "a343208c7e641ff73d3db5346d420c3eda03760c08974641916983c3065f7ceb",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "81e869525f1f760aacf71e677d737dbe089de69bafb7909e627f720dbd9e33cb",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.65,
+   "prune": {
+    "prune_reach": 298683,
+    "prune_two_terminals": 100266,
+    "prune_dead_end": 12377,
+    "prune_memo": 13252
+   }
+  },
+  {
+   "sid": "ac97c39994373d748e41b0c7369019b473b5df7d21ce28f7fc0b5fbc50a6b42a",
+   "cover_id": 19,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "5656c457858d0d882cb92b54c837708b53c4194f426df8a6a7ff4e0e4183bf81",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 37.43,
+   "prune": {
+    "prune_reach": 301043,
+    "prune_two_terminals": 126238,
+    "prune_dead_end": 9709,
+    "prune_memo": 15811
+   }
+  },
+  {
+   "sid": "acf01363f2dbdf2ca7d13bbaab73d49ff073d9f98526cbd2af09aff70a9bd61b",
+   "cover_id": 12,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "49f6aff359f8553471659d6e1fe9257eee94a31718e399db1302348ea2600087",
+   "m": 107,
+   "edges": 282,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 520176,
+   "seconds": 14.31,
+   "prune": {
+    "prune_reach": 154166,
+    "prune_two_terminals": 52540,
+    "prune_dead_end": 10206,
+    "prune_memo": 9570
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "acf74308cdcf10b6fb71ae94bf599e3b1b97102fa88bc1a4c705125ff921d454",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "69c5a98e4f46d96fa0fcd312fedfa54cb12304f8f3b78e4c8acd21ef5471f141",
+   "m": 107,
+   "edges": 276,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 236190,
+   "seconds": 7.21,
+   "prune": {
+    "prune_reach": 69998,
+    "prune_two_terminals": 23748,
+    "prune_dead_end": 4279,
+    "prune_memo": 3170
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "ad5680cf6f467f0340d9181ffc902eca4eb5cb6f1c68e5aa03c010d22c21255a",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "869e300699901df535c7c0160b2acdf6120ec8116d09a86ab5a038e498c077bc",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.35,
+   "prune": {
+    "prune_reach": 313966,
+    "prune_two_terminals": 112083,
+    "prune_memo": 12809,
+    "prune_dead_end": 23465
+   }
+  },
+  {
+   "sid": "b1450924061ffbc60c5cb04b3e6f0a4f77ae36ba31533c188da6e13c228c38bc",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "e5b94f4e2509b37f276cf90bcaa3f88ede806527be5633ebf65d2ef3129e682f",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.62,
+   "prune": {
+    "prune_reach": 290747,
+    "prune_two_terminals": 150928,
+    "prune_memo": 11629
+   }
+  },
+  {
+   "sid": "b3a1845c5d37ff94d3f806f4d6b51f243fcae5176ea7ebe72d96b607111db21a",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "7472b4c9f1d310aea8504cd6fdeffea627b97addce28ef632b2fabe8369fd103",
+   "m": 108,
+   "edges": 276,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.76,
+   "prune": {
+    "prune_reach": 282160,
+    "prune_two_terminals": 137213,
+    "prune_dead_end": 749,
+    "prune_memo": 10790
+   }
+  },
+  {
+   "sid": "b4427348622d770da1153b9fa4bf466d2baff543835ea7f6a927fe90586b4648",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "364e7e1df66f2adc7f9cc039b143505af51bae2ffa6e54b6690260baaccc340d",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.73,
+   "prune": {
+    "prune_reach": 321334,
+    "prune_two_terminals": 108175,
+    "prune_dead_end": 9752,
+    "prune_memo": 20210
+   }
+  },
+  {
+   "sid": "b8324693ca4eb544e79a6de9d8cebfcb983e84f467f6c42a8569f6f2a3b5a085",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "a8ceba7d9ea2ccc0dc33add5e1499d80bd26738158291024fb6ae431882dc606",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.93,
+   "prune": {
+    "prune_two_terminals": 166814,
+    "prune_reach": 283522,
+    "prune_memo": 4625
+   }
+  },
+  {
+   "sid": "b8ff3710081e58ec895c71c27adc34ab63ea79a6a386efbd2e8a10b0236c9e94",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "000bd2146b0ad9bf6b66a4c08f698d0965474a3b73fe79cdc58b5125fd72550d",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.0,
+   "prune": {
+    "prune_reach": 296588,
+    "prune_two_terminals": 101121,
+    "prune_dead_end": 18927,
+    "prune_memo": 15592
+   }
+  },
+  {
+   "sid": "ba610ba0bad859c2a633e22b1340de02c2605b49c7012ba4175b366039c75300",
+   "cover_id": 6,
+   "r": 1,
+   "root": "short_ell1",
+   "graph_hash": "e6096c8261ce1ff9fad892643519145118208d0727ea86b266af2b3b733ebe57",
+   "m": 107,
+   "edges": 280,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 754985,
+   "seconds": 16.99,
+   "prune": {
+    "prune_reach": 242332,
+    "prune_two_terminals": 77723,
+    "prune_dead_end": 14281,
+    "prune_memo": 12312
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     105
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "bbbe9d2674fa0b899f0456dc94acb8bd4f89f1e9e8aef96a05ca58f7c89146b6",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "bd3dc92caaca2fd6cfe7a5ede4810f50282a488bce2d3ffb51a5e61aa71986c3",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.46,
+   "prune": {
+    "prune_dead_end": 8814,
+    "prune_two_terminals": 114124,
+    "prune_reach": 305676,
+    "prune_memo": 20484
+   }
+  },
+  {
+   "sid": "be914516323d6864c6c106c6cae21945a5c6595b6a20500cb26b382dd2584ab7",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "eaa8444cbeddfc5586a8c83aa944f6329181f4c38cf3e8293fb4a690c3f6acca",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.24,
+   "prune": {
+    "prune_two_terminals": 121933,
+    "prune_reach": 308091,
+    "prune_dead_end": 7122,
+    "prune_memo": 9049
+   }
+  },
+  {
+   "sid": "be97f957359576dd2dc14aac6521d7cb9fbbed156af4c064e2aa4e6ddd443100",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "24cb98c458394d96881c1e8455a4d2d38782b59179730021f984ba1679bfe886",
+   "m": 107,
+   "edges": 277,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 274022,
+   "seconds": 9.23,
+   "prune": {
+    "prune_reach": 87381,
+    "prune_two_terminals": 33467,
+    "prune_memo": 3189,
+    "prune_dead_end": 2
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "c0c148d4e49666c7b8e00856fd3d703aac21009760579b71f24825c4a5c36682",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "3c3b159eeaf9b2a0a99520dd97f6f5194ea2ba69c1297084da0ea00db8dc2290",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.13,
+   "prune": {
+    "prune_reach": 320565,
+    "prune_two_terminals": 119784,
+    "prune_dead_end": 11333,
+    "prune_memo": 15463
+   }
+  },
+  {
+   "sid": "c6551619cd3afa5a3fc76bfb26f3aef1eb71d1c96cffd21392e1e62d1f6771bc",
+   "cover_id": 7,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "08f9155da8a0ecb167d5afbb315f6fd497c920095cc25b176a7729c7c4ecd40b",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 31.74,
+   "prune": {
+    "prune_reach": 314908,
+    "prune_dead_end": 18257,
+    "prune_two_terminals": 73773,
+    "prune_memo": 21441
+   }
+  },
+  {
+   "sid": "c79e7a81ae7ff6a7533699d96a280eb379651139ff9683afbee2d1411a6c2523",
+   "cover_id": 15,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "bfcee55bd83a702364678d880d3bd241a5cbc49fb71e8a475045220f1f3708bc",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.37,
+   "prune": {
+    "prune_reach": 356414,
+    "prune_dead_end": 12882,
+    "prune_two_terminals": 96940,
+    "prune_memo": 12417
+   }
+  },
+  {
+   "sid": "ca4f58dcd6266c47d197cfaceca031597249bce146560b5aac9e5a35d2103745",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "3d69b1edc06729b8834aceaf8e8094f6c929ffd7de93b3814a6230b1b17e8b3f",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.76,
+   "prune": {
+    "prune_two_terminals": 113810,
+    "prune_reach": 325051,
+    "prune_dead_end": 11020,
+    "prune_memo": 11305
+   }
+  },
+  {
+   "sid": "cc9bb5bd08bd86691d8c125501897e71b5852f21d1779dbe42654131c95e923d",
+   "cover_id": 6,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "c57cab01a2a669d803c04283910bd0dd61d84d20b3e8ab4822d90fb261d5d1d8",
+   "m": 107,
+   "edges": 281,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 177047,
+   "seconds": 4.11,
+   "prune": {
+    "prune_two_terminals": 17231,
+    "prune_reach": 55229,
+    "prune_memo": 3918,
+    "prune_dead_end": 2067
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     11
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "cfaf82d96bd36d69a7ea3531f95a1d822eb94c711bd245add8d5ff219df9f269",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "6987dfff3a92b0f8f22543715505569eb251dc7e41e4616eb6e37f11ab37d082",
+   "m": 107,
+   "edges": 276,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 332224,
+   "seconds": 8.94,
+   "prune": {
+    "prune_reach": 98954,
+    "prune_two_terminals": 34793,
+    "prune_dead_end": 7620,
+    "prune_memo": 4649
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "d01a7e1de62bcbc9c411a412611509ba4faf7818e9dada22602efdfd0d807c0a",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "08eb27a72e00fef7a7e79cbfadf1fa1c204018bd94ae053086d65580c8165b49",
+   "m": 108,
+   "edges": 280,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 40.18,
+   "prune": {
+    "prune_reach": 282969,
+    "prune_two_terminals": 137405,
+    "prune_dead_end": 11368,
+    "prune_memo": 12726
+   }
+  },
+  {
+   "sid": "d658471deb46038b224c5888c7ded338713b64166a4aacacbc4293091d11aa91",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "fd78b1a9209d5e15e6c568f498898e3ed4b6035bb989a1623b6c37d764684bdf",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.09,
+   "prune": {
+    "prune_reach": 309521,
+    "prune_two_terminals": 143058,
+    "prune_memo": 11763
+   }
+  },
+  {
+   "sid": "d6a4beabd8628a1661495139c08c19c2b1c933561a9199aaf341993f04525d3d",
+   "cover_id": 8,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "20324d792212dc7dd1bf3bc0da2782c4ebb2c7361471aa6bc7b0e8683360b5aa",
+   "m": 107,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.42,
+   "prune": {
+    "prune_two_terminals": 128048,
+    "prune_reach": 290443,
+    "prune_memo": 15902
+   }
+  },
+  {
+   "sid": "d6d8388fb80bd6f67765146769da25d91853a1f387f99b4db9b8af6b48d89082",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "811d32bc9733d0858da33a1369be71ea1f897c99d2b58fee19b23b4e66ba1e18",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 38.2,
+   "prune": {
+    "prune_reach": 272972,
+    "prune_two_terminals": 137439,
+    "prune_dead_end": 2643,
+    "prune_memo": 15269
+   }
+  },
+  {
+   "sid": "d80ab2623556788a9f2bfb1ac9d96bb2744117291e34c6775ae9e30cc95825db",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "4019794d170bb985d01efaf701a26299ca75992aad383fbcdc8f67d0a5d74641",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.85,
+   "prune": {
+    "prune_reach": 326887,
+    "prune_two_terminals": 140618,
+    "prune_memo": 7532,
+    "prune_dead_end": 6407
+   }
+  },
+  {
+   "sid": "d8fb5136acb524b77c7e77794af446541e22775584747b8d57334d292c7288d0",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "15e157f46dec9607eb9643819ee0660eb5f3c4b71ae9069696fc67c57ff9770a",
+   "m": 108,
+   "edges": 282,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 122445,
+   "seconds": 3.51,
+   "prune": {
+    "prune_reach": 38342,
+    "prune_two_terminals": 13386,
+    "prune_memo": 1477
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "dac6daad5b8ec800102c2b48e263418b884cc0920828ff1fa2748b61cb18f3e0",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "f776e718a5968edb6f2fa5416eb8b468b21569871e78865b3baf9beaea5326ac",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.39,
+   "prune": {
+    "prune_reach": 267894,
+    "prune_dead_end": 15631,
+    "prune_two_terminals": 156532,
+    "prune_memo": 13849
+   }
+  },
+  {
+   "sid": "db46b34cec7cd42a61dd0886a1b08b116e57bb2deca84e54f6a726f559a3409b",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "49684451a2da59c4cf70c88d80d562ab9b50b5d132b3f91f94d010403328bb0e",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.67,
+   "prune": {
+    "prune_reach": 341820,
+    "prune_dead_end": 15713,
+    "prune_two_terminals": 70821,
+    "prune_memo": 20132
+   }
+  },
+  {
+   "sid": "dd3853b08c12b55524daaf5d9816631f5b146f6487cb11805add88eb34b80d8c",
+   "cover_id": 19,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "68c7818cdd0359f224f886ceeea96499568bcaac4f60bd2ce95cc5b8cb967b82",
+   "m": 107,
+   "edges": 279,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 891524,
+   "seconds": 28.1,
+   "prune": {
+    "prune_reach": 299616,
+    "prune_two_terminals": 92959,
+    "prune_dead_end": 15750,
+    "prune_memo": 17854
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     35
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "e122ae05b8b7ac8b3e1c48640f06516645c542e5a03cbdb828ab4ef85faee3f0",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "b703473daa334606e93013f206f6d0a9cc9d1e1c6a4c357f326d7df3c43fdb1c",
+   "m": 107,
+   "edges": 274,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.98,
+   "prune": {
+    "prune_reach": 329608,
+    "prune_two_terminals": 102307,
+    "prune_dead_end": 15529,
+    "prune_memo": 14001
+   }
+  },
+  {
+   "sid": "e20ae678e39f4e1b475faa65200de827afb87aa713493574a1858ec337e2be2f",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "8260841b03957363a91bf8b6434a71fb26dc395916fbe7ce38d598181d08035c",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 31.31,
+   "prune": {
+    "prune_reach": 350013,
+    "prune_dead_end": 21638,
+    "prune_two_terminals": 82785,
+    "prune_memo": 16018
+   }
+  },
+  {
+   "sid": "e7d97217f3219b52ac0028b368a587aa5ce06d0a6ca211515253ef70482d1f72",
+   "cover_id": 10,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "9f390d606fdb60f3e42482284ea4ce9dafa75aaf41fdb0622973a8c60c471b52",
+   "m": 107,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.29,
+   "prune": {
+    "prune_reach": 346993,
+    "prune_dead_end": 13649,
+    "prune_two_terminals": 83684,
+    "prune_memo": 15807
+   }
+  },
+  {
+   "sid": "e989c8c4064cc25847f563b21b88c39bb59d430545bed113f609fb8a1cc633eb",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "e54c407c21b4a75370c7fa570a7a6eb026722a6e8433bfdd040aa5ae69873c91",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.39,
+   "prune": {
+    "prune_reach": 332517,
+    "prune_two_terminals": 107637,
+    "prune_dead_end": 13755,
+    "prune_memo": 15586
+   }
+  },
+  {
+   "sid": "ea51ccb92e731c38a7fbdfce14269cfcb4180a6efce1d63cd6277964c14a29af",
+   "cover_id": 7,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "bd090afb440f3558a770c3f2ae2391d923e128d9ffa3f980644b2e8d0c4d46bb",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.1,
+   "prune": {
+    "prune_reach": 313624,
+    "prune_two_terminals": 115063,
+    "prune_dead_end": 7197,
+    "prune_memo": 18233
+   }
+  },
+  {
+   "sid": "eb47a463f93a7274fee66635557e450c762b37106810f59ad83ca7dd9a600c10",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "a91af4993ab204feb2ca49dc49c9ce43140ae35cf2a94d6dcad2e260e9a05eb6",
+   "m": 107,
+   "edges": 275,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.03,
+   "prune": {
+    "prune_two_terminals": 121315,
+    "prune_reach": 330502,
+    "prune_dead_end": 7421,
+    "prune_memo": 13381
+   }
+  },
+  {
+   "sid": "ec9471394672f36a9d28bef17e26694e89a75dd66a1766d79b7ef1524e72890c",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "89108a80f3c92d08a8f66712fe9743edf675fea63ff2e3855b7a2171e82adbd2",
+   "m": 107,
+   "edges": 279,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 3727,
+   "seconds": 0.06,
+   "prune": {
+    "prune_reach": 1163,
+    "prune_two_terminals": 390,
+    "prune_dead_end": 4,
+    "prune_memo": 79
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "ecd870bef5e9599fa5943e8d064ec522ab034698f68ee8b47b340c9119a01141",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "e9c851a1fc89bf2dafd184ce1a132bd9f071753defb758b25b94ed9a4ce5c1e8",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 33.31,
+   "prune": {
+    "prune_reach": 322321,
+    "prune_dead_end": 16961,
+    "prune_two_terminals": 107580,
+    "prune_memo": 15203
+   }
+  },
+  {
+   "sid": "ee393f5817dc3e2a70bf3e0b44eff50b3f25d452c524002990991b46b8660965",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "ab91ca146da4afa96ba234a6830cb0146b17da70a7e856b40b452f385dfb84f6",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 36.4,
+   "prune": {
+    "prune_reach": 300917,
+    "prune_two_terminals": 140151,
+    "prune_dead_end": 2726,
+    "prune_memo": 12399
+   }
+  },
+  {
+   "sid": "f249849b4bd03f91273c3c33e6f87e17772576d8311198492bcfdf7df683eff3",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "7fc7ca16da136e7e51b51e3f5e6905205fffc5f575ce11c14c41d40a0587bc92",
+   "m": 108,
+   "edges": 282,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 32.67,
+   "prune": {
+    "prune_reach": 315317,
+    "prune_two_terminals": 113041,
+    "prune_dead_end": 18850,
+    "prune_memo": 11808
+   }
+  },
+  {
+   "sid": "f272d02a1cf2289e7ced8abe8c6ae989f07f0c9966815717bb3561419d3ba920",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "5550fc7127cfd42f72d4cf87c4946d223070717383cffd1271ba83d2bb605cf7",
+   "m": 107,
+   "edges": 282,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 152342,
+   "seconds": 3.04,
+   "prune": {
+    "prune_reach": 47518,
+    "prune_two_terminals": 17400,
+    "prune_dead_end": 2,
+    "prune_memo": 2317
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "f4de4be64b152f3cc3ac1ceff646e933b9a306c174dc34634f48eda208428f2a",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell3",
+   "graph_hash": "30a8146919e3b29f260cfb58fd52ad7ba76fe159da98100c029fbb66e2713aa5",
+   "m": 107,
+   "edges": 279,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.87,
+   "prune": {
+    "prune_dead_end": 6423,
+    "prune_reach": 308122,
+    "prune_two_terminals": 132930,
+    "prune_memo": 12417
+   }
+  },
+  {
+   "sid": "f7b231d9ad1bf739aeb07af3fd06034ac8043f9d41cb9877fe35cb5048a8306a",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "c07d2240aeb25206cd7ea57da70b96f7c630122fdfbd37fa2e79ab30029c28f7",
+   "m": 107,
+   "edges": 277,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 35.05,
+   "prune": {
+    "prune_reach": 282200,
+    "prune_two_terminals": 128766,
+    "prune_memo": 17617
+   }
+  },
+  {
+   "sid": "f7e68be57ae76a8ad2697172b91e75635c7e87dc317b6281506c55171eec30ed",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell4",
+   "graph_hash": "0ee607611e1366382ce558bf67670fadccbc2631d0841b4a472d4c4aa0497dc9",
+   "m": 107,
+   "edges": 279,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 173612,
+   "seconds": 5.0,
+   "prune": {
+    "prune_reach": 48985,
+    "prune_two_terminals": 23076,
+    "prune_memo": 3502
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "f8177e634e123e384c376b2d54fd9552b3b2f503720d0c5a1cc1dba6325d720f",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "f9327085df700263c45ec4bd1cc693195ab13ca3c1e8c9855852345b50c9ba4b",
+   "m": 108,
+   "edges": 281,
+   "verdict": "UNKNOWN",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "forward",
+   "nodes": 1000001,
+   "seconds": 34.42,
+   "prune": {
+    "prune_two_terminals": 104798,
+    "prune_reach": 352136,
+    "prune_memo": 13366,
+    "prune_dead_end": 4664
+   }
+  },
+  {
+   "sid": "fbb20750616f6259b0b790cc3d6d87731e0dea00efc9fe6aeb99f98a111148db",
+   "cover_id": 4,
+   "r": 0,
+   "root": "short_ell2",
+   "graph_hash": "63d06d1d57b6227c651d623636bb927198b0d95f6d321f7a5e61c0124278c801",
+   "m": 107,
+   "edges": 278,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 155,
+   "seconds": 0.01,
+   "prune": {
+    "prune_reach": 27,
+    "prune_two_terminals": 6,
+    "prune_dead_end": 2
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     112
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     42
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "fbb35aabae4a328d6435d0e1a75c1551a2e86d06c03ec2a441046ad81e96a009",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell1",
+   "graph_hash": "ec4f45d42163139281a3b65abc367495bb7f1dab67f1bcffd64a0e9d972d1e90",
+   "m": 107,
+   "edges": 280,
+   "verdict": "SAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 122707,
+   "seconds": 2.86,
+   "prune": {
+    "prune_reach": 33106,
+    "prune_two_terminals": 17298,
+    "prune_dead_end": 1247,
+    "prune_memo": 2076
+   },
+   "hamilton_path": [
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     98
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     41
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     47
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     91
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     106
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     6
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     52
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     85
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     49
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     94
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     33
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     5
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     4
+    ]
+   ],
+   "path_verified": true
+  },
+  {
+   "sid": "fec4a172b85e822782bd83c5d5e72d07f15bf23ca70f4270d79080ae83a59e61",
+   "cover_id": 73,
+   "r": 1,
+   "root": "short_ell1",
+   "graph_hash": "d66cfea32ac0112e37085d3f078dfb8fa20889561c67ded1faba671fb3cd9ce6",
+   "m": 107,
+   "edges": 278,
+   "verdict": "UNSAT",
+   "node_cap": 1000000,
+   "solver": "claude-r98-bitset-dfs/1",
+   "direction": "reverse",
+   "nodes": 127,
+   "seconds": 0.0,
+   "prune": {
+    "prune_reach": 114,
+    "prune_two_terminals": 2
+   }
+  }
+ ],
+ "seconds": 6881
+}

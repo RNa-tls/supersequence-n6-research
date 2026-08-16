@@ -1,0 +1,1150 @@
+{
+ "round": 98,
+ "solver": "claude-r98-bitset-dfs/1",
+ "node_cap": 3000000,
+ "rows": [
+  {
+   "sid": "6273274c74215fde21e5ee9636a3f870f7d58494576ef7bdce36da053483d2d3",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "76757acfaf4a849b65839f47ee50c060501777ced42e6087760c5c8ff9511456",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 275,
+    "density": 0.0238,
+    "indeg_min": 1,
+    "indeg_mean": 2.528,
+    "indeg_median": 3.0,
+    "outdeg_min": 0,
+    "outdeg_mean": 2.528,
+    "outdeg_median": 3.0,
+    "n_indeg1": 5,
+    "n_outdeg1": 7,
+    "n_outdeg0": 1,
+    "root_outdeg": 2,
+    "forced": {
+     "forced_edges": 6,
+     "chains": 5,
+     "max_chain": 2
+    },
+    "articulation": 1,
+    "scc_count": 4,
+    "scc_max": 67,
+    "scc_nontrivial": 2,
+    "bfs_levels": 17,
+    "bfs_min_level": 2,
+    "bfs_max_level": 18,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNSAT",
+    "nodes": 161597,
+    "prune_reach": 47197,
+    "prune_two_terminals": 23737,
+    "prune_dead_end": 1001,
+    "prune_memo": 1616,
+    "seconds": 6.69,
+    "memo": 159980
+   },
+   "reverse": {
+    "verdict": "UNSAT",
+    "nodes": 113,
+    "prune_reach": 110,
+    "seconds": 0.0,
+    "memo": 112
+   },
+   "round97_label": "UNSAT_COMPLETE",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "cca008e31668c000db21ff52865ae698c1672d445f59534a11d252df3ac6ed79",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "a199e94cd4657686be5400bb93f64d02c1ab348a62b6806ebeefb3c73037f7ae",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 274,
+    "density": 0.02371,
+    "indeg_min": 1,
+    "indeg_mean": 2.509,
+    "indeg_median": 3.0,
+    "outdeg_min": 0,
+    "outdeg_mean": 2.509,
+    "outdeg_median": 3.0,
+    "n_indeg1": 4,
+    "n_outdeg1": 7,
+    "n_outdeg0": 1,
+    "root_outdeg": 3,
+    "forced": {
+     "forced_edges": 13,
+     "chains": 7,
+     "max_chain": 6
+    },
+    "articulation": 1,
+    "scc_count": 4,
+    "scc_max": 67,
+    "scc_nontrivial": 2,
+    "bfs_levels": 15,
+    "bfs_min_level": 2,
+    "bfs_max_level": 18,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNSAT",
+    "nodes": 209753,
+    "prune_two_terminals": 29336,
+    "prune_reach": 65485,
+    "prune_memo": 1556,
+    "prune_dead_end": 1508,
+    "seconds": 9.06,
+    "memo": 208196
+   },
+   "reverse": {
+    "verdict": "UNSAT",
+    "nodes": 113,
+    "prune_reach": 110,
+    "seconds": 0.0,
+    "memo": 112
+   },
+   "round97_label": "UNSAT_COMPLETE",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "7921d0cbd36f61d5ac0bd0cd9e90c482d169a92e184b4f821bed6e8674823c5b",
+   "cover_id": 0,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "f53ca3717a5b769c749b03ea949a63187966395903fa25526198786d711211b3",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 277,
+    "density": 0.02397,
+    "indeg_min": 1,
+    "indeg_mean": 2.546,
+    "indeg_median": 3.0,
+    "outdeg_min": 0,
+    "outdeg_mean": 2.546,
+    "outdeg_median": 3.0,
+    "n_indeg1": 4,
+    "n_outdeg1": 6,
+    "n_outdeg0": 1,
+    "root_outdeg": 2,
+    "forced": {
+     "forced_edges": 4,
+     "chains": 3,
+     "max_chain": 2
+    },
+    "articulation": 1,
+    "scc_count": 4,
+    "scc_max": 67,
+    "scc_nontrivial": 2,
+    "bfs_levels": 14,
+    "bfs_min_level": 2,
+    "bfs_max_level": 20,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNSAT",
+    "nodes": 776681,
+    "prune_reach": 231621,
+    "prune_two_terminals": 102605,
+    "prune_dead_end": 6872,
+    "prune_memo": 13274,
+    "seconds": 32.24,
+    "memo": 763406
+   },
+   "reverse": {
+    "verdict": "UNSAT",
+    "nodes": 113,
+    "prune_reach": 110,
+    "seconds": 0.0,
+    "memo": 112
+   },
+   "round97_label": "UNSAT_COMPLETE",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "714d11e1740e0897687d28a7e6cd2dc6f4560705f3aaa4581c0d716d9d8b62ee",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "23209e2e94d495bec9ba454e06e3008267478848c7bb7a50efb9ad62d1734cc6",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 282,
+    "density": 0.0244,
+    "indeg_min": 0,
+    "indeg_mean": 2.583,
+    "indeg_median": 3.0,
+    "outdeg_min": 0,
+    "outdeg_mean": 2.583,
+    "outdeg_median": 3.0,
+    "n_indeg1": 4,
+    "n_outdeg1": 7,
+    "n_outdeg0": 1,
+    "root_outdeg": 3,
+    "forced": {
+     "forced_edges": 6,
+     "chains": 5,
+     "max_chain": 2
+    },
+    "articulation": 1,
+    "scc_count": 5,
+    "scc_max": 105,
+    "scc_nontrivial": 1,
+    "bfs_levels": 14,
+    "bfs_min_level": 2,
+    "bfs_max_level": 19,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNSAT",
+    "nodes": 1114428,
+    "prune_reach": 331489,
+    "prune_two_terminals": 126295,
+    "prune_memo": 27415,
+    "prune_dead_end": 10612,
+    "seconds": 44.55,
+    "memo": 1087012
+   },
+   "reverse": {
+    "verdict": "UNSAT",
+    "nodes": 815405,
+    "prune_reach": 213507,
+    "prune_two_terminals": 108853,
+    "prune_dead_end": 9654,
+    "prune_memo": 18606,
+    "seconds": 35.52,
+    "memo": 796798
+   },
+   "round97_label": "UNSAT_COMPLETE",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "3189b5ebf49c56b1f788b01fa7d428b74719d75ff805a86f3b7d96fe5c6782e7",
+   "cover_id": 3,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "5edfc8e8467960569f1b6f020af55da044ea52327ec4cffe30b28f4aa4e54c41",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 313,
+    "density": 0.02709,
+    "indeg_min": 1,
+    "indeg_mean": 2.88,
+    "indeg_median": 3.0,
+    "outdeg_min": 1,
+    "outdeg_mean": 2.88,
+    "outdeg_median": 3.0,
+    "n_indeg1": 4,
+    "n_outdeg1": 3,
+    "n_outdeg0": 0,
+    "root_outdeg": 2,
+    "forced": {
+     "forced_edges": 10,
+     "chains": 8,
+     "max_chain": 2
+    },
+    "articulation": 0,
+    "scc_count": 2,
+    "scc_max": 108,
+    "scc_nontrivial": 1,
+    "bfs_levels": 8,
+    "bfs_min_level": 1,
+    "bfs_max_level": 32,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 885666,
+    "prune_two_terminals": 433233,
+    "prune_dead_end": 19064,
+    "prune_memo": 27661,
+    "seconds": 86.67,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_two_terminals": 423158,
+    "prune_reach": 937214,
+    "prune_dead_end": 42048,
+    "prune_memo": 44523,
+    "seconds": 105.19,
+    "memo": 1500000
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "bed179a135b371cde51d04637c5b820be78101900d618c845193bfc0db4676b3",
+   "cover_id": 38,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "91e4654e8f0337a27c7594b46b8ecf1d84b22860fe24fd9c93542b9fdf9f6538",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 316,
+    "density": 0.02735,
+    "indeg_min": 1,
+    "indeg_mean": 2.917,
+    "indeg_median": 3.0,
+    "outdeg_min": 0,
+    "outdeg_mean": 2.917,
+    "outdeg_median": 3.0,
+    "n_indeg1": 4,
+    "n_outdeg1": 1,
+    "n_outdeg0": 1,
+    "root_outdeg": 1,
+    "forced": {
+     "forced_edges": 8,
+     "chains": 7,
+     "max_chain": 2
+    },
+    "articulation": 1,
+    "scc_count": 3,
+    "scc_max": 107,
+    "scc_nontrivial": 1,
+    "bfs_levels": 8,
+    "bfs_min_level": 1,
+    "bfs_max_level": 32,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 815100,
+    "prune_two_terminals": 515340,
+    "prune_dead_end": 29977,
+    "prune_memo": 53885,
+    "seconds": 107.3,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 916638,
+    "prune_two_terminals": 406000,
+    "prune_memo": 28725,
+    "prune_dead_end": 32891,
+    "seconds": 117.39,
+    "memo": 1500000
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "72f19d2f92d9b6f9dc239496ff1cadfd13bd04bbc5df0b8e392a7e1e46cf77c4",
+   "cover_id": 7,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "8ff710ec171530a62b66be631319ce224b970714fec77bceb3a069505efc5a12",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 313,
+    "density": 0.02709,
+    "indeg_min": 1,
+    "indeg_mean": 2.88,
+    "indeg_median": 3.0,
+    "outdeg_min": 1,
+    "outdeg_mean": 2.88,
+    "outdeg_median": 3.0,
+    "n_indeg1": 5,
+    "n_outdeg1": 3,
+    "n_outdeg0": 0,
+    "root_outdeg": 2,
+    "forced": {
+     "forced_edges": 7,
+     "chains": 7,
+     "max_chain": 1
+    },
+    "articulation": 0,
+    "scc_count": 2,
+    "scc_max": 108,
+    "scc_nontrivial": 1,
+    "bfs_levels": 8,
+    "bfs_min_level": 2,
+    "bfs_max_level": 30,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 840811,
+    "prune_dead_end": 61319,
+    "prune_two_terminals": 379302,
+    "prune_memo": 44908,
+    "seconds": 105.31,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_two_terminals": 448216,
+    "prune_reach": 871436,
+    "prune_dead_end": 54213,
+    "prune_memo": 37088,
+    "seconds": 110.3,
+    "memo": 1500000
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "77fbaf89b32847ec603c84e8a60ab86aaff39dfe03ea2298026e7d6c7a7c4c4a",
+   "cover_id": 5,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "634b01fde4b8666da7cfbebfc8d58ef6a25da368b1a56f0521c048f82a5d2061",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 280,
+    "density": 0.02423,
+    "indeg_min": 1,
+    "indeg_mean": 2.574,
+    "indeg_median": 3.0,
+    "outdeg_min": 0,
+    "outdeg_mean": 2.574,
+    "outdeg_median": 3.0,
+    "n_indeg1": 6,
+    "n_outdeg1": 7,
+    "n_outdeg0": 1,
+    "root_outdeg": 2,
+    "forced": {
+     "forced_edges": 5,
+     "chains": 4,
+     "max_chain": 2
+    },
+    "articulation": 1,
+    "scc_count": 4,
+    "scc_max": 106,
+    "scc_nontrivial": 1,
+    "bfs_levels": 16,
+    "bfs_min_level": 2,
+    "bfs_max_level": 15,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNSAT",
+    "nodes": 2744084,
+    "prune_two_terminals": 275111,
+    "prune_reach": 926105,
+    "prune_dead_end": 29325,
+    "prune_memo": 45250,
+    "seconds": 114.17,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "UNSAT",
+    "nodes": 2088015,
+    "prune_reach": 599603,
+    "prune_two_terminals": 263929,
+    "prune_memo": 37170,
+    "prune_dead_end": 34765,
+    "seconds": 98.91,
+    "memo": 1500000
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "c1dd5467eaa1a0d0d9ffe03c5dddb53df6a8d9cae0dce9c98ce3593ce8d56909",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "a0fbd0422536e8061537dab3ce2eed9b8fd978ee5f2ce4b051b6775e9cc4ad88",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 288,
+    "density": 0.02492,
+    "indeg_min": 1,
+    "indeg_mean": 2.639,
+    "indeg_median": 3.0,
+    "outdeg_min": 1,
+    "outdeg_mean": 2.639,
+    "outdeg_median": 3.0,
+    "n_indeg1": 5,
+    "n_outdeg1": 7,
+    "n_outdeg0": 0,
+    "root_outdeg": 3,
+    "forced": {
+     "forced_edges": 7,
+     "chains": 4,
+     "max_chain": 3
+    },
+    "articulation": 0,
+    "scc_count": 3,
+    "scc_max": 88,
+    "scc_nontrivial": 2,
+    "bfs_levels": 10,
+    "bfs_min_level": 2,
+    "bfs_max_level": 25,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 1044808,
+    "prune_two_terminals": 259276,
+    "prune_dead_end": 26137,
+    "prune_memo": 47780,
+    "seconds": 111.16,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "SAT",
+    "nodes": 1250806,
+    "prune_reach": 341849,
+    "prune_two_terminals": 147194,
+    "prune_memo": 35621,
+    "prune_dead_end": 19270,
+    "seconds": 39.62,
+    "memo": 1215075
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "7bb6b67c3eb876c8b004e58e625eaa2b65e5592722d09d85d8772190ae76a6a2",
+   "cover_id": 2,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "624b8ee0e3716d0ec488a3b7178b08d831ee8fb484d4351c40fd74d737c611a9",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 289,
+    "density": 0.02501,
+    "indeg_min": 1,
+    "indeg_mean": 2.648,
+    "indeg_median": 3.0,
+    "outdeg_min": 1,
+    "outdeg_mean": 2.648,
+    "outdeg_median": 3.0,
+    "n_indeg1": 4,
+    "n_outdeg1": 7,
+    "n_outdeg0": 0,
+    "root_outdeg": 3,
+    "forced": {
+     "forced_edges": 4,
+     "chains": 3,
+     "max_chain": 2
+    },
+    "articulation": 0,
+    "scc_count": 3,
+    "scc_max": 88,
+    "scc_nontrivial": 2,
+    "bfs_levels": 11,
+    "bfs_min_level": 2,
+    "bfs_max_level": 23,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 1108442,
+    "prune_dead_end": 51131,
+    "prune_two_terminals": 290133,
+    "prune_memo": 18328,
+    "seconds": 110.48,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 896538,
+    "prune_two_terminals": 427289,
+    "prune_memo": 18691,
+    "prune_dead_end": 38326,
+    "seconds": 95.87,
+    "memo": 1500000
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "02eafeaa12f063ee4281f3b4eaf9d71940ad0bfd891098c280dbbd9b4c4e280f",
+   "cover_id": 1,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "c4f4a6926688127154b2ee2f9d4a59af358e1bb5bf4b7fa07564b83f35aaf934",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 287,
+    "density": 0.02484,
+    "indeg_min": 1,
+    "indeg_mean": 2.63,
+    "indeg_median": 3.0,
+    "outdeg_min": 1,
+    "outdeg_mean": 2.63,
+    "outdeg_median": 3.0,
+    "n_indeg1": 5,
+    "n_outdeg1": 7,
+    "n_outdeg0": 0,
+    "root_outdeg": 3,
+    "forced": {
+     "forced_edges": 10,
+     "chains": 6,
+     "max_chain": 3
+    },
+    "articulation": 0,
+    "scc_count": 3,
+    "scc_max": 88,
+    "scc_nontrivial": 2,
+    "bfs_levels": 10,
+    "bfs_min_level": 2,
+    "bfs_max_level": 28,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_reach": 1020032,
+    "prune_two_terminals": 310437,
+    "prune_dead_end": 48437,
+    "prune_memo": 22043,
+    "seconds": 99.91,
+    "memo": 1500000
+   },
+   "reverse": {
+    "verdict": "SAT",
+    "nodes": 980160,
+    "prune_reach": 326451,
+    "prune_two_terminals": 106166,
+    "prune_memo": 11456,
+    "prune_dead_end": 10575,
+    "seconds": 35.78,
+    "memo": 968594
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": null,
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  },
+  {
+   "sid": "a34d6499c8ec9f3e59e39c6628bd93502074f58b6d247c336ce823d964bff2d5",
+   "cover_id": 17,
+   "r": 0,
+   "root": "short_ell0",
+   "graph_hash": "d96adc8a41abfbf03c967213cf61f7d979ab8b257f07022bca7079c84e6a0e2c",
+   "surviving_covers": 1,
+   "features": {
+    "m": 108,
+    "edges": 312,
+    "density": 0.027,
+    "indeg_min": 1,
+    "indeg_mean": 2.861,
+    "indeg_median": 3.0,
+    "outdeg_min": 1,
+    "outdeg_mean": 2.861,
+    "outdeg_median": 3.0,
+    "n_indeg1": 5,
+    "n_outdeg1": 4,
+    "n_outdeg0": 0,
+    "root_outdeg": 3,
+    "forced": {
+     "forced_edges": 9,
+     "chains": 9,
+     "max_chain": 1
+    },
+    "articulation": 0,
+    "scc_count": 2,
+    "scc_max": 108,
+    "scc_nontrivial": 1,
+    "bfs_levels": 8,
+    "bfs_min_level": 2,
+    "bfs_max_level": 30,
+    "reach_all": true
+   },
+   "forward": {
+    "verdict": "SAT",
+    "nodes": 1418,
+    "prune_reach": 386,
+    "prune_two_terminals": 131,
+    "prune_dead_end": 35,
+    "prune_memo": 6,
+    "seconds": 0.03,
+    "memo": 1303
+   },
+   "reverse": {
+    "verdict": "UNKNOWN",
+    "nodes": 3000001,
+    "prune_two_terminals": 501471,
+    "prune_dead_end": 3,
+    "prune_reach": 851835,
+    "prune_memo": 32826,
+    "seconds": 109.36,
+    "memo": 1500000
+   },
+   "round97_label": "UNKNOWN_CAP",
+   "hamilton_path": [
+    [
+     "hex",
+     36
+    ],
+    [
+     "hex",
+     10
+    ],
+    [
+     "hex",
+     69
+    ],
+    [
+     "hex",
+     37
+    ],
+    [
+     "hex",
+     20
+    ],
+    [
+     "hex",
+     57
+    ],
+    [
+     "hex",
+     40
+    ],
+    [
+     "hex",
+     99
+    ],
+    [
+     "hex",
+     8
+    ],
+    [
+     "hex",
+     82
+    ],
+    [
+     "hex",
+     42
+    ],
+    [
+     "hex",
+     9
+    ],
+    [
+     "hex",
+     65
+    ],
+    [
+     "hex",
+     102
+    ],
+    [
+     "hex",
+     24
+    ],
+    [
+     "hex",
+     64
+    ],
+    [
+     "hex",
+     90
+    ],
+    [
+     "frag"
+    ],
+    [
+     "hex",
+     32
+    ],
+    [
+     "hex",
+     77
+    ],
+    [
+     "hex",
+     111
+    ],
+    [
+     "hex",
+     56
+    ],
+    [
+     "hex",
+     76
+    ],
+    [
+     "hex",
+     105
+    ],
+    [
+     "hex",
+     60
+    ],
+    [
+     "hex",
+     73
+    ],
+    [
+     "hex",
+     45
+    ],
+    [
+     "hex",
+     61
+    ],
+    [
+     "hex",
+     19
+    ],
+    [
+     "hex",
+     107
+    ],
+    [
+     "hex",
+     38
+    ],
+    [
+     "hex",
+     53
+    ],
+    [
+     "hex",
+     116
+    ],
+    [
+     "hex",
+     78
+    ],
+    [
+     "hex",
+     11
+    ],
+    [
+     "hex",
+     71
+    ],
+    [
+     "hex",
+     79
+    ],
+    [
+     "hex",
+     21
+    ],
+    [
+     "hex",
+     63
+    ],
+    [
+     "hex",
+     43
+    ],
+    [
+     "hex",
+     15
+    ],
+    [
+     "hex",
+     89
+    ],
+    [
+     "hex",
+     103
+    ],
+    [
+     "hex",
+     26
+    ],
+    [
+     "hex",
+     88
+    ],
+    [
+     "hex",
+     96
+    ],
+    [
+     "hex",
+     18
+    ],
+    [
+     "hex",
+     1
+    ],
+    [
+     "hex",
+     35
+    ],
+    [
+     "hex",
+     115
+    ],
+    [
+     "hex",
+     74
+    ],
+    [
+     "hex",
+     7
+    ],
+    [
+     "hex",
+     59
+    ],
+    [
+     "hex",
+     46
+    ],
+    [
+     "hex",
+     75
+    ],
+    [
+     "hex",
+     68
+    ],
+    [
+     "hex",
+     27
+    ],
+    [
+     "hex",
+     17
+    ],
+    [
+     "hex",
+     110
+    ],
+    [
+     "hex",
+     54
+    ],
+    [
+     "hex",
+     16
+    ],
+    [
+     "hex",
+     93
+    ],
+    [
+     "hex",
+     104
+    ],
+    [
+     "hex",
+     30
+    ],
+    [
+     "hex",
+     51
+    ],
+    [
+     "hex",
+     92
+    ],
+    [
+     "hex",
+     25
+    ],
+    [
+     "hex",
+     70
+    ],
+    [
+     "hex",
+     114
+    ],
+    [
+     "hex",
+     72
+    ],
+    [
+     "hex",
+     34
+    ],
+    [
+     "hex",
+     101
+    ],
+    [
+     "hex",
+     14
+    ],
+    [
+     "hex",
+     87
+    ],
+    [
+     "hex",
+     58
+    ],
+    [
+     "hex",
+     100
+    ],
+    [
+     "hex",
+     12
+    ],
+    [
+     "hex",
+     81
+    ],
+    [
+     "hex",
+     66
+    ],
+    [
+     "hex",
+     97
+    ],
+    [
+     "hex",
+     2
+    ],
+    [
+     "hex",
+     39
+    ],
+    [
+     "hex",
+     67
+    ],
+    [
+     "hex",
+     13
+    ],
+    [
+     "hex",
+     44
+    ],
+    [
+     "hex",
+     109
+    ],
+    [
+     "hex",
+     50
+    ],
+    [
+     "hex",
+     83
+    ],
+    [
+     "hex",
+     108
+    ],
+    [
+     "hex",
+     48
+    ],
+    [
+     "hex",
+     3
+    ],
+    [
+     "hex",
+     95
+    ],
+    [
+     "hex",
+     55
+    ],
+    [
+     "hex",
+     22
+    ],
+    [
+     "hex",
+     117
+    ],
+    [
+     "hex",
+     80
+    ],
+    [
+     "hex",
+     31
+    ],
+    [
+     "hex",
+     23
+    ],
+    [
+     "hex",
+     119
+    ],
+    [
+     "hex",
+     86
+    ],
+    [
+     "hex",
+     29
+    ],
+    [
+     "hex",
+     118
+    ],
+    [
+     "hex",
+     84
+    ],
+    [
+     "hex",
+     4
+    ],
+    [
+     "hex",
+     113
+    ],
+    [
+     "hex",
+     62
+    ],
+    [
+     "hex",
+     28
+    ],
+    [
+     "hex",
+     112
+    ]
+   ],
+   "solver": "claude-r98-bitset-dfs/1",
+   "node_cap": 3000000
+  }
+ ]
+}

@@ -2,13 +2,13 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Current Q2 / Area-A residual: 4,802 states** (6,657 archived baseline − 13 closed in
+> **Current Q2 / Area-A residual: 4,790 states** (6,657 archived baseline − 13 closed in
 > Round 85 − 58 in Round 90 − 4 in Round 91 − 186 in Round 92 − 1,366 in Round 93 − 196
-> Layer-A in Round 94d − 32 B2-only). SHORT-PASS LOCALITY and the four former boundary
-> witnesses are Codex-audited; Round 92 replaced the generic short exception with the state's
-> fragment-local short opportunity. Rounds 96–97 add **12 provisional closures** (D1 4,
-> forced-edge D4b 4, exact-Hamilton pilot 4 — pairwise disjoint) that are **not** in the
-> audited ledger. This project has not proved `L₆ ≥ 872`.
+> Layer-A in Round 94d − 32 B2-only − 12 in the Codex-audited Round-96/97 bundle: D1 4,
+> forced-edge D4b 4, exact-Hamilton 4). Round 98 adds **8 provisional** exact-Hamilton
+> closures (not in the audited ledger) and, more importantly, proves **87 states SAT** at the
+> obligation-graph level — witnesses that do **not** lift to the word level, which identifies
+> the next missing invariant. This project has not proved `L₆ ≥ 872`.
 
 ## The problem
 

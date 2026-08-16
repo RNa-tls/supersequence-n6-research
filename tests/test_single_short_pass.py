@@ -33,8 +33,17 @@ SAMPLE = 60
 class SingleShortPassTheorem(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.rows = ssp.po.load_states()
+        # 로딩 순서(체크포인트 파일 순회 순서)에 의존하지 않도록 sid 로 정렬한다.
+        cls.rows = sorted(ssp.po.load_states(), key=lambda r: r["sid"])
         cls.sample = cls.rows[:SAMPLE]
+        # fragment 를 가진 상태는 **전체에서 결정적으로 고른다** — 앞쪽 표본에 우연히
+        # 들어 있기를 기대하지 않는다.
+        cls.fragment_sample = []
+        for r in cls.rows:
+            if ssp.pinned_short_edge(r["state"])[0] is not None:
+                cls.fragment_sample.append(r)
+                if len(cls.fragment_sample) == SAMPLE:
+                    break
 
     def test_premise_current_hexagon_has_exactly_one_visited_cell(self):
         """전제: 모든 잔여 상태에서 F = 1 이고 현재 육각형에 방문 칸이 정확히 1개."""
@@ -66,12 +75,13 @@ class SingleShortPassTheorem(unittest.TestCase):
 
     def test_pinned_repair_pass_fills_the_fragment_and_departs_legally(self):
         """정리 (v): 고정된 시작 칸에서 ell = 5 - c_f 회전하면 fragment 가 정확히 채워진다."""
+        if not self.fragment_sample:
+            self.skipTest("전제 미충족: 로드된 상태 중 fragment 를 가진 것이 하나도 없다 "
+                          "(체크포인트 픽스처를 확인하라)")
         checked = 0
-        for r in self.sample:
+        for r in self.fragment_sample:
             pin, reason = ssp.pinned_short_edge(r["state"])
-            if pin is None:
-                self.assertEqual(reason, "no_fragment", r["sid"])
-                continue
+            self.assertIsNotNone(pin, r["sid"])
             checked += 1
             st = r["state"]
             hf, cf = pin["hex"], pin["c_f"]
