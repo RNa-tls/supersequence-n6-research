@@ -2,13 +2,12 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Current Q2 / Area-A residual: 4,790 states** (6,657 archived baseline − 13 closed in
-> Round 85 − 58 in Round 90 − 4 in Round 91 − 186 in Round 92 − 1,366 in Round 93 − 196
-> Layer-A in Round 94d − 32 B2-only − 12 in the Codex-audited Round-96/97 bundle: D1 4,
-> forced-edge D4b 4, exact-Hamilton 4). Round 98 adds **8 provisional** exact-Hamilton
-> closures (not in the audited ledger) and, more importantly, proves **87 states SAT** at the
-> obligation-graph level — witnesses that do **not** lift to the word level, which identifies
-> the next missing invariant. This project has not proved `L₆ ≥ 872`.
+> **Current Q2 / Area-A residual: 4,782 states** (audited; 6,657 archived baseline minus the
+> closures of Rounds 85–98). Round 99 proved the **word lift deterministic** — a fixed
+> obligation path forces its concrete word sequence — and the word-level reachability test it
+> licenses closes a further **552 states provisionally** (residual would be 4,230). Codex is
+> unavailable, so every Round-99 closure is Claude-only and unaudited. This project has not
+> proved `L₆ ≥ 872`.
 
 ## The problem
 

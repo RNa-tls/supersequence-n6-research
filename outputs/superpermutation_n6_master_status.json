@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "167 tests passing"
+  "expected": "172 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -3690,5 +3690,121 @@
   "reproduce": "python3 src/probe_rr_exact_hamilton.py census|graphs|pilot12|sweep|subtour",
   "verdict": "D — MANY SAT: the abstraction is permissive; next round should lift the obligation graph to words",
   "disclaimer": "This project has not proved L6 >= 872. Even total closure of the current Q2 residual would still leave the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_99": "Audited Q2/Area-A residual: 4,782 (Round-98's eight exact-Hamilton closures audited). Round 99 adds 552 PROVISIONAL closures from the word-level reachability test (residual would be 4,230). Codex is exhausted: no Round-99 result is independently audited.",
+ "round_99_word_lift": {
+  "round": 99,
+  "author": "Claude only — NOT independently audited",
+  "baseline": 4782,
+  "theorem": {
+   "statement": "for every word u and every ell in 0..5 the four joint targets of sigma^ell(u) lie in four DISTINCT hexagons, none of them u's own hexagon",
+   "evidence": "EC exhaustive 4,320/4,320 contexts, 0 exceptions",
+   "corollary": "WORD_NEXT(u, ell, h) is a partial function; since ell is forced (Rounds 90/91), a fixed current word plus a fixed obligation path determines the concrete word sequence uniquely",
+   "answers": "Round-99 section 3 option A (theorem), not an implementation artifact"
+  },
+  "round98_failures_reproduced": {
+   "depths_0_based": [
+    46,
+    62,
+    88,
+    88
+   ],
+   "round98_reported_1_based": [
+    47,
+    63,
+    89,
+    89
+   ],
+   "reason_classification": {
+    "A_source_word_wrong": 60
+   },
+   "other_classes": 0
+  },
+  "witness_recheck": {
+   "witnesses": 87,
+   "LIFT_PASS": 27,
+   "LIFT_FAIL": 60,
+   "max_candidate_width": 1,
+   "correction": "Round 98's '4/4 fail' was a small sample; 27 of 87 do lift"
+  },
+  "word_static_conditions": {
+   "W-A": "every obligation reachable from the current concrete word through word transitions",
+   "W-B2": "at most one obligation with no word transition to another obligation",
+   "W-IN": "every obligation reachable by some word transition",
+   "pairs": {
+    "PASS": 15781,
+    "W_A_FAIL": 3391,
+    "W_B2_FAIL": 0,
+    "W_IN_FAIL": 0
+   },
+   "states": {
+    "SAT": 4230,
+    "UNSAT": 560
+   },
+   "r": {
+    "0": {
+     "SAT": 4056,
+     "UNSAT": 409
+    },
+    "1": {
+     "SAT": 174,
+     "UNSAT": 151
+    }
+   },
+   "seconds": 930
+  },
+  "provisional_closures": {
+   "net_new": 552,
+   "r": {
+    "0": 404,
+    "1": 148
+   },
+   "unique_path": 145,
+   "multi_cover": 407,
+   "state_rule": "ALL surviving covers must fail",
+   "provisional_residual": 4230
+  },
+  "r1_asymmetry_explained": {
+   "closure_rate_r1": "151/325 = 46%",
+   "closure_rate_r0": "409/4465 = 9%",
+   "explanation": "a repaired fragment pins its entry word, so word-level reachability breaks far more often — first structural account of the Round-94 r=1 asymmetry"
+  },
+  "lift_aware_search": {
+   "state": "(current concrete word, remaining obligation set) — one word, not a set",
+   "pilot": {
+    "sample": 14,
+    "decided": 11,
+    "graph_only_decided": 5,
+    "example": "77fbaf89 took 2.7M graph nodes in Round 98 and 1 node here"
+   }
+  },
+  "controls": {
+   "engine_built_chains": 121,
+   "rejected": 0,
+   "lifted_witnesses_passing_static": "27/27",
+   "standalone_verifier": {
+    "geometry_violations": 0,
+    "ledger_pairs_rechecked": 1922,
+    "verdict_mismatches": 0,
+    "bad_certificates": 0,
+    "sat_chains_verified": 2
+   },
+   "caveat": "the verifier is a SECOND CLAUDE IMPLEMENTATION — error detection, not independent audit"
+  },
+  "memory_question": {
+   "tracked": "one concrete word (orbit + phase)",
+   "full_720_visited_mask": "not needed in this round",
+   "caveat": "'not needed yet' is not 'never needed' — E1/E2/re-entry would have to be re-examined"
+  },
+  "artifacts": [
+   "outputs/rr_word_lift_static_ledger.jsonl.gz",
+   "outputs/rr_word_lift_witnesses.jsonl.gz",
+   "outputs/rr_word_lift_geometry.json",
+   "outputs/rr_word_lift_control.json",
+   "outputs/rr_word_lift_pilot.json",
+   "outputs/rr_word_lift_verification.json"
+  ],
+  "reproduce": "python3 src/probe_rr_word_lift.py geometry|control|witnesses|static|pilot; python3 src/verify_rr_word_lift.py",
+  "disclaimer": "This project has not proved L6 >= 872. Even complete closure of this Q2 residual would leave the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }
