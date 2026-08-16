@@ -1,0 +1,462 @@
+{
+ "round": 97,
+ "control": {
+  "trials": 1200,
+  "false_rejections": {
+   "d1": 0,
+   "d4a": 0,
+   "d4b": 0
+  }
+ },
+ "d1": {
+  "layer": "d1",
+  "pair": {
+   "PASS": 19771,
+   "FAIL": 184,
+   "separator": 184
+  },
+  "state": {
+   "SAT": 4798,
+   "UNSAT": 4
+  },
+  "r": {
+   "0": {
+    "SAT": 4473,
+    "UNSAT": 3
+   },
+   "1": {
+    "SAT": 325,
+    "UNSAT": 1
+   }
+  },
+  "fails": [
+   {
+    "sid": "0786f70ce236868ba9b96555fb4065ddcfb051ea86a48e4bc36bbfd0017903ac",
+    "root": "short_ell0",
+    "c": 3,
+    "r": 0,
+    "layer": "d1",
+    "per_cover": [
+     {
+      "cover_id": 0,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 2,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 12,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 15,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "a3ab039648d5382be9b3d200c6fc85724deae15f0a50f8b6caebb3e53d92b2d3",
+    "root": "short_ell0",
+    "c": 3,
+    "r": 0,
+    "layer": "d1",
+    "per_cover": [
+     {
+      "cover_id": 0,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 2,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "1a2f47ba3ea8a4158a01378bc90799449764e69fcf7515f8b884168801deca1b",
+    "root": "short_ell0",
+    "c": 3,
+    "r": 0,
+    "layer": "d1",
+    "per_cover": [
+     {
+      "cover_id": 0,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 2,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "b068e04fb48e7cc240c60a0ebe2453108990d333fc26c6ff0ac1baa83ff1cbeb",
+    "root": "short_ell4",
+    "c": 3,
+    "r": 1,
+    "layer": "d1",
+    "per_cover": [
+     {
+      "cover_id": 0,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 1,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 4,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 7,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 8,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 9,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 10,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 11,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 12,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 13,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 14,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 15,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 16,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     },
+     {
+      "cover_id": 17,
+      "pair_verdict": "FAIL",
+      "contradiction": "separator",
+      "certificate": 3
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   }
+  ],
+  "seconds": 495
+ },
+ "d4a": {
+  "layer": "d4a",
+  "pair": {
+   "PASS": 19509,
+   "FAIL": 446,
+   "forced_proper_subtour": 446
+  },
+  "state": {
+   "SAT": 4800,
+   "UNSAT": 2
+  },
+  "r": {
+   "0": {
+    "SAT": 4474,
+    "UNSAT": 2
+   },
+   "1": {
+    "SAT": 326
+   }
+  },
+  "fails": [
+   {
+    "sid": "d025925ec21b3eb33230505eec6a976b32b417b08f920905d7ba3be9d346f6a7",
+    "root": "short_ell1",
+    "c": 2,
+    "r": 0,
+    "layer": "d4a",
+    "per_cover": [
+     {
+      "cover_id": 5,
+      "pair_verdict": "FAIL",
+      "contradiction": "forced_proper_subtour",
+      "certificate": [
+       [
+        "hex",
+        107
+       ],
+       [
+        "hex",
+        69
+       ],
+       [
+        "hex",
+        111
+       ]
+      ]
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "26152efb6dcad2f1362827f97f17114faea7ed50cf1477ed39a5797c7680aad5",
+    "root": "short_ell4",
+    "c": 2,
+    "r": 0,
+    "layer": "d4a",
+    "per_cover": [
+     {
+      "cover_id": 1,
+      "pair_verdict": "FAIL",
+      "contradiction": "forced_proper_subtour",
+      "certificate": [
+       [
+        "hex",
+        114
+       ],
+       [
+        "hex",
+        90
+       ],
+       [
+        "hex",
+        76
+       ],
+       [
+        "hex",
+        73
+       ]
+      ]
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   }
+  ],
+  "seconds": 20
+ },
+ "d4b": {
+  "layer": "d4b",
+  "pair": {
+   "PASS": 19241,
+   "FAIL": 714,
+   "contracted_separator": 268,
+   "forced_proper_subtour": 446
+  },
+  "state": {
+   "SAT": 4798,
+   "UNSAT": 4
+  },
+  "r": {
+   "0": {
+    "SAT": 4472,
+    "UNSAT": 4
+   },
+   "1": {
+    "SAT": 326
+   }
+  },
+  "fails": [
+   {
+    "sid": "d025925ec21b3eb33230505eec6a976b32b417b08f920905d7ba3be9d346f6a7",
+    "root": "short_ell1",
+    "c": 2,
+    "r": 0,
+    "layer": "d4b",
+    "per_cover": [
+     {
+      "cover_id": 5,
+      "pair_verdict": "FAIL",
+      "contradiction": "forced_proper_subtour",
+      "certificate": [
+       [
+        "hex",
+        107
+       ],
+       [
+        "hex",
+        69
+       ],
+       [
+        "hex",
+        111
+       ]
+      ]
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "4ff87745056b18f2120a26cadf37c2a2100a808531b97322c93722286a38b8f5",
+    "root": "short_ell1",
+    "c": 2,
+    "r": 0,
+    "layer": "d4b",
+    "per_cover": [
+     {
+      "cover_id": 6,
+      "pair_verdict": "FAIL",
+      "contradiction": "contracted_separator",
+      "certificate": {
+       "separator": [
+        "hex",
+        32
+       ],
+       "components": 3,
+       "contracted_nodes": 91
+      }
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "d91a025a60009fc75445d28e13eeb4fed8a3bf2d60016c61a6a718f052e44479",
+    "root": "short_ell4",
+    "c": 3,
+    "r": 0,
+    "layer": "d4b",
+    "per_cover": [
+     {
+      "cover_id": 1,
+      "pair_verdict": "FAIL",
+      "contradiction": "contracted_separator",
+      "certificate": {
+       "separator": [
+        "hex",
+        12
+       ],
+       "components": 3,
+       "contracted_nodes": 96
+      }
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   },
+   {
+    "sid": "26152efb6dcad2f1362827f97f17114faea7ed50cf1477ed39a5797c7680aad5",
+    "root": "short_ell4",
+    "c": 2,
+    "r": 0,
+    "layer": "d4b",
+    "per_cover": [
+     {
+      "cover_id": 1,
+      "pair_verdict": "FAIL",
+      "contradiction": "forced_proper_subtour",
+      "certificate": [
+       [
+        "hex",
+        114
+       ],
+       [
+        "hex",
+        90
+       ],
+       [
+        "hex",
+        76
+       ],
+       [
+        "hex",
+        73
+       ]
+      ]
+     }
+    ],
+    "state_verdict": "UNSAT",
+    "all_surviving_covers_fail": true
+   }
+  ],
+  "seconds": 463
+ },
+ "sets": {
+  "d1_only": [
+   "0786f70ce236868ba9b96555fb4065ddcfb051ea86a48e4bc36bbfd0017903ac",
+   "1a2f47ba3ea8a4158a01378bc90799449764e69fcf7515f8b884168801deca1b",
+   "a3ab039648d5382be9b3d200c6fc85724deae15f0a50f8b6caebb3e53d92b2d3",
+   "b068e04fb48e7cc240c60a0ebe2453108990d333fc26c6ff0ac1baa83ff1cbeb"
+  ],
+  "d4b_only": [
+   "26152efb6dcad2f1362827f97f17114faea7ed50cf1477ed39a5797c7680aad5",
+   "4ff87745056b18f2120a26cadf37c2a2100a808531b97322c93722286a38b8f5",
+   "d025925ec21b3eb33230505eec6a976b32b417b08f920905d7ba3be9d346f6a7",
+   "d91a025a60009fc75445d28e13eeb4fed8a3bf2d60016c61a6a718f052e44479"
+  ],
+  "intersection": [],
+  "union": [
+   "0786f70ce236868ba9b96555fb4065ddcfb051ea86a48e4bc36bbfd0017903ac",
+   "1a2f47ba3ea8a4158a01378bc90799449764e69fcf7515f8b884168801deca1b",
+   "26152efb6dcad2f1362827f97f17114faea7ed50cf1477ed39a5797c7680aad5",
+   "4ff87745056b18f2120a26cadf37c2a2100a808531b97322c93722286a38b8f5",
+   "a3ab039648d5382be9b3d200c6fc85724deae15f0a50f8b6caebb3e53d92b2d3",
+   "b068e04fb48e7cc240c60a0ebe2453108990d333fc26c6ff0ac1baa83ff1cbeb",
+   "d025925ec21b3eb33230505eec6a976b32b417b08f920905d7ba3be9d346f6a7",
+   "d91a025a60009fc75445d28e13eeb4fed8a3bf2d60016c61a6a718f052e44479"
+  ]
+ }
+}

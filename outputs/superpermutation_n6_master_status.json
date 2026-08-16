@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "134 tests passing"
+  "expected": "160 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -3429,5 +3429,116 @@
   "statement": "Let tau be a literal window targeted by the engine's unique weight-2 move, sigma its unique weight-2 predecessor, A a finite anchor family. If (H1) sigma visited at every anchor and (H2) no anchor's endpoint equals sigma, then no exact descendant of A can ever be at sigma, so the move into tau can never fire in any descendant.",
   "unresolved_generalization": "hub-hexagon-set engine-universality is explicitly left open; no branch other than short_ell2_r1_37 has attempted the 7-item certificate checklist",
   "why_h82_not_a_fullness_obstruction": "VNTS never requires the target's own hexagon to be full, only that some hexagon (wherever the predecessor lives) is full-and-non-terminal"
+ },
+ "quantitative_ledger_note_round_97": "Audited Q2/Area-A residual: 4,802 unchanged. Round 97 D4a closed 2 and D4b 4 provisionally (disjoint from the 4 Round-96 D1 candidates, which were reproduced from scratch); an exact-Hamilton pilot on 12 UNIQUE_AB covers decided 4 more UNSAT at a 3M node cap. All 12 closures are provisional and none is in the audited ledger.",
+ "round_97_forced_edge": {
+  "round": 97,
+  "author": "Claude (독립 검증 트랙)",
+  "baseline": 4802,
+  "rules": {
+   "R1": "|in(v)|=1 => forced edge",
+   "R2": "forced u->v deletes competing out(u)/in(v), each deletion certificated",
+   "R3": "|in(v)|=0 => contradiction",
+   "R4": ">=2 zero-outdegree vertices, or root outdegree 0 => contradiction (global terminal allowance = method B)",
+   "R5": "forced proper directed cycle not containing ROOT => contradiction"
+  },
+  "D1_replay": {
+   "pair_pass": 19771,
+   "pair_fail": 184,
+   "state_closed": 4,
+   "r": {
+    "0": 3,
+    "1": 1
+   },
+   "control": "4/4 Round-96 candidates reproduced from scratch with an independent union-find component count; stored separator certificates re-verified"
+  },
+  "D4a": {
+   "pair_pass": 19509,
+   "pair_fail": 446,
+   "failure_reasons": {
+    "forced_proper_subtour": 446
+   },
+   "state_closed": 2,
+   "r": {
+    "0": 2,
+    "1": 0
+   }
+  },
+  "D4b": {
+   "rule": "D4a + contract forced chains, then c(U(G')-v) <= 2 (sound: any rooted Hamilton path uses forced edges consecutively)",
+   "pair_pass": 19241,
+   "pair_fail": 714,
+   "failure_reasons": {
+    "forced_proper_subtour": 446,
+    "contracted_separator": 268
+   },
+   "state_closed": 4,
+   "r": {
+    "0": 4,
+    "1": 0
+   }
+  },
+  "sets": {
+   "d1_only": 4,
+   "d4b_only": 4,
+   "intersection": 0,
+   "union": 8
+  },
+  "state_rule": "state_closed = ALL surviving covers FAIL; any(cover fails) is never used",
+  "positive_control": {
+   "explicit_rooted_hamilton_graphs": 1200,
+   "false_rejections": {
+    "d1": 0,
+    "d4a": 0,
+    "d4b": 0
+   },
+   "pilot_dfs_graphs": 300,
+   "pilot_false_unsat": 0
+  },
+  "why_weak": {
+   "obligations_per_graph": "107-108",
+   "indegree_hist": {
+    "1": 64946,
+    "2": 654779,
+    "3": 1367802,
+    "4": 25971,
+    "5": 25601,
+    "6": 6544
+   },
+   "mean_unit_indegree_obligations_per_pair": 3.25,
+   "pairs_with_no_unit_indegree": 145
+  },
+  "unique_ab": {
+   "total": 1069,
+   "d4b_closed": 4,
+   "d1_closed": 0,
+   "note": "D1 and D4b closures are complementary; sample size 4+4, not claimed as structural"
+  },
+  "exact_hamilton_pilot": {
+   "scope": "UNIQUE_AB covers only; cap => UNKNOWN, never UNSAT",
+   "cap_200k": {
+    "trials": 60,
+    "UNSAT": 1,
+    "UNKNOWN": 59,
+    "SAT": 0
+   },
+   "cap_3M": {
+    "trials": 12,
+    "UNSAT": 4,
+    "UNKNOWN": 8,
+    "SAT": 0
+   },
+   "disjoint_from_d1_d4b": true,
+   "comparison": "Round-94 Layer-C pilot was 427/427 UNKNOWN at 200k; the difference is the narrowed A+B2 input and reachability/terminal pruning instead of matching"
+  },
+  "provisional_residual": 4790,
+  "artifacts": [
+   "outputs/rr_forced_edge_ledger.jsonl.gz",
+   "outputs/rr_forced_edge_claude.json",
+   "outputs/rr_forced_edge_pilot_claude.json"
+  ],
+  "reproduce": "python3 src/probe_rr_forced_edge.py export | control | pilot-control | pilot",
+  "next": "exact-Hamilton sweep restricted to the 1,069 UNIQUE_AB covers (~33% decided at 3M nodes, ~100 s/instance)",
+  "disclaimer": "This project has not proved L6 >= 872. Complete closure of this Q2 residual would still leave the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }
