@@ -2,13 +2,14 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Audited Q2 / Area-A residual: 4,782 states; Claude-replayed provisional residual 4,230.**
-> Round 99 proved the word lift deterministic and closed 552 states; Round 100 reproduced that
-> set exactly with a second string-level implementation. Round 101 measured the word domains —
-> **never larger than 2, and 96.9 % singleton** — and found arc consistency and refined Hall
-> matching already exhausted above word-reachability (5 pair failures, **0** new closures), so
-> the remaining difficulty is global ordering rather than local support. No Codex audit is
-> available, so 4,230 is *not* independently audited. This project has not proved `L₆ ≥ 872`.
+> **Audited Q2 / Area-A residual: 4,782 states; Claude-replayed 4,230; Round-102 provisional
+> 4,052.** Rounds 99–100 proved the word lift deterministic and closed 552 states (reproduced
+> exactly by a second implementation). Round 101 found local word consistency exhausted.
+> Round 102 measured the binary word dimension at **k ≤ 4**, enumerated all 173,409 word
+> assignments, and closed a further **178** states by requiring every assignment to fail an
+> already-proved graph condition; exact Hamilton on the concrete graphs added none. No Codex
+> audit is available, so nothing below 4,782 is independently audited. This project has not
+> proved `L₆ ≥ 872`.
 
 ## The problem
 

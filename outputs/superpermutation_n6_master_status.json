@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "186 tests passing"
+  "expected": "192 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -4022,5 +4022,99 @@
   ],
   "reproduce": "python3 src/probe_rr_word_csp.py census|layers|control",
   "disclaimer": "This project has not proved L6 >= 872. Even closure of the current Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_102": "AUDITED 4,782 (unchanged). CLAUDE COMPLETE/REPLAYED 4,230 (unchanged). ROUND-102 PROVISIONAL: 178 further closures from binary word-assignment enumeration (W-E), giving 4,052. Exact Hamilton on the concrete assignment graphs added 0.",
+ "round_102_word_assignment": {
+  "round": 102,
+  "author": "Claude only — NOT independently audited",
+  "audited": 4782,
+  "claude_replayed": 4230,
+  "binary_dimension": {
+   "k_histogram": {
+    "0": 233,
+    "1": 289,
+    "2": 1698,
+    "3": 5667,
+    "4": 7894
+   },
+   "max_k": 4,
+   "median": 4,
+   "p90": 4,
+   "p99": 4,
+   "sum_2k": 179243,
+   "after_propagation": {
+    "0": 545,
+    "1": 420,
+    "2": 1956,
+    "3": 5195,
+    "4": 7665
+   },
+   "sum_2k_propagated": 173409
+  },
+  "soundness": "a genuine completion supplies a word assignment A and its path is a rooted Hamilton path in G_A, so if every assignment is impossible the cover is impossible",
+  "W_E": {
+   "layers": [
+    "A root reachability",
+    "B2 terminal/sink-SCC",
+    "D4 forced-edge",
+    "D1 separator"
+   ],
+   "assignments_enumerated": 173409,
+   "pair_pass": 10552,
+   "pair_fail": 5229,
+   "assignments_killed_by_layer": {
+    "A": 100174,
+    "B2": 31434,
+    "D4": 6188,
+    "D1": 37
+   },
+   "state_closures": 178,
+   "r": {
+    "0": 176,
+    "1": 2
+   },
+   "seconds": 344
+  },
+  "exact_hamilton": {
+   "scope": "unique W-A cover states, stratified by k'",
+   "attempted": 570,
+   "node_cap": 20000,
+   "cover_verdicts": {
+    "UNKNOWN": 516,
+    "LITERAL_GRAPH_SAT": 22,
+    "LITERAL_GRAPH_UNSAT": 32
+   },
+   "additional_closures_beyond_W_E": 0,
+   "note": "all 32 UNSAT covers were killed statically; no cover needed a completed Hamilton exhaustion",
+   "k0_band": {
+    "attempted": 261,
+    "SAT": 10,
+    "UNSAT": 0,
+    "UNKNOWN": 251
+   }
+  },
+  "word_refinement_benefit": {
+   "hexagon_graph_edges_mean": 303.3,
+   "concrete_assignment_graph_edges_mean": 295.6,
+   "shrink_ratio": 0.975,
+   "interpretation": "domains are 96.9% singleton, so fixing words barely shrinks the graph; the power of word refinement is in exact ROOT reachability, not graph size"
+  },
+  "open": {
+   "section": "15",
+   "status": "literal-engine replay of the 22 concrete SAT witnesses was NOT performed this round"
+  },
+  "ledger_labels": {
+   "AUDITED": 4782,
+   "CLAUDE_COMPLETE_REPLAYED": 4230,
+   "ROUND_102_PROVISIONAL": 178,
+   "provisional_residual": 4052
+  },
+  "artifacts": [
+   "outputs/rr_word_assign_census.json",
+   "outputs/rr_word_assign_we.jsonl.gz",
+   "outputs/rr_word_assign_exact.json"
+  ],
+  "reproduce": "python3 src/probe_rr_word_assign.py census|we",
+  "disclaimer": "This project has not proved L6 >= 872. Even complete closure of this Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }
