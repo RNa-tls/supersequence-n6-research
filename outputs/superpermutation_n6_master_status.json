@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "199 tests passing"
+  "expected": "207 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -4207,5 +4207,92 @@
   ],
   "reproduce": "python3 src/replay_rr_literal_engine.py; python3 src/replay_rr_word_assign.py",
   "disclaimer": "This project has not proved L6 >= 872. Even complete closure of this Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_104": "AUDITED 4,782 (unchanged). Round 104 closes all 4,230 remaining states PROVISIONALLY via the N+H budget necessary condition. The result is total, hence treated as suspect: see the invalidation list in research/RR_WEIGHTED_BUDGET_CLAUDE.md section 7. Not independently audited; no genuine positive control exists.",
+ "round_104_weighted_budget": {
+  "round": 104,
+  "author": "Claude only — NOT independently audited",
+  "audited": 4782,
+  "budget_theorem": {
+   "statement": "E <= B := 3 + K - Ndef - H, where E counts future weight-3 joints",
+   "derivation": {
+    "dF": "0 — after the rotations the cursor's sigma-successor is the already-visited entry word, so no abandonment; confirmed in all 22 replay traces",
+    "dS": "E — T1 has min weight 2, T2/T3/T4 min weight 3",
+    "dH": "0 under the minimum-weight reading, which is a lower bound and therefore safe",
+    "dO": "K — the completion must reach O = 25"
+   },
+   "identity_check": "E - B = final(Ndef+H) - 3 holds 22/22 against the literal engine",
+   "B": {
+    "median": 21,
+    "min": 18,
+    "max": 24
+   },
+   "stored_witness_costs": [
+    54,
+    75
+   ]
+  },
+  "lower_bounds": {
+   "L1_zero_cost_matching_deficiency": {
+    "median": 6,
+    "payoff": 0
+   },
+   "L2_zero_cost_components": {
+    "rule": "remaining cost >= c - 1 (c = weak components of the cost-0 functional arcs on the remaining set)",
+    "proof": "the used cost-0 arcs form a linear forest refining the weak components, so |rem| - y >= c",
+    "median_c": 24,
+    "range_c": [
+     22,
+     27
+    ],
+    "pairs_already_dead_at_root": 11300
+   }
+  },
+  "mechanism": {
+   "valid_T1_arcs": "93.9% of obligations have a cost-0 successor (~100 of 107)",
+   "components": "but they form only ~24 weak components, i.e. the functional map contains ~17 cycles",
+   "consequence": "a path cannot traverse a cycle, so each cycle forces an expensive break"
+  },
+  "sweep": {
+   "assignments": 173409,
+   "assignment_verdicts": {
+    "UNSAT": 173409,
+    "SAT": 0,
+    "UNKNOWN": 0
+   },
+   "pairs": 15781,
+   "pair_verdicts": {
+    "FAIL": 15781
+   },
+   "state_closures": 4230,
+   "node_cap": 30000,
+   "cap_hits": 0,
+   "seconds": 121
+  },
+  "witness_recheck": {
+   "witnesses": 22,
+   "weighted_verdict": "UNSAT 22/22",
+   "meaning": "not merely the stored path — no path within budget exists"
+  },
+  "invalidation_list": [
+   "minimum-weight dH = 0 assumption",
+   "dO = K",
+   "pass<->obligation bijection (Round 93)",
+   "the ell-forcing theorem (Rounds 90/91)",
+   "WEAKEST LINK: the positive control — no archive walk reaches the target slab, so a genuine positive control does not exist; of 400 sampled pairs only 3 produced a path, all SAT at B = actual cost, false UNSAT 0"
+  ],
+  "ledger_labels": {
+   "AUDITED": 4782,
+   "CLAUDE_SELF_REPLAYED_WA": 4230,
+   "CLAUDE_SELF_REPLAYED_WE": 4052,
+   "ROUND_104_PROVISIONAL_RESIDUAL": 0
+  },
+  "next": "attack each item of the invalidation list separately rather than extend the payoff",
+  "artifacts": [
+   "outputs/rr_weighted_witnesses.json",
+   "outputs/rr_weighted_sweep.json"
+  ],
+  "reproduce": "python3 src/probe_rr_weighted_path.py witnesses",
+  "disclaimer": "This project has not proved L6 >= 872. Even total closure of the current Q2 region leaves the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }
