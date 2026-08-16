@@ -1,0 +1,36 @@
+{
+ "round": 100,
+ "implementation": "claude-r100-independent-replay/1",
+ "geometry_theorem": {
+  "contexts": 4320,
+  "not_four_distinct": 0,
+  "target_in_source_class": 0
+ },
+ "joint_target_cross_check": {
+  "contexts": 4320,
+  "mismatches": 0
+ },
+ "hexagon_equals_rotation_class": true,
+ "states": 4794,
+ "pairs": 19176,
+ "pair_verdicts": {
+  "PASS": 15781,
+  "W_A_FAIL": 3395
+ },
+ "state_verdicts": {
+  "SAT": 4230,
+  "UNSAT": 564
+ },
+ "r": {
+  "0": {
+   "SAT": 4056,
+   "UNSAT": 413
+  },
+  "1": {
+   "UNSAT": 151,
+   "SAT": 174
+  }
+ },
+ "state_closures": 564,
+ "seconds": 117
+}

@@ -3375,7 +3375,7 @@
  },
  "test_suite": {
   "command": "python -m unittest discover -s tests",
-  "expected": "172 tests passing"
+  "expected": "180 tests passing"
  },
  "theorem_ladder": {
   "A_unconditional": [
@@ -3806,5 +3806,126 @@
   ],
   "reproduce": "python3 src/probe_rr_word_lift.py geometry|control|witnesses|static|pilot; python3 src/verify_rr_word_lift.py",
   "disclaimer": "This project has not proved L6 >= 872. Even complete closure of this Q2 residual would leave the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_100": "AUDITED residual 4,782 (unchanged). CLAUDE COMPLETE/REPLAYED provisional residual 4,230: Round 99's 552 word-reachability closures were reproduced exactly by a second string-level implementation (set difference 0, 1,922 per-cover verdicts identical). Not independently audited — both implementations are Claude's.",
+ "round_100_word_lift_replay": {
+  "round": 100,
+  "author": "Claude only — NOT independently audited",
+  "audited_baseline": 4782,
+  "count_typo_check": {
+   "claim": "1,922 is not a typo for 19,172",
+   "finding": "1,922 = the (state,cover) pairs INSIDE the 560 closure rows; the Round-99 verifier never re-decided the 15,781 PASS pairs",
+   "action": "Round 100 re-decided all 19,176 pairs with a second implementation; a correction box was appended to the Round-99 document, nothing deleted"
+  },
+  "structural_proof": {
+   "joint_rule": [
+    "T1 = x2x3x4x5x1x0",
+    "T2 = x3x4x5x1x2x0",
+    "T3 = x3x4x5x2x0x1",
+    "T4 = x3x4x5x2x1x0"
+   ],
+   "hexagon": "cyclic rotation class, verified from strings",
+   "argument": "a rotation class is determined by its cyclic successor function; six comparisons (x5's image is never x0; x1->x0 vs x1->x2; x5->x1 vs x5->x2; x2->x0 vs x2->x1) prove the four targets lie in four distinct classes, none equal to x's",
+   "enumeration_certificate": "4,320 contexts, 0 violations"
+  },
+  "second_implementation": {
+   "word_next_contexts": 4320,
+   "mismatches": 0,
+   "hexagon_equals_rotation_class": true
+  },
+  "independent_replay": {
+   "states": 4794,
+   "pairs": 19176,
+   "pair_PASS": 15781,
+   "pair_W_A_FAIL": 3395,
+   "state_SAT": 4230,
+   "state_closures": 564,
+   "seconds": 117,
+   "delta_vs_round99": "+4 states/pairs/closures because the replay does not skip the four Round-97 audited closures",
+   "exact_matches": [
+    "pair PASS 15,781",
+    "state SAT 4,230",
+    "the 552 SID set",
+    "1,922 per-cover verdicts"
+   ]
+  },
+  "r1_asymmetry": {
+   "round99_explanation": "RETRACTED — r=1 states have no fragment obligation at all",
+   "measured": {
+    "pair_fail_rate_r0": 0.114,
+    "pair_fail_rate_r1": 0.838,
+    "covers_per_state_r0": 3.92,
+    "covers_per_state_r1": 5.11,
+    "not_a_cover_count_artifact": true,
+    "survives_stratification_by_c": true
+   },
+   "mechanism": "r=0's fragment repair pass departs with ell = 5 - c_f, so it carries a DIFFERENT joint-target set and acts as a relay in the word graph",
+   "ablation": {
+    "as_is": 0.128,
+    "fragment_outedges_cut": 0.531,
+    "fragment_forced_to_ell5": 0.493,
+    "sample": 1500
+   }
+  },
+  "known_dependency": {
+   "permissive_control": "allow every ell in 0..5 from every word",
+   "result": "0 of 564 closures survive",
+   "meaning": "the entire W-A payoff rests on the audited ell-forcing theorem of Rounds 90/91"
+  },
+  "positive_controls": {
+   "chains": 1379,
+   "lengths": "3-74",
+   "fragment_steps": 242,
+   "ell_classes_exercised": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "rejected": 0,
+   "width_not_1": 0
+  },
+  "memo_key": {
+   "claim": "(current concrete word, remaining obligations) is the EXACT model state; ell is determined by the word's own obligation",
+   "scope": "closure claims are model-UNSAT claims; the model over-approximates genuine continuations, so model UNSAT implies genuine UNSAT",
+   "no_memo_control": {
+    "samples": 33,
+    "UNSAT/UNSAT": 10,
+    "UNKNOWN/UNKNOWN": 21,
+    "SAT/SAT": 2,
+    "decisive_disagreements": 0
+   }
+  },
+  "integrated_pilot": {
+   "node_cap": 150000,
+   "hard_controls_8": {
+    "LIFT_HAMILTON_UNSAT_COMPLETE": 4,
+    "LIFT_HAMILTON_SAT": 1,
+    "UNKNOWN": 3
+   },
+   "graph_sat_25": {
+    "LIFT_HAMILTON_UNSAT_COMPLETE": 6,
+    "LIFT_HAMILTON_SAT": 1,
+    "UNKNOWN": 18
+   },
+   "lift_dfs_closures_beyond_W_A": 0,
+   "note": "every complete UNSAT terminated at 1 node, i.e. the static W-A test had already caught it"
+  },
+  "ledger_labels": {
+   "AUDITED": 4782,
+   "CLAUDE_COMPLETE_REPLAYED": 4230,
+   "EXPLORATORY": "lift-aware DFS cap results and the hard-control/graph-SAT reclassification"
+  },
+  "artifacts": [
+   "outputs/rr_word_lift_archive/pairs.jsonl.gz",
+   "outputs/rr_word_lift_archive/closures.jsonl.gz",
+   "outputs/rr_word_lift_archive/summary.json",
+   "outputs/rr_word_lift_archive/SCHEMA.md",
+   "outputs/rr_word_lift_integrated_pilot.json"
+  ],
+  "reproduce": "python3 src/replay_rr_word_lift.py",
+  "disclaimer": "This project has not proved L6 >= 872. Even total closure of this Q2 region would still leave the outer Q1/NR6 reduction as a separate proof obligation."
  }
 }

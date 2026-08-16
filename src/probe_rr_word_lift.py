@@ -189,7 +189,7 @@ def word_adjacency(ctx, geo):
     return adj
 
 
-def lift_aware_search(ctx, geo, node_cap=1_000_000, prune=True):
+def lift_aware_search(ctx, geo, node_cap=1_000_000, prune=True, memo_on=True):
     """구체 단어를 상태에 넣은 **완전** rooted Hamilton 탐색.
 
     정리에 의해 상태는 `(현재 구체 단어, 남은 의무 집합)` 이면 충분하다 — 단어 집합이 아니라
@@ -249,7 +249,7 @@ def lift_aware_search(ctx, geo, node_cap=1_000_000, prune=True):
         if not rem:
             return True
         key = (u, rem)
-        if key in memo:
+        if memo_on and key in memo:
             stats["prune_memo"] += 1
             return False
         opts = []
@@ -259,23 +259,27 @@ def lift_aware_search(ctx, geo, node_cap=1_000_000, prune=True):
                 opts.append((node, v, b))
         if not opts:
             stats["prune_dead_end"] += 1
-            memo.add(key)
+            if memo_on:
+                memo.add(key)
             return False
         if prune:
             if reach_mask(u, rem) != rem:
                 stats["prune_reach"] += 1
-                memo.add(key)
+                if memo_on:
+                    memo.add(key)
                 return False
             if dead_count(rem) >= 2:
                 stats["prune_two_terminals"] += 1
-                memo.add(key)
+                if memo_on:
+                    memo.add(key)
                 return False
         for node, v, b in opts:
             path.append((node, v))
             if rec(v, ctx["ell"][node], rem & ~b):
                 return True
             path.pop()
-        memo.add(key)
+        if memo_on:
+            memo.add(key)
         return False
 
     sys.setrecursionlimit(20_000)

@@ -2,12 +2,14 @@
 
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
-> **Current Q2 / Area-A residual: 4,782 states** (audited; 6,657 archived baseline minus the
-> closures of Rounds 85–98). Round 99 proved the **word lift deterministic** — a fixed
-> obligation path forces its concrete word sequence — and the word-level reachability test it
-> licenses closes a further **552 states provisionally** (residual would be 4,230). Codex is
-> unavailable, so every Round-99 closure is Claude-only and unaudited. This project has not
-> proved `L₆ ≥ 872`.
+> **Audited Q2 / Area-A residual: 4,782 states.** Round 99 proved the word lift deterministic
+> and closed a further **552 states**; Round 100 reproduced that set exactly with a second,
+> string-level implementation (set difference 0) and gave the geometry theorem a short
+> structural proof — so the **Claude-replayed provisional residual is 4,230**. No Codex audit
+> is currently available, so 4,230 is *not* independently audited. Round 100 also retracted
+> Round 99's explanation of the `r=1` asymmetry and replaced it: `r=0` keeps an extra
+> fragment-mediated relay that `r=1` has already consumed. This project has not proved
+> `L₆ ≥ 872`.
 
 ## The problem
 
