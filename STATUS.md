@@ -7,10 +7,24 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > Round 105 attacked that result: the component lower bound `L2 = c − 1` is **false for general
 > 0/1 digraphs** (111 brute-force counterexamples) and silently requires cost-0 out-degree ≤ 1 —
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
-> survive with a corrected statement. The collapse is nonetheless **fragile**: 3,359 of 15,781
-> pairs close with margin exactly 1. Status label: **CLAUDE-FALSIFICATION-SURVIVED Q2 residual 0**,
-> which is *not* an audit. The audited ledger stays **4,782**. This project has not proved
-> `L₆ ≥ 872`.
+> survive with a corrected statement.
+>
+> **Round 106 (closure hardening).** The corrected statement is now Theorem 1 (with the
+> hypothesis and the `c` vs `c−1` case split), the hypothesis is proved structurally for Q2
+> (Theorem 2) and checked 93.3 M times with 0 violations, and every weighted verdict was
+> recomputed from scratch over a **superset** of the earlier population — all 27,095 Hall-passing
+> pairs / 5,030 states, using none of the layers A/B2/D1/D4b and importing no Round-104 verdicts.
+> 184,661 assignments, all UNSAT, **0 cap hits**, 0 surviving states; restricted to the archive
+> population the subtotals reproduce Round 100/104 exactly (4,230 / 15,781 / 173,409). A
+> standalone 17,350-row certificate and a separate verifier that does not import the certifier
+> end with `VERIFIED — remaining states = 0`.
+>
+> The collapse is nonetheless **fragile**, and Round 106 measured how fragile: raise the budget
+> by exactly 1 and 2,271 states survive (as cap-induced UNKNOWN, not SAT). Strongest permitted
+> wording: *within the current conditional Q2/Area-A pass model, Claude's independently
+> reimplemented/replayed certificate exhausts the residual to zero.* That is **not** an audit,
+> **not** an unconditional Q2 theorem, and **not** a proof of the lower bound. The audited ledger
+> stays **4,782**. This project has not proved `L₆ ≥ 872`.
 
 ## The problem
 

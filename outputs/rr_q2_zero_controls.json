@@ -1,0 +1,70 @@
+{
+ "round": 106,
+ "control_version": "claude-r106-controls/1",
+ "real_instances_sampled": 3269,
+ "s15_conventions": {
+  "two_isolated_no_root0": 2,
+  "two_isolated_with_root0": 1,
+  "one_chain_no_root0": 1,
+  "one_chain_with_root0": 0,
+  "chain_true_cost_root0": 0,
+  "chain_true_cost_root1": 1,
+  "terminal_is_last_vertex": true,
+  "fragment_uses_same_cost_rule": true,
+  "K_equals_25_minus_O": true,
+  "budget_min": 18,
+  "budget_max": 25,
+  "expectation_mismatches": 0
+ },
+ "s13_small_exact": {
+  "instances": 3000,
+  "verdict_checks": 22452,
+  "verdict_mismatches": 0,
+  "root_bound_violations": 0
+ },
+ "s14_positive_controls": {
+  "instances": 4000,
+  "verdicts": {
+   "SAT": 8000
+  },
+  "false_unsat": 0,
+  "prefix_bound_checks": 26073,
+  "prefix_bound_violations": 0
+ },
+ "s11_dynamic_soundness": {
+  "residual_states_checked": 5898,
+  "violations": 0,
+  "residuals_with_no_completion": 5075,
+  "residuals_compared_to_true_optimum": 823,
+  "slack_histogram": {
+   "0": 529,
+   "1": 92,
+   "2": 65,
+   "3": 6,
+   "4": 94,
+   "5": 7,
+   "6": 4,
+   "8": 26
+  }
+ },
+ "s11b_deep_prefixes": {
+  "instances_tried": 250,
+  "deep_prefixes_found": 4,
+  "checked": 4,
+  "violations": 0,
+  "slack_histogram": {}
+ },
+ "s12_alternative_solvers": {
+  "hard_instances": 60,
+  "rows": {
+   "base=UNSAT": 60,
+   "nomemo=UNSAT": 60,
+   "nobound=UNSAT": 44,
+   "nodes_base": 1398,
+   "nodes_nomemo": 1398,
+   "nodes_nobound": 4149351,
+   "nobound=UNKNOWN": 16
+  }
+ },
+ "seconds": 309
+}

@@ -1,0 +1,25 @@
+{
+ "round": 106,
+ "verifier": "claude-r106-verifier/1",
+ "certificate_header": {
+  "schema": "rr_q2_zero_certificate/1",
+  "certifier": "claude-r106-certifier/1",
+  "rows": 17350,
+  "states": 4232,
+  "state_survivors": 0,
+  "note": "각 행은 (상태, cover) 쌍의 가중 판정이다. FAIL = 예산 안의 rooted Hamilton 경로 없음."
+ },
+ "states_walked": 5030,
+ "missing_certificate_rows": 0,
+ "missing_examples": [],
+ "stats": {
+  "assignment_UNSAT": 184661,
+  "assignments": 184661,
+  "closed_by_word_reachability": 9745,
+  "nodes": 1193377,
+  "pairs_reverified": 17350
+ },
+ "errors": {},
+ "remaining_states": 0,
+ "seconds": 165
+}

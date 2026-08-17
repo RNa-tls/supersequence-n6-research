@@ -4380,5 +4380,178 @@
    "outputs/rr_falsification_105.json"
   ],
   "disclaimer": "This project has not proved L6 >= 872. Even a sound complete closure of the Q2/Area-A residual leaves the outer Q1/NR6 reduction as a separate proof obligation."
+ },
+ "quantitative_ledger_note_round_106": "AUDITED 4,782 (unchanged — Codex remains unavailable, nothing in Round 106 is independently audited). Round 106 is a closure-hardening round: no new obstruction, no new payoff. It restates the component lower bound as Theorem 1 (with the cost-0 out-degree <= 1 hypothesis and the c vs c-1 case split), proves the hypothesis structurally for Q2 (Theorem 2), and recomputes every weighted verdict from scratch over a SUPERSET of the Round-104 population (all 27,095 Hall-passing pairs / 5,030 states, i.e. layers A/B2/D1/D4b are not used). Result: 184,661 assignments all UNSAT, 0 cap hits, 0 precondition violations, 17,350 pairs FAIL, 0 surviving states. Restricted to the archive population the subtotals reproduce Round 100/104 exactly (4,230 states / 15,781 pairs / 173,409 assignments). Strongest permitted wording: 'within the current conditional Q2/Area-A pass model, Claude's independently reimplemented/replayed certificate exhausts the residual to zero.' This is NOT a proof of L6 = 872, NOT a proof of L6 >= 872, and NOT an unconditional Q2 theorem.",
+ "round_106_zero_certificate": {
+  "round": 106,
+  "type": "closure hardening — no new theorem sought, ledger unchanged",
+  "theorem_1_restricted_component_bound": {
+   "statement": "In a 0/1-cost digraph where every non-ROOT vertex has cost-0 out-degree <= 1, a path from x not in R covering R exactly once uses at least c(R)-1 cost-1 arcs when a cost-0 arc leaves x into R, and at least c(R) otherwise, where c(R) is the number of weak components of the cost-0 arcs inside R.",
+   "proof": "The used internal cost-0 arcs form a linear forest with |R|-y components which refine the weak components, so |R|-y >= c(R), hence internal cost-1 arcs >= (|R|-1) - (|R|-c(R)) = c(R)-1; a cost-1 entry arc adds one more.",
+   "why_the_hypothesis_is_needed": "Without it the implementation's per-vertex single-successor merge over-counts components; Round 105 found 111 real counterexamples in 42,052 exhaustively checked (graph, B) pairs.",
+   "change_from_round_104_105": "Rounds 104/105 always used c-1 at the root; the c case is strictly stronger and still sound, so the root-margin histogram shifts."
+  },
+  "theorem_2_outdegree_holds_in_Q2": {
+   "structural_proof": "A fixed assignment gives each obligation exactly one entry word; ell is forced (5 for empty hexagons, 5-c_f for fragment repair), so the T1 image is a single string owned by at most one obligation. The Round-99 geometry theorem puts the four joint targets in four distinct hexagons, so no other T_i can collide onto it.",
+   "static_checks": 19863503,
+   "dynamic_checks": 73435904,
+   "violations": 0
+  },
+  "theorem_4_delta_F_corrected": {
+   "generic_claim_is_false": "ell<5 does NOT generally imply no abandonment (refuted in Round 105)",
+   "ell5_contexts": 147782,
+   "fragment_states_verified": 5732,
+   "exceptions": 0
+  },
+  "budget": {
+   "K_equals_25_minus_O_violations": 0,
+   "B_range": [
+    18,
+    25
+   ],
+   "obligations_per_instance": [
+    107,
+    108
+   ]
+  },
+  "full_recomputation": {
+   "population": "all Hall deficit-0 pairs (superset; layers A/B2/D1/D4b NOT used)",
+   "imported_round_104_verdicts": false,
+   "hall_passing_pairs": 27095,
+   "hall_passing_states": 5030,
+   "wa_surviving_pairs": 17350,
+   "wa_surviving_states": 4232,
+   "restricted_to_archive_population": {
+    "states": 4230,
+    "pairs": 15781,
+    "assignments": 173409
+   },
+   "assignments": 184661,
+   "assignment_verdicts": {
+    "UNSAT": 184661,
+    "SAT": 0,
+    "UNKNOWN": 0
+   },
+   "pair_verdicts": {
+    "FAIL": 17350
+   },
+   "state_survivors": 0,
+   "cap_hits": 0,
+   "state_closure_rule": "a state closes only when ALL surviving covers fail",
+   "seconds": 176
+  },
+  "root_nonclosed_pairs": {
+   "pairs_closed_by_root_bound": 11579,
+   "pairs_needing_branching": 5771,
+   "all_branching_pairs_closed": true,
+   "unknowns": 0,
+   "search_nodes_total_for_branching_pairs": 888675,
+   "search_nodes_median": 57,
+   "search_nodes_max": 12611,
+   "node_cap": 2000000
+  },
+  "controls": {
+   "theorem_1_free_solver": {
+    "hard_instances": 60,
+    "unsat_confirmed_without_theorem_1": 44,
+    "cap_unknown": 16,
+    "mismatches": 0,
+    "nodes_with_bound": 1398,
+    "nodes_without_bound": 4149351
+   },
+   "no_memo_solver": {
+    "instances": 60,
+    "mismatches": 0
+   },
+   "small_exact_enumeration": {
+    "instances": 3000,
+    "verdict_checks": 22452,
+    "mismatches": 0,
+    "root_bound_violations": 0
+   },
+   "positive_controls": {
+    "instances": 4000,
+    "solves": 8000,
+    "false_unsat": 0,
+    "prefix_bound_checks": 26073,
+    "prefix_bound_violations": 0
+   },
+   "dynamic_lower_bound": {
+    "residual_states_checked": 5898,
+    "compared_to_true_optimum": 823,
+    "violations": 0,
+    "zero_slack_cases": 529
+   },
+   "deep_prefix_sample": {
+    "instances_tried": 250,
+    "deep_prefixes_found": 4,
+    "violations": 0,
+    "note": "small sample — recorded as a weakness, not as evidence"
+   },
+   "convention_audit_mismatches": 0
+  },
+  "standalone_certificate": {
+   "file": "outputs/rr_q2_zero_certificate.jsonl.gz",
+   "rows": 17350,
+   "verifier": "src/verify_rr_q2_zero.py (does not import the certifier)",
+   "states_walked": 5030,
+   "pairs_reverified": 17350,
+   "assignments_reverified": 184661,
+   "errors": 0,
+   "missing_rows": 0,
+   "final_line": "VERIFIED — remaining states = 0",
+   "honest_limit": "both implementations explored exactly 1,193,377 nodes, so the verifier checks the code, not the algorithm; the algorithm-level control is the Theorem-1-free solver, which is not exhaustive."
+  },
+  "rescue_diagnostic_budget_plus_one": {
+   "state_survivors": 2271,
+   "assignment_unknown": 101762,
+   "assignment_sat": 0,
+   "reading": "survivors are cap-induced UNKNOWN, not SAT; the collapse depends entirely on the budget theorem being exactly right"
+  },
+  "dependency_ledger": {
+   "AUDITED": [
+    "Q2/Area-A framework",
+    "pass<->obligation bijection (Round 93)",
+    "ell forcing (Rounds 90/91)",
+    "SHORT-PASS LOCALITY (Round 91)",
+    "Round-93c Hall archive"
+   ],
+   "CLAUDE_SELF_REPLAYED": [
+    "WORD_NEXT partial function + geometry theorem (Rounds 99/100)",
+    "W-A word reachability",
+    "budget theorem / delta_F (Rounds 104/105)"
+   ],
+   "ROUND_106_PROVISIONAL": [
+    "Theorem 1 restricted component bound",
+    "Theorem 2 out-degree <= 1 in Q2",
+    "full-recomputation residual 0"
+   ],
+   "conclusion_inherits": "ROUND-106 PROVISIONAL (the weakest link)"
+  },
+  "ledger": {
+   "AUDITED": 4782,
+   "CLAUDE_SELF_REPLAYED_W_A": 4230,
+   "CLAUDE_SELF_REPLAYED_W_E": 4052,
+   "ROUND_106_PROVISIONAL_Q2_RESIDUAL": 0
+  },
+  "strongest_permitted_wording": "Within the current conditional Q2/Area-A pass model, Claude's independently reimplemented/replayed certificate exhausts the residual to zero.",
+  "not_claimed": [
+   "L6 = 872 proved",
+   "L6 >= 872 proved",
+   "unconditional Q2 theorem",
+   "audited residual 0"
+  ],
+  "artifacts": [
+   "src/certify_rr_q2_zero.py",
+   "src/verify_rr_q2_zero.py",
+   "src/control_rr_q2_zero.py",
+   "outputs/rr_q2_zero_certificate.json",
+   "outputs/rr_q2_zero_certificate.jsonl.gz",
+   "outputs/rr_q2_zero_verify.json",
+   "outputs/rr_q2_zero_controls.json",
+   "outputs/rr_q2_rescue_b1.json",
+   "research/RR_Q2_ZERO_CERTIFICATE_CLAUDE.md"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
