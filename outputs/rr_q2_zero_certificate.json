@@ -1,6 +1,11 @@
 {
  "round": 106,
  "certifier": "claude-r106-certifier/1",
+ "minimal_chain": false,
+ "domain_size_histogram": {
+  "2": 25362,
+  "1": 1733
+ },
  "population": "라운드-93c Hall 통과 쌍 전부 (A·B2·D1·D4b 를 쓰지 않은 상위집합)",
  "budget_delta": 0,
  "memo": true,
@@ -53,6 +58,8 @@
  "dynamic_precondition_checks": 73435904,
  "precondition_violations": 0,
  "cap_hits": 0,
+ "node_cap_is_per_call": true,
+ "node_cap": 2000000,
  "root_margin_histogram": {
   "-3": 9,
   "-2": 674,
@@ -65,5 +72,5 @@
   "5": 106,
   "6": 1
  },
- "seconds": 176
+ "seconds": 170
 }

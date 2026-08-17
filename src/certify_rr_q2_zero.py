@@ -185,11 +185,10 @@ def word_reachable_all(dom, ell, root, jt):
 
 def assignments(d):
     fixed = {n: next(iter(v)) for n, v in d.items() if len(v) == 1}
-    binv = [(n, sorted(v)) for n, v in d.items() if len(v) == 2]
-    assert all(len(v) <= 2 for v in d.values()), "도메인 크기 > 2"
-    for pick in itertools.product((0, 1), repeat=len(binv)):
+    free = [(n, sorted(v)) for n, v in d.items() if len(v) > 1]
+    for pick in itertools.product(*[range(len(ws)) for _n, ws in free]):
         A = dict(fixed)
-        for (n, ws), c in zip(binv, pick):
+        for (n, ws), c in zip(free, pick):
             A[n] = ws[c]
         yield A
 
@@ -281,9 +280,15 @@ def solve(out0, out1, r0, r1, B, stats, node_cap=2_000_000, use_memo=True,
         c = len({find(i) for i in idxs})
         return c - 1 if (out0[cur] & rem) else c
 
+    # 캡은 **호출 하나당** 이다.  라운드 107 정정: 이전에는 `stats["nodes"]` 를 직접 재서
+    # 실행 전체의 누적 노드에 캡이 걸렸다 (인증서 실행은 1,193,377 < 2,000,000 이라 한 번도
+    # 발동하지 않았으므로 판정은 영향을 받지 않았지만, 구제·비-Hall 진단은 영향을 받았다).
+    local = [0]
+
     def dfs(cur, rem, spent):
         stats["nodes"] += 1
-        if stats["nodes"] > node_cap:
+        local[0] += 1
+        if local[0] > node_cap:
             raise TimeoutError
         if not rem:
             return True
@@ -354,6 +359,11 @@ def main() -> None:
     ap.add_argument("--no-memo", action="store_true")
     ap.add_argument("--budget-delta", type=int, default=0,
                     help="§16 구제 진단: B 를 이만큼 키운다 (인증서로 쓰지 않는다)")
+    ap.add_argument("--all-covers", action="store_true",
+                    help="라운드 107 §1: Hall 필터도 끄고 라운드-92 cover 전부에서 출발한다")
+    ap.add_argument("--minimal-chain", action="store_true",
+                    help="라운드 107 §1: W-A 사전 필터와 (P) 전파를 모두 끄고, 가중 탐색만으로 "
+                         "같은 결론이 나오는지 본다 (의존성 최소화 진단)")
     ap.add_argument("--out", default="rr_q2_zero_certificate.json")
     ap.add_argument("--cert-out", default="rr_q2_zero_certificate.jsonl.gz")
     args = ap.parse_args()
@@ -367,7 +377,7 @@ def main() -> None:
     CV = {(c["sid"], c["cover_id"]): c for c in covers}
     passing = defaultdict(list)
     for h in hall:
-        if h["deficit"] == 0:
+        if args.all_covers or h["deficit"] == 0:
             passing[h["sid"]].append(h["cover_id"])
     audit["archive_states"] = len(states)
     audit["hall_pairs_total"] = len(hall)
@@ -404,7 +414,8 @@ def main() -> None:
         for cid in sorted(passing[sid]):
             dom, ell, root = domains(st, CV[(sid, cid)]["orbits"], orb, hexm)
             counts["wa_input_pairs"] += 1
-            if not word_reachable_all(dom, ell, root, jt):
+            counts["domain_size_%d" % max(len(v) for v in dom.values())] += 1
+            if not args.minimal_chain and not word_reachable_all(dom, ell, root, jt):
                 counts["wa_fail_pairs"] += 1
                 continue
             kept.append((cid, dom, ell, root))
@@ -417,7 +428,7 @@ def main() -> None:
             counts["wa_states_in_archive_pop"] += 1
         counts["wa_pairs_in_archive_pop"] += sum(1 for cid, *_ in kept if (sid, cid) in pop)
         for cid, dom, ell, root in kept:
-            d = propagate(dom, ell, root, jt)
+            d = dom if args.minimal_chain else propagate(dom, ell, root, jt)
             if d is None:
                 counts["pair_FAIL"] += 1
                 counts["pair_FAIL_by_propagate"] += 1
@@ -475,7 +486,9 @@ def main() -> None:
         return xs[len(xs) // 2] if xs else 0
 
     report = {
-        "round": 106, "certifier": VERSION,
+        "round": 106, "certifier": VERSION, "minimal_chain": args.minimal_chain,
+        "domain_size_histogram": {k.split("_")[-1]: v for k, v in counts.items()
+                                  if k.startswith("domain_size_")},
         "population": "라운드-93c Hall 통과 쌍 전부 (A·B2·D1·D4b 를 쓰지 않은 상위집합)",
         "budget_delta": args.budget_delta, "memo": not args.no_memo,
         "audit": audit,
@@ -505,6 +518,7 @@ def main() -> None:
         "dynamic_precondition_checks": stats["dynamic_precondition_checks"],
         "precondition_violations": stats["precondition_violations"],
         "cap_hits": counts["assignment_UNKNOWN"],
+        "node_cap_is_per_call": True, "node_cap": 2_000_000,
         "root_margin_histogram": dict(sorted(root_margin.items())),
         "seconds": round(time.time() - t0),
     }

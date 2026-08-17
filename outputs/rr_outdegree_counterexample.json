@@ -1,0 +1,40 @@
+{
+ "m": 4,
+ "out0": [
+  8,
+  0,
+  10,
+  4
+ ],
+ "out1": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "root_zero_cost_entry": true,
+ "hat_c": 2,
+ "true_c": 1,
+ "implementation_bound": 1,
+ "true_min_cost1_arcs": 0,
+ "arcs_cost0": [
+  [
+   0,
+   3
+  ],
+  [
+   2,
+   1
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   2
+  ]
+ ],
+ "arcs_cost1": [],
+ "reading": "선형 숲 정리 자체는 참이다 (true_c 로 세면 하한이 옳다). 구현이 세는 hat_c 가 true_c 보다 커져서 하한이 참 최소비용을 넘는다 — 그래서 비용-0 유출 차수 <= 1 가설이 필요하다."
+}

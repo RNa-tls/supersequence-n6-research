@@ -4553,5 +4553,148 @@
    "research/RR_Q2_ZERO_CERTIFICATE_CLAUDE.md"
   ],
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_107": "AUDITED 4,782 (unchanged). Round 107 is a proof-extraction round: no new closures were sought. It (a) minimised the dependency chain — W-A, the (P) propagation, W-C/W-D/W-E, the exact graph-Hamilton closures, the Hall filter and the fragment delta-F geometry lemma all drop out, verified by recomputing from all 90,396 state-cover pairs (707,007 assignments, all UNSAT, 0 cap hits, 0 survivors) — and (b) exposed an UNSTATED HYPOTHESIS (H5): the obligation graph uses only the four weight-<=3 joints, while the engine has 550 indecomposable tails and the budget does not forbid weight-4+ joints (cost 2 against a budget of ~21). 12,062,293 omitted obligation->obligation arcs were measured on 1,030 assignments. Because the zero-cost arcs are T1 alone even under the full move set, the component bound is unaffected, so 5,043 of 6,396 states are excluded regardless of joint weight (Theorem 1) while 1,353 are excluded only under (H5) (Theorem 2). Two Round-106 statements are corrected: the node cap was run-wide rather than per-call, and the claim that B+1 revives 2,271 states is RETRACTED (a cap artifact; B+1 closes everything).",
+ "round_107_proof_extraction": {
+  "round": 107,
+  "type": "proof extraction — no new closures sought, ledger unchanged",
+  "dependency_minimisation": {
+   "removed_from_the_minimal_chain": [
+    "Layer A",
+    "B2",
+    "D1",
+    "D4b",
+    "W-A word reachability",
+    "(P) predecessor-support propagation",
+    "W-C",
+    "W-D",
+    "W-E",
+    "exact graph-Hamilton closures (Round 98)",
+    "Hall filter (Round 93)",
+    "fragment delta-F geometry lemma (Round 105)"
+   ],
+   "remaining_dependencies": [
+    "completeness of the Round-92/93c state and cover enumeration",
+    "pass<->obligation bijection (Round 93)",
+    "ell forcing (Rounds 90/91)"
+   ],
+   "verification_runs": {
+    "no_WA_no_propagation": {
+     "pairs": 27095,
+     "states": 5030,
+     "assignments": 251159,
+     "verdicts": {
+      "UNSAT": 251159
+     },
+     "cap_hits": 0,
+     "survivors": 0
+    },
+    "also_no_Hall": {
+     "pairs": 90396,
+     "states": 6396,
+     "assignments": 707007,
+     "verdicts": {
+      "UNSAT": 707007
+     },
+     "cap_hits": 0,
+     "survivors": 0
+    }
+   },
+   "delta_F_now_follows_from_the_target": "F is monotone (dF = [abandonment] >= 0), all 6,396 archived states have F = 1, and the target requires F = 1; hence delta_F = 0 with no geometric input."
+  },
+  "unstated_hypothesis_found": {
+   "name": "(H5) every future joint has weight <= 3 (equivalently H stays 0)",
+   "why_it_matters": "the obligation graph is built from the four weight-<=3 joints only, but the engine's indecomposable tails number 1,1,3,13,71,461 = 550; cost(w) = [w>=3] + max(w-3,0) so a weight-4 joint costs 2 against a budget of about 21 with 107-108 future joints — the budget theorem does not exclude it",
+   "measured_omitted_arcs": {
+    "assignments_scanned": 1030,
+    "omitted_arcs": 12062293,
+    "by_budget_cost": {
+     "2": 461531,
+     "3": 1834759,
+     "4": 9766003
+    }
+   },
+   "what_survives": "zero-cost arcs are T1 alone even under the full move set (there is exactly one weight-2 indecomposable tail), and every non-free arc costs >= 1, so the component lower bound total_cost >= c(R)-1 is unaffected",
+   "split": {
+    "excluded_regardless_of_joint_weight": 5043,
+    "excluded_only_under_H5": 1353,
+    "archive_states": 6396,
+    "same_split_on_the_Round_106_population": {
+     "robust": 3467,
+     "conditional": 765
+    }
+   }
+  },
+  "corrections_to_round_106": {
+   "node_cap_semantics": "the certifier's cap was applied to the run-wide node counter, not per solve() call; actual consumption was 1,193,377 / 2,000,000 = 59.7%, not the 0.6% stated. The certificate verdicts are unaffected: no call was ever aborted, the independent verifier always used a per-call cap, and re-running with a per-call cap reproduces 184,661 UNSAT / 1,193,377 nodes / 0 cap hits exactly.",
+   "retracted_fragility_claim": "Round 106 §16 reported that at B+1 2,271 states survive and concluded the collapse has no margin. That was a cap artifact. With the per-call cap, B+1 gives 184,661 UNSAT, 0 cap hits, 0 survivors. The claim is RETRACTED; the original text is preserved with a correction box."
+  },
+  "audit_surface": [
+   "1. completeness of the input state/cover enumeration — AUDITED",
+   "2. pass <-> obligation semantics — AUDITED",
+   "3. ell forcing — AUDITED",
+   "4. T1 determinism and cost-0 out-degree <= 1 — Round-107 provisional",
+   "5. budget theorem (event table, exact identity vs relaxation) — Round-107 provisional",
+   "6. restricted component lower bound + preserved counterexample — Round-107 provisional",
+   "7. finite enumeration / search implementation — Round-106/107 provisional",
+   "8. all-child aggregation (state closes only if EVERY cover fails) — Round-106/107 provisional",
+   "9. (H5) joint weight <= 3 — UNRESOLVED, newly exposed"
+  ],
+  "single_most_valuable_thing_to_attack_first": "(H5). It has never been stated or proved; heavy-joint arcs demonstrably exist in the real instances; if it is false the closure of 1,353 states is wrong; and if it follows from the Q2/Area-A slab definition (H stays 0) then one citation makes the whole result unconditional in that respect.",
+  "theorems": {
+   "theorem_1": "Unconditional in joint weight: under (H1)-(H4), 5,043 of the 6,396 archived states admit no completion satisfying the target resource constraints, whatever joint weights the completion uses.",
+   "theorem_2": "Conditional: under (H1)-(H5), no state of the archive admits such a completion."
+  },
+  "ledger": {
+   "AUDITED": 4782,
+   "ROUND_107_JOINT_WEIGHT_INDEPENDENT_EXCLUSION": 5043,
+   "ROUND_106_107_CONDITIONAL_Q2_ZERO_CERTIFICATE": 0
+  },
+  "allowed_wording": "conditional Q2/Area-A zero certificate",
+  "not_claimed": [
+   "L6 = 872 proved",
+   "L6 >= 872 proved",
+   "unconditional superpermutation theorem"
+  ],
+  "artifacts": [
+   "research/RR_Q2_ZERO_PROOF_SKELETON_CLAUDE.md",
+   "src/probe_rr_omitted_arcs.py",
+   "src/extract_rr_counterexample.py",
+   "outputs/rr_omitted_arcs.json",
+   "outputs/rr_outdegree_counterexample.json",
+   "outputs/rr_q2_minimal_chain.json",
+   "outputs/rr_q2_no_hall.json",
+   "outputs/rr_q2_no_hall_certificate.jsonl.gz",
+   "outputs/rr_q2_rescue_b2.json"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872.",
+  "budget_slack_remeasured": {
+   "note": "replaces the retracted Round-106 §16 fragility claim; per-call node cap",
+   "B": {
+    "unsat": 184661,
+    "cap_hits": 0,
+    "survivors": 0,
+    "pairs_closed_by_root_bound": 11579,
+    "nodes": 1193377,
+    "max_nodes_per_pair": 12611
+   },
+   "B_plus_1": {
+    "unsat": 184661,
+    "cap_hits": 0,
+    "survivors": 0,
+    "pairs_closed_by_root_bound": 7660,
+    "nodes": 4968176,
+    "max_nodes_per_pair": 84874
+   },
+   "B_plus_2": {
+    "unsat": 184661,
+    "cap_hits": 0,
+    "survivors": 0,
+    "pairs_closed_by_root_bound": 3870,
+    "nodes": 24529989,
+    "max_nodes_per_pair": 456640
+   },
+   "reading": "the budget constant has slack of at least 2; the root bound weakens quickly (11,579 -> 3,870 pairs) but branching search compensates at 20x the nodes"
+  }
  }
 }

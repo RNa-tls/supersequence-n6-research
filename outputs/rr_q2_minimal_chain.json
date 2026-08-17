@@ -1,13 +1,13 @@
 {
  "round": 106,
  "certifier": "claude-r106-certifier/1",
- "minimal_chain": false,
+ "minimal_chain": true,
  "domain_size_histogram": {
   "2": 25362,
   "1": 1733
  },
  "population": "라운드-93c Hall 통과 쌍 전부 (A·B2·D1·D4b 를 쓰지 않은 상위집합)",
- "budget_delta": 1,
+ "budget_delta": 0,
  "memo": true,
  "audit": {
   "geometry_contexts": 4320,
@@ -30,47 +30,47 @@
   }
  },
  "wa_input_pairs": 27095,
- "wa_fail_pairs": 9745,
- "wa_closed_states": 798,
- "wa_states": 4232,
- "wa_pairs": 17350,
- "wa_states_in_archive_pop": 4230,
- "wa_pairs_in_archive_pop": 15781,
- "assignments": 184661,
+ "wa_fail_pairs": 0,
+ "wa_closed_states": 0,
+ "wa_states": 5030,
+ "wa_pairs": 27095,
+ "wa_states_in_archive_pop": 4794,
+ "wa_pairs_in_archive_pop": 19176,
+ "assignments": 251159,
  "assignment_verdicts": {
-  "UNSAT": 184661
+  "UNSAT": 251159
  },
  "pair_verdicts": {
-  "FAIL": 17350
+  "FAIL": 27095
  },
  "pairs_failed_by_propagation_alone": 0,
  "state_survivors": 0,
  "state_survivors_archive_pop": 0,
- "pairs_closed_by_root_bound": 7660,
- "pairs_needing_branching": 9690,
- "search_nodes_total": 4968176,
- "search_nodes_max_per_pair": 84874,
- "search_nodes_median_per_pair": 48,
- "branching_pairs_nodes_max": 84874,
- "branching_pairs_nodes_median": 84,
- "branching_pairs_nodes_total": 4759986,
- "precondition_checks": 19863503,
- "dynamic_precondition_checks": 333787406,
+ "pairs_closed_by_root_bound": 14207,
+ "pairs_needing_branching": 12888,
+ "search_nodes_total": 1332271,
+ "search_nodes_max_per_pair": 12614,
+ "search_nodes_median_per_pair": 24,
+ "branching_pairs_nodes_max": 12614,
+ "branching_pairs_nodes_median": 21,
+ "branching_pairs_nodes_total": 983210,
+ "precondition_checks": 27001425,
+ "dynamic_precondition_checks": 73435904,
  "precondition_violations": 0,
  "cap_hits": 0,
  "node_cap_is_per_call": true,
  "node_cap": 2000000,
  "root_margin_histogram": {
-  "-4": 9,
-  "-3": 674,
-  "-2": 1564,
-  "-1": 3524,
-  "0": 3919,
-  "1": 3790,
-  "2": 2647,
-  "3": 1116,
-  "4": 106,
-  "5": 1
+  "-3": 494,
+  "-2": 2767,
+  "-1": 3870,
+  "0": 5757,
+  "1": 5239,
+  "2": 4602,
+  "3": 2999,
+  "4": 1247,
+  "5": 118,
+  "6": 2
  },
- "seconds": 546
+ "seconds": 184
 }

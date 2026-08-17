@@ -119,9 +119,11 @@ class FullRecomputation(unittest.TestCase):
         self.assertEqual(d["pair_verdicts"], {"FAIL": 17350})
 
     def test_branching_pairs_never_approached_the_node_cap(self):
+        """캡은 **호출당** 2,000,000 이다 (라운드 107 정정).  가장 비싼 쌍도 12,611 노드."""
         d = cert()
         self.assertEqual(d["pairs_needing_branching"], 5771)
-        self.assertLess(d["search_nodes_max_per_pair"], 20_000)
+        self.assertTrue(d["node_cap_is_per_call"])
+        self.assertLess(d["search_nodes_max_per_pair"], d["node_cap"] // 100)
 
 
 class CertificateFile(unittest.TestCase):
@@ -178,19 +180,41 @@ class Controls(unittest.TestCase):
 
 
 class Fragility(unittest.TestCase):
-    """구제 진단 — 예산이 1 커지면 방법이 힘을 잃는다.  이 사실을 지운 채로 두지 않는다."""
+    """구제 진단.
 
-    def test_budget_plus_one_loses_the_collapse(self):
-        d = json.loads((OUT / "rr_q2_rescue_b1.json").read_text())
-        self.assertEqual(d["budget_delta"], 1)
-        self.assertGreater(d["state_survivors"], 1000)
-        self.assertGreater(d["cap_hits"], 0)
+    라운드 106 은 "`B+1` 이면 2,271 상태가 되살아난다" 고 적었다.  라운드 107 이 그것을
+    철회했다 — 누적 노드 캡 때문에 생긴 인공물이었다.  호출당 캡으로 고친 뒤에는 `B+1`
+    에서도 잔여가 0 이다.  이 테스트는 **정정된 사실**을 고정한다.
+    """
 
-    def test_survivors_at_budget_plus_one_are_unknown_not_sat(self):
-        """캡 도달은 UNSAT 도 SAT 도 아니다 — UNKNOWN 으로만 기록돼야 한다."""
-        d = json.loads((OUT / "rr_q2_rescue_b1.json").read_text())
-        self.assertEqual(d["assignment_verdicts"].get("SAT", 0), 0)
-        self.assertGreater(d["assignment_verdicts"]["UNKNOWN"], 0)
+    def test_budget_plus_one_and_plus_two_still_close_everything(self):
+        for delta, name in ((1, "rr_q2_rescue_b1.json"), (2, "rr_q2_rescue_b2.json")):
+            d = json.loads((OUT / name).read_text())
+            self.assertEqual(d["budget_delta"], delta)
+            self.assertEqual(d["cap_hits"], 0, name)
+            self.assertEqual(d["assignment_verdicts"], {"UNSAT": 184661}, name)
+            self.assertEqual(d["state_survivors"], 0, name)
+
+    def test_the_root_bound_weakens_as_the_budget_grows(self):
+        """여유가 어디서 오는지 기록한다 — 뿌리 하한은 약해지고 분기가 대신 일한다."""
+        base = cert()["pairs_closed_by_root_bound"]
+        b1 = json.loads((OUT / "rr_q2_rescue_b1.json").read_text())
+        b2 = json.loads((OUT / "rr_q2_rescue_b2.json").read_text())
+        self.assertGreater(base, b1["pairs_closed_by_root_bound"])
+        self.assertGreater(b1["pairs_closed_by_root_bound"], b2["pairs_closed_by_root_bound"])
+        self.assertGreater(b2["search_nodes_total"], 10 * cert()["search_nodes_total"])
+
+    def test_no_sat_witness_ever_appears(self):
+        """캡 도달은 UNSAT 도 SAT 도 아니다 — SAT 은 한 번도 나오지 않아야 한다."""
+        for name in ("rr_q2_rescue_b1.json", "rr_q2_zero_certificate.json",
+                     "rr_q2_minimal_chain.json", "rr_q2_no_hall.json"):
+            d = json.loads((OUT / name).read_text())
+            self.assertEqual(d["assignment_verdicts"].get("SAT", 0), 0, name)
+
+    def test_the_retraction_is_recorded_in_the_document(self):
+        txt = (ROOT / "research" / "RR_Q2_ZERO_CERTIFICATE_CLAUDE.md").read_text()
+        self.assertIn("정정 상자", txt)
+        self.assertIn("철회", txt)
 
 
 class LedgerDiscipline(unittest.TestCase):

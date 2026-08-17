@@ -1,0 +1,76 @@
+{
+ "round": 106,
+ "certifier": "claude-r106-certifier/1",
+ "minimal_chain": true,
+ "domain_size_histogram": {
+  "2": 75189,
+  "1": 15207
+ },
+ "population": "라운드-93c Hall 통과 쌍 전부 (A·B2·D1·D4b 를 쓰지 않은 상위집합)",
+ "budget_delta": 0,
+ "memo": true,
+ "audit": {
+  "geometry_contexts": 4320,
+  "geometry_archive_mismatches": 0,
+  "hexagon_is_rotation_class": true,
+  "archive_states": 6396,
+  "hall_pairs_total": 90396,
+  "hall_passing_pairs": 90396,
+  "hall_passing_states": 6396,
+  "K_equals_25_minus_O_violations": 0,
+  "budget_histogram": {
+   "18": 75,
+   "19": 602,
+   "20": 1563,
+   "21": 2029,
+   "22": 1512,
+   "23": 515,
+   "24": 95,
+   "25": 5
+  }
+ },
+ "wa_input_pairs": 90396,
+ "wa_fail_pairs": 0,
+ "wa_closed_states": 0,
+ "wa_states": 6396,
+ "wa_pairs": 90396,
+ "wa_states_in_archive_pop": 4794,
+ "wa_pairs_in_archive_pop": 19176,
+ "assignments": 707007,
+ "assignment_verdicts": {
+  "UNSAT": 707007
+ },
+ "pair_verdicts": {
+  "FAIL": 90396
+ },
+ "pairs_failed_by_propagation_alone": 0,
+ "state_survivors": 0,
+ "state_survivors_archive_pop": 0,
+ "pairs_closed_by_root_bound": 56263,
+ "pairs_needing_branching": 34133,
+ "search_nodes_total": 2380882,
+ "search_nodes_max_per_pair": 12614,
+ "search_nodes_median_per_pair": 16,
+ "branching_pairs_nodes_max": 12614,
+ "branching_pairs_nodes_median": 12,
+ "branching_pairs_nodes_total": 1268050,
+ "precondition_checks": 75973221,
+ "dynamic_precondition_checks": 75142098,
+ "precondition_violations": 0,
+ "cap_hits": 0,
+ "node_cap_is_per_call": true,
+ "node_cap": 2000000,
+ "root_margin_histogram": {
+  "-3": 919,
+  "-2": 5042,
+  "-1": 10696,
+  "0": 17476,
+  "1": 20715,
+  "2": 19717,
+  "3": 11785,
+  "4": 3723,
+  "5": 318,
+  "6": 5
+ },
+ "seconds": 325
+}

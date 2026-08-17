@@ -9,6 +9,25 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 107 (proof extraction) — read this before the Round-106 paragraph below.**
+> Extracting the proof skeleton shrank the dependency chain and, in the same pass, exposed an
+> **unstated hypothesis**. Shrunk: W-A, the (P) propagation, W-C/W-D/W-E, the exact
+> graph-Hamilton closures and even the **Hall filter** all drop out — starting from all 90,396
+> state–cover pairs and all 6,396 states, 707,007 concrete assignments are still UNSAT with 0
+> cap hits and 0 survivors. The fragment `ΔF = 0` geometry lemma also drops out: `F` is
+> monotone, every archived state already has `F = 1`, and the target demands `F = 1`.
+> Exposed: the obligation graph is built from only the **four weight-≤3 joints**, but the
+> engine has **550** indecomposable tails, and a weight-4 joint costs 2 against a budget of
+> ~21 — the budget does not forbid it. Measured on 1,030 assignments, **12,062,293**
+> obligation→obligation arcs reachable only by heavier joints are missing from the model.
+> Consequently the result splits: the zero-cost arcs are `T1` alone even under the full move
+> set, so the component bound survives, and **5,043 of 6,396 states are excluded regardless of
+> joint weight**; the other **1,353** are excluded only under the added hypothesis (H5) that
+> every future joint has weight ≤ 3. Two Round-106 statements are corrected: its node cap was
+> a run-wide budget, not per-call (59.7 % consumed, not 0.6 %), and the resulting claim that
+> "`B+1` revives 2,271 states / the collapse has no margin" is **retracted** — with the fix,
+> `B+1` still closes everything.
+>
 > **Round 106 (closure hardening).** The corrected statement is now Theorem 1 (with the
 > hypothesis and the `c` vs `c−1` case split), the hypothesis is proved structurally for Q2
 > (Theorem 2) and checked 93.3 M times with 0 violations, and every weighted verdict was
@@ -19,8 +38,9 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > standalone 17,350-row certificate and a separate verifier that does not import the certifier
 > end with `VERIFIED — remaining states = 0`.
 >
-> The collapse is nonetheless **fragile**, and Round 106 measured how fragile: raise the budget
-> by exactly 1 and 2,271 states survive (as cap-induced UNKNOWN, not SAT). Strongest permitted
+> ~~The collapse is nonetheless **fragile**, and Round 106 measured how fragile: raise the budget
+> by exactly 1 and 2,271 states survive (as cap-induced UNKNOWN, not SAT).~~ **Retracted in
+> Round 107 — that was a node-cap artifact; `B+1` closes everything too.** Strongest permitted
 > wording: *within the current conditional Q2/Area-A pass model, Claude's independently
 > reimplemented/replayed certificate exhausts the residual to zero.* That is **not** an audit,
 > **not** an unconditional Q2 theorem, and **not** a proof of the lower bound. The audited ledger
