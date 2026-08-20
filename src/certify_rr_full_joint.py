@@ -290,6 +290,7 @@ def search(out, rt, B, stats, node_cap=2_000_000, excess_budget=None):
     memo = {}
     local = [0]
     heavy_seen = Counter()
+    witness = []                      # SAT 일 때만 채워진다 (라운드 109 §7)
 
     def reach(cur, rem):
         seen = 0
@@ -343,6 +344,7 @@ def search(out, rt, B, stats, node_cap=2_000_000, excess_budget=None):
                 t ^= low
                 nh = heavy if c < 2 else heavy + (c,)
                 if dfs(y, rem & ~(1 << y), spent + c, nh, ne):
+                    witness.append((c, y))
                     return True
         memo[key] = spent
         return False
@@ -361,6 +363,8 @@ def search(out, rt, B, stats, node_cap=2_000_000, excess_budget=None):
                 if excess_budget is not None and e0 > excess_budget:
                     continue
                 if dfs(y, full & ~(1 << y), c, () if c < 2 else (c,), e0):
+                    witness.append((c, y))
+                    stats["witness"] = list(reversed(witness))
                     return "SAT", dict(heavy_seen)
         return "UNSAT", {}
     except (TimeoutError, RecursionError):
