@@ -4696,5 +4696,148 @@
    },
    "reading": "the budget constant has slack of at least 2; the root bound weakens quickly (11,579 -> 3,870 pairs) but branching search compensates at 20x the nodes"
   }
+ },
+ "quantitative_ledger_note_round_108": "AUDITED 4,782 (unchanged; nothing promoted). Round 108 resolved the Round-107 hypothesis (H5). H5-local is FALSE (literal weight-4 counterexample accepted by the engine). H5-replacement is FALSE (11,200 component pairs joined only by heavy arcs vs 1,869 by light arcs). The 'H = 0 slab' corollary does NOT exist: the H_positive prune is justified by Target A's recognizer requiring H == 0 at the boundary, while final_target allows H <= 3. Two proved lemmas replace (H5) for most of the population: Theorem Z (T1 is still the unique cost-0 arc under all 550 tails) and the heavy-arc budget lemma (sum of (cost-1) over heavy arcs <= s = B - L2(ROOT), so s = 0 forbids heavy joints outright). Recomputing the 1,353 H5-dependent states with all 550 tails and no (H5) assumption gave 240,756 assignments: 234,851 UNSAT, 0 SAT, 5,905 node-cap UNKNOWN; per state 1,187 UNSAT COMPLETE, 166 UNKNOWN, 0 SAT. The H5-independent residual therefore falls from 1,353 to at most 166, i.e. 6,230 of 6,396 states are excluded regardless of joint weight. Classification: C (PARTIAL).",
+ "round_108_h5_resolution": {
+  "round": 108,
+  "type": "H5 resolution — no new closure conditions sought, ledger unchanged",
+  "h5_versions": {
+   "A_local": {
+    "statement": "heavy joints cannot even occur legally",
+    "verdict": "FALSE",
+    "counterexample": {
+     "sid": "0018a7d36e027ac2468f6be53ec20e0cf865565799010a1cc85311cd069eacc4",
+     "cursor_after_5_rotations": "015432",
+     "tail": "w4:1230",
+     "weight": 4,
+     "target_word": "321540",
+     "target_is_an_obligation_entry_word": true,
+     "engine_prune_reason_after": null,
+     "Ndef_plus_H_after": 2
+    }
+   },
+   "B_target": {
+    "statement": "no target completion contains a heavy joint",
+    "verdict": "settled computationally per state — see full_joint_recomputation",
+    "needed_by_the_round_107_certificate": true
+   },
+   "C_replacement": {
+    "statement": "every target completion using heavy joints has a minimum-weight replacement",
+    "verdict": "FALSE",
+    "evidence": {
+     "component_pairs_joined_only_by_heavy_arcs": 11200,
+     "component_pairs_joined_by_a_light_arc": 1869,
+     "heavy_only_arc_fraction": 0.9713
+    }
+   }
+  },
+  "H_semantics": {
+   "definition": "H = sum over joints of max(weight - 3, 0)",
+   "monotone": true,
+   "literal_transitions_checked": 19727,
+   "value_on_all_6396_states": 0,
+   "allowed_final_value": "H <= 3 (final_target only requires Ndef + H <= 3)",
+   "simple_monotonicity_route": "INVALID — the premise H_final = 0 is false",
+   "H_zero_slab_corollary": "does not exist; the H_positive prune is Q1-safe because Target A's recognizer requires H == 0 at the boundary, which constrains the search up to the boundary only, not the completion after it"
+  },
+  "event_table": {
+   "tails_by_weight": {
+    "1": 1,
+    "2": 1,
+    "3": 3,
+    "4": 13,
+    "5": 71,
+    "6": 461
+   },
+   "cost_formula": "cost(w) = [w >= 3] + max(w - 3, 0)",
+   "cost_formula_is_exact_not_a_lower_bound": true,
+   "mismatches_against_the_literal_engine": 0,
+   "full_identity": "delta(Ndef + H) = cost(w) + delta_F - delta_O"
+  },
+  "theorem_Z": {
+   "statement": "under all 550 tails the only cost-0 arc is T1",
+   "proof": "cost(w) = 0 iff w <= 2; w = 1 is the rotation, not a joint; and there is exactly one indecomposable tail of weight 2, namely T1",
+   "consequence": "G0, c(R) and outdeg_G0 <= 1 are unchanged, so the component bound survives"
+  },
+  "heavy_arc_budget_lemma": {
+   "statement": "with s = B - L2(ROOT), any in-budget completion has sum over heavy arcs of (cost - 1) <= s",
+   "corollary": "s = 0 forbids every heavy joint, so (H5) is a theorem for that instance",
+   "share_of_assignments_with_s_le_0": 0.8105
+  },
+  "forced_arc_bound": {
+   "statement": "if the path uses u->v then u's free out-arc and every free in-arc of v are unusable; with c'' the component count of that reduced free graph, total cost >= (c'' - 1) + (cost(u->v) - 1)",
+   "assignments_where_it_excluded_all_heavy_arcs": 0
+  },
+  "full_joint_recomputation": {
+   "population": "the 1,353 Round-107 H5-dependent states",
+   "tails_used": 550,
+   "h5_used_anywhere": false,
+   "node_cap_per_assignment": 2500,
+   "assignments": 240756,
+   "assignment_verdicts": {
+    "UNSAT": 234851,
+    "SAT": 0,
+    "UNKNOWN": 5905
+   },
+   "closed_by_root_bound_alone": 110930,
+   "assignments_where_H5_is_a_theorem": 84197,
+   "assignments_joint_weight_independent": 195127,
+   "assignments_needing_the_full_graph": 45629,
+   "pair_verdicts": {
+    "FAIL": 31410,
+    "SAT": 0,
+    "UNKNOWN": 4032
+   },
+   "state_verdicts": {
+    "UNSAT_COMPLETE": 1187,
+    "UNKNOWN": 166,
+    "SAT": 0
+   },
+   "root_slack_histogram": {
+    "-3": 1381,
+    "-2": 21686,
+    "-1": 87863,
+    "0": 84197,
+    "1": 36051,
+    "2": 8659,
+    "3": 919
+   },
+   "search_nodes": 29261244,
+   "seconds": 4438
+  },
+  "heavy_edge_usage_census": {
+   "surviving_weighted_paths": 0,
+   "heavy_edges_in_surviving_paths": {},
+   "reading": "heavy arcs rescued no state; they only inflated the search space"
+  },
+  "positive_controls": {
+   "engine_transitions_checked": 5870,
+   "missing_from_the_model": 0
+  },
+  "theorem_R": {
+   "statement": "the 5,043 states whose every cover closes by the root component bound admit no target completion, whatever joint weights it uses",
+   "uses_the_four_joint_move_set": false
+  },
+  "classification": "C — PARTIAL",
+  "ledger": {
+   "AUDITED": 4782,
+   "H5_INDEPENDENT_EXCLUDED_STATES": 6230,
+   "H5_INDEPENDENT_RESIDUAL_UPPER_BOUND": 166,
+   "CLAUDE_CONDITIONAL_Q2_UNDER_H5": 0
+  },
+  "next_step": "decide the remaining 166 states at a larger node cap; their sids are exported in outputs/rr_h5_audit/phase1_unknown_states.json",
+  "artifacts": [
+   "research/RR_H5_RESOLUTION_CLAUDE.md",
+   "src/certify_rr_full_joint.py",
+   "src/probe_rr_heavy_joint_literal.py",
+   "src/probe_rr_heavy_dominance.py",
+   "src/export_rr_h5_audit.py",
+   "outputs/rr_full_joint_certificate.json",
+   "outputs/rr_full_joint_rows.jsonl.gz",
+   "outputs/rr_heavy_joint_literal.json",
+   "outputs/rr_heavy_dominance.json",
+   "outputs/rr_h5_audit/"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

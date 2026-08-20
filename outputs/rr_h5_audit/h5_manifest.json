@@ -1,0 +1,38 @@
+{
+ "schema": "rr_h5_audit/manifest/1",
+ "round": 108,
+ "H5_statements": {
+  "H5-local": "이 상태들에서 weight >= 4 joint 는 합법적으로 일어날 수 없다",
+  "H5-target": "weight >= 4 joint 가 합법일 수는 있으나 목표를 만족하는 어떤 완성도 그것을 포함하지 않는다",
+  "H5-replacement": "무거운 joint 를 쓰는 목표 완성마다 최소 weight 완성으로의 치환이 존재한다",
+  "needed_by_the_round_107_certificate": "H5-target (또는 그보다 강한 H5-local)"
+ },
+ "H_update_theorem": {
+  "definition": "H = Σ_joint max(weight − 3, 0)",
+  "monotone": "dH = max(w − 3, 0) >= 0 이므로 H 는 감소하지 못한다",
+  "current_value_on_every_archived_state": 0,
+  "allowed_final_value": "Ndef + H <= 3 (TARGET_BUDGET); H 자체는 <= 3 까지 허용",
+  "is_area_A_defined_by_H_equals_0": "Target A 인식기가 경계의 자식에 H == 0 을 요구하므로 **경계까지의 탐색**은 H = 0 으로 제한된다. 그러나 `final_target` 은 H <= 3 을 허용하므로 **경계 이후의 완성**에는 그 제한이 적용되지 않는다",
+  "therefore": "단순 단조성 경로로는 (H5) 가 따라 나오지 않는다"
+ },
+ "heavy_arc_budget_lemma": {
+  "statement": "s := B − L2(ROOT) 라 하면 예산 안의 임의 완성에서 Σ_{무거운 호} (cost − 1) <= s",
+  "proof": "총비용 = (비-무료 호 개수) + Σ(cost−1) 이고 비-무료 호 개수 >= L2, 총비용 <= B 이므로",
+  "corollary": "s = 0 이면 무거운 joint 를 하나도 쓸 수 없다 — 그 인스턴스에서 H5 는 정리다"
+ },
+ "reproduce": [
+  "python3 src/certify_rr_full_joint.py --conditional",
+  "python3 src/probe_rr_heavy_joint_literal.py --states 40",
+  "python3 src/probe_rr_heavy_dominance.py --states 60"
+ ],
+ "files": [
+  "tail_generator.json",
+  "conditional_states.json",
+  "robust_states.json",
+  "../rr_full_joint_certificate.json",
+  "../rr_full_joint_rows.jsonl.gz",
+  "../rr_heavy_joint_literal.json",
+  "../rr_heavy_dominance.json"
+ ],
+ "disclaimer": "This project has not proved L6 >= 872."
+}

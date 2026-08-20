@@ -9,7 +9,31 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 107 (proof extraction) — read this before the Round-106 paragraph below.**
+> **Round 108 (H5 resolution) — the current top of the ledger.**
+> Round 107 exposed hypothesis (H5): the obligation graph used only the four weight-≤3 joints
+> while the engine has 550 indecomposable tails. Round 108 split (H5) into three versions and
+> settled them. **H5-local is false** — a literal weight-4 joint from an archived state lands on
+> an obligation entry word and the engine does not prune it. **H5-replacement is false** — 11,200
+> component pairs are joined only by heavy arcs against 1,869 joined by light ones. The hoped-for
+> one-line corollary from the "H = 0 slab" **does not exist**: the `H_positive` prune is justified
+> by *Target A's recognizer requiring H == 0 at the boundary*, which says nothing about the
+> continuation, and `final_target` allows H ≤ 3.
+>
+> What replaced (H5) are two proved lemmas. **Theorem Z**: cost(w)=0 iff w=2 and there is exactly
+> one weight-2 indecomposable tail, so `T1` remains the unique free arc even under all 550 tails —
+> the zero-cost graph and the component bound are untouched. **Heavy-arc budget lemma**: with
+> s = B − L2(ROOT), any in-budget completion satisfies Σ(cost−1) ≤ s over heavy arcs, so **s = 0
+> makes heavy joints impossible and (H5) a theorem for that instance**. On the real population
+> 81 % of assignments have s ≤ 0.
+>
+> Recomputing the 1,353 H5-dependent states with all 550 tails and **no (H5) assumption**:
+> 240,756 assignments → 234,851 UNSAT, **0 SAT**, 5,905 node-cap UNKNOWN; per state **1,187 UNSAT
+> COMPLETE, 166 UNKNOWN, 0 SAT**. Heavy arcs rescued nothing (`heavy_edges_in_surviving_paths` is
+> empty). So the **H5-independent residual falls from 1,353 to at most 166**, and 6,230 of 6,396
+> states are excluded regardless of joint weight. Classification: **C (PARTIAL)** — finishing the
+> 166 at a larger node cap is the next step. Audited ledger stays **4,782**.
+>
+> **Round 107 (proof extraction).**
 > Extracting the proof skeleton shrank the dependency chain and, in the same pass, exposed an
 > **unstated hypothesis**. Shrunk: W-A, the (P) propagation, W-C/W-D/W-E, the exact
 > graph-Hamilton closures and even the **Hall filter** all drop out — starting from all 90,396

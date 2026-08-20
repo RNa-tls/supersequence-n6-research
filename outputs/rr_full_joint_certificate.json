@@ -1,0 +1,64 @@
+{
+ "round": 108,
+ "certifier": "claude-r108-full-joint/1",
+ "population": "라운드-107 조건부 블록",
+ "robust_states_round107": 5043,
+ "conditional_states_round107": 1353,
+ "states_processed": 1353,
+ "assignments": 240756,
+ "assignment_verdicts": {
+  "UNSAT": 234851,
+  "UNKNOWN": 5905
+ },
+ "closed_by_root_bound_alone": 110930,
+ "pair_verdicts": {
+  "FAIL": 31410,
+  "UNKNOWN": 4032
+ },
+ "root_slack_histogram": {
+  "-3": 1381,
+  "-2": 21686,
+  "-1": 87863,
+  "0": 84197,
+  "1": 36051,
+  "2": 8659,
+  "3": 919
+ },
+ "max_arc_cost_allowed": {
+  "1": 84197,
+  "2": 36051,
+  "3": 8659,
+  "4": 919
+ },
+ "assignments_where_H5_is_a_theorem": 84197,
+ "assignments_where_forced_arc_bound_kills_all_heavy": 0,
+ "assignments_with_zero_or_negative_slack": 195127,
+ "state_survivors": 166,
+ "survivor_sids": [
+  "03a39fd15e077689e9b74f4b6af17310ce5429f272171712b6f783bb9d687d45",
+  "047197c730307c066d82c947a134dd205504513dc9a981176ba703f09057738c",
+  "07a4ebd9233b1b820a5c0db068556adfccc45da43aa794f9267c9daa456a6e64",
+  "082e97e0a47e3ecfadde7c665aa3cda1045b2d6431159e62026da7fbb78bb8f5",
+  "0af40416ab919b0c76be6e1cfd30a80545b25849ba0e5d9a6db2197692cd928a",
+  "0b2d5413e393f5e79b2967723b32a3a5189345698a2e12c1f80f66aaa77e87d7",
+  "10919cc57a35d505e42f0de1bc1e32426c9d0121bf9b9189fbc99b648e9a85ad",
+  "109950d01927404f916e9ec01484939ac2816d230179c2c020072d4e330f2e7e",
+  "1219fe3df0cce809be25a0b9be147a679f32599ec689337f0687811139ce76c2",
+  "14299eecdd736dde76081dd81136457b10aa9ce6161150acc6566bac57f4f0ba",
+  "1443bcb74f2dbc5ac7b4202510c6930b0399ca802464c96256763a7312f60d83",
+  "14bceb860a49ab93890a84626334f31609bf46b30cd91952467ef6823eb87517",
+  "18bbf970ebc798f8076dacd2558993fd70b8ff01e9f629093a389ff9d6de290b",
+  "18d5c72630b6abc191862c506341c4decce16aaebc619f9d06b021b80a3b6a45",
+  "1b69b31cacfa640a193b0852dff5ad45b094a922c95bf5b21874e24d0b97f834",
+  "1d67c6f6afcfd55153161c68ea81b84b01a25af9d6c09e0238f1a7c65f78489c",
+  "1de4b3787390a7eae48a3e07e8c393d495cace12468332e4ec1a28e41aa5638e",
+  "1e42676f222abb2751a1954f46446c1121abbb7f65ab0aece78526848474e2c7",
+  "20f676b94c008072877bd435c6f1f1cf5e4d6a87b099c14ed07adc8f6dc98b4d",
+  "21182bd83274c266890189456572d5e0506906932204621ba9b3efe2520a80b8"
+ ],
+ "heavy_edges_in_surviving_paths": {},
+ "search_nodes": 29261244,
+ "cap_hits": 5905,
+ "tails_used": 550,
+ "seconds": 4438
+}

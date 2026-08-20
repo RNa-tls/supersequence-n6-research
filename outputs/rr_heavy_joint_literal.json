@@ -1,0 +1,70 @@
+{
+ "round": 108,
+ "event_table_transitions_checked": 19727,
+ "cost_formula_mismatches": 0,
+ "cost_formula_is_exact_for_S_plus_H": true,
+ "event_table": {
+  "2": {
+   "(0, 1, 0, 1)": 35,
+   "d(Ndef+H)=0": 35
+  },
+  "3": {
+   "(1, 1, 0, 1)": 110,
+   "d(Ndef+H)=1": 110
+  },
+  "4": {
+   "(1, 1, 1, 1)": 477,
+   "d(Ndef+H)=2": 477,
+   "(1, 1, 1, 0)": 3,
+   "d(Ndef+H)=3": 3
+  },
+  "5": {
+   "(1, 1, 2, 1)": 2503,
+   "d(Ndef+H)=3": 2503,
+   "(1, 1, 2, 0)": 6,
+   "d(Ndef+H)=4": 6
+  },
+  "6": {
+   "(1, 1, 3, 1)": 16501,
+   "d(Ndef+H)=4": 16501,
+   "(1, 1, 3, 0)": 92,
+   "d(Ndef+H)=5": 92
+  }
+ },
+ "heavy_legal_moves_by_weight": {
+  "4": 464,
+  "5": 2550,
+  "6": 16417
+ },
+ "h5_local_counterexample": {
+  "sid": "0018a7d36e027ac2468f6be53ec20e0cf865565799010a1cc85311cd069eacc4",
+  "cover_id": 0,
+  "root_word": "154320",
+  "cursor_after_5_rotations": "015432",
+  "tail": "w4:1230",
+  "weight": 4,
+  "target_word": "321540",
+  "target_is_an_obligation_entry_word": true,
+  "delta": {
+   "S": 1,
+   "F": 0,
+   "H": 1,
+   "new_orbit": false
+  },
+  "after": {
+   "F": 1,
+   "S": 6,
+   "H": 1,
+   "O": 6,
+   "P": 15,
+   "D": 15,
+   "Ndef": 1,
+   "Ndef_plus_H": 2
+  },
+  "engine_prune_reason_after": null,
+  "budget_cost": 2
+ },
+ "positive_control_engine_transitions": 5870,
+ "positive_control_missing_from_model": 0,
+ "seconds": 15
+}
