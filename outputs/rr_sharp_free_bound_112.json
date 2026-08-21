@@ -1,0 +1,216 @@
+{
+ "schema": "rr_sharp_free_bound/112/1",
+ "round": 112,
+ "type": "sharpened free-component bound — theory, light compute, ledgers unchanged",
+ "s1_s10_geometry": {
+  "statement": "the free target of an entry with rotation length ell is u -> T1(sigma^ell(u))",
+  "ell5": "equals tau(u): same E-orbit, phase +1, last letter preserved (720/720 words)",
+  "ell_lt_5": "leaves the E-orbit for EVERY word and every ell < 5 (0/720 stay)",
+  "consequence": "short passes are exactly the orbit-changing free arcs",
+  "rows": [
+   {
+    "ell": 0,
+    "deficit": 5,
+    "words": 720,
+    "same_E_orbit": 0,
+    "same_hexagon": 0,
+    "last_letter_preserved": 0,
+    "phase_delta_when_same_orbit": {}
+   },
+   {
+    "ell": 1,
+    "deficit": 4,
+    "words": 720,
+    "same_E_orbit": 0,
+    "same_hexagon": 0,
+    "last_letter_preserved": 0,
+    "phase_delta_when_same_orbit": {}
+   },
+   {
+    "ell": 2,
+    "deficit": 3,
+    "words": 720,
+    "same_E_orbit": 0,
+    "same_hexagon": 0,
+    "last_letter_preserved": 0,
+    "phase_delta_when_same_orbit": {}
+   },
+   {
+    "ell": 3,
+    "deficit": 2,
+    "words": 720,
+    "same_E_orbit": 0,
+    "same_hexagon": 0,
+    "last_letter_preserved": 0,
+    "phase_delta_when_same_orbit": {}
+   },
+   {
+    "ell": 4,
+    "deficit": 1,
+    "words": 720,
+    "same_E_orbit": 0,
+    "same_hexagon": 0,
+    "last_letter_preserved": 0,
+    "phase_delta_when_same_orbit": {}
+   },
+   {
+    "ell": 5,
+    "deficit": 0,
+    "words": 720,
+    "same_E_orbit": 720,
+    "same_hexagon": 0,
+    "last_letter_preserved": 720,
+    "phase_delta_when_same_orbit": {
+     "1": 720
+    }
+   }
+  ]
+ },
+ "s2_merging_efficiency": {
+  "m_of_d": 1,
+  "proof": "a short pass changes exactly one vertex's out-arc; adding one arc reduces the weak-component count by at most 1, so m(d) = 1 for every deficit d",
+  "total_reduction_bound": "<= number of short passes"
+ },
+ "s12_short_pass_count": {
+  "per_hexagon_shortfall_identity": "sum over the passes of hexagon h of (5 - ell) = 6(e_h - 1)",
+  "consequence": "if e_h >= 2 then ALL e_h passes of h are short (sum ell = 6 - e_h <= 4)",
+  "formula": "#short = F + m, with m = #{h : e_h >= 2} <= F",
+  "bound": "#short <= 2F",
+  "improvement_over_round_111": "6F -> 2F (factor 3)",
+  "tight_on_872_witness": true
+ },
+ "s5_s6_path_cover": {
+  "theorem": "non-free arcs >= p(G0) - 1, where p is the minimum vertex-disjoint directed path cover of G0",
+  "proof": "the free arcs used by the Hamiltonian path form a vertex-disjoint path system covering V, so |free_used| <= V - p, hence non-free >= (V-1) - (V-p) = p - 1",
+  "exact_formula_for_outdegree_le_1": "p = I0 + Z_bare, where I0 = #vertices of in-degree 0 and Z_bare = #components that are bare cycles (no in-trees attached)",
+  "relation": "p >= c always; p > c exactly when G0 branches (two entries sharing a free target)",
+  "branching_requires_short_passes": "at F = 0 all arcs are tau-arcs and tau is injective, so in-degree <= 1 and p = c: NO GAIN in the F=0 column",
+  "measured": {
+   "verified_872_witness": {
+    "c": 4,
+    "p": 4,
+    "I0": 0,
+    "Z_bare": 4
+   },
+   "greedy_873": {
+    "c": 24,
+    "p": 24,
+    "I0": 0,
+    "Z_bare": 24
+   }
+  }
+ },
+ "sharpened_component_bound": {
+  "statement": "c(G0) >= (24 + k) - 2F",
+  "derivation": "baseline tau-graph on the 120+F entries has >= O = 24+k components; each of the <= 2F short passes can merge at most one pair",
+  "consequence": "F + c(G0) >= 24 + k - F",
+  "maximum_over_cells": {
+   "cell": [
+    4,
+    0
+   ],
+   "value": 28,
+   "needed": 29,
+   "short_by": 1
+  }
+ },
+ "s9_tradeoff_REFUTED": {
+  "claim": "F + c(G0) >= 29 for every NR6 walk",
+  "verdict": "FALSE",
+  "counterexample": "this repository's own greedy n=6 superpermutation: L=873, F=0, c(G0)=24, F+c = 24 < 29",
+  "also_fails_for_path_cover": "p = c = 24 on the same walk, so the path-cover refinement does not rescue the tradeoff",
+  "note": "F + c >= 29 is sufficient for L >= 872 but is NOT necessary; a walk of length 873 sits at 24, so the inequality cannot be proved universally"
+ },
+ "s7_f0_calibration": {
+  "F0_structure": "every pass full, G0 = tau restricted to entries, c >= O = 24 + k",
+  "bound_obtained": "S + H >= c - 1 >= 23 + k, hence L >= 867 + k",
+  "at_k0": "L >= 867 — this is exactly the Houston bound, re-derived",
+  "missing_units": "5 - k",
+  "exact_cover_test": {
+   "question": "do 24 E-orbits partition the 120 hexagons exactly?",
+   "answer": "YES — solutions exist (search nodes 25)",
+   "consequence": "the (0,0) cell cannot be eliminated this way"
+  }
+ },
+ "s8_872_positive_control": {
+  "accepted": true,
+  "F": 25,
+  "c": 4,
+  "p": 4,
+  "S": 3,
+  "H": 0,
+  "nonfree_arc_count": 3,
+  "component_bound_on_count": 3,
+  "bound_is_exactly_tight": true,
+  "note": "the witness is never rejected; the bound meets it with equality"
+ },
+ "diagnosis_of_the_missing_five": {
+  "finding": "on BOTH real walks the arc-COUNT bound S >= c - 1 is EXACTLY TIGHT (872 witness: S=3=c-1; greedy 873: S=23=c-1)",
+  "gap_source": "the entire residual cost is H — heavy joints of weight >= 4. greedy 873 pays 29 = 23 + 6 with four weight-4 joints and one weight-5 joint",
+  "conclusion": "the free-arc structure determines the NUMBER of non-free arcs perfectly but is blind to their WEIGHT. Reaching 872 from 867 requires forcing H >= 5 - k in the F = 0 column — a statement about hub defects, not about G0.",
+  "restated_open_statement": "for every NR6 walk with F = 0: H + (c - (24+k)) >= 5 - k"
+ },
+ "s13_cells": {
+  "cells_closed_this_round": 0,
+  "total_cells": 55,
+  "reason": "the sharpened bound raises F + c only to 24 + k - F, whose maximum over the feasible cells is 28 at (k,F) = (4,0), one short of 29"
+ },
+ "walks": {
+  "verified_872_witness": {
+   "L": 872,
+   "V": 145,
+   "arcs": 145,
+   "c": 4,
+   "I0": 0,
+   "Z_bare": 4,
+   "p": 4,
+   "F": 25,
+   "S": 3,
+   "H": 0,
+   "short_passes": 50,
+   "m_multi_entry_hexagons": 25,
+   "joint_weights": {
+    "2": 141,
+    "3": 3
+   },
+   "nonfree_arc_count_equals_c_minus_1": true,
+   "total_cost": 3,
+   "component_bound": 3,
+   "gap_all_from_H": true,
+   "F_plus_c": 29,
+   "short_equals_F_plus_m": true
+  },
+  "greedy_873": {
+   "L": 873,
+   "V": 120,
+   "arcs": 120,
+   "c": 24,
+   "I0": 0,
+   "Z_bare": 24,
+   "p": 24,
+   "F": 0,
+   "S": 23,
+   "H": 6,
+   "short_passes": 0,
+   "m_multi_entry_hexagons": 0,
+   "joint_weights": {
+    "2": 96,
+    "3": 18,
+    "4": 4,
+    "5": 1
+   },
+   "nonfree_arc_count_equals_c_minus_1": true,
+   "total_cost": 29,
+   "component_bound": 23,
+   "gap_all_from_H": true,
+   "F_plus_c": 24,
+   "short_equals_F_plus_m": true
+  }
+ },
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "OUTER_CELLS_CLOSED_THIS_ROUND": 0
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}

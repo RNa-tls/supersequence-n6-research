@@ -9,6 +9,29 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 112 (sharpened free-component bound) — read this first.**
+> Exploiting the shortfall budget sharpened the bound threefold: the per-hexagon identity
+> `Σ(5−ℓ) = 6(e_h−1)` forces every pass of a multiply-entered hexagon to be short, so the
+> number of short passes is `F + m ≤ 2F`, not `6F` — and that is tight on the 872 witness
+> (50 = 2·25). Hence `c(G₀) ≥ (24+k) − 2F` and `F + c ≥ 24 + k − F`, whose maximum over the
+> feasible cells is **28 at (k,F) = (4,0)** — exactly one short of the 29 needed. A path-cover
+> theorem was also proved (`non-free ≥ p − 1` with `p = I₀ + Z_bare` for out-degree-≤1
+> digraphs), but `p = c` on both real walks because branching requires short passes and `τ` is
+> injective at `F = 0`, so it gains nothing.
+>
+> **The target tradeoff is refuted.** `F + Q(G₀) ≥ 29` is false: this repository's own greedy
+> n=6 superpermutation has `F = 0`, `c(G₀) = 24`, so `F + c = 24`. It is sufficient for
+> `L ≥ 872` but not necessary, so it cannot be proved universally.
+>
+> The diagnosis is sharp. On **both** real walks the arc-*count* bound `S ≥ c − 1` is **exactly
+> tight** (872 witness `S = 3 = c−1`; greedy 873 `S = 23 = c−1`). The entire residual gap is
+> `H` — heavy joints of weight ≥ 4. The free-arc structure determines how many non-free arcs
+> are needed, perfectly, and is blind to what they weigh. At `F = 0` the bound gives
+> `L ≥ 867 + k`, reproducing the Houston constant exactly and no more; the missing statement
+> is `H + (c − (24+k)) ≥ 5 − k`, i.e. `H ≥ 5` at `k = 0` — a claim about hub defects, not
+> about `G₀`. No cell closed. The ledgers stay **4,782** and 6,396/6,396.
+> This project has not proved `L₆ ≥ 872`.
+>
 > **Round 111 (generic (k,F) extension) — read this first.**
 > The Q2 weighted argument generalises cleanly to arbitrary `F`. The right generic object is
 > the set of **`120 + F` entry obligations** (hexagon, occurrence index), not 120 hexagons, and
