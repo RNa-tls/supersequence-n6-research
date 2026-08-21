@@ -4839,5 +4839,126 @@
    "outputs/rr_h5_audit/"
   ],
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_109": "AUDITED 4,782 (unchanged; nothing in Round 109 is independently audited). Round 109 is a narrow completion round: no new theorem. The 166 states Round 108 left UNKNOWN purely on the node cap were frozen and hashed, verified to be cap-only unknowns with no SAT pair and no stored witness, regression-controlled at the old cap, and then re-run with the UNCHANGED Round-108 full-550-tail model under staged per-call caps (50k -> 400k -> 3M). All 166 came back UNSAT_COMPLETE with an exhausted frontier; 0 SAT, 0 UNKNOWN. Open assignments fell 4,032 -> 421 -> 35 -> 0 over 255,662,985 search nodes and 9.67 h. Combined with Round 108's 6,230 this makes the full-joint Q2/Area-A result 6,396/6,396 UNSAT_COMPLETE with (H5) never used. Still conditional on (H1)-(H4) and on the untouched outer Q1/NR6 reduction.",
+ "round_109_full_joint_completion": {
+  "round": 109,
+  "type": "narrow completion — no new theorem, ledger unchanged",
+  "input": {
+   "states": 166,
+   "sha256_of_sorted_sids": "d5d93ab87b37eec6077e995c2f2fadcb692da408f2fb6d0d48245c629e156b85",
+   "verified": {
+    "subset_of_6396_population": true,
+    "subset_of_1353_conditional": true,
+    "disjoint_from_5043_robust": true,
+    "states_with_a_SAT_pair": 0,
+    "states_with_no_UNKNOWN_pair": 0,
+    "states_with_a_stored_witness": 0,
+    "pairs": 8273,
+    "pairs_unknown": 4032
+   }
+  },
+  "regression_control": {
+   "cap": 2500,
+   "states": 3,
+   "verdicts": "UNKNOWN_CAP x3 (reproduced)",
+   "same_states_at_cap_50000": "UNSAT_COMPLETE x3"
+  },
+  "model": {
+   "unchanged_from_round_108": true,
+   "imported_not_reimplemented": true,
+   "tails": 550,
+   "cost": "[w>=3]+max(w-3,0)",
+   "unique_zero_cost_tail": "T1",
+   "budget": "sum(cost) <= B = 3 + K - Ndef - H",
+   "lower_bound": "restricted component / exit bound",
+   "heavy_arc_budget": "sum over heavy arcs of (cost-1) <= s = B - L2(ROOT)",
+   "memo_key": "(cur, rem, excess)",
+   "h5_used": false,
+   "H5_local_and_H5_replacement": "false, and never used"
+  },
+  "stages": [
+   {
+    "stage": 1,
+    "cap": 50000,
+    "entering": 166,
+    "unsat_complete": 104,
+    "sat": 0,
+    "unknown": 62,
+    "hours": 3.28
+   },
+   {
+    "stage": 2,
+    "cap": 400000,
+    "entering": 62,
+    "unsat_complete": 47,
+    "sat": 0,
+    "unknown": 15,
+    "hours": 3.7
+   },
+   {
+    "stage": 3,
+    "cap": 3000000,
+    "entering": 15,
+    "unsat_complete": 15,
+    "sat": 0,
+    "unknown": 0,
+    "hours": 2.69
+   }
+  ],
+  "open_assignments_trajectory": [
+   4032,
+   421,
+   35,
+   0
+  ],
+  "final": {
+   "UNSAT_COMPLETE": 166,
+   "SAT": 0,
+   "UNKNOWN_CAP": 0,
+   "all_frontier_exhausted": true
+  },
+  "totals": {
+   "search_nodes": 255662985,
+   "hours": 9.67,
+   "assignments_closed_unsat_final_pass": 39901
+  },
+  "q2_full_joint": {
+   "population": 6396,
+   "unsat_complete": 6396,
+   "unknown": 0,
+   "sat": 0,
+   "from_round_108": 6230,
+   "from_round_109": 166
+  },
+  "schedule_deviation_declared_before_launch": "the requested Stage-1 cap of 5,000,000 was not schedulable (one capped assignment ~10 min and a hard state has ~100 of them, so ~17 h for a single state); a 50k -> 400k -> 3M ladder was used instead and declared with its reason before launch. The model and the frontier-empty requirement are identical, so the verdicts are the same verdicts.",
+  "operational_notes": "three container restarts occurred; per-state immediate flush plus --resume meant each one cost at most the single state in progress",
+  "artifacts": [
+   "research/RR_FULL_JOINT_COMPLETION_109_CLAUDE.md",
+   "src/complete_rr_round109.py",
+   "src/schedule_rr_round109.py",
+   "outputs/rr_h5_audit/round109_input_states.json",
+   "outputs/rr_round109_schedule.json",
+   "outputs/rr_round109_regression.jsonl",
+   "outputs/rr_round109_calib.jsonl",
+   "outputs/rr_round109_stage1.jsonl",
+   "outputs/rr_round109_stage2.jsonl",
+   "outputs/rr_round109_stage3.jsonl",
+   "outputs/rr_round109_certificate.jsonl.gz",
+   "outputs/rr_round109_summary.json"
+  ],
+  "ledger": {
+   "INDEPENDENTLY_AUDITED": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "CLAUDE_FULL_JOINT_UNKNOWN": 0,
+   "CLAUDE_FULL_JOINT_SAT": 0
+  },
+  "not_claimed": [
+   "L6 = 872 proved",
+   "L6 >= 872 proved",
+   "unconditional superpermutation theorem",
+   "independently audited"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

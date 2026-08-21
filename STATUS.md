@@ -9,6 +9,22 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 109 (narrow completion) — read this first.**
+> The 166 states Round 108 left open purely on the node cap are now all closed. They were
+> frozen and hashed first (sha256 `d5d93ab8…`; verified inside the 6,396 population, inside
+> the 1,353 conditional block, disjoint from the 5,043 robust block, no SAT pair, no stored
+> witness), a regression control confirmed they still reproduce `UNKNOWN` at the old cap, and
+> the **unchanged Round-108 full-550-tail model** was then re-run with staged per-call caps:
+> 50,000 closed 104, 400,000 closed 47 more, 3,000,000 closed the last 15. Open assignments
+> fell 4,032 → 421 → 35 → **0** over 256M search nodes and 9.67 h. Final: **166/166
+> `UNSAT_COMPLETE`, 0 SAT, 0 UNKNOWN**, every one with an exhausted frontier.
+>
+> Together with Round 108's 6,230 this gives **6,396 / 6,396 of the Q2/Area-A residual
+> population excluded in the full-joint model — 0 UNKNOWN, 0 SAT — with (H5) never used.**
+> Every row records `h5_used: false` and `tails: 550`; no cap hit was ever counted as a
+> closure. The audited ledger stays **4,782** and nothing here is independently audited.
+> This project has not proved `L₆ ≥ 872`, and the outer Q1/NR6 reduction is untouched.
+>
 > **Round 108 (H5 resolution) — the current top of the ledger.**
 > Round 107 exposed hypothesis (H5): the obligation graph used only the four weight-≤3 joints
 > while the engine has 550 indecomposable tails. Round 108 split (H5) into three versions and

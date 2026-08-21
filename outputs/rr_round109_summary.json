@@ -1,0 +1,71 @@
+{
+ "schema": "rr_round109/summary/1",
+ "round": 109,
+ "type": "narrow completion — 라운드-108 이 캡으로 남긴 166 상태",
+ "input": {
+  "states": 166,
+  "sha256_of_sorted_sids": "d5d93ab87b37eec6077e995c2f2fadcb692da408f2fb6d0d48245c629e156b85",
+  "verified": {
+   "subset_of_6396_population": true,
+   "subset_of_1353_conditional": true,
+   "disjoint_from_5043_robust": true,
+   "states_with_a_SAT_pair": 0,
+   "states_with_no_UNKNOWN_pair": 0,
+   "states_with_a_stored_witness": 0,
+   "pairs_total": 8273,
+   "pairs_unknown": 4032
+  }
+ },
+ "stages": [
+  {
+   "stage": 1,
+   "cap": 50000,
+   "entering": 166,
+   "unsat_complete": 104,
+   "sat": 0,
+   "unknown": 62
+  },
+  {
+   "stage": 2,
+   "cap": 400000,
+   "entering": 62,
+   "unsat_complete": 47,
+   "sat": 0,
+   "unknown": 15
+  },
+  {
+   "stage": 3,
+   "cap": 3000000,
+   "entering": 15,
+   "unsat_complete": 15,
+   "sat": 0,
+   "unknown": 0
+  }
+ ],
+ "final": {
+  "UNSAT_COMPLETE": 166,
+  "SAT": 0,
+  "UNKNOWN_CAP": 0
+ },
+ "totals": {
+  "nodes": 132047410,
+  "hours": 4.8,
+  "assignments_closed_unsat_final_pass": 39901
+ },
+ "q2_full_joint": {
+  "population": 6396,
+  "unsat_complete": 6396,
+  "unknown": 0,
+  "sat": 0,
+  "from_round_108": 6230,
+  "from_round_109": 166
+ },
+ "certificate_sha256": "03c289db7418378f4d605a7ddc32112bfe64ce076fb32fbaa5dd1bcc837aa646",
+ "ledger": {
+  "INDEPENDENTLY_AUDITED": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "CLAUDE_CONDITIONAL_Q2_UNDER_H5": 0
+ },
+ "h5_used": false,
+ "disclaimer": "This project has not proved L6 >= 872."
+}
