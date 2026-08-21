@@ -9,6 +9,31 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 111 (generic (k,F) extension) — read this first.**
+> The Q2 weighted argument generalises cleanly to arbitrary `F`. The right generic object is
+> the set of **`120 + F` entry obligations** (hexagon, occurrence index), not 120 hexagons, and
+> all four load-bearing hypotheses survive unchanged: the resource budget, the unique cost-0
+> tail `T1` (there is exactly one weight-2 indecomposable tail), cost-0 out-degree ≤ 1 (entry
+> words are distinct, so re-entries never collide), and the restricted component bound. The
+> free arc was identified: `u ↦ T1(σ^ℓ(u))` equals `τ(u)` — the next phase of the same E-orbit
+> — **exactly when `ℓ = 5`**, which is where `P ≤ 5O` and `D = 5k − F` come from. The rotation
+> shortfall satisfies `Σ(5−ℓ) = 6F`, so `F = 0` forces every pass to be full and gives
+> ℓ-forcing for free.
+>
+> These combine into one inequality: **`L ≥ 843 + F + c(G₀)`**, where `c(G₀)` counts the weak
+> components of the free-arc graph on entries. So `L ≤ 871` requires `F + c(G₀) ≤ 28`, and
+> proving `F + c(G₀) ≥ 29` for every non-repeating walk would give `L₆ ≥ 872` under NR6 — the
+> 55-cell table compresses to a single line. The verified 872 witness attains **equality**
+> (`F = 25`, `c = 4`, `843 + 29 = 872`), so the theorem is as strong as it can be. At `F = 0`
+> it yields `L ≥ 867 + k`, recovering the Houston constant at `k = 0`.
+>
+> **But it closes none of the 55 cells.** All 55 remain arithmetically feasible, and the
+> 6,396-state archive has `F = 1` throughout, so it represents exactly one cell, `(k,F)=(1,1)`;
+> the other 54 contain zero states. A falsification pass also killed a tempting stronger claim:
+> `O = 1 + S + F` holds with equality on all five named walks but fails on 85 of 169 exhaustive
+> `n=4` walks — only the inequality survives. The audited ledger stays **4,782** and the
+> full-joint Q2 result stays 6,396/6,396. This project has not proved `L₆ ≥ 872`.
+>
 > **Round 110 (outer reduction) — read this first.**
 > Returning to the outer obligation turned up an error in the project's own foundation. The
 > KO-RECORD's boxed length identity `L = 843 + cost = 867 + (k+N+H)` is **false on both real

@@ -1,0 +1,214 @@
+{
+ "schema": "rr_generic_entry/111/1",
+ "round": 111,
+ "type": "generic (k,F) extension — theorem development, no heavy search, Q2 ledger unchanged",
+ "free_arc_map": {
+  "statement": "the unique cost-0 tail is T1 (the only weight-2 indecomposable tail); the free arc out of an entry with word u and rotation length ell is u -> T1(sigma^ell(u))",
+  "identified": {
+   "ell=5": "equals tau(u): SAME E-orbit, phase +1",
+   "ell<5": "leaves the E-orbit"
+  },
+  "consequence": "free arcs preserve the E-orbit exactly when the pass is full"
+ },
+ "rotation_shortfall_identity": {
+  "statement": "sum over passes of (5 - ell) = 6F",
+  "verified_on_872_witness": true,
+  "corollary_F0": "F = 0 forces every pass to be full (ell = 5), so ell-forcing is free there"
+ },
+ "generic_entry_theorem": {
+  "vertices": "P = 120 + F entry obligations (hexagon, occurrence index), NOT 120 hexagons",
+  "outdegree": "cost-0 outdegree <= 1 for every F (entry words are distinct)",
+  "budget": "total cost over all 119+F joints = S + H; L = 844 + F + S + H",
+  "component_bound": "S + H >= c(G0) - 1",
+  "main_inequality": "L >= 843 + F + c(G0)",
+  "general_n": "L >= n + n! - 3 + n!/n + F + c(G0)",
+  "necessary_for_L_le_871": "F + c(G0) <= 28",
+  "sufficient_for_L_ge_872": "F + c(G0) >= 29 for every non-repeating walk",
+  "tightness": "the verified 872 witness attains equality: F=25, c=4, F+c=29, L=843+29=872"
+ },
+ "verification": {
+  "named_walks": [
+   {
+    "n": 6,
+    "L": 872,
+    "P": 145,
+    "F": 25,
+    "S": 3,
+    "H": 0,
+    "O": 29,
+    "D": 0,
+    "c_G0": 4,
+    "G0_arcs": 145,
+    "tau_arcs": 95,
+    "short_passes": 50,
+    "rotation_shortfall": 150,
+    "shortfall_equals_6F": true,
+    "P_eq_hexes_plus_F": true,
+    "L_identity": true,
+    "O_le_1_plus_S_plus_F": true,
+    "O_eq_1_plus_S_plus_F": true,
+    "S_plus_H_ge_c_minus_1": true,
+    "generic_bound_base": 843,
+    "L_ge_base_plus_F_plus_c": true,
+    "F_plus_c": 29,
+    "label": "verified_872_witness"
+   },
+   {
+    "n": 6,
+    "L": 873,
+    "P": 120,
+    "F": 0,
+    "S": 23,
+    "H": 6,
+    "O": 24,
+    "D": 0,
+    "c_G0": 24,
+    "G0_arcs": 120,
+    "tau_arcs": 120,
+    "short_passes": 0,
+    "rotation_shortfall": 0,
+    "shortfall_equals_6F": true,
+    "P_eq_hexes_plus_F": true,
+    "L_identity": true,
+    "O_le_1_plus_S_plus_F": true,
+    "O_eq_1_plus_S_plus_F": true,
+    "S_plus_H_ge_c_minus_1": true,
+    "generic_bound_base": 843,
+    "L_ge_base_plus_F_plus_c": true,
+    "F_plus_c": 24,
+    "label": "greedy_n6_873"
+   },
+   {
+    "n": 5,
+    "L": 153,
+    "P": 24,
+    "F": 0,
+    "S": 5,
+    "H": 1,
+    "O": 6,
+    "D": 0,
+    "c_G0": 6,
+    "G0_arcs": 24,
+    "tau_arcs": 24,
+    "short_passes": 0,
+    "rotation_shortfall": 0,
+    "shortfall_identity": null,
+    "P_eq_hexes_plus_F": true,
+    "L_identity": true,
+    "O_le_1_plus_S_plus_F": true,
+    "O_eq_1_plus_S_plus_F": true,
+    "S_plus_H_ge_c_minus_1": true,
+    "generic_bound_base": 146,
+    "L_ge_base_plus_F_plus_c": true,
+    "F_plus_c": 6,
+    "label": "greedy_n5_153"
+   },
+   {
+    "n": 4,
+    "L": 33,
+    "P": 6,
+    "F": 0,
+    "S": 1,
+    "H": 0,
+    "O": 2,
+    "D": 0,
+    "c_G0": 2,
+    "G0_arcs": 6,
+    "tau_arcs": 6,
+    "short_passes": 0,
+    "rotation_shortfall": 0,
+    "shortfall_identity": null,
+    "P_eq_hexes_plus_F": true,
+    "L_identity": true,
+    "O_le_1_plus_S_plus_F": true,
+    "O_eq_1_plus_S_plus_F": true,
+    "S_plus_H_ge_c_minus_1": true,
+    "generic_bound_base": 31,
+    "L_ge_base_plus_F_plus_c": true,
+    "F_plus_c": 2,
+    "label": "greedy_n4_33"
+   },
+   {
+    "n": 3,
+    "L": 9,
+    "P": 2,
+    "F": 0,
+    "S": 0,
+    "H": 0,
+    "O": 1,
+    "D": 0,
+    "c_G0": 1,
+    "G0_arcs": 2,
+    "tau_arcs": 2,
+    "short_passes": 0,
+    "rotation_shortfall": 0,
+    "shortfall_identity": null,
+    "P_eq_hexes_plus_F": true,
+    "L_identity": true,
+    "O_le_1_plus_S_plus_F": true,
+    "O_eq_1_plus_S_plus_F": true,
+    "S_plus_H_ge_c_minus_1": true,
+    "generic_bound_base": 8,
+    "L_ge_base_plus_F_plus_c": true,
+    "F_plus_c": 1,
+    "label": "greedy_n3_9"
+   }
+  ],
+  "n4_sample_aggregate": {
+   "walks": 169,
+   "P_eq_hexes_plus_F": 169,
+   "L_identity": 169,
+   "O_le_1_plus_S_plus_F": 169,
+   "O_eq_1_plus_S_plus_F": 84,
+   "S_plus_H_ge_c_minus_1": 169,
+   "L_ge_base_plus_F_plus_c": 169,
+   "F_values": {
+    "0": 43,
+    "1": 71,
+    "2": 55
+   }
+  }
+ },
+ "refuted_this_round": {
+  "claim": "O = 1 + S + F (equality)",
+  "refuted_by": "85 of 169 n=4 non-repeating walks",
+  "surviving_form": "O <= 1 + S + F (holds on all sampled walks)",
+  "why_it_mattered": "equality would have forced N = -1 identically and collapsed L to 867+k+H"
+ },
+ "cell_census": {
+  "total_cells": 55,
+  "arithmetically_feasible": 55,
+  "killed_by_generic_component_bound": 0,
+  "archive_cell": {
+   "k": 1,
+   "F": 1
+  },
+  "archive_states_in_other_cells": 0,
+  "tightest_cell": {
+   "k": 4,
+   "F": 0,
+   "forced": "S = 27, H = 0, c(G0) = 28 exactly"
+  },
+  "file": "outputs/rr_generic_entry_cells_111.json"
+ },
+ "what_generalises": [
+  "resource budget",
+  "unique zero-cost tail T1",
+  "zero-cost outdegree <= 1",
+  "restricted component bound",
+  "pass <-> entry bijection",
+  "WORD_NEXT single-target property"
+ ],
+ "what_does_not_generalise": [
+  "ell-forcing (free only at F = 0; at F >= 1 the shortfall budget 6F leaves ell open)",
+  "pass <-> hexagon bijection (only F = 0)",
+  "the concrete cover/word-domain enumeration (built for O = 25)"
+ ],
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "OUTER_CELLS_TOTAL": 55,
+  "OUTER_CELLS_CLOSED_THIS_ROUND": 0
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
