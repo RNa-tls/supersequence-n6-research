@@ -9,6 +9,30 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 114 (phase-correlated run) — read this first.**
+> **The `(k,F) = (0,0)` cell is now closed.** Under NR6, every walk with `F = 0` and `O = 24`
+> has `L ≥ 872` — so no length-≤871 superpermutation can live there. This is the cell in which
+> a length-867 walk (the Houston bound) would have to sit, and it is the first of the 55 outer
+> cells to fall. **54 remain untouched.**
+>
+> The accounting unifies `r = 24…28` into a single requirement. Since every free arc is
+> intra-run, `S = (r−1) + x` exactly (`x` = non-free intra-run arcs) and `H ≥ t−1` (`t` =
+> number of maximal all-light chains), so `cost ≥ 22 + e + x + t` with `e = r−24`, and
+> `L ≤ 871` demands `e + x + t ≤ 5`. Re-checking the light moves outside Round 113's scope:
+> `W3b` remains unusable at **every** run endpoint (its target orbit always shares a hexagon
+> with the source, 720/720, while the cover is pairwise disjoint), but **`W3a` can become legal
+> at a short run end** — Round 113's exclusion only covered `m = 5`. Since `W3a` stays in the
+> orbit it is an intra-run arc, charged to `x`, so the conclusion survives.
+>
+> Keeping `(orbit, used phases, current phase)` — never quotienting phase away — and allowing a
+> run to jump to any unused phase at a charge of 1, an exhaustive search (no cap hits, using the
+> transitive `S₆` relabelling symmetry) gives **`M*(B) = 3B + 4`**, the maximum number of
+> distinct orbits one all-light chain can cover with budget `B = e + x`. Per-chain budgets
+> telescope exactly, so `24 ≤ 3B + 4t`, hence `B + t ≥ (24+B)/4 ≥ 6`, hence `cost ≥ 28` and
+> `L ≥ 872`. The greedy 873 walk sits exactly at the extremal point `B + t = 6` and is not
+> falsely rejected. The ledgers stay **4,782** and 6,396/6,396.
+> This project has not proved `L₆ ≥ 872`; NR6 and 54 cells remain open.
+>
 > **Round 113 (hub defect) — read this first.**
 > A real sub-case falls. At `(k,F) = (0,0)` with `S = 23` — equivalently 96 free arcs,
 > equivalently each of the 24 orbits traversed as one contiguous `τ`-run — **`H ≥ 5`, hence

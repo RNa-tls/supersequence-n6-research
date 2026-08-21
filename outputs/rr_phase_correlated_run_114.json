@@ -1,0 +1,160 @@
+{
+ "schema": "rr_phase_correlated_run/114/1",
+ "round": 114,
+ "type": "phase-correlated run round — (k,F)=(0,0) closed; ledgers unchanged",
+ "headline": "Under NR6, no superpermutation of length <= 871 has (k,F) = (0,0). Equivalently every NR6 walk with F = 0 and O = 24 has L >= 872.",
+ "s1_run_definition": {
+  "run": "maximal consecutive segment of entries from one E-orbit",
+  "recorded": [
+   "orbit q",
+   "entry phase a",
+   "exit phase b",
+   "length m in 1..5"
+  ],
+  "forced_inside_a_run": "a tau step is phase +1 and costs 0; any other intra-orbit step (W3a = phase +2, or a heavy intra-orbit joint) costs >= 1"
+ },
+ "s2_r_and_splitting": {
+  "extra_runs": "e = r - 24 = sum over orbits of (t_q - 1)",
+  "range_of_interest": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "fact": "t_q = 1 forces m = 5 (the run covers all five phases); t_q >= 2 makes every run of that orbit short"
+ },
+ "s3_s4_light_move_recheck": {
+  "W3b": "NEVER usable at (0,0), for ANY run endpoint: orb(W3b(v)) always shares a hexagon with orb(v) (720/720) while the cover's 24 orbits are pairwise hexagon-disjoint. The argument does not depend on run length, so it survives outside the r=24 scope.",
+  "W3a": "stays in the same E-orbit (phase +2), so by the definition of a run it is an INTRA-run arc, never an inter-run connector — but at a SHORT run end its target phase can be unvisited, so unlike the r=24 case it is legal. It is therefore admitted into the model and charged to x.",
+  "conclusion": "the unique light INTER-run connector is W3c, for every run length"
+ },
+ "s9_s10_cost_accounting": {
+  "identity": "S = (r-1) + x exactly; free arcs are exactly the intra-run tau arcs",
+  "bound": "cost = S + H >= (r-1) + x + (t-1) = 22 + e + x + t",
+  "requirement_for_L_le_871": "cost <= 27, i.e. e + x + t <= 5",
+  "per_r": {
+   "24": {
+    "S_min": 23,
+    "H_needed": 5
+   },
+   "25": {
+    "S_min": 24,
+    "H_needed": 4
+   },
+   "26": {
+    "S_min": 25,
+    "H_needed": 3
+   },
+   "27": {
+    "S_min": 26,
+    "H_needed": 2
+   },
+   "28": {
+    "S_min": 27,
+    "H_needed": 1
+   },
+   "29+": "trivially excluded"
+  }
+ },
+ "s7_M_star": {
+  "definition": "M*(B) = max number of DISTINCT E-orbits one all-light chain can cover with combined budget B = (extra runs charged to the chain) + (non-free intra-run arcs in the chain), under exact phase consistency",
+  "model_is_an_over_approximation": [
+   "a run may leave its orbit's phases in any order (any non-tau step charged only 1, although a heavy one really costs >= 2)",
+   "hexagon-disjointness is enforced only within the chain, not across chains"
+  ],
+  "values": {
+   "0": 4,
+   "1": 7,
+   "2": 10,
+   "3": 13,
+   "4": 16
+  },
+  "closed_form": "M*(B) = 3B + 4",
+  "search_nodes": {
+   "0": 20,
+   "1": 733,
+   "2": 18970,
+   "3": 326835,
+   "4": 4469954
+  },
+  "exhaustive": true,
+  "cap_hits": 0,
+  "symmetry_used": "the S6 relabelling action commutes with sigma, tau and W3c and is transitive on the 720 words, so one starting word suffices (verified: different starts give identical M*)"
+ },
+ "s8_allocation": {
+  "budget_accounting": "per-chain charges telescope exactly to e + x with no double counting: an orbit appearing in c chains with a_1..a_c runs is charged sum(a_i - 1) + (c - 1) = t_q - 1",
+  "covering": "every one of the 24 orbits appears in some chain, so 24 <= sum d_i <= 3B + 4t",
+  "consequence": "t >= (24 - 3B)/4, hence B + t >= (24 + B)/4 >= 6 for every B >= 0",
+  "B_ge_5": "trivial: B + t >= 5 + 1 = 6",
+  "table": [
+   {
+    "B": 0,
+    "t_min": 6,
+    "B_plus_t": 6
+   },
+   {
+    "B": 1,
+    "t_min": 6,
+    "B_plus_t": 7
+   },
+   {
+    "B": 2,
+    "t_min": 5,
+    "B_plus_t": 7
+   },
+   {
+    "B": 3,
+    "t_min": 4,
+    "B_plus_t": 7
+   },
+   {
+    "B": 4,
+    "t_min": 3,
+    "B_plus_t": 7
+   },
+   {
+    "B": 5,
+    "t_min": 1,
+    "B_plus_t": 6
+   }
+  ]
+ },
+ "theorem": {
+  "statement": "For (k,F) = (0,0): e + x + t >= 6, hence cost = S + H >= 28, hence L >= 872",
+  "scope": "conditional on NR6; one of the 55 outer (k,F) cells",
+  "significance": "this is the cell in which a length-867 walk (the Houston bound) would have to live; it is now excluded for every length <= 871"
+ },
+ "s12_positive_control": {
+  "walk": "greedy 873 (this repository)",
+  "r": 24,
+  "e": 0,
+  "x": 0,
+  "t": 6,
+  "B": 0,
+  "predicted_cost_lower_bound": 28,
+  "actual_cost": 29,
+  "actual_L": 873,
+  "false_rejection": 0,
+  "tightness": "B + t = 6 exactly, the extremal case of the theorem"
+ },
+ "s13_counterexample_search": {
+  "result": "none exists — the theorem forbids them",
+  "note": "the bound is attained (B + t = 6) but never violated; the search that established M*(B) = 3B + 4 is exhaustive with no node-cap hits"
+ },
+ "cells": {
+  "total": 55,
+  "closed_before_this_round": 0,
+  "closed_this_round": 1,
+  "closed_cell": [
+   0,
+   0
+  ],
+  "remaining": 54
+ },
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396
+ },
+ "disclaimer": "This project has not proved L6 >= 872. NR6 remains a separate assumption and 54 of the 55 outer cells are untouched."
+}
