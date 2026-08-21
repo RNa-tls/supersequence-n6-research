@@ -9,9 +9,47 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 116 (F=1 structure) — read this first.**
+> A structure round: **no cell is closed.** It fixes the generic `F = 1` column from the
+> definitions alone, importing nothing from the Q2 archive.
+>
+> `P = 121`, `O = 24+k`, `D = 5O − P = 5k − 1`, `L = 845 + S + H`. Since `D ≥ 0`, **`F = 1`
+> forces `k ≥ 1`** — the cell `(k,F) = (0,1)` does not exist arithmetically — and `O ≤ 1+S+F`
+> with `S+H ≤ 26` caps `k ≤ 4`. **The `F = 1` column is exactly the four cells `k = 1,2,3,4`**,
+> of which Q2 ever touched only `(1,1)`.
+>
+> The re-entry structure is completely forced. `Σ_h (e_h − 1) = 1` with `e_h ≥ 1` has one
+> integer solution, so **exactly one hexagon `h*` is entered twice**; the per-hexagon shortfall
+> identity then forces **119 passes of length exactly 6** and the two passes of `h*` to have
+> lengths `(a, 6−a)`. **The short passes are exactly the two visits to `h*`** — locality in its
+> strongest form — and they can **never be consecutive**: the exit word of one is σ-adjacent to
+> the entry word of the other, and σ-adjacency is a rotation, not a joint. Only **3 of the 11
+> partitions of 6** are realizable as deficit patterns.
+>
+> Recomputing the light moves for every pass length (720 words × `ℓ = 0..5`, uniform 720/720):
+> the `ℓ = 5` row is exactly the `F = 0` classification, but for **every `ℓ < 5` all four light
+> moves leave the orbit**. So a short pass can carry a **free inter-run connector** — impossible
+> at `F = 0`. That gives the exact accounting `S = (r−1) + x − f_out` with **`f_out ≤ 2`**, hence
+> `cost ≥ 22 + k + e + x + t − f_out` and `L ≤ 871 ⟺ k + e + x + t − f_out ≤ 4`. The theorem
+> needed to close the column is **`k + e + x + t − f_out ≥ 5`**. `(4,1)` is the tightest cell:
+> `H = 0` is forced, so `t = 1` — the whole walk is a single all-light chain.
+>
+> Only two Q2 conditions turn out to be generic at `F = 1`: `P = 121` and `Φ ≥ 0`. Everything
+> else — `O = 25`, `D = 4`, `Ndef+H ≤ 3` (which actually means `L ≤ 872`), forced `ℓ` values,
+> fragment locality, Area-A boundaries, the pass↔hexagon bijection, intra-orbit free arcs — is
+> Q2-specific and was not used.
+>
+> Verified against **971 exhaustive `n = 4` `F = 1` walks**: every structural claim holds,
+> false rejection 0, and all 813 `F = 0` walks have `f_out = 0`. The ledgers stay **4,782** and
+> 6,396/6,396. This project has not proved `L₆ ≥ 872`; 50 cells and NR6 remain open.
+>
 > **Round 115 (F=0 column) — read this first.**
 > **The whole `F = 0` column is now closed.** Under NR6, every walk with `F = 0` has
-> `L ≥ 872` — equivalently `H + k + e + x ≥ 5`, which contains the target `H + k ≥ 5`.
+> `L ≥ 872` — equivalently `H + k + e + x ≥ 5`. **Correction (Round 116):** this does
+> **not** imply `H + k ≥ 5`; `e` and `x` must stay explicit. **Codex audit of Round 115:
+> PARTIAL** — `k = 0, 1, 4` independently confirmed; for `k = 2, 3` Claude's search was
+> reproduced but Codex's independent SMT formulation timed out, so those two cells are
+> CLAUDE-REPRODUCED, NOT INDEPENDENTLY CONFIRMED.
 > All five cells `(k,F) = (0,0), (1,0), (2,0), (3,0), (4,0)` fall; **50 of the 55 outer cells
 > remain, and every one of them has `F ≥ 1`.**
 >

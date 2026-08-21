@@ -1,0 +1,789 @@
+{
+ "round": 116,
+ "type": "F=1 structure round — no cell closure claimed",
+ "label": "ROUND-116 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+ "s1_identities": {
+  "P": 121,
+  "P_rule": "P = n!/n + F = 120 + F",
+  "O": "O = 24 + k  (definition of k)",
+  "D": "D = 5O - P = 5k - 1",
+  "k_lower_bound_from_D_ge_0": 1,
+  "k_upper_bound_from_slab": 4,
+  "length": "L = 844 + F + S + H = 845 + S + H",
+  "L_le_871_iff": "S + H <= 26",
+  "rotation_shortfall_total": 6,
+  "rotation_shortfall_rule": "sum over passes of (6 - passlen) = 6P - 720 = 6F = 6",
+  "per_hexagon_rule": "sum over passes of h of (6 - passlen) = 6(e_h - 1)",
+  "sum_e_h_minus_1": 1,
+  "rows": [
+   {
+    "k": 0,
+    "P": 121,
+    "O": 24,
+    "D": -1,
+    "D_equals_5k_minus_F": true,
+    "S_min": 22,
+    "H_max": 4,
+    "D_nonneg": false,
+    "slab_ok": true,
+    "feasible": false
+   },
+   {
+    "k": 1,
+    "P": 121,
+    "O": 25,
+    "D": 4,
+    "D_equals_5k_minus_F": true,
+    "S_min": 23,
+    "H_max": 3,
+    "D_nonneg": true,
+    "slab_ok": true,
+    "feasible": true
+   },
+   {
+    "k": 2,
+    "P": 121,
+    "O": 26,
+    "D": 9,
+    "D_equals_5k_minus_F": true,
+    "S_min": 24,
+    "H_max": 2,
+    "D_nonneg": true,
+    "slab_ok": true,
+    "feasible": true
+   },
+   {
+    "k": 3,
+    "P": 121,
+    "O": 27,
+    "D": 14,
+    "D_equals_5k_minus_F": true,
+    "S_min": 25,
+    "H_max": 1,
+    "D_nonneg": true,
+    "slab_ok": true,
+    "feasible": true
+   },
+   {
+    "k": 4,
+    "P": 121,
+    "O": 28,
+    "D": 19,
+    "D_equals_5k_minus_F": true,
+    "S_min": 26,
+    "H_max": 0,
+    "D_nonneg": true,
+    "slab_ok": true,
+    "feasible": true
+   },
+   {
+    "k": 5,
+    "P": 121,
+    "O": 29,
+    "D": 24,
+    "D_equals_5k_minus_F": true,
+    "S_min": 27,
+    "H_max": -1,
+    "D_nonneg": true,
+    "slab_ok": false,
+    "feasible": false
+   }
+  ],
+  "feasible_k": [
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "s2_s3_s8_pass_structure": {
+  "multiplicity_theorem": "exactly one hexagon h* has e_{h*} = 2 and every other hexagon has e_h = 1; there is no other option because sum_h (e_h - 1) = F = 1 and e_h >= 1",
+  "pass_length_multiset": "6^119 together with (a, 6-a) for the two passes of h*",
+  "entry_words_of_h_star": "v and sigma^a(v) — the two passes are complementary arcs of the 6-cycle",
+  "ordered_types": [
+   {
+    "a": 1,
+    "lengths": [
+     1,
+     5
+    ],
+    "deficits": [
+     5,
+     1
+    ],
+    "deficit_partition": [
+     5,
+     1
+    ]
+   },
+   {
+    "a": 2,
+    "lengths": [
+     2,
+     4
+    ],
+    "deficits": [
+     4,
+     2
+    ],
+    "deficit_partition": [
+     4,
+     2
+    ]
+   },
+   {
+    "a": 3,
+    "lengths": [
+     3,
+     3
+    ],
+    "deficits": [
+     3,
+     3
+    ],
+    "deficit_partition": [
+     3,
+     3
+    ]
+   },
+   {
+    "a": 4,
+    "lengths": [
+     4,
+     2
+    ],
+    "deficits": [
+     2,
+     4
+    ],
+    "deficit_partition": [
+     4,
+     2
+    ]
+   },
+   {
+    "a": 5,
+    "lengths": [
+     5,
+     1
+    ],
+    "deficits": [
+     1,
+     5
+    ],
+    "deficit_partition": [
+     5,
+     1
+    ]
+   }
+  ],
+  "deficit_partitions_realizable": [
+   [
+    5,
+    1
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    3,
+    3
+   ]
+  ],
+  "deficit_partitions_of_six_total": 11,
+  "deficit_partitions_excluded": [
+   [
+    6
+   ],
+   [
+    4,
+    1,
+    1
+   ],
+   [
+    3,
+    2,
+    1
+   ],
+   [
+    3,
+    1,
+    1,
+    1
+   ],
+   [
+    2,
+    2,
+    2
+   ],
+   [
+    2,
+    2,
+    1,
+    1
+   ],
+   [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  ],
+  "short_pass_count": 2,
+  "why_only_two": "a short pass must lie in a hexagon with e_h >= 2 (per-hexagon identity), and F = 1 gives exactly one such hexagon carrying exactly two passes"
+ },
+ "s7_light_geometry": {
+  "light_tail_count": 4,
+  "weight2_tails": 1,
+  "weight3_tails": 3,
+  "table": {
+   "ell0_W2": {
+    "ell": 0,
+    "name": "W2",
+    "weight": 2,
+    "cost": 0,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "2": 720
+    }
+   },
+   "ell0_W3a": {
+    "ell": 0,
+    "name": "W3a",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "2": 720
+    }
+   },
+   "ell0_W3b": {
+    "ell": 0,
+    "name": "W3b",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell0_W3c": {
+    "ell": 0,
+    "name": "W3c",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell1_W2": {
+    "ell": 1,
+    "name": "W2",
+    "weight": 2,
+    "cost": 0,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell1_W3a": {
+    "ell": 1,
+    "name": "W3a",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell1_W3b": {
+    "ell": 1,
+    "name": "W3b",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell1_W3c": {
+    "ell": 1,
+    "name": "W3c",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell2_W2": {
+    "ell": 2,
+    "name": "W2",
+    "weight": 2,
+    "cost": 0,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell2_W3a": {
+    "ell": 2,
+    "name": "W3a",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell2_W3b": {
+    "ell": 2,
+    "name": "W3b",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell2_W3c": {
+    "ell": 2,
+    "name": "W3c",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell3_W2": {
+    "ell": 3,
+    "name": "W2",
+    "weight": 2,
+    "cost": 0,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell3_W3a": {
+    "ell": 3,
+    "name": "W3a",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell3_W3b": {
+    "ell": 3,
+    "name": "W3b",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell3_W3c": {
+    "ell": 3,
+    "name": "W3c",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "2": 720
+    }
+   },
+   "ell4_W2": {
+    "ell": 4,
+    "name": "W2",
+    "weight": 2,
+    "cost": 0,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "2": 720
+    }
+   },
+   "ell4_W3a": {
+    "ell": 4,
+    "name": "W3a",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "2": 720
+    }
+   },
+   "ell4_W3b": {
+    "ell": 4,
+    "name": "W3b",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   },
+   "ell4_W3c": {
+    "ell": 4,
+    "name": "W3c",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell5_W2": {
+    "ell": 5,
+    "name": "W2",
+    "weight": 2,
+    "cost": 0,
+    "same_orbit": 720,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "5": 720
+    }
+   },
+   "ell5_W3a": {
+    "ell": 5,
+    "name": "W3a",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 720,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "5": 720
+    }
+   },
+   "ell5_W3b": {
+    "ell": 5,
+    "name": "W3b",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "1": 720
+    }
+   },
+   "ell5_W3c": {
+    "ell": 5,
+    "name": "W3c",
+    "weight": 3,
+    "cost": 1,
+    "same_orbit": 0,
+    "same_hexagon": 0,
+    "orbit_pair_shared_hexagons": {
+     "0": 720
+    }
+   }
+  },
+  "free_move_same_orbit_by_ell": {
+   "0": 0,
+   "1": 0,
+   "2": 0,
+   "3": 0,
+   "4": 0,
+   "5": 720
+  },
+  "free_move_is_tau_only_at_ell5": true,
+  "headline": "at ell = 5 the free (weight-2) successor is tau and stays in the orbit; for every ell < 5 it always leaves the orbit, so a SHORT pass can have a FREE inter-run connector — impossible at F = 0"
+ },
+ "s4_q2_separation": [
+  {
+   "condition": "P = 121",
+   "generic_at_F1": true,
+   "why": "P = 120 + F is an identity"
+  },
+  {
+   "condition": "Phi >= 0  (Phi = 5 + 6(121 - P) - (720 - visited))",
+   "generic_at_F1": true,
+   "why": "prefix capacity: the 121 - P remaining passes carry <= 6 permutations each and the current pass can still gain <= 5; uses only P_final = 121 and passlen <= 6, both generic at F = 1"
+  },
+  {
+   "condition": "O = 25  (equivalently k = 1)",
+   "generic_at_F1": false,
+   "why": "k in {1,2,3,4} is arithmetically feasible at F = 1; O = 25 is one cell of four"
+  },
+  {
+   "condition": "D = 4",
+   "generic_at_F1": false,
+   "why": "D = 5k - 1, so D = 4 only when k = 1"
+  },
+  {
+   "condition": "Ndef + H <= 3 with O = 25",
+   "generic_at_F1": false,
+   "why": "Ndef = S + F - O = S - 24 at k = 1, so the engine's budget means S + H <= 27, i.e. L <= 872 — one length wider than L <= 871, and it fixes k = 1"
+  },
+  {
+   "condition": "every pass has a forced ell",
+   "generic_at_F1": false,
+   "why": "119 passes are forced to ell = 5, but the two passes of the doubled hexagon have ell = a-1 and 5-a with a in 1..5 — five ordered choices"
+  },
+  {
+   "condition": "fragment locality (Round 91)",
+   "generic_at_F1": false,
+   "why": "proved inside Q2's state model; a generic F = 1 form is derived in section 5 instead"
+  },
+  {
+   "condition": "Area-A boundary conditions / f1_prune_reason",
+   "generic_at_F1": false,
+   "why": "engine-specific prune set, never re-derived from the definition of F = 1"
+  },
+  {
+   "condition": "pass <-> hexagon bijection",
+   "generic_at_F1": false,
+   "why": "F = 0 only; at F = 1 it is 121 passes onto 120 hexagons, exactly one doubled"
+  },
+  {
+   "condition": "every free arc is intra-orbit",
+   "generic_at_F1": false,
+   "why": "holds only for full passes; the two short passes have orbit-changing free successors"
+  }
+ ],
+ "s9_cells": {
+  "feasible_k": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "k0_excluded_because": "D = 5k - 1 >= 0 forces k >= 1",
+  "k_ge_5_excluded_because": "slab bound k + H <= 4 with H >= 0",
+  "covered_by_Q2": [
+   [
+    1,
+    1
+   ]
+  ],
+  "never_touched": [
+   [
+    2,
+    1
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    4,
+    1
+   ]
+  ]
+ },
+ "s9_cell_table": {
+  "rows": [
+   {
+    "k": 1,
+    "O": 25,
+    "D": 4,
+    "S_min": 23,
+    "H_max": 3,
+    "t_max": 4,
+    "requirement": "k + e + x + t - f_out <= 4",
+    "e_plus_x_plus_t_max": 5,
+    "note": "t <= 4",
+    "covered_by_Q2": true
+   },
+   {
+    "k": 2,
+    "O": 26,
+    "D": 9,
+    "S_min": 24,
+    "H_max": 2,
+    "t_max": 3,
+    "requirement": "k + e + x + t - f_out <= 4",
+    "e_plus_x_plus_t_max": 4,
+    "note": "t <= 3",
+    "covered_by_Q2": false
+   },
+   {
+    "k": 3,
+    "O": 27,
+    "D": 14,
+    "S_min": 25,
+    "H_max": 1,
+    "t_max": 2,
+    "requirement": "k + e + x + t - f_out <= 4",
+    "e_plus_x_plus_t_max": 3,
+    "note": "t <= 2",
+    "covered_by_Q2": false
+   },
+   {
+    "k": 4,
+    "O": 28,
+    "D": 19,
+    "S_min": 26,
+    "H_max": 0,
+    "t_max": 1,
+    "requirement": "k + e + x + t - f_out <= 4",
+    "e_plus_x_plus_t_max": 2,
+    "note": "t = 1 is forced",
+    "covered_by_Q2": false
+   }
+  ],
+  "tightest_cell": 4,
+  "why_k4_is_tightest": "H <= 0 forces H = 0 hence t = 1: the whole walk is a single all-light chain, and f_out >= 1 + e + x is forced",
+  "loosest_cell": 1,
+  "why_k1_is_loosest": "H <= 3 allows t <= 4, the widest chain budget of the column"
+ },
+ "s10_invariant": {
+  "S_identity": "S = (r - 1) + x - f_out",
+  "terms": {
+   "r": "number of runs (maximal same-orbit blocks of passes)",
+   "x": "non-free intra-run joints",
+   "f_out": "free (weight-2) INTER-run joints"
+  },
+  "f_out_bound": 2,
+  "f_out_reason": "a free joint after a full pass is tau and stays in the orbit, so it is intra-run; only a SHORT pass can have an orbit-changing free successor, and F = 1 has exactly two short passes",
+  "H_bound": "H >= t - 1  (t = number of maximal all-light chains)",
+  "r_bound": "r >= O = 24 + k",
+  "cost": "cost = S + H >= 22 + k + e + x + t - f_out,   e = r - O",
+  "requirement": "L <= 871  <=>  cost <= 26  <=>  k + e + x + t - f_out <= 4",
+  "target_theorem": "k + e + x + t - f_out >= 5",
+  "comparison_with_F0": "at F = 0 the requirement was k + e + x + t <= 5 and the proved bound was >= 6; at F = 1 the length budget is one tighter (845 vs 844) and f_out <= 2 gives back up to two, so F = 1 with f_out = 1 is exactly as hard as F = 0",
+  "chain_capacity_note": "the F=0 capacity model needs exactly two perturbations: 121 passes instead of 120 with one hexagon used twice, and two passes whose exit word is sigma^(a-1)(u) instead of sigma^5(u)",
+  "free_inter_run_arc_forces_overlap": "every light move out of a SHORT pass leaves the orbit and its target orbit shares 1 or 2 hexagons with the source (720/720 for every ell < 5), so a free inter-run arc always consumes orbit-overlap defect",
+  "but_the_overlap_budget_is_not_binding": "the overlap pool is 5k >= 5 while f_out <= 2 consumes at most 4 — the n=4 exhaustive data confirms f_out = 2 occurs with k = 1, so there is NO law of the form f_out <= c*k",
+  "next_round_target": "N*_{F=1}(b, g, s; a) — the R115 chain capacity with (i) one hexagon allowed two used words at sigma-distance a, (ii) those two passes exiting at sigma^(a-1) and sigma^(5-a), (iii) phase-shortfall pool D = 5k - 1; then 121 <= sum_i N*_i must contradict k + e + x + t - f_out <= 4"
+ },
+ "s14_controls": {
+  "walks_enumerated": 2598,
+  "max_len": 36,
+  "F_histogram": {
+   "0": 813,
+   "1": 971,
+   "2": 592,
+   "3": 204,
+   "4": 18
+  },
+  "f1_count": 971,
+  "f1_length_identity_ok": true,
+  "f1_shortfall_ok": true,
+  "f1_exactly_one_doubled_hexagon": true,
+  "f1_multiplicity_pattern": [
+   "{\"1\": 5, \"2\": 1}"
+  ],
+  "f1_short_pass_counts": {
+   "2": 971
+  },
+  "f1_all_short_passes_live_in_the_doubled_hexagon": true,
+  "f1_short_pass_length_pairs": {
+   "[1, 3]": 576,
+   "[2, 2]": 395
+  },
+  "f1_short_passes_adjacent_in_walk_order": {
+   "False": 971
+  },
+  "f1_S_identity_ok": true,
+  "f1_D_nonneg": true,
+  "f1_k_ge_1": true,
+  "f1_k_histogram": {
+   "1": 343,
+   "2": 610,
+   "3": 18
+  },
+  "f1_f_out_histogram": {
+   "0": 152,
+   "1": 604,
+   "2": 215
+  },
+  "f1_f_out_never_exceeds_short_pass_count": true,
+  "f1_cost_bound_ok": true,
+  "f0_S_identity_ok": true,
+  "f0_f_out_histogram": {
+   "0": 813
+  },
+  "f1_short_pass_separation": {
+   "2": 342,
+   "3": 464,
+   "4": 130,
+   "5": 26,
+   "6": 9
+  },
+  "f1_min_short_pass_separation": 2,
+  "f1_f_out_vs_k": {
+   "f_out=0,k=1": 59,
+   "f_out=0,k=2": 93,
+   "f_out=1,k=1": 192,
+   "f_out=1,k=2": 394,
+   "f_out=1,k=3": 18,
+   "f_out=2,k=1": 92,
+   "f_out=2,k=2": 123
+  },
+  "f1_free_inter_run_arc_shared_hexagons": {
+   "1": 449,
+   "2": 585
+  },
+  "f1_free_inter_run_arc_always_overlaps": true,
+  "smallest_non_adjacent_counterexample": {
+   "L": 34,
+   "P": 7,
+   "F": 1,
+   "S": 1,
+   "H": 0,
+   "pass_lengths": [
+    2,
+    4,
+    4,
+    2,
+    4,
+    4,
+    4
+   ],
+   "short_pass_indices": [
+    0,
+    3
+   ],
+   "entries": [
+    "1234",
+    "4132",
+    "1342",
+    "3412",
+    "2314",
+    "1432",
+    "4312"
+   ]
+  }
+ },
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_this_round": true
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
