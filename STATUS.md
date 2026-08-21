@@ -9,6 +9,48 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 115 (F=0 column) — read this first.**
+> **The whole `F = 0` column is now closed.** Under NR6, every walk with `F = 0` has
+> `L ≥ 872` — equivalently `H + k + e + x ≥ 5`, which contains the target `H + k ≥ 5`.
+> All five cells `(k,F) = (0,0), (1,0), (2,0), (3,0), (4,0)` fall; **50 of the 55 outer cells
+> remain, and every one of them has `F ≥ 1`.**
+>
+> The key new structural fact is **Lemma A**: with `F = 0` there are 120 passes and 720
+> permutations, and a pass is a maximal rotation run so it has length ≤ 6 — therefore every
+> pass has length **exactly** 6 and sweeps one whole hexagon, so **passes correspond
+> bijectively to hexagons** and no two used words may share a hexagon. That is the exact
+> generalisation of Round 113/114's orbit-level statement, and it is a hard constraint rather
+> than a budget. It also identifies `D`: for `F = 0`, `Σ_h (mult(h) − 1) = 5O − 120 = 5k = D`,
+> so `k` measures exactly the departure from a 24-orbit exact cover.
+>
+> The `k = 0` light-move classification does **not** transfer. `W3a` (always same orbit) and
+> `W3c` (always hexagon-disjoint) are unchanged 720/720 facts, but **`W3b` can become legal
+> once `k > 0`** — its source and target orbits share exactly one hexagon, which is precisely
+> what `k = 0` forbade. Charging `W3b` to the defect budget does not work either: at a hexagon
+> of multiplicity `m` the defect is `m − 1` while up to `m` of its `W3b` arcs are usable, so the
+> usable count runs to `10k`, twice the budget.
+>
+> The rigidity that Round 113/114 exploited has an algebraic reason: every move is right
+> multiplication in `S₆`, and the block map `D(u) = W3c(τ⁴u)` has **order 4 on all 720 words**.
+>
+> Round 115 counts **passes, not orbits** — orbits can be shared between chains, passes
+> partition them exactly (`Σ πᵢ = 120`). An exhaustive search (91 budget cells, **zero cap
+> hits**, 335 s) gives the chain capacity `N*(b,g,s)`; its `s = 0` axis reproduces Round 114's
+> `M*(B) = 3B + 4` exactly, and it saturates at 24 orbits / 103 passes for `s ≥ 17`. That closes
+> `k = 0, 1, 4` outright and leaves three subcases, which a joint multi-chain search — adding
+> the constraint that chains are mutually hexagon-disjoint and together cover all 120 hexagons
+> — kills exhaustively (19.1 G / 2.2 G / 2.2 G nodes, no cap hits).
+>
+> **Correction to Round 114.** Its conclusion stands and is re-derived here, but its model
+> charged one budget unit for *every* incomplete orbit, while its own telescoping identity
+> leaves one chain per split orbit uncharged. Under the corrected (more permissive) charging,
+> Round 114's *orbit-counting* step no longer closes `(k,e,x,t) = (0,3,0,2)`; the pass-counting
+> argument does. Round 114's document is preserved with a correction box.
+>
+> The greedy 873 walk is accepted with **false rejection 0** and attains the bound exactly:
+> six chains of exactly 20 passes each, `= N*(0,0,0)`. The ledgers stay **4,782** and 6,396/6,396.
+> This project has not proved `L₆ ≥ 872`; NR6 and 50 cells remain open.
+>
 > **Round 114 (phase-correlated run) — read this first.**
 > **The `(k,F) = (0,0)` cell is now closed.** Under NR6, every walk with `F = 0` and `O = 24`
 > has `L ≥ 872` — so no length-≤871 superpermutation can live there. This is the cell in which

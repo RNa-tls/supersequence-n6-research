@@ -5803,5 +5803,304 @@
    "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396
   },
   "disclaimer": "This project has not proved L6 >= 872. NR6 remains a separate assumption and 54 of the 55 outer cells are untouched."
+ },
+ "quantitative_ledger_note_round_115": "Round 115 closes the entire F = 0 column (cells (k,F) = (0,0)..(4,0)) under NR6. It changes NEITHER ledger: INDEPENDENTLY AUDITED Q2 residual stays 4,782 and the CLAUDE FULL-JOINT Q2 result stays 6,396/6,396. The round is CLAUDE-ONLY and NOT independently audited. 50 of the 55 outer cells remain, all with F >= 1, and NR6 itself is still an assumption. This project has not proved L6 >= 872.",
+ "round_115_f0_column": {
+  "schema": "rr_f0_column/115/1",
+  "round": 115,
+  "type": "F=0 / positive-k hub defect round — the whole F=0 column closes; ledgers unchanged",
+  "headline": "Under NR6 every walk with F = 0 has L >= 872, equivalently H + k + e + x >= 5 (which contains the brief's target H + k >= 5). All five F=0 cells (k = 0,1,2,3,4) are closed; 50 of the 55 outer cells remain, all with F >= 1.",
+  "label": "ROUND-115 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "s1_lemma_A": {
+   "statement": "With F = 0 there are 120 passes and 720 permutations; a pass is a maximal rotation run so its length is <= 6; hence every pass has length exactly 6 and sweeps a whole hexagon, and passes correspond bijectively to hexagons.",
+   "consequence": "no two used words may share a hexagon (a hard constraint, not a budget)",
+   "scope": "F = 0 only — do not carry it to F > 0",
+   "verified_on_greedy_873": {
+    "pass_lengths": [
+     6
+    ],
+    "entry_hexagons_distinct": 120,
+    "bijection": true
+   }
+  },
+  "s1_D_identification": {
+   "orbit_meets_hexagons": 5,
+   "hexagon_meets_orbits": 6,
+   "identity": "F = 0  =>  sum_h (mult(h) - 1) = 5O - 120 = 5k = D",
+   "caveat": "for F > 0 the overlap excess stays 5k while D = 5k - F, so the two split"
+  },
+  "s2_overlap_classification": {
+   "0": 8856,
+   "1": 1080,
+   "2": 360
+  },
+  "s3_light_move_recheck": {
+   "W3a": "same orbit for all 720 words (phase +2) — unchanged by k",
+   "W3c": "orbit-changing and hexagon-disjoint for all 720 words — unchanged by k",
+   "W3b": "orbit-changing for all 720 words, source and target share EXACTLY one hexagon; blocked at k = 0 because the 24-orbit cover is pairwise disjoint, but CAN BECOME LEGAL once k > 0",
+   "W3b_digraph": {
+    "orbit_arcs": 720,
+    "out_degree": 5,
+    "in_degree": 5,
+    "two_cycles": 0,
+    "arcs_per_hexagon": 6,
+    "per_hexagon_structure": "1-regular = disjoint union of directed cycles"
+   }
+  },
+  "s5_defect_resource": {
+   "one_token_per_move_is_false": true,
+   "reason": "at a hexagon of multiplicity m the defect is m - 1 but up to m of its W3b arcs are usable, so usable W3b connectors run to 10k, twice the 5k defect budget",
+   "resource_actually_used": "word-level hexagon injectivity from Lemma A"
+  },
+  "s6_rigidity": {
+   "all_moves_are_right_multiplication_in_S6": true,
+   "hexagon": "left coset of <sigma>",
+   "orbit": "left coset of <tau>",
+   "block_map_order": {
+    "4": 720
+   },
+   "consequence": "the s = 0 block chain closes after exactly 4 orbits (Round 113/114's M(0)=4)"
+  },
+  "s7_chain_capacity": {
+   "why_passes_not_orbits": "orbits can be shared between chains so sum d_i >= O only; passes partition the chains exactly, sum pi_i = 120",
+   "budgets": {
+    "b": "extra runs inside a chain + non-free intra-run arcs; pool y + x",
+    "g": "handoff of an incomplete orbit to another chain; pool 2h (c_q <= 2(c_q-1))",
+    "s": "permanently unused phases; pool 5k",
+    "relation": "h + y = e; t = 1 implies h = 0 hence g = 0"
+   },
+   "b_axis_passes": [
+    20,
+    35,
+    50,
+    65,
+    80
+   ],
+   "b_axis_orbits": [
+    4,
+    7,
+    10,
+    13,
+    16
+   ],
+   "reproduces_round_114_M_star": "orbits on the s=0 axis are 3b + 4, exactly M*(B) = 3B + 4",
+   "s_axis_passes": [
+    20,
+    20,
+    33,
+    33,
+    46,
+    46,
+    49,
+    58,
+    62,
+    66,
+    70,
+    74,
+    83,
+    83,
+    96,
+    96,
+    96,
+    103,
+    103,
+    103,
+    103
+   ],
+   "s_axis_orbits": [
+    4,
+    4,
+    7,
+    7,
+    10,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    19,
+    19,
+    22,
+    22,
+    22,
+    24,
+    24,
+    24,
+    24
+   ],
+   "saturation": "s >= 17 saturates at 24 orbits / 103 passes",
+   "cells_computed": 91,
+   "cap_hits": 0,
+   "seconds": 335,
+   "exhaustive": true
+  },
+  "s7_4_correction_to_round_114": {
+   "what_round_114_did": "charged one unit of B = e + x for EVERY incomplete orbit",
+   "why_that_is_too_strict": "Round 114's own telescoping identity sum(a_i - 1) + (c_q - 1) = t_q - 1 leaves one chain per split orbit uncharged",
+   "effect": "M*(B) = 3B + 4 understates the true per-chain capacity when e >= 1",
+   "conclusion_of_round_114": "STILL STANDS — re-closed here under the corrected, more permissive model (50/50 subcases, worst 116 passes)",
+   "but": "under the corrected charging Round 114's ORBIT-counting step no longer closes (k,e,x,t) = (0,3,0,2): sum d_i <= 8 + 3*6 = 26 >= 24. The PASS-counting bound does: 96 + 20 = 116 < 120.",
+   "document_preserved": "research/RR_PHASE_CORRELATED_RUN_114_CLAUDE.md kept, correction box added"
+  },
+  "s8_accounting": {
+   "S": "S = (r - 1) + x",
+   "H": "H >= t - 1",
+   "r": "r >= O = 24 + k",
+   "cost": "cost = S + H >= 22 + k + e + x + t",
+   "requirement": "L <= 871  <=>  k + e + x + t <= 5"
+  },
+  "s8_column_enumeration": {
+   "0": {
+    "subcases": 50,
+    "closed": 50,
+    "open": 0,
+    "worst": 116,
+    "cell_closed": true
+   },
+   "1": {
+    "subcases": 25,
+    "closed": 25,
+    "open": 0,
+    "worst": 116,
+    "cell_closed": true
+   },
+   "2": {
+    "subcases": 11,
+    "closed": 9,
+    "open": 2,
+    "worst": 129,
+    "cell_closed": false
+   },
+   "3": {
+    "subcases": 4,
+    "closed": 3,
+    "open": 1,
+    "worst": 120,
+    "cell_closed": false
+   },
+   "4": {
+    "subcases": 1,
+    "closed": 1,
+    "open": 0,
+    "worst": 103,
+    "cell_closed": true
+   }
+  },
+  "s9_joint_residual_search": {
+   "why_needed": "the per-chain bound never uses that chains are mutually hexagon-disjoint and together cover all 120 hexagons",
+   "results": {
+    "k2_e0_x0_t3": {
+     "found": false,
+     "capped": false,
+     "nodes": 19089897954,
+     "closed": true,
+     "seconds": 254.8
+    },
+    "k2_e1_x0_t2": {
+     "found": false,
+     "capped": false,
+     "nodes": 2155302883,
+     "closed": true,
+     "seconds": 29.4
+    },
+    "k3_e0_x0_t2": {
+     "found": false,
+     "capped": false,
+     "nodes": 2155302883,
+     "closed": true,
+     "seconds": 29.2
+    }
+   },
+   "all_closed": true
+  },
+  "s10_positive_control": {
+   "greedy_873": {
+    "L": 873,
+    "P": 120,
+    "F": 0,
+    "S": 23,
+    "H": 6,
+    "O": 24,
+    "k": 0,
+    "r": 24,
+    "e": 0,
+    "x": 0,
+    "t": 6,
+    "chain_pass_counts": [
+     20,
+     20,
+     20,
+     20,
+     20,
+     20
+    ],
+    "k_plus_e_x_t": 6
+   },
+   "chain_bound_attained": "each chain has exactly 20 passes = N*(0,0,0)",
+   "false_rejection": 0,
+   "joint_searcher_accepts_real_shapes": 6,
+   "negative_disagreements": 0,
+   "no_k_gt_0_F_0_walk_available": "the repository's verified 872 witness has F = 25, so no k > 0, F = 0 control exists; none was fabricated from the theorem under test"
+  },
+  "s12_cells": {
+   "total": 55,
+   "closed": 5,
+   "closed_cells": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "new_this_round": [
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "remaining": 50,
+   "all_remaining_have_F_ge_1": true
+  },
+  "not_done": [
+   "F > 0 untouched",
+   "NR6 still assumed in form C",
+   "Q2 machinery unused",
+   "no independent audit of this round"
+  ],
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
