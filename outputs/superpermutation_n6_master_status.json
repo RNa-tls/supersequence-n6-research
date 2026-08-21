@@ -4960,5 +4960,146 @@
    "independently audited"
   ],
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_110": "AUDITED 4,782 (unchanged); full-joint Q2 6,396/6,396 (unchanged). Round 110 is structural: no search, no new closure. It reconstructs the outer reduction and finds an off-by-one in the project's own foundation. The KO-RECORD boxed identity L = 843 + cost = 867 + (k+N+H) is FALSE on both real superpermutations in the repo (871 for the verified 872 witness, 872 for the greedy 873); the corrected identity is L = 844 + F + S + H = 868 + (k+N+H), general n: L = n + n! - 2 + n!/n + F + S + H, verified on 5 strings. Theorem A O <= S+F is likewise false; O <= 1 + S + F holds with equality on both. P = 120+F and D = 5k-F are correct. Consequences: the conditional goal is k+N+H >= 4 not >= 5, and the engine's final_target means L <= 872 not L <= 871. The corrected slab table for L <= 871 has k+H <= 4 and F <= 5k, i.e. 55 (k,F) cells of which Q2 covers exactly one, (1,1); 54 are untouched and the original table omitted k=0 and F=0. Three logically independent outer gaps remain: NR6 (form B), the F reduction, and the k reduction.",
+ "round_110_outer_reduction": {
+  "round": 110,
+  "type": "structural — outer reduction, no search, ledger unchanged",
+  "corrections_to_the_project_foundation": {
+   "length_identity": {
+    "stated_in": "KO-RECORD §5 boxed identity, restated in the master status doc",
+    "stated": "L = 843 + cost = 867 + (k+N+H), cost = F+S+H",
+    "refuted_on": {
+     "verified_872_witness": {
+      "actual": 872,
+      "formula_gives": 871
+     },
+     "greedy_873": {
+      "actual": 873,
+      "formula_gives": 872
+     }
+    },
+    "corrected": "L = 844 + F + S + H = 868 + (k+N+H)",
+    "general_n": "L = n + n! - 2 + n!/n + F + S + H",
+    "verified_on_strings": 5,
+    "proof_sketch": [
+     "L = 6 + sum(omega) over 719 transitions",
+     "sum(omega) = (719-J) + (2J+S+H)  =>  L = 725 + J + S + H",
+     "P = J + 1 (passes are maximal rotation runs)",
+     "P = 120 + F (each hexagon entered at least once; each extra entry is one abandonment)",
+     "=> J = 119 + F  =>  L = 844 + F + S + H"
+    ]
+   },
+   "theorem_A": {
+    "stated": "O <= S + F",
+    "refuted_on": {
+     "verified_872_witness": "O=29 > 28=S+F",
+     "greedy_873": "O=24 > 23=S+F"
+    },
+    "corrected": "O <= 1 + S + F",
+    "holds_with_equality_on_both": true
+   },
+   "root_cause": "the first pass start opens an orbit without consuming any joint",
+   "identities_that_survive": [
+    "P = 120 + F",
+    "D = 5k - F"
+   ]
+  },
+  "corrected_slab_table": {
+   "condition": "L <= 871  <=>  F+S+H <= 27  <=>  k+N+H <= 3",
+   "bounds": [
+    "k + H <= 4",
+    "F <= 5k"
+   ],
+   "cells": 55,
+   "covered_by_Q2": 1,
+   "uncovered": 54,
+   "Q2_cell": {
+    "k": 1,
+    "F": 1
+   },
+   "omitted_from_the_original_table": [
+    "k = 0",
+    "F = 0"
+   ],
+   "where_the_872_witness_lives": {
+    "k": 5,
+    "F": 25,
+    "S": 3,
+    "H": 0,
+    "N": -1,
+    "k_plus_N_plus_H": 4
+   }
+  },
+  "nr6": {
+   "definition": "some minimal n=6 superpermutation has exactly 720 permutation windows, i.e. no permutation appears twice as a window",
+   "status": "ASSUMED (form C) — never proved or disproved in this project",
+   "form_needed": "B — every superpermutation of length <= 871 can be normalised to a non-repeating one of no greater length",
+   "small_n_probe": {
+    "n3_L9": "1 solution, 0 repeating",
+    "n4_L33": "1 solution, 0 repeating",
+    "n4_L34": "25 solutions, 5 repeating",
+    "n4_L35": "251 solutions, 82 repeating",
+    "reading": "no-repeat holds exactly at the minimum and breaks one character above it, so NR6 is not a free normalisation"
+   },
+   "not_free": "at L=871 up to 146 repeated windows are arithmetically allowed"
+  },
+  "outer_gaps": [
+   {
+    "id": 1,
+    "name": "NR6",
+    "status": "ASSUMED"
+   },
+   {
+    "id": 2,
+    "name": "F reduction",
+    "status": "OPEN",
+    "statement": "L <= 871 non-repeating walks have F = 1, or F in {0} u {2..20} is excluded separately"
+   },
+   {
+    "id": 3,
+    "name": "k reduction",
+    "status": "OPEN",
+    "statement": "L <= 871 non-repeating walks have O = 25, or k in {0,2,3,4} is excluded separately"
+   }
+  ],
+  "pass_obligation_scope": {
+   "general": "P = 120 + F, i.e. passes <-> hexagon ENTRIES",
+   "bijection_to_hexagons": "only when F = 0",
+   "Q2_form": "F = 1",
+   "first_valid_point": "immediately after the F reduction"
+  },
+  "obsolete_outer_machinery": [
+   "Target A",
+   "Target B",
+   "RR word / R1-R2 structure",
+   "bridge",
+   "hub theory",
+   "the 1,398 Target-A reclassification",
+   "Phi >= 0 as a Q2 prune"
+  ],
+  "what_the_Q2_certificate_gives": "no state of the 6,396-state archive admits a completion meeting F=1, O=25, P=121, D=4, Ndef+H<=3 in the full-550-tail model; in length terms, the k=1, F=1 slab contains no non-repeating walk completion of length <= 872",
+  "shortest_route": [
+   "establish NR6 in form B, or extend the walk model to repeated windows",
+   "the 55-cell slab table (done)",
+   "generalise the weighted/component argument to the 120+F entry graph and attack each cell",
+   "extend the archive (H1) per slab, or exclude cells arithmetically"
+  ],
+  "artifacts": [
+   "research/RR_OUTER_REDUCTION_110_CLAUDE.md",
+   "outputs/rr_outer_reduction_110.json"
+  ],
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "OUTER_GAPS": 3,
+   "UNCOVERED_SLAB_CELLS": 54
+  },
+  "not_claimed": [
+   "L6 = 872 proved",
+   "L6 >= 872 proved",
+   "NR6 proved"
+  ],
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

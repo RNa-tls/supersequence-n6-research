@@ -1,0 +1,309 @@
+{
+ "schema": "rr_outer_reduction/110/1",
+ "round": 110,
+ "type": "structural — no new closure, Q2 ledger unchanged",
+ "length_identity_verification": [
+  {
+   "L": 872,
+   "n": 6,
+   "perm_windows": 720,
+   "distinct": 720,
+   "non_repeating": true,
+   "S": 3,
+   "H": 0,
+   "J": 144,
+   "F": 25,
+   "P": 145,
+   "O": 29,
+   "D": 0,
+   "k": 5,
+   "N": -1,
+   "label": "verified_872_witness",
+   "identity_general_L_eq_n_plus_fact_minus_2_plus_hexes_plus_F_S_H": true,
+   "identity_P_eq_hexes_plus_F": true,
+   "KO_RECORD_O_le_S_plus_F": false,
+   "corrected_O_le_1_plus_S_plus_F": true,
+   "KO_RECORD_L_eq_867_plus_kNH": 871,
+   "corrected_L_eq_868_plus_kNH": 872
+  },
+  {
+   "L": 873,
+   "n": 6,
+   "perm_windows": 720,
+   "distinct": 720,
+   "non_repeating": true,
+   "S": 23,
+   "H": 6,
+   "J": 119,
+   "F": 0,
+   "P": 120,
+   "O": 24,
+   "D": 0,
+   "k": 0,
+   "N": -1,
+   "label": "greedy_873",
+   "identity_general_L_eq_n_plus_fact_minus_2_plus_hexes_plus_F_S_H": true,
+   "identity_P_eq_hexes_plus_F": true,
+   "KO_RECORD_O_le_S_plus_F": false,
+   "corrected_O_le_1_plus_S_plus_F": true,
+   "KO_RECORD_L_eq_867_plus_kNH": 872,
+   "corrected_L_eq_868_plus_kNH": 873
+  },
+  {
+   "L": 153,
+   "n": 5,
+   "perm_windows": 120,
+   "distinct": 120,
+   "non_repeating": true,
+   "S": 5,
+   "H": 1,
+   "J": 23,
+   "F": 0,
+   "P": 24,
+   "O": 6,
+   "D": 0,
+   "k": 0,
+   "N": -1,
+   "label": "greedy_n5",
+   "identity_general_L_eq_n_plus_fact_minus_2_plus_hexes_plus_F_S_H": true,
+   "identity_P_eq_hexes_plus_F": true
+  },
+  {
+   "L": 33,
+   "n": 4,
+   "perm_windows": 24,
+   "distinct": 24,
+   "non_repeating": true,
+   "S": 1,
+   "H": 0,
+   "J": 5,
+   "F": 0,
+   "P": 6,
+   "O": 2,
+   "D": 0,
+   "k": 0,
+   "N": -1,
+   "label": "greedy_n4",
+   "identity_general_L_eq_n_plus_fact_minus_2_plus_hexes_plus_F_S_H": true,
+   "identity_P_eq_hexes_plus_F": true
+  },
+  {
+   "L": 9,
+   "n": 3,
+   "perm_windows": 6,
+   "distinct": 6,
+   "non_repeating": true,
+   "S": 0,
+   "H": 0,
+   "J": 1,
+   "F": 0,
+   "P": 2,
+   "O": 1,
+   "D": 0,
+   "k": 0,
+   "N": -1,
+   "label": "greedy_n3",
+   "identity_general_L_eq_n_plus_fact_minus_2_plus_hexes_plus_F_S_H": true,
+   "identity_P_eq_hexes_plus_F": true
+  }
+ ],
+ "corrections": {
+  "KO_RECORD_theorem_A": {
+   "stated": "O <= S + F",
+   "refuted_on": [
+    "verified_872_witness",
+    "greedy_873"
+   ],
+   "corrected": "O <= 1 + S + F",
+   "holds_with_equality_on_both": true,
+   "reason": "the first pass start opens an orbit without consuming any joint"
+  },
+  "KO_RECORD_length_identity": {
+   "stated": "L = 843 + cost = 867 + (k+N+H)",
+   "refuted_on": [
+    "verified_872_witness (gives 871, actual 872)",
+    "greedy_873 (gives 872, actual 873)"
+   ],
+   "corrected": "L = 844 + F + S + H = 868 + (k + N + H)",
+   "general_n": "L = n + n! - 2 + n!/n + F + S + H",
+   "verified_on": 5,
+   "consequence_1": "the conditional goal is k+N+H >= 4, not >= 5",
+   "consequence_2": "the engine's final_target (F=1, O=25, Ndef+H<=3) means L <= 872, not <= 871"
+  },
+  "KO_RECORD_identities_that_survive": [
+   "P = 120 + F",
+   "D = 5k - F"
+  ]
+ },
+ "nr6_small_n_exhaustive": {
+  "note": "시작 순열을 고정한 전수 열거. NR6 를 증명하지 않는다 — 숨은 가정을 드러내는 실험이다.",
+  "n3_L9": {
+   "solutions": 1,
+   "windows": {
+    "6": 1
+   },
+   "smallest_repeating": null,
+   "repeating_solutions": 0
+  },
+  "n4_L33": {
+   "solutions": 1,
+   "windows": {
+    "24": 1
+   },
+   "smallest_repeating": null,
+   "repeating_solutions": 0
+  },
+  "n4_L34": {
+   "solutions": 25,
+   "windows": {
+    "25": 5,
+    "24": 20
+   },
+   "smallest_repeating": {
+    "string": "1234123142134214321423124312413241",
+    "length": 34,
+    "windows": 25
+   },
+   "repeating_solutions": 5
+  },
+  "n4_L35": {
+   "solutions": 251,
+   "windows": {
+    "24": 169,
+    "25": 59,
+    "26": 21,
+    "27": 2
+   },
+   "smallest_repeating": {
+    "string": "12341231243121342132413214321423142",
+    "length": 35,
+    "windows": 25
+   },
+   "repeating_solutions": 82
+  }
+ },
+ "corrected_slab_table": {
+  "condition": "L <= 871  <=>  F + S + H <= 27  <=>  k + N + H <= 3",
+  "derived_bounds": [
+   "k + H <= 4  (from O <= 1+S+F)",
+   "F <= 5k  (from D = 5k-F >= 0)"
+  ],
+  "rows": [
+   {
+    "k": 0,
+    "O": 24,
+    "F_range": [
+     0,
+     0
+    ],
+    "H_max": 4,
+    "N_plus_H_max": 3,
+    "cells": 1
+   },
+   {
+    "k": 1,
+    "O": 25,
+    "F_range": [
+     0,
+     5
+    ],
+    "H_max": 3,
+    "N_plus_H_max": 2,
+    "cells": 6
+   },
+   {
+    "k": 2,
+    "O": 26,
+    "F_range": [
+     0,
+     10
+    ],
+    "H_max": 2,
+    "N_plus_H_max": 1,
+    "cells": 11
+   },
+   {
+    "k": 3,
+    "O": 27,
+    "F_range": [
+     0,
+     15
+    ],
+    "H_max": 1,
+    "N_plus_H_max": 0,
+    "cells": 16
+   },
+   {
+    "k": 4,
+    "O": 28,
+    "F_range": [
+     0,
+     20
+    ],
+    "H_max": 0,
+    "N_plus_H_max": -1,
+    "cells": 21
+   }
+  ],
+  "total_cells": 55,
+  "covered_by_Q2": 1,
+  "uncovered_cells": 54,
+  "Q2_cell": {
+   "k": 1,
+   "F": 1,
+   "budget_used": "N+H <= 3 (needed <= 2, so covered with room)"
+  },
+  "where_the_872_witness_lives": {
+   "k": 5,
+   "F": 25,
+   "S": 3,
+   "H": 0,
+   "N": -1,
+   "k_plus_N_plus_H": 4
+  },
+  "KO_RECORD_original_table": {
+   "k_values": [
+    1,
+    2,
+    3
+   ],
+   "F_min": 1,
+   "missing": "k = 0 and F = 0 were absent"
+  }
+ },
+ "outer_gaps": [
+  {
+   "id": 1,
+   "name": "NR6",
+   "statement": "if a superpermutation of length <= 871 exists then one of length <= 871 exists whose permutation windows are pairwise distinct",
+   "status": "ASSUMED",
+   "form_needed": "B (length-non-increasing normalisation), not A"
+  },
+  {
+   "id": 2,
+   "name": "F reduction",
+   "statement": "every non-repeating walk with L <= 871 has F = 1, or the slabs F in {0} u {2..20} are excluded separately",
+   "status": "OPEN"
+  },
+  {
+   "id": 3,
+   "name": "k reduction",
+   "statement": "every non-repeating walk with L <= 871 has O = 25 (k = 1), or the slabs k in {0,2,3,4} are excluded separately",
+   "status": "OPEN"
+  }
+ ],
+ "what_the_Q2_certificate_already_gives": "No state of the Round-92/93c archive of 6,396 Q2/Area-A states admits a completion meeting F=1, O=25, P=121, D=4, Ndef+H<=3 in the full-550-tail model. In length terms: the k=1, F=1 slab contains no non-repeating walk completion of length <= 872. Conditional on (H1)-(H4); only partially audited; does NOT imply L6 >= 872.",
+ "pass_obligation_scope": {
+  "general_truth": "P = 120 + F, i.e. passes <-> hexagon ENTRIES",
+  "bijection_passes_to_hexagons": "holds only when F = 0",
+  "Q2_form": "F = 1: 120 empty hexagons + 1 fragment repair = 121 passes",
+  "first_valid_point_in_the_outer_chain": "immediately after arrow (E), once F = 1 is established"
+ },
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "OUTER_GAPS": 3,
+  "UNCOVERED_SLAB_CELLS": 54
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}

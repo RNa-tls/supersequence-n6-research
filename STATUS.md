@@ -9,6 +9,31 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 110 (outer reduction) — read this first.**
+> Returning to the outer obligation turned up an error in the project's own foundation. The
+> KO-RECORD's boxed length identity `L = 843 + cost = 867 + (k+N+H)` is **false on both real
+> superpermutations this repository holds**: it gives 871 for the verified 872 witness and 872
+> for the greedy 873. The corrected identity is **`L = 844 + F + S + H = 868 + (k+N+H)`**
+> (general `n`: `L = n + n! - 2 + n!/n + F + S + H`), verified on five strings. The same
+> off-by-one makes Theorem A `O <= S + F` false; the corrected `O <= 1 + S + F` holds with
+> equality on both. The cause is that the first pass start opens an orbit without consuming a
+> joint. `P = 120 + F` and `D = 5k - F` are correct as stated.
+>
+> Consequences: the conditional goal is `k+N+H >= 4`, not `>= 5`, and the engine's
+> `final_target` corresponds to **`L <= 872`**, not `<= 871` — so the Q2 exclusion covers one
+> unit more than needed, which does not weaken it. The corrected slab table for `L <= 871` is
+> `k + H <= 4` and `F <= 5k`, giving **55 `(k,F)` cells**; Q2 covers exactly one of them,
+> `(k,F) = (1,1)`. **54 cells are untouched**, and the original table omitted `k = 0` and
+> `F = 0` entirely. The real 872 witness sits at `k=5, F=25`, one cell above the target band.
+>
+> What remains between a hypothetical `<= 871` superpermutation and the excluded Q2 population
+> is therefore **not one theorem but three independent ones**: NR6 in its length-non-increasing
+> form (currently an explicit assumption, not a proved normalisation), the `F` reduction, and
+> the `k` reduction. An exhaustive small-`n` probe shows "no repeated window" holds exactly at
+> the minimum length and breaks one character above it, so NR6 is not a free normalisation.
+> The audited ledger stays **4,782** and the full-joint Q2 result stays 6,396/6,396.
+> This project has not proved `L₆ ≥ 872`.
+>
 > **Round 109 (narrow completion) — read this first.**
 > The 166 states Round 108 left open purely on the node cap are now all closed. They were
 > frozen and hashed first (sha256 `d5d93ab8…`; verified inside the 6,396 population, inside

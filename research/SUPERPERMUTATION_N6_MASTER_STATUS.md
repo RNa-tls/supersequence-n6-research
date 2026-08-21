@@ -189,6 +189,27 @@ Sources: `legacy_research/work/superperm_partial_f1.py` (engine),
 | `k` | `k = O - 24` (n=6 coordinate) | KO-RECORD §5 |
 | **`L = 867 + (k + N + H)`** | the project's length coordinate; 867 is the Houston lower bound | KO-RECORD §5 boxed identity; restated `STATUS.md` line ~69 |
 
+> ### ⚠ 정정 상자 — 이 항등식은 **한 칸 틀렸다** (라운드 110)
+>
+> 저장소가 보유한 **실제 초순열 두 개**에서 직접 계산하면 위 항등식은 성립하지 않는다.
+>
+> | | 실제 `L` | `k` | `N` | `H` | `867+(k+N+H)` | `868+(k+N+H)` |
+> |---|---|---|---|---|---|---|
+> | `data/verified_872_witness.txt` | **872** | 5 | −1 | 0 | 871 ✗ | **872 ✓** |
+> | 이 저장소의 greedy n=6 | **873** | 0 | −1 | 6 | 872 ✗ | **873 ✓** |
+>
+> **정정: `L = 844 + F + S + H = 868 + (k + N + H)`** (일반 `n`: `L = n + n! − 2 + n!/n + F + S + H`,
+> n=3,4,5,6 에서 확인). 같은 뿌리의 두 번째 오차로 KO-RECORD 의 정리 A `O ≤ S + F` 도
+> 두 예에서 거짓이며 정정형 **`O ≤ 1 + S + F`** 가 등호로 성립한다. 원인은 **첫 pass 시작이
+> 어떤 joint 도 소비하지 않고 궤도를 하나 연다**는 것이다. KO-RECORD 의 `P = 120 + F` 와
+> `D = 5k − F` 는 **정확하다**.
+>
+> 귀결: 조건부 목표는 `k+N+H ≥ 5` 가 아니라 **`k+N+H ≥ 4`** 이고, 엔진의 `final_target`
+> (`F=1`, `O=25`, `Ndef+H ≤ 3`)은 **`L ≤ 872`** 를 뜻한다 (`≤ 871` 이 아니다).
+> 전체 유도·검증·정정된 슬랩 표는 `research/RR_OUTER_REDUCTION_110_CLAUDE.md` §10.
+> **원문은 기록으로 남긴다 (침묵 삭제 금지).**
+
+
 Definitions:
 
 - **E orbit** — orbit of a permutation word under right-multiplication by
