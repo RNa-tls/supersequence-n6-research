@@ -9,6 +9,31 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 113 (hub defect) — read this first.**
+> A real sub-case falls. At `(k,F) = (0,0)` with `S = 23` — equivalently 96 free arcs,
+> equivalently each of the 24 orbits traversed as one contiguous `τ`-run — **`H ≥ 5`, hence
+> cost ≥ 28, hence `L ≥ 872`**. No length-≤871 counterexample can live there.
+>
+> The mechanism is a complete classification of the weight-≤3 moves (all verified 720/720):
+> `W2 = τ` is free and stays in the E-orbit; `W3a` stays in the orbit at phase +2 and from a
+> block end returns to an already-visited entry; **`W3b` is never usable**, because its target
+> orbit always shares a hexagon with the source orbit while the cover's 24 orbits must be
+> pairwise hexagon-disjoint; so **`W3c` is the only light connector**. Light connectors then
+> follow the deterministic map `D(u) = W3c(τ⁴u)`, and a `D`-chain holds **exactly four**
+> pairwise-disjoint orbits (720/720). Six chains are therefore needed for 24 blocks, forcing
+> ≥ 5 heavy connectors, each of weight ≥ 4 and hub tax ≥ 1.
+>
+> **The bound is attained.** This repository's greedy 873 walk is exactly of this form: 24
+> blocks, six light chains of lengths `[4,4,4,4,4,4]`, exactly five heavy connectors
+> (`W3c`×18 + `w=4`×4 + `w=5`×1, hub tax 6).
+>
+> What remains at `(0,0)` is `r ∈ [25,28]` (`r` = orbit-run count); `r = 24` is the theorem and
+> `r ≥ 29` is trivial. For `r ≥ 25` a run's exit is no longer forced to `τ⁴`, the chain map
+> stops being deterministic, and the natural over-approximation collapses (chains of length
+> ≥ 24) — a finer `(orbit, entry phase, exit phase)` state is needed. No cell is fully closed;
+> the ledgers stay **4,782** and 6,396/6,396. This project has not proved `L₆ ≥ 872`, and NR6
+> remains a separate assumption.
+>
 > **Round 112 (sharpened free-component bound) — read this first.**
 > Exploiting the shortfall budget sharpened the bound threefold: the per-hexagon identity
 > `Σ(5−ℓ) = 6(e_h−1)` forces every pass of a multiply-entered hexagon to be short, so the

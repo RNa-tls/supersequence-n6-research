@@ -1,0 +1,108 @@
+{
+ "schema": "rr_hub_defect/113/1",
+ "round": 113,
+ "type": "hub-defect / heavy-joint round — theory + light census, ledgers unchanged",
+ "s1_H_definition": {
+  "hub_tax": "max(w - 3, 0) per joint of weight w",
+  "H": "sum of hub tax over all joints",
+  "monotone": "non-decreasing: every term is >= 0",
+  "which_joints": "only joints (weight >= 2); rotations have weight 1 and contribute 0"
+ },
+ "s2_F0_structure": {
+  "lemma": "F = 0 forces every pass to be full (ell = 5), hence 120 entries one per hexagon, the free map is tau, and at k = 0 the 24 open orbits are saturated so G0 = 24 disjoint directed 5-cycles with c(G0) = 24 exactly",
+  "remaining_freedom": [
+   "which 24 orbits (an exact cover of the 120 hexagons)",
+   "the order of the blocks",
+   "the entry phase of each block",
+   "the connector used between consecutive blocks"
+  ]
+ },
+ "light_move_classification": {
+  "W2": "cost 0, same orbit, phase +1 (= tau)",
+  "W3a": "cost 1, same orbit, phase +2",
+  "W3b": "cost 1, changes orbit — but NEVER USABLE at (0,0)",
+  "W3c": "cost 1, changes orbit — the unique light connector",
+  "W3b_unusable_evidence": "720/720 words have orb(W3b) sharing a hexagon with orb(u); both would be distinct cover orbits, a contradiction",
+  "W3c_always_disjoint": "720/720",
+  "W3a_returns_to_visited_entry": "720/720 have W3a(tau^4 u) = tau(u)"
+ },
+ "s3_s4_block_chain_theorem": {
+  "scope": "(k,F) = (0,0) AND r = 24 (equivalently S = 23, equivalently 96 free arcs)",
+  "chain_map": "D(u) = W3c(tau^4 u) — deterministic, because the only light connector is W3c and the block exit is forced to tau^4(u)",
+  "max_distinct_orbits_per_chain": 4,
+  "chain_length_distribution": {
+   "4": 720
+  },
+  "conclusion": [
+   "chains t >= ceil(24/4) = 6",
+   "heavy connectors >= t - 1 = 5",
+   "each heavy connector has weight >= 4, hub tax >= 1, so H >= 5",
+   "cost = S + H = 23 + H >= 28",
+   "L = 844 + 0 + cost >= 872"
+  ],
+  "status": "PROVED for this sub-case (exhaustive over all 720 starting words)"
+ },
+ "s11_positive_control_greedy873": {
+  "k": 0,
+  "F": 0,
+  "S": 23,
+  "H": 6,
+  "L": 873,
+  "blocks": 24,
+  "block_lengths": [
+   5
+  ],
+  "light_chains": 6,
+  "chain_lengths": [
+   4,
+   4,
+   4,
+   4,
+   4,
+   4
+  ],
+  "heavy_connectors": 5,
+  "connector_classification": {
+   "W3c": 18,
+   "heavy(w=4)": 4,
+   "heavy(w=5)": 1
+  },
+  "bound_attained": true,
+  "note": "the bound H >= 5 is ATTAINED: exactly 6 chains of exactly 4 blocks and exactly 5 heavy connectors; the walk's H = 6 because one heavy joint has weight 5"
+ },
+ "remaining_gap_at_00": {
+  "settled": [
+   "r = 24 (S = 23): cost >= 28, L >= 872",
+   "r >= 29: cost >= r - 1 >= 28 trivially"
+  ],
+  "open": "r in [25, 28]",
+  "why": "for r >= 25 some orbit is split into several runs, so a run's exit entry is no longer forced to tau^4(entry); the light-chain map stops being deterministic and the branching factor rises to 5",
+  "over_approximation_fails": {
+   "model": "allow the run to exit at any phase of its orbit",
+   "max_chain": ">= 24 (search node cap reached)",
+   "verdict": "useless — erasing the phase correlation destroys the bound, exactly the failure mode anticipated in the round brief; a finer state such as (orbit, entry phase, exit phase) is required"
+  }
+ },
+ "s15_falsification": {
+  "A_abstract_functional_digraphs": "not attempted this round",
+  "B_orbit_phase_geometry": "the over-approximated model admits chains of length >= 24, so it is not a valid witness class — it over-allows",
+  "C_genuine_NR6_walks": "none found; greedy 873 satisfies the proved bound with equality"
+ },
+ "cells": {
+  "total": 55,
+  "closed_this_round": 0,
+  "partially_closed": {
+   "cell": [
+    0,
+    0
+   ],
+   "sub_case": "r = 24 (S = 23)",
+   "result": "L >= 872"
+  }
+ },
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396
+ },
+ "disclaimer": "This project has not proved L6 >= 872. NR6 remains a separate assumption."
+}
