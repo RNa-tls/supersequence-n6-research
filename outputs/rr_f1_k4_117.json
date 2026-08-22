@@ -7,13 +7,13 @@
  "costcap": 26,
  "orbcap": 28,
  "node_cap": 200000000000,
- "runs": 6,
+ "runs": 7,
  "verdicts": {
-  "UNSAT_COMPLETE": 6
+  "UNSAT_COMPLETE": 7
  },
  "all_unsat_complete": true,
- "total_nodes": 87017389640,
- "total_seconds": 2580,
+ "total_nodes": 133543724734,
+ "total_seconds": 3834,
  "max_passes_reached": 109,
  "rows": [
   {
@@ -130,6 +130,27 @@
    "splits": [
     1,
     5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 28,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 109,
+   "nodes": 46526335094,
+   "subcase": "B1_e1_x0_fout2",
+   "seconds": 1254.6,
+   "splits": [
+    2,
+    4
    ]
   }
  ]
