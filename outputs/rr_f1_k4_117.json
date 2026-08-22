@@ -7,13 +7,13 @@
  "costcap": 26,
  "orbcap": 28,
  "node_cap": 200000000000,
- "runs": 2,
+ "runs": 5,
  "verdicts": {
-  "UNSAT_COMPLETE": 2
+  "UNSAT_COMPLETE": 5
  },
  "all_unsat_complete": true,
- "total_nodes": 18427096319,
- "total_seconds": 618,
+ "total_nodes": 41668686294,
+ "total_seconds": 1385,
  "max_passes_reached": 107,
  "rows": [
   {
@@ -52,6 +52,63 @@
    "splits": [
     2,
     4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 28,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "rmax": 28,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 10832656686,
+   "subcase": "A_e0_x0_fout1",
+   "seconds": 364.8,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 28,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "rmax": 28,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 6199567713,
+   "subcase": "A_e0_x0_fout1",
+   "seconds": 201.4,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 28,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "rmax": 28,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 107,
+   "nodes": 6209365576,
+   "subcase": "A_e0_x0_fout1",
+   "seconds": 201.0,
+   "splits": [
+    5,
+    1
    ]
   }
  ]
