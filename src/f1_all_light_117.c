@@ -161,7 +161,11 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
     int isshort = (len < 6);
     int avail = (2 - sstate) + (isshort ? 1 : 0);
     if (fout + avail < FOUTMIN) return;
-    int forcefree = (isshort && fout + avail == FOUTMIN);
+    /* In B1 the block between X and Y is forced: X exits free to tau(entry_Y) and the four
+       following full passes each move by W2 = tau, ending at Y.  So every move from X up to
+       the pass just before Y is the free move. */
+    int forcefree = (isshort && fout + avail == FOUTMIN)
+                    || (YGAP && sstate == 1 && passes - pX <= YGAP - 1);
     int exitw = SIG[len - 1][u];
     int curorb = orbid[u];
     int succ[4] = {M2[exitw], M3a[exitw], M3b[exitw], M3c[exitw]};
