@@ -112,7 +112,7 @@ static void build(void) {
 }
 
 /* ------------------------------------------------------------------ search */
-static int BSPLIT, COSTCAP, ORBCAP, SHRUNCAP, RMAX, XCAP, FOUTCAP, ECAP;
+static int BSPLIT, COSTCAP, ORBCAP, SHRUNCAP, RMAX, XCAP, FOUTCAP, ECAP, FOUTMIN, YGAP;
 static long long NODECAP, nodes;
 static int capped, found, bestPasses;
 static unsigned char omask[NO];
@@ -121,7 +121,7 @@ static int witness[TARGET + 2], wlen_[TARGET + 2];
 
 static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
                 int shrun, int runlen, int sstate, int vword, int fout,
-                int xj, int rev, int segpasses, int segsh) {
+                int xj, int rev, int segpasses, int segsh, int pX) {
     if (found) return;
     if (++nodes > NODECAP) { capped = 1; return; }
     if (passes > bestPasses) bestPasses = passes;
@@ -151,11 +151,22 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
         int bound = (passes - segpasses) + NTAB[idx] + BESTSEG[segs][sleft];
         if (bound < TARGET) return;
     }
+    /* f_out must reach FOUTMIN and only a SHORT pass can supply a free inter-run exit.
+       avail = free exits still obtainable, counting this pass if it is short (its exit has
+       not been chosen yet). */
+    /* Round 117 section 5.2: when f_out = 2, e = 1 and x = 0, the FIRST h* pass X must be
+       in case (ii) (case (i) would place Y before X) and the SECOND, Y, must be in case (i),
+       so Y sits exactly 5 passes after X.  YGAP = 5 switches that on. */
+    if (YGAP && sstate == 1 && passes - pX > YGAP - 1) return;
+    int isshort = (len < 6);
+    int avail = (2 - sstate) + (isshort ? 1 : 0);
+    if (fout + avail < FOUTMIN) return;
+    int forcefree = (isshort && fout + avail == FOUTMIN);
     int exitw = SIG[len - 1][u];
     int curorb = orbid[u];
     int succ[4] = {M2[exitw], M3a[exitw], M3b[exitw], M3c[exitw]};
     int scost[4] = {0, 1, 1, 1};
-    for (int si = 0; si < 4 && !found; si++) {
+    for (int si = 0; si < (forcefree ? 1 : 4) && !found; si++) {
         int w = succ[si];
         int c = scost[si];
         if (cost + c > COSTCAP) continue;
@@ -193,7 +204,7 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
             HLO |= hlo[w]; HHI |= hhi[w];
             witness[passes] = w; wlen_[passes] = 6;
             dfs(w, 6, passes + 1, cost + c, orbits + (fresh ? 1 : 0),
-                nruns, nsh, nrunlen, sstate, vword, nfout, nxj, nrev + rv, nsegp, nsegs);
+                nruns, nsh, nrunlen, sstate, vword, nfout, nxj, nrev + rv, nsegp, nsegs, pX);
             HLO &= ~hlo[w]; HHI &= ~hhi[w];
             omask[nq] &= ~(1 << phse[w]);
         }
@@ -204,17 +215,18 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
             HLO |= hlo[w]; HHI |= hhi[w];
             witness[passes] = w; wlen_[passes] = BSPLIT;
             dfs(w, BSPLIT, passes + 1, cost + c, orbits + (fresh ? 1 : 0),
-                nruns, nsh, nrunlen, 1, w, nfout, nxj, nrev + rv, 0, 0);
+                nruns, nsh, nrunlen, 1, w, nfout, nxj, nrev + rv, 0, 0, passes + 1);
             HLO &= ~hlo[w]; HHI &= ~hhi[w];
             omask[nq] &= ~(1 << phse[w]);
         }
         if (found) return;
         /* --- case 3: the SECOND h* visit (forced word, length 6-BSPLIT) --- */
-        if (hexused && sstate == 1 && w == SIG[BSPLIT][vword]) {
+        if (hexused && sstate == 1 && w == SIG[BSPLIT][vword]
+            && (!YGAP || passes + 1 == pX + YGAP)) {
             omask[nq] |= 1 << phse[w];
             witness[passes] = w; wlen_[passes] = 6 - BSPLIT;
             dfs(w, 6 - BSPLIT, passes + 1, cost + c, orbits + (fresh ? 1 : 0),
-                nruns, nsh, nrunlen, 2, vword, nfout, nxj, nrev + rv, 0, 0);
+                nruns, nsh, nrunlen, 2, vword, nfout, nxj, nrev + rv, 0, 0, pX);
             omask[nq] &= ~(1 << phse[w]);
         }
     }
@@ -228,7 +240,9 @@ int main(int argc, char **argv) {
     build();
     BSPLIT = atoi(argv[1]); COSTCAP = atoi(argv[2]); ORBCAP = atoi(argv[3]);
     XCAP = atoi(argv[4]); FOUTCAP = atoi(argv[5]); ECAP = atoi(argv[6]);
-    NODECAP = (argc > 7) ? atoll(argv[7]) : 200000000000LL;
+    FOUTMIN = (argc > 7) ? atoi(argv[7]) : 0;
+    YGAP = (argc > 8) ? atoi(argv[8]) : 0;
+    NODECAP = (argc > 9) ? atoll(argv[9]) : 200000000000LL;
     RMAX = COSTCAP + 1 + FOUTCAP;
     SHRUNCAP = 5 * RMAX - TARGET;
     if (SHRUNCAP < 0) SHRUNCAP = 0;
@@ -255,14 +269,14 @@ int main(int argc, char **argv) {
         HLO = hlo[start]; HHI = hhi[start];
         witness[0] = start; wlen_[0] = len;
         dfs(start, len, 1, 0, 1, 1, 0, 1, firstIsShort ? 1 : 0, start, 0, 0, 0,
-            firstIsShort ? 0 : 1, 0);
+            firstIsShort ? 0 : 1, 0, firstIsShort ? 1 : 0);
         HLO = HHI = 0;
         omask[orbid[start]] = 0;
     }
     printf("{\"b\": %d, \"costcap\": %d, \"orbcap\": %d, \"xcap\": %d, \"foutcap\": %d,"
-           " \"ecap\": %d, \"rmax\": %d, \"shruncap\": %d,"
+           " \"ecap\": %d, \"foutmin\": %d, \"ygap\": %d, \"rmax\": %d, \"shruncap\": %d,"
            " \"verdict\": \"%s\", \"best_passes\": %d, \"nodes\": %lld}\n",
-           BSPLIT, COSTCAP, ORBCAP, XCAP, FOUTCAP, ECAP, RMAX, SHRUNCAP,
+           BSPLIT, COSTCAP, ORBCAP, XCAP, FOUTCAP, ECAP, FOUTMIN, YGAP, RMAX, SHRUNCAP,
            found ? "SAT" : (capped ? "UNKNOWN_CAP" : "UNSAT_COMPLETE"),
            bestPasses, nodes);
     if (found) {

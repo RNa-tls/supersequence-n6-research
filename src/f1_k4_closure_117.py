@@ -26,8 +26,11 @@ SRC = ROOT / "src" / "f1_all_light_117.c"
 JSONL = OUT / "rr_f1_k4_117.jsonl"
 NODECAP = 200_000_000_000
 
-SUBCASES = [("A_e0_x0_fout1", 0, 1, 0),
-            ("B1_e1_x0_fout2", 0, 2, 1)]
+# (label, xcap, foutcap, ecap, foutmin, ygap)
+#   f_out is fixed exactly by the budget; in B1 the second h* pass is forced to sit
+#   exactly 5 passes after the first (Round 117 section 5.2), so ygap = 5 there.
+SUBCASES = [("A_e0_x0_fout1", 0, 1, 0, 1, 0),
+            ("B1_e1_x0_fout2", 0, 2, 1, 2, 5)]
 COSTCAP, ORBCAP = 26, 28
 
 
@@ -64,14 +67,15 @@ def main():
     build()
     have = done_keys()
     fh = open(JSONL, "a", buffering=1, encoding="utf-8")
-    for label, xcap, foutcap, ecap in SUBCASES:
+    for label, xcap, foutcap, ecap, foutmin, ygap in SUBCASES:
         for b in range(1, 6):
             if (label, b) in have:
                 print(f"  skip {label} b={b} (already recorded)", flush=True)
                 continue
             t0 = time.time()
             r = subprocess.run([str(BIN), str(b), str(COSTCAP), str(ORBCAP),
-                                str(xcap), str(foutcap), str(ecap), str(NODECAP)],
+                                str(xcap), str(foutcap), str(ecap), str(foutmin),
+                                str(ygap), str(NODECAP)],
                                capture_output=True, text=True, check=True)
             lines = [x for x in r.stdout.splitlines() if x.strip()]
             d = json.loads(lines[0])
