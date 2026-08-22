@@ -9,6 +9,34 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 117 (F=1 cell closure) — read this first.**
+> **The cell `(k,F) = (4,1)` is closed** — the first of the four `F = 1` cells. Under NR6 no
+> length-≤871 superpermutation has `F = 1` and `O = 28`. With the `F = 0` column that makes
+> **6 of the 55 outer cells closed, 49 remaining**; `(3,1)`, `(2,1)`, `(1,1)` are untouched.
+>
+> **Lemma E (new).** At `F = 1`, `f_out ≤ 1 + e`. Writing the two `h*` passes in walk order as
+> `X` (entry `v`, length `b`) and `Y` (entry `σ^b v`, length `6−b`), their free successors cross
+> exactly: `X → τ(entry_Y)` and `Y → τ(entry_X)` (3600/3600). If both exit freely, each free
+> successor opens a run of the *other's* orbit, and if both stay in the same run as their short
+> pass the walk closes a cycle `X → orb(Y) run → Y → orb(X) run → X` — impossible in a path. So
+> `f_out = 2` forces `e ≥ 1`. The proof uses `h*`'s unique complementary pair, and the n=4
+> exhaustive data confirms the scope exactly: **0 violations at `F = 1`, 450 at `F ≥ 2`.**
+>
+> **Corollary.** At `F = 1`, `O ≤ 1 + S + F` is *equivalent* to `f_out ≤ 1 + e + x`, so Lemma E
+> **proves Round 110's Theorem A for `F = 1`** — it had only been verified empirically. The whole
+> column's `H` bounds (`k = 1,2,3,4 → H ≤ 3,2,1,0`) are now proved rather than assumed.
+>
+> Lemma E pins the `(4,1)` budget to **exactly two sub-cases**, both with `S = 26`, `H = 0` and
+> therefore `t = 1`: a counterexample would have to be one single all-light chain of 121 passes.
+> Sub-case B1 reduces further — `X` must be in case (ii) and `Y` in case (i), so the two short
+> passes sit **exactly 5 passes apart** with the block between them forced. An exact search over
+> both sub-cases and all five splits returns **10/10 `UNSAT_COMPLETE`, 269,082,235,020 nodes,
+> zero cap hits**, reaching 109 of the required 121 passes. False rejection 0.
+>
+> Q2's zero result is **not** counted as closure of generic `(1,1)`. The ledgers stay **4,782**
+> and 6,396/6,396. This project has not proved `L₆ ≥ 872`; NR6 and 49 cells remain open, and
+> this round has no independent audit.
+>
 > **Round 116 (F=1 structure) — read this first.**
 > A structure round: **no cell is closed.** It fixes the generic `F = 1` column from the
 > definitions alone, importing nothing from the Q2 archive.

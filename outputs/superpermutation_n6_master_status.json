@@ -6675,5 +6675,248 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_117": "Round 117 closes the outer cell (k,F) = (4,1) under NR6 — the first cell of the F = 1 column — using the new Lemma E (f_out <= 1 + e at F = 1). It changes NEITHER ledger: INDEPENDENTLY AUDITED Q2 residual stays 4,782 and CLAUDE FULL-JOINT Q2 stays 6,396/6,396. 6 of the 55 outer cells are now closed, 49 remain; (2,0) and (3,0) among the closed ones are CLAUDE-REPRODUCED but NOT INDEPENDENTLY CONFIRMED, and this round has no independent audit at all. Q2's zero result is not counted as closure of generic (1,1). This project has not proved L6 >= 872.",
+ "round_117_f1_k4": {
+  "schema": "rr_f1_k4/117/1",
+  "round": 117,
+  "type": "F=1 cell-closure round — (4,1) closed; ledgers unchanged",
+  "headline": "Lemma E (new): at F = 1, f_out <= 1 + e. It pins the (4,1) budget to exactly two sub-cases, both with S = 26, H = 0, t = 1, and an exact all-light search closes both: 10 runs, all UNSAT_COMPLETE, 269,082,235,020 nodes, zero cap hits. So under NR6 no length-<=871 superpermutation has F = 1 and O = 28.",
+  "label": "ROUND-117 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "lemma_E": {
+   "statement": "at F = 1, f_out <= 1 + e",
+   "pairing_identity": "the two h* passes X (entry v, length b) and Y (entry sigma^b v, length 6-b) have free successors tau(entry_Y) and tau(entry_X) respectively — they cross into each other's orbit; verified 3600/3600",
+   "proof": "if both exit freely, each free successor starts a run of the other's orbit; if both fall in case (i) the walk closes a cycle X -> orb(Y) run -> Y -> orb(X) run -> X, which a path cannot contain, so one orbit needs a second run",
+   "scope": "F = 1 only — n=4 exhaustive shows 0 violations at F=1 and 450 at F>=2",
+   "corollary": "at F = 1, O <= 1 + S + F is EQUIVALENT to f_out <= 1 + e + x, so Lemma E proves Round 110's Theorem A for F = 1; it had been verified empirically only",
+   "n4_check": {
+    "n4_walks": 2598,
+    "n4_F1": 971,
+    "lemma_E_violations_F1": 0,
+    "lemma_E_violations_all_F": 450,
+    "lemma_E_violations_by_F": {
+     "2": 238,
+     "3": 194,
+     "4": 18
+    },
+    "f_out_2_with_e_0_at_F1": 0,
+    "O_le_1_plus_S_plus_F_violations": 0
+   }
+  },
+  "s1_k4_budget": {
+   "derivation": "S = 27 + e + x - f_out with f_out <= 1 + e gives S >= 26 + x; S + H <= 26 then forces S = 26, H = 0, x = 0, f_out = 1 + e, and f_out <= 2 gives e <= 1",
+   "subcases": [
+    {
+     "e": 0,
+     "x": 0,
+     "f_out": 1,
+     "S": 26,
+     "H": 0,
+     "r": 28,
+     "t": 1
+    },
+    {
+     "e": 1,
+     "x": 0,
+     "f_out": 2,
+     "S": 26,
+     "H": 0,
+     "r": 29,
+     "t": 1
+    }
+   ],
+   "H_is_zero_so_t_is_one": true
+  },
+  "s12_column_budgets": {
+   "1": 3,
+   "2": 2,
+   "3": 1,
+   "4": 0
+  },
+  "s5_B1_structural_reduction": "e = 1, x = 0, f_out = 2, r = 29, S = 26, H = 0, t = 1; the first h* pass X is forced into case (ii) and the second, Y, into case (i), so Y sits exactly 5 passes after X and the block between them is a forced tau-block of orb(Y)",
+  "s9_search": {
+   "runs": 10,
+   "verdicts": {
+    "UNSAT_COMPLETE": 10
+   },
+   "all_unsat_complete": true,
+   "total_nodes": 269082235020,
+   "total_seconds": 7476,
+   "max_passes_reached": 109,
+   "node_cap": 200000000000
+  },
+  "s9_rows": [
+   {
+    "subcase": "A_e0_x0_fout1",
+    "b": 1,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 107,
+    "nodes": 8547631729,
+    "seconds": 284.6
+   },
+   {
+    "subcase": "A_e0_x0_fout1",
+    "b": 2,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 106,
+    "nodes": 9879464590,
+    "seconds": 333.4
+   },
+   {
+    "subcase": "A_e0_x0_fout1",
+    "b": 3,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 106,
+    "nodes": 10832656686,
+    "seconds": 364.8
+   },
+   {
+    "subcase": "A_e0_x0_fout1",
+    "b": 4,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 106,
+    "nodes": 6199567713,
+    "seconds": 201.4
+   },
+   {
+    "subcase": "A_e0_x0_fout1",
+    "b": 5,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 107,
+    "nodes": 6209365576,
+    "seconds": 201.0
+   },
+   {
+    "subcase": "B1_e1_x0_fout2",
+    "b": 1,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 109,
+    "nodes": 45348703346,
+    "seconds": 1194.5
+   },
+   {
+    "subcase": "B1_e1_x0_fout2",
+    "b": 2,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 109,
+    "nodes": 46526335094,
+    "seconds": 1254.6
+   },
+   {
+    "subcase": "B1_e1_x0_fout2",
+    "b": 3,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 109,
+    "nodes": 46748172136,
+    "seconds": 1255.6
+   },
+   {
+    "subcase": "B1_e1_x0_fout2",
+    "b": 4,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 109,
+    "nodes": 47134580567,
+    "seconds": 1272.5
+   },
+   {
+    "subcase": "B1_e1_x0_fout2",
+    "b": 5,
+    "verdict": "UNSAT_COMPLETE",
+    "best_passes": 109,
+    "nodes": 41655757583,
+    "seconds": 1113.6
+   }
+  ],
+  "s10_positive_controls": {
+   "move_tables_independently_recomputed": {
+    "move_targets_are_permutations": true,
+    "W2_at_ell5_is_tau": true,
+    "short_pass_exits_always_leave_the_orbit": true,
+    "no_light_move_returns_to_the_source_hexagon": true
+   },
+   "fragments_accepted": true,
+   "splits_covered": [
+    [
+     1,
+     5
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "false_rejection": 0,
+   "no_n6_F1_walk_exists_in_the_repository": "the verified 872 witness has F = 25, so no n=6 F=1 positive control could be built; none was fabricated from the theorem under test"
+  },
+  "s14_relation_to_Q2": "the historical Q2 cell is (1,1) and carries Area-A/boundary conditions; Q2's zero result is NOT counted as closure of generic (1,1). This round did not touch (1,1).",
+  "cells": {
+   "total": 55,
+   "closed": 6,
+   "closed_cells": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     4,
+     1
+    ]
+   ],
+   "new_this_round": [
+    [
+     4,
+     1
+    ]
+   ],
+   "remaining": 49,
+   "F1_open": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "caveat": "(2,0) and (3,0) are CLAUDE-REPRODUCED, NOT INDEPENDENTLY CONFIRMED"
+  },
+  "not_done": [
+   "F >= 2 untouched",
+   "F = 0 not revisited",
+   "NR6 still assumed",
+   "(3,1), (2,1), (1,1) open",
+   "no independent audit of this round"
+  ],
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

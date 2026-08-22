@@ -7,13 +7,13 @@
  "costcap": 26,
  "orbcap": 28,
  "node_cap": 200000000000,
- "runs": 9,
+ "runs": 10,
  "verdicts": {
-  "UNSAT_COMPLETE": 9
+  "UNSAT_COMPLETE": 10
  },
  "all_unsat_complete": true,
- "total_nodes": 227426477437,
- "total_seconds": 6362,
+ "total_nodes": 269082235020,
+ "total_seconds": 7476,
  "max_passes_reached": 109,
  "rows": [
   {
@@ -194,6 +194,40 @@
     4,
     2
    ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 28,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 109,
+   "nodes": 41655757583,
+   "subcase": "B1_e1_x0_fout2",
+   "seconds": 1113.6,
+   "splits": [
+    5,
+    1
+   ]
   }
- ]
+ ],
+ "provenance_note": "The five sub-case A rows were produced by the searcher before the foutmin/ygap options were added, so they carry no 'foutmin'/'ygap' field. They were run with foutcap = 1, which is a SUPERSET of the budget's requirement f_out = 1 (it also covers f_out = 0), so UNSAT on that superset implies UNSAT on the required subcase. Re-running A b=1 with the final binary (foutmin = 1) reproduces UNSAT_COMPLETE with 8,538,340,341 nodes.",
+ "subcase_definitions": {
+  "A_e0_x0_fout1": "e = 0, x = 0, f_out = 1, r = 28, S = 26, H = 0, t = 1",
+  "B1_e1_x0_fout2": "e = 1, x = 0, f_out = 2, r = 29, S = 26, H = 0, t = 1; the first h* pass X is forced into case (ii) and the second, Y, into case (i), so Y sits exactly 5 passes after X and the block between them is a forced tau-block of orb(Y)"
+ },
+ "cell_closed": true,
+ "label": "ROUND-117 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_this_round": true
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
 }
