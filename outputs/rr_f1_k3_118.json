@@ -1,0 +1,376 @@
+{
+ "round": 118,
+ "cell": [
+  3,
+  1
+ ],
+ "node_cap": 50000000000,
+ "runs": 10,
+ "verdicts": {
+  "UNSAT_COMPLETE": 10
+ },
+ "by_group": {
+  "G1_e0_H0": {
+   "runs": 5,
+   "closed": true,
+   "verdicts": [
+    "UNSAT_COMPLETE"
+   ],
+   "nodes": 3851718529,
+   "seconds": 197
+  },
+  "G3_e1_x0_f2_H0": {
+   "runs": 5,
+   "closed": true,
+   "verdicts": [
+    "UNSAT_COMPLETE"
+   ],
+   "nodes": 4874352079,
+   "seconds": 229
+  },
+  "G6_H1_e0": {
+   "runs": 0,
+   "closed": false,
+   "verdicts": [],
+   "nodes": 0,
+   "seconds": 0
+  },
+  "G2_e1_x0_f1_H0": {
+   "runs": 0,
+   "closed": false,
+   "verdicts": [],
+   "nodes": 0,
+   "seconds": 0
+  }
+ },
+ "groups_closed": [
+  "G1_e0_H0",
+  "G3_e1_x0_f2_H0"
+ ],
+ "open_subcases": [
+  {
+   "label": "G4_e1_x1_f2_H0",
+   "rows": [
+    "(1,1,2)H0"
+   ],
+   "reason": "one W3a jump; exceeded 3e10 nodes at b=1 with both the jump-inside (gap<=4) and jump-outside (gap=5, block forced) splits"
+  },
+  {
+   "label": "G5_e2_x0_f2_H0",
+   "rows": [
+    "(2,0,2)H0"
+   ],
+   "reason": "e = 2 lets BOTH h* orbits take a second run, so the forced 5-pass separation breaks; exceeded 3e10 nodes at b=1 with both the Y-case-(i) and Y-case-(ii) (revisit-restricted) splits"
+  },
+  {
+   "label": "G7_H1_e1_x0_f2",
+   "rows": [
+    "(1,0,2)H1"
+   ],
+   "reason": "hub tax 1 on top of e = 1; exceeded 2e10 nodes at b=1"
+  }
+ ],
+ "total_nodes": 8726070608,
+ "total_seconds": 426,
+ "max_passes_reached": 108,
+ "cell_closed": false,
+ "label": "ROUND-118 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+ "rows": [
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 0,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 750682008,
+   "group": "G1_e0_H0",
+   "covers": [
+    "(0,0,0)",
+    "(0,0,1)H0",
+    "(0,1,1)"
+   ],
+   "seconds": 37.7,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 0,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 97,
+   "nodes": 923643352,
+   "group": "G1_e0_H0",
+   "covers": [
+    "(0,0,0)",
+    "(0,0,1)H0",
+    "(0,1,1)"
+   ],
+   "seconds": 49.4,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 0,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 100,
+   "nodes": 1058677785,
+   "group": "G1_e0_H0",
+   "covers": [
+    "(0,0,0)",
+    "(0,0,1)H0",
+    "(0,1,1)"
+   ],
+   "seconds": 55.6,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 0,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 97,
+   "nodes": 580980677,
+   "group": "G1_e0_H0",
+   "covers": [
+    "(0,0,0)",
+    "(0,0,1)H0",
+    "(0,1,1)"
+   ],
+   "seconds": 29.3,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 0,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 97,
+   "nodes": 537734707,
+   "group": "G1_e0_H0",
+   "covers": [
+    "(0,0,0)",
+    "(0,0,1)H0",
+    "(0,1,1)"
+   ],
+   "seconds": 25.3,
+   "splits": [
+    5,
+    1
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 976708569,
+   "group": "G3_e1_x0_f2_H0",
+   "covers": [
+    "(1,0,2)H0"
+   ],
+   "seconds": 44.7,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 989675775,
+   "group": "G3_e1_x0_f2_H0",
+   "covers": [
+    "(1,0,2)H0"
+   ],
+   "seconds": 46.1,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 1004559859,
+   "group": "G3_e1_x0_f2_H0",
+   "covers": [
+    "(1,0,2)H0"
+   ],
+   "seconds": 47.2,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 1015577348,
+   "group": "G3_e1_x0_f2_H0",
+   "covers": [
+    "(1,0,2)H0"
+   ],
+   "seconds": 48.3,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 887830528,
+   "group": "G3_e1_x0_f2_H0",
+   "covers": [
+    "(1,0,2)H0"
+   ],
+   "seconds": 42.4,
+   "splits": [
+    5,
+    1
+   ]
+  }
+ ],
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_this_round": true
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
