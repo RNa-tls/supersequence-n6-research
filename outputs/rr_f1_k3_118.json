@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 50000000000,
- "runs": 17,
+ "runs": 20,
  "verdicts": {
-  "UNSAT_COMPLETE": 17
+  "UNSAT_COMPLETE": 20
  },
  "by_group": {
   "G1_e0_H0": {
@@ -38,19 +38,20 @@
    "seconds": 1370
   },
   "G2_e1_x0_f1_H0": {
-   "runs": 2,
-   "closed": false,
+   "runs": 5,
+   "closed": true,
    "verdicts": [
     "UNSAT_COMPLETE"
    ],
-   "nodes": 17996526550,
-   "seconds": 1135
+   "nodes": 42507054243,
+   "seconds": 2414
   }
  },
  "groups_closed": [
   "G1_e0_H0",
   "G3_e1_x0_f2_H0",
-  "G6_H1_e0"
+  "G6_H1_e0",
+  "G2_e1_x0_f1_H0"
  ],
  "open_subcases": [
   {
@@ -75,8 +76,8 @@
    "reason": "hub tax 1 on top of e = 1; exceeded 2e10 nodes at b=1"
   }
  ],
- "total_nodes": 53121599762,
- "total_seconds": 2932,
+ "total_nodes": 77632127455,
+ "total_seconds": 4211,
  "max_passes_reached": 109,
  "cell_closed": false,
  "label": "ROUND-118 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
@@ -565,6 +566,90 @@
    "splits": [
     2,
     4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 1,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 11516089207,
+   "group": "G2_e1_x0_f1_H0",
+   "covers": [
+    "(1,0,1)"
+   ],
+   "seconds": 734.8,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 1,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 6870466235,
+   "group": "G2_e1_x0_f1_H0",
+   "covers": [
+    "(1,0,1)"
+   ],
+   "seconds": 291.0,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 1,
+   "foutmin": 0,
+   "ygap": 0,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 6123972251,
+   "group": "G2_e1_x0_f1_H0",
+   "covers": [
+    "(1,0,1)"
+   ],
+   "seconds": 253.2,
+   "splits": [
+    5,
+    1
    ]
   }
  ],

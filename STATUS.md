@@ -9,6 +9,36 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 118 (F=1, k=3) — read this first.**
+> **The cell `(3,1)` is NOT closed.** Its resource budget is now completely pinned down and
+> **6 of its 9 subcases are excluded exhaustively**; three remain open. Claude-closed outer
+> cells stay at **6 of 55**.
+>
+> With `k = 3, F = 1`: `P = 121`, `O = 27`, `D = 5k−1 = 14`, `L = 845 + S + H`. From
+> `S = 26 + e + x − f_out` and Round 117's Lemma E (`f_out ≤ 1+e`) one gets **`H ≤ 1 − x`**, so
+> `H ≤ 1` and `x ≤ 1` are *derived*, not assumed, and `H = 1` needs `x = 0`, `f_out = 1+e`.
+> That leaves exactly **7 resource rows**, or **9 subcases** once `H` is split out, with no
+> hidden slack (`e ≥ 3` and `x ≥ 2` both force `H < 0`).
+>
+> `H = 0` forces `t = 1` — one all-light 121-pass chain. `H = 1` means **exactly one weight-4
+> joint** and nothing heavier, which splits the chain into `t = 2`. The hub-tax-1 moves are
+> exactly the **13 weight-4 tails**, and all 13 always change orbit and always leave the source
+> hexagon (720/720); 12 are hexagon-disjoint, one shares 2 hexagons. So the heavy joint can
+> never sit inside the forced τ-block between the two `h*` passes.
+>
+> Round 117's forced 5-pass separation survives only at `e = 1, x = 0`; one `W3a` jump widens
+> it to `{4,5}`, and **`e = 2` breaks it entirely** because both `h*` orbits can then take a
+> second run. Those are exactly the two freedoms `k = 3` opens.
+>
+> Twenty exact runs (4 groups × 5 splits) return **all `UNSAT_COMPLETE`, 77,632,127,455 nodes,
+> zero cap hits**, reaching 109 of 121 passes. The three remaining subcases — `(1,1,2)ᴴ⁼⁰`,
+> `(2,0,2)ᴴ⁼⁰`, `(1,0,2)ᴴ⁼¹` — all exceeded 2–3×10¹⁰ nodes even after structural splitting, and
+> are recorded as **UNKNOWN**, not UNSAT; no speculative multi-hour sweep was launched.
+>
+> Ledgers stay **4,782** and 6,396/6,396. Round 115 is PARTIAL under Codex audit; Round 117 and
+> this round have **no independent audit** (Codex quota exhausted). This project has not proved
+> `L₆ ≥ 872`.
+>
 > **Round 117 (F=1 cell closure) — read this first.**
 > **The cell `(k,F) = (4,1)` is closed** — the first of the four `F = 1` cells. Under NR6 no
 > length-≤871 superpermutation has `F = 1` and `O = 28`. With the `F = 0` column that makes

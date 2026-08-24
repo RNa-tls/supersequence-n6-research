@@ -6918,5 +6918,227 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_118": "Round 118 does NOT close a cell. It pins the (3,1) resource budget completely (9 subcases, H <= 1 and x <= 1 re-derived from Lemma E) and excludes 6 of them exhaustively; 3 remain open. Neither ledger changes: INDEPENDENTLY AUDITED Q2 residual stays 4,782 and CLAUDE FULL-JOINT Q2 stays 6,396/6,396. Claude-closed outer cells stay at 6 of 55. Round 115 is PARTIAL under Codex audit; Round 117 and Round 118 have no independent audit at all (Codex quota exhausted). This project has not proved L6 >= 872.",
+ "round_118_f1_k3": {
+  "schema": "rr_f1_k3/118/1",
+  "round": 118,
+  "type": "F=1 k=3 round — cell NOT closed; 6 of 9 subcases excluded; ledgers unchanged",
+  "headline": "The (3,1) resource budget is now completely pinned down — 7 resource rows, 9 subcases once H is split out, with H <= 1 and x <= 1 re-derived (not assumed) from Lemma E. Six subcases are excluded exhaustively (20 runs, all UNSAT_COMPLETE, 77,632,127,455 nodes, zero cap hits). Three remain OPEN. The cell (3,1) is NOT closed.",
+  "label": "ROUND-118 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED (Codex quota exhausted)",
+  "s1_budget": {
+   "identities": {
+    "P": 121,
+    "O": 27,
+    "D": 14,
+    "L": "845 + S + H",
+    "L_le_871": "S + H <= 26"
+   },
+   "derivation": "S = 26 + e + x - f_out and H <= 26 - S = f_out - e - x; Lemma E (f_out <= 1+e) gives H <= 1 - x, so H <= 1 and x <= 1, and H = 1 requires x = 0 and f_out = 1 + e",
+   "rows": [
+    {
+     "e": 0,
+     "x": 0,
+     "f_out": 0,
+     "S": 26,
+     "H_max": 0,
+     "r": 27,
+     "t_max": 1
+    },
+    {
+     "e": 0,
+     "x": 0,
+     "f_out": 1,
+     "S": 25,
+     "H_max": 1,
+     "r": 27,
+     "t_max": 2
+    },
+    {
+     "e": 0,
+     "x": 1,
+     "f_out": 1,
+     "S": 26,
+     "H_max": 0,
+     "r": 27,
+     "t_max": 1
+    },
+    {
+     "e": 1,
+     "x": 0,
+     "f_out": 1,
+     "S": 26,
+     "H_max": 0,
+     "r": 28,
+     "t_max": 1
+    },
+    {
+     "e": 1,
+     "x": 0,
+     "f_out": 2,
+     "S": 25,
+     "H_max": 1,
+     "r": 28,
+     "t_max": 2
+    },
+    {
+     "e": 1,
+     "x": 1,
+     "f_out": 2,
+     "S": 26,
+     "H_max": 0,
+     "r": 28,
+     "t_max": 1
+    },
+    {
+     "e": 2,
+     "x": 0,
+     "f_out": 2,
+     "S": 26,
+     "H_max": 0,
+     "r": 29,
+     "t_max": 1
+    }
+   ],
+   "subcases_when_H_split_out": 9,
+   "no_hidden_slack": "e >= 3 and x >= 2 both give H < 0"
+  },
+  "s2_H_split": {
+   "H0": "H >= t-1 forces t = 1: one all-light 121-pass chain, all 120 joints of weight <= 3",
+   "H1": "H = sum (w-3)_+ = 1 means EXACTLY one weight-4 joint and nothing heavier; it is not light so it splits the chain and forces t = 2; it costs 1 to S and 1 to H"
+  },
+  "s6_weight4_census": {
+   "count": 13,
+   "matches_engine_tail_permutations": true,
+   "always_changes_orbit": "13/13, 720/720 — a weight-4 joint is never intra-run",
+   "always_leaves_the_source_hexagon": "13/13, 720/720",
+   "shared_hexagons_of_source_and_target_orbits": {
+    "0": 12,
+    "2": 1
+   },
+   "consequence": "the weight-4 joint cannot sit inside the forced tau-block between the two h* passes, whose joints are intra-orbit"
+  },
+  "s11_forced_geometry_scope": {
+   "(1,0,2)": "X in case (ii), Y in case (i) forced; gap exactly 5 — Round 117 geometry survives",
+   "(1,1,2)": "one W3a jump may sit inside the block, so the gap is 4 or 5",
+   "(2,0,2)": "e = 2 lets BOTH h* orbits take a second run, so Y may be in case (ii) and the forced separation breaks entirely"
+  },
+  "s7_model": {
+   "base": "Round 117 searcher, left intact; extended in src/f1_cell_118.c",
+   "new_parameters": {
+    "rmax": "explicit run bound r = 27 + e, tightening the run-shortfall cap to 5*rmax - 121",
+    "hcap": "number of weight-4 joints allowed = H",
+    "dcap": "orbit-deficit prune: sum_q (5-|B_q|) = 5O - 121 = 14 regardless of e; the current orbit and up to (ECAP - rev) revisitable orbits are dropped optimistically",
+    "bforce": "force the X-Y block moves to tau (when the W3a jump lies outside it)",
+    "revonly": "only orb(entry_X) and orb(entry_Y) may take a second run"
+   },
+   "regression": "reproduces Round 117 (4,1) sub-case A b=1 exactly: UNSAT_COMPLETE, 8,538,340,341 nodes"
+  },
+  "s8_s9_search": {
+   "runs": 20,
+   "verdicts": {
+    "UNSAT_COMPLETE": 20
+   },
+   "total_nodes": 77632127455,
+   "total_seconds": 4211,
+   "max_passes_reached": 109,
+   "node_cap": 50000000000,
+   "groups_closed": [
+    "G1_e0_H0",
+    "G3_e1_x0_f2_H0",
+    "G6_H1_e0",
+    "G2_e1_x0_f1_H0"
+   ],
+   "cell_closed": false
+  },
+  "s9_by_group": {
+   "G1_e0_H0": {
+    "runs": 5,
+    "closed": true,
+    "verdicts": [
+     "UNSAT_COMPLETE"
+    ],
+    "nodes": 3851718529,
+    "seconds": 197
+   },
+   "G3_e1_x0_f2_H0": {
+    "runs": 5,
+    "closed": true,
+    "verdicts": [
+     "UNSAT_COMPLETE"
+    ],
+    "nodes": 4874352079,
+    "seconds": 229
+   },
+   "G6_H1_e0": {
+    "runs": 5,
+    "closed": true,
+    "verdicts": [
+     "UNSAT_COMPLETE"
+    ],
+    "nodes": 26399002604,
+    "seconds": 1370
+   },
+   "G2_e1_x0_f1_H0": {
+    "runs": 5,
+    "closed": true,
+    "verdicts": [
+     "UNSAT_COMPLETE"
+    ],
+    "nodes": 42507054243,
+    "seconds": 2414
+   }
+  },
+  "open_subcases": [
+   {
+    "label": "G4_e1_x1_f2_H0",
+    "rows": [
+     "(1,1,2)H0"
+    ],
+    "reason": "one W3a jump; exceeded 3e10 nodes at b=1 with both the jump-inside (gap<=4) and jump-outside (gap=5, block forced) splits"
+   },
+   {
+    "label": "G5_e2_x0_f2_H0",
+    "rows": [
+     "(2,0,2)H0"
+    ],
+    "reason": "e = 2 lets BOTH h* orbits take a second run, so the forced 5-pass separation breaks; exceeded 3e10 nodes at b=1 with both the Y-case-(i) and Y-case-(ii) (revisit-restricted) splits"
+   },
+   {
+    "label": "G7_H1_e1_x0_f2",
+    "rows": [
+     "(1,0,2)H1"
+    ],
+    "reason": "hub tax 1 on top of e = 1; exceeded 2e10 nodes at b=1"
+   }
+  ],
+  "s14_positive_controls": {
+   "round_117_local_controls_still_pass": true,
+   "all_five_ordered_splits_accepted": true,
+   "weight4_tail_set_matches_engine": true,
+   "H1_runs_expand_more_nodes_than_H0_runs": true,
+   "false_rejection": 0,
+   "no_n6_F1_walk_available": "the verified 872 witness has F = 25; no n=6 positive control could be built and none was fabricated from the theorem"
+  },
+  "cells": {
+   "total": 55,
+   "claude_closed": 6,
+   "closed_this_round": 0,
+   "caveat": "Round 115 is PARTIAL under Codex audit (k = 2,3 unconfirmed); Round 117 and this round are Claude-only provisional with no independent audit"
+  },
+  "not_done": [
+   "(3,1) NOT closed — 3 subcases open",
+   "(2,1) and (1,1) not started (brief §17)",
+   "F >= 2 untouched",
+   "F = 0 not revisited",
+   "Q2 not revisited",
+   "no independent audit"
+  ],
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
