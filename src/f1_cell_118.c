@@ -157,12 +157,31 @@ static void build(void) {
 
 /* ------------------------------------------------------------------ search */
 static int BSPLIT, COSTCAP, ORBCAP, SHRUNCAP, RMAX, XCAP, FOUTCAP, ECAP, FOUTMIN,
-           YGAP, HCAP, RMAXARG;
+           YGAP, HCAP, RMAXARG, DCAP, BFORCE, REVONLY;
 static long long NODECAP, nodes;
 static int capped, found, bestPasses;
 static unsigned char omask[NO];
+static int defcnt[5];
 static uint64_t HLO, HHI;
 static int witness[TARGET + 2], wlen_[TARGET + 2];
+
+/* orbit-deficit prune (Round 115 style): D = sum over orbits of (5 - |B_q|) is fixed at
+   5*O - 121, so the orbits already left behind must fit inside it.  The current orbit may
+   still grow, and up to (ECAP - rev) further orbits may be revisited and completed, so those
+   are dropped optimistically — the prune never cuts a branch a real walk could take. */
+static int dfeasible(int curorb, int slots) {
+    int c[5];
+    for (int i = 0; i < 5; i++) c[i] = defcnt[i];
+    int d = 5 - __builtin_popcount(omask[curorb]);
+    c[d]--;
+    int sum = 0, tok = slots;
+    for (int dd = 4; dd >= 1; dd--) {
+        int take = c[dd] < tok ? c[dd] : tok;
+        tok -= take;
+        sum += (c[dd] - take) * dd;
+    }
+    return sum <= DCAP;
+}
 
 static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
                 int shrun, int runlen, int sstate, int vword, int fout,
@@ -202,7 +221,11 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
     /* Round 117 section 5.2: when f_out = 2, e = 1 and x = 0, the FIRST h* pass X must be
        in case (ii) (case (i) would place Y before X) and the SECOND, Y, must be in case (i),
        so Y sits exactly 5 passes after X.  YGAP = 5 switches that on. */
-    if (YGAP && sstate == 1 && passes - pX > YGAP - 1) return;
+    /* YGAP is an UPPER bound on the gap between the two h* passes (Round 117 section 5.2
+       gives exactly 5 when x = 0; one W3a jump inside the forced block can shorten it to 4,
+       so "<= YGAP" is the sound form). */
+    if (YGAP && sstate == 1 && passes - pX >= YGAP) return;
+    if (DCAP >= 0 && !dfeasible(orbid[u], ECAP - rev)) return;
     int isshort = (len < 6);
     int avail = (2 - sstate) + (isshort ? 1 : 0);
     if (fout + avail < FOUTMIN) return;
@@ -210,7 +233,8 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
        following full passes each move by W2 = tau, ending at Y.  So every move from X up to
        the pass just before Y is the free move. */
     int forcefree = (isshort && fout + avail == FOUTMIN)
-                    || (YGAP && sstate == 1 && passes - pX <= YGAP - 1);
+                    || (YGAP && (XCAP == 0 || BFORCE) && sstate == 1
+                        && passes - pX <= YGAP - 1);
     int exitw = SIG[len - 1][u];
     int curorb = orbid[u];
     int succ[4 + NH4];
@@ -254,6 +278,13 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
         int fresh = (omask[nq] == 0);
         int rv = (!same && !fresh) ? 1 : 0;
         if (nrev + rv > ECAP) continue;
+        /* REVONLY: the only orbits that may get a second run are orb(entry_X) and
+           orb(entry_Y) — used when the resource budget assigns every unit of e to them. */
+        if (REVONLY && rv) {
+            if (sstate == 0) continue;
+            int oX = orbid[vword], oY = orbid[SIG[BSPLIT][vword]];
+            if (nq != oX && nq != oY) continue;
+        }
         if (fresh && orbits + 1 > ORBCAP) continue;
         if (omask[nq] >> phse[w] & 1) continue;
         int brk = (nxj > xj || rv);
@@ -261,6 +292,8 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
         int nsegs = brk ? 0 : segsh + (same ? 0 : (5 - runlen));
         /* --- case 1: fresh hexagon, FULL pass --- */
         if (!hexused) {
+            int d0 = 5 - __builtin_popcount(omask[nq]);
+            if (fresh) defcnt[4]++; else { defcnt[d0]--; defcnt[d0 - 1]++; }
             omask[nq] |= 1 << phse[w];
             HLO |= hlo[w]; HHI |= hhi[w];
             witness[passes] = w; wlen_[passes] = 6;
@@ -269,10 +302,13 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
                 hb ? 1 : nsegp, hb ? 0 : nsegs, pX, nhub);
             HLO &= ~hlo[w]; HHI &= ~hhi[w];
             omask[nq] &= ~(1 << phse[w]);
+            if (fresh) defcnt[4]--; else { defcnt[d0 - 1]--; defcnt[d0]++; }
         }
         if (found) return;
         /* --- case 2: fresh hexagon, FIRST short pass (length BSPLIT) --- */
         if (!hexused && sstate == 0) {
+            int d0 = 5 - __builtin_popcount(omask[nq]);
+            if (fresh) defcnt[4]++; else { defcnt[d0]--; defcnt[d0 - 1]++; }
             omask[nq] |= 1 << phse[w];
             HLO |= hlo[w]; HHI |= hhi[w];
             witness[passes] = w; wlen_[passes] = BSPLIT;
@@ -280,16 +316,20 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
                 nruns, nsh, nrunlen, 1, w, nfout, nxj, nrev + rv, 0, 0, passes + 1, nhub);
             HLO &= ~hlo[w]; HHI &= ~hhi[w];
             omask[nq] &= ~(1 << phse[w]);
+            if (fresh) defcnt[4]--; else { defcnt[d0 - 1]--; defcnt[d0]++; }
         }
         if (found) return;
         /* --- case 3: the SECOND h* visit (forced word, length 6-BSPLIT) --- */
         if (hexused && sstate == 1 && w == SIG[BSPLIT][vword]
-            && (!YGAP || passes + 1 == pX + YGAP)) {
+            && (!YGAP || passes + 1 <= pX + YGAP)) {
+            int d0 = 5 - __builtin_popcount(omask[nq]);
+            if (fresh) defcnt[4]++; else { defcnt[d0]--; defcnt[d0 - 1]++; }
             omask[nq] |= 1 << phse[w];
             witness[passes] = w; wlen_[passes] = 6 - BSPLIT;
             dfs(w, 6 - BSPLIT, passes + 1, cost + c, orbits + (fresh ? 1 : 0),
                 nruns, nsh, nrunlen, 2, vword, nfout, nxj, nrev + rv, 0, 0, pX, nhub);
             omask[nq] &= ~(1 << phse[w]);
+            if (fresh) defcnt[4]--; else { defcnt[d0 - 1]--; defcnt[d0]++; }
         }
     }
 }
@@ -306,7 +346,10 @@ int main(int argc, char **argv) {
     YGAP = (argc > 8) ? atoi(argv[8]) : 0;
     RMAXARG = (argc > 9) ? atoi(argv[9]) : 0;
     HCAP = (argc > 10) ? atoi(argv[10]) : 0;
-    NODECAP = (argc > 11) ? atoll(argv[11]) : 200000000000LL;
+    DCAP = (argc > 11) ? atoi(argv[11]) : -1;
+    BFORCE = (argc > 12) ? atoi(argv[12]) : 0;
+    REVONLY = (argc > 13) ? atoi(argv[13]) : 0;
+    NODECAP = (argc > 14) ? atoll(argv[14]) : 200000000000LL;
     RMAX = RMAXARG ? RMAXARG : (COSTCAP + 1 + FOUTCAP);
     SHRUNCAP = 5 * RMAX - TARGET;
     if (SHRUNCAP < 0) SHRUNCAP = 0;
@@ -322,6 +365,7 @@ int main(int argc, char **argv) {
             BESTSEG[m][s] = b;
         }
     memset(omask, 0, sizeof omask);
+    memset(defcnt, 0, sizeof defcnt);
     nodes = 0; capped = 0; found = 0; bestPasses = 0;
     HLO = HHI = 0;
     /* S6 relabelling is simply transitive on the 720 words and commutes with sigma, tau
@@ -330,19 +374,21 @@ int main(int argc, char **argv) {
     for (int firstIsShort = 0; firstIsShort < 2 && !found; firstIsShort++) {
         int len = firstIsShort ? BSPLIT : 6;
         omask[orbid[start]] = 1 << phse[start];
+        defcnt[4] = 1;
         HLO = hlo[start]; HHI = hhi[start];
         witness[0] = start; wlen_[0] = len;
         dfs(start, len, 1, 0, 1, 1, 0, 1, firstIsShort ? 1 : 0, start, 0, 0, 0,
             firstIsShort ? 0 : 1, 0, firstIsShort ? 1 : 0, 0);
         HLO = HHI = 0;
         omask[orbid[start]] = 0;
+        memset(defcnt, 0, sizeof defcnt);
     }
     printf("{\"b\": %d, \"costcap\": %d, \"orbcap\": %d, \"xcap\": %d, \"foutcap\": %d,"
-           " \"ecap\": %d, \"foutmin\": %d, \"ygap\": %d, \"rmax\": %d, \"hcap\": %d,"
-           " \"shruncap\": %d,"
+           " \"ecap\": %d, \"foutmin\": %d, \"ygap\": %d, \"rmax\": %d, \"hcap\": %d, \"dcap\": %d, \"bforce\": %d,"
+           " \"revonly\": %d, \"shruncap\": %d,"
            " \"verdict\": \"%s\", \"best_passes\": %d, \"nodes\": %lld}\n",
-           BSPLIT, COSTCAP, ORBCAP, XCAP, FOUTCAP, ECAP, FOUTMIN, YGAP, RMAX, HCAP,
-           SHRUNCAP,
+           BSPLIT, COSTCAP, ORBCAP, XCAP, FOUTCAP, ECAP, FOUTMIN, YGAP, RMAX, HCAP, DCAP,
+           BFORCE, REVONLY, SHRUNCAP,
            found ? "SAT" : (capped ? "UNKNOWN_CAP" : "UNSAT_COMPLETE"),
            bestPasses, nodes);
     if (found) {
