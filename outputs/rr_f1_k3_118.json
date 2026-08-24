@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 50000000000,
- "runs": 10,
+ "runs": 15,
  "verdicts": {
-  "UNSAT_COMPLETE": 10
+  "UNSAT_COMPLETE": 15
  },
  "by_group": {
   "G1_e0_H0": {
@@ -29,11 +29,13 @@
    "seconds": 229
   },
   "G6_H1_e0": {
-   "runs": 0,
-   "closed": false,
-   "verdicts": [],
-   "nodes": 0,
-   "seconds": 0
+   "runs": 5,
+   "closed": true,
+   "verdicts": [
+    "UNSAT_COMPLETE"
+   ],
+   "nodes": 26399002604,
+   "seconds": 1370
   },
   "G2_e1_x0_f1_H0": {
    "runs": 0,
@@ -45,7 +47,8 @@
  },
  "groups_closed": [
   "G1_e0_H0",
-  "G3_e1_x0_f2_H0"
+  "G3_e1_x0_f2_H0",
+  "G6_H1_e0"
  ],
  "open_subcases": [
   {
@@ -70,9 +73,9 @@
    "reason": "hub tax 1 on top of e = 1; exceeded 2e10 nodes at b=1"
   }
  ],
- "total_nodes": 8726070608,
- "total_seconds": 426,
- "max_passes_reached": 108,
+ "total_nodes": 35125073212,
+ "total_seconds": 1796,
+ "max_passes_reached": 109,
  "cell_closed": false,
  "label": "ROUND-118 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
@@ -361,6 +364,146 @@
     "(1,0,2)H0"
    ],
    "seconds": 42.4,
+   "splits": [
+    5,
+    1
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 1,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 1,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 109,
+   "nodes": 5345531850,
+   "group": "G6_H1_e0",
+   "covers": [
+    "(0,0,1)H1"
+   ],
+   "seconds": 278.6,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 1,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 1,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 6153861341,
+   "group": "G6_H1_e0",
+   "covers": [
+    "(0,0,1)H1"
+   ],
+   "seconds": 323.8,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 1,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 1,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 6847652317,
+   "group": "G6_H1_e0",
+   "covers": [
+    "(0,0,1)H1"
+   ],
+   "seconds": 365.2,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 1,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 1,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 107,
+   "nodes": 3914037218,
+   "group": "G6_H1_e0",
+   "covers": [
+    "(0,0,1)H1"
+   ],
+   "seconds": 197.3,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 1,
+   "ecap": 0,
+   "foutmin": 1,
+   "ygap": 0,
+   "rmax": 27,
+   "hcap": 1,
+   "dcap": -1,
+   "bforce": 0,
+   "revonly": 0,
+   "shruncap": 14,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 107,
+   "nodes": 4137919878,
+   "group": "G6_H1_e0",
+   "covers": [
+    "(0,0,1)H1"
+   ],
+   "seconds": 205.6,
    "splits": [
     5,
     1
