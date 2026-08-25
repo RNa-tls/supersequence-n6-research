@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 60000000000,
- "runs": 10,
+ "runs": 14,
  "verdicts": {
-  "UNSAT_COMPLETE": 10
+  "UNSAT_COMPLETE": 14
  },
  "by_branch": {
   "C2_heavy_after_Y": {
@@ -26,10 +26,10 @@
   },
   "A4_gap4_jump_in_block": {
    "case": "A",
-   "runs": 0,
+   "runs": 4,
    "closed": false,
-   "nodes": 0,
-   "seconds": 0
+   "nodes": 48233884902,
+   "seconds": 1632
   },
   "Bi_Y_case_i": {
    "case": "B",
@@ -134,8 +134,8 @@
   }
  ],
  "cell_closed": false,
- "total_nodes": 62311703743,
- "total_seconds": 2081,
+ "total_nodes": 110545588645,
+ "total_seconds": 3713,
  "max_passes_reached": 108,
  "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
@@ -417,6 +417,118 @@
    "splits": [
     5,
     1
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 4,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 11661223089,
+   "branch": "A4_gap4_jump_in_block",
+   "case": "A",
+   "seconds": 392.6,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 4,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 11866439193,
+   "branch": "A4_gap4_jump_in_block",
+   "case": "A",
+   "seconds": 405.4,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 4,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 12243575096,
+   "branch": "A4_gap4_jump_in_block",
+   "case": "A",
+   "seconds": 416.0,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 4,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 12462647524,
+   "branch": "A4_gap4_jump_in_block",
+   "case": "A",
+   "seconds": 418.0,
+   "splits": [
+    4,
+    2
    ]
   }
  ],
