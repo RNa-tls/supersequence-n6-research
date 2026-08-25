@@ -172,7 +172,7 @@ static void build(void) {
 
 /* ------------------------------------------------------------------ search */
 static int BSPLIT, COSTCAP, ORBCAP, SHRUNCAP, RMAX, XCAP, FOUTCAP, ECAP, FOUTMIN,
-           YGAP, HCAP, RMAXARG, DCAP, BFORCE, REVONLY, HREGION;
+           YGAP, HCAP, RMAXARG, DCAP, BFORCE, REVONLY, HREGION, YFRESH;
 static long long NODECAP, nodes;
 static int capped, found, bestPasses;
 static unsigned char omask[NO];
@@ -324,6 +324,10 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
             if (nq != oX && nq != oY) continue;
         }
         if (fresh && orbits + 1 > ORBCAP) continue;
+        /* YFRESH (case B-ii): orb(Y) has exactly two runs — the one X's free exit opens and
+           the one ending at Y — so orb(Y) cannot have been touched before X.  Hence X's free
+           exit must land in a FRESH orbit. */
+        if (YFRESH && sstate == 1 && passes == pX && c == 0 && !fresh) continue;
         if (omask[nq] >> phse[w] & 1) continue;
         int brk = (nxj > xj || rv);
         int nsegp = brk ? 1 : segpasses + 1;
@@ -388,7 +392,8 @@ int main(int argc, char **argv) {
     BFORCE = (argc > 12) ? atoi(argv[12]) : 0;
     REVONLY = (argc > 13) ? atoi(argv[13]) : 0;
     HREGION = (argc > 14) ? atoi(argv[14]) : 0;
-    NODECAP = (argc > 15) ? atoll(argv[15]) : 200000000000LL;
+    YFRESH = (argc > 15) ? atoi(argv[15]) : 0;
+    NODECAP = (argc > 16) ? atoll(argv[16]) : 200000000000LL;
     RMAX = RMAXARG ? RMAXARG : (COSTCAP + 1 + FOUTCAP);
     SHRUNCAP = 5 * RMAX - TARGET;
     if (SHRUNCAP < 0) SHRUNCAP = 0;
@@ -424,10 +429,10 @@ int main(int argc, char **argv) {
     }
     printf("{\"b\": %d, \"costcap\": %d, \"orbcap\": %d, \"xcap\": %d, \"foutcap\": %d,"
            " \"ecap\": %d, \"foutmin\": %d, \"ygap\": %d, \"rmax\": %d, \"hcap\": %d, \"dcap\": %d, \"bforce\": %d,"
-           " \"revonly\": %d, \"hregion\": %d, \"shruncap\": %d,"
+           " \"revonly\": %d, \"hregion\": %d, \"yfresh\": %d, \"shruncap\": %d,"
            " \"verdict\": \"%s\", \"best_passes\": %d, \"nodes\": %lld}\n",
            BSPLIT, COSTCAP, ORBCAP, XCAP, FOUTCAP, ECAP, FOUTMIN, YGAP, RMAX, HCAP, DCAP,
-           BFORCE, REVONLY, HREGION, SHRUNCAP,
+           BFORCE, REVONLY, HREGION, YFRESH, SHRUNCAP,
            found ? "SAT" : (capped ? "UNKNOWN_CAP" : "UNSAT_COMPLETE"),
            bestPasses, nodes);
     if (found) {
