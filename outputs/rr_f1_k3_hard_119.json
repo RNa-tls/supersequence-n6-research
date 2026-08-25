@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 60000000000,
- "runs": 15,
+ "runs": 17,
  "verdicts": {
-  "UNSAT_COMPLETE": 15
+  "UNSAT_COMPLETE": 17
  },
  "by_branch": {
   "C2_heavy_after_Y": {
@@ -33,10 +33,10 @@
   },
   "Bi_Y_case_i": {
    "case": "B",
-   "runs": 0,
+   "runs": 2,
    "closed": false,
-   "nodes": 0,
-   "seconds": 0
+   "nodes": 40442005193,
+   "seconds": 1487
   }
  },
  "branches_closed": [
@@ -136,9 +136,9 @@
   }
  ],
  "cell_closed": false,
- "total_nodes": 120852851747,
- "total_seconds": 4066,
- "max_passes_reached": 108,
+ "total_nodes": 161294856940,
+ "total_seconds": 5553,
+ "max_passes_reached": 109,
  "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
   {
@@ -559,6 +559,62 @@
    "splits": [
     5,
     1
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 18820006316,
+   "branch": "Bi_Y_case_i",
+   "case": "B",
+   "seconds": 674.5,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 109,
+   "nodes": 21621998877,
+   "branch": "Bi_Y_case_i",
+   "case": "B",
+   "seconds": 812.8,
+   "splits": [
+    2,
+    4
    ]
   }
  ],
