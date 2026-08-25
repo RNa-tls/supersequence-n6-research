@@ -1,0 +1,314 @@
+{
+ "round": 119,
+ "cell": [
+  3,
+  1
+ ],
+ "node_cap": 60000000000,
+ "runs": 6,
+ "verdicts": {
+  "UNSAT_COMPLETE": 6
+ },
+ "by_branch": {
+  "C2_heavy_after_Y": {
+   "case": "C",
+   "runs": 5,
+   "closed": true,
+   "nodes": 5854821232,
+   "seconds": 211
+  },
+  "A5_gap5_block_forced": {
+   "case": "A",
+   "runs": 1,
+   "closed": false,
+   "nodes": 11205473031,
+   "seconds": 369
+  },
+  "A4_gap4_jump_in_block": {
+   "case": "A",
+   "runs": 0,
+   "closed": false,
+   "nodes": 0,
+   "seconds": 0
+  },
+  "Bi_Y_case_i": {
+   "case": "B",
+   "runs": 0,
+   "closed": false,
+   "nodes": 0,
+   "seconds": 0
+  }
+ },
+ "branches_closed": [
+  "C2_heavy_after_Y"
+ ],
+ "case_status": {
+  "A": {
+   "branches": [
+    "A4_gap4_jump_in_block",
+    "A5_gap5_block_forced"
+   ],
+   "closed_branches": [],
+   "case_closed": false
+  },
+  "B": {
+   "branches": [
+    "Bi_Y_case_i",
+    "Bii_Y_case_ii"
+   ],
+   "closed_branches": [],
+   "case_closed": false
+  },
+  "C": {
+   "branches": [
+    "C1_heavy_before_X",
+    "C2_heavy_after_Y"
+   ],
+   "closed_branches": [
+    "C2_heavy_after_Y"
+   ],
+   "case_closed": false
+  }
+ },
+ "open_branches": [
+  {
+   "label": "Bii_Y_case_ii",
+   "case": "B",
+   "args": [
+    26,
+    27,
+    0,
+    2,
+    2,
+    2,
+    0,
+    29,
+    0,
+    14,
+    0,
+    1,
+    0,
+    1
+   ],
+   "pilot": {
+    "b": 1,
+    "verdict": "UNKNOWN_CAP",
+    "nodes_at_cap": 30000000000,
+    "seconds": 400,
+    "best_passes": 106
+   },
+   "structure": "orb(X) and orb(Y) each take exactly two runs and every other orbit one; the order type is forced to R_X^end..X, R_Y^start.., .., R_Y^end..Y, R_X^start.. and orb(Y) must be fresh when X's free exit enters it",
+   "why_open": "still exceeds 3e10 nodes at b=1 after the revisit and freshness restrictions"
+  },
+  {
+   "label": "C1_heavy_before_X",
+   "case": "C",
+   "args": [
+    26,
+    27,
+    0,
+    2,
+    1,
+    2,
+    5,
+    28,
+    1,
+    14,
+    0,
+    0,
+    1,
+    0
+   ],
+   "pilot": {
+    "b": 1,
+    "verdict": "UNKNOWN_CAP",
+    "nodes_at_cap": 20000000000,
+    "seconds": 678,
+    "best_passes": 110
+   },
+   "structure": "the single weight-4 edge lies strictly before X; it can never sit inside the forced tau-block nor be X's or Y's exit (both forced free)",
+   "why_open": "exceeds 2e10 nodes at b=1 even with the heavy edge confined to the prefix"
+  }
+ ],
+ "cell_closed": false,
+ "total_nodes": 17060294263,
+ "total_seconds": 581,
+ "max_passes_reached": 108,
+ "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+ "rows": [
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 1,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 2,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 1053024770,
+   "branch": "C2_heavy_after_Y",
+   "case": "C",
+   "seconds": 36.8,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 1,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 2,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 107,
+   "nodes": 1304965750,
+   "branch": "C2_heavy_after_Y",
+   "case": "C",
+   "seconds": 48.1,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 1,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 2,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 1267317351,
+   "branch": "C2_heavy_after_Y",
+   "case": "C",
+   "seconds": 46.2,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 1,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 2,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 1291576172,
+   "branch": "C2_heavy_after_Y",
+   "case": "C",
+   "seconds": 47.0,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 1,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 2,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 937937189,
+   "branch": "C2_heavy_after_Y",
+   "case": "C",
+   "seconds": 33.2,
+   "splits": [
+    5,
+    1
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 1,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 11205473031,
+   "branch": "A5_gap5_block_forced",
+   "case": "A",
+   "seconds": 369.4,
+   "splits": [
+    1,
+    5
+   ]
+  }
+ ],
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_this_round": true
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
