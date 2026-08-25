@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 60000000000,
- "runs": 6,
+ "runs": 10,
  "verdicts": {
-  "UNSAT_COMPLETE": 6
+  "UNSAT_COMPLETE": 10
  },
  "by_branch": {
   "C2_heavy_after_Y": {
@@ -19,10 +19,10 @@
   },
   "A5_gap5_block_forced": {
    "case": "A",
-   "runs": 1,
-   "closed": false,
-   "nodes": 11205473031,
-   "seconds": 369
+   "runs": 5,
+   "closed": true,
+   "nodes": 56456882511,
+   "seconds": 1870
   },
   "A4_gap4_jump_in_block": {
    "case": "A",
@@ -40,7 +40,8 @@
   }
  },
  "branches_closed": [
-  "C2_heavy_after_Y"
+  "C2_heavy_after_Y",
+  "A5_gap5_block_forced"
  ],
  "case_status": {
   "A": {
@@ -48,7 +49,9 @@
     "A4_gap4_jump_in_block",
     "A5_gap5_block_forced"
    ],
-   "closed_branches": [],
+   "closed_branches": [
+    "A5_gap5_block_forced"
+   ],
    "case_closed": false
   },
   "B": {
@@ -131,8 +134,8 @@
   }
  ],
  "cell_closed": false,
- "total_nodes": 17060294263,
- "total_seconds": 581,
+ "total_nodes": 62311703743,
+ "total_seconds": 2081,
  "max_passes_reached": 108,
  "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
@@ -302,6 +305,118 @@
    "splits": [
     1,
     5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 1,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 11509433485,
+   "branch": "A5_gap5_block_forced",
+   "case": "A",
+   "seconds": 383.1,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 1,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 11673166075,
+   "branch": "A5_gap5_block_forced",
+   "case": "A",
+   "seconds": 389.6,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 1,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 11803071881,
+   "branch": "A5_gap5_block_forced",
+   "case": "A",
+   "seconds": 387.8,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 1,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 10265738039,
+   "branch": "A5_gap5_block_forced",
+   "case": "A",
+   "seconds": 340.0,
+   "splits": [
+    5,
+    1
    ]
   }
  ],
