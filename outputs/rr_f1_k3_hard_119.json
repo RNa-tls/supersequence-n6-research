@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 60000000000,
- "runs": 14,
+ "runs": 15,
  "verdicts": {
-  "UNSAT_COMPLETE": 14
+  "UNSAT_COMPLETE": 15
  },
  "by_branch": {
   "C2_heavy_after_Y": {
@@ -26,10 +26,10 @@
   },
   "A4_gap4_jump_in_block": {
    "case": "A",
-   "runs": 4,
-   "closed": false,
-   "nodes": 48233884902,
-   "seconds": 1632
+   "runs": 5,
+   "closed": true,
+   "nodes": 58541148004,
+   "seconds": 1985
   },
   "Bi_Y_case_i": {
    "case": "B",
@@ -41,7 +41,8 @@
  },
  "branches_closed": [
   "C2_heavy_after_Y",
-  "A5_gap5_block_forced"
+  "A5_gap5_block_forced",
+  "A4_gap4_jump_in_block"
  ],
  "case_status": {
   "A": {
@@ -50,9 +51,10 @@
     "A5_gap5_block_forced"
    ],
    "closed_branches": [
+    "A4_gap4_jump_in_block",
     "A5_gap5_block_forced"
    ],
-   "case_closed": false
+   "case_closed": true
   },
   "B": {
    "branches": [
@@ -134,8 +136,8 @@
   }
  ],
  "cell_closed": false,
- "total_nodes": 110545588645,
- "total_seconds": 3713,
+ "total_nodes": 120852851747,
+ "total_seconds": 4066,
  "max_passes_reached": 108,
  "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
@@ -529,6 +531,34 @@
    "splits": [
     4,
     2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 1,
+   "foutcap": 2,
+   "ecap": 1,
+   "foutmin": 2,
+   "ygap": 4,
+   "rmax": 28,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 10307263102,
+   "branch": "A4_gap4_jump_in_block",
+   "case": "A",
+   "seconds": 352.6,
+   "splits": [
+    5,
+    1
    ]
   }
  ],
