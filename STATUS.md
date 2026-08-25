@@ -9,7 +9,58 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 119 (hard three) — read this first.**
+> **Round 120 (reversal symmetry closes `(3,1)`) — read this first.**
+> **The cell `(k,F) = (3,1)` is CLOSED.** Claude-closed outer cells go **6 → 7 of 55**.
+>
+> Round 119 said "`b ↔ 6−b` is not a symmetry because the move set is not reverse-symmetric".
+> **That was wrong.** Let `ρ(w)` reverse the letters of `w` and define
+> `Φ`: reverse the pass sequence and send each pass `(u, m)` to `(ρ(σ^{m−1}u), m)` — this is
+> just reversing the superpermutation string. `Φ` is an **exact symmetry**, and it also
+> **preserves the `τ`-orbit partition**: `ρ` alone scatters orbits, but `R = ρ∘σ⁵` maps all
+> **144 orbits onto orbits** and is an involution. Verified exhaustively: `ρσ = σ^{-1}ρ` (720),
+> joint weight preserved (**517,680 pairs, 0 violations**), `R` an involution and an orbit
+> bijection (144), `ρ` a hexagon bijection (120), passes map to passes (4,320), plus three
+> local rules — **R1** full→full intra-orbit status preserved (12,240, 0), **R2** the image of a
+> full→short joint always leaves the orbit (61,200, 0), **R3** the image of a short→full
+> weight-2 joint is always `τ` (3,600, 0). An **n=4 end-to-end control over all 16,186 walks**
+> confirms `Φ` is a valid involution preserving `L, P, F, S, H, O` with the pass-length sequence
+> reversed — 0 violations. `Φ` sends `b ↦ 6−b` and swaps "passes before X" with
+> "passes after Y".
+>
+> **`C1` closes with zero search nodes.** If `t' ≥ 2` its `Φ`-image is **`C2`** (Round 119,
+> 5/5 `UNSAT_COMPLETE`); if `t' = 1` the image is `e=0, x=0, f_out=1, H=1, r=27`, i.e.
+> **`G6_H1_e0`** (Round 118, 5/5). Those two columns are disjoint and exhaustive → **case C
+> closed**. For `B_ii`, the boundary cases `t'=1` / `t=1` map into the closed rows `G2` and
+> `G1`, leaving `t' ≥ 2 ∧ t ≥ 2`, which `Φ` maps onto itself — giving three canonical-form
+> constraints (`seam`, `symcut`, `pmax = 59`). Under those, **all five splits complete:
+> 5/5 `UNSAT_COMPLETE`, 128,966,235,120 nodes, 6,763 s, zero cap hits, no SAT.** Round 119 had
+> capped at >3×10¹⁰ on `b=1` alone; what changed is the **verdict**, not the size.
+>
+> **Round 118's weight-4 census is corrected here.** "All 13 weight-4 tails always change
+> orbit (720/720)" is **false**: `W4_0` (action `[4 5 1 2 3 0]`) is **intra-orbit for all 720
+> words at `ℓ = 5`** (it sends the entry to `τ³`). The other 12 change orbit at every `ℓ`; all
+> 13 change orbit at every `ℓ < 5` and none ever returns to the source hexagon. So there are
+> **2 structural classes, not 13**. The searcher's `if (same && hb) continue;` was therefore
+> unsound — but **every run in Rounds 118 and 119 had `xcap = 0` or `hcap = 0`, so no verdict
+> was affected** (regression: `C2 b=1` is still exactly 1,053,024,770 nodes). Round 119's
+> conclusion that the heavy edge cannot sit inside the forced `τ`-block still stands, on the
+> corrected ground that case C has `x = 0`.
+>
+> **Recorded honestly.** A new *exact* invariant — the used orbits must cover all 120
+> hexagons, so `EXC := Σ_h(m_h−1) = 5·O − 120 = 5k`, monotone, hence `EXC ≤ 5k` never cuts a
+> real walk — looked very tight (random 27-orbit sets have excess ≥ 34, median 49, against a
+> required 15) but **cut only 0.3%**: the node mass sits at 12–13 orbits where mean `EXC` is
+> 7.4, and `EXC = 5·orbits − (hexagons covered)` makes it nearly the same information as Round
+> 118's `dcap`. **The hexagon-incidence coordinate Round 119 was missing does not shrink the
+> search; the symmetry does.** Heavy-edge surgery (§10), suffix capacity (§11) and a quotient
+> search (§13) all came up empty, and the two split orbits' intervals turn out to be **nested**
+> (`I_Y ⊊ I_X`), which is legal on a path — so the hoped-for forbidden cycle does not exist.
+>
+> Ledgers stay **4,782** and **6,396/6,396**. Round 115 is PARTIAL under Codex audit; Rounds
+> 117–120 have no independent audit. `(2,1)` was not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 119 (hard three) — superseded by Round 120.**
 > **`(3,1)` is still open**, but Round 118's three unknown subcases are now split structurally
 > into **six named branches**, and **four are excluded exhaustively**. **Case A is fully
 > closed**; cases B and C each reduce to a single remaining branch. Claude-closed outer cells
@@ -40,7 +91,7 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > 6,396/6,396. Round 115 is PARTIAL under Codex audit; Rounds 117–119 have no independent
 > audit. This project has not proved `L₆ ≥ 872`.
 >
-> **Round 118 (F=1, k=3) — read this first.**
+> **Round 118 (F=1, k=3) — superseded by Round 120.**
 > **The cell `(3,1)` is NOT closed.** Its resource budget is now completely pinned down and
 > **6 of its 9 subcases are excluded exhaustively**; three remain open. Claude-closed outer
 > cells stay at **6 of 55**.

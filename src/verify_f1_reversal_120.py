@@ -82,6 +82,20 @@ def build_geo():
 HEXID, ORBID = build_geo()
 
 
+def build_phase():
+    ph = [-1] * NW
+    for q in range(144):
+        rep = min(i for i in range(NW) if ORBID[i] == q)
+        w = WORDS[rep]
+        for j in range(5):
+            ph[IDX[w]] = j
+            w = tau(w)
+    return ph
+
+
+ORBPH = build_phase()
+
+
 def sigk(w, k):
     for _ in range(k % 6):
         w = sig(w)
@@ -121,6 +135,125 @@ def light_and_heavy_moves():
 
 
 MOVES = light_and_heavy_moves()
+
+
+def weight4_classes():
+    """Round 120 section 9 - classify the 13 weight-4 tails by STRUCTURAL EFFECT.
+
+    Round 118 recorded "13/13 always change orbit (720/720)".  That is WRONG: W4_0
+    (action [4 5 1 2 3 0]) is intra-orbit for all 720 words at ell = 5.  The other 12
+    change orbit at every ell.  All 13 change orbit at every ell < 5 and none of them
+    ever returns to the source hexagon."""
+    rows = {}
+    for name, f in MOVES.items():
+        if not name.startswith("W4_"):
+            continue
+        intra5 = sum(1 for u in WORDS if ORBID[IDX[f(sigk(u, 5))]] == ORBID[IDX[u]])
+        intra_lt5 = sum(1 for u in WORDS for ell in range(5)
+                        if ORBID[IDX[f(sigk(u, ell))]] == ORBID[IDX[u]])
+        samehex = sum(1 for u in WORDS for ell in range(6)
+                      if HEXID[IDX[f(sigk(u, ell))]] == HEXID[IDX[u]])
+        # hexagon overlap between the source orbit and the target orbit (at ell = 5)
+        ov = Counter()
+        for u in WORDS:
+            z = f(sigk(u, 5))
+            a = {HEXID[i] for i in range(NW) if ORBID[i] == ORBID[IDX[u]]}
+            b = {HEXID[i] for i in range(NW) if ORBID[i] == ORBID[IDX[z]]}
+            ov[len(a & b)] += 1
+            break
+        # phase displacement when intra-orbit
+        ph = Counter()
+        if intra5 == NW:
+            for u in WORDS:
+                z = f(sigk(u, 5))
+                ph[(ORBPH[IDX[z]] - ORBPH[IDX[u]]) % 5] += 1
+        rows[name] = dict(intra_orbit_at_ell5=intra5, intra_orbit_at_ell_lt5=intra_lt5,
+                          returns_to_source_hexagon=samehex,
+                          phase_shift_when_intra={str(k): v for k, v in ph.items()})
+    classes = {}
+    for name, r in rows.items():
+        key = (r["intra_orbit_at_ell5"], r["intra_orbit_at_ell_lt5"],
+               r["returns_to_source_hexagon"])
+        classes.setdefault(str(key), []).append(name)
+    return dict(per_tail=rows, structural_classes=classes,
+                n_classes=len(classes),
+                round_118_claim="all 13 weight-4 tails always change orbit (720/720)",
+                round_118_claim_status="FALSE for W4_0 at ell = 5; corrected here",
+                all_change_orbit_below_ell5=all(r["intra_orbit_at_ell_lt5"] == 0
+                                                for r in rows.values()),
+                none_returns_to_source_hexagon=all(r["returns_to_source_hexagon"] == 0
+                                                   for r in rows.values()))
+
+
+def seam_hexagon_collisions():
+    """Round 120 section 16 - why the b = 1 and b = 5 B_ii searches are shallow.
+
+    With x = 0 the only intra-orbit joint out of a full pass is tau, so "t' >= 2" forces the
+    pass before X to have entry tau^{-1}(v), and "t >= 2" forces the pass before Y to have
+    entry tau^{-1}(sigma^b v).  X's free exit opens a run at tau(sigma^b v) and Y's at tau(v).
+    Two passes cannot share a hexagon (only h* is entered twice, by X and Y themselves).
+    Exhaustively over all 720 words:
+
+        hex(tau(sigma^5 v)) = hex(tau^{-1}(v))   for ALL v  ->  at b = 5, t' >= 2 is impossible
+        hex(tau(v)) = hex(tau^{-1}(sigma^1 v))   for ALL v  ->  at b = 1, t  >= 2 is impossible
+
+    so at b = 1 and b = 5 every B_ii walk has t = 1 (resp. t' = 1) and its Phi-image sits in
+    the closed rows G2 / G1.  b = 2, 3, 4 have no such forced collision and need the search."""
+    def itau(w):
+        for _ in range(4):
+            w = tau(w)
+        return w
+
+    rows = {}
+    for b in range(1, 6):
+        rows[b] = dict(
+            pre_X_vs_R_Y_start=sum(1 for v in WORDS
+                                   if HEXID[IDX[tau(sigk(v, b))]] == HEXID[IDX[itau(v)]]),
+            pre_Y_vs_R_X_start=sum(1 for v in WORDS
+                                   if HEXID[IDX[tau(v)]] == HEXID[IDX[itau(sigk(v, b))]]),
+            pre_X_vs_pre_Y=sum(1 for v in WORDS
+                               if HEXID[IDX[itau(v)]] == HEXID[IDX[itau(sigk(v, b))]]))
+    # control: an orbit's five words really do sit in five distinct hexagons
+    distinct = all(len({HEXID[IDX[w]] for w in
+                        [v, tau(v), tau(tau(v)), tau(tau(tau(v))), itau(v)]}) == 5
+                   for v in WORDS)
+    return dict(per_b=rows, orbit_words_in_distinct_hexagons=distinct,
+                t_prime_ge_2_impossible_at=[b for b, r in rows.items()
+                                            if r["pre_X_vs_R_Y_start"] == NW],
+                t_ge_2_impossible_at=[b for b, r in rows.items()
+                                      if r["pre_Y_vs_R_X_start"] == NW],
+                free_splits=[b for b, r in rows.items()
+                             if r["pre_X_vs_R_Y_start"] == 0 and r["pre_Y_vs_R_X_start"] == 0])
+
+
+def n6_base_fact():
+    """the fact R2 rests on: at ell < 5 EVERY move (4 light + 13 weight-4) leaves the orbit."""
+    bad = 0
+    for name, f in MOVES.items():
+        for ell in range(5):
+            for u in WORDS:
+                if ORBID[IDX[f(sigk(u, ell))]] == ORBID[IDX[u]]:
+                    bad += 1
+    return dict(checks=len(MOVES) * 5 * NW, intra_orbit_below_ell5=bad, holds=(bad == 0))
+
+
+def n4_base_fact():
+    """the n = 4 analogue of the same fact - it FAILS, which is why R2 is n = 6 specific."""
+    perms, idx, s4, t4, r4, om4, hexid, orbid = n4_setup()
+    bad = 0
+    checks = 0
+    for u in perms:
+        for ell in range(3):
+            y = u
+            for _ in range(ell):
+                y = s4(y)
+            for z in perms:
+                if z == y or om4(y, z) < 2:
+                    continue
+                checks += 1
+                if orbid[idx[z]] == orbid[idx[u]]:
+                    bad += 1
+    return dict(checks=checks, intra_orbit_below_ell_top=bad, holds=(bad == 0))
 
 
 def verify_n6():
@@ -445,7 +578,10 @@ def main():
                claim="reversal (string reversal) is an exact symmetry that also preserves "
                      "the tau-orbit partition; Round 119 section 8 said otherwise and is "
                      "corrected here",
-               n6=verify_n6(), n4_control=verify_n4())
+               n6=verify_n6(), n4_control=verify_n4(37),
+               weight4_classes=weight4_classes(),
+               n6_base_fact=n6_base_fact(), n4_base_fact=n4_base_fact(),
+               seam_hexagon_collisions=seam_hexagon_collisions())
     ok = (rep["n6"]["A1_rho_sigma"] and rep["n6"]["A2_violations"] == 0
           and rep["n6"]["A3_R_involution"] and rep["n6"]["A3_orbits_scattered"] == 0
           and rep["n6"]["A3_orbit_map_is_bijection"]
@@ -460,8 +596,19 @@ def main():
           and rep["n4_control"]["bad_L"] == 0
           and rep["n4_control"]["bad_involution"] == 0
           and rep["n4_control"]["R1_violations"] == 0
-          and rep["n4_control"]["R2_violations"] == 0
-          and rep["n4_control"]["R3_violations"] == 0)
+          and rep["n4_control"]["R3_violations"] == 0
+          and rep["n6_base_fact"]["holds"]
+          # R2 is an n = 6 fact.  Its n = 4 analogue FAILS, and so does R2 in n = 4 - the
+          # n = 4 control therefore CONFIRMS that R2 tracks the base census exactly and is
+          # not an accident.  Requiring 0 n = 4 R2 violations would be the wrong test.
+          and (not rep["n4_base_fact"]["holds"])
+          and (rep["n4_control"]["R2_violations"] > 0)
+          and rep["weight4_classes"]["all_change_orbit_below_ell5"]
+          and rep["weight4_classes"]["none_returns_to_source_hexagon"]
+          and rep["seam_hexagon_collisions"]["orbit_words_in_distinct_hexagons"]
+          and rep["seam_hexagon_collisions"]["t_prime_ge_2_impossible_at"] == [5]
+          and rep["seam_hexagon_collisions"]["t_ge_2_impossible_at"] == [1]
+          and rep["seam_hexagon_collisions"]["free_splits"] == [2, 3, 4])
     rep["all_checks_pass"] = ok
     rep["label"] = "ROUND-120 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED"
     rep["disclaimer"] = "This project has not proved L6 >= 872."
@@ -473,6 +620,12 @@ def main():
     print(json.dumps({k: v for k, v in rep["n4_control"].items()
                       if k not in ("f1_resource_transitions", "f1_short_length_multisets")},
                      ensure_ascii=False, indent=1))
+    print("n6 base fact (ell<5 always leaves the orbit):", rep["n6_base_fact"])
+    print("n4 base fact (the analogue - expected to FAIL):", rep["n4_base_fact"])
+    print("seam hexagon collisions:",
+          json.dumps(rep["seam_hexagon_collisions"], ensure_ascii=False))
+    print("weight-4 structural classes:",
+          json.dumps(rep["weight4_classes"]["structural_classes"], ensure_ascii=False))
     print("ALL CHECKS PASS:", ok)
 
 

@@ -1,0 +1,303 @@
+{
+ "round": 120,
+ "cell": [
+  3,
+  1
+ ],
+ "node_cap": 60000000000,
+ "branch": "B_ii",
+ "args": [
+  26,
+  27,
+  0,
+  2,
+  2,
+  2,
+  0,
+  29,
+  0,
+  14,
+  0,
+  1,
+  0,
+  1,
+  15,
+  1,
+  59,
+  1
+ ],
+ "runs": 5,
+ "verdicts": {
+  "UNSAT_COMPLETE": 5
+ },
+ "b_ii_closed": true,
+ "c1_closed_by_reversal": true,
+ "cell_closed": true,
+ "case_map": [
+  {
+   "branch": "C1",
+   "subcase": "t' >= 2 (the joint into X is tau)",
+   "image_row": {
+    "e": 1,
+    "x": 0,
+    "f_out": 2,
+    "H": 1,
+    "r": 28,
+    "heavy_region": "strictly after the second short pass"
+   },
+   "closed_by": "Round 119 C2 (hregion=2), 5/5 UNSAT_COMPLETE",
+   "needs_search": false
+  },
+  {
+   "branch": "C1",
+   "subcase": "t' = 1 and the heavy joint IS the joint into X",
+   "image_row": {
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 1,
+    "r": 27
+   },
+   "closed_by": "Round 118 G6_H1_e0, 5/5 UNSAT_COMPLETE",
+   "needs_search": false
+  },
+  {
+   "branch": "C1",
+   "subcase": "t' = 1 and the heavy joint is strictly earlier",
+   "image_row": {
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 1,
+    "r": 27
+   },
+   "closed_by": "Round 118 G6_H1_e0, 5/5 UNSAT_COMPLETE",
+   "needs_search": false
+  },
+  {
+   "branch": "B_ii",
+   "subcase": "t' = 1, t >= 2",
+   "image_row": {
+    "e": 1,
+    "x": 0,
+    "f_out": 1,
+    "H": 0,
+    "r": 28
+   },
+   "closed_by": "Round 118 G2_e1_x0_f1_H0, 5/5 UNSAT_COMPLETE",
+   "needs_search": false
+  },
+  {
+   "branch": "B_ii",
+   "subcase": "t >= 2 reversed: t = 1, t' >= 2",
+   "image_row": {
+    "e": 1,
+    "x": 0,
+    "f_out": 1,
+    "H": 0,
+    "r": 28
+   },
+   "closed_by": "Round 118 G2_e1_x0_f1_H0, 5/5 UNSAT_COMPLETE",
+   "needs_search": false
+  },
+  {
+   "branch": "B_ii",
+   "subcase": "t' = 1 and t = 1",
+   "image_row": {
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 0,
+    "r": 27
+   },
+   "closed_by": "Round 118 G1_e0_H0 (row (0,0,0)), 5/5 UNSAT_COMPLETE",
+   "needs_search": false
+  },
+  {
+   "branch": "B_ii",
+   "subcase": "t' >= 2 and t >= 2 (Phi maps B_ii onto B_ii, b -> 6-b)",
+   "image_row": {
+    "e": 2,
+    "x": 0,
+    "f_out": 2,
+    "H": 0,
+    "r": 29
+   },
+   "closed_by": "this round: seam + pmax + symcut search, 5 splits",
+   "needs_search": true
+  }
+ ],
+ "total_nodes": 128966235120,
+ "total_seconds": 6762,
+ "max_passes_reached": 107,
+ "round_119_baseline": {
+  "b": 1,
+  "verdict": "UNKNOWN_CAP",
+  "nodes_at_cap": 30000000000,
+  "best_passes": 106
+ },
+ "label": "ROUND-120 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+ "rows": [
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 1,
+   "hregion": 0,
+   "yfresh": 1,
+   "exccap": 15,
+   "seam": 1,
+   "pmax": 59,
+   "symcut": 1,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 103,
+   "nodes": 21234894562,
+   "branch": "B_ii",
+   "seconds": 1140.0,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 2,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 1,
+   "hregion": 0,
+   "yfresh": 1,
+   "exccap": 15,
+   "seam": 1,
+   "pmax": 59,
+   "symcut": 1,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 107,
+   "nodes": 27140837795,
+   "branch": "B_ii",
+   "seconds": 1425.5,
+   "splits": [
+    2,
+    4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 1,
+   "hregion": 0,
+   "yfresh": 1,
+   "exccap": 15,
+   "seam": 1,
+   "pmax": 59,
+   "symcut": 1,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 105,
+   "nodes": 32208531527,
+   "branch": "B_ii",
+   "seconds": 1691.5,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 1,
+   "hregion": 0,
+   "yfresh": 1,
+   "exccap": 15,
+   "seam": 1,
+   "pmax": 59,
+   "symcut": 1,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 106,
+   "nodes": 41274360102,
+   "branch": "B_ii",
+   "seconds": 2145.9,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 1,
+   "hregion": 0,
+   "yfresh": 1,
+   "exccap": 15,
+   "seam": 1,
+   "pmax": 59,
+   "symcut": 1,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 59,
+   "nodes": 7107611134,
+   "branch": "B_ii",
+   "seconds": 358.7,
+   "splits": [
+    5,
+    1
+   ]
+  }
+ ],
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_this_round": true
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
