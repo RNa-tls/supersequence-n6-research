@@ -5,9 +5,9 @@
   1
  ],
  "node_cap": 60000000000,
- "runs": 17,
+ "runs": 20,
  "verdicts": {
-  "UNSAT_COMPLETE": 17
+  "UNSAT_COMPLETE": 20
  },
  "by_branch": {
   "C2_heavy_after_Y": {
@@ -33,16 +33,17 @@
   },
   "Bi_Y_case_i": {
    "case": "B",
-   "runs": 2,
-   "closed": false,
-   "nodes": 40442005193,
-   "seconds": 1487
+   "runs": 5,
+   "closed": true,
+   "nodes": 99739378092,
+   "seconds": 3627
   }
  },
  "branches_closed": [
   "C2_heavy_after_Y",
   "A5_gap5_block_forced",
-  "A4_gap4_jump_in_block"
+  "A4_gap4_jump_in_block",
+  "Bi_Y_case_i"
  ],
  "case_status": {
   "A": {
@@ -61,7 +62,9 @@
     "Bi_Y_case_i",
     "Bii_Y_case_ii"
    ],
-   "closed_branches": [],
+   "closed_branches": [
+    "Bi_Y_case_i"
+   ],
    "case_closed": false
   },
   "C": {
@@ -136,9 +139,9 @@
   }
  ],
  "cell_closed": false,
- "total_nodes": 161294856940,
- "total_seconds": 5553,
- "max_passes_reached": 109,
+ "total_nodes": 220592229839,
+ "total_seconds": 7692,
+ "max_passes_reached": 110,
  "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
   {
@@ -615,6 +618,90 @@
    "splits": [
     2,
     4
+   ]
+  },
+  {
+   "b": 3,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 21350393586,
+   "branch": "Bi_Y_case_i",
+   "case": "B",
+   "seconds": 773.1,
+   "splits": [
+    3,
+    3
+   ]
+  },
+  {
+   "b": 4,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 110,
+   "nodes": 21393157946,
+   "branch": "Bi_Y_case_i",
+   "case": "B",
+   "seconds": 769.6,
+   "splits": [
+    4,
+    2
+   ]
+  },
+  {
+   "b": 5,
+   "costcap": 26,
+   "orbcap": 27,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 5,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 14,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 108,
+   "nodes": 16553821367,
+   "branch": "Bi_Y_case_i",
+   "case": "B",
+   "seconds": 596.6,
+   "splits": [
+    5,
+    1
    ]
   }
  ],

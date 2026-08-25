@@ -7140,5 +7140,259 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_119": "Round 119 does NOT close a cell. It splits Round 118's three unknown (3,1) subcases into six structural branches and excludes four of them exhaustively; case A is fully closed and cases B and C each reduce to one remaining branch. Neither ledger changes: INDEPENDENTLY AUDITED Q2 residual stays 4,782 and CLAUDE FULL-JOINT Q2 stays 6,396/6,396. Claude-closed outer cells stay at 6 of 55. Round 115 is PARTIAL under Codex audit; Rounds 117-119 have no independent audit (Codex quota exhausted). This project has not proved L6 >= 872.",
+ "round_119_f1_k3_hard": {
+  "schema": "rr_f1_k3_hard/119/1",
+  "round": 119,
+  "type": "hard-three completion round — case A closed; cell (3,1) still OPEN; ledgers unchanged",
+  "headline": "Round 118's three unknown (3,1) subcases were split structurally into six named branches. Four are excluded exhaustively (20 runs, all UNSAT_COMPLETE, 220,592,229,839 nodes, zero cap hits): case A is fully closed, and cases B and C each reduce to a single remaining branch (B_ii, C1). The cell (3,1) is NOT closed.",
+  "label": "ROUND-119 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "s1_cases": {
+   "A": {
+    "e": 1,
+    "x": 1,
+    "f_out": 2,
+    "H": 0,
+    "S": 26,
+    "r": 28,
+    "t": 1
+   },
+   "B": {
+    "e": 2,
+    "x": 0,
+    "f_out": 2,
+    "H": 0,
+    "S": 26,
+    "r": 29,
+    "t": 1
+   },
+   "C": {
+    "e": 1,
+    "x": 0,
+    "f_out": 2,
+    "H": 1,
+    "S": 25,
+    "r": 28,
+    "t": 2
+   },
+   "common": "f_out = 2 in all three, so X is always in case (ii) by Lemma E's argument"
+  },
+  "s2_case_A_split": {
+   "equation": "the orb(Y) run advances phase by +4 using tau (+1) and W3a (+2); a + 2j = 4, j <= x = 1",
+   "A5": "j = 0, a = 4 -> 5-pass tau block, gap 5, the jump lies OUTSIDE the block",
+   "A4": "j = 1, a = 2 -> 4-pass block, gap 4, the jump lies INSIDE the block",
+   "A4_phase_templates": [
+    [
+     1,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     1
+    ]
+   ],
+   "A4_consumes_x": "the single jump is used inside the block, so the rest of the walk has x = 0",
+   "revisited_orbit": "orb(X) — the unique e = 1 extra run",
+   "exhaustive": true
+  },
+  "s3_case_B_split": {
+   "B_i": "Y in case (i): the orb(Y) run runs tau(entry_Y)..Y, gap exactly 5 (x = 0)",
+   "B_ii": "Y in case (ii): orb(X) and orb(Y) each take exactly two runs and every other orbit one; the order type is FORCED to [R_X^end..X] X [R_Y^start..] .. [R_Y^end..Y] Y [R_X^start..] because a path cannot contain a cycle",
+   "B_ii_freshness": "orb(Y) has exactly two runs, so it cannot be visited before X — X's free exit must land in a FRESH orbit; likewise R_X^end is orb(X)'s first run",
+   "exhaustive": true
+  },
+  "s4_case_C_regions": {
+   "cannot_be_inside_the_forced_tau_block": "the block's joints are intra-orbit while all 13 weight-4 moves change orbit, 720/720",
+   "cannot_be_X_or_Y_exit": "f_out = 2 forces both short-pass exits to be the free move",
+   "regions": [
+    "C1 = weight-4 edge strictly before X",
+    "C2 = weight-4 edge after Y"
+   ],
+   "exhaustive": true
+  },
+  "s6_s7_new_prune": {
+   "prefix_capacity_bound": "remaining passes 121 - passes must fit into (5 - |mask(cur)|) + 5*(27 - orbits) + the (ECAP - rev) largest left-orbit deficits",
+   "exact": true,
+   "measured_effect": "NONE — Round 117 (4,1) sub-case A b=1 still expands exactly 8,538,340,341 nodes, Round 118 G1 b=1 still 750,682,008 and G3 b=1 still 976,708,569. What actually worked this round was the structural splitting of sections 2-4, not this prune."
+  },
+  "s8_search": {
+   "runs": 20,
+   "verdicts": {
+    "UNSAT_COMPLETE": 20
+   },
+   "total_nodes": 220592229839,
+   "total_seconds": 7692,
+   "max_passes_reached": 110,
+   "node_cap": 60000000000,
+   "branches_closed": [
+    "C2_heavy_after_Y",
+    "A5_gap5_block_forced",
+    "A4_gap4_jump_in_block",
+    "Bi_Y_case_i"
+   ],
+   "cell_closed": false
+  },
+  "s8_by_branch": {
+   "C2_heavy_after_Y": {
+    "case": "C",
+    "runs": 5,
+    "closed": true,
+    "nodes": 5854821232,
+    "seconds": 211
+   },
+   "A5_gap5_block_forced": {
+    "case": "A",
+    "runs": 5,
+    "closed": true,
+    "nodes": 56456882511,
+    "seconds": 1870
+   },
+   "A4_gap4_jump_in_block": {
+    "case": "A",
+    "runs": 5,
+    "closed": true,
+    "nodes": 58541148004,
+    "seconds": 1985
+   },
+   "Bi_Y_case_i": {
+    "case": "B",
+    "runs": 5,
+    "closed": true,
+    "nodes": 99739378092,
+    "seconds": 3627
+   }
+  },
+  "s8_case_status": {
+   "A": {
+    "branches": [
+     "A4_gap4_jump_in_block",
+     "A5_gap5_block_forced"
+    ],
+    "closed_branches": [
+     "A4_gap4_jump_in_block",
+     "A5_gap5_block_forced"
+    ],
+    "case_closed": true
+   },
+   "B": {
+    "branches": [
+     "Bi_Y_case_i",
+     "Bii_Y_case_ii"
+    ],
+    "closed_branches": [
+     "Bi_Y_case_i"
+    ],
+    "case_closed": false
+   },
+   "C": {
+    "branches": [
+     "C1_heavy_before_X",
+     "C2_heavy_after_Y"
+    ],
+    "closed_branches": [
+     "C2_heavy_after_Y"
+    ],
+    "case_closed": false
+   }
+  },
+  "open_branches": [
+   {
+    "label": "Bii_Y_case_ii",
+    "case": "B",
+    "args": [
+     26,
+     27,
+     0,
+     2,
+     2,
+     2,
+     0,
+     29,
+     0,
+     14,
+     0,
+     1,
+     0,
+     1
+    ],
+    "pilot": {
+     "b": 1,
+     "verdict": "UNKNOWN_CAP",
+     "nodes_at_cap": 30000000000,
+     "seconds": 400,
+     "best_passes": 106
+    },
+    "structure": "orb(X) and orb(Y) each take exactly two runs and every other orbit one; the order type is forced to R_X^end..X, R_Y^start.., .., R_Y^end..Y, R_X^start.. and orb(Y) must be fresh when X's free exit enters it",
+    "why_open": "still exceeds 3e10 nodes at b=1 after the revisit and freshness restrictions"
+   },
+   {
+    "label": "C1_heavy_before_X",
+    "case": "C",
+    "args": [
+     26,
+     27,
+     0,
+     2,
+     1,
+     2,
+     5,
+     28,
+     1,
+     14,
+     0,
+     0,
+     1,
+     0
+    ],
+    "pilot": {
+     "b": 1,
+     "verdict": "UNKNOWN_CAP",
+     "nodes_at_cap": 20000000000,
+     "seconds": 678,
+     "best_passes": 110
+    },
+    "structure": "the single weight-4 edge lies strictly before X; it can never sit inside the forced tau-block nor be X's or Y's exit (both forced free)",
+    "why_open": "exceeds 2e10 nodes at b=1 even with the heavy edge confined to the prefix"
+   }
+  ],
+  "s8_things_that_did_not_work": [
+   "the prefix capacity bound changed no completed node count",
+   "the analytic segment-capacity route: BESTSEG[5][19] ~ 217 >= 121 for case C, so it does not close analytically; same for A and B",
+   "no further proved symmetry: S6 left multiplication is simply transitive on the 720 words so fixing the first entry word is already complete; X<->Y is broken by walk order and b <-> 6-b by the move set not being reversal-symmetric",
+   "no sound memo key: the coordinates that affect future feasibility (120-bit hexagon mask plus per-orbit phase masks) are the state itself; no incomplete key was used, to avoid repeating the old spent-only memo bug"
+  ],
+  "s14_positive_controls": {
+   "false_rejection": 0,
+   "round_117_118_reproduced_to_the_node": true,
+   "A4_three_phase_templates_all_sum_to_4": true,
+   "heavy_move_actually_used": "hregion runs expand more nodes than hcap=0",
+   "no_n6_F1_control_available": true
+  },
+  "cells": {
+   "total": 55,
+   "claude_closed": 6,
+   "closed_this_round": 0,
+   "caveat": "Round 115 PARTIAL under Codex audit; Rounds 117-119 have no independent audit"
+  },
+  "not_done": [
+   "(3,1) NOT closed — B_ii and C1 open",
+   "(2,1) and (1,1) not started (brief §17)",
+   "F >= 2 untouched",
+   "no independent audit"
+  ],
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

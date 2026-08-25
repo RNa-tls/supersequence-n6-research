@@ -9,6 +9,37 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
+> **Round 119 (hard three) — read this first.**
+> **`(3,1)` is still open**, but Round 118's three unknown subcases are now split structurally
+> into **six named branches**, and **four are excluded exhaustively**. **Case A is fully
+> closed**; cases B and C each reduce to a single remaining branch. Claude-closed outer cells
+> stay at **6 of 55**.
+>
+> All three cases have `f_out = 2`, so `X` (the earlier `h*` pass) is always in case (ii).
+> **Case A** then splits exactly: the `orb(Y)` run must advance phase by `+4` using `τ` (+1) and
+> `W3a` (+2), and `a + 2j = 4` with `j ≤ x = 1` gives only **A5** (`j=0`, 5-pass τ block, gap 5,
+> jump outside) and **A4** (`j=1`, 4-pass block, gap 4, jump inside, three phase templates).
+> **Case B** splits on whether `Y` is in case (i) (gap 5) or (ii); in the latter `orb(X)` and
+> `orb(Y)` each take exactly two runs and the order type is **forced** —
+> `[R_X^end…X] X [R_Y^start…] … [R_Y^end…Y] Y [R_X^start…]` — because a path cannot contain a
+> cycle, which also forces `orb(Y)` to be **fresh** when `X`'s free exit enters it.
+> **Case C**: every weight-4 move changes orbit (13/13, 720/720), so the heavy edge can never
+> sit inside the forced τ-block, and `f_out = 2` forces `X`'s and `Y`'s exits to be free — so
+> the heavy edge lies **either strictly before X or after Y**, exactly two regions.
+>
+> Twenty exact runs over the four completed branches return **all `UNSAT_COMPLETE`,
+> 220,592,229,839 nodes, zero cap hits**, reaching 110 of 121 passes.
+>
+> **Recorded honestly:** the new exact prefix-capacity bound changed **no** completed node count
+> (Round 117's `(4,1)` sub-case A `b=1` is still exactly 8,538,340,341 nodes); what worked was
+> the structural splitting. The analytic segment-capacity route does not close any of A/B/C
+> (`BESTSEG[5][19] ≈ 217 ≥ 121`), no further proved symmetry exists, and no sound memo key was
+> found — so none was used.
+>
+> `B_ii` and `C1` remain **UNKNOWN** (cap hits, not UNSAT). Ledgers stay **4,782** and
+> 6,396/6,396. Round 115 is PARTIAL under Codex audit; Rounds 117–119 have no independent
+> audit. This project has not proved `L₆ ≥ 872`.
+>
 > **Round 118 (F=1, k=3) — read this first.**
 > **The cell `(3,1)` is NOT closed.** Its resource budget is now completely pinned down and
 > **6 of its 9 subcases are excluded exhaustively**; three remain open. Claude-closed outer
