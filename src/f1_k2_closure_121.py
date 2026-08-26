@@ -26,7 +26,7 @@ OUT = ROOT / "outputs"
 BIN = ROOT / "src" / "f1_cell_121.bin"
 SRC = ROOT / "src" / "f1_cell_121.c"
 JSONL = OUT / "rr_f1_k2_121.jsonl"
-NODECAP = 60_000_000_000
+NODECAP = 150_000_000_000
 
 
 def groups():
@@ -43,32 +43,43 @@ def groups():
                          1: [("H1w4", 1, 1)],
                          2: [("H2w4w4", 1, 2), ("H2w5", 2, 1)]}[H]
                 for tag, hw, hjcap in comps:
-                    # Round 121 section 5: the reversal Phi preserves O whenever X's exit
-                    # joint is free, which f_out = 2 forces.  Phi swaps "passes before X"
-                    # with "passes after Y" and sends b -> 6-b, and the 17 groups jointly
-                    # cover every (2,1) row at every split, so on the f_out = 2 groups we
-                    # may assume prefix <= suffix.  With dist(X,Y) >= 2 (Round 116
-                    # Theorem D) that gives 2p <= 120, i.e. X sits at pass <= 60.
-                    sym = 1 if f == 2 else 0
-                    pmax = 60 if f == 2 else 0
-                    # Round 121 section 8: with f_out = 2 BOTH short passes exit freely, so
-                    # X's free successor tau(entry_Y) opens a run of orb(Y) and Y's free
-                    # successor tau(entry_X) opens a run of orb(X).  R_X^end (ending at X)
-                    # and R_X^start (starting after Y) are always different runs, so orb(X)
-                    # already spends one unit of e.  At e = 1 that is the ONLY extra run, so
-                    # orb(Y) has exactly one run: it starts at phase phi+1 and ends at Y
-                    # (phase phi), advancing +4.  Intra-run steps advance +1 (tau), +2 (W3a),
-                    # +3 (W4_0) or +4 (W5_0) and the phases must stay distinct, so the total
-                    # is exactly 4 and the run has at most 5 passes.  Hence dist(X,Y) <= 5.
-                    ygap = 5 if (f == 2 and e == 1) else 0
-                    out.append(dict(
-                        label=f"e{e}_f{f}_{tag}", e=e, f_out=f, H=H, xcap=x,
-                        heavy=tag, S_max=25 + e + x - f, symcut=sym, pmax=pmax, ygap=ygap,
-                        rows=[(e, xx, f, H) for xx in range(x + 1)],
-                        # b cost orb x fout e fmin ygap rmax hcap dcap bf rev hreg yf
-                        # exc seam pmax sym shcap hw hjcap hubmin fod
-                        args=[26 - H, 26, x, f, e, f, ygap, 26 + e, H, 9, 0, 0, 0, 0,
-                              10, 0, pmax, sym, 26, hw, hjcap, H, 1]))
+                    # Round 121 section 5.  Phi preserves O exactly when X's exit
+                    # joint is free, which f_out = 2 forces, so on those groups Phi maps
+                    # the cell (2,1) onto itself.  Phi sends b -> 6-b, so for f_out = 2 we
+                    # may CANONICALISE ON b <= 3: a walk with b in {4,5} has a Phi-image
+                    # with b in {2,1}, which some group covers at that split.  Measured:
+                    # this beats the prefix<=suffix canonical form by a wide margin
+                    # (40% of the runs versus 2% of the nodes).
+                    splits = [1, 2, 3] if f == 2 else [1, 2, 3, 4, 5]
+                    # Round 121 section 8: at f_out = 2 both short passes exit freely, so
+                    # X's free successor opens a run of orb(Y) and orb(X) already spends one
+                    # unit of e on R_X^end / R_X^start.  If orb(Y) has a SINGLE run it goes
+                    # from phase phi+1 to phi, advancing +4 in at most 4 steps, so
+                    # dist(X,Y) <= 5.  At e = 1 that is forced.  At e >= 2 we split:
+                    #   A: dist(X,Y) <= 5
+                    #   B: dist(X,Y) >= 6  =>  orb(Y) has >= 2 runs; at e = 2 that uses up
+                    #      the whole revisit budget, so the revisited orbits are exactly
+                    #      orb(X) and orb(Y) (revonly) and orb(Y) cannot have been entered
+                    #      before X (yfresh) -- Round 119 section 3's argument, re-derived.
+                    if f == 2 and e == 1:
+                        variants = [("", 5, 0, 0, 0)]           # gap <= 5 is forced
+                    elif f == 2 and e == 2:
+                        variants = [("A", 5, 0, 0, 0), ("B", 0, 6, 1, 1)]
+                    elif f == 2 and e >= 3:
+                        variants = [("A", 5, 0, 0, 0), ("B", 0, 6, 0, 0)]
+                    else:
+                        variants = [("", 0, 0, 0, 0)]
+                    for vtag, ygap, ygapmin, revonly, yfresh in variants:
+                        out.append(dict(
+                            label=f"e{e}_f{f}_{tag}" + (f"_{vtag}" if vtag else ""),
+                            e=e, f_out=f, H=H, xcap=x, heavy=tag, variant=vtag,
+                            S_max=25 + e + x - f, ygap=ygap, ygapmin=ygapmin,
+                            revonly=revonly, yfresh=yfresh, splits=splits,
+                            rows=[(e, xx, f, H) for xx in range(x + 1)],
+                            # b cost orb x fout e fmin ygap rmax hcap dcap bf rev hreg yf
+                            # exc seam pmax sym shcap hw hjcap hubmin fod ygapmin
+                            args=[26 - H, 26, x, f, e, f, ygap, 26 + e, H, 9, 0, revonly,
+                                  0, yfresh, 10, 0, 0, 0, 26, hw, hjcap, H, 1, ygapmin]))
     return out
 
 
@@ -97,9 +108,11 @@ def summarise():
         rs = [r for r in rows if r["label"] == g["label"]]
         by[g["label"]] = dict(
             e=g["e"], f_out=g["f_out"], H=g["H"], xcap=g["xcap"], heavy=g["heavy"],
-            symcut=g["symcut"], pmax=g["pmax"], ygap=g["ygap"],
+            variant=g["variant"], ygap=g["ygap"], ygapmin=g["ygapmin"],
             runs=len(rs),
-            closed=(len(rs) == 5 and all(r["verdict"] == "UNSAT_COMPLETE" for r in rs)),
+            splits=g["splits"],
+            closed=(len(rs) == len(g["splits"])
+                    and all(r["verdict"] == "UNSAT_COMPLETE" for r in rs)),
             nodes=sum(r["nodes"] for r in rs), seconds=round(sum(r["seconds"] for r in rs)),
             max_passes=max((r["best_passes"] for r in rs), default=0))
     closed = [k for k, v in by.items() if v["closed"]]
@@ -137,7 +150,7 @@ def main(bs=range(1, 6)):
     fh = open(JSONL, "a", buffering=1, encoding="utf-8")
     for b in bs:
         for g in GROUPS:
-            if (g["label"], b) in have:
+            if b not in g["splits"] or (g["label"], b) in have:
                 continue
             t0 = time.time()
             r = subprocess.run([str(BIN), str(b)] + [str(a) for a in g["args"]]

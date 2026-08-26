@@ -289,7 +289,7 @@ static void build(void) {
 /* ------------------------------------------------------------------ search */
 static int BSPLIT, COSTCAP, ORBCAP, SHRUNCAP, RMAX, XCAP, FOUTCAP, ECAP, FOUTMIN,
            YGAP, HCAP, RMAXARG, DCAP, BFORCE, REVONLY, HREGION, YFRESH, EXCCAP,
-           SEAM, PMAX, SYMCUT, SHCAP, HW, HJCAP, HUBMIN, FOD;
+           SEAM, PMAX, SYMCUT, SHCAP, HW, HJCAP, HUBMIN, FOD, YGAPMIN;
 static long long NODECAP, nodes;
 static int capped, found, bestPasses;
 static unsigned char omask[NO];
@@ -566,7 +566,8 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
         if (!found && hexused && sstate == 1 && w == SIG[BSPLIT][vword]
             && (!YGAP || passes + 1 <= pX + YGAP)
             && !(SEAM && !same)                       /* t >= 2: the joint into Y is tau */
-            && !(SYMCUT && passes + 1 > 122 - pX)) {  /* prefix <= suffix canonical form */
+            && !(SYMCUT && passes + 1 > 122 - pX)     /* prefix <= suffix canonical form */
+            && !(YGAPMIN && passes + 1 < pX + YGAPMIN)) {  /* dist(X,Y) >= YGAPMIN */
             int d0 = 5 - __builtin_popcount(omask[nq]);
             if (fresh) defcnt[4]++; else { defcnt[d0]--; defcnt[d0 - 1]++; }
             if (FOD) { markhex(hexid[w], 1); if (fresh) freshcnt[blk[nq]]--; }
@@ -612,7 +613,8 @@ int main(int argc, char **argv) {
     HJCAP = (argc > 22) ? atoi(argv[22]) : 999;
     HUBMIN = (argc > 23) ? atoi(argv[23]) : 0;
     FOD = (argc > 24) ? atoi(argv[24]) : 0;
-    NODECAP = (argc > 25) ? atoll(argv[25]) : 200000000000LL;
+    YGAPMIN = (argc > 25) ? atoi(argv[25]) : 0;
+    NODECAP = (argc > 26) ? atoll(argv[26]) : 200000000000LL;
     RMAX = RMAXARG ? RMAXARG : (COSTCAP + 1 + FOUTCAP);
     SHRUNCAP = 5 * RMAX - TARGET;
     if (SHRUNCAP < 0) SHRUNCAP = 0;
@@ -663,11 +665,11 @@ int main(int argc, char **argv) {
            " \"ecap\": %d, \"foutmin\": %d, \"ygap\": %d, \"rmax\": %d, \"hcap\": %d, \"dcap\": %d, \"bforce\": %d,"
            " \"revonly\": %d, \"hregion\": %d, \"yfresh\": %d, \"exccap\": %d,"
            " \"seam\": %d, \"pmax\": %d, \"symcut\": %d, \"shcap\": %d, \"hw\": %d,"
-           " \"hjcap\": %d, \"hubmin\": %d, \"fod\": %d, \"shruncap\": %d,"
+           " \"hjcap\": %d, \"hubmin\": %d, \"fod\": %d, \"ygapmin\": %d, \"shruncap\": %d,"
            " \"verdict\": \"%s\", \"best_passes\": %d, \"nodes\": %lld}\n",
            BSPLIT, COSTCAP, ORBCAP, XCAP, FOUTCAP, ECAP, FOUTMIN, YGAP, RMAX, HCAP, DCAP,
            BFORCE, REVONLY, HREGION, YFRESH, EXCCAP, SEAM, PMAX, SYMCUT,
-           SHCAP, HW, HJCAP, HUBMIN, FOD, SHRUNCAP,
+           SHCAP, HW, HJCAP, HUBMIN, FOD, YGAPMIN, SHRUNCAP,
            found ? "SAT" : (capped ? "UNKNOWN_CAP" : "UNSAT_COMPLETE"),
            bestPasses, nodes);
     if (found) {

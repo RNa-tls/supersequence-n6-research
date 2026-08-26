@@ -6,9 +6,9 @@
  ],
  "node_cap": 60000000000,
  "n_groups": 17,
- "runs": 15,
+ "runs": 17,
  "verdicts": {
-  "UNSAT_COMPLETE": 15
+  "UNSAT_COMPLETE": 17
  },
  "by_group": {
   "e0_f0_H0": {
@@ -245,11 +245,11 @@
    "symcut": 1,
    "pmax": 60,
    "ygap": 0,
-   "runs": 0,
+   "runs": 1,
    "closed": false,
-   "nodes": 0,
-   "seconds": 0,
-   "max_passes": 0
+   "nodes": 58112508310,
+   "seconds": 4894,
+   "max_passes": 107
   },
   "e3_f2_H0": {
    "e": 3,
@@ -260,11 +260,11 @@
    "symcut": 1,
    "pmax": 60,
    "ygap": 0,
-   "runs": 0,
+   "runs": 1,
    "closed": false,
-   "nodes": 0,
-   "seconds": 0,
-   "max_passes": 0
+   "nodes": 8639490958,
+   "seconds": 752,
+   "max_passes": 102
   }
  },
  "groups_closed": [],
@@ -417,9 +417,9 @@
   ]
  ],
  "cell_closed": false,
- "total_nodes": 96226474088,
- "total_seconds": 7075,
- "max_passes_reached": 104,
+ "total_nodes": 162978473356,
+ "total_seconds": 12722,
+ "max_passes_reached": 107,
  "sat_found": false,
  "label": "ROUND-121 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
  "rows": [
@@ -1018,6 +1018,86 @@
    "H_row": 0,
    "heavy": "H0",
    "seconds": 592.7,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 25,
+   "orbcap": 26,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 2,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 28,
+   "hcap": 1,
+   "dcap": 9,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "exccap": 10,
+   "seam": 0,
+   "pmax": 60,
+   "symcut": 1,
+   "shcap": 26,
+   "hw": 1,
+   "hjcap": 1,
+   "hubmin": 1,
+   "fod": 1,
+   "shruncap": 19,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 107,
+   "nodes": 58112508310,
+   "label": "e2_f2_H1w4",
+   "e": 2,
+   "f_out_row": 2,
+   "H_row": 1,
+   "heavy": "H1w4",
+   "seconds": 4894.5,
+   "splits": [
+    1,
+    5
+   ]
+  },
+  {
+   "b": 1,
+   "costcap": 26,
+   "orbcap": 26,
+   "xcap": 0,
+   "foutcap": 2,
+   "ecap": 3,
+   "foutmin": 2,
+   "ygap": 0,
+   "rmax": 29,
+   "hcap": 0,
+   "dcap": 9,
+   "bforce": 0,
+   "revonly": 0,
+   "hregion": 0,
+   "yfresh": 0,
+   "exccap": 10,
+   "seam": 0,
+   "pmax": 60,
+   "symcut": 1,
+   "shcap": 26,
+   "hw": 1,
+   "hjcap": 0,
+   "hubmin": 0,
+   "fod": 1,
+   "shruncap": 24,
+   "verdict": "UNSAT_COMPLETE",
+   "best_passes": 102,
+   "nodes": 8639490958,
+   "label": "e3_f2_H0",
+   "e": 3,
+   "f_out_row": 2,
+   "H_row": 0,
+   "heavy": "H0",
+   "seconds": 752.0,
    "splits": [
     1,
     5
