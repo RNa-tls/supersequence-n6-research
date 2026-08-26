@@ -192,18 +192,38 @@ def test_ledgers_unchanged(res):
     assert res["ledger"]["unchanged_by_this_round"] is True
 
 
-def test_canonical_form_only_on_f_out_2_groups(res):
+def test_canonical_form_is_b_le_3_on_f_out_2_groups(res):
+    """Phi 는 f_out=2 에서 O 를 보존하므로 b<=3 로 정규화할 수 있다.
+    접두<=접미(symcut)는 이득이 2% 뿐이라 쓰지 않았다 — 대합 하나에 정규형 하나."""
     for r in res["rows"]:
+        assert r["symcut"] == 0 and r["pmax"] == 0
         if r["f_out_row"] == 2:
-            assert r["symcut"] == 1 and r["pmax"] == 60
-        else:
-            assert r["symcut"] == 0 and r["pmax"] == 0
+            assert r["b"] in (1, 2, 3)
+    by = res["by_group"]
+    for g in by.values():
+        assert g["splits"] == ([1, 2, 3] if g["f_out"] == 2 else [1, 2, 3, 4, 5])
 
 
-def test_gap_bound_only_on_e1_f2_groups(res):
+def test_gap_bound_where_orb_Y_has_a_single_run(res):
+    """e=1, f_out=2 는 dist(X,Y)<=5 가 강제된다; e>=2 는 A 분기가 그것을 가정하고
+    B 분기가 dist>=6 을 잡는다."""
     for r in res["rows"]:
-        expect = 5 if (r["e"] == 1 and r["f_out_row"] == 2) else 0
-        assert r["ygap"] == expect
+        if r["f_out_row"] != 2:
+            assert r["ygap"] == 0 and r["ygapmin"] == 0
+        elif r["e"] == 1:
+            assert r["ygap"] == 5 and r["ygapmin"] == 0
+        elif r["label"].endswith("_A"):
+            assert r["ygap"] == 5 and r["ygapmin"] == 0
+        else:
+            assert r["label"].endswith("_B") and r["ygap"] == 0 and r["ygapmin"] == 6
+
+
+def test_revisit_restrictions_only_where_proved(res):
+    """revonly/yfresh 는 e=2, f_out=2, dist>=6 분기에서만 정당하다."""
+    for r in res["rows"]:
+        ok = (r["e"] == 2 and r["f_out_row"] == 2 and r["label"].endswith("_B"))
+        assert r["revonly"] == (1 if ok else 0)
+        assert r["yfresh"] == (1 if ok else 0)
 
 
 def test_engine_settings_are_the_k2_ones(res):
@@ -213,7 +233,18 @@ def test_engine_settings_are_the_k2_ones(res):
         assert r["exccap"] == 10
         assert r["shcap"] == 26
         assert r["fod"] == 1
-        assert r["seam"] == 0 and r["revonly"] == 0 and r["yfresh"] == 0
+        assert r["seam"] == 0          # Round 120's seam is NOT valid at k = 2
+        assert r["costcap"] == 26 - r["H_row"]
+        assert r["rmax"] == 26 + r["e"]
+
+
+def test_every_group_is_closed_and_the_cell_is_closed(res):
+    assert res["runs"] == 80
+    assert res["verdicts"] == {"UNSAT_COMPLETE": 80}
+    assert len(res["groups_closed"]) == res["n_groups"] == 20
+    assert res["rows_closed"] == res["rows_total"] == 24
+    assert res["rows_open"] == []
+    assert res["cell_closed"] is True
 
 
 def test_disclaimer(bud, res):

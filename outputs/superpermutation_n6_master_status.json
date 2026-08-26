@@ -7670,5 +7670,618 @@
    "not_vacuous": "exact 24-orbit covers of the 120 hexagons exist, so covering 27-sets with excess exactly 15 exist"
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_121_cell_2_1_closed": {
+  "round": 121,
+  "cell": [
+   2,
+   1
+  ],
+  "cell_closed": true,
+  "claude_closed_outer_cells": "7/55 -> 8/55",
+  "headline": "the (2,1) cell is closed: 2 of its 24 resource rows die by the Round-115 segment-capacity bound alone and the other 22 by 20 exact groups over 80 runs, all UNSAT_COMPLETE with zero cap hits",
+  "budget": {
+   "P": 121,
+   "O": 26,
+   "D": 9,
+   "L": "845 + S + H",
+   "SH_cap": 26,
+   "S": "25 + e + x - f_out",
+   "core": "e + x + H <= 1 + f_out",
+   "derived": {
+    "H_le": 2,
+    "x_plus_H_le": 2,
+    "e_le": 3,
+    "f_out_2_implies_e_ge_1": true
+   },
+   "n_rows": 24,
+   "n_subcases": 26
+  },
+  "corollary_k_le_4_at_F1": "at general k, S = 23 + k + e + x - f_out gives k + x + H <= 4, so an F=1 walk with L <= 871 has k in {1,2,3,4}; with (4,1) and (3,1) closed only (2,1) and (1,1) remained",
+  "heavy_composition": {
+   "H=0": [],
+   "H=1": [
+    4
+   ],
+   "H=2": [
+    [
+     4,
+     4
+    ],
+    [
+     5
+    ]
+   ],
+   "searched_separately": true,
+   "measured_difference": {
+    "e1_f2_H2w4w4_nodes": 164207396276,
+    "e1_f2_H2w5_nodes": 30354798418
+   }
+  },
+  "tail_catalogue": {
+   "counts_by_weight": {
+    "1": 1,
+    "2": 1,
+    "3": 3,
+    "4": 13,
+    "5": 71,
+    "6": 461
+   },
+   "total": 550
+  },
+  "weight4_census": {
+   "n_tails": 13,
+   "n_classes": 3,
+   "all_weights_exact": true,
+   "intra_orbit_only_at_ell5": true,
+   "never_returns_to_source_hexagon": true,
+   "intra_orbit_at_ell5": [
+    "W4_0"
+   ],
+   "partially_intra_at_ell5": []
+  },
+  "weight5_census": {
+   "n_tails": 71,
+   "n_classes": 3,
+   "all_weights_exact": true,
+   "intra_orbit_only_at_ell5": true,
+   "never_returns_to_source_hexagon": true,
+   "intra_orbit_at_ell5": [
+    "W5_0"
+   ],
+   "partially_intra_at_ell5": []
+  },
+  "corrects_round_118_hexagon_overlap_census": {
+   "round_118_claim": "weight-4 source/target orbit hexagon overlap: 12 are 0, 1 is 2",
+   "status": "FALSE",
+   "correction": "1 tail with overlap 5 (intra-orbit, W4_0), 3 with overlap 1, 9 disjoint; no tail has overlap 2",
+   "verdict_impact": "none - no Round 118/119 prune used the overlap count"
+  },
+  "phi_usage": {
+   "fact": "u -> rho(sigma^(m-1) u) maps tau-orbits onto tau-orbits only for m = 6",
+   "consequence": "Phi does not preserve O in general, so Round 120's b <-> 6-b fold is unsound at k = 2",
+   "lemma": "if X's exit joint is free then Phi preserves O; f_out = 2 forces this",
+   "canonical_form_used": "b <= 3 on the f_out = 2 groups",
+   "prefix_le_suffix_measured": {
+    "before": 18781775033,
+    "after": 18384878341,
+    "reduction": "2.1%",
+    "used": false
+   },
+   "pmax_at_k2": 60
+  },
+  "analytic_kills": [
+   {
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 0,
+    "heavy_weights": [],
+    "segments": 3,
+    "segment_capacity": 112
+   },
+   {
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 0,
+    "heavy_weights": [],
+    "segments": 3,
+    "segment_capacity": 112
+   }
+  ],
+  "new_exact_prune_fod": {
+   "statement": "a fresh orbit can never enter an already-used hexagon, so d_Q >= blk(Q); the 26-orbits smallest blk values add to the committed deficit and must stay within D = 9. h* does not block until Y is placed.",
+   "measured_effect": "0.02% where measured (11,614,806 -> 11,612,755)"
+  },
+  "EXC_vs_D": {
+   "EXC": 10,
+   "D": 9,
+   "difference": "exactly 1 = the second entry of h*",
+   "sharper": "m_{h*} >= 2 since orb(X) != orb(Y), so sum over h != h* of (m_h - 1) = D - (m_{h*} - 2) <= 9",
+   "corollary": "at least 17 of the 26 orbits are full (d_Q = 0) and any two full orbits are hexagon-disjoint except one pair meeting at h*"
+  },
+  "reproduction_controls": {
+   "round_117_cell_4_1_A_b1": 8538340341,
+   "round_118_G1_b1": 750682008,
+   "round_118_G3_b1": 976708569,
+   "round_119_120_C2_b1": 1053024770,
+   "round_120_Bii_b1": 21234894562,
+   "all_exact": true
+  },
+  "n_groups": 20,
+  "runs": 80,
+  "verdicts": {
+   "UNSAT_COMPLETE": 80
+  },
+  "by_group": {
+   "e0_f0_H0": {
+    "e": 0,
+    "f_out": 0,
+    "H": 0,
+    "xcap": 1,
+    "heavy": "H0",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 9082750,
+    "seconds": 1,
+    "max_passes": 81
+   },
+   "e0_f0_H1w4": {
+    "e": 0,
+    "f_out": 0,
+    "H": 1,
+    "xcap": 0,
+    "heavy": "H1w4",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 62609028,
+    "seconds": 4,
+    "max_passes": 96
+   },
+   "e0_f1_H0": {
+    "e": 0,
+    "f_out": 1,
+    "H": 0,
+    "xcap": 2,
+    "heavy": "H0",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 62778406,
+    "seconds": 5,
+    "max_passes": 97
+   },
+   "e0_f1_H1w4": {
+    "e": 0,
+    "f_out": 1,
+    "H": 1,
+    "xcap": 1,
+    "heavy": "H1w4",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 914441763,
+    "seconds": 68,
+    "max_passes": 97
+   },
+   "e0_f1_H2w4w4": {
+    "e": 0,
+    "f_out": 1,
+    "H": 2,
+    "xcap": 0,
+    "heavy": "H2w4w4",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 3614316582,
+    "seconds": 273,
+    "max_passes": 104
+   },
+   "e0_f1_H2w5": {
+    "e": 0,
+    "f_out": 1,
+    "H": 2,
+    "xcap": 0,
+    "heavy": "H2w5",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 622166787,
+    "seconds": 46,
+    "max_passes": 97
+   },
+   "e1_f0_H0": {
+    "e": 1,
+    "f_out": 0,
+    "H": 0,
+    "xcap": 0,
+    "heavy": "H0",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 469621123,
+    "seconds": 44,
+    "max_passes": 96
+   },
+   "e1_f1_H0": {
+    "e": 1,
+    "f_out": 1,
+    "H": 0,
+    "xcap": 1,
+    "heavy": "H0",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 5054624465,
+    "seconds": 471,
+    "max_passes": 96
+   },
+   "e1_f1_H1w4": {
+    "e": 1,
+    "f_out": 1,
+    "H": 1,
+    "xcap": 0,
+    "heavy": "H1w4",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 41426152703,
+    "seconds": 3919,
+    "max_passes": 103
+   },
+   "e1_f2_H0": {
+    "e": 1,
+    "f_out": 2,
+    "H": 0,
+    "xcap": 2,
+    "heavy": "H0",
+    "variant": "",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 2525433655,
+    "seconds": 181,
+    "max_passes": 95
+   },
+   "e1_f2_H1w4": {
+    "e": 1,
+    "f_out": 2,
+    "H": 1,
+    "xcap": 1,
+    "heavy": "H1w4",
+    "variant": "",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 45674012854,
+    "seconds": 3230,
+    "max_passes": 100
+   },
+   "e1_f2_H2w4w4": {
+    "e": 1,
+    "f_out": 2,
+    "H": 2,
+    "xcap": 0,
+    "heavy": "H2w4w4",
+    "variant": "",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 164207396276,
+    "seconds": 11447,
+    "max_passes": 106
+   },
+   "e1_f2_H2w5": {
+    "e": 1,
+    "f_out": 2,
+    "H": 2,
+    "xcap": 0,
+    "heavy": "H2w5",
+    "variant": "",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 30354798418,
+    "seconds": 2100,
+    "max_passes": 100
+   },
+   "e2_f1_H0": {
+    "e": 2,
+    "f_out": 1,
+    "H": 0,
+    "xcap": 0,
+    "heavy": "H0",
+    "variant": "",
+    "ygap": 0,
+    "ygapmin": 0,
+    "runs": 5,
+    "splits": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "closed": true,
+    "nodes": 17251361038,
+    "seconds": 1678,
+    "max_passes": 101
+   },
+   "e2_f2_H0_A": {
+    "e": 2,
+    "f_out": 2,
+    "H": 0,
+    "xcap": 1,
+    "heavy": "H0",
+    "variant": "A",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 15782585220,
+    "seconds": 1224,
+    "max_passes": 99
+   },
+   "e2_f2_H0_B": {
+    "e": 2,
+    "f_out": 2,
+    "H": 0,
+    "xcap": 1,
+    "heavy": "H0",
+    "variant": "B",
+    "ygap": 0,
+    "ygapmin": 6,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 20742404270,
+    "seconds": 1857,
+    "max_passes": 99
+   },
+   "e2_f2_H1w4_A": {
+    "e": 2,
+    "f_out": 2,
+    "H": 1,
+    "xcap": 0,
+    "heavy": "H1w4",
+    "variant": "A",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 115092454234,
+    "seconds": 8778,
+    "max_passes": 106
+   },
+   "e2_f2_H1w4_B": {
+    "e": 2,
+    "f_out": 2,
+    "H": 1,
+    "xcap": 0,
+    "heavy": "H1w4",
+    "variant": "B",
+    "ygap": 0,
+    "ygapmin": 6,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 173432231968,
+    "seconds": 15892,
+    "max_passes": 105
+   },
+   "e3_f2_H0_A": {
+    "e": 3,
+    "f_out": 2,
+    "H": 0,
+    "xcap": 0,
+    "heavy": "H0",
+    "variant": "A",
+    "ygap": 5,
+    "ygapmin": 0,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 17603850175,
+    "seconds": 1399,
+    "max_passes": 104
+   },
+   "e3_f2_H0_B": {
+    "e": 3,
+    "f_out": 2,
+    "H": 0,
+    "xcap": 0,
+    "heavy": "H0",
+    "variant": "B",
+    "ygap": 0,
+    "ygapmin": 6,
+    "runs": 3,
+    "splits": [
+     1,
+     2,
+     3
+    ],
+    "closed": true,
+    "nodes": 33077607789,
+    "seconds": 3006,
+    "max_passes": 104
+   }
+  },
+  "rows_closed": 24,
+  "rows_total": 24,
+  "rows_open": [],
+  "total_nodes": 687979929504,
+  "total_seconds": 55623,
+  "max_passes_reached": 106,
+  "node_cap": 150000000000,
+  "sat_found": false,
+  "what_did_not_help": [
+   "prefix<=suffix canonical form (2.1%)",
+   "orbit-cover excess bound exccap=10 (same information as dcap)",
+   "fresh-orbit deficit prune fod (0.02% where measured)",
+   "the gap split (instances shrink but total nodes grow: 58.1e9 unsplit vs 82.0e9 split; kept for cap safety)",
+   "no heavy-position type theorem (brief section 11)",
+   "no analytic bound killing a whole H class (brief section 15)"
+  ],
+  "what_worked": [
+   "D = 9 itself",
+   "pinning f_out exactly per group (2.5x)",
+   "forced dist(X,Y) <= 5 at e = 1, f_out = 2",
+   "Phi's b <= 3 canonical form"
+  ],
+  "label": "ROUND-121 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_121": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_round_121": true,
+  "claude_closed_outer_cells": 8,
+  "outer_cells_total": 55,
+  "cells_closed": [
+   "F=0 column (5 cells)",
+   "(4,1)",
+   "(3,1)",
+   "(2,1)"
+  ],
+  "cells_remaining": 47,
+  "F1_column": {
+   "(4,1)": "closed (Round 117)",
+   "(3,1)": "closed (Round 120)",
+   "(2,1)": "closed (Round 121)",
+   "(1,1)": "OPEN - not started"
+  },
+  "F1_column_note": "k + x + H <= 4 at F = 1, so only k in {1,2,3,4} can occur; (1,1) is the only cell of the F = 1 column still open",
+  "independently_audited": false,
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

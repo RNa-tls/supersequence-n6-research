@@ -100,6 +100,9 @@ def done_keys():
 
 def summarise():
     rows = [json.loads(l) for l in JSONL.read_text().splitlines() if l.strip()]
+    for r in rows:                       # the A/B gap variant, recoverable from the label
+        r["variant"] = (r["label"].rsplit("_", 1)[-1]
+                        if r["label"].endswith(("_A", "_B")) else "")
     verdicts = {}
     for r in rows:
         verdicts[r["verdict"]] = verdicts.get(r["verdict"], 0) + 1

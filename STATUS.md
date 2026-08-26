@@ -9,7 +9,66 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 120 (reversal symmetry closes `(3,1)`) — read this first.**
+> **Round 121 (F=1, k=2) — read this first.**
+> **The cell `(k,F) = (2,1)` is CLOSED.** Claude-closed outer cells go **7 → 8 of 55**, and the
+> `F = 1` column now has **only `(1,1)` left**.
+>
+> Re-deriving the budget from first principles: `P = 121`, `O = 26`, **`D = 9`**,
+> `L = 845 + S + H`, so `L ≤ 871 ⟺ S + H ≤ 26`. With `S = x + (r−1) − f_out` and `r = 26 + e`
+> this is **`S = 25 + e + x − f_out`**, hence `S + H ≤ 26 ⟺ **e + x + H ≤ 1 + f_out**`. Adding
+> Lemma E (`f_out ≤ 1+e`) and `f_out ≤ 2` gives **`x + H ≤ 2`**, so **`H ≤ 2` is derived, not
+> assumed**, and there are exactly **24 integer rows** (26 subcases once the `H` composition is
+> split out) with no hidden slack. The same accounting at general `k` gives **`k + x + H ≤ 4`**,
+> so an `F = 1` walk of length ≤ 871 has `k ∈ {1,2,3,4}` — with `(4,1)` and `(3,1)` already
+> closed, `(2,1)` and `(1,1)` were all that remained.
+>
+> `H = 2` arises in exactly **two** compositions — two weight-4 joints (`t = 3`) or one weight-5
+> joint (`t = 2`) — and they were searched **separately**: they behave very differently
+> (164.2×10⁹ vs 30.4×10⁹ nodes in the same row). The tail catalogue is the indecomposable
+> permutations, **1, 1, 3, 13, 71, 461 — total 550**, verified exhaustively.
+>
+> **The weight-4/5 census was rebuilt from scratch** because Round 118's had an error. Over all
+> 720 words and all `ℓ`: every weight-4 and weight-5 tail has exactly its weight, **all of them
+> change orbit at every `ℓ < 5`**, and **none ever returns to the source hexagon**. Exactly one
+> tail of each weight is intra-orbit at `ℓ = 5` — `W4_0` (phase +3) and `W5_0` (phase +4) — and
+> **no tail is only partially intra-orbit**. Three structural classes each.
+> **Correction:** Round 118 recorded the source/target hexagon overlap for weight-4 as "12 are 0,
+> 1 is 2". **Both numbers are wrong** — it is **1 with overlap 5 (intra-orbit), 3 with overlap 1,
+> 9 disjoint**, and **no tail has overlap 2**. No Round-118/119 prune used the overlap count, so
+> no verdict is affected. (This is the second error in that census; Round 120 corrected the
+> first.) The unsound `if (same && hb) continue;` was **not restored** — this round really does
+> run groups with `xcap > 0` and `hcap > 0` simultaneously, where it would have false-rejected.
+>
+> **Φ is used only where proved.** `u ↦ ρ(σ^{m−1}u)` maps τ-orbits onto τ-orbits **only for
+> `m = 6`**, so Φ does *not* preserve `O` in general and Round 120's fold of `b ↔ 6−b` would be
+> **unsound at k = 2**. But when **X's exit joint is free** — which `f_out = 2` forces — Φ does
+> preserve `O`, so on those groups the cell maps to itself and **`b ≤ 3` is a valid canonical
+> form**. Measured: the prefix≤suffix form cut only **2.1%** of nodes, while `b ≤ 3` removes
+> **40% of the runs**, so `b ≤ 3` was used (one involution, one canonicalisation). `pmax` is
+> **60** here, not Round 120's 59; `seam` is **not** valid at k = 2.
+>
+> **Two rows die by accounting alone**: with `e = x = H = 0` the walk is cut into only 3
+> R115-model segments and the `D = 9` run-shortfall budget caps them at **112 < 121 passes**.
+> The same computation at `k = 3` gives 171 and kills nothing — the first hard evidence that
+> `D = 9` really is stronger.
+>
+> **Results: 20 groups, 80 runs, all `UNSAT_COMPLETE`, zero cap hits**,
+> **687,979,929,504 nodes / 15.5 h**, reaching 106 of 121 passes, no SAT. Five reproduction
+> controls match prior rounds **to the node** (Rounds 117, 118×2, 119/120, 120).
+>
+> **Recorded honestly as failures:** the prefix≤suffix canonical form (2.1%), the orbit-cover
+> excess bound (`dcap` already carries the same information), the new exact fresh-orbit deficit
+> prune `fod` (0.02% where measured), and the gap split (instances shrink but **total nodes
+> grow** — 58.1×10⁹ unsplit vs 36.0 + 46.0 = 82.0×10⁹ split; kept only for cap safety). No
+> heavy-position type theorem (§11) and no analytic bound killing a whole `H` class (§15) was
+> found. What actually worked: **`D = 9` itself**, pinning `f_out` exactly per group (2.5×), the
+> forced `dist(X,Y) ≤ 5` at `e = 1, f_out = 2`, and Φ's `b ≤ 3`.
+>
+> Ledgers stay **4,782** and **6,396/6,396**. This is **not** independently audited: Round 115
+> is PARTIAL under Codex audit; Rounds 117–121 have none. `(1,1)` was not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 120 (reversal symmetry closes `(3,1)`) — superseded by Round 121.**
 > **The cell `(k,F) = (3,1)` is CLOSED.** Claude-closed outer cells go **6 → 7 of 55**.
 >
 > Round 119 said "`b ↔ 6−b` is not a symmetry because the move set is not reverse-symmetric".
