@@ -8283,5 +8283,159 @@
   "F1_column_note": "k + x + H <= 4 at F = 1, so only k in {1,2,3,4} can occur; (1,1) is the only cell of the F = 1 column still open",
   "independently_audited": false,
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_122_generic_11_q2_bridge": {
+  "round": 122,
+  "cell": [
+   1,
+   1
+  ],
+  "cell_closed": false,
+  "claude_closed_outer_cells": "8/55 (unchanged)",
+  "headline": "generic (1,1) is NOT reducible to the historical Q2/Area-A population; the bridge breaks at the ROOTS and at the RR macro alphabet, not at the resource slab",
+  "budget": {
+   "P": 121,
+   "O": 25,
+   "D": 4,
+   "S": "24 + e + x - f_out",
+   "N": "S + F - O = e + x - f_out",
+   "L": "869 + N + H",
+   "core": "N + H <= 2  (equivalently e + x + H <= 2 + f_out)",
+   "derived": {
+    "x_plus_H_le": 3,
+    "max_H": 3,
+    "max_e": 4,
+    "max_x": 3
+   },
+   "n_rows": 50,
+   "n_subcases": 61,
+   "n_dead_by_capacity": 9,
+   "n_live_rows": 44,
+   "heavy_multisets": [
+    [],
+    [
+     4
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     4,
+     4,
+     4
+    ],
+    [
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     6
+    ]
+   ],
+   "weight6_tails_enter": true
+  },
+  "archive_census": {
+   "n_states": 6396,
+   "invariants": {
+    "all_F_equal_1": true,
+    "all_H_zero": true,
+    "all_Ndef_zero": true,
+    "all_P_in_13_14": true,
+    "all_D_equals_5O_minus_P": true,
+    "all_K_equals_25_minus_O": true,
+    "all_roots_are_short": true,
+    "b_plus_c_always_5": true
+   },
+   "P": {
+    "13": 2888,
+    "14": 3508
+   },
+   "roots": {
+    "short_ell0": 513,
+    "short_ell1": 1051,
+    "short_ell2": 1491,
+    "short_ell3": 1717,
+    "short_ell4": 1624
+   },
+   "O": {
+    "3": 5,
+    "4": 95,
+    "5": 515,
+    "6": 1512,
+    "7": 2029,
+    "8": 1563,
+    "9": 602,
+    "10": 75
+   }
+  },
+  "root_construction": "short_root(ell) = initial_state(), sigma applied ell times (ell = 0..4), then w2:10 (weight 2, abandonment=True, new_orbit=True); i.e. the walk's FIRST pass is short of length ell+1 and exits freely, which raises F to 1 already at P = 2",
+  "rr_alphabet": {
+   "inside": [
+    "Z2",
+    "Z2abandon",
+    "R",
+    "Z3"
+   ],
+   "n_outside": 16,
+   "every_heavy_joint_is_outside": true,
+   "also_outside": [
+    "A2 (U-branch)",
+    "A3 (U-branch)",
+    "J (J-branch)"
+   ]
+  },
+  "off_by_one": {
+   "generic_requirement": "N + H <= 2   (L <= 871)",
+   "historical_final_target": "Ndef + H <= 3   (L <= 872)",
+   "relation": "the Q2 slab is one length shell WIDER, so it is a superset in the resource direction - favourable, never a gap"
+  },
+  "re_rooting": "impossible - a superpermutation is a linear string and an NR6 walk is a path, not a cycle; the historical root IS initial_state()",
+  "reversal_phi": "only swaps the two ends: 'last pass short' -> 'first pass short', but a walk with both ends full maps to one with both ends full",
+  "n4_control": {
+   "maxlen": 37,
+   "walks_scanned": 16186,
+   "F1_walks": 5764,
+   "first_pass_short": 1625,
+   "last_pass_short": 1625,
+   "last_pass_full": 4139,
+   "first_pass_full": 4139,
+   "both_ends_full": 2667
+  },
+  "complement_G_minus_Q": [
+   "walks whose first AND last pass are both full (46% of F=1 walks in the n=4 census)",
+   "walks whose short first pass does not exit freely (the root forces w2:10)",
+   "walks using a weight >= 4 joint before the boundary (outside the RR alphabet)",
+   "walks using A2 / A3 / J before the boundary (different corpora)",
+   "walks that never reach a second R event (no Target A boundary at all)"
+  ],
+  "unproved_propositions_a_bridge_needs": [
+   "root-set completeness (the 28 long roots were FOUND by search, not enumerated as a class; RR_EXHAUSTIVENESS_STANDARD.md condition 1 asks for exactly this)",
+   "alphabet completeness of the pre-boundary segment",
+   "existence of a second R event",
+   "boundary depth P = 13..14"
+  ],
+  "q2_certificate_scope": "within the current conditional Q2/Area-A full-joint model, all 6,396 archive states are UNSAT_COMPLETE; this excludes precisely completions with Ndef + H <= 3 from those 6,396 states, and is NOT 'Q2 proved'",
+  "label": "ROUND-122 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_122": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_round_122": true,
+  "claude_closed_outer_cells": 8,
+  "outer_cells_total": 55,
+  "cells_remaining": 47,
+  "F1_column": {
+   "(4,1)": "closed (Round 117)",
+   "(3,1)": "closed (Round 120)",
+   "(2,1)": "closed (Round 121)",
+   "(1,1)": "OPEN - not reducible to Q2 (Round 122)"
+  },
+  "independently_audited": false,
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

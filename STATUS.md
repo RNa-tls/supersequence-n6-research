@@ -9,7 +9,63 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 121 (F=1, k=2) — read this first.**
+> **Round 122 (generic (1,1) / Q2 bridge) — read this first.**
+> **The bridge does not stand, and it breaks at the *roots*, not at the resource table.**
+> No cell closed; Claude-closed outer cells stay at **8 of 55** and `(1,1)` remains **OPEN**.
+>
+> The `(1,1)` budget re-derived from first principles: `P = 121`, `O = 25`, **`D = 4`**,
+> `S = 24 + e + x − f_out`, `N = S + F − O = e + x − f_out`, so **`L = 869 + N + H`** and
+> `L ≤ 871 ⟺ N + H ≤ 2 ⟺ e + x + H ≤ 2 + f_out`. With Lemma E this gives **`x + H ≤ 3`**
+> (consistent with Round 121's `k + x + H ≤ 4`). Exhaustively: **50 rows / 61 subcases**, of
+> which **9 die by the Round-115 segment-capacity bound** (at `e = 0` the run-shortfall budget
+> is only 4, capping `m ≤ 4` segments at 106 < 121 passes), leaving **44 live rows**. `H`
+> reaches **3** here, so the **461 weight-6 tails** enter — a scale `(2,1)` never had.
+>
+> **Reading the 6,396 archive states directly** settles the bridge. Every one has `F = 1`,
+> `H = 0`, `Ndef = 0`, `D = 5O − P`, `K = 25 − O`, `S = O − 1`, `b + c = 5` — and every one has
+> **`P ∈ {13, 14}`**, i.e. it is a prefix only 13–14 passes from the start of the walk. All
+> 6,396 come from just **five roots**, `short_ell0..4`. Instantiating them in the engine:
+> `short_root(ℓ)` = `initial_state()`, `σ` applied `ℓ` times (`ℓ = 0..4`), then `w2:10`
+> (weight 2, abandonment, new orbit). **That is: the walk's FIRST pass is short, of length
+> `ℓ+1 ∈ {1..5}`, and its exit is free** — and that single step already raises `F` to 1 at
+> `P = 2`.
+>
+> **Second decisive finding — the RR macro alphabet.** `joint_kind(ω, abandonment, new_orbit)`
+> names only four combinations (`Z2`, `Z2abandon`, `R`, `Z3`); everything else is cut as
+> `outside_RR_alphabet` — **all 16 combinations with `ω ≥ 4`**, plus `A2`, `A3` (U-branch) and
+> `J` (J-branch). **The Q2 search never looks at a single heavy joint.** 22 of the 44 live
+> generic rows have `H ≥ 1`, and whether their heavy joints fall after pass 14 is a *positional*
+> condition the resource table does not impose.
+>
+> **Re-rooting is impossible** (a superpermutation is a linear string and an NR6 walk is a path,
+> not a cycle; the historical root *is* `initial_state()`), and **Φ only swaps the two ends**:
+> it carries "last pass short" to "first pass short", but if both ends are full so is the image.
+>
+> **The off-by-one runs the favourable way**: the historical `final_target` is `Ndef + H ≤ 3`
+> (`L ≤ 872`), strictly wider than the generic `N + H ≤ 2` (`L ≤ 871`). **The resource slab is
+> not the obstacle.**
+>
+> **Concrete counterexample family (n = 4, exhaustive).** Of 5,764 `F = 1` walks, **4,139 (72%)
+> have a full first pass** and **2,667 (46%) have both ends full**. `F = 1` says the walk has
+> two short passes; it says nothing about where they sit.
+>
+> **So `G \ Q` is non-empty and not small.** It contains at least: walks with both end passes
+> full; walks whose short first pass does not exit freely; walks using a weight-≥4 joint before
+> the boundary; walks using `A2`/`A3`/`J` before the boundary; and walks that never reach a
+> second R event. Four propositions would be needed for a bridge and **none is proved** — most
+> pointedly **root-set completeness**: the 5 short roots are complete for their class, but the
+> 28 long roots were *found by search* (`long_found_*`, `long_q1_*`), not enumerated as a class,
+> and the repository's own standard (`RR_EXHAUSTIVENESS_STANDARD.md`, condition 1) asks for
+> exactly that.
+>
+> **Scope of the Q2 certificate, stated exactly:** *within the current conditional Q2/Area-A
+> full-joint model*, all 6,396 archive states are `UNSAT_COMPLETE`. That excludes precisely
+> "completions with `Ndef + H ≤ 3` from those 6,396 states". It is **not** "Q2 proved".
+>
+> Ledgers stay **4,782** and **6,396/6,396**. Not independently audited. `F = 2` not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 121 (F=1, k=2) — superseded by Round 122.**
 > **The cell `(k,F) = (2,1)` is CLOSED.** Claude-closed outer cells go **7 → 8 of 55**, and the
 > `F = 1` column now has **only `(1,1)` left**.
 >
