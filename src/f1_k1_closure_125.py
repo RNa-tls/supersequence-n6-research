@@ -171,9 +171,97 @@ def main(splits=(1, 2, 3, 4, 5)):
                 return
 
 
+def summarise():
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from verify_f1_k1_rows_125 import summarise as rowsum
+    from verify_f1_k1_w6_125 import summarise as w6sum
+    from f1_k1_controls_125 import controls
+
+    rows = rowsum()
+    rs = [json.loads(l) for l in JSONL.read_text().splitlines() if l.strip()]
+    by = {}
+    for r in rs:
+        by.setdefault(r["group"], []).append(r)
+    groups = {}
+    for g, lst in by.items():
+        groups[g] = dict(
+            runs=len(lst), nodes=sum(r["nodes"] for r in lst),
+            seconds=round(sum(r["seconds"] for r in lst), 1),
+            max_passes=max(r["best_passes"] for r in lst),
+            verdicts=sorted({r["verdict"] for r in lst}),
+            heavy=lst[0]["heavy"], e=lst[0]["e_row"], x=lst[0]["x_row"],
+            f_out=lst[0]["f_out_row"], H=lst[0]["H_row"],
+            closed=all(r["verdict"] == "UNSAT_COMPLETE" for r in lst) and len(lst) == 5)
+    capped = [r["label"] for r in rs if r["verdict"] == "UNKNOWN_CAP"]
+    sat = [r["label"] for r in rs if r["verdict"] == "SAT"]
+    expected = {label(*g) for g in GROUPS}
+    complete = all(groups.get(g, {}).get("closed") for g in expected)
+    w6 = w6sum()
+    rep = dict(
+        round=125, cell=[1, 1], P=25 * 5 - 4, node_cap=NODECAP,
+        model=("end-to-end exact DFS from the initial state; the first short pass X is a "
+               "STATE TRANSITION inside the DFS (sstate 0 -> 1 -> 2), never an enumerated "
+               "root, so the Round-123 root explosion does not occur"),
+        budget=rows["identities"],
+        resource_table=dict(
+            n_resource_rows=rows["n_resource_rows"], n_subcases=rows["n_subcases"],
+            n_dead_by_capacity=rows["n_subcases_dead_by_capacity"],
+            n_alive=rows["n_subcases_alive"],
+            n_rows_with_a_live_subcase=rows["n_rows_with_a_live_subcase"],
+            max_H=rows["max_H"], max_e=rows["max_e"], max_x=rows["max_x"],
+            dead_subcases=rows["dead_subcases"],
+            recount_matches_round_122=(rows["n_resource_rows"] == 50
+                                       and rows["n_subcases"] == 61
+                                       and rows["n_subcases_dead_by_capacity"] == 9),
+            H_classification=rows["H_classification"],
+            negative_N=rows["negative_N"]),
+        weight6_correction=w6["weight6_degeneracy"],
+        heavy_census={w: dict(n_tails=d["n_tails"], n_classes=d["n_classes"],
+                              all_or_nothing=d["all_or_nothing"],
+                              never_returns_to_source_hexagon=d["never_returns_to_source_hexagon"],
+                              intra_orbit=d["intra_orbit_all_720"])
+                      for w, d in w6["by_weight"].items()},
+        n_final_groups=len(GROUPS), n_runs_planned=len(GROUPS) * 5, n_runs_done=len(rs),
+        by_group=groups,
+        engine_parameters=dict(
+            ORBCAP=25, DCAP=4, EXCCAP=5, SHCAP=26,
+            COSTCAP="24 + e + x - f_out (= S exactly for the row)",
+            RMAX="25 + e  => SHRUNCAP = 4 + 5e",
+            FOUTCAP="f_out", FOUTMIN="f_out (pins f_out exactly)",
+            HCAP="H", HUBMIN="H (pins hub exactly)", HJCAP="number of heavy joints",
+            HW="bitmask over the weights in the multiset", FOD=1,
+            symmetry_cuts_used="none - SEAM, PMAX, SYMCUT, REVONLY, YFRESH, YGAP, YGAPMIN "
+                               "are all OFF, and b is NOT folded to b <= 3 (section 10)"),
+        total_nodes=sum(r["nodes"] for r in rs),
+        total_seconds=round(sum(r["seconds"] for r in rs), 1),
+        max_passes_reached=max((r["best_passes"] for r in rs), default=0),
+        cap_hits=capped, sat_found=sat,
+        cell_closed=(complete and not capped and not sat),
+        coverage_argument=(
+            "every walk in the cell has an exact (e, x, f_out, H, heavy multiset); that is one "
+            "of the 61 subcases; 9 are impossible with no search by the Round-115 chain-capacity "
+            "bound and the other 52 each get their own run with those exact values, so the union "
+            "of the 52 runs (x 5 splits) covers the cell with zero false rejection"),
+        controls=dict(reproduction=controls(budget_seconds=90)),
+        label="ROUND-125 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+        ledger={"INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+                "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+                "unchanged_by_this_round": True},
+        disclaimer="This project has not proved L6 >= 872.")
+    (OUT / "rr_f1_k1_125.json").write_text(json.dumps(rep, indent=1, ensure_ascii=False))
+    return rep
+
+
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == "pilot":
         pilots()
+    elif len(sys.argv) > 1 and sys.argv[1] == "summarise":
+        r = summarise()
+        print(json.dumps({k: r[k] for k in ("n_final_groups", "n_runs_done", "total_nodes",
+                                            "total_seconds", "max_passes_reached",
+                                            "cap_hits", "sat_found", "cell_closed")},
+                         indent=1))
     else:
         main()
