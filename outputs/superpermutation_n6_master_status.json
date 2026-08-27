@@ -8716,5 +8716,207 @@
   },
   "independently_audited": false,
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_124_generic_11_root_compression": {
+  "round": 124,
+  "cell": [
+   1,
+   1
+  ],
+  "cell_closed": false,
+  "claude_closed_outer_cells": "8/55 (unchanged)",
+  "headline": "the generic (1,1) root family does NOT compress: the prefix ORDER/history is provably unnecessary, but the residual state (the consumed-hexagon set) is irreducible - even a deliberately UNSOUND ceiling signature compresses by at most 1.19x",
+  "signature": {
+   "fine": "(v, b, omask[144], cost, hub, x, e)",
+   "coarse": "(v, b, budgets, usedhex[120 bits], opened-orbit set[144 bits])",
+   "ceiling": "(v, b, usedhex[120 bits]) - DIAGNOSTIC ONLY, NOT SOUND",
+   "prefix": "(u, omask[144], cost, hub, x, e)"
+  },
+  "sufficiency_theorem": {
+   "statement": "Sig(r1) = Sig(r2) implies suffix-language(r1) = suffix-language(r2)",
+   "signature": "(v, b, omask[144], cost, hub, x, e)",
+   "why": [
+    "(v,b) determines the position, the pending h* obligation, the second-visit word sigma^b v with residual length 6-b, and X's exit word sigma^(b-1) v",
+    "omask determines the consumed entry-word set and hence the consumed hexagons",
+    "the budgets (cost, hub, x, e) determine what is still affordable"
+   ],
+   "dropped_coordinates": [
+    "usedhex: entry words <-> (orbit, phase) is a 720<->720 bijection, so omask determines the used-word set and hence the used-hexagon set",
+    "orbits, runs (= orbits + e), defcnt, EXC, mcnt, blk, freshcnt: all functions of omask and the used-hexagon set",
+    "runlen: an orbit has only 5 phases, so phase injectivity already forbids a run longer than 5; every other use of runlen (shrun, segment capacity) is prune accounting, not legality",
+    "f_out: X's exit is not chosen yet at the root, so it is 0 for every root",
+    "D = 5*O - P: with P = 121 fixed, D = 4 is equivalent to O = 25, not independent"
+   ]
+  },
+  "structural_lemma": {
+   "phase_injectivity_implied_by_hexagon_injectivity": true,
+   "orbits_whose_5_words_miss_5_distinct_hexagons": 0,
+   "note": "every orbit's 5 words lie in 5 DISTINCT hexagons (0 exceptions over all 144 orbits), so 'available entry words' = 'words of unused hexagons' and no separate phase bookkeeping is needed for legality"
+  },
+  "compression": {
+   "best_sound_fine": 1.1774,
+   "best_sound_coarse": 1.179,
+   "best_ceiling": 1.1909,
+   "best_prefix_frontier_dp": 1.1766,
+   "verdict": "no meaningful compression: even the deliberately UNSOUND ceiling signature, which discards every budget and the whole opened-orbit set, compresses by at most 1.19x, so no sound future-equivalence signature can do better"
+  },
+  "frontier_dp": {
+   "measured_prefix_compression": 1.1766,
+   "verdict": "section 17 frontier-DP buys nothing: distinct prefix signatures are within a factor 1.18 of the raw prefix states on every tested subfamily, so merging prefixes at the frontier removes almost no work"
+  },
+  "per_subfamily": {
+   "rigid_e0_x0_H0": {
+    "prefix_states": 3425,
+    "roots": 17545,
+    "fine": 17545,
+    "coarse": 17545,
+    "ceiling_unsound": 17545,
+    "prefix_signatures": 3425,
+    "root_compression": 1.0,
+    "ceiling_compression": 1.0,
+    "verdict": "COMPLETE"
+   },
+   "e1_x0_H0": {
+    "prefix_states": 110484,
+    "roots": 606700,
+    "fine": 606700,
+    "coarse": 606700,
+    "ceiling_unsound": 606700,
+    "prefix_signatures": 110484,
+    "root_compression": 1.0,
+    "ceiling_compression": 1.0,
+    "verdict": "COMPLETE"
+   },
+   "e0_x1_H0": {
+    "prefix_states": 16491,
+    "roots": 84525,
+    "fine": 84525,
+    "coarse": 82125,
+    "ceiling_unsound": 82125,
+    "prefix_signatures": 16491,
+    "root_compression": 1.0,
+    "ceiling_compression": 1.0292,
+    "verdict": "COMPLETE"
+   },
+   "e0_x0_H1": {
+    "prefix_states": 209022,
+    "roots": 1076875,
+    "fine": 987835,
+    "coarse": 986925,
+    "ceiling_unsound": 986925,
+    "prefix_signatures": 191860,
+    "root_compression": 1.0901,
+    "ceiling_compression": 1.0911,
+    "verdict": "COMPLETE"
+   },
+   "e2_x0_H0": {
+    "prefix_states": 1954139,
+    "roots": 11485015,
+    "fine": 11484670,
+    "coarse": 11484670,
+    "ceiling_unsound": 11484670,
+    "prefix_signatures": 1954073,
+    "root_compression": 1.0,
+    "ceiling_compression": 1.0,
+    "verdict": "COMPLETE"
+   },
+   "e1_x1_H0": {
+    "prefix_states": 666675,
+    "roots": 3645985,
+    "fine": 3645985,
+    "coarse": 3557515,
+    "ceiling_unsound": 3557515,
+    "prefix_signatures": 666675,
+    "root_compression": 1.0,
+    "ceiling_compression": 1.0249,
+    "verdict": "COMPLETE"
+   },
+   "e0_x2_H0": {
+    "prefix_states": 60233,
+    "roots": 309425,
+    "fine": 309425,
+    "coarse": 298910,
+    "ceiling_unsound": 298910,
+    "prefix_signatures": 60233,
+    "root_compression": 1.0,
+    "ceiling_compression": 1.0352,
+    "verdict": "COMPLETE"
+   },
+   "e1_x0_H1": {
+    "prefix_states": 7905791,
+    "roots": 43471940,
+    "fine": 39798235,
+    "coarse": 39738775,
+    "ceiling_unsound": 39738440,
+    "prefix_signatures": 7240136,
+    "root_compression": 1.0923,
+    "ceiling_compression": 1.094,
+    "verdict": "COMPLETE"
+   },
+   "e0_x1_H1": {
+    "prefix_states": 1266407,
+    "roots": 6511045,
+    "fine": 5998300,
+    "coarse": 5846665,
+    "ceiling_unsound": 5844575,
+    "prefix_signatures": 1167191,
+    "root_compression": 1.0855,
+    "ceiling_compression": 1.114,
+    "verdict": "COMPLETE"
+   },
+   "e0_x0_H2": {
+    "prefix_states": 8744758,
+    "roots": 45165820,
+    "fine": 38360230,
+    "coarse": 38309360,
+    "ceiling_unsound": 37925275,
+    "prefix_signatures": 7432220,
+    "root_compression": 1.1774,
+    "ceiling_compression": 1.1909,
+    "verdict": "COMPLETE"
+   }
+  },
+  "exact_hash": "open addressing with the full signature bytes stored in an arena and compared with memcmp; a hash collision cannot merge two signatures",
+  "positive_controls": {
+   "false_rejection": 0,
+   "all_agree": true,
+   "cells": [
+    "e0_x0_H0",
+    "e0_x1_H0",
+    "e1_x0_H0"
+   ]
+  },
+  "reproduction_control": {
+   "rigid_roots_round123": 17545,
+   "rigid_roots_round124": 17545,
+   "rigid_prefix_states_round123": 3425,
+   "rigid_prefix_states_round124": 3425,
+   "rigid_max_q_round123": 46,
+   "rigid_max_q_round124": 46,
+   "matches": true
+  },
+  "bdd_zdd": "section 16: a ZDD can share the 120-bit hexagon sets in storage, but the number of DISTINCT futures to search is bounded below by the ceiling-signature count, which does not shrink; decision diagrams solve storage, not search",
+  "consequence": "the load-bearing information is the USED-HEXAGON SET itself, not the traversal order: Round 124 proves the order/run history is NOT needed (the signature is sufficient without it), and then measures that the residual state is already as large as the root enumeration.  Splitting the (1,1) search at the first short pass therefore buys nothing, and a completion search should run end-to-end as the Round-121 engine does.",
+  "not_done": [
+   "no completion search launched from 10^11 roots",
+   "the complete root family was NOT re-enumerated (3 targeted replays only)",
+   "did not return to historical Q2 root assumptions",
+   "did NOT close (1,1) - it does not compress in the first place",
+   "F = 2 not started"
+  ],
+  "cell_status": {
+   "cell": "(1,1)",
+   "status": "OPEN",
+   "claude_closed_outer_cells": "8/55",
+   "closed_by_this_round": false,
+   "F2_started": false
+  },
+  "label": "ROUND-124 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

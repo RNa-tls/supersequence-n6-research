@@ -27,7 +27,7 @@
  * 접두 서명도 함께 센다: `PSig = ( u, omask, cost, hub, x, e )` (여기서 `q` 는
  * `omask` 의 popcount 합이라 파생값이다) — §17 의 frontier-DP 가 가능한지 재는 값이다.
  *
- * 인자: b qcap costcap orbcap xcap ecap hcap dcap exccap fod nodecap tablebits
+ * 인자: b qcap costcap orbcap xcap ecap hcap dcap exccap fod nodecap tablebits dump
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -279,6 +279,7 @@ static void markhex(int h, int delta) {
 
 /* ------------------------------------------------- exact signature hash set */
 static int TBITS;
+static int DUMP;   /* section 20 positive control: print every root signature */
 static uint64_t TMASK;
 static unsigned char **slot;          /* NULL or pointer to a length-prefixed signature */
 static long long n_distinct, n_probe_overflow;
@@ -311,6 +312,14 @@ static unsigned char *arena_put(const unsigned char *p, int n) {
     memcpy(dst + 1, p, n);
     arena_used += n + 1;
     return dst;
+}
+
+/* section 20 positive control: print a signature as hex so an independent Python
+   re-derivation can check the counts and the fine -> coarse -> ceiling quotients. */
+static void dump_sig(const unsigned char *sig, int n) {
+    fputs("R ", stdout);
+    for (int i = 0; i < n; i++) printf("%02x", sig[i]);
+    putchar('\n');
 }
 
 /* insert into `tab`; returns 1 if newly inserted.  Exact comparison, no hash collisions. */
@@ -475,6 +484,7 @@ static void emit_roots(int u, int passes, int cost, int hub, int xj, int rev, in
             if (BSPLIT && b != BSPLIT) continue;
             roots++;
             int ln = build_sig(sig, w, b, ncost, nhub, nx, nrev);
+            if (DUMP) dump_sig(sig, ln);
             hs_insert(slot, &n_distinct, sig, ln);
             unsigned char csig[64];
             int cl = build_coarse(csig, w, b, ncost, nhub, nx, nrev);
@@ -562,6 +572,7 @@ int main(int argc, char **argv) {
     FOD     = (argc > 10) ? atoi(argv[10]) : 1;
     NODECAP = (argc > 11) ? atoll(argv[11]) : 100000000000LL;
     TBITS   = (argc > 12) ? atoi(argv[12]) : 22;
+    DUMP    = (argc > 13) ? atoi(argv[13]) : 0;
     TMASK   = (1ULL << TBITS) - 1;
     slot  = calloc((size_t)1 << TBITS, sizeof *slot);
     slot2 = calloc((size_t)1 << TBITS, sizeof *slot2);
@@ -584,6 +595,7 @@ int main(int argc, char **argv) {
             omask[orbid[0]] = 1 << phse[0];
             roots++;
             int ln = build_sig(sig, 0, b, 0, 0, 0, 0);
+            if (DUMP) dump_sig(sig, ln);
             hs_insert(slot, &n_distinct, sig, ln);
             unsigned char csig[64];
             int cl = build_coarse(csig, 0, b, 0, 0, 0, 0);

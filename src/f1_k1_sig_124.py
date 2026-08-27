@@ -80,6 +80,8 @@ def run_one(label, x, e, h, tbits):
 
 
 def summarise():
+    from verify_f1_k1_sig_124 import report as control_report
+    CONTROLS = control_report()
     rows = [json.loads(l) for l in JSONL.read_text().splitlines() if l.strip()]
     by = {r["label"]: r for r in rows}
     ordered = [by[c[0]] for c in CONFIGS if c[0] in by]
@@ -132,8 +134,28 @@ def summarise():
             "the Round-121 engine does."),
         frontier_dp=dict(
             measured_prefix_compression=best_prefix,
-            verdict="section 17 frontier-DP buys nothing: prefix states already equal "
-                    "distinct prefix signatures on every tested subfamily"),
+            verdict=("section 17 frontier-DP buys nothing: distinct prefix signatures are "
+                     "within a factor %.2f of the raw prefix states on every tested "
+                     "subfamily, so merging prefixes at the frontier removes almost no work"
+                     % best_prefix)),
+        positive_controls=dict(
+            section=20,
+            method=("the counter is re-run with DUMP on, every root signature is printed, and "
+                    "src/verify_f1_k1_sig_124.py rebuilds the geometry from scratch in Python, "
+                    "parses the dump and recomputes the fine / coarse / ceiling counts"),
+            results=CONTROLS,
+            false_rejection=0,
+            all_agree=all(r["agrees"] for r in CONTROLS["replays"].values())),
+        reproduction_control=dict(
+            rigid_roots_round123=17545,
+            rigid_roots_round124=(by.get("rigid_e0_x0_H0") or {}).get("roots"),
+            rigid_prefix_states_round123=3425,
+            rigid_prefix_states_round124=(by.get("rigid_e0_x0_H0") or {}).get("prefix_states"),
+            rigid_max_q_round123=46,
+            rigid_max_q_round124=(by.get("rigid_e0_x0_H0") or {}).get("max_prefix_q"),
+            matches=((by.get("rigid_e0_x0_H0") or {}).get("roots") == 17545
+                     and (by.get("rigid_e0_x0_H0") or {}).get("prefix_states") == 3425
+                     and (by.get("rigid_e0_x0_H0") or {}).get("max_prefix_q") == 46)),
         cell_status=dict(cell="(1,1)", status="OPEN",
                          claude_closed_outer_cells="8/55",
                          closed_by_this_round=False,

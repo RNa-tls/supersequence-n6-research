@@ -9,7 +9,62 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 123 (complete generic (1,1) roots) — read this first.**
+> **Round 124 (generic (1,1) root compression) — read this first.**
+> **The generic `(1,1)` root family does NOT compress.** The prefix *order/history* is provably
+> unnecessary — but what is left over is irreducible. No cell closed; Claude-closed outer cells
+> stay at **8 of 55** and `(1,1)` remains **OPEN**.
+>
+> **Sufficiency theorem (124.1).** A root's future language is determined entirely by
+> **`Sig = ( v, b, omask[144], cost, hub, x, e )`**, i.e. `Sig(r₁) = Sig(r₂) ⟹ Suf(r₁) = Suf(r₂)`.
+> `(v, b)` fixes the position, the pending `h*` obligation, the second-visit word `σ^b v` with
+> residual length `6 − b`, and `X`'s exit word `σ^{b−1} v`; `omask` fixes the consumed entry-word
+> set; the budgets fix what is still affordable. **Pass order, run lengths, which tail was used
+> when, and the order the orbits were opened are all unnecessary.** Dropped coordinates:
+> `usedhex` is derived (entry words ↔ `(orbit, phase)` is a 720↔720 bijection); so are `orbits`,
+> `runs = orbits + e`, `defcnt`, `EXC`, `mcnt`, `blk`, `freshcnt`; `runlen` is already forced by
+> phase injectivity and is otherwise prune accounting; `f_out = 0` at every root; and
+> **`D = 5O − P = 4` is just `O = 25` restated**, not an independent constraint.
+>
+> **Structural lemma — phase injectivity is a *corollary* of hexagon injectivity.** Re-derived
+> from scratch in Python over all 144 orbits and 120 hexagons: **0** orbits whose 5 words fail to
+> occupy 5 distinct hexagons, **0** orbits with repeated phases, **0** hexagons meeting fewer than
+> 6 orbits. Hence *"available entry word" = "word of an unused hexagon"*.
+>
+> **Measurement (10 subfamilies, all `COMPLETE`, zero cap hits, zero probe overflow).** Counted
+> with an exact-comparison hash (full signature bytes stored in an arena and compared with
+> `memcmp`, so a collision cannot manufacture compression). Rigid `(0,0,0)`: 3,425 prefix states,
+> 17,545 roots → **17,545 signatures, ×1.00** — *every root has a distinct future state*. Best
+> sound compression anywhere: **×1.18** (`H = 2`). The `e` axis gives exactly ×1.00; only the `H`
+> axis collapses anything at all.
+>
+> **The ceiling experiment settles it.** A deliberately **UNSOUND** diagnostic signature
+> `(v, b, used hexagons)` — throwing away every budget and the whole opened-orbit set — compresses
+> by at most **×1.19**. No sound signature can be coarser, so that is an upper bound on the whole
+> approach: looking for a cleverer signature is a **closed** road. ZDD/BDD sharing (§16) reduces
+> storage, not the number of distinct futures; frontier-DP (§17) measures ×1.00–×1.18 on prefix
+> signatures and therefore buys nothing either.
+>
+> **Positive controls — false rejection 0.** A `DUMP` mode prints every root's signature, and
+> `src/verify_f1_k1_sig_124.py` rebuilds the geometry from scratch in Python, parses the dump and
+> recounts: `(0,0,0)` 17,545, `(x1)` 84,525 with coarse 82,125 (so the quotient structure is
+> genuinely exercised), `(e1)` 606,700 — fine/coarse/ceiling all match the C counts exactly.
+> Round-123 reproduction control: rigid roots 17,545, prefix states 3,425, `q ≤ 46 = NTAB[4]` —
+> all three match.
+>
+> **What is load-bearing, stated precisely.** *Not* the order or the history — Round 124 proved
+> those are unnecessary. It is the **consumed-hexagon set itself**, and the root enumeration was
+> already counting those sets almost one-to-one: **the minimal sufficient state is already as
+> large as the root family.** The target scale was `2× / 100× / 10⁶×`; the measurement is under
+> ×1.2, so no full-family signature run was attempted. **Splitting `(1,1)` at the first short
+> pass buys nothing** — a completion search should run end-to-end as the Round-121 engine does.
+> `(1,1)` was **not** closed "because the roots compress"; they do not compress.
+>
+> Audited ledger **4,782** unchanged; Claude full-joint Q2 **6,396/6,396** unchanged.
+> ROUND-124 PROVISIONAL · Claude only · **not independently audited** (Codex quota exhausted).
+> NR6 remains **assumed**. `F = 2` not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 123 (complete generic (1,1) roots) — superseded by Round 124 as the lead, still current.**
 > **The generic `(1,1)` root family is now COMPLETE**, the full-pass prefix is **bounded**, and
 > in the rigid case the bound matches Round 115's chain-capacity table exactly. No cell closed;
 > Claude-closed outer cells stay at **8 of 55** and `(1,1)` remains **OPEN**.
