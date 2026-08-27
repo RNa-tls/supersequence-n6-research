@@ -9,7 +9,74 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 124 (generic (1,1) root compression) — read this first.**
+> **Round 125 (generic (1,1) end-to-end) — read this first.**
+> **Generic `(k,F) = (1,1)` is CLOSED, and with it the whole `F = 1` column.**
+> 52 live subcases × 5 splits = **260 runs, every one `UNSAT_COMPLETE`**, **zero cap hits, zero
+> SAT**, **295,093,380,933 nodes in 6.14 h**, deepest walk **109 of 121 passes** — plus **9
+> subcases killed analytically with no search at all**. **Claude-closed outer cells go from
+> 8 of 55 to `9 of 55`.** `F = 2` not started.
+>
+> **Why the column is finished.** `k = O − 24`, and the Round-121 corollary `k + x + H ≤ 4`
+> bounds `k ≤ 4`; `k = 0` would give `D = 5·24 − 121 = −1 < 0`. So `F = 1` is exactly
+> `k ∈ {1,2,3,4}`: `(4,1)` Round 117, `(3,1)` Round 120, `(2,1)` Round 121, **`(1,1)` Round 125.**
+>
+> **Resource table re-derived from scratch** (nothing inherited): `P = 121`, `O = 25`, **`D = 4`**,
+> `S = 24 + e + x − f_out`, `N = S − 24`, `L = 869 + N + H`, so `L ≤ 871 ⟺ e + x + H − f_out ≤ 2`
+> with Lemma E `f_out ≤ 1 + e` and `f_out ≤ 2`; run shortfall `= D + 5e = 4 + 5e`. The recount
+> gives **50 rows / 61 subcases / 9 dead by capacity / 52 alive / 44 rows with a live subcase** —
+> **exactly Round 122's numbers**; the worry about ambiguous terminology was unfounded.
+> `max H = 3`, `max e = 4`, `max x = 3` are **derived, not assumed** (`H = 4` needs `f_out = 2`
+> with `e = 0`, which Lemma E forbids).
+>
+> **Correction — the weight-6 catalogue degenerates.** There are 461 indecomposable permutations
+> of `{0..5}`, but only **308 actually realize `ω = 6`**. `ω = k < 6` is equivalent to
+> `π(i) = k + i` for `i ≤ 5 − k`, and then `π`'s indecomposability imposes **nothing** on the
+> inner permutation, so all `k!` appear: **89** are genuine lighter joints (`1+1+3+13+71`,
+> exactly the `w ≤ 5` catalogues, same `z` from the same `y`) and **64** contain an intermediate
+> permutation and are not single joints at all (`Σ (k! − indec(k)) = 1+3+11+49`). For `w < 6` the
+> forced prefix `z[:6−w] = y[w:]` makes `ω = w` always (13/13, 71/71). The engine offers **only
+> the 308** — false rejection 0. *Round 123:* its `H = 3` root counts are **over-counts** and
+> should be read as upper bounds; the completeness theorem (independently confirmed by Codex) is
+> unaffected, since a superset is still complete. *Round 124:* **unaffected** — every subfamily
+> it measured had `H ≤ 2`, so no weight-6 tail was ever offered.
+>
+> **Two more structural facts.** A genuine weight-6 joint **after a full pass always changes
+> orbit** — the intra-orbit ones occur only at `ℓ ∈ {1,2,3}` (six of them) and **never at
+> `ℓ = 5`**, the exact opposite of `W4_0` (`ℓ = 5`, phase +3) and `W5_0` (`ℓ = 5`, phase +4).
+> And **`N ≥ −1`**, with `N = −1` exactly on `(e,x,f_out) ∈ {(0,0,1), (1,0,2)}`, **both with
+> `x = 0`**; since `H = 3` forces `N ≤ −1`, **every `H = 3` walk has `x = 0`** — no cost-1 joint
+> can be intra-orbit. That is why `H = 3` did not explode. Weight-6 in fact survives in
+> **exactly one subcase of the whole cell**, `(e,x,f_out,H) = (1,0,2,3)`, and that group was the
+> **cheapest** of the three `H = 3` compositions (1.90×10⁹ nodes).
+>
+> **The engine is end-to-end (no roots).** The search starts at `initial_state` and runs to 121
+> passes; the first short pass `X` is a **state transition inside the DFS** (`sstate 0 → 1 → 2`),
+> and `Y`'s entry word is then *forced* (`σ^b v`, length `6 − b`). The Round-123 root explosion
+> never happens. History order is not stored — Round 124's signature analysis, applied.
+>
+> **Final groups: the 52 exact rows, not maximal boxes.** Merging into maximal `(e,x)` boxes
+> forbids using `FOUTMIN` (it would wrongly discard smaller walks inside the box) and the prunes
+> collapse: measured, box `H0_e4_x0` **caps at 2×10⁹ nodes**, while the same case as the exact
+> row `(4,0,2)` **finishes at 5.04×10⁸**. Every engine parameter is exact: `ORBCAP = 25`,
+> `DCAP = 4`, `EXCCAP = 5`, **`SHCAP = 26` (`cost + hub ≤ 26 ⟺ L ≤ 871` — that is the whole
+> length condition)**, `COSTCAP = 24 + e + x − f_out`, `RMAX = 25 + e` (⇒ `SHRUNCAP = 4 + 5e`),
+> `FOUTCAP = FOUTMIN = f_out`, `HCAP = HUBMIN = H`. **No symmetry cut was used at all** — SEAM,
+> PMAX, SYMCUT, REVONLY, YFRESH, YGAP, YGAPMIN all off, and `b` was **not** folded to `b ≤ 3`.
+>
+> **Controls.** All five reproduction controls match digit-for-digit: Round 117 `A_e0_x0_fout1`
+> 6,209,365,576; Round 118 `G1_e0_H0` 537,734,707; Round 119 `C` 937,937,189; Round 120 `B_ii`
+> 7,107,611,134; Round 121 `e0_f0_H0` 1,805,462. A root-mode in the same engine reproduces Round
+> 123's `prefix_states_by_q` **exactly — all 47 entries, total 3,425, deepest prefix `q = 46`**;
+> it emits fewer roots (17,120 vs 17,545) only because the end-to-end engine additionally rejects
+> `X`-choices that cannot meet `D = 4`, and both rounds emit **zero** roots at `q = 46`.
+>
+> Audited ledger **4,782** unchanged; Claude full-joint Q2 **6,396/6,396** unchanged.
+> Round 123's first-short root-cover theorem is **independently confirmed by Codex**; Round 124's
+> compression theorem and **this round's `(1,1)` closure are Claude-only and not audited**.
+> NR6 remains **assumed**. `F = 2` not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 124 (generic (1,1) root compression) — superseded by Round 125 as the lead, still current.**
 > **The generic `(1,1)` root family does NOT compress.** The prefix *order/history* is provably
 > unnecessary — but what is left over is irreducible. No cell closed; Claude-closed outer cells
 > stay at **8 of 55** and `(1,1)` remains **OPEN**.
