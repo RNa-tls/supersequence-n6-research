@@ -9,7 +9,55 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 122 (generic (1,1) / Q2 bridge) — read this first.**
+> **Round 123 (complete generic (1,1) roots) — read this first.**
+> **The generic `(1,1)` root family is now COMPLETE**, the full-pass prefix is **bounded**, and
+> in the rigid case the bound matches Round 115's chain-capacity table exactly. No cell closed;
+> Claude-closed outer cells stay at **8 of 55** and `(1,1)` remains **OPEN**.
+>
+> **Proposition 1 (no historical assumptions).** `F = 1` gives exactly two short passes, and `X`
+> is the earlier one, so **every pass before `X` is full**. Writing the walk `A · X · B · Y · C`
+> with `q = |A|`, the prefix `A` is an `F = 0` prefix.
+>
+> **Budget.** `P = 121`, `O = 25`, **`D = 4`**, `EXC = 5k = 5`, `L = 869 + N + H` with
+> `N = e + x − f_out`, so `L ≤ 871 ⟺ N + H ≤ 2`, and with Lemma E
+> **`e + x + H ≤ 2 + f_out ≤ 4`**, `x + H ≤ 3`. `D = 4` forces **at least 21 of the 25 orbits to
+> be full** (5 passes), and a full orbit eats 5 whole hexagons. Since a complete 5-pass τ-run is
+> determined by its first entry word, **prefix branching is ~2 per RUN, not per pass** — that is
+> what makes enumeration possible.
+>
+> **Completeness theorem.** Every `(e, x, H)` with `e + x + H ≤ 4` is dominated componentwise by
+> one of **13 maximal cells**, so the union of those 13 enumerations is the complete root family.
+> **All 13 terminated with an empty frontier — zero cap hits**, giving **25,294,740,270 prefix states
+> and 144,508,695,925 roots** (cells overlap, so the number of distinct roots is between **62,670,825,190** and
+> **144,508,695,925**). The enumerator fixes the first word by `S₆` (a complete 720× reduction), carries
+> **all 545 heavy tails — 13 weight-4, 71 weight-5, 461 weight-6** — with no wildcard collapsing,
+> and uses only exact prunes.
+>
+> **Prefix bound.** Per-axis runs all completed: `q ≤ 46` at `e = x = H = 0`; 61/76/91/106 for
+> `e ≤ 1..4` (**+15 per unit**); 46/61/61 for `x ≤ 1..3`; 66/86/106 for `H ≤ 1..3` (**+20 per
+> unit**); **`q ≤ 114` across all 13 cells**, below the trivial 119. The rigid `q ≤ 46` is also
+> **analytic**: that prefix is a single R115-model all-light chain with run-shortfall budget
+> `D = 4`, so `NTAB[4] = 46` — and the exhaustive enumeration returns **exactly 46**. The `+15`
+> and `+20` increments are observations, **not proved**.
+>
+> **Recorded honestly — splitting into cells is what made it terminate.** Opening all caps at
+> once (`e ≤ 4, x ≤ 3, H ≤ 3`) weakens the deficit prunes badly and does **not** finish: it caps
+> at 3×10¹⁰ nodes with 2.34×10¹¹ roots. **This is not caused by the heavy tails** — the pure-light
+> run (`e ≤ 4, x ≤ 3, H = 0`) caps too, at 1.94×10¹¹ roots.
+>
+> **Against the historical 33 roots:** `short_ell0..4` are exactly the five `q = 0` roots
+> (`ell = b − 1`). The 28 long roots sit somewhere in the `q > 0` region, but they were **found by
+> search**, and the new `q > 0` region is incomparably larger — Round 122's "the old root set was
+> never complete" is now confirmed quantitatively. False rejection is zero: Round 122's n=4
+> both-ends-full family is accepted, since `q > 0` is a first-class case in every cell.
+>
+> **The remaining obstacle is exactly the size**: the family is complete but not small (10¹⁰–10¹¹
+> roots, counted but not stored), so it cannot be fed to a completion search as it stands.
+>
+> Ledgers stay **4,782** and **6,396/6,396**. Not independently audited. NR6 still assumed.
+> `F = 2` not started. This project has not proved `L₆ ≥ 872`.
+>
+> **Round 122 (generic (1,1) / Q2 bridge) — superseded by Round 123.**
 > **The bridge does not stand, and it breaks at the *roots*, not at the resource table.**
 > No cell closed; Claude-closed outer cells stay at **8 of 55** and `(1,1)` remains **OPEN**.
 >

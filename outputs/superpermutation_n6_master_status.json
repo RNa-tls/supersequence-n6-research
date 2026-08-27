@@ -8437,5 +8437,284 @@
   },
   "independently_audited": false,
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_123_generic_11_complete_roots": {
+  "round": 123,
+  "cell": [
+   1,
+   1
+  ],
+  "cell_closed": false,
+  "claude_closed_outer_cells": "8/55 (unchanged)",
+  "headline": "the generic (1,1) root family is COMPLETE: 13 maximal exception cells, all terminating with an empty frontier, zero cap hits",
+  "proposition_1": "F = 1 gives exactly two short passes and X is the earlier one, so every pass before X is full; the prefix A is an F=0 prefix",
+  "budget": {
+   "P": 121,
+   "O": 25,
+   "D": 4,
+   "EXC": 5,
+   "L": "869 + N + H",
+   "core": "N + H <= 2",
+   "derived": "e + x + H <= 2 + f_out <= 4, x + H <= 3",
+   "at_least_21_of_25_orbits_are_full": true
+  },
+  "cells": [
+   [
+    4,
+    0,
+    0
+   ],
+   [
+    3,
+    1,
+    0
+   ],
+   [
+    3,
+    0,
+    1
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    1
+   ],
+   [
+    2,
+    0,
+    2
+   ],
+   [
+    1,
+    3,
+    0
+   ],
+   [
+    1,
+    2,
+    1
+   ],
+   [
+    1,
+    1,
+    2
+   ],
+   [
+    1,
+    0,
+    3
+   ],
+   [
+    0,
+    3,
+    1
+   ],
+   [
+    0,
+    2,
+    2
+   ],
+   [
+    0,
+    1,
+    3
+   ]
+  ],
+  "n_cells": 13,
+  "by_cell": {
+   "e4_x0_H0": {
+    "verdict": "COMPLETE",
+    "nodes": 183489317,
+    "roots": 1186184135,
+    "max_prefix_q": 106,
+    "seconds": 17.6
+   },
+   "e3_x1_H0": {
+    "verdict": "COMPLETE",
+    "nodes": 186712688,
+    "roots": 1141927945,
+    "max_prefix_q": 91,
+    "seconds": 17.2
+   },
+   "e3_x0_H1": {
+    "verdict": "COMPLETE",
+    "nodes": 1813220187,
+    "roots": 11392150830,
+    "max_prefix_q": 111,
+    "seconds": 170.5
+   },
+   "e2_x2_H0": {
+    "verdict": "COMPLETE",
+    "nodes": 71448477,
+    "roots": 412658620,
+    "max_prefix_q": 91,
+    "seconds": 5.9
+   },
+   "e2_x1_H1": {
+    "verdict": "COMPLETE",
+    "nodes": 1289658757,
+    "roots": 7515135530,
+    "max_prefix_q": 96,
+    "seconds": 114.1
+   },
+   "e2_x0_H2": {
+    "verdict": "COMPLETE",
+    "nodes": 6856421341,
+    "roots": 40774550035,
+    "max_prefix_q": 113,
+    "seconds": 620.3
+   },
+   "e1_x3_H0": {
+    "verdict": "COMPLETE",
+    "nodes": 8605685,
+    "roots": 46910645,
+    "max_prefix_q": 76,
+    "seconds": 0.7
+   },
+   "e1_x2_H1": {
+    "verdict": "COMPLETE",
+    "nodes": 266436068,
+    "roots": 1453311160,
+    "max_prefix_q": 96,
+    "seconds": 22.0
+   },
+   "e1_x1_H2": {
+    "verdict": "COMPLETE",
+    "nodes": 2902226379,
+    "roots": 15854164980,
+    "max_prefix_q": 101,
+    "seconds": 236.3
+   },
+   "e1_x0_H3": {
+    "verdict": "COMPLETE",
+    "nodes": 11317724606,
+    "roots": 62670825190,
+    "max_prefix_q": 114,
+    "seconds": 1018.1
+   },
+   "e0_x3_H1": {
+    "verdict": "COMPLETE",
+    "nodes": 5373953,
+    "roots": 27693575,
+    "max_prefix_q": 81,
+    "seconds": 0.4
+   },
+   "e0_x2_H2": {
+    "verdict": "COMPLETE",
+    "nodes": 65842579,
+    "roots": 338907905,
+    "max_prefix_q": 86,
+    "seconds": 5.3
+   },
+   "e0_x1_H3": {
+    "verdict": "COMPLETE",
+    "nodes": 327580233,
+    "roots": 1694275375,
+    "max_prefix_q": 106,
+    "seconds": 27.2
+   }
+  },
+  "totals": {
+   "prefix_states": 25294740270,
+   "roots_summed_over_cells": 144508695925,
+   "distinct_roots_lower_bound": 62670825190,
+   "distinct_roots_upper_bound": 144508695925,
+   "max_prefix_q": 114
+  },
+  "prefix_bound": {
+   "rigid_max_q": 46,
+   "NTAB_4": 46,
+   "matches_R115_chain_capacity": true,
+   "note": "with e = x = H = 0 the prefix is a single R115-model all-light chain whose run-shortfall budget is D = 4, so NTAB[4] = 46 is an analytic upper bound; the exhaustive enumeration returns exactly 46"
+  },
+  "prefix_bound_by_axis": {
+   "e0x0H0": 46,
+   "e<=1..4": [
+    61,
+    76,
+    91,
+    106
+   ],
+   "x<=1..3": [
+    46,
+    61,
+    61
+   ],
+   "H<=1..3": [
+    66,
+    86,
+    106
+   ],
+   "all_cells": 114,
+   "trivial_bound": 119
+  },
+  "heavy_tails_included": {
+   "weight4": 13,
+   "weight5": 71,
+   "weight6": 461,
+   "total": 545
+  },
+  "first_word_fixed_by_S6": true,
+  "combined_run_does_not_terminate": {
+   "e4_x3_H3": {
+    "verdict": "UNKNOWN_CAP",
+    "nodes": 30000011033,
+    "roots": 234335890870,
+    "max_prefix_q": 107
+   },
+   "e4_x3_H0_pure_light": {
+    "verdict": "UNKNOWN_CAP",
+    "nodes": 30000000084,
+    "roots": 194058068330,
+    "max_prefix_q": 109
+   },
+   "note": "the explosion is NOT caused by the heavy tails; splitting into cells is what makes the enumeration terminate"
+  },
+  "historical_roots": {
+   "short_ell0_4": "exactly the five q = 0 roots (ell = b - 1)",
+   "long_28": "somewhere in the q > 0 region, found by search, not individually matched and not assumed complete"
+  },
+  "remaining_obstacle": "the family is complete but not small - 10^10 to 10^11 roots, counted but not stored - so it cannot be fed to a completion search as is",
+  "reusable_from_Q2": {
+   "generic": [
+    "550-tail generation",
+    "exact move tables",
+    "weighted cost",
+    "Round 115 NTAB chain-capacity table"
+   ],
+   "needs_modification": [
+    "component lower bound (hypothesis must be checked at every node)",
+    "memoisation"
+   ],
+   "q2_specific": [
+    "Phi >= 0",
+    "Target A recogniser",
+    "RR macro alphabet",
+    "Area-A prune set"
+   ]
+  },
+  "label": "ROUND-123 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "quantitative_ledger_note_round_123": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_round_123": true,
+  "claude_closed_outer_cells": 8,
+  "outer_cells_total": 55,
+  "cells_remaining": 47,
+  "F1_column": {
+   "(4,1)": "closed (Round 117)",
+   "(3,1)": "closed (Round 120)",
+   "(2,1)": "closed (Round 121)",
+   "(1,1)": "OPEN - complete root family obtained (Round 123), not yet closed"
+  },
+  "independently_audited": false,
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
