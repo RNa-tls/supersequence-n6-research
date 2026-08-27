@@ -48,40 +48,50 @@ SRC = ROOT / "src" / "f1_cell_125.c"
 JSONL = OUT / "rr_f1_k1_125.jsonl"
 NODECAP = 60_000_000_000
 
-# (무거운 다중집합, e, x) — 각 다중집합의 극대 (e,x) 만.  §16 의 그룹 표.
-GROUPS = [
-    ((), 1, 3), ((), 2, 2), ((), 3, 1), ((), 4, 0),
-    ((4,), 1, 2), ((4,), 2, 1), ((4,), 3, 0),
-    ((5,), 1, 1), ((5,), 2, 0),
-    ((4, 4), 1, 1), ((4, 4), 2, 0),
-    ((6,), 1, 0),
-    ((5, 4), 1, 0),
-    ((4, 4, 4), 1, 0),
-]
+# §16 그룹 표 = 라운드 125 §1 이 살려 둔 **52개 하위경우 전부**를, 각자의 **정확한**
+# `(e, x, f_out, 무거운 무게 다중집합)` 으로 돌린다.  극대 상자로 뭉치면 `FOUTMIN` 을 쓸 수
+# 없어(상자 안의 더 작은 walk 을 잘못 버린다) 프룬이 크게 약해진다 — 실측으로 극대 상자는
+# 2e9 노드에서 캡에 걸리는데, 같은 경우를 정확한 행으로 돌리면 5.0e8 노드에 **완주**한다.
+#
+# 덮개 논증: 어떤 walk 이든 정확한 `(e*, x*, f*, H*, 다중집합*)` 을 가지며 그것이 61개
+# 하위경우 중 하나다.  9개는 라운드 115 조각 용량으로 **탐색 없이** 불가능하고, 나머지 52개는
+# 각각 자기 실행에서 잡힌다 (`ECAP=e*`, `XCAP=x*`, `FOUTCAP=FOUTMIN=f*` 로 `f_out` 이
+# 정확히 고정되고, `HCAP=HUBMIN=H*` 로 `hub` 가 정확히 고정된다).  **거짓 기각 0.**
+def alive_rows():
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    from verify_f1_k1_rows_125 import summarise as _rows
+    rs = _rows()["alive_subcases"]
+    rs.sort(key=lambda r: (sum(w - 3 for w in r["heavy_weights"]),
+                           r["e"] + r["x"], r["e"], r["x"], r["f_out"]))
+    return [(tuple(r["heavy_weights"]), r["e"], r["x"], r["f_out"]) for r in rs]
+
+
+GROUPS = alive_rows()
 HWBIT = {4: 1, 5: 2, 6: 4}
 
 
-def label(heavy, e, x):
-    h = "H0" if not heavy else "H%d_%s" % (sum(w - 3 for w in heavy),
-                                           "".join(str(w) for w in heavy))
-    return f"{h}_e{e}_x{x}"
+def label(heavy, e, x, f):
+    H = sum(w - 3 for w in heavy)
+    h = "H0" if not heavy else "H%d_%s" % (H, "".join(str(w) for w in heavy))
+    return f"{h}_e{e}_x{x}_f{f}"
 
 
-def argv_of(heavy, e, x, b, nodecap=NODECAP):
+def argv_of(heavy, e, x, f, b, nodecap=NODECAP):
     H = sum(w - 3 for w in heavy)
     hw = 0
     for w in set(heavy):
         hw |= HWBIT[w]
     return [str(v) for v in [
         b,                       # 1  b
-        26 - H,                  # 2  costcap  (cost + hub <= 26, hub finishes at H)
+        24 + e + x - f,          # 2  costcap = S exactly for this row
         25,                      # 3  orbcap   O = 25 exactly
         x,                       # 4  xcap
-        min(2, 1 + e),           # 5  foutcap  (Lemma E)
+        f,                       # 5  foutcap
         e,                       # 6  ecap
-        0,                       # 7  foutmin  -- deliberately 0, see the module docstring
+        f,                       # 7  foutmin  -> with foutcap = f this pins f_out = f
         0,                       # 8  ygap
-        25 + e,                  # 9  rmax  => shruncap = 4 + 5e
+        25 + e,                  # 9  rmax  => shruncap = 4 + 5e (exact run shortfall)
         H,                       # 10 hcap
         4,                       # 11 dcap   D = 4
         0, 0, 0, 0,              # 12-15 bforce revonly hregion yfresh
@@ -90,7 +100,7 @@ def argv_of(heavy, e, x, b, nodecap=NODECAP):
         26,                      # 20 shcap  cost + hub <= 26  <=>  L <= 871
         hw,                      # 21 hw
         len(heavy),              # 22 hjcap
-        H,                       # 23 hubmin  (with hcap = H this forces hub = H)
+        H,                       # 23 hubmin  (with hcap = H this pins hub = H)
         1,                       # 24 fod
         0,                       # 25 ygapmin
         nodecap,                 # 26 nodecap
@@ -108,17 +118,19 @@ def done():
     return {json.loads(l)["label"] for l in JSONL.read_text().splitlines() if l.strip()}
 
 
-def run(heavy, e, x, b, nodecap=NODECAP, record=True):
-    args = [str(BIN)] + argv_of(heavy, e, x, b, nodecap)
+def run(heavy, e, x, f, b, nodecap=NODECAP, record=True):
+    args = [str(BIN)] + argv_of(heavy, e, x, f, b, nodecap)
     t0 = time.time()
     p = subprocess.run(args, capture_output=True, text=True, check=True)
     lines = p.stdout.strip().splitlines()
     row = json.loads(lines[0])
-    row["label"] = f"{label(heavy, e, x)}_b{b}"
-    row["group"] = label(heavy, e, x)
+    row["label"] = f"{label(heavy, e, x, f)}_b{b}"
+    row["group"] = label(heavy, e, x, f)
     row["heavy"] = list(heavy)
-    row["e_cap"] = e
-    row["x_cap"] = x
+    row["e_row"] = e
+    row["x_row"] = x
+    row["f_out_row"] = f
+    row["H_row"] = sum(w - 3 for w in heavy)
     row["seconds"] = round(time.time() - t0, 1)
     if row["verdict"] == "SAT" and len(lines) > 1:
         row["witness"] = json.loads(lines[1])
@@ -132,8 +144,8 @@ def pilots(nodecap=2_000_000_000):
     """§19 — 그룹마다 b = 1 파일럿 하나."""
     build()
     out = []
-    for (heavy, e, x) in GROUPS:
-        r = run(heavy, e, x, 1, nodecap=nodecap, record=False)
+    for (heavy, e, x, f) in GROUPS:
+        r = run(heavy, e, x, f, 1, nodecap=nodecap, record=False)
         r["nodes_per_sec"] = int(r["nodes"] / max(r["seconds"], 0.05))
         out.append(r)
         print("%-16s nodes=%15s  passes=%3d  %-14s %8.1fs  %s/s"
@@ -145,12 +157,12 @@ def pilots(nodecap=2_000_000_000):
 def main(splits=(1, 2, 3, 4, 5)):
     build()
     have = done()
-    for (heavy, e, x) in GROUPS:
+    for (heavy, e, x, f) in GROUPS:
         for b in splits:
-            lab = f"{label(heavy, e, x)}_b{b}"
+            lab = f"{label(heavy, e, x, f)}_b{b}"
             if lab in have:
                 continue
-            r = run(heavy, e, x, b)
+            r = run(heavy, e, x, f, b)
             print("%-20s nodes=%15s passes=%3d %-14s %8.1fs"
                   % (lab, f'{r["nodes"]:,}', r["best_passes"], r["verdict"], r["seconds"]),
                   flush=True)
