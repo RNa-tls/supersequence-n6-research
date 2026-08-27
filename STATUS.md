@@ -9,7 +9,79 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 125 (generic (1,1) end-to-end) — read this first.**
+> **Round 126 (generic F = 2 structure) — read this first.**
+> **`F = 2` splits into exactly two models**, and the `F = 1` free-exit lemma generalizes.
+> No cell closed; Claude-closed outer cells stay at **9 of 55** and the `F = 2` column is **OPEN**.
+>
+> | type | multiplicity | `m` | **short passes** | free-successor cycle | split shapes |
+> |---|---|---|---|---|---|
+> | **A** | one hexagon entered **three** times | 1 | **3** | one **3-cycle** | 10 |
+> | **B** | **two** hexagons entered twice | 2 | **4** | **two 2-cycles** | 25 |
+>
+> Completeness is immediate: `F = Σ_h (e_h − 1)` with integer `e_h ≥ 1`, so the positive parts
+> form a partition of `F`, and `2` has exactly the partitions `{2}` and `{1,1}`.
+>
+> **Identities re-derived for general `n` and general `F`** (nothing inherited from `F = 1`):
+> `P = n!/n + F = 122`; `Σ len = n!`, so the total length deficit is `n·F = 12` and hexagon `h`
+> contributes exactly `n(e_h − 1)`; `D = (n−1)k − F ≥ 0` gives **`k ≥ 1`** (derived, not assumed);
+> a hexagon's pass lengths sum to `n`, so **every pass of a multiply-entered hexagon is short**
+> and **#short = `F + m`**. Also, for all `F` and all `n`, **two passes of the same hexagon are
+> never consecutive** (same hexagon means `z = σ^m(y)`; `m = 1` is a rotation and `m ≥ 2` makes
+> every intermediate window a permutation) — Round 116's Theorem D is the `F = 1` case.
+>
+> **The free successor is a cyclic permutation on each hexagon.** There are **two** words at
+> `ω = 2`: `T1(y)` and `σ²(y)`; the second is the same hexagon and its intermediate window is a
+> permutation, so it is *not a joint* — the same degeneracy Round 125 found in the weight-6
+> catalogue. With `T1(σ^{n−1}(w)) = τ(w)`, a pass with entry `u` and length `len` has
+> **free successor `τ(σ^{len}(u)) = τ(entry(ν(p)))`**, where `ν` is the hexagon-successor
+> permutation whose cycles are exactly the hexagons (cycle length `e_h`). A full pass is
+> `ν`-fixed, so its free successor stays in the same orbit and can never be an inter-run arc; a
+> short pass always changes orbit. Verified exhaustively at `n = 4, 5, 6`.
+>
+> **Lemma E′ (all `F`, all `n`).** If *every* pass of a hexagon with `e_h ≥ 2` exits freely, one
+> of them is in case (ii), so some orbit carries two runs and **`e ≥ 1`**. The proof is an order
+> argument — case (i) forces `p < ν(p)` in walk order, so going round the `ν`-cycle gives
+> `p < … < p`. Round 117's Lemma E is the `F = 1` case, and its special boundary cases are not
+> needed in this form.
+>
+> **Status of `f_out ≤ F + e`** (the candidate invariant): `f_out ≤ #short = F + m` is proved
+> for all `F`; **type A is proved**; type B is proved except for the single configuration
+> **`f_out = 4` with `e = 1`**. That one gap is what separates these three rows:
+>
+> | assumption | `k` range | cells | `max H` | `k + x + H` |
+> |---|---|---|---|---|
+> | none | `1 … 5` | **5** | **4** | ≤ 5 |
+> | Theorem A (`f_out ≤ F + e + x`) | `1 … 4` | **4** | **3** | ≤ 5 |
+> | `f_out ≤ F + e` | `1 … 4` | **4** | **3** | **≤ 4** |
+>
+> **Theorem A is what the project's 55-cell table rests on** (`O ≤ 1 + S + F ⟺ f_out ≤ F+e+x`),
+> and Round 110 only checked it empirically. Round 117 proved it at `F = 1`; **this round proves
+> it at `F = 2` except for that one configuration**. It remains empirical for `F ≥ 3`.
+>
+> **Resource identity, `F`-free.** `S = (r − 1) + x − f_out` with `r = O + e` holds for every
+> `F`, giving `N = F − 1 + e + x − f_out` and the master identity
+> **`L = 867 + k + F + e + x + H − f_out`** — checked on both real strings (872 witness and the
+> greedy 873). At `F = 2`: **`L ≤ 871 ⟺ k + e + x + H − f_out ≤ 2`**.
+>
+> **Model correction — the `n = 4` controls need joint legality.** A transition with `ω = m` is
+> a legal joint only if none of the `m − 1` intermediate windows is a permutation. **Rounds 120
+> and 122 did not enforce this**, so they ran on a *superset* of legal walks; valid as controls
+> (what holds on a superset holds on a subset), but the statistics differ — 345 walks vs **131**
+> at `maxlen = 35`. Round 122's conclusion survives re-measurement in the legal model
+> (first pass full 66.7%, both ends full 49.1%).
+>
+> **Falsification.** On **29,255 legal `n = 4` walks** (10,625 of them `F = 2`), all seventeen
+> claims of this round hold with **zero violations**. Turning legality off breaks exactly the two
+> claims that need it. And `f_out ≤ F + e` is **tight**: the minimum `e` observed for each
+> `(F, f_out)` is exactly `max(0, f_out − F)`, and the problematic configuration
+> (type B, `f_out = 4`, `e = 1`) **never occurs** — those 79 walks always have `e ≥ 2`.
+>
+> No giant search was run; the longest job took 110 s.
+> Audited ledger **4,782** unchanged; Claude full-joint Q2 **6,396/6,396** unchanged.
+> NR6 remains **assumed**.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 125 (generic (1,1) end-to-end) — superseded by Round 126 as the lead, still current.**
 > **Generic `(k,F) = (1,1)` is CLOSED, and with it the whole `F = 1` column.**
 > 52 live subcases × 5 splits = **260 runs, every one `UNSAT_COMPLETE`**, **zero cap hits, zero
 > SAT**, **295,093,380,933 nodes in 6.14 h**, deepest walk **109 of 121 passes** — plus **9

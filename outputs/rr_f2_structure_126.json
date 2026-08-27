@@ -1,0 +1,754 @@
+{
+ "round": 126,
+ "column": "F = 2",
+ "n": 6,
+ "identities": {
+  "n": 6,
+  "F": 2,
+  "P": 122,
+  "total_deficit": 12,
+  "per_hexagon_deficit": "n(e_h - 1)",
+  "D": "(n-1)k - F",
+  "k_min": 1,
+  "L_formula": "844 + F + S + H",
+  "L_at_F": "846 + S + H",
+  "S_formula": "(r - 1) + x - f_out   with r = O + e",
+  "N_formula": "F - 1 + e + x - f_out",
+  "master": "L = 867 + k + F + e + x + H - f_out",
+  "master_at_F": "L = 869 + k + e + x + H - f_out",
+  "n_words": 720,
+  "n_hex": 120,
+  "n_orb": 144,
+  "O_min": 24,
+  "P_min": 120,
+  "L_base": 844
+ },
+ "local_lemmas": {
+  "4": {
+   "n": 4,
+   "words_at_omega2": {
+    "always_exactly_two": true,
+    "other_is_always_sigma_squared": true,
+    "sigma_squared_is_same_hexagon_hence_not_a_joint": true
+   },
+   "unique_legal_weight2_successor_is_T1": true,
+   "identity_T1_sigma_n1_equals_tau": true,
+   "free_successor_formula_holds": true,
+   "short_pass_free_successor_always_changes_orbit": true,
+   "hexagons_whose_words_miss_distinct_orbits": 0,
+   "checked_words": 24,
+   "checked_pass_shapes": 96
+  },
+  "5": {
+   "n": 5,
+   "words_at_omega2": {
+    "always_exactly_two": true,
+    "other_is_always_sigma_squared": true,
+    "sigma_squared_is_same_hexagon_hence_not_a_joint": true
+   },
+   "unique_legal_weight2_successor_is_T1": true,
+   "identity_T1_sigma_n1_equals_tau": true,
+   "free_successor_formula_holds": true,
+   "short_pass_free_successor_always_changes_orbit": true,
+   "hexagons_whose_words_miss_distinct_orbits": 0,
+   "checked_words": 120,
+   "checked_pass_shapes": 600
+  },
+  "6": {
+   "n": 6,
+   "words_at_omega2": {
+    "always_exactly_two": true,
+    "other_is_always_sigma_squared": true,
+    "sigma_squared_is_same_hexagon_hence_not_a_joint": true
+   },
+   "unique_legal_weight2_successor_is_T1": true,
+   "identity_T1_sigma_n1_equals_tau": true,
+   "free_successor_formula_holds": true,
+   "short_pass_free_successor_always_changes_orbit": true,
+   "hexagons_whose_words_miss_distinct_orbits": 0,
+   "checked_words": 720,
+   "checked_pass_shapes": 4320
+  }
+ },
+ "same_hexagon_theorem": {
+  "4": {
+   "n": 4,
+   "pairs_checked": 72,
+   "omega_equals_rotation_count": true,
+   "every_intermediate_window_is_a_permutation": true,
+   "conclusion": "two passes of the same hexagon can never be consecutive"
+  },
+  "5": {
+   "n": 5,
+   "pairs_checked": 480,
+   "omega_equals_rotation_count": true,
+   "every_intermediate_window_is_a_permutation": true,
+   "conclusion": "two passes of the same hexagon can never be consecutive"
+  },
+  "6": {
+   "n": 6,
+   "pairs_checked": 3600,
+   "omega_equals_rotation_count": true,
+   "every_intermediate_window_is_a_permutation": true,
+   "conclusion": "two passes of the same hexagon can never be consecutive"
+  }
+ },
+ "multiplicity_taxonomy": {
+  "types": [
+   {
+    "partition": [
+     2
+    ],
+    "entry_counts": [
+     3
+    ],
+    "m": 1,
+    "n_short_passes": 3
+   },
+   {
+    "partition": [
+     1,
+     1
+    ],
+    "entry_counts": [
+     2,
+     2
+    ],
+    "m": 2,
+    "n_short_passes": 4
+   }
+  ],
+  "completeness": "F = Σ_h (e_h − 1) with e_h >= 1 integers, so the positive parts form a partition of F; partitions of 2 are {2} and {1,1}, hence exactly two types, and the taxonomy is complete",
+  "type_A": "one hexagon entered three times (m = 1, 3 short passes)",
+  "type_B": "two hexagons entered twice each (m = 2, 4 short passes)"
+ },
+ "short_pass_structure": [
+  {
+   "partition": [
+    2
+   ],
+   "entry_counts": [
+    3
+   ],
+   "m": 1,
+   "n_short_passes": 3,
+   "total_deficit": 12,
+   "deficit_check": true,
+   "per_hexagon": [
+    {
+     "entries": 3,
+     "all_passes_short": true,
+     "n_ordered_compositions": 10,
+     "length_partitions": [
+      [
+       2,
+       2,
+       2
+      ],
+      [
+       3,
+       2,
+       1
+      ],
+      [
+       4,
+       1,
+       1
+      ]
+     ],
+     "deficits": [
+      [
+       4,
+       4,
+       4
+      ],
+      [
+       5,
+       4,
+       3
+      ],
+      [
+       5,
+       5,
+       2
+      ]
+     ]
+    }
+   ],
+   "n_split_shapes": 10
+  },
+  {
+   "partition": [
+    1,
+    1
+   ],
+   "entry_counts": [
+    2,
+    2
+   ],
+   "m": 2,
+   "n_short_passes": 4,
+   "total_deficit": 12,
+   "deficit_check": true,
+   "per_hexagon": [
+    {
+     "entries": 2,
+     "all_passes_short": true,
+     "n_ordered_compositions": 5,
+     "length_partitions": [
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "deficits": [
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ]
+    },
+    {
+     "entries": 2,
+     "all_passes_short": true,
+     "n_ordered_compositions": 5,
+     "length_partitions": [
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "deficits": [
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ]
+    }
+   ],
+   "n_split_shapes": 25
+  }
+ ],
+ "short_pass_rules": [
+  "per hexagon the pass lengths sum to n = 6, so a hexagon with e_h >= 2 entries has ALL its passes short and a hexagon with e_h = 1 has one full pass",
+  "#short passes = F + m, so 3 in type A and 4 in type B",
+  "total length deficit = n*F = 12, and hexagon h contributes exactly n(e_h - 1)",
+  "two passes of the same hexagon are NEVER consecutive (proved for all F and all n)"
+ ],
+ "free_exit_structure": {
+  "unique_legal_weight2_successor": "T1(y) = (y[2], ..., y[n-1], y[1], y[0])",
+  "other_weight2_word": "sigma^2(y) - same hexagon, illegal (intermediate window is a permutation), so it is two rotations, not a joint",
+  "formula": "free successor of a pass = tau(entry(nu(p)))",
+  "nu": "the hexagon-successor permutation on passes; its cycles are the hexagons, with cycle length e_h (F=1: one 2-cycle; F=2 type A: one 3-cycle; F=2 type B: two 2-cycles)",
+  "full_pass": "nu-fixed, so its free successor tau(u) stays in the same orbit and can never be an inter-run arc",
+  "short_pass": "nu(p) != p, and a hexagon's n words lie in n DISTINCT orbits, so the free successor always changes orbit - always an inter-run arc",
+  "order_lemma": "if p exits freely and is in case (i) then p < nu(p) in walk order",
+  "lemma_E_prime": "for a hexagon h with e_h >= 2: if EVERY pass of h exits freely, then some pass of h is in case (ii), so some orbit carries two runs and e >= 1"
+ },
+ "f_out_bounds": {
+  "proved_all_F": "f_out <= #short = F + m",
+  "proved_typeA": "f_out <= F + e   (f_out = 3 forces e >= 1 via Lemma E')",
+  "proved_typeB": "f_out >= 3 forces a fully-free hexagon by pigeonhole, hence e >= 1; so f_out <= 2 when e = 0 and f_out <= 4 when e >= 1",
+  "open_case": "type B with f_out = 4 and e = 1 - the ONLY configuration where f_out <= F + e is not proved",
+  "conjecture": "f_out <= F + e   (reduces to Lemma E at F = 1)",
+  "falsification": {
+   "n4_walks": 29255,
+   "n4_maxlen": 39,
+   "holds": true,
+   "min_e_by_F_and_fout": {
+    "F0_f0": 0,
+    "F1_f0": 0,
+    "F1_f1": 0,
+    "F1_f2": 1,
+    "F2_f0": 0,
+    "F2_f1": 0,
+    "F2_f2": 0,
+    "F2_f3": 1,
+    "F2_f4": 2,
+    "F3_f0": 0,
+    "F3_f1": 0,
+    "F3_f2": 0,
+    "F3_f3": 0,
+    "F3_f4": 1,
+    "F3_f5": 2,
+    "F3_f6": 3,
+    "F4_f2": 1,
+    "F4_f3": 1,
+    "F4_f4": 1,
+    "F4_f5": 1,
+    "F4_f6": 2,
+    "F4_f7": 5,
+    "F5_f5": 3,
+    "F5_f6": 3,
+    "F5_f7": 4,
+    "F5_f8": 5,
+    "F5_f9": 6,
+    "F6_f7": 4,
+    "F6_f8": 4,
+    "F6_f9": 5,
+    "F6_f10": 6
+   },
+   "tight_cases": [
+    "F0_f0: min e = 0 (= f_out - F)",
+    "F1_f1: min e = 0 (= f_out - F)",
+    "F1_f2: min e = 1 (= f_out - F)",
+    "F2_f2: min e = 0 (= f_out - F)",
+    "F2_f3: min e = 1 (= f_out - F)",
+    "F2_f4: min e = 2 (= f_out - F)",
+    "F3_f3: min e = 0 (= f_out - F)",
+    "F3_f4: min e = 1 (= f_out - F)",
+    "F3_f5: min e = 2 (= f_out - F)",
+    "F3_f6: min e = 3 (= f_out - F)",
+    "F4_f5: min e = 1 (= f_out - F)",
+    "F4_f6: min e = 2 (= f_out - F)"
+   ],
+   "typeB_fout4_min_e_observed": 2,
+   "open_case_observed": 0
+  }
+ },
+ "resource_accounting": {
+  "S": "(r - 1) + x - f_out, r = O + e - the derivation never uses F",
+  "why": "every inter-run joint from a FULL pass has omega >= 3 (its only omega-2 successor tau(u) is intra-orbit), and every omega-2 exit of a SHORT pass is inter-run, so #{inter-run, omega=2} = f_out exactly",
+  "N": "F - 1 + e + x - f_out",
+  "master_identity": "L = 867 + k + F + e + x + H - f_out",
+  "at_F2": "L = 869 + k + e + x + H - f_out",
+  "budget": "L <= 871  <=>  k + e + x + H - f_out <= 2",
+  "theorem_A_equivalent": "O <= 1 + S + F  <=>  f_out <= F + e + x",
+  "theorem_A_status": "PROVED at F = 1 by Lemma E; PROVED here for F = 2 type A and for type B except the single open configuration; EMPIRICAL for F >= 3 - and the project's 55-cell slab table depends on it"
+ },
+ "heavy_tails": {
+  "catalogue": {
+   "w1": 1,
+   "w2": 1,
+   "w3": 3,
+   "w4": 13,
+   "w5": 71,
+   "w6_genuine": 308,
+   "w6_raw_indecomposable": 461
+  },
+  "note": "Round 125 correction: only 308 of the 461 indecomposable permutations of {0..5} realize omega = 6",
+  "max_H_unconditional": 4,
+  "max_H_typeA": 3,
+  "max_H_typeB": 4,
+  "max_H_if_f_out_le_F_plus_e": 3,
+  "max_H_if_theorem_A": 3,
+  "H_can_exceed_3": "only in type B, only in the single open configuration (f_out = 4, e = 1, x = 0, k = 1), where H = 4 would be allowed",
+  "compositions": {
+   "0": [
+    []
+   ],
+   "1": [
+    [
+     4
+    ]
+   ],
+   "2": [
+    [
+     5
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "3": [
+    [
+     6
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     4,
+     4,
+     4
+    ]
+   ],
+   "4": [
+    [
+     6,
+     4
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     5,
+     4,
+     4
+    ],
+    [
+     4,
+     4,
+     4,
+     4
+    ]
+   ]
+  }
+ },
+ "feasible_cells": {
+  "k_min_from_D": "F <= (n-1)k  =>  2 <= 5k  =>  k >= 1",
+  "k_feasible_unconditional": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "k_feasible_if_f_out_le_F_plus_e": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "k_feasible_if_theorem_A": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "n_cells_unconditional": 5,
+  "n_cells_conditional": 4,
+  "max_H_unconditional": 4,
+  "max_H_conditional": 3,
+  "max_H_by_type": {
+   "A": 3,
+   "B": 4
+  },
+  "max_H_by_type_conditional": {
+   "A": 3,
+   "B": 3
+  },
+  "max_H_if_theorem_A": 3,
+  "n_cells_if_theorem_A": 4,
+  "theorem_A_open_configuration": [
+   [
+    "B",
+    4,
+    1,
+    0
+   ]
+  ],
+  "k_plus_x_plus_H_max_if_theorem_A": 5,
+  "k_plus_x_plus_H_max_conditional": 4,
+  "open_configuration": [
+   [
+    "B",
+    4,
+    1,
+    0
+   ],
+   [
+    "B",
+    4,
+    1,
+    1
+   ],
+   [
+    "B",
+    4,
+    1,
+    2
+   ],
+   [
+    "B",
+    4,
+    1,
+    3
+   ],
+   [
+    "B",
+    4,
+    1,
+    4
+   ]
+  ],
+  "n_rows_unconditional": 250,
+  "n_rows_conditional": 215
+ },
+ "n4_falsification": {
+  "n": 4,
+  "maxlen": 39,
+  "legal_only": true,
+  "walks": 29255,
+  "F_distribution": {
+   "F=0": 827,
+   "F=1": 5999,
+   "F=2": 10625,
+   "F=3": 7545,
+   "F=4": 3384,
+   "F=5": 629,
+   "F=6": 246
+  },
+  "violations": {},
+  "all_claims_survive": true,
+  "F2_fout_by_type_and_e": {
+   "A_f0_e0": 157,
+   "A_f0_e1": 84,
+   "A_f0_e2": 4,
+   "A_f1_e0": 245,
+   "A_f1_e1": 253,
+   "A_f1_e2": 50,
+   "A_f1_e3": 1,
+   "A_f2_e0": 60,
+   "A_f2_e1": 202,
+   "A_f2_e2": 61,
+   "A_f2_e3": 3,
+   "A_f3_e1": 30,
+   "A_f3_e2": 30,
+   "A_f3_e3": 3,
+   "A_f3_e4": 1,
+   "B_f0_e0": 323,
+   "B_f0_e1": 337,
+   "B_f0_e2": 75,
+   "B_f0_e3": 7,
+   "B_f1_e0": 540,
+   "B_f1_e1": 1798,
+   "B_f1_e2": 940,
+   "B_f1_e3": 182,
+   "B_f1_e4": 21,
+   "B_f2_e0": 157,
+   "B_f2_e1": 1625,
+   "B_f2_e2": 1599,
+   "B_f2_e3": 502,
+   "B_f2_e4": 122,
+   "B_f2_e5": 8,
+   "B_f3_e1": 243,
+   "B_f3_e2": 524,
+   "B_f3_e3": 294,
+   "B_f3_e4": 74,
+   "B_f3_e5": 14,
+   "B_f4_e2": 34,
+   "B_f4_e3": 20,
+   "B_f4_e4": 2
+  },
+  "typeB_fout_max_observed": 4,
+  "open_case_typeB_fout4": [
+   {
+    "e": 3,
+    "x": 1,
+    "k": 2,
+    "H": 2,
+    "L": 39
+   },
+   {
+    "e": 3,
+    "x": 0,
+    "k": 2,
+    "H": 2,
+    "L": 38
+   },
+   {
+    "e": 2,
+    "x": 1,
+    "k": 2,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 1,
+    "k": 2,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 1,
+    "k": 2,
+    "H": 0,
+    "L": 36
+   },
+   {
+    "e": 3,
+    "x": 1,
+    "k": 1,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 0,
+    "k": 1,
+    "H": 0,
+    "L": 34
+   },
+   {
+    "e": 2,
+    "x": 2,
+    "k": 2,
+    "H": 0,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 2,
+    "k": 2,
+    "H": 1,
+    "L": 38
+   },
+   {
+    "e": 2,
+    "x": 2,
+    "k": 2,
+    "H": 1,
+    "L": 38
+   },
+   {
+    "e": 3,
+    "x": 1,
+    "k": 2,
+    "H": 0,
+    "L": 37
+   },
+   {
+    "e": 3,
+    "x": 1,
+    "k": 2,
+    "H": 1,
+    "L": 38
+   },
+   {
+    "e": 2,
+    "x": 1,
+    "k": 2,
+    "H": 0,
+    "L": 36
+   },
+   {
+    "e": 2,
+    "x": 1,
+    "k": 2,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 3,
+    "x": 1,
+    "k": 2,
+    "H": 2,
+    "L": 39
+   },
+   {
+    "e": 3,
+    "x": 0,
+    "k": 2,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 2,
+    "k": 2,
+    "H": 1,
+    "L": 38
+   },
+   {
+    "e": 3,
+    "x": 1,
+    "k": 1,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 1,
+    "k": 2,
+    "H": 1,
+    "L": 37
+   },
+   {
+    "e": 2,
+    "x": 2,
+    "k": 2,
+    "H": 1,
+    "L": 38
+   }
+  ],
+  "n_open_case_typeB_fout4": 56
+ },
+ "n4_F2_length_shapes": {
+  "A": 1184,
+  "A:lens=(2, 1, 1)": 1184,
+  "B": 9441,
+  "B:lens=(2, 2, 2, 2)": 1261,
+  "B:lens=(3, 2, 2, 1)": 4206,
+  "B:lens=(3, 3, 1, 1)": 3974
+ },
+ "legality_correction": {
+  "statement": "a transition a -> b with omega = m is a legal joint only if none of the m - 1 intermediate windows is a permutation; this is the same degeneracy Round 125 found in the weight-6 catalogue",
+  "rounds_120_122_n4_controls": "did NOT enforce joint legality, so they ran on a SUPERSET of legal walks; valid as controls, but the structural statistics differ",
+  "impact": {
+   "superset": {
+    "walks": 345,
+    "F1_walks": 145,
+    "first_pass_full": 100,
+    "last_pass_full": 100,
+    "both_ends_full": 64,
+    "first_pass_full_pct": 69.0,
+    "both_ends_full_pct": 44.1
+   },
+   "legal": {
+    "walks": 131,
+    "F1_walks": 57,
+    "first_pass_full": 38,
+    "last_pass_full": 38,
+    "both_ends_full": 28,
+    "first_pass_full_pct": 66.7,
+    "both_ends_full_pct": 49.1
+   },
+   "conclusion": "the Round-122 conclusion survives: even in the legal model a large fraction of F = 1 walks have a FULL first pass and both ends full, so F = 1 does not force the short pass to sit at an end"
+  },
+  "without_legality": "2 of the round's claims fail on the superset - 'same-hexagon passes are never consecutive' and the free-successor formula - exactly the two that need legality"
+ },
+ "no_giant_search": true,
+ "cell_status": {
+  "F0_column": "Claude-closed",
+  "F1_column": "Claude-closed",
+  "F2_column": "OPEN - this round only classifies its structure",
+  "claude_closed_outer_cells": "9/55 (unchanged)",
+  "F2_cells_conditional": 4,
+  "would_become_if_F2_closed": "13/55"
+ },
+ "label": "ROUND-126 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+ "ledger": {
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+  "unchanged_by_this_round": true
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
