@@ -10820,5 +10820,410 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_128_F_vs_G_foundation_repair": {
+  "round": 128,
+  "kind": "foundation repair - F vs G",
+  "cell_closed": false,
+  "headline": "F (abandonment count) and G (multiplicity excess = P - n!/n) are distinct; only F <= G holds. The corrected identities all use G. Every engine from Round 115 on hard-codes P, i.e. fixes G directly and never computes F, so no search ran on the wrong set - the damage is confined to names.",
+  "definitions": {
+   "P": "number of passes = number of maximal rotation runs = (#joints) + 1",
+   "e_h": "number of times hexagon h is entered = number of passes lying in h",
+   "G": "multiplicity excess := P - n!/n = sum_h (e_h - 1); every hexagon is entered at least once and sum_h e_h = P, and there are n!/n hexagons",
+   "F": "abandonment count.  At a joint leaving the pass-end word p the legacy engine sets abandonment = NOT visited(sigma(p)): the pass stopped rotating while its rotation successor was still unvisited.  If sigma(p) was already visited the rotation was BLOCKED and it is not an abandonment.",
+   "nu": "hexagon-successor permutation on passes (Round 126): nu(p) is the pass whose entry word is sigma^{len(p)}(entry(p)) = sigma(exit(p)); its cycles are exactly the hexagons, with cycle length e_h",
+   "S": "#{joints with omega >= 3}",
+   "H": "sum over joints of (omega - 3)_+",
+   "O": "number of tau-orbits touched",
+   "k": "O - n!/(n(n-1))   (24 at n = 6)",
+   "D": "(n-1)O - P   -- the orbit deficit",
+   "r": "number of runs = maximal blocks of consecutive passes in the same orbit",
+   "e": "r - O = sum_q (runs(q) - 1)",
+   "x": "#{intra-run joints with omega >= 3}",
+   "f_out": "#{inter-run joints with omega = 2}   (free exits)",
+   "N": "see section 13 - the historical definition S + F - O is the one in question"
+  },
+  "theorem_128_1": {
+   "abandonment_iff": "abandonment(p) <=> p < nu(p) in walk order",
+   "F": "F = #{p : p < nu(p)} = number of nu-ascents",
+   "J": "J = G - F = sum_h (d_h - 1), d_h = number of nu-descents in hexagon h",
+   "d_h_lower_bound": "d_h >= 1 for every hexagon (a full cycle cannot be all ascents)",
+   "m1": "e_h = 1 => d_h = 1 => contributes 0 to J",
+   "m2": "e_h = 2 => exactly one of the two passes is an ascent => d_h = 1 => contributes 0",
+   "m3plus": "e_h >= 3 => d_h may exceed 1 => J may be positive",
+   "J_positive_requires": "some hexagon entered at least THREE times",
+   "G_le_1_implies_F_eq_G": true,
+   "G2_typeB_implies_F_eq_G": true,
+   "G2_typeA_allows_F_eq_1": true,
+   "F0_iff_G0": true
+  },
+  "counterexample": {
+   "string": "012302310232103213012031202301320130213",
+   "P": 9,
+   "G": 3,
+   "F_by_ascents": 2,
+   "F_by_engine_definition": 2,
+   "F_definitions_agree": true,
+   "J": 1,
+   "multiplicity_partition": [
+    2,
+    1
+   ],
+   "L_matches_G_identity": true,
+   "L_matches_F_identity": false,
+   "D_equals_5k_minus_G": true,
+   "D_equals_5k_minus_F": false,
+   "all_joints_legal": true,
+   "all_24_exactly_once": true
+  },
+  "corrected_identities": {
+   "P": {
+    "old": "P = n!/n + F",
+    "corrected": "P = n!/n + G",
+    "why": "sum_h e_h = P over the n!/n hexagons, each entered at least once, so P - n!/n = sum_h (e_h - 1) = G BY DEFINITION; F is the abandonment count and only equals G when every hexagon's nu-cycle has exactly one descent"
+   },
+   "L": {
+    "old": "L = 844 + F + S + H",
+    "corrected": "L = 844 + G + S + H",
+    "why": "L = 725 + (#joints) + S + H and #joints = P - 1 = n!/n - 1 + G"
+   },
+   "D": {
+    "old": "D = (n-1)k - F",
+    "corrected": "D = (n-1)k - G",
+    "why": "D := (n-1)O - P with O = O_min + k and P = n!/n + G"
+   },
+   "N": {
+    "old": "N = S + F - O",
+    "corrected": "N = S + G - O",
+    "why": "L = 844 + G + S + H must equal 868 + (k + N + H), and G + S = O + N requires N = S + G - O"
+   },
+   "master": {
+    "old": "L = 867 + k + F + e + x + H - f_out",
+    "corrected": "L = 867 + k + G + e + x + H - f_out",
+    "why": "S = (r-1) + x - f_out is F- and G-free; substituting into L = L_base + G + S + H gives the G form"
+   },
+   "theorem_A": {
+    "old": "O <= 1 + S + F   <=>   f_out <= F + e + x",
+    "corrected": "O <= 1 + S + G   <=>   f_out <= G + e + x",
+    "why": "the algebraic equivalence uses S = (r-1) + x - f_out and r = O + e, so O <= 1 + S + X  <=>  f_out <= X + e + x for any X; the SLAB derivation needs the version whose X matches the length identity, i.e. G.  The F-version is strictly STRONGER (F <= G) and is NOT what the table needs.",
+    "note": "the two coincide exactly when J = 0"
+   },
+   "slab": {
+    "old": "k + H <= 4 from S >= O - 1 - F and F + S + H <= 27",
+    "corrected": "k + H <= 4 from S >= O - 1 - G and G + S + H <= 27",
+    "why": "both substitutions cancel the G, so the BOUND k + H <= 4 is unchanged - only its derivation is relabelled"
+   },
+   "cells": {
+    "old": "55 cells indexed by (k, F)",
+    "corrected": "55 cells indexed by (k, G)",
+    "why": "the row bound is G <= (n-1)k from D >= 0 and the column bound is k <= 4 from k + H <= 4; both are statements about G"
+   }
+  },
+  "slab_table_kG": {
+   "index": "(k, G)  -- NOT (k, F)",
+   "rows": [
+    {
+     "k": 0,
+     "O": 24,
+     "G_range": [
+      0,
+      0
+     ],
+     "n_cells": 1,
+     "H_max": 4,
+     "N_plus_H_max": 3
+    },
+    {
+     "k": 1,
+     "O": 25,
+     "G_range": [
+      0,
+      5
+     ],
+     "n_cells": 6,
+     "H_max": 3,
+     "N_plus_H_max": 2
+    },
+    {
+     "k": 2,
+     "O": 26,
+     "G_range": [
+      0,
+      10
+     ],
+     "n_cells": 11,
+     "H_max": 2,
+     "N_plus_H_max": 1
+    },
+    {
+     "k": 3,
+     "O": 27,
+     "G_range": [
+      0,
+      15
+     ],
+     "n_cells": 16,
+     "H_max": 1,
+     "N_plus_H_max": 0
+    },
+    {
+     "k": 4,
+     "O": 28,
+     "G_range": [
+      0,
+      20
+     ],
+     "n_cells": 21,
+     "H_max": 0,
+     "N_plus_H_max": -1
+    }
+   ],
+   "total_cells": 55,
+   "matches_historical_55": true,
+   "bounds": {
+    "G_le": "(n-1)k   from D = (n-1)k - G >= 0",
+    "k_le": "4        from k + H <= 4 (Theorem A, G-form)"
+   },
+   "exhaustive": "every walk has a well-defined (k, G), so the decomposition is exhaustive; the FINITENESS (k <= 4) still rests on Theorem A, which is proved only for G <= 2",
+   "theorem_A_proved_for": "G in {0, 1, 2}"
+  },
+  "j_cost_theory": {
+   "J": "J = sum_h (d_h - 1), d_h = number of nu-descents in hexagon h",
+   "per_hexagon_bound": "d_h - 1 <= e_h - 2, so J <= sum_{e_h>=2} (e_h - 2) = G - m",
+   "m": "m = number of multiply-entered hexagons",
+   "consequences": [
+    "J <= G - m, hence F = G - J >= m: the abandonment count is at least the number of multiply-entered hexagons",
+    "J > 0 requires some hexagon entered at least THREE times",
+    "G = 0 => J = 0 => F = 0 (and conversely)",
+    "G = 1 => m = 1, J <= 0 => J = 0 => F = 1",
+    "G = 2 with two doubled hexagons (m = 2) => J <= 0 => F = 2",
+    "G = 2 with one tripled hexagon (m = 1) => J <= 1, so F in {1, 2}"
+   ],
+   "salvage": "in the G <= 1 regime - which is exactly what every engine from Round 115 through Round 125 searched - J is identically zero, so F = G there and no result is affected by the collision beyond its NAME",
+   "no_length_cost": "J does not appear in L = L_base + G + S + H, so a unit of J costs no length by itself; the salvage comes from the multiplicity requirement e_h >= 3, not from a length penalty"
+  },
+  "round_110_audit": {
+   "step_1_to_5": {
+    "statement": "L = 725 + (#joints) + S + H and P = (#joints) + 1",
+    "status": "CORRECT - no F, no G"
+   },
+   "step_6": {
+    "statement": "'extra hexagon entries arise exactly one per abandonment, hence P = 120 + F'",
+    "status": "**WRONG**",
+    "what_is_true": "P - 120 = sum_h (e_h - 1) = G BY DEFINITION; the identification of that count with the abandonment count F is what fails",
+    "when_it_holds": "exactly when every hexagon's nu-cycle has one descent, i.e. J = 0; automatic when every e_h <= 2",
+    "how_it_was_checked": "on 5 concrete strings, all of which happen to have J = 0 (the 872 witness has F = G = 25, the greedy 873 has F = G = 0), so the error was invisible"
+   },
+   "step_7_8": {
+    "statement": "L = 844 + F + S + H and L = 868 + (k + N + H)",
+    "status": "inherits the step-6 error - both need G in place of F"
+   },
+   "theorem_A": {
+    "statement": "O <= 1 + S + F",
+    "status": "the SLAB derivation needs the G-form O <= 1 + S + G; the F-form is strictly stronger and was never what the table required"
+   },
+   "affected_rounds": [
+    "110 (source)",
+    "114",
+    "115",
+    "116",
+    "117",
+    "118",
+    "119",
+    "120",
+    "121",
+    "122",
+    "123",
+    "124",
+    "125",
+    "126",
+    "127"
+   ],
+   "actually_harmed": "none of the searches - every engine from Round 115 on hard-codes P (120 or 121), i.e. it fixes G directly and never computes F. The damage is confined to NAMES and to the prose claims that generalised from 'F = 1' to all abandonment-count-1 walks."
+  },
+  "rounds_scope_table": {
+   "110": [
+    "D",
+    "foundation round - its counting proof substituted F for the multiplicity excess at step 6; identities repaired in Round 128"
+   ],
+   "114": [
+    "C",
+    "(k,G) = (0,0); G = 0 <=> F = 0 so both labels are correct"
+   ],
+   "115": [
+    "C",
+    "the G = 0 column; verify_f0_geometry_115.py sets P = 120, i.e. G = 0. G = 0 <=> F = 0, so the F = 0 label is ALSO correct - this column is completely unaffected"
+   ],
+   "116": [
+    "B",
+    "verify_f1_structure_116.py sets P = 121, i.e. G = 1"
+   ],
+   "117": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "118": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "119": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "120": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "121": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "122": [
+    "B",
+    "compares generic G = 1 with the historical Q2 population, which is itself a G = 1 model (TARGET_F = 1 AND TARGET_P = 121)"
+   ],
+   "123": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "124": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "125": [
+    "B",
+    "only G = 1  (equivalently F = 1 AND P = 121); the engines hard-code TARGET = 121 and never compute abandonment at all"
+   ],
+   "126": [
+    "C",
+    "its 'F' was computed as P - n!/n, i.e. it was G throughout; every formula and every n = 4 verification is CORRECT as a statement about G.  Only the name was wrong."
+   ],
+   "127": [
+    "C",
+    "the type-B configuration is 'two hexagons each entered twice', a pure multiplicity statement; the order proof never uses F.  Valid as a local multiplicity lemma."
+   ],
+   "_legend": {
+    "A": "generic project F",
+    "B": "only G = 1 (a strict subset of F = 1)",
+    "C": "actually a G statement regardless of F",
+    "D": "foundation - repaired"
+   }
+  },
+  "engine_audit": {
+   "fact": "no engine from Round 118 through Round 125 contains the string 'abandon'",
+   "target": "every one hard-codes #define TARGET 121 and accepts only at passes == 121",
+   "consequence": "their domain is P = 121, i.e. G = 1 - never generic project F = 1",
+   "round_115": "verify_f0_geometry_115.py sets P = 120, i.e. G = 0",
+   "q2": "the legacy engine requires BOTH state.F == TARGET_F == 1 AND state.P == TARGET_P == 121 to accept, so Q2's domain is exactly G = 1",
+   "round_125_true_name": "(k, G) = (1, 1) closed - not generic (k, F) = (1, 1)"
+  },
+  "f0_audit": {
+   "question": "is F = 0 => G = 0?",
+   "answer": "YES - proved and verified",
+   "proof": "a hexagon with e_h >= 2 has at least one nu-ascent, and an ascending pass can never be the walk's last pass (nothing follows it), so it really contributes an abandonment; hence G >= 1 => F >= 1",
+   "classification": "Round 115 SURVIVES unchanged - G = 0 and F = 0 are the same set"
+  },
+  "f1_audit": {
+   "question": "is F = 1, G > 1 possible?",
+   "answer": "YES in general - 46 of the 29,255 legal n = 4 walks have F = 1, G = 2, all with multiplicity partition (2,) i.e. ONE hexagon entered three times",
+   "but": "those walks have P = 122, not 121, so they were never in any engine's domain; in the corrected (k, G) parameterisation they live in the G = 2 column, which is OPEN and was never claimed closed",
+   "conclusion": "no walk escapes the table - the (k, G) decomposition is exhaustive"
+  },
+  "round_127_salvage": {
+   "old_name": "Theorem 127.1 (generic F = 2 type B)",
+   "corrected_name": "Theorem 127.1 (two doubled hexagons) - a LOCAL MULTIPLICITY lemma",
+   "statement": "let h and g be two distinct hexagons each entered exactly twice; if all four of their passes exit by a free (omega = 2) arc, then at least two orbits carry an extra run, i.e. e >= 2",
+   "uses_F": false,
+   "uses_G": false,
+   "why_it_survives": "the proof only uses: the nu-cycle structure on the passes of a hexagon, the order lemma, the uniqueness of a run's first pass, and the fact that a hexagon's n words lie in n distinct orbits. None of these mentions abandonment or the multiplicity excess total, so the proof is untouched by the F/G collision.",
+   "withdrawn_corollaries": [
+    "'f_out <= F + e for all generic F = 2' - restate as 'f_out <= G + e for G = 2'",
+    "'Theorem A proved for all F = 2' - restate as 'Theorem A (G-form) proved for G = 2'",
+    "'generic F = 2 has exactly four k cells' - restate as 'the G = 2 column has four k cells'",
+    "'generic F = 2 has H <= 3' - restate as 'the G = 2 column has H <= 3'"
+   ],
+   "corrected_scope": "G = 2 (both multiplicity types), NOT generic project F = 2"
+  },
+  "n4_FG_matrix": {
+   "F0_G0": 827,
+   "F1_G1": 5999,
+   "F1_G2": 46,
+   "F2_G2": 10579,
+   "F2_G3": 337,
+   "F3_G3": 7208,
+   "F3_G4": 900,
+   "F3_G5": 4,
+   "F4_G4": 2484,
+   "F4_G5": 555,
+   "F4_G6": 2,
+   "F5_G5": 70,
+   "F5_G6": 244
+  },
+  "n4_census_summary": {
+   "walks": 29255,
+   "G_gt_F": 2088,
+   "F_eq_G": 27167,
+   "by_F": {
+    "0": 827,
+    "1": 6045,
+    "2": 10916,
+    "3": 8112,
+    "4": 3041,
+    "5": 314
+   },
+   "by_G": {
+    "0": 827,
+    "1": 5999,
+    "2": 10625,
+    "3": 7545,
+    "4": 3384,
+    "5": 629,
+    "6": 246
+   },
+   "partitions_for_F1": {
+    "(1,)": 5999,
+    "(2,)": 46
+   },
+   "partitions_for_F2": {
+    "(1, 1)": 9441,
+    "(2,)": 1138,
+    "(2, 1)": 337
+   },
+   "violations": {
+    "L = L_base + F + S + H (the OLD, wrong form)": 2088,
+    "P = n!/n + F (the OLD, wrong form)": 2088
+   },
+   "corrected_identities_hold": true,
+   "old_identities_fail": true,
+   "fg_theory_holds": true
+  },
+  "ledger_status": {
+   "outer_cell_ledger": "REPAIRED - the second index is G, not F",
+   "closed_cells": "9 of 55 (k, G) cells: (k, 0) for k = 0..4 and (k, 1) for k = 1..4",
+   "what_changed": "the NAME of the second index; the closed set is unchanged",
+   "audited_4782": "unchanged - a certificate for its literal encoded population",
+   "q2_6396": "unchanged as a computational certificate; its scope is now stated as G = 1 (equivalently F = 1 AND P = 121) rather than generic F = 1"
+  },
+  "supersedes_claims": [
+   "'Round 125 closed generic (k,F) = (1,1)' -> '(k,G) = (1,1) closed'",
+   "'Round 127 proves Theorem A for all F = 2' -> 'for G = 2'",
+   "'generic F = 2 has exactly four k cells' -> 'the G = 2 column does'",
+   "'generic F = 2 has H <= 3' -> 'the G = 2 column does'",
+   "'Codex confirmed Round 123 for generic F = 1' -> 'for G = 1'"
+  ],
+  "not_done": [
+   "no F = 2 / G = 2 cell work",
+   "no new generic completion search",
+   "Theorem A NOT assumed globally",
+   "F = G NOT assumed anywhere",
+   "partial-state Ndef accounting NOT re-audited (flagged open)"
+  ],
+  "label": "ROUND-128 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }

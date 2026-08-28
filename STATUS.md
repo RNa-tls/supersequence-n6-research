@@ -9,7 +9,63 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 127 (single-gap F = 2 free exit) — read this first.**
+> **Round 128 (F vs G foundation repair) — read this first.**
+> **Codex refuted the identification of `F` with the multiplicity excess. I confirmed the
+> counterexample independently. The repair is a RELABELLING, not a hole.**
+>
+> Two distinct quantities were being used as one:
+> **`F`** = *abandonment count* (the legacy engine's `abandonment = not visited(σ(p))`), and
+> **`G`** = *multiplicity excess* `= P − n!/n = Σ_h (e_h − 1)`. In general only **`F ≤ G`** holds
+> — **2,088 of the 29,255 legal `n = 4` walks have `G > F`**.
+>
+> **Corrected identities** (verified on the counterexample and on all 29,255 walks; the old
+> `F`-forms fail on exactly those 2,088):
+> **`P = 120 + G`**, **`L = 844 + G + S + H`**, **`D = 5k − G`**, **`N = S + G − O`**,
+> **`L = 867 + k + G + e + x + H − f_out`**, Theorem A as **`O ≤ 1 + S + G ⟺ f_out ≤ G + e + x`**.
+> Round 110's step 6 — "extra entries arise one per abandonment" — is where `F` was substituted
+> for `G`. It went unnoticed because all five strings it was checked on have `J = 0`.
+>
+> **Theorem 128.1.** Since `σ(exit(p)) = entry(ν(p))`, abandonment(`p`) ⟺ **`p < ν(p)`** in walk
+> order, so **`F` = the number of `ν`-ascents**, and **`J := G − F = Σ_h (d_h − 1)`** where `d_h`
+> is the number of `ν`-descents in hexagon `h` (always `≥ 1`).
+> **Corollary 128.2.** `e_h = 1` or `2` forces `d_h = 1`, so **`J > 0` requires a hexagon entered
+> at least three times**. Hence **`G ≤ 1 ⟹ F = G`**, **`F = 0 ⟺ G = 0`**, `J ≤ G − m`, `F ≥ m`.
+>
+> **Why nothing computational is lost.** No engine from Round 118 through Round 125 contains the
+> string `abandon` (grep 0); every one hard-codes `#define TARGET 121` and accepts only at
+> `passes == 121` — that is **`P = 121`, i.e. `G = 1`**, fixed directly. Round 115 uses `P = 120`,
+> i.e. `G = 0`. The legacy Q2 engine requires **both** `state.F == 1` **and** `state.P == 121`,
+> so Q2 is likewise a **`G = 1`** model. **The searches never ran on the wrong set — only the
+> names were wrong.**
+>
+> **The 55-cell table was a `(k, G)` table all along.** Recomputed from scratch (not preserved by
+> convention): `G ≤ 5k` from `D ≥ 0` and `k ≤ 4` from `k + H ≤ 4` give `1+6+11+16+21 =` **55**.
+> The count is unchanged; the second index is **`G`**.
+>
+> **Closed cells: 9 of 55 — read as `(k, G)` cells**: `(k, 0)` for `k = 0..4` and `(k, 1)` for
+> `k = 1..4`. Round 125's result is properly named **`(k, G) = (1, 1)` closed**; its computational
+> facts (260 runs, all `UNSAT_COMPLETE`, zero caps, zero SAT, 295,093,380,933 nodes) are unchanged.
+> Codex's Round-123 confirmation likewise covers **`G = 1`**, not generic `F = 1`.
+>
+> **Withdrawn and restated:** ~~"Round 127 proves Theorem A for all `F = 2`"~~ → **for `G = 2`**;
+> ~~"generic `F = 2` has four `k` cells"~~ → **the `G = 2` column does**; ~~"generic `F = 2` has
+> `H ≤ 3`"~~ → **the `G = 2` column does**. **Theorem 127.1 itself survives** as a pure
+> multiplicity lemma ("two hexagons each entered exactly twice, all four passes exiting freely,
+> forces `e ≥ 2`") — its proof never mentions `F` or `G`.
+>
+> **`F = 1` with `G > 1` really exists** (46 of the `n = 4` walks, always with one hexagon entered
+> three times) — but those have `P = 122` and live in the **`G = 2` column**, which is open and was
+> never claimed closed. **No walk escapes the table:** every walk has a well-defined `(k, G)`.
+>
+> **Theorem A (G-form) is proved for `G ∈ {0,1,2}` and remains empirical for `G ≥ 3`** — so the
+> finiteness of the 55-cell table still rests on it beyond the third column.
+> Historical documents were annotated with correction boxes, **not rewritten**.
+> Audited ledger **4,782** and the Q2 **6,396/6,396** certificate are numerically unchanged; the
+> Q2 scope is restated as **`G = 1`**. NR6 remains **assumed**.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 127 (single-gap F = 2 free exit) — superseded by Round 128 as the lead; its local
+> theorem stands, its `F = 2` corollaries are restated as `G = 2`.**
 > **The last `F = 2` gap is closed.**
 >
 > > **Theorem 127.1.** In a generic `F = 2` **type B** walk, `f_out = 4` implies **`e ≥ 2`**.
