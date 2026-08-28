@@ -126,10 +126,12 @@ def run(g, nodecap=NODECAP, record=True):
     return row
 
 
-def main(nodecap=NODECAP):
+def main(nodecap=NODECAP, only=None):
     build()
     have = done()
     gs = groups()
+    if only:
+        gs = [g for g in gs if g["subcase"] in only]
     print(f"{len(gs)} runs planned", flush=True)
     for g in gs:
         if g["label"] in have:
@@ -143,6 +145,99 @@ def main(nodecap=NODECAP):
             return
 
 
+def round130_rows():
+    """라운드 130 이 이미 UNSAT_COMPLETE 로 닫은 런들 (같은 셀, 건전한 사후-수정 엔진)."""
+    f = OUT / "rr_g2_k4_130.jsonl"
+    if not f.exists():
+        return []
+    return [json.loads(l) for l in f.read_text().splitlines() if l.strip()]
+
+
+def summarise(controls=None, positive=None, theory=None):
+    from collections import Counter
+    rs = [json.loads(l) for l in JSONL.read_text().splitlines()] if JSONL.exists() else []
+    rs = [r for r in rs if r]
+    r130 = round130_rows()
+    gs = groups()
+    bysub = {}
+    for g in gs:
+        bysub.setdefault(g["subcase"], dict(planned=0, done=0, unsat=0, unknown=0,
+                                            sat=0, nodes=0, seconds=0.0))["planned"] += 1
+    for r in rs:
+        d = bysub[r["subcase"]]
+        d["done"] += 1
+        d["nodes"] += r["nodes"]
+        d["seconds"] += r["seconds"]
+        d["unsat"] += r["verdict"] == "UNSAT_COMPLETE"
+        d["unknown"] += r["verdict"] == "UNKNOWN_CAP"
+        d["sat"] += r["verdict"] == "SAT"
+    for d in bysub.values():
+        d["seconds"] = round(d["seconds"], 1)
+        d["closed"] = (d["done"] == d["planned"] and d["unsat"] == d["planned"])
+    # 라운드 130 이 닫은 두 하위경우를 그대로 이어받는다 (재실행하지 않는다).
+    prev = {}
+    for r in r130:
+        d = prev.setdefault(r["subcase"], dict(runs=0, unsat=0, nodes=0))
+        d["runs"] += 1
+        d["unsat"] += r["verdict"] == "UNSAT_COMPLETE"
+        d["nodes"] += r["nodes"]
+    cell = {}
+    for sc, planned in (("A_e0", 10), ("B_e0", 25)):
+        p130 = prev.get(sc, dict(runs=0, unsat=0, nodes=0))
+        cell[sc] = dict(source="round 130", planned=planned, unsat=p130["unsat"],
+                        nodes=p130["nodes"], closed=(p130["unsat"] == planned))
+    for sc in ("A_e1", "B_e1", "B_e2"):
+        d = bysub.get(sc, dict(planned=0, done=0, unsat=0, nodes=0, closed=False))
+        cell[sc] = dict(source="round 131", planned=d["planned"], done=d["done"],
+                        unsat=d["unsat"], nodes=d["nodes"], closed=d["closed"])
+    remaining = [sc for sc, d in cell.items() if not d["closed"]]
+    return dict(
+        round=131, cell="(k,G) = (4,2)", outer_axis="G (never F)",
+        theory=theory,
+        engine=dict(
+            file="src/g2_cell_131.c",
+            derived_from="src/g2_cell_130.c (post-fix: every pass sets the hexagon mask)",
+            new_rules=[
+                "REVSPEC - Theorem 131.1(b): a repeat run is opened ONLY by the free "
+                "omega=2 exit of a designated nu-descent short pass",
+                "conditional LOCKSPEC - Theorem 131.1(c): an ascent's locality lock is "
+                "applied only when no KNOWN repeat orbit equals its target orbit",
+                "LOCK0MODE alpha/beta - exhaustive split for the one undecidable place "
+                "(type B opener0 while opener1 is unplaced)",
+                "leaf: #repeat runs == e and r == O + e",
+            ],
+            revspec_off="REVSPEC < 0 reproduces Round-130 behaviour exactly",
+            mask_invariant="-DCHECKMASK build asserts #entered hexagons == passes - reentries"),
+        parameters=dict(ORBCAP=ORBCAP, COSTCAP=COSTCAP, XCAP=XCAP, DCAP=DCAP,
+                        EXCCAP=EXCCAP, SHCAP=SHCAP, HCAP=0, HW=0, node_cap=NODECAP,
+                        RMAX="28 + e", FOUTCAP="FOUTMIN = e + 2", TARGET=122),
+        n_runs_planned=len(gs), n_runs_done=len(rs),
+        by_subcase=bysub,
+        branch_counts=dict(A_e1=dict(round130=10, round131=10),
+                           B_e2=dict(round130=25, round131=50),
+                           B_e1=dict(round130=100, round131=75)),
+        cell_status=cell,
+        subcases_remaining=sorted(remaining),
+        cell_closed=(len(remaining) == 0),
+        total_nodes_round131=sum(r["nodes"] for r in rs),
+        total_seconds_round131=round(sum(r["seconds"] for r in rs), 1),
+        max_passes=max((r["best_passes"] for r in rs), default=0),
+        cap_hits=[r["label"] for r in rs if r["verdict"] == "UNKNOWN_CAP"],
+        sat_found=[r["label"] for r in rs if r["verdict"] == "SAT"],
+        verdicts=dict(Counter(r["verdict"] for r in rs)),
+        controls=controls, positive_control=positive,
+        coverage_matrix={g["label"]: next((r["verdict"] for r in rs
+                                           if r["label"] == g["label"]), "NOT_RUN")
+                         for g in gs},
+        ledger_note=("the (4,2) cell counts toward the outer ledger only if EVERY one of "
+                     "the five subcases and every branch is UNSAT_COMPLETE"),
+        label="ROUND-131 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+        ledger={"INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+                "CLAUDE_FULL_JOINT_Q2": "6396/6396",
+                "NR6": "ASSUMED"},
+        disclaimer="This project has not proved L6 >= 872")
+
+
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == "plan":
@@ -151,5 +246,15 @@ if __name__ == "__main__":
         print(json.dumps(dict(total_runs=len(gs),
                               by_subcase=dict(Counter(g["subcase"] for g in gs))),
                          indent=1))
+    elif len(sys.argv) > 1 and sys.argv[1] == "report":
+        print(json.dumps(summarise(), ensure_ascii=False, indent=1))
     else:
-        main()
+        # 사용법: g2_k4_closure_131.py [subcase[,subcase...]] [nodecap]
+        only = None
+        cap = NODECAP
+        for a in sys.argv[1:]:
+            if a.isdigit():
+                cap = int(a)
+            else:
+                only = set(a.split(","))
+        main(cap, only)
