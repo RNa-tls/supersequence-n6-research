@@ -265,3 +265,24 @@ def test_ledger_untouched(rep):
     assert rep["ledger"]["CLAUDE_FULL_JOINT_Q2"] == "6396/6396"
     assert rep["ledger"]["NR6"] == "ASSUMED"
     assert rep["disclaimer"] == "This project has not proved L6 >= 872"
+
+
+# ------------------------------------------------------------------- S14 B order types
+def test_b_alpha_order_type_is_unique(theory):
+    b = theory["b_order"]
+    assert b["n_order_types"] == 1
+    assert b["order"] == "opener0 < closer0 = opener0 + 5 < opener1 < closer1 = opener1 + 5"
+    assert b["two_split_orbits_forced_distinct"] is False, \
+        "the two split orbits are NOT proved distinct - do not pin the assignment"
+
+
+def test_n4_order_census_is_clean(theory):
+    o = theory["n4_order"]
+    assert o["violations"] == {} and o["clean"] is True
+    assert o["x0_equality_walks"] == o["typeA"] + o["typeB"]
+    # beta 갈래가 필요한 증거: opener0 의 lock 이 실제로 깨지는 walk 이 있다.
+    assert o["broken_opener0_lock"] > 0
+    # e = 0 에서는 두 lock 이 언제나 성립한다.
+    for k, v in o["lock_pattern_census"].items():
+        if k.endswith("_e0"):
+            assert k == "typeB_locks11_e0", k
