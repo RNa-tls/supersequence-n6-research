@@ -9,7 +9,56 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 129 (generic G = 2 cell decomposition) — read this first.**
+> **Round 130 (generic (k,G) = (4,2) cell) — read this first.**
+> **Two of the five `(4,2)` subcases are fully closed; the cell is NOT closed.**
+> Claude-closed outer cells stay at **9 of 55 `(k, G)`** — **not** incremented.
+>
+> | subcase | runs | done | `UNSAT_COMPLETE` | caps | SAT | nodes | status |
+> |---|---|---|---|---|---|---|---|
+> | **`A / e=0`** | 10 | **10** | **10** | 0 | 0 | 6,878,643,289 | **closed** |
+> | **`B / e=0`** | 25 | **25** | **25** | 0 | 0 | 48,653,209,658 | **closed** |
+> | `A / e=1` | 10 | 0 | — | — | — | — | remaining |
+> | `B / e=2` | 25 | 0 | — | — | — | — | remaining |
+> | `B / e=1` | 100 | 0 | — | — | — | — | remaining |
+> | total | **170** | **35** | **35** | **0** | **0** | **55,531,852,947** | |
+>
+> The three remaining subcases are **not yet run** — they are neither `UNSAT` nor `UNKNOWN`.
+>
+> **The structure is frozen.** Re-derived without trusting Round 129: `k = 4, G = 2` give
+> `P = 122`, `O = 28`, `D = 18`, and `L ≤ 871` forces `f_out ≥ e + x + H + 2`; with
+> Theorem 129.1 (`f_out ≤ F + e`, `F ≤ 2`) that pins **`x = H = 0`, `F = 2`, `f_out = e + 2`,
+> `S = 25`, `N = −1`, `L = 871` exactly** — exactly five subcases, and **type A / `F = 1`
+> contributes nothing** (`k + x + H ≤ 2 + F = 3`).
+>
+> **`e = 0` forces *which* passes exit freely.** With no split orbit every free exit is case (i),
+> hence a `ν`-ascent, and `F = 2` gives exactly two ascents: **`arc0`,`arc1`** in type A and the
+> two **slot openers** in type B. `A/e=1` is pinned too (exactly one case (ii), and it must be
+> `arc2`). A case-(i) free exit also **locks locality**: its successor starts the very run
+> containing `ν(p)`, so the walk cannot leave that orbit until `ν(p)` appears. Measured on one
+> split: **2×10⁹ cap → 1.31×10⁹ → 6.81×10⁸**.
+>
+> **New engine** `src/g2_cell_130.c`: `TARGET 122`, **no weight-4/5/6 transitions offered
+> anywhere** (`H = 0` is exact), `XCAP = 0` (`x = 0` is exact), and a rewritten short-pass state
+> machine — type A is a 3-arc machine on one hexagon in `ν`-order, type B two independent 2-arc
+> slot machines. The `G = 1` `sstate 0→1→2` machine was **not** reused.
+>
+> **The reproduction control found a real bug.** Built with `-DTARGET=121` and `mtype = 2` the
+> engine must match Round 125 node-for-node. The first draft gave 462,255 vs 462,058 — it was not
+> setting the used-hexagon mask on short passes, so a later full pass could re-enter that
+> hexagon. After the fix all three controls match exactly: **20,584 / 462,058 / 487,122**.
+>
+> **Positive control: false rejection 0.** The machine accepts **all 10,625** `G = 2` walks among
+> the legal `n = 4` walks (type A `ν`-order 1,138, reverse 46, type B 9,441).
+>
+> **`A/e=1` dominates** what remains — its pilot did not finish at 4×10¹⁰ nodes. A structural
+> lead is open there (the split orbit is pinned to `orb(entry(arc0))` and the single revisit is
+> forced to be `arc2`'s free exit), but that prune was **not** implemented this round.
+>
+> Audited ledger **4,782** and Q2 **6,396/6,396** unchanged. NR6 remains **assumed**.
+> `(3,2)` not started, `G ≥ 3` not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 129 (generic G = 2 cell decomposition) — superseded by Round 130 as the lead, still current.**
 > **The `G = 2` column is exactly four cells, and it splits internally into three models.**
 > No cell closed; Claude-closed stays at **9 of 55 `(k, G)`** cells.
 >

@@ -12162,5 +12162,254 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_130_G2_k4_cell": {
+  "round": 130,
+  "cell": "(k,G) = (4,2)",
+  "outer_axis": "G (never F)",
+  "cell_closed": false,
+  "claude_closed_outer_cells": "9/55 (k,G) - NOT incremented",
+  "headline": "two of the five (4,2) subcases are fully closed (A/e=0 10/10 and B/e=0 25/25, 5.55e10 nodes, zero caps, zero SAT); A/e=1, B/e=1 and B/e=2 are not yet run, so the cell is NOT closed",
+  "derivation": {
+   "k": 4,
+   "G": 2,
+   "P": 122,
+   "O": 28,
+   "D": 18,
+   "budget": "f_out >= e + x + H + 2 from L <= 871 with k = 4",
+   "theorem": "f_out <= F + e (Round 129) with F <= 2",
+   "forced": "x = H = 0, F = 2, f_out = e + 2, S = 25, N = -1",
+   "n_subcases": 5,
+   "matches_round_129": true,
+   "typeA_F1_contributes": 0
+  },
+  "subcases": [
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "f_out": 2,
+    "S": 25,
+    "N": -1,
+    "r": 28,
+    "t": 1,
+    "L": 871
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "f_out": 3,
+    "S": 25,
+    "N": -1,
+    "r": 29,
+    "t": 1,
+    "L": 871
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "f_out": 2,
+    "S": 25,
+    "N": -1,
+    "r": 28,
+    "t": 1,
+    "L": 871
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "f_out": 3,
+    "S": 25,
+    "N": -1,
+    "r": 29,
+    "t": 1,
+    "L": 871
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "f_out": 4,
+    "S": 25,
+    "N": -1,
+    "r": 30,
+    "t": 1,
+    "L": 871
+   }
+  ],
+  "engine": {
+   "file": "src/g2_cell_130.c",
+   "target": "#define TARGET 122 (P = 120 + G)",
+   "heavy_tails_offered": "none - H = 0 is exact, so only omega in {2,3} joints",
+   "x": "XCAP = 0 - no intra-orbit cost-1 joint",
+   "short_state_machine": "rewritten for G = 2: type A is a 3-arc machine on ONE hexagon whose arcs appear in nu-order (equivalent to F = 2); type B is two independent 2-arc slot machines on two DIFFERENT hexagons, interleaving allowed",
+   "free_exit_forcing": "FREESPEC/FREEON pin exactly which short passes exit freely; for e = 0 that pattern is PROVED (every free exit is case (i), hence a nu-ascent, and F = 2 gives exactly two ascents)",
+   "locality_lock": "LOCKSPEC: a case-(i) pass's free successor starts the very run containing nu(p), so the walk cannot leave that orbit until nu(p) is placed.  Applied only where case (i) is PROVED: A/e=0, B/e=0 and A/e=1 (where exactly one pass is case (ii) and it must be arc2)",
+   "reused_unchanged": [
+    "geometry build()",
+    "light move tables M2/M3a/M3b/M3c",
+    "EXC orbit-cover excess",
+    "fod fresh-orbit deficit",
+    "NTAB/BESTSEG chain capacity",
+    "capacity_ok/dcommitted/dfeasible"
+   ]
+  },
+  "parameters": {
+   "ORBCAP": 28,
+   "COSTCAP": 25,
+   "XCAP": 0,
+   "DCAP": 18,
+   "EXCCAP": 20,
+   "SHCAP": 25,
+   "HCAP": 0,
+   "HW": 0,
+   "node_cap": 30000000000,
+   "RMAX": "28 + e",
+   "FOUTCAP": "FOUTMIN = e + 2"
+  },
+  "n_runs_planned": 170,
+  "n_runs_done": 35,
+  "by_subcase": {
+   "A_e0": {
+    "planned": 10,
+    "done": 10,
+    "unsat": 10,
+    "unknown": 0,
+    "sat": 0,
+    "nodes": 6878643289,
+    "seconds": 701.0,
+    "closed": true
+   },
+   "B_e0": {
+    "planned": 25,
+    "done": 25,
+    "unsat": 25,
+    "unknown": 0,
+    "sat": 0,
+    "nodes": 48653209658,
+    "seconds": 4817.8,
+    "closed": true
+   },
+   "A_e1": {
+    "planned": 10,
+    "done": 0,
+    "unsat": 0,
+    "unknown": 0,
+    "sat": 0,
+    "nodes": 0,
+    "seconds": 0.0,
+    "closed": false
+   },
+   "B_e2": {
+    "planned": 25,
+    "done": 0,
+    "unsat": 0,
+    "unknown": 0,
+    "sat": 0,
+    "nodes": 0,
+    "seconds": 0.0,
+    "closed": false
+   },
+   "B_e1": {
+    "planned": 100,
+    "done": 0,
+    "unsat": 0,
+    "unknown": 0,
+    "sat": 0,
+    "nodes": 0,
+    "seconds": 0.0,
+    "closed": false
+   }
+  },
+  "subcases_closed": [
+   "A_e0",
+   "B_e0"
+  ],
+  "subcases_remaining": [
+   "A_e1",
+   "B_e1",
+   "B_e2"
+  ],
+  "total_nodes": 55531852947,
+  "total_seconds": 5518.8,
+  "max_passes": 99,
+  "cap_hits": [],
+  "sat_found": [],
+  "controls": [
+   {
+    "name": "Round 125 e=0 f=0 rmax=26",
+    "recorded": 20584,
+    "replayed": 20584,
+    "matches": true
+   },
+   {
+    "name": "Round 125 e=1 f=0 rmax=26",
+    "recorded": 462058,
+    "replayed": 462058,
+    "matches": true
+   },
+   {
+    "name": "Round 125 e=1 f=1 rmax=26",
+    "recorded": 487122,
+    "replayed": 487122,
+    "matches": true
+   }
+  ],
+  "control_found_a_bug": "the first draft did not set the used-hexagon mask on short passes, so a later full pass could re-enter that hexagon; the Round-125 reproduction control caught it (462,255 vs 462,058) and after the fix all three controls match node-for-node",
+  "positive_control": {
+   "G2_walks": 10625,
+   "accepted": 10625,
+   "false_rejection": 0,
+   "breakdown": {
+    "accept:A_nu_order": 1138,
+    "accept:A_reverse_order": 46,
+    "accept:B": 9441
+   },
+   "clean": true
+  },
+  "forced_free_exit_patterns": {
+   "A_e0": "arc0 and arc1 free, arc2 never free (e = 0 => every free exit is case (i) => a nu-ascent, and F = 2 gives exactly two ascents: arc0 and arc1)",
+   "B_e0": "both slot OPENERS free, both closers not (each 2-cycle's ascent is its opener)",
+   "A_e1": "all three free; exactly one case (ii) and it must be arc2",
+   "B_e1": "3 of 4 free but WHICH is not forced - split into four exact sub-runs",
+   "B_e2": "all four free; the locality lock is NOT proved here and was not used"
+  },
+  "locality_lock": "a case-(i) free exit's successor starts the very run containing nu(p), so the walk cannot leave that orbit until nu(p) is placed; applied only to A/e=0, B/e=0 and A/e=1 where case (i) is proved",
+  "measured_effect": {
+   "A_e0_split_114": {
+    "no_forcing": "2e9 CAP",
+    "forcing_only": "1.31e9 complete",
+    "forcing_plus_lock": "6.81e8 complete"
+   }
+  },
+  "dominant_remaining": "A/e=1 - its pilot did not finish at 4e10 nodes",
+  "next_round_hint": "in A/e=1 the split orbit is pinned to orb(entry(arc0)) and the single orbit-revisit event is forced to be exactly arc2's free exit; encoding that as a prune is expected to help a lot but was NOT implemented here",
+  "not_done": [
+   "did not move to (3,2)",
+   "G >= 3 not started",
+   "F never used as the outer column coordinate",
+   "no Phi fold - no proved symmetry in this cell",
+   "the ledger was NOT incremented"
+  ],
+  "label": "ROUND-130 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
