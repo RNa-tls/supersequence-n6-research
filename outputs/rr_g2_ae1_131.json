@@ -1,0 +1,319 @@
+{
+ "round": 131,
+ "cell": {
+  "n": 6,
+  "k": 4,
+  "G": 2,
+  "P": 122,
+  "O": 28,
+  "D": 18,
+  "x": 0,
+  "H": 0,
+  "F": 2,
+  "S": 25,
+  "N": -1,
+  "L": 871,
+  "runs_by_e": {
+   "0": 28,
+   "1": 29,
+   "2": 30
+  },
+  "subcases": [
+   "A/e=0",
+   "A/e=1",
+   "B/e=0",
+   "B/e=1",
+   "B/e=2"
+  ],
+  "n_subcases": 5,
+  "remaining_after_130": [
+   "A/e=1",
+   "B/e=1",
+   "B/e=2"
+  ]
+ },
+ "theorem": {
+  "name": "Theorem 131.1",
+  "lemmas": [
+   "131.L1 target orbit",
+   "131.L2 descent => repeat run",
+   "131.L3 broken lock => repeat run"
+  ],
+  "hypothesis": "f_out = F + e  (forced in every (k,G)=(4,2) subcase)",
+  "conclusions": [
+   "every nu-ascent short pass exits freely",
+   "#free descents = e exactly",
+   "every repeat run is opened by a free descent exit",
+   "no repeat run is opened by an omega>=3 joint",
+   "every case-(i) lock holds (run ends exactly at nu(p))"
+  ],
+  "reproves": "Theorem 129.1 (f_out <= F + e)",
+  "applies_to": [
+   "A/e=0",
+   "A/e=1",
+   "B/e=0",
+   "B/e=1",
+   "B/e=2"
+  ]
+ },
+ "pattern": [
+  {
+   "type": "A",
+   "e": 0,
+   "f_out": 2,
+   "ascents": [
+    0,
+    1
+   ],
+   "descents": [
+    2
+   ],
+   "n_branches": 1,
+   "branches": [
+    {
+     "free_sids": [
+      0,
+      1
+     ],
+     "freespec": 3,
+     "lockspec": 3,
+     "revspec": 0
+    }
+   ]
+  },
+  {
+   "type": "A",
+   "e": 1,
+   "f_out": 3,
+   "ascents": [
+    0,
+    1
+   ],
+   "descents": [
+    2
+   ],
+   "n_branches": 1,
+   "branches": [
+    {
+     "free_sids": [
+      0,
+      1,
+      2
+     ],
+     "freespec": 7,
+     "lockspec": 3,
+     "revspec": 4
+    }
+   ]
+  },
+  {
+   "type": "B",
+   "e": 0,
+   "f_out": 2,
+   "ascents": [
+    0,
+    2
+   ],
+   "descents": [
+    1,
+    3
+   ],
+   "n_branches": 1,
+   "branches": [
+    {
+     "free_sids": [
+      0,
+      2
+     ],
+     "freespec": 5,
+     "lockspec": 5,
+     "revspec": 0
+    }
+   ]
+  },
+  {
+   "type": "B",
+   "e": 1,
+   "f_out": 3,
+   "ascents": [
+    0,
+    2
+   ],
+   "descents": [
+    1,
+    3
+   ],
+   "n_branches": 2,
+   "branches": [
+    {
+     "free_sids": [
+      0,
+      1,
+      2
+     ],
+     "freespec": 7,
+     "lockspec": 5,
+     "revspec": 2
+    },
+    {
+     "free_sids": [
+      0,
+      2,
+      3
+     ],
+     "freespec": 13,
+     "lockspec": 5,
+     "revspec": 8
+    }
+   ]
+  },
+  {
+   "type": "B",
+   "e": 2,
+   "f_out": 4,
+   "ascents": [
+    0,
+    2
+   ],
+   "descents": [
+    1,
+    3
+   ],
+   "n_branches": 1,
+   "branches": [
+    {
+     "free_sids": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "freespec": 15,
+     "lockspec": 5,
+     "revspec": 10
+    }
+   ]
+  }
+ ],
+ "comparison": {
+  "A/e=0": {
+   "round130_branches": 1,
+   "round131_branches": 1,
+   "round130_lockspec": 3,
+   "round131_lockspec": 3,
+   "lock_is_new": false,
+   "revisit_pin_is_new": true,
+   "branch_reduction": 1.0
+  },
+  "A/e=1": {
+   "round130_branches": 1,
+   "round131_branches": 1,
+   "round130_lockspec": 3,
+   "round131_lockspec": 3,
+   "lock_is_new": false,
+   "revisit_pin_is_new": true,
+   "branch_reduction": 1.0
+  },
+  "B/e=0": {
+   "round130_branches": 1,
+   "round131_branches": 1,
+   "round130_lockspec": 5,
+   "round131_lockspec": 5,
+   "lock_is_new": false,
+   "revisit_pin_is_new": true,
+   "branch_reduction": 1.0
+  },
+  "B/e=1": {
+   "round130_branches": 4,
+   "round131_branches": 2,
+   "round130_lockspec": 0,
+   "round131_lockspec": 5,
+   "lock_is_new": true,
+   "revisit_pin_is_new": true,
+   "branch_reduction": 2.0
+  },
+  "B/e=2": {
+   "round130_branches": 1,
+   "round131_branches": 1,
+   "round130_lockspec": 0,
+   "round131_lockspec": 5,
+   "lock_is_new": true,
+   "revisit_pin_is_new": true,
+   "branch_reduction": 1.0
+  }
+ },
+ "ae1": {
+  "n": 6,
+  "ascents": [
+   "arc0",
+   "arc1"
+  ],
+  "descent": "arc2",
+  "split_orbit": "orb(entry(arc0))",
+  "n_split_orbits": 1,
+  "three_arc_orbits_distinct": true,
+  "pos_arc1_minus_arc0": 5,
+  "pos_arc2_minus_arc0": 10,
+  "forced_block_after_arc0": 10,
+  "forced_block_all_omega2": true,
+  "run_S1": "[tau(entry(arc1)) .. arc1] = 4 full + arc1, exactly 5 passes",
+  "run_S2": "[tau(entry(arc2)) .. arc2] = 4 full + arc2, exactly 5 passes",
+  "R1_R2_slots": "R1 = [s0-a+1 .. s0], R2 = [s0+1 .. s0+b], a + b <= 5",
+  "n_order_types": 1,
+  "orbits_with_zero_deficit": [
+   "Q0 = orb(entry(arc1))",
+   "Q1 = orb(entry(arc2))"
+  ]
+ },
+ "b": {
+  "ascents": "openers g1, h1",
+  "descents": "closers g2, h2",
+  "F": 2,
+  "b_e1": {
+   "f_out": 3,
+   "free": "both openers + exactly one closer",
+   "round130_branches": 4,
+   "round131_branches": 2,
+   "empty_branches": [
+    "opener g1 not free",
+    "opener h1 not free"
+   ],
+   "lockspec": "0b0101 (both openers) - NEW in round 131",
+   "split_orbit": "orb(entry(nu(free closer))) = that closer's opener orbit"
+  },
+  "b_e2": {
+   "f_out": 4,
+   "free": "all four",
+   "branches": 1,
+   "lockspec": "0b0101 (both openers) - NEW in round 131",
+   "split_orbits": "orb(entry(g1)) and orb(entry(h1)); may coincide (then that orbit carries three runs)",
+   "locks_hold_unconditionally": true
+  }
+ },
+ "n4_check": {
+  "n": 4,
+  "maxlen": 39,
+  "walks": 29255,
+  "equality_walks": 506,
+  "equality_by_F_e": {
+   "F0_e0": 325,
+   "F1_e0": 181
+  },
+  "violations": {
+   "#repeat runs = e": 29255,
+   "L0: free inter-run exit is short": 19738,
+   "L1: free successor = tau(entry(nu(p)))": 65741,
+   "f_out = #free short exits": 11695,
+   "#free ascents <= F": 3540,
+   "L3: descents + broken locks + costly repeats <= e": 29255,
+   "L1: target orbit = orb(entry(nu(p)))": 46003,
+   "#free descents <= e": 8155,
+   "131.1(b): no costly repeat run": 325,
+   "131.1(a): every ascent exits freely": 181,
+   "131.1(a): ascent set = free ascent set": 181,
+   "131.1(b): #free descents = e": 176,
+   "131.1(c): no broken lock": 5
+  },
+  "clean": false
+ }
+}
