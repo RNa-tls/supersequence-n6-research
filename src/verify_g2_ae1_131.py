@@ -88,22 +88,35 @@ def theorem_131_1():
       (b) 자유 하강은 **정확히 `e` 개**, 즉 반복 run 은 전부 자유 하강이 연다 —
           **비싼(ω≥3) joint 가 반복 run 을 열 수 없고**, 반복 run 의 궤도는
           `Q(p) = orb(entry(ν(p)))` 로 **핀**된다;
-      (c) 경우 (i) 의 lock 은 **하나도 깨지지 않는다** — 상승 `p` 의 자유 후속이 연 run 은
-          `ν(p)` 에서 끝난다 (`e` 예산이 (b) 로 이미 전부 소진되었기 때문).
+      (c) 상승 `p` 의 lock 이 **깨질 수 있는 것은** `Q(p)` 가 (b) 의 반복 run 궤도 중
+          하나일 때뿐이다:  lock 이 깨지면 `ν(p)` 는 `Q(p)` 의 **뒤 run** 에 있고 그 run 은
+          반복 run 이므로 (b) 로 어떤 자유 하강 `d` 가 연 것이며 `Q(p) = orb(entry(ν(d)))`.
 
-    등호의 계산:  `e ≥ #(자유 하강) ≥ f_out − F = e`, 그리고 깨진 lock 이나 비싼 반복 run 이
-    하나라도 있으면 `e ≥ #(자유 하강) + 1 = f_out − F + 1 = e + 1` 로 모순.
+    등호의 계산:  `#(자유 하강) ≤ e` (131.L2) 이고 `#(자유 상승) ≤ F` 이므로
+    `e + F = f_out ≤ F + #(자유 하강) ≤ F + e` — 전부 등호.  따라서 `#(자유 하강) = e` 이고
+    자유 하강들이 여는 `e` 개의 반복 run 이 **모든** 반복 run 이다.
+
+    ### 라운드 131 의 정정 (중요)
+    처음에는 (c) 를 “lock 은 절대 안 깨진다” 로 적었으나 **`n = 4` 전수가 이를 반증했다**
+    (등호를 만족하는 walk 1734 개 중 273 개가 깨진 lock 을 갖는다).  세는 논법만으로는
+    깨진 lock 을 배제할 수 없다 — 깨진 lock 이 요구하는 반복 run 과 자유 하강이 여는 반복
+    run 이 **같은 run 일 수 있기** 때문이다.  위 (c) 가 정확한 형태이다.
     """
     return dict(
         name="Theorem 131.1",
         lemmas=["131.L1 target orbit", "131.L2 descent => repeat run",
                 "131.L3 broken lock => repeat run"],
         hypothesis="f_out = F + e  (forced in every (k,G)=(4,2) subcase)",
-        conclusions=["every nu-ascent short pass exits freely",
-                     "#free descents = e exactly",
-                     "every repeat run is opened by a free descent exit",
-                     "no repeat run is opened by an omega>=3 joint",
-                     "every case-(i) lock holds (run ends exactly at nu(p))"],
+        conclusions=["(a) every nu-ascent short pass exits freely",
+                     "(b) #free descents = e exactly; every repeat run is opened by a "
+                     "free descent exit, so no repeat run is opened by an omega>=3 "
+                     "joint and the repeat orbits are exactly {orb(entry(nu(d)))}",
+                     "(c) an ascent p's lock can break ONLY IF Q(p) is one of the "
+                     "repeat orbits of (b)"],
+        retracted="an earlier draft claimed (c) as 'no lock ever breaks'; the n=4 "
+                  "census REFUTED it (273 of 1734 equality walks break a lock). "
+                  "Counting alone cannot exclude a broken lock because the repeat run "
+                  "it needs may be the very run a free descent opens.",
         reproves="Theorem 129.1 (f_out <= F + e)",
         applies_to=["A/e=0", "A/e=1", "B/e=0", "B/e=1", "B/e=2"])
 
@@ -158,6 +171,72 @@ def round130_comparison():
             revisit_pin_is_new=True,
             branch_reduction=r130[key]["branches"] / t["n_branches"])
     return out
+
+
+# ------------------------------------------------------- §5 lock 성립의 정확한 조건
+def hexagon_words_distinct_orbits(ns=(4, 5, 6)):
+    """§3 의 기반 사실 — 한 육각형의 `n` 개 단어는 `n` 개의 **서로 다른 궤도**에 있다."""
+    from verify_f2_structure_126 import setup
+    out = {}
+    for n in ns:
+        g = setup(n)
+        hexid, orbid = g["hexid"], g["orbid"]
+        by = {}
+        for i in range(len(g["perms"])):
+            by.setdefault(hexid[i], []).append(orbid[i])
+        out[f"n{n}"] = all(len(set(v)) == n for v in by.values())
+    return out
+
+
+def lock_corollaries():
+    """§5·§14 — 정리 131.1(c) 를 다섯 하위경우에 적용한 **정확한** lock 성립표.
+
+    반복 run 궤도는 `{orb(entry(ν(d))) : d 자유 하강}` 이고, 상승 `a` 의 lock 궤도는
+    `Q(a) = orb(entry(ν(a)))` 이다.  한 육각형의 단어들은 서로 다른 궤도에 있으므로
+    `ν(a)` 와 `ν(d)` 가 **같은 육각형의 다른 단어**이면 두 궤도는 다르고 lock 은 성립한다.
+
+    * **A/e=0, B/e=0** — 반복 run 이 아예 없으므로 모든 lock 이 성립한다.
+    * **A/e=1** — 유일한 자유 하강은 `arc2`, `ν(arc2) = arc0`, 반복 궤도는
+      `orb(entry(arc0))`.  상승 lock 궤도는 `orb(entry(arc1))`, `orb(entry(arc2))` 이고
+      `entry(arc0), entry(arc1), entry(arc2)` 는 같은 육각형 `h*` 의 서로 다른 세 단어이므로
+      셋 다 다른 궤도 — **두 lock 모두 무조건 성립**.  (라운드 130 의 `A/e=1` lockspec 은
+      따라서 건전했다.)
+    * **B/e=1, 자유 closer = closer₀** — 반복 궤도는 `orb(entry(opener₀))`.
+      `opener₀` 의 lock 궤도는 `orb(entry(closer₀)) ≠ orb(entry(opener₀))` (같은 육각형)
+      — **무조건 성립**.  `opener₁` 의 lock 궤도는 `orb(entry(closer₁))` 로, 이것이
+      `orb(entry(opener₀))` 와 같은지는 **실행 중 판정 가능** (두 opener 모두 이미 놓임).
+    * **B/e=1, 자유 closer = closer₁** — 반복 궤도는 `orb(entry(opener₁))`.
+      `opener₁` 의 lock 은 무조건 성립.  `opener₀` 의 lock 은 `orb(entry(closer₀))` 가
+      `orb(entry(opener₁))` 와 같으면 깨질 수 있고, `opener₀` 를 놓는 시점에 `opener₁` 은
+      아직 안 놓였으므로 판정 불가 — **α/β 로 분기**한다.
+    * **B/e=2** — 반복 궤도는 `{orb(entry(opener₀)), orb(entry(opener₁))}`.
+      `opener₁` 의 lock 은 `orb(entry(closer₁)) ≠ orb(entry(opener₀))` 일 때 성립(실행 중
+      판정), `opener₀` 의 lock 은 **α/β 분기**.
+
+    **α/β 분기**는 배타적이 아니라 **망라적**이면 충분하다:
+    α = `opener₀` 의 lock 이 성립하는 walk (lock 을 걸고 탐색),
+    β = 깨지는 walk — 이때 `orb(entry(opener₁)) = orb(entry(closer₀))` 가 **필요조건**이므로
+    그 등식을 강제해 탐색한다.  두 갈래의 합집합이 전체를 덮는다.
+    """
+    return {
+        "A/e=0": dict(repeat_orbits=[], locks=["arc0: unconditional", "arc1: unconditional"],
+                      branches=1),
+        "A/e=1": dict(repeat_orbits=["orb(entry(arc0))"],
+                      locks=["arc0: unconditional", "arc1: unconditional"], branches=1,
+                      reason="entry(arc0), entry(arc1), entry(arc2) are three distinct "
+                             "words of h*, hence three distinct orbits"),
+        "B/e=0": dict(repeat_orbits=[],
+                      locks=["opener0: unconditional", "opener1: unconditional"], branches=1),
+        "B/e=1 (closer0 free)": dict(repeat_orbits=["orb(entry(opener0))"],
+                                     locks=["opener0: unconditional",
+                                            "opener1: runtime check"], branches=1),
+        "B/e=1 (closer1 free)": dict(repeat_orbits=["orb(entry(opener1))"],
+                                     locks=["opener0: alpha/beta split",
+                                            "opener1: unconditional"], branches=2),
+        "B/e=2": dict(repeat_orbits=["orb(entry(opener0))", "orb(entry(opener1))"],
+                      locks=["opener0: alpha/beta split", "opener1: runtime check"],
+                      branches=2),
+    }
 
 
 # ------------------------------------------------------------ §3·§4 A/e=1 의 완전 강제
@@ -368,8 +447,10 @@ def n4_theorem_check(maxlen=39):
         if f_out > F + e:
             viol["f_out <= F + e"] += 1
         ncostly = sum(1 for ri in repeat_runs if joints[runs[ri][0] - 1] != 2)
-        if ndesc + nbroken + ncostly > e:
-            viol["L3: descents + broken locks + costly repeats <= e"] += 1
+        # 자유 하강이 여는 반복 run 과 비싼 반복 run 은 서로 다른 run 이다 (한 run 은 한
+        # joint 로만 열린다).  깨진 lock 은 **같은 run 을 쓸 수 있으므로 더하지 않는다.**
+        if ndesc + ncostly > e:
+            viol["L2': free-descent repeats + costly repeats <= e"] += 1
 
         # --- Theorem 131.1 under equality --------------------------------------
         if f_out == F + e:
@@ -383,18 +464,39 @@ def n4_theorem_check(maxlen=39):
                 viol["131.1(b): #free descents = e"] += 1
             if ncostly != 0:
                 viol["131.1(b): no costly repeat run"] += 1
-            if nbroken != 0:
-                viol["131.1(c): no broken lock"] += 1
+            # (c) 깨진 lock 의 궤도는 **반드시** 반복 run 궤도 중 하나여야 한다.
+            repeat_orbs = Counter(orbs[runs[ri][0]] for ri in repeat_runs)
+            for (p, ri) in free_short:
+                if nu[p] >= p and runof[nu[p]] != ri:      # broken lock
+                    if orbs[passes_orb_index(nu[p])] if False else \
+                       (orbid[passes[nu[p]][0]] not in repeat_orbs):
+                        viol["131.1(c): broken lock orbit is a repeat orbit"] += 1
+            if e == 0 and nbroken != 0:
+                viol["corollary: e = 0 => no broken lock"] += 1
+            # 유형 A (한 육각형 3회) 계열: 세 arc 의 진입 궤도가 서로 다르므로
+            # 하강이 하나뿐이면 상승 lock 은 절대 깨지지 않는다.
+            hxc = Counter(hexid[u] for (u, _) in passes)
+            tripled = [h for h, c in hxc.items() if c == 3]
+            if len(tripled) == 1 and all(c <= 1 for h, c in hxc.items() if h != tripled[0]):
+                if nbroken != 0:
+                    viol["corollary A: type-A walks never break a lock"] += 1
+                eqstat["typeA_equality"] += 1
+            eqstat["broken_locks"] += nbroken
             eqstat[f"F{F}_e{e}"] += 1
     return dict(n=n, maxlen=maxlen, walks=stat["walks"],
                 equality_walks=eqstat["equality_walks"],
+                equality_broken_locks=eqstat["broken_locks"],
+                equality_typeA=eqstat["typeA_equality"],
                 equality_by_F_e={k: v for k, v in sorted(eqstat.items())
-                                 if k != "equality_walks"},
+                                 if k not in ("equality_walks", "broken_locks",
+                                                "typeA_equality")},
                 violations=dict(viol), clean=(len(viol) == 0))
 
 
 def summarise(n4=None):
     d = dict(round=131, cell=cell_42(), theorem=theorem_131_1(),
+             hexagon_words_distinct_orbits=hexagon_words_distinct_orbits(),
+             lock_corollaries=lock_corollaries(),
              pattern=ascent_descent_pattern(), comparison=round130_comparison(),
              ae1=ae1_forcing(), b=b_structure())
     if n4 is not None:

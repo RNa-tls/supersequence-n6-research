@@ -41,12 +41,11 @@
   ],
   "hypothesis": "f_out = F + e  (forced in every (k,G)=(4,2) subcase)",
   "conclusions": [
-   "every nu-ascent short pass exits freely",
-   "#free descents = e exactly",
-   "every repeat run is opened by a free descent exit",
-   "no repeat run is opened by an omega>=3 joint",
-   "every case-(i) lock holds (run ends exactly at nu(p))"
+   "(a) every nu-ascent short pass exits freely",
+   "(b) #free descents = e exactly; every repeat run is opened by a free descent exit, so no repeat run is opened by an omega>=3 joint and the repeat orbits are exactly {orb(entry(nu(d)))}",
+   "(c) an ascent p's lock can break ONLY IF Q(p) is one of the repeat orbits of (b)"
   ],
+  "retracted": "an earlier draft claimed (c) as 'no lock ever breaks'; the n=4 census REFUTED it (273 of 1734 equality walks break a lock). Counting alone cannot exclude a broken lock because the repeat run it needs may be the very run a free descent opens.",
   "reproves": "Theorem 129.1 (f_out <= F + e)",
   "applies_to": [
    "A/e=0",
@@ -55,6 +54,71 @@
    "B/e=1",
    "B/e=2"
   ]
+ },
+ "hexagon_words_distinct_orbits": {
+  "n4": true,
+  "n5": true,
+  "n6": true
+ },
+ "lock_corollaries": {
+  "A/e=0": {
+   "repeat_orbits": [],
+   "locks": [
+    "arc0: unconditional",
+    "arc1: unconditional"
+   ],
+   "branches": 1
+  },
+  "A/e=1": {
+   "repeat_orbits": [
+    "orb(entry(arc0))"
+   ],
+   "locks": [
+    "arc0: unconditional",
+    "arc1: unconditional"
+   ],
+   "branches": 1,
+   "reason": "entry(arc0), entry(arc1), entry(arc2) are three distinct words of h*, hence three distinct orbits"
+  },
+  "B/e=0": {
+   "repeat_orbits": [],
+   "locks": [
+    "opener0: unconditional",
+    "opener1: unconditional"
+   ],
+   "branches": 1
+  },
+  "B/e=1 (closer0 free)": {
+   "repeat_orbits": [
+    "orb(entry(opener0))"
+   ],
+   "locks": [
+    "opener0: unconditional",
+    "opener1: runtime check"
+   ],
+   "branches": 1
+  },
+  "B/e=1 (closer1 free)": {
+   "repeat_orbits": [
+    "orb(entry(opener1))"
+   ],
+   "locks": [
+    "opener0: alpha/beta split",
+    "opener1: unconditional"
+   ],
+   "branches": 2
+  },
+  "B/e=2": {
+   "repeat_orbits": [
+    "orb(entry(opener0))",
+    "orb(entry(opener1))"
+   ],
+   "locks": [
+    "opener0: alpha/beta split",
+    "opener1: runtime check"
+   ],
+   "branches": 2
+  }
  },
  "pattern": [
   {
@@ -294,26 +358,24 @@
   "n": 4,
   "maxlen": 39,
   "walks": 29255,
-  "equality_walks": 506,
+  "equality_walks": 1734,
+  "equality_broken_locks": 288,
+  "equality_typeA": 90,
   "equality_by_F_e": {
    "F0_e0": 325,
-   "F1_e0": 181
+   "F1_e0": 511,
+   "F1_e1": 170,
+   "F2_e0": 217,
+   "F2_e1": 276,
+   "F2_e2": 39,
+   "F3_e0": 25,
+   "F3_e1": 99,
+   "F3_e2": 53,
+   "F3_e3": 7,
+   "F4_e1": 5,
+   "F4_e2": 7
   },
-  "violations": {
-   "#repeat runs = e": 29255,
-   "L0: free inter-run exit is short": 19738,
-   "L1: free successor = tau(entry(nu(p)))": 65741,
-   "f_out = #free short exits": 11695,
-   "#free ascents <= F": 3540,
-   "L3: descents + broken locks + costly repeats <= e": 29255,
-   "L1: target orbit = orb(entry(nu(p)))": 46003,
-   "#free descents <= e": 8155,
-   "131.1(b): no costly repeat run": 325,
-   "131.1(a): every ascent exits freely": 181,
-   "131.1(a): ascent set = free ascent set": 181,
-   "131.1(b): #free descents = e": 176,
-   "131.1(c): no broken lock": 5
-  },
-  "clean": false
+  "violations": {},
+  "clean": true
  }
 }
