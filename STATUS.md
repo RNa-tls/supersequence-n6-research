@@ -9,7 +9,57 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 126 (generic F = 2 structure) — read this first.**
+> **Round 127 (single-gap F = 2 free exit) — read this first.**
+> **The last `F = 2` gap is closed.**
+>
+> > **Theorem 127.1.** In a generic `F = 2` **type B** walk, `f_out = 4` implies **`e ≥ 2`**.
+>
+> Hence **`f_out ≤ F + e = 2 + e` for all generic `F = 2`** (type A was Round 126), and with it:
+>
+> | consequence | status |
+> |---|---|
+> | `f_out ≤ F + e` across `F = 2` | **proved** |
+> | **Theorem A** `O ≤ 1 + S + F` at `F = 2` | **proved** (`f_out ≤ F+e ≤ F+e+x`) |
+> | `k + x + H ≤ 4` | **proved** — the same shape as Round 121's `F = 1` corollary |
+> | feasible `k` | **`{1,2,3,4}` — the `F = 2` column is exactly 4 cells** |
+> | `H` ceiling | **3**, same as `F = 1` |
+>
+> Round 126's unconditional `k = 5` and `H = 4` are **gone**; the `F = 2` column now matches the
+> project's standard 55-cell table exactly.
+>
+> **The proof.** `e = 1` means exactly one orbit `q*` carries exactly two runs. For each repeated
+> hexagon, not both passes are case (i) (Lemma E′) and not both are case (ii) (that would force
+> `orb(h1) = orb(h2)`, impossible), so **exactly one is case (ii)**; label it `h1`, giving
+> `orb(h2) = q*` and `h2 < h1`. If `run(h2) = run(g2)` the two case-(ii) free successors would be
+> the same first pass, forcing `entry(h2) = entry(g2)` — impossible across distinct hexagons. So
+> `run(h2)` and `run(g2)` are the two runs of `q*`, and `h1`'s immediate successor starts
+> `run(g2)` while `g1`'s starts `run(h2)`, giving `h1 < g2` and `g1 < h2`. With `h2 < h1` and
+> `g2 < g1` that is the cycle **`g2 < g1 < h2 < h1 < g2`** in a linear order — contradiction. ∎
+>
+> **The obstruction is order-theoretic, not geometric.** Two distinct hexagons *can* share an
+> orbit — **1,080 of the 7,140** hexagon pairs at `n = 6` do — and **400** of the 71,400 labelled
+> local states pass every geometric test. **All 400 die on the order constraints.** All 96
+> order-type/labelling combinations are eliminated, and the exact minimum number of split runs
+> for two disjoint 2-cycles is **2** (one token: 0 feasible orders; two tokens: 24 — so the bound
+> is tight).
+>
+> **Controls** (joint legality kept on): on **29,255 legal `n = 4` walks** the intermediate proof
+> steps hold across **13,164** all-free repeated hexagons with **zero violations**, and the
+> exceptional configuration appears **0 times** (the 56 type-B `f_out = 4` walks all have
+> `e ≥ 2`). The `n = 5` *walk* enumeration is **not** cheap — 120 words with a minimal length of
+> 153 — so it was stopped at its budget per the compute policy and replaced by the instant `n = 5`
+> local census, which also yields 0 surviving configurations.
+>
+> **Theorem A status, honestly:** proved for `F = 0`, `F = 1` (Round 117), and now all of `F = 2`;
+> **still empirical for `F ≥ 3`**. The 55-cell slab table rests on it, so that table is proved
+> only for the first three columns.
+>
+> **No `F = 2` cell was closed.** Claude-closed outer cells stay at **9 of 55**.
+> Audited ledger **4,782** unchanged; Claude full-joint Q2 **6,396/6,396** unchanged.
+> NR6 remains **assumed**. `F ≥ 3` not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 126 (generic F = 2 structure) — superseded by Round 127 as the lead, still current.**
 > **`F = 2` splits into exactly two models**, and the `F = 1` free-exit lemma generalizes.
 > No cell closed; Claude-closed outer cells stay at **9 of 55** and the `F = 2` column is **OPEN**.
 >
@@ -74,7 +124,8 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > claims of this round hold with **zero violations**. Turning legality off breaks exactly the two
 > claims that need it. And `f_out ≤ F + e` is **tight**: the minimum `e` observed for each
 > `(F, f_out)` is exactly `max(0, f_out − F)`, and the problematic configuration
-> (type B, `f_out = 4`, `e = 1`) **never occurs** — those 79 walks always have `e ≥ 2`.
+> (type B, `f_out = 4`, `e = 1`) **never occurs** — those **56** walks always have `e ≥ 2`.
+> *(Round 127 correction: this paragraph originally said 79. The Round-126 artifact recorded 56 all along — 34 with `e = 2`, 20 with `e = 3`, 2 with `e = 4` — so 56 is correct and 79 was a prose transcription error. The substantive claims are unaffected.)*
 >
 > No giant search was run; the longest job took 110 s.
 > Audited ledger **4,782** unchanged; Claude full-joint Q2 **6,396/6,396** unchanged.

@@ -201,6 +201,10 @@ def local_enumerator(n=6, verbose=False):
                             continue          # tau preserves the orbit - sanity
                         stage["3_free_successors_land_in_q*"] += 1
                         # step 2: run(h_ci) = run(g_ci) would force s_h == s_g
+                        # 단계 2: run(h_ci) = run(g_ci) 이면 `q*` 의 run 이 둘뿐이므로
+                        # 두 경우-(ii) 자유 후속이 **같은 run 의 첫 pass** 가 되어
+                        # `s_h == s_g`, 즉 `entry(h_ci) == entry(g_ci)` 여야 한다.
+                        # 서로 다른 육각형의 단어는 같을 수 없으므로 이 가지는 언제나 죽는다.
                         same_run_forces = (s_h == s_g)
                         if same_run_forces:
                             # then entry(h_ci) == entry(g_ci): impossible, different hexagons
@@ -221,6 +225,10 @@ def local_enumerator(n=6, verbose=False):
                             survivors.append(dict(b_h=b_h, u_g1=u_g1, b_g=b_g,
                                                   cii_h=cii_h, cii_g=cii_g, q=qs))
     return dict(n=n, fixed_entry_word=u_h1, hexagon_h=h,
+                same_run_branch_always_vacuous=(
+                    stage.get("4a_same_run_case_killed_by_word_identity", 0) == 0
+                    and stage.get("4b_two_distinct_runs_of_q*", 0)
+                    == stage.get("3_free_successors_land_in_q*", 0)),
                 stages={kk: vv for kk, vv in sorted(stage.items())},
                 survivors=len(survivors),
                 exceptional_configuration_exists=(len(survivors) > 0),

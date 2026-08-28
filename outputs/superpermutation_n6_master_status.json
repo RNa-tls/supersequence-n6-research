@@ -10534,5 +10534,291 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_127_F2_single_gap_free_exit": {
+  "round": 127,
+  "target": "F = 2 type B, f_out = 4, e = 1",
+  "cell_closed": false,
+  "claude_closed_outer_cells": "9/55 (unchanged)",
+  "headline": "Theorem 127.1 closes the last F = 2 gap: type B with f_out = 4 forces e >= 2, so f_out <= F + e holds across all generic F = 2, Theorem A is proved at F = 2, and the F = 2 column is exactly the 4 cells k in {1,2,3,4} with H <= 3",
+  "theorem": {
+   "name": "Theorem 127.1",
+   "statement": "in a generic F = 2 type B walk, f_out = 4 implies e >= 2",
+   "proof_steps": [
+    "e = 1 means exactly one orbit q* carries exactly two runs and every other orbit carries one",
+    "for each repeated hexagon, not both passes are case (i) (Lemma E') and not both are case (ii) (that would force orb(h1) = orb(h2), impossible since a hexagon's n words lie in n distinct orbits), so EXACTLY one is case (ii); label it h1, so orb(h2) = q* and the order lemma gives h2 < h1",
+    "run(h2) = run(g2) would force the two case-(ii) free successors to be the same first pass, i.e. entry(h2) = entry(g2) - impossible for distinct hexagons; so run(h2) and run(g2) are the two distinct runs of q*",
+    "h1's immediate successor is the first pass of run(g2), so h1 < g2; symmetrically g1 < h2; with h2 < h1 and g2 < g1 this gives the cycle g2 < g1 < h2 < h1 < g2 in a linear order - contradiction"
+   ],
+   "corollary_1": "f_out <= F + e for ALL generic F = 2 (type A: Round 126)",
+   "corollary_2": "Theorem A (O <= 1 + S + F) holds at F = 2",
+   "corollary_3": "k + x + H <= 4, k in {1,2,3,4}, H <= 3"
+  },
+  "order_type_elimination": {
+   "labellings": 4,
+   "orders_per_labelling": 24,
+   "combinations_checked": 96,
+   "orders_surviving": 0,
+   "all_eliminated": true,
+   "detail": {
+    "caseII(h1,g1)": {
+     "constraints": [
+      "h2 < h1",
+      "g2 < g1",
+      "h1 < g2",
+      "g1 < h2"
+     ],
+     "orders_surviving": 0
+    },
+    "caseII(h1,g2)": {
+     "constraints": [
+      "h2 < h1",
+      "g1 < g2",
+      "h1 < g1",
+      "g2 < h2"
+     ],
+     "orders_surviving": 0
+    },
+    "caseII(h2,g1)": {
+     "constraints": [
+      "h1 < h2",
+      "g2 < g1",
+      "h2 < g2",
+      "g1 < h1"
+     ],
+     "orders_surviving": 0
+    },
+    "caseII(h2,g2)": {
+     "constraints": [
+      "h1 < h2",
+      "g1 < g2",
+      "h2 < g1",
+      "g2 < h1"
+     ],
+     "orders_surviving": 0
+    }
+   },
+   "cycle": "g2 < g1 < h2 < h1 < g2 for the canonical labelling"
+  },
+  "dependency_digraph": {
+   "with_one_token": {
+    "split_tokens": 1,
+    "feasible_orders": 0,
+    "satisfiable": false,
+    "example": null
+   },
+   "with_two_tokens": {
+    "split_tokens": 2,
+    "feasible_orders": 24,
+    "satisfiable": true,
+    "example": {
+     "case_ii": [
+      "h1",
+      "g1"
+     ],
+     "order": [
+      "h2",
+      "h1",
+      "g2",
+      "g1"
+     ]
+    }
+   },
+   "minimum_required": 2,
+   "theorem": "type B with f_out = 4 requires e >= 2",
+   "bound_is_tight": true
+  },
+  "geometry_is_not_the_obstruction": "two distinct hexagons CAN share an orbit (1,080 of the 7,140 hexagon pairs at n = 6 do), and 400 of the 71,400 labelled local states pass every geometric test; all 400 die on the ORDER constraints, so the obstruction is order-theoretic, not geometric",
+  "shared_orbit_geometry": {
+   "4": {
+    "n": 4,
+    "n_hexagons": 6,
+    "n_orbits": 8,
+    "orbit_meets_hexagons": [
+     3
+    ],
+    "words_per_orbit_per_hexagon": [
+     1
+    ],
+    "distinct_hexagon_pairs": 15,
+    "hexagon_pairs_sharing_an_orbit": 12,
+    "max_orbits_shared_by_a_pair": 2,
+    "geometry_forbids_sharing": false,
+    "note": "an orbit's n words lie in n DISTINCT hexagons, so it holds at most one word of each; two distinct hexagons CAN share an orbit, hence the geometry alone does not rule out the exceptional configuration - the order argument does"
+   },
+   "5": {
+    "n": 5,
+    "n_hexagons": 24,
+    "n_orbits": 30,
+    "orbit_meets_hexagons": [
+     4
+    ],
+    "words_per_orbit_per_hexagon": [
+     1
+    ],
+    "distinct_hexagon_pairs": 276,
+    "hexagon_pairs_sharing_an_orbit": 120,
+    "max_orbits_shared_by_a_pair": 2,
+    "geometry_forbids_sharing": false,
+    "note": "an orbit's n words lie in n DISTINCT hexagons, so it holds at most one word of each; two distinct hexagons CAN share an orbit, hence the geometry alone does not rule out the exceptional configuration - the order argument does"
+   },
+   "6": {
+    "n": 6,
+    "n_hexagons": 120,
+    "n_orbits": 144,
+    "orbit_meets_hexagons": [
+     5
+    ],
+    "words_per_orbit_per_hexagon": [
+     1
+    ],
+    "distinct_hexagon_pairs": 7140,
+    "hexagon_pairs_sharing_an_orbit": 1080,
+    "max_orbits_shared_by_a_pair": 2,
+    "geometry_forbids_sharing": false,
+    "note": "an orbit's n words lie in n DISTINCT hexagons, so it holds at most one word of each; two distinct hexagons CAN share an orbit, hence the geometry alone does not rule out the exceptional configuration - the order argument does"
+   }
+  },
+  "local_enumeration": {
+   "4": {
+    "n": 4,
+    "fixed_entry_word": 0,
+    "hexagon_h": 0,
+    "same_run_branch_always_vacuous": true,
+    "stages": {
+     "0_raw_local_states": 180,
+     "1_with_case_labelling": 720,
+     "2_shared_split_orbit_q*": 72,
+     "3_free_successors_land_in_q*": 72,
+     "4b_two_distinct_runs_of_q*": 72
+    },
+    "survivors": 0,
+    "exceptional_configuration_exists": false,
+    "geometry_alone_allows": 72,
+    "killed_by_word_identity": 0,
+    "killed_by_order": 72
+   },
+   "5": {
+    "n": 5,
+    "fixed_entry_word": 0,
+    "hexagon_h": 0,
+    "same_run_branch_always_vacuous": true,
+    "stages": {
+     "0_raw_local_states": 1840,
+     "1_with_case_labelling": 7360,
+     "2_shared_split_orbit_q*": 192,
+     "3_free_successors_land_in_q*": 192,
+     "4b_two_distinct_runs_of_q*": 192
+    },
+    "survivors": 0,
+    "exceptional_configuration_exists": false,
+    "geometry_alone_allows": 192,
+    "killed_by_word_identity": 0,
+    "killed_by_order": 192
+   },
+   "6": {
+    "n": 6,
+    "fixed_entry_word": 0,
+    "hexagon_h": 0,
+    "same_run_branch_always_vacuous": true,
+    "stages": {
+     "0_raw_local_states": 17850,
+     "1_with_case_labelling": 71400,
+     "2_shared_split_orbit_q*": 400,
+     "3_free_successors_land_in_q*": 400,
+     "4b_two_distinct_runs_of_q*": 400
+    },
+    "survivors": 0,
+    "exceptional_configuration_exists": false,
+    "geometry_alone_allows": 400,
+    "killed_by_word_identity": 0,
+    "killed_by_order": 400
+   }
+  },
+  "n4_control": {
+   "n": 4,
+   "maxlen": 39,
+   "legal_only": true,
+   "walks": 29255,
+   "F_distribution": {
+    "F=0": 827,
+    "F=1": 5999,
+    "F=2": 10625,
+    "F=3": 7545,
+    "F=4": 3384,
+    "F=5": 629,
+    "F=6": 246
+   },
+   "all_free_repeated_hexagons": 13164,
+   "typeB_fout4_by_e": {
+    "2": 34,
+    "3": 20,
+    "4": 2
+   },
+   "typeB_fout4_total": 56,
+   "exceptional_instances": 0,
+   "violations": {},
+   "clean": true
+  },
+  "n5_control": {
+   "status": "NOT_RUN_OVER_BUDGET",
+   "reason": "n = 5 exhaustive legal walks are not cheap: 120 words with a minimal superpermutation length of 153, and the DFS did not finish inside the 25-minute budget at maxlen = 153; stopped per section 18 and replaced by the n = 5 LOCAL census (shared-orbit geometry and the local enumerator), both of which run instantly and give 0 surviving configurations",
+   "substituted_by": [
+    "shared_orbit_geometry(5)",
+    "local_enumerator(5)"
+   ]
+  },
+  "consequences": {
+   "assumption": "f_out <= F + e = 2 + e (Round 126 type A + Theorem 127.1 type B)",
+   "theorem_A": "O <= 1 + S + F holds at F = 2, since f_out <= F + e <= F + e + x",
+   "k_feasible": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_cells": 4,
+   "max_H": 3,
+   "max_x": 3,
+   "max_k_plus_x_plus_H": 4,
+   "n_rows": 215,
+   "cells": [
+    "(k,F) = (1,2)",
+    "(k,F) = (2,2)",
+    "(k,F) = (3,2)",
+    "(k,F) = (4,2)"
+   ],
+   "matches_the_55_cell_table": true,
+   "note": "these are the F = 2 cells that a later round would have to close; Round 127 does NOT start closing them"
+  },
+  "theorem_A_status": {
+   "statement": "O <= 1 + S + F   (equivalently f_out <= F + e + x)",
+   "F=0": "trivial - no short pass, so f_out = 0",
+   "F=1": "PROVED (Round 117, Lemma E: f_out <= 1 + e)",
+   "F=2 type A": "PROVED (Round 126)",
+   "F=2 type B": "PROVED (Round 127, Theorem 127.1) - the last gap is closed",
+   "F=2 overall": "PROVED",
+   "F>=3": "NOT PROVED - still empirical (5 strings + exhaustive small-n)",
+   "consequence": "the project's 55-cell slab table rests on Theorem A; it is now proved for the F = 0, 1, 2 columns and remains conditional for F >= 3"
+  },
+  "round_126_correction": "the Round-126 document said 79 type-B f_out=4 walks were observed at n = 4; the artifact rr_f2_structure_126.json recorded 56 all along (34 with e = 2, 20 with e = 3, 2 with e = 4). 56 is correct; 79 was a transcription error in the prose. The substantive claims (min e = 2, zero exceptional instances) are unaffected.",
+  "not_done": [
+   "no generic F = 2 completion sweep",
+   "F >= 3 not started",
+   "Theorem A NOT assumed globally - still empirical for F >= 3",
+   "no F = 2 cell closed"
+  ],
+  "cell_status": {
+   "claude_closed_outer_cells": "9/55 (unchanged)",
+   "F2_column": "OPEN - Round 127 only proves the free-exit bound",
+   "F2_cells_now_well_defined": 4
+  },
+  "label": "ROUND-127 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
