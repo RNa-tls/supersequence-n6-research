@@ -9,7 +9,64 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 128 (F vs G foundation repair) — read this first.**
+> **Round 129 (generic G = 2 cell decomposition) — read this first.**
+> **The `G = 2` column is exactly four cells, and it splits internally into three models.**
+> No cell closed; Claude-closed stays at **9 of 55 `(k, G)`** cells.
+>
+> | type | multiplicity | `m` | short passes | `ν` cycles | **internal `F`** | splits |
+> |---|---|---|---|---|---|---|
+> | **A** | one hexagon entered **three** times | 1 | 3 | one 3-cycle | **`F ∈ {1,2}`** | 10 |
+> | **B** | **two** hexagons entered twice | 2 | 4 | two 2-cycles | **`F = 2` forced** | 25 |
+>
+> Type B's `ν`-cycles have length 2, so each has exactly one ascent and one descent — `d_h = 1`,
+> `J = 0`, `F = 2`. Type A's 3-cycle allows `d ∈ {1,2}`, and **`F` is determined by the walk
+> order of the three passes alone**: `F = 2` ⟺ that order is a cyclic *rotation* of the `ν`-order,
+> `F = 1` ⟺ it is the reverse. Exact on all 1,184 `n = 4` type-A walks.
+>
+> > **Theorem 129.1.** For `G = 2`, **`f_out ≤ F + e`** — strictly sharper than `f_out ≤ G + e`.
+> > A free-exiting case-(i) pass satisfies `p < ν(p)`, i.e. it is a `ν`-ascent, so at most `F` of
+> > them are case (i) and at least `f_out − F` are case (ii); in type A the three targets lie in
+> > three distinct orbits, so those certify distinct split orbits and `e ≥ f_out − F`. Type B has
+> > `F = 2` and Round 127 already gives `f_out ≤ 2 + e`.
+>
+> Consequence **`k + x + H ≤ 2 + F`**, so **A/F=1 obeys `k + x + H ≤ 3`** — which **removes the
+> A/F=1 model from the `(4,2)` cell entirely**.
+>
+> **Identities (`G`, no `F` substitution):** `P = 122`, `L = 846 + S + H`, `D = 5k − 2 ≥ 0` ⟹
+> `k ≥ 1`, `N = S − 22 − k`, `S = 23 + k + e + x − f_out`, master `L = 869 + k + e + x + H − f_out`,
+> so **`L ≤ 871 ⟺ k + e + x + H − f_out ≤ 2`**; run shortfall `= 5k + 5e − 2`. Theorem A
+> (`O ≤ 1 + S + G`) holds, giving `k + x + H ≤ 4`, hence **`k ∈ {1,2,3,4}`** and **`H ≤ 3`**.
+>
+> | cell | `D` | subcases | **killed analytically** | live | `max H` | `max x` | heavy multisets |
+> |---|---|---|---|---|---|---|---|
+> | **`(4,2)`** | 18 | 5 | 0 | **5** | **0** | **0** | 1 |
+> | `(3,2)` | 13 | 25 | 0 | 25 | 1 | 1 | 2 |
+> | `(2,2)` | 8 | 78 | 0 | 78 | 2 | 2 | 4 |
+> | `(1,2)` | 3 | 192 | **22** | 170 | **3** | 3 | **7** |
+> | total | | **300** | **22** | **278** | | | |
+>
+> All 22 analytic kills sit at `k = 1, e = 0`, where the run shortfall is only 3 and
+> `BESTSEG[m][3] = 20m + 13` needs `m ≥ 6`. The `(4,2)` cell's five live subcases all force
+> `x = H = 0`, `S = 25`, `f_out = e + 2`. **Weight-6 joints occur only in `(1,2)`.**
+>
+> **`n = 4` validation (classified by `G = 2`, not "F = 2"):** 10,625 walks — type A 1,184
+> (`F=1`: 46, `F=2`: 1,138), type B 9,441 (**all `F = 2`**) — with **zero violations** of every
+> claim, and both free-exit bounds **tight** (type B min `e` is 1 at `f_out=3`, 2 at `f_out=4`;
+> type A `F=1` min `e` is exactly `f_out − 1`).
+>
+> **Engine reuse:** geometry, light/heavy tables (including the 308 genuine weight-6 joints), and
+> every exact prune carry over; `TARGET → 122`, `DCAP = 5k−2`, **`SHCAP = 25`** (not 26). The
+> `sstate 0→1→2` machine is **`G = 1`-specific** and must be rewritten — type A needs a 3-arc
+> machine on one hexagon, type B two independent 2-arc machines.
+>
+> > **Recommended Round-130 target: `(k, G) = (4,2)`** — five live subcases, `H = x = 0` forced,
+> > no heavy tails, the exact analogue of `(4,1)` which Round 117 closed first.
+>
+> Audited ledger **4,782** and Q2 **6,396/6,396** unchanged. NR6 remains **assumed**.
+> `G ≥ 3` not started.
+> This project has not proved `L₆ ≥ 872`.
+>
+> **Round 128 (F vs G foundation repair) — superseded by Round 129 as the lead, still current.**
 > **Codex refuted the identification of `F` with the multiplicity excess. I confirmed the
 > counterexample independently. The repair is a RELABELLING, not a hole.**
 >

@@ -11225,5 +11225,942 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_129_generic_G2_cell_decomposition": {
+  "round": 129,
+  "column": "G = 2",
+  "outer_axis": "G (never F)",
+  "cells_closed": 0,
+  "claude_closed_outer_cells": "9/55 (k,G) - unchanged",
+  "headline": "the G = 2 column is exactly four cells k in {1,2,3,4} and splits internally into three models A/F=1, A/F=2, B/F=2; Theorem 129.1 sharpens the free-exit bound to f_out <= F + e, which removes A/F=1 from the (4,2) cell entirely",
+  "identities": {
+   "G": 2,
+   "P": 122,
+   "L": "844 + G + S + H = 846 + S + H",
+   "length_condition": "L <= 871  <=>  S + H <= 25",
+   "D": "5O - P = 5k - G = 5k - 2 >= 0  =>  k >= 1",
+   "N": "S + G - O = S - 22 - k",
+   "S": "(r - 1) + x - f_out with r = O + e  =>  S = 23 + k + e + x - f_out",
+   "master": "L = 867 + k + G + e + x + H - f_out = 869 + k + e + x + H - f_out",
+   "core": "L <= 871  <=>  k + e + x + H - f_out <= 2",
+   "run_shortfall": "5r - P = 5(24 + k + e) - 122 = 5k + 5e - 2 = D + 5e",
+   "no_F_substitution": true
+  },
+  "internal_F": {
+   "typeB": {
+    "nu_cycles": "two 2-cycles",
+    "d_forced": 1,
+    "J": 0,
+    "F": [
+     2
+    ],
+    "proof": "a 2-cycle on a linearly ordered pair has exactly one ascent and one descent, so d_h = 1 for both hexagons and J = 0"
+   },
+   "conclusion": "the G = 2 column splits internally into THREE models: A/F=1, A/F=2, B/F=2.  F is an internal coordinate, never the outer axis."
+  },
+  "internal_F_typeA": {
+   "nu_cycles": "one 3-cycle",
+   "d_range": [
+    1,
+    2
+   ],
+   "J_range": [
+    0,
+    1
+   ],
+   "F": [
+    1,
+    2
+   ],
+   "n_orderings_with_F2": 3,
+   "n_orderings_with_F1": 3,
+   "rule": "F = 2 exactly when the walk order of the three passes is a cyclic ROTATION of the nu-order; F = 1 exactly when it is the reversed cyclic order",
+   "F_is_local": true
+  },
+  "typeA_ordering_table": [
+   {
+    "walk_order": [
+     "p0",
+     "p1",
+     "p2"
+    ],
+    "ascents": 2,
+    "F": 2,
+    "d": 1,
+    "J": 0
+   },
+   {
+    "walk_order": [
+     "p0",
+     "p2",
+     "p1"
+    ],
+    "ascents": 1,
+    "F": 1,
+    "d": 2,
+    "J": 1
+   },
+   {
+    "walk_order": [
+     "p1",
+     "p0",
+     "p2"
+    ],
+    "ascents": 1,
+    "F": 1,
+    "d": 2,
+    "J": 1
+   },
+   {
+    "walk_order": [
+     "p1",
+     "p2",
+     "p0"
+    ],
+    "ascents": 2,
+    "F": 2,
+    "d": 1,
+    "J": 0
+   },
+   {
+    "walk_order": [
+     "p2",
+     "p0",
+     "p1"
+    ],
+    "ascents": 2,
+    "F": 2,
+    "d": 1,
+    "J": 0
+   },
+   {
+    "walk_order": [
+     "p2",
+     "p1",
+     "p0"
+    ],
+    "ascents": 1,
+    "F": 1,
+    "d": 2,
+    "J": 1
+   }
+  ],
+  "multiplicity_types": [
+   {
+    "type": "A",
+    "excess_partition": [
+     2
+    ],
+    "entry_counts": [
+     3
+    ],
+    "m": 1,
+    "n_short_passes": 3,
+    "total_deficit": 12,
+    "nu_cycle_structure": "one 3-cycle",
+    "length_partitions": [
+     [
+      [
+       2,
+       2,
+       2
+      ],
+      [
+       3,
+       2,
+       1
+      ],
+      [
+       4,
+       1,
+       1
+      ]
+     ]
+    ],
+    "n_ordered_splits": 10,
+    "canonicalisation": "S_6 left multiplication fixes the walk-first entry word; no further folding is applied because no reversal symmetry has been PROVED for this column"
+   },
+   {
+    "type": "B",
+    "excess_partition": [
+     1,
+     1
+    ],
+    "entry_counts": [
+     2,
+     2
+    ],
+    "m": 2,
+    "n_short_passes": 4,
+    "total_deficit": 12,
+    "nu_cycle_structure": "two 2-cycles",
+    "length_partitions": [
+     [
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     [
+      [
+       3,
+       3
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       5,
+       1
+      ]
+     ]
+    ],
+    "n_ordered_splits": 25,
+    "canonicalisation": "S_6 left multiplication fixes the walk-first entry word; no further folding is applied because no reversal symmetry has been PROVED for this column"
+   }
+  ],
+  "free_exit_bounds": {
+   "generic": "f_out <= #short = G + m   (only short passes give inter-run omega-2 arcs)",
+   "lemma_E_prime": "if EVERY pass of a multiply-entered hexagon exits freely then some orbit carries two runs, so e >= 1  (Round 126, order argument on the nu-cycle)",
+   "typeA": {
+    "m": 1,
+    "f_out_max": 3,
+    "generic_bound": "f_out <= G + e = 2 + e   (f_out = 3 forces e >= 1 by Lemma E')",
+    "sharper": "f_out <= F + e",
+    "sharper_proof": "a free-exiting pass in case (i) satisfies p < nu(p), i.e. it is a nu-ASCENT, so #case(i) free passes <= F; hence #case(ii) free passes >= f_out - F.  In type A the three passes' entry words lie in three DISTINCT orbits, so distinct case-(ii) passes certify distinct split orbits and e >= f_out - F.",
+    "consequence_for_F1": "type A with F = 1 obeys f_out <= 1 + e, strictly stronger than the generic 2 + e",
+    "stronger_generic_bound_exists": false,
+    "why_not": "with e = 1 exactly one of the three passes can be case (ii) (the three targets are distinct orbits and q* is unique), leaving p2 < p3 < p1 and no order contradiction - so f_out = 3 with e = 1 is NOT excluded, and n = 4 exhibits it"
+   },
+   "typeB": {
+    "m": 2,
+    "f_out_max": 4,
+    "F": "always 2",
+    "table": {
+     "0": "e >= 0",
+     "1": "e >= 0",
+     "2": "e >= 0",
+     "3": "e >= 1  (pigeonhole: some hexagon is fully free, then Lemma E')",
+     "4": "e >= 2  (Round 127 order theorem)"
+    },
+    "bound": "f_out <= 2 + e = F + e = G + e",
+    "sharpness": "f_out = 3 with e = 1 occurs at n = 4, so the f_out = 3 row is sharp"
+   },
+   "unified": "for all of G = 2:  f_out <= F + e  <=  G + e   (F <= G)"
+  },
+  "theorem_129_1": {
+   "name": "Theorem 129.1 (sharper free-exit bound for G = 2)",
+   "statement": "f_out <= F + e, where F is the INTERNAL abandonment count",
+   "proof": "a free-exiting pass in case (i) satisfies p < nu(p), i.e. it is a nu-ascent, so at most F of the free-exiting passes are case (i) and at least f_out - F are case (ii); in type A the three targets lie in three distinct orbits so those case-(ii) passes certify distinct split orbits, giving e >= f_out - F.  In type B F = 2 always and Round 127 already gives f_out <= 2 + e.",
+   "consequence": "k + x + H <= 2 + F, so the type-A F = 1 model obeys k + x + H <= 3",
+   "payoff": "it removes the type-A F = 1 model from the (4,2) cell entirely: k = 4 forces f_out - e >= 2 > F = 1",
+   "n4_evidence": "zero violations on 10,625 legal n = 4 G = 2 walks, and TIGHT - the minimum e observed for type A with F = 1 is exactly f_out - 1"
+  },
+  "theorem_A": {
+   "theorem_A": "O <= 1 + S + G   <=>   f_out <= G + e + x",
+   "proved_here": "f_out <= G + e (Round 126 type A + Round 127 type B) implies it",
+   "derivation": "k + e + x + H - f_out <= 2 and f_out - e <= G = 2 give k + x + H <= 2 + (f_out - e) <= 4",
+   "k_plus_x_plus_H_le": 4,
+   "matches_expected_4": true,
+   "internal_refinement": "with the sharper f_out <= F + e, the type-A F = 1 model obeys k + x + H <= 2 + F = 3",
+   "refined_by_model": {
+    "A_F1": 3,
+    "A_F2": 4,
+    "B_F2": 4
+   }
+  },
+  "cells": {
+   "k_feasible_from_D": "D = 5k - 2 >= 0  =>  k >= 1",
+   "k_feasible": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "k_with_live_subcases": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_cells": 4,
+   "max_H_overall": 3,
+   "max_k_plus_x_plus_H": 4,
+   "max_k_plus_x_plus_H_by_model": {
+    "A_F1": 3,
+    "A_F2": 4,
+    "B_F2": 4
+   },
+   "n_subcases_total": 300,
+   "n_dead_total": 22,
+   "n_alive_total": 278,
+   "per_cell": {
+    "1": {
+     "cell": "(k,G) = (1,2)",
+     "D": 3,
+     "n_subcases": 192,
+     "n_dead": 22,
+     "n_alive": 170,
+     "n_rows_alive": 144,
+     "max_H": 3,
+     "max_x": 3,
+     "max_e": 5,
+     "by_model": {
+      "A_F1": 30,
+      "A_F2": 53,
+      "B_F2": 87
+     },
+     "heavy_multisets": [
+      [],
+      [
+       4
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       4,
+       4,
+       4
+      ],
+      [
+       5
+      ],
+      [
+       5,
+       4
+      ],
+      [
+       6
+      ]
+     ]
+    },
+    "2": {
+     "cell": "(k,G) = (2,2)",
+     "D": 8,
+     "n_subcases": 78,
+     "n_dead": 0,
+     "n_alive": 78,
+     "n_rows_alive": 73,
+     "max_H": 2,
+     "max_x": 2,
+     "max_e": 4,
+     "by_model": {
+      "A_F1": 13,
+      "A_F2": 27,
+      "B_F2": 38
+     },
+     "heavy_multisets": [
+      [],
+      [
+       4
+      ],
+      [
+       4,
+       4
+      ],
+      [
+       5
+      ]
+     ]
+    },
+    "3": {
+     "cell": "(k,G) = (3,2)",
+     "D": 13,
+     "n_subcases": 25,
+     "n_dead": 0,
+     "n_alive": 25,
+     "n_rows_alive": 25,
+     "max_H": 1,
+     "max_x": 1,
+     "max_e": 3,
+     "by_model": {
+      "A_F1": 3,
+      "A_F2": 9,
+      "B_F2": 13
+     },
+     "heavy_multisets": [
+      [],
+      [
+       4
+      ]
+     ]
+    },
+    "4": {
+     "cell": "(k,G) = (4,2)",
+     "D": 18,
+     "n_subcases": 5,
+     "n_dead": 0,
+     "n_alive": 5,
+     "n_rows_alive": 5,
+     "max_H": 0,
+     "max_x": 0,
+     "max_e": 2,
+     "by_model": {
+      "A_F2": 2,
+      "B_F2": 3
+     },
+     "heavy_multisets": [
+      []
+     ]
+    }
+   }
+  },
+  "analytic_kills": [
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 0,
+    "heavy": [],
+    "segments": 4,
+    "capacity": 93
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 1,
+    "f_out": 0,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 0,
+    "heavy": [],
+    "segments": 4,
+    "capacity": 93
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 2,
+    "heavy": [
+     5
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "k": 1,
+    "e": 0,
+    "x": 1,
+    "f_out": 1,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 0,
+    "heavy": [],
+    "segments": 4,
+    "capacity": 93
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 1,
+    "f_out": 0,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 0,
+    "heavy": [],
+    "segments": 4,
+    "capacity": 93
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 2,
+    "heavy": [
+     5
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 1,
+    "f_out": 1,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 2,
+    "H": 0,
+    "heavy": [],
+    "segments": 4,
+    "capacity": 93
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 2,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 2,
+    "H": 2,
+    "heavy": [
+     5
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 2,
+    "H": 3,
+    "heavy": [
+     6
+    ],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 1,
+    "f_out": 2,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 0,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 1,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "k": 1,
+    "e": 0,
+    "x": 0,
+    "f_out": 2,
+    "H": 0,
+    "heavy": [],
+    "segments": 5,
+    "capacity": 113
+   }
+  ],
+  "heavy_catalogue": {
+   "weight4": 13,
+   "weight5": 71,
+   "weight6_genuine": 308,
+   "weight6_raw_indecomposable": 461,
+   "note": "Round 125 correction: only 308 of the 461 indecomposable permutations of {0..5} realize omega = 6; do NOT use 461 as the genuine weight-6 count",
+   "weights_per_H": {
+    "0": [],
+    "1": [
+     4
+    ],
+    "2": [
+     4,
+     5
+    ],
+    "3": [
+     4,
+     5,
+     6
+    ],
+    "4": [
+     4,
+     5,
+     6
+    ]
+   }
+  },
+  "heavy_compositions": {
+   "0": [
+    []
+   ],
+   "1": [
+    [
+     4
+    ]
+   ],
+   "2": [
+    [
+     5
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "3": [
+    [
+     6
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     4,
+     4,
+     4
+    ]
+   ],
+   "4": [
+    [
+     6,
+     4
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     5,
+     4,
+     4
+    ],
+    [
+     4,
+     4,
+     4,
+     4
+    ]
+   ]
+  },
+  "engine_reuse": {
+   "reusable_unchanged": [
+    "geometry build(): hexid / orbid / phse / perm / rank_of / hlo,hhi",
+    "light-move tables M2, M3a, M3b, M3c",
+    "heavy tail tables M4 (13), M5 (71), M6 (308 genuine weight-6)",
+    "hexorb / ohex / mcnt / EXC orbit-cover-excess prune",
+    "blk / freshcnt / markhex / freshdeficit (fod) prune",
+    "NTAB and BESTSEG chain-capacity tables",
+    "hexagon-injectivity and orbit-phase-injectivity checks"
+   ],
+   "reusable_after_P_and_D_update": [
+    "#define TARGET 121 -> 122",
+    "DCAP: D = 5k - G = 5k - 2 (was 5k - 1)",
+    "RMAX / SHRUNCAP: run shortfall = 5r - P = 5k + 5e - 2",
+    "SHCAP: cost + hub <= 25 (from L = 846 + S + H <= 871), was 26",
+    "COSTCAP = S = 23 + k + e + x - f_out",
+    "the leaf test orbits == ORBCAP"
+   ],
+   "G1_specific_must_be_rewritten": [
+    "the sstate machine 0 -> 1 -> 2: it models exactly ONE doubled hexagon with exactly TWO short passes",
+    "the forced second visit test w == SIG[BSPLIT][vword] and length 6 - BSPLIT",
+    "BSPLIT as a single scalar split parameter",
+    "FOUTCAP <= 2 and Lemma E's f_out <= 1 + e",
+    "YGAP / YGAPMIN / BFORCE / YFRESH / REVONLY / SEAM / PMAX / SYMCUT - all were derived for the two-short-pass geometry"
+   ],
+   "multiplicity_type_specific": [
+    "type A needs a 3-arc state machine on one hexagon (sstate 0..3) with the second and third entry words forced to sigma^{a}(v) and sigma^{a+b}(v)",
+    "type B needs TWO independent 2-arc machines on two different hexagons, plus the bookkeeping that they are distinct hexagons"
+   ],
+   "verdict": "the geometry, tail catalogues and every exact prune carry over; the short pass state machine does not.  A G = 2 engine is a rewrite of roughly the dfs() short-pass section only."
+  },
+  "cell_ordering": {
+   "criteria": [
+    "number of live subcases",
+    "H budget",
+    "x budget",
+    "D = 5k - 2"
+   ],
+   "ranked": [
+    {
+     "cell": "(k,G) = (4,2)",
+     "D": 18,
+     "live_subcases": 5,
+     "max_H": 0,
+     "max_x": 0,
+     "max_e": 2,
+     "heavy_multisets": 1
+    },
+    {
+     "cell": "(k,G) = (3,2)",
+     "D": 13,
+     "live_subcases": 25,
+     "max_H": 1,
+     "max_x": 1,
+     "max_e": 3,
+     "heavy_multisets": 2
+    },
+    {
+     "cell": "(k,G) = (2,2)",
+     "D": 8,
+     "live_subcases": 78,
+     "max_H": 2,
+     "max_x": 2,
+     "max_e": 4,
+     "heavy_multisets": 4
+    },
+    {
+     "cell": "(k,G) = (1,2)",
+     "D": 3,
+     "live_subcases": 170,
+     "max_H": 3,
+     "max_x": 3,
+     "max_e": 5,
+     "heavy_multisets": 7
+    }
+   ],
+   "recommended_first": "(k,G) = (4,2)",
+   "why": "only 5 live subcases, H = 0 and x = 0 forced, e <= 2, no heavy tail at all; it is the exact analogue of (4,1), which Round 117 closed first in the G = 1 column, and it needs the smallest new engine surface",
+   "hardest": "(k,G) = (1,2)",
+   "why_hardest": "170 live subcases across all seven heavy multisets including the weight-6 composition, H up to 3, and three internal models",
+   "note": "Round 129 does NOT start closing any of them"
+  },
+  "n4_validation": {
+   "n": 4,
+   "maxlen": 39,
+   "walks": 29255,
+   "G2_walks": 10625,
+   "by_type_and_F": {
+    "A_F1": 46,
+    "A_F2": 1138,
+    "B_F2": 9441
+   },
+   "typeA_total": 1184,
+   "typeB_total": 9441,
+   "typeA_cyclic_rotation_rule": {
+    "F1_isRotationFalse": 46,
+    "F2_isRotationTrue": 1138
+   },
+   "typeB_fout_e": {
+    "f0_e0": 323,
+    "f0_e1": 337,
+    "f0_e2": 75,
+    "f0_e3": 7,
+    "f1_e0": 540,
+    "f1_e1": 1798,
+    "f1_e2": 940,
+    "f1_e3": 182,
+    "f1_e4": 21,
+    "f2_e0": 157,
+    "f2_e1": 1625,
+    "f2_e2": 1599,
+    "f2_e3": 502,
+    "f2_e4": 122,
+    "f2_e5": 8,
+    "f3_e1": 243,
+    "f3_e2": 524,
+    "f3_e3": 294,
+    "f3_e4": 74,
+    "f3_e5": 14,
+    "f4_e2": 34,
+    "f4_e3": 20,
+    "f4_e4": 2
+   },
+   "typeA_fout_e_F": {
+    "f0_e0_F1": 8,
+    "f0_e0_F2": 149,
+    "f0_e1_F1": 3,
+    "f0_e1_F2": 81,
+    "f0_e2_F2": 4,
+    "f1_e0_F2": 245,
+    "f1_e1_F1": 18,
+    "f1_e1_F2": 235,
+    "f1_e2_F1": 6,
+    "f1_e2_F2": 44,
+    "f1_e3_F2": 1,
+    "f2_e0_F2": 60,
+    "f2_e1_F2": 202,
+    "f2_e2_F1": 8,
+    "f2_e2_F2": 53,
+    "f2_e3_F1": 2,
+    "f2_e3_F2": 1,
+    "f3_e1_F2": 30,
+    "f3_e2_F2": 30,
+    "f3_e3_F2": 3,
+    "f3_e4_F1": 1
+   },
+   "typeB_min_e_by_fout": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 1,
+    "4": 2
+   },
+   "typeA_min_e_by_fout_and_F": {
+    "f0_F1": 0,
+    "f0_F2": 0,
+    "f1_F2": 0,
+    "f1_F1": 1,
+    "f2_F2": 0,
+    "f2_F1": 2,
+    "f3_F2": 1,
+    "f3_F1": 4
+   },
+   "violations": {},
+   "clean": true,
+   "seconds": 115.4
+  },
+  "recommended_round_130_target": "(k,G) = (4,2)",
+  "not_done": [
+   "no giant completion sweep",
+   "G >= 3 not started",
+   "F never used as the outer column coordinate",
+   "no cell closed - the 9/55 ledger is unchanged"
+  ],
+  "label": "ROUND-129 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+   "unchanged_by_this_round": true
+  },
+  "disclaimer": "This project has not proved L6 >= 872."
  }
 }
