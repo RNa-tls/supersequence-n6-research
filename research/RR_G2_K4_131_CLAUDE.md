@@ -173,8 +173,29 @@ order 증명은 `A/e=1` 을 **해석적으로 닫지 못했다** (order type 이
   `orb(entry(opener₁))` 가 같아도 그 궤도가 run 셋을 갖는 배치가 조합적으로 모순되지
   않는다.  **따라서 배정을 핀하지 않았다** (핀하면 건전성을 잃는다).
   런 수: **25 → 50** (α/β 분기; 라운드 130 은 lock 자체가 없었다).
-* **§14 order type 축소** — `k = 4`, `x = H = 0`, `D = 18` 아래에서 25 분할 모양을
-  **실질적으로 줄이지 못했다.**  증명 없는 축소는 쓰지 않는다.
+### §14 `B` 의 order type 정리 (새 결과)
+
+`x = 0` 이라 run 안의 joint 는 전부 `ω = 2`(=τ)이고 짧은 pass 의 `ω = 2` 후속은 궤도를
+바꾸므로 **짧은 pass 는 언제나 자기 run 의 마지막 pass** 이다.  따라서 **lock 이 걸린 run
+안에는 다른 짧은 pass 가 들어갈 수 없다.**  두 opener lock 이 성립하는 갈래(α)에서는 walk
+순서가 **하나로 확정**된다:
+
+```
+opener₀  <  closer₀ = opener₀ + 5  <  opener₁  <  closer₁ = opener₁ + 5
+```
+
+`closer₀` 와 `opener₁` 사이의 pass 는 **전부 full** 이고, 두 반복 run 은 각각 `closer₀`,
+`closer₁` 의 자유 탈출이 **바로 뒤에서** 열며 궤도는 `orb(entry(opener₀))`,
+`orb(entry(opener₁))` 이다.  `B/e=1` 의 α 갈래도 같은 사슬을 따르고 반복 run 만 하나다.
+
+`n = 4` 검증 (`x = 0` 등호 walk 27개 = 유형 A 2 + 유형 B 25): **위반 0**.
+lock 패턴 census — 둘 다 성립 `e=0` 7 · `e=1` 2, `opener₀` 만 깨짐 `e=1` 14 · `e=2` 2.
+그리고 **`opener₀` 의 lock 이 깨진 16개 전부**에서 자유 closer 가 `closer₁` 이고
+`orb(entry(opener₁)) = orb(entry(closer₀))` 이다 — 엔진의 **β 갈래 필요조건과 정확히
+일치**한다.
+
+**§14 의 분할 축소는 여전히 없다.** order type 은 하나로 확정되지만 25 개 분할 모양
+`(b₁, b₂)` 는 그 정리와 독립이라 하나도 죽지 않는다.  증명 없는 축소는 쓰지 않는다.
 
 ---
 

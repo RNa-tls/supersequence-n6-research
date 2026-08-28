@@ -493,12 +493,139 @@ def n4_theorem_check(maxlen=39):
                 violations=dict(viol), clean=(len(viol) == 0))
 
 
+# ------------------------------------------------- §14 유형 B 의 order type (e = 2)
+def b_order_theorem():
+    """§14 — `B/e=2` 에서 **두 opener lock 이 성립하는 갈래(α)** 의 order type 은 하나뿐이다.
+
+    `x = 0` 이므로 run 안의 joint 는 전부 `ω = 2`(=τ)이고, 짧은 pass 의 `ω = 2` 후속은
+    궤도를 바꾸므로 **짧은 pass 는 언제나 자기 run 의 마지막 pass** 이다.  따라서 lock 이
+    걸린 run 안에는 짧은 pass 가 들어갈 수 없다 (들어가면 그 자리에서 run 이 끝나야 하는데
+    lock 이 궤도를 떠나지 못하게 한다).  `opener₀` 의 lock 이 성립하면 그 run 은
+    `opener₀ + 1 … opener₀ + (n−1) = closer₀` 이고 그 사이에 다른 짧은 pass 가 없다.
+    같은 논법을 `opener₁` 에 적용하면 walk 순서는
+
+        opener₀ < closer₀ = opener₀ + (n−1) < opener₁ < closer₁ = opener₁ + (n−1)
+
+    **하나로 확정**된다 (`opener₀ < opener₁` 은 slot 이름의 정의).  두 반복 run 은 각각
+    `closer₀`, `closer₁` 의 자유 탈출이 바로 뒤에서 열고, 궤도는 `orb(entry(opener₀))`,
+    `orb(entry(opener₁))` 이다.  **두 궤도가 서로 달라야 한다는 것은 증명되지 않았다** —
+    같으면 그 궤도가 run 셋을 갖는 배치가 되고 조합적으로 모순이 없다.
+
+    `B/e=1` 도 opener lock 둘이 성립하는 갈래에서는 같은 사슬이 성립하고, 반복 run 은
+    자유 closer 하나뿐이다.
+    """
+    n = 6
+    return dict(
+        n=n, branch="alpha (both opener locks hold)",
+        order="opener0 < closer0 = opener0 + 5 < opener1 < closer1 = opener1 + 5",
+        gap="closer0 < opener1 (strict); the passes strictly between are all full",
+        n_order_types=1,
+        repeat_runs=["opened right after closer0 in orb(entry(opener0))",
+                     "opened right after closer1 in orb(entry(opener1))"],
+        two_split_orbits_forced_distinct=False,
+        two_split_orbits_note=("NOT proved: orb(entry(opener0)) = orb(entry(opener1)) is "
+                               "combinatorially consistent (that orbit then carries three "
+                               "runs), so the assignment is NOT pinned"),
+        beta_branch=("opener0's lock breaks; then orb(entry(opener1)) = orb(entry(closer0)) "
+                     "is a necessary condition and the order chain above does not apply"))
+
+
+def n4_order_check(maxlen=39):
+    """§14 의 order 사슬을 `x = 0` 인 `n = 4` 등호 walk 에서 검사한다.
+
+    `x = 0` 이 없으면 run 이 궤도 안에서 `ω ≥ 3` 으로 건너뛸 수 있어 “정확히 `n−1` pass”
+    가 무너진다.  그래서 검사를 `x = 0` 으로 제한하는 것이 **정확한** 진술이다.
+    """
+    from verify_f2_structure_126 import setup, legal_joint
+    from verify_fg_repair_128 import walk_measure
+    n = 4
+    g = setup(n)
+    perms, sg, om = g["perms"], g["sig"], g["omega"]
+    orbid, hexid = g["orbid"], g["hexid"]
+    NW = len(perms)
+    W = [[om(a, b) for b in perms] for a in perms]
+    OK = [[(a == b) or legal_joint(n, perms[a], perms[b], W[a][b])
+           for b in range(NW)] for a in range(NW)]
+    ws = []
+
+    def rec(cur, used, seq, total):
+        if len(seq) == NW:
+            ws.append((n + total, tuple(seq)))
+            return
+        if n + total + (NW - len(seq)) > maxlen:
+            return
+        for j in range(NW):
+            if used >> j & 1 or not OK[cur][j]:
+                continue
+            w = W[cur][j]
+            if n + total + w + (NW - len(seq) - 1) > maxlen:
+                continue
+            seq.append(j)
+            rec(j, used | (1 << j), seq, total + w)
+            seq.pop()
+
+    rec(0, 1, [0], 0)
+    stat = Counter()
+    viol = Counter()
+    for L, seq in ws:
+        m = walk_measure(g, W, seq, L)
+        if m["G"] != 2 or m["x"] != 0 or m["f_out"] != m["F"] + m["e"]:
+            continue
+        passes, hexes, nu = m["passes"], m["hexes"], m["nu"]
+        P = len(passes)
+        cnt = Counter(hexes)
+        multi = [h for h in dict.fromkeys(hexes) if cnt[h] >= 2]
+        stat["x0_equality_walks"] += 1
+        # 짧은 pass 는 언제나 run 의 마지막 pass 여야 한다.
+        orbs = [orbid[u] for (u, _) in passes]
+        for i in range(P - 1):
+            if passes[i][1] < n and orbs[i + 1] == orbs[i]:
+                viol["short pass is always the last pass of its run"] += 1
+        if len(multi) == 2 and all(cnt[h] == 2 for h in multi):
+            stat["typeB"] += 1
+            ps = [[i for i in range(P) if hexes[i] == h] for h in multi]
+            (o0, c0), (o1, c1) = ps[0], ps[1]
+            locks = (c0 == o0 + (n - 1), c1 == o1 + (n - 1))
+            stat[f"typeB_locks{int(locks[0])}{int(locks[1])}_e{m['e']}"] += 1
+            # 자유 하강(=반복 run 을 여는 closer) 을 실제 walk 에서 읽는다.
+            ta, idx = g["tau"], g["idx"]
+            freedesc = set()
+            for i in (c0, c1):
+                if i + 1 < P and idx[ta(perms[passes[nu[i]][0]])] == passes[i + 1][0] \
+                        and orbs[i + 1] != orbs[i]:
+                    freedesc.add(0 if i == c0 else 1)
+            # 정리 131.1(c) 의 따름정리: opener₀ 의 lock 이 깨지면 자유 closer 는
+            # 반드시 closer₁ 이고 orb(entry(opener₁)) = orb(entry(closer₀)) 이어야 한다.
+            if not locks[0]:
+                if 1 not in freedesc:
+                    viol["broken opener0 lock => closer1 is a free descent"] += 1
+                if orbid[passes[o1][0]] != orbid[passes[c0][0]]:
+                    viol["broken opener0 lock => orb(entry(opener1)) = orb(entry(closer0))"] += 1
+                stat["broken_opener0_lock"] += 1
+            if all(locks):
+                if not (o0 < c0 < o1 < c1):
+                    viol["B alpha order chain o0 < c0 < o1 < c1"] += 1
+                if any(passes[i][1] < n for i in range(o0 + 1, c0)):
+                    viol["B: no short pass strictly inside a locked run"] += 1
+                if any(passes[i][1] < n for i in range(o1 + 1, c1)):
+                    viol["B: no short pass strictly inside a locked run"] += 1
+        else:
+            stat["typeA"] += 1
+    return dict(n=n, x0_equality_walks=stat["x0_equality_walks"],
+                typeA=stat["typeA"], typeB=stat["typeB"],
+                broken_opener0_lock=stat["broken_opener0_lock"],
+                lock_pattern_census={k: v for k, v in sorted(stat.items())
+                                     if k.startswith("typeB_locks")},
+                violations=dict(viol), clean=(len(viol) == 0))
+
+
 def summarise(n4=None):
     d = dict(round=131, cell=cell_42(), theorem=theorem_131_1(),
              hexagon_words_distinct_orbits=hexagon_words_distinct_orbits(),
              lock_corollaries=lock_corollaries(),
              pattern=ascent_descent_pattern(), comparison=round130_comparison(),
-             ae1=ae1_forcing(), b=b_structure())
+             ae1=ae1_forcing(), b=b_structure(),
+             b_order=b_order_theorem(), n4_order=n4_order_check())
     if n4 is not None:
         d["n4_check"] = n4
     return d

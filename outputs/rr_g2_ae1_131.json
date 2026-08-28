@@ -354,6 +354,35 @@
    "locks_hold_unconditionally": true
   }
  },
+ "b_order": {
+  "n": 6,
+  "branch": "alpha (both opener locks hold)",
+  "order": "opener0 < closer0 = opener0 + 5 < opener1 < closer1 = opener1 + 5",
+  "gap": "closer0 < opener1 (strict); the passes strictly between are all full",
+  "n_order_types": 1,
+  "repeat_runs": [
+   "opened right after closer0 in orb(entry(opener0))",
+   "opened right after closer1 in orb(entry(opener1))"
+  ],
+  "two_split_orbits_forced_distinct": false,
+  "two_split_orbits_note": "NOT proved: orb(entry(opener0)) = orb(entry(opener1)) is combinatorially consistent (that orbit then carries three runs), so the assignment is NOT pinned",
+  "beta_branch": "opener0's lock breaks; then orb(entry(opener1)) = orb(entry(closer0)) is a necessary condition and the order chain above does not apply"
+ },
+ "n4_order": {
+  "n": 4,
+  "x0_equality_walks": 27,
+  "typeA": 2,
+  "typeB": 25,
+  "broken_opener0_lock": 16,
+  "lock_pattern_census": {
+   "typeB_locks01_e1": 14,
+   "typeB_locks01_e2": 2,
+   "typeB_locks11_e0": 7,
+   "typeB_locks11_e1": 2
+  },
+  "violations": {},
+  "clean": true
+ },
  "n4_check": {
   "n": 4,
   "maxlen": 39,
