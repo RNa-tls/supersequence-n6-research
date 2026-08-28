@@ -149,3 +149,107 @@ if __name__ == "__main__":
                               by_subcase=dict(Counter(g["subcase"] for g in gs))), indent=1))
     else:
         main()
+
+
+def subcase_derivation():
+    """§1 — 다섯 하위경우를 라운드 129 표를 믿지 않고 처음부터 다시 유도한다."""
+    k, G, LCAP = 4, 2, 871
+    P, O, D = 120 + G, 24 + k, 5 * k - G
+    rows = []
+    for typ, m, nshort in (("A", 1, 3), ("B", 2, 4)):
+        for Fi in (1, 2):
+            for e in range(0, 6):
+                for x in range(0, 6):
+                    for H in range(0, 6):
+                        for f in range(0, nshort + 1):
+                            if f > Fi + e:                    # Theorem 129.1
+                                continue
+                            if typ == "B" and Fi != 2:        # type B forces F = 2
+                                continue
+                            if k + e + x + H - f > LCAP - 869:
+                                continue
+                            rows.append(dict(type=typ, F=Fi, e=e, x=x, H=H, f_out=f,
+                                             S=23 + k + e + x - f,
+                                             N=(23 + k + e + x - f) - 22 - k,
+                                             r=O + e, t=1,
+                                             L=869 + k + e + x + H - f))
+    return dict(k=k, G=G, P=P, O=O, D=D,
+                budget="f_out >= e + x + H + 2 from L <= 871 with k = 4",
+                theorem="f_out <= F + e (Round 129) with F <= 2",
+                forced="x = H = 0, F = 2, f_out = e + 2, S = 25, N = -1",
+                n_subcases=len(rows), subcases=rows,
+                matches_round_129=(len(rows) == 5),
+                typeA_F1_contributes=len([r for r in rows if r["type"] == "A" and r["F"] == 1]))
+
+
+def summarise(controls=None, positive=None):
+    from collections import Counter
+    rs = [json.loads(l) for l in JSONL.read_text().splitlines()] if JSONL.exists() else []
+    rs = [r for r in rs if r]
+    gs = groups()
+    bysub = {}
+    for g in gs:
+        bysub.setdefault(g["subcase"], {"planned": 0, "done": 0, "unsat": 0,
+                                        "unknown": 0, "sat": 0, "nodes": 0,
+                                        "seconds": 0.0})["planned"] += 1
+    for r in rs:
+        d = bysub[r["subcase"]]
+        d["done"] += 1
+        d["nodes"] += r["nodes"]
+        d["seconds"] += r["seconds"]
+        d["unsat"] += r["verdict"] == "UNSAT_COMPLETE"
+        d["unknown"] += r["verdict"] == "UNKNOWN_CAP"
+        d["sat"] += r["verdict"] == "SAT"
+    for d in bysub.values():
+        d["seconds"] = round(d["seconds"], 1)
+        d["closed"] = (d["done"] == d["planned"] and d["unsat"] == d["planned"])
+    closed = [s for s, d in bysub.items() if d["closed"]]
+    remaining = [s for s, d in bysub.items() if not d["closed"]]
+    rep = dict(
+        round=130, cell="(k,G) = (4,2)", outer_axis="G (never F)",
+        derivation=subcase_derivation(),
+        engine=dict(
+            file="src/g2_cell_130.c",
+            target="#define TARGET 122 (P = 120 + G)",
+            heavy_tails_offered="none - H = 0 is exact, so only omega in {2,3} joints",
+            x="XCAP = 0 - no intra-orbit cost-1 joint",
+            short_state_machine=("rewritten for G = 2: type A is a 3-arc machine on ONE "
+                                 "hexagon whose arcs appear in nu-order (equivalent to "
+                                 "F = 2); type B is two independent 2-arc slot machines on "
+                                 "two DIFFERENT hexagons, interleaving allowed"),
+            free_exit_forcing=("FREESPEC/FREEON pin exactly which short passes exit freely; "
+                               "for e = 0 that pattern is PROVED (every free exit is case (i), "
+                               "hence a nu-ascent, and F = 2 gives exactly two ascents)"),
+            locality_lock=("LOCKSPEC: a case-(i) pass's free successor starts the very run "
+                           "containing nu(p), so the walk cannot leave that orbit until nu(p) "
+                           "is placed.  Applied only where case (i) is PROVED: A/e=0, B/e=0 "
+                           "and A/e=1 (where exactly one pass is case (ii) and it must be arc2)"),
+            reused_unchanged=["geometry build()", "light move tables M2/M3a/M3b/M3c",
+                              "EXC orbit-cover excess", "fod fresh-orbit deficit",
+                              "NTAB/BESTSEG chain capacity", "capacity_ok/dcommitted/dfeasible"]),
+        parameters=dict(ORBCAP=ORBCAP, COSTCAP=COSTCAP, XCAP=XCAP, DCAP=DCAP,
+                        EXCCAP=EXCCAP, SHCAP=SHCAP, HCAP=0, HW=0, node_cap=NODECAP,
+                        RMAX="28 + e", FOUTCAP="FOUTMIN = e + 2"),
+        n_runs_planned=len(gs), n_runs_done=len(rs),
+        by_subcase=bysub,
+        subcases_closed=sorted(closed), subcases_remaining=sorted(remaining),
+        cell_closed=(len(remaining) == 0),
+        total_nodes=sum(r["nodes"] for r in rs),
+        total_seconds=round(sum(r["seconds"] for r in rs), 1),
+        max_passes=max((r["best_passes"] for r in rs), default=0),
+        cap_hits=[r["label"] for r in rs if r["verdict"] == "UNKNOWN_CAP"],
+        sat_found=[r["label"] for r in rs if r["verdict"] == "SAT"],
+        verdicts=dict(Counter(r["verdict"] for r in rs)),
+        controls=controls, positive_control=positive,
+        coverage_matrix={g["label"]: next((r["verdict"] for r in rs
+                                           if r["label"] == g["label"]), "NOT_RUN")
+                         for g in gs},
+        ledger_note=("the (4,2) cell counts toward the ledger only if EVERY one of the five "
+                     "subcases and every split shape is UNSAT_COMPLETE"),
+        label="ROUND-130 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+        ledger={"INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+                "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": 6396,
+                "unchanged_by_this_round": True},
+        disclaimer="This project has not proved L6 >= 872.")
+    (OUT / "rr_g2_k4_130.json").write_text(json.dumps(rep, indent=1, ensure_ascii=False))
+    return rep
