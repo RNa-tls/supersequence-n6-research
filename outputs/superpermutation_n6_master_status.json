@@ -12747,5 +12747,411 @@
    "NR6": "ASSUMED"
   },
   "disclaimer": "This project has not proved L6 >= 872"
+ },
+ "round_133_B_residual_obstruction": {
+  "round": 133,
+  "cell": "(k,G) = (4,2)",
+  "outer_axis": "G (never F)",
+  "headline": "Theorem 133.1 (block collision) kills 32 of the 150 type-B classes with no search at all - including B_e1_b11_P1b, the class Round 132 closed with 30,124,862,589 nodes.  But the residual block-exit state is essentially INCOMPRESSIBLE (full signature compression 1.000x), so no residual DP is available and the 118 surviving classes remain a hard core.",
+  "theorem_133_1": {
+   "B/e=1 P1-beta": {
+    "S6_invariant": true,
+    "total_splits": 25,
+    "total_configs": 500,
+    "live_splits": 15,
+    "live_configs": 234,
+    "dead_splits": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "reasons": {
+     "hexagon collision among forced passes": 196,
+     "orbit over 5 slots": 10,
+     "wrong hexagon multiplicity": 60
+    },
+    "split_reduction": 1.667,
+    "config_reduction": 2.137
+   },
+   "B/e=2 D-beta0": {
+    "S6_invariant": true,
+    "total_splits": 25,
+    "total_configs": 500,
+    "live_splits": 12,
+    "live_configs": 153,
+    "dead_splits": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "reasons": {
+     "hexagon collision among forced passes": 179,
+     "orbit over 5 slots": 108,
+     "wrong hexagon multiplicity": 60
+    },
+    "split_reduction": 2.083,
+    "config_reduction": 3.268
+   },
+   "B/e=2 Model T": {
+    "S6_invariant": true,
+    "total_splits": 25,
+    "total_configs": 500,
+    "live_splits": 16,
+    "live_configs": 114,
+    "dead_splits": [
+     [
+      1,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      1,
+      5
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "reasons": {
+     "wrong hexagon multiplicity": 40,
+     "orbit over 5 slots": 255,
+     "hexagon collision among forced passes": 91
+    },
+    "split_reduction": 1.562,
+    "config_reduction": 4.386
+   },
+   "class_ledger": {
+    "round132_classes": 150,
+    "round133_classes": 118,
+    "killed_analytically": 32,
+    "note": "only the rigid branches (beta nests and Model T) are killed; the three alpha-type branches (P0, P1-alpha, D-alpha) have a free gap between the two locked macros, so opener_1's word is NOT determined and no collision test applies to them"
+   }
+  },
+  "n4_collision_control": {
+   "n": 4,
+   "beta_walks": 16,
+   "accepted": 16,
+   "false_rejection": 0,
+   "clean": true,
+   "note": "the collision predicate must never reject a walk that really exists"
+  },
+  "macros": {
+   "beta": {
+    "passes": 11,
+    "internal_joints": 10,
+    "internal_cost": 0,
+    "f_out_delta": 3,
+    "hexagons": 9,
+    "new_orbits": 2,
+    "new_runs": 3,
+    "deficit_delta": 0,
+    "exit_word": "sigma^5(entry(opener_0)) - independent of b0, b1, u",
+    "note": "both new orbits are FULL (5/5 slots), so the beta block consumes no deficit at all"
+   },
+   "alpha": {
+    "passes": 6,
+    "internal_joints": 5,
+    "internal_cost": 0,
+    "f_out_delta": 1,
+    "hexagons": 5,
+    "new_orbits": 1,
+    "new_runs": 1,
+    "deficit_delta": 0,
+    "exit_word": "sigma^5(entry(opener_X))"
+   },
+   "model_T": "entry(opener_1) = tau^r(entry(opener_0)) with 1 <= r <= 4"
+  },
+  "compression": {
+   "raw_block_exit_states": 2419969,
+   "distinct_coarse_signatures": 1006845,
+   "distinct_full_signatures": 2419969,
+   "coarse_reduction": 2.404,
+   "full_reduction": 1.0,
+   "target": "10x",
+   "achieved": false,
+   "verdict": "the used-hexagon component of the residual state is essentially incompressible: every block-exit state carries a distinct hexagon fingerprint, so a block-exit DP would need one entry per DFS path"
+  },
+  "ordpin_measurement": {
+   "with_pin": {
+    "nodes": 30124862589,
+    "seconds": 3261,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   "without_pin": {
+    "nodes": 41335694797,
+    "seconds": 4691,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   "node_reduction": 1.372,
+   "time_reduction": 1.439,
+   "verdict": "a small constant factor - engineering value only, not a structural bound"
+  },
+  "class_ledger": {
+   "round132_classes": 150,
+   "round133_classes": 118,
+   "killed_analytically": 32,
+   "note": "only the rigid branches (beta nests and Model T) are killed; the three alpha-type branches (P0, P1-alpha, D-alpha) have a free gap between the two locked macros, so opener_1's word is NOT determined and no collision test applies to them"
+  },
+  "structural_reduction": 1.271,
+  "sweep_launched": false,
+  "sweep_decision": "the measured structural reduction is 1.27x and the best compression is 1.0x on the full signature, both far below the 10x bar, so the 150-class (now 118-class) sweep was NOT launched",
+  "certificate": {
+   "source_commit": "a26711c5f815e578344e32170bccef8b6e738391",
+   "engine_132": {
+    "file": "src/g2_cell_132.c",
+    "sha256": "85a76e3f3126659612aed1d6e8db30bf4019a2266992331ae80d2bdad0856cbe",
+    "binary_sha256": "34c9d42a59a32972b4dfc0e67ea4f6005ba63e868962ee300921ec4f11859823"
+   },
+   "engine_133_instrumented": {
+    "file": "src/g2_cell_133.c",
+    "sha256": "13f989000d94f40cbc2ef98064c684fe453419d9da59b7d409bc469b3c529d26",
+    "binary_sha256": "0e79db6a3dd1c01fee303eca51798fa2d45f5ebfa4c0bb987ddc3b0bab08e355",
+    "inert_binary_sha256": "727e092ce6d2e8d60db65b29ba6b7d8a552228bf9eb7d0ef808b82f66f08f372",
+    "note": "g2_cell_133.c is g2_cell_132.c plus -DINSTR counters; built WITHOUT -DINSTR it reproduces the Round-125 controls node-for-node"
+   },
+   "drivers": {
+    "closure_132": "62511b260ce35036af609411b629fccce6bccc60c83cf14e4ac475e72fb39ad4",
+    "residual_133": "6392a6dfa8854d4ed2294559ca7756dbe04fed76ef22c9937c1c4492d93e08ec",
+    "finalize_133": "2fbc654bc63d9cdf00a0fdbb99c0e0268c4e8801f824aaf2eb763a6bb30c959e"
+   },
+   "gcc": "gcc -O2",
+   "target": "TARGET=122",
+   "runs": [
+    {
+     "label": "B_e1_b11_P1b with ORDPIN",
+     "argv": [
+      1,
+      28,
+      25,
+      0,
+      3,
+      3,
+      1,
+      18,
+      20,
+      1,
+      1,
+      1,
+      25,
+      29,
+      0,
+      0,
+      0,
+      0,
+      60000000000,
+      1,
+      13,
+      1,
+      5,
+      8,
+      0,
+      2
+     ],
+     "verdict": "UNSAT_COMPLETE",
+     "nodes": 30124862589,
+     "best_passes": 101,
+     "seconds": 3261,
+     "digest": "2a79932a7e0e4132aa0fad06342cd8d4"
+    },
+    {
+     "label": "B_e1_b11_P1b without ORDPIN",
+     "argv": [
+      1,
+      28,
+      25,
+      0,
+      3,
+      3,
+      1,
+      18,
+      20,
+      1,
+      1,
+      1,
+      25,
+      29,
+      0,
+      0,
+      0,
+      0,
+      60000000000,
+      1,
+      13,
+      1,
+      5,
+      8,
+      0,
+      0
+     ],
+     "verdict": "UNSAT_COMPLETE",
+     "nodes": 41335694797,
+     "best_passes": 102,
+     "seconds": 4691,
+     "digest": "b0540a602e348471237d4c55bc1844dc"
+    },
+    {
+     "label": "A/e=1 l114 regression control",
+     "argv": [
+      0,
+      28,
+      25,
+      0,
+      3,
+      3,
+      1,
+      18,
+      20,
+      1,
+      1,
+      1,
+      25,
+      29,
+      0,
+      0,
+      0,
+      0,
+      30000000000,
+      1,
+      7,
+      1,
+      3,
+      4,
+      2,
+      0
+     ],
+     "verdict": "UNSAT_COMPLETE",
+     "nodes": 12981632834,
+     "best_passes": 101,
+     "seconds": 1171,
+     "digest": "909832c89f0ac2417c69571ff5de7c1d"
+    }
+   ]
+  },
+  "cell_status": {
+   "A_e0": "closed (Round 130)",
+   "B_e0": "closed (Round 130)",
+   "A_e1": "closed (Round 131)",
+   "B_e1": "OPEN - hard core, 65 of 75 classes survive",
+   "B_e2": "OPEN - hard core, 53 of 75 classes survive"
+  },
+  "cell_closed": false,
+  "claude_closed_outer_cells": "9/55 (k,G) - NOT incremented",
+  "label": "ROUND-133 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_Q2": "6396/6396",
+   "NR6": "ASSUMED"
+  },
+  "disclaimer": "This project has not proved L6 >= 872"
  }
 }

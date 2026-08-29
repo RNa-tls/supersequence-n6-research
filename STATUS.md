@@ -9,7 +9,41 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 131 (generic (k,G) = (4,2) — remaining subcases) — read this first.**
+> **Round 133 (type-B residual obstruction) — read this first.**
+> **Three of the five `(4,2)` subcases are closed; `B/e=1` and `B/e=2` remain a hard core.**
+> Claude-closed outer cells stay at **9 of 55 `(k, G)`** — **not** incremented.
+>
+> **Theorem 133.1 (block collision).** In the β nest and in Model T, `entry(opener₁)` is
+> *determined* by `entry(opener₀)`, so the whole forced block is a function of
+> `(v₀, b₀, b₁, u|r, ℓ)`. If that forced pass sequence breaks the type-B hexagon multiplicity
+> (only `h₀`, `h₁` twice, everything else once) or overfills an orbit's five slots, the
+> configuration is **impossible with no search at all**. It is S6-invariant (checked at four
+> `v₀`) and its predicate never rejects a real walk (all 16 legal n=4 β walks accepted).
+>
+> This explains the 30-billion-node class: `B_e1_b11_P1b` has `(b₀, b₁) = (1, 1)`, killed in
+> one line. The instrumented run confirms it directly — in 2×10⁹ nodes that class **never once
+> completes the short block** (`block_exit_raw = 0`).
+>
+> | branch | Round 132 | Round 133 |
+> |---|---|---|
+> | `B/e=1` P0 / P1-α | 25 / 25 | 25 / 25 |
+> | `B/e=1` P1-β | 25 | **15** |
+> | `B/e=2` Model T / D-α / D-β₀ | 25 / 25 / 25 | **16** / 25 / **12** |
+> | total | **150** | **118** |
+>
+> **But the residual state is essentially incompressible.** At the block-exit boundary of a
+> live class: 2,419,969 raw states → 1,006,845 coarse signatures (2.40×) → **2,419,969 full
+> signatures (1.000×)**. Every block-exit state carries a distinct used-hexagon fingerprint, so
+> a block-exit DP or MITM buys nothing. Deaths concentrate at depth 38–53 (sterile nodes and
+> `D`-infeasibility), not near the 101-pass frontier — there is no single late obstruction to
+> convert into a capacity theorem.
+>
+> Structural reduction **1.27×**, best compression **1.00×**, ORDPIN **1.37×** — all far below
+> the 10× bar, so **no sweep was launched**. `outputs/rr_b_133.json` now carries a reproducible
+> `certificate` (source commit, sha256 of sources/binaries/drivers, exact argv and a
+> deterministic digest per recorded run).
+>
+> **Round 131 (generic (k,G) = (4,2) — remaining subcases) — superseded by Round 133.**
 > **Three of the five `(4,2)` subcases are now fully closed; the cell is NOT closed.**
 > Claude-closed outer cells stay at **9 of 55 `(k, G)`** — **not** incremented.
 >
