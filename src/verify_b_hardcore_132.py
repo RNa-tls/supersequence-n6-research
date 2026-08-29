@@ -220,7 +220,11 @@ def order_types():
         name="beta nest",
         shape="opener_0 < opener_1 = opener_0 + |U| < closer_1 = opener_1 + 5 "
               "< closer_0 = opener_0 + 10",
-        U_range=[1, 2, 3, 4], forced_block_passes=11, forced_block_all_omega2=True,
+        U_range=[1, 2, 3, 4], forced_block_passes=11,
+        forced_block_internal_joints=10,
+        forced_block_all_omega2=True,
+        joint_count_note="an 11-pass block has 10 INTERNAL joints (Round-132 audit "
+                         "correction); all 10 carry omega = 2, so the block costs 0",
         extra="Q_1 is FULL (all 5 slots used, deficit 0); closer_0 is the last pass of V",
         requires="T_0 = orb(entry(closer_0)) = Q_1 = orb(entry(opener_1))")
     return dict(
@@ -275,6 +279,10 @@ def split_multiplicity_models():
     return dict(
         e_definition="e = r - O = sum over orbits of (#runs - 1); one orbit with three "
                      "runs contributes 2, so Model T is legal by definition",
+        model_T_n4_witnesses=dict(
+            Q0_eq_Q1_samples_total=72, e1=61, e2_genuine_three_run=11,
+            e2_three_run_with_x0=0,
+            do_not_use_x0_absence_as_a_theorem=True),
         model_T=dict(possible=True, shape="opener_0 ends the first run F; the repeat run R "
                                           "opened by closer_0 ends at opener_1; the repeat "
                                           "run R' opened by closer_1 is the third",

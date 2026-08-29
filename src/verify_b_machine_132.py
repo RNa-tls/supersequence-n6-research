@@ -83,6 +83,11 @@ def accepts(st, lock0mode, ordpin):
             return False, "Model T branch but opener_0's lock breaks"
         if st["Q1"] != st["Q0"]:
             return False, "Model T requires Q_1 = Q_0"
+    elif lock0mode == 4:
+        if not st["lock0"]:
+            return False, "plain-alpha branch but opener_0's lock breaks"
+    elif lock0mode == 2:
+        pass                       # auto: no structural condition (Round-131 semantics)
     # --- order pin --------------------------------------------------------------
     if ordpin == 1:
         if st["c0"] != st["o0"] + d or st["c1"] != st["o1"] + d:
@@ -147,6 +152,43 @@ def n4_control(maxlen=39):
         else:
             stat["accept_model"] += 1
             stat["model_" + "".join(str(v) for v in ok_model)] += 1
+        # ---- 라운드 132 감사 정정: 모형 T 의 **정확한** census -------------------
+        # `model_3` (= Q0 = Q1 이고 두 lock 이 성립) 은 `e` 를 섞어 센 표본이다.
+        # `B/e=2` 의 **진짜 세-run 모형 T** 는 공유 궤도가 실제로 run 셋을 가질 때뿐이다.
+        if st["Q0"] == st["Q1"] and st["lock0"] and st["lock1"]:
+            stat["T_sample_total"] += 1
+            stat[f"T_sample_e{m['e']}"] += 1
+            if m["e"] == 2:
+                orbs, P = st["orbs"], st["P"]
+                runs, cur = [], [0]
+                for i in range(1, P):
+                    if orbs[i] == orbs[i - 1]:
+                        cur.append(i)
+                    else:
+                        runs.append(cur)
+                        cur = [i]
+                runs.append(cur)
+                k = sum(1 for r in runs if orbs[r[0]] == st["Q0"])
+                if k == 3:
+                    stat["T_e2_three_run"] += 1
+                    if m["x"] == 0:
+                        stat["T_e2_three_run_x0"] += 1
+        # ---- 드라이버가 **실제로** 쓰는 갈래 집합의 망라성 -----------------------
+        # B/e=1, 자유 closer = closer_0 : {mode 2}
+        # B/e=1, 자유 closer = closer_1 : {mode 4, mode 0}
+        # B/e=2                          : {mode 3, mode 1, mode 0}
+        free_c0 = st["free"][st["c0"]]
+        if m["e"] == 1:
+            branches = [2] if free_c0 else [4, 0]
+        elif m["e"] == 2:
+            branches = [3, 1, 0]
+        else:
+            branches = [2]
+        cov = [lm for lm in branches if accepts(st, lm, 0)[0]]
+        stat["driver_covered" if cov else "REJECT_driver"] += 1
+        if not cov and len(rejects) < 8:
+            rejects.append(dict(L=L, e=m["e"], x=m["x"], branches=branches,
+                                why=accepts(st, branches[0], 0)[1]))
         # order pin 은 `x = 0` 에서만 주장된다 (run 이 τ-사슬이어야 5 pass 가 강제된다).
         if strict:
             lm = ok_model[0] if ok_model else 1
@@ -163,10 +205,22 @@ def n4_control(maxlen=39):
         typeB_equality_x0=stat["typeB_equality_x0"],
         accepted_model=stat["accept_model"], rejected_model=stat["REJECT_model"],
         accepted_ordpin=stat["accept_ordpin"], rejected_ordpin=stat["REJECT_ordpin"],
-        false_rejection=stat["REJECT_model"] + stat["REJECT_ordpin"],
+        driver_covered=stat["driver_covered"], driver_rejected=stat["REJECT_driver"],
+        false_rejection=(stat["REJECT_model"] + stat["REJECT_ordpin"]
+                         + stat["REJECT_driver"]),
         model_breakdown={k: v for k, v in sorted(stat.items()) if k.startswith("model_")},
+        model_T_census=dict(
+            Q0_eq_Q1_samples_total=stat["T_sample_total"],
+            by_e={f"e{i}": stat[f"T_sample_e{i}"] for i in (0, 1, 2)},
+            be2_genuine_three_run_witnesses=stat["T_e2_three_run"],
+            be2_three_run_with_x0=stat["T_e2_three_run_x0"],
+            caveat=("the 72 figure is the Q0 = Q1 SAMPLE across all e, not the B/e=2 "
+                    "Model-T witness count, which is 11.  The absence of x = 0 among "
+                    "those 11 is an n = 4 size artefact and is NOT an impossibility "
+                    "theorem for n = 6 - it must never be used as one.")),
         reject_examples=rejects,
-        clean=(stat["REJECT_model"] == 0 and stat["REJECT_ordpin"] == 0),
+        clean=(stat["REJECT_model"] == 0 and stat["REJECT_ordpin"] == 0
+               and stat["REJECT_driver"] == 0),
         note=("the model branch {D-beta0, D-alpha, Model T} must be EXHAUSTIVE over every "
               "type-B equality walk; ORDPIN is asserted only for x = 0, which is exact in "
               "the (4,2) cell"))

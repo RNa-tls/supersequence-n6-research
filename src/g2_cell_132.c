@@ -398,8 +398,13 @@ static int LOCKSPEC;
      1 = D-alpha     - opener_0's lock HOLDS and orb(entry(opener1)) != orb(entry(opener0))
      3 = Model T     - opener_0's lock HOLDS and orb(entry(opener1)) == orb(entry(opener0))
      0 = D-beta0     - opener_0's lock BREAKS; requires orb(entry(opener1)) == Q(opener0)
-   1 and 3 together cover exactly the walks where opener_0's lock holds, and 0 covers the
-   rest, so {0,1,3} is exhaustive.  D-beta1 does not exist (Theorem 132.1).
+     4 = plain alpha - opener_0's lock HOLDS, with NO constraint relating Q_1 to Q_0
+   For B/e=2 the pair {1,3} splits the "lock holds" case by whether the two openers share
+   an orbit (Model D vs Model T), and 0 covers the "lock breaks" case, so {0,1,3} is
+   exhaustive there.  For B/e=1 there is only ONE repeat orbit, so the Model T/D split is
+   not available: a walk with Q_1 = Q_0 and opener_0's lock holding would fall through the
+   gap between 1 and 0.  Mode 4 covers the whole "lock holds" case with no orbit condition,
+   so {0,4} is exhaustive for B/e=1.  D-beta1 does not exist (Theorem 132.1).
 
    ORDPIN pins the proved walk-order chain (0 = off, keeps Round-131 node counts exactly):
      1 = alpha chain: closer_X = opener_X + 5 for both slots, and opener_1 > closer_0
@@ -662,7 +667,8 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
                    branch there is empty and we prune rather than drop the lock. */
                 if (MTYPE != 0 && pend == 2 && risky) goto undo;
                 int apply;
-                if (MTYPE != 0 && pend == 0 && (LOCK0MODE == 1 || LOCK0MODE == 3))
+                if (MTYPE != 0 && pend == 0
+                    && (LOCK0MODE == 1 || LOCK0MODE == 3 || LOCK0MODE == 4))
                     apply = 1;              /* alpha/T branch: the lock is assumed to hold */
                 else
                     apply = risky ? 0 : (unknown ? 0 : 1);
