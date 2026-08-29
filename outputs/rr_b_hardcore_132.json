@@ -1,0 +1,327 @@
+{
+ "round": 132,
+ "cell": "(k,G) = (4,2)",
+ "outer_axis": "G (never F)",
+ "notation": {
+  "hexagons": [
+   "h",
+   "g"
+  ],
+  "passes": [
+   "opener_h",
+   "closer_h",
+   "opener_g",
+   "closer_g"
+  ],
+  "ascents": "the two openers",
+  "descents": "the two closers",
+  "internal_F": 2,
+  "slot_rule": "slot index follows WALK order: opener_0 is the walk-first opener",
+  "entry_closer": "entry(closer_X) = sigma^{b_X}(entry(opener_X))",
+  "free_opener": "free(opener_X) = tau(entry(closer_X))",
+  "free_closer": "free(closer_X) = tau(entry(opener_X))",
+  "T_X": "orb(entry(closer_X))  - the lock target orbit of opener_X",
+  "Q_X": "orb(entry(opener_X))  - the repeat orbit charged by a free closer_X",
+  "T_ne_Q": "T_X != Q_X always (distinct words of one hexagon lie in distinct orbits)"
+ },
+ "be1_patterns": {
+  "f_out": 3,
+  "n_short": 4,
+  "forced_free": [
+   "opener_0",
+   "opener_1"
+  ],
+  "free_descents": 1,
+  "patterns": [
+   {
+    "name": "P0",
+    "free_closer": "closer_0",
+    "free_sids": [
+     0,
+     1,
+     2
+    ],
+    "freespec": 7,
+    "revspec": 2
+   },
+   {
+    "name": "P1",
+    "free_closer": "closer_1",
+    "free_sids": [
+     0,
+     2,
+     3
+    ],
+    "freespec": 13,
+    "revspec": 8
+   }
+  ],
+  "n_patterns": 2,
+  "empty_by_theorem": [
+   "opener_0 non-free",
+   "opener_1 non-free"
+  ]
+ },
+ "repeat_orbit": {
+  "formula": "repeat orbit(free closer_X) = Q_X = orb(entry(opener_X))",
+  "start_slot": "orbph(entry(opener_X)) + 1",
+  "be1": "exactly one repeat orbit",
+  "be2": "two repeat events; Q_0 and Q_1 are NOT assumed distinct"
+ },
+ "theorem_132_1": {
+  "name": "Theorem 132.1",
+  "statement": "in every type-B (4,2) subcase the later opener's locality lock holds unconditionally",
+  "consequence": "a branch where T_1 equals a known repeat orbit is EMPTY - the engine may PRUNE there instead of merely dropping the lock",
+  "round131_behaviour": "dropped the lock (sound but weaker)"
+ },
+ "lock_table": [
+  {
+   "pattern": "P0",
+   "free_closer": "closer_0",
+   "repeat_orbit": "Q_0 = orb(entry(opener_0))",
+   "opener0_target": "T_0 = orb(entry(closer_0))",
+   "opener1_target": "T_1 = orb(entry(closer_1))",
+   "opener1_lock": "UNCONDITIONAL (Theorem 132.1)",
+   "opener0_lock": "UNCONDITIONAL (T_0 != Q_0 and Q_0 is the only repeat orbit)",
+   "branches": 1
+  },
+  {
+   "pattern": "P1",
+   "free_closer": "closer_1",
+   "repeat_orbit": "Q_1 = orb(entry(opener_1))",
+   "opener0_target": "T_0 = orb(entry(closer_0))",
+   "opener1_target": "T_1 = orb(entry(closer_1))",
+   "opener1_lock": "UNCONDITIONAL (Theorem 132.1)",
+   "opener0_lock": "CONDITIONAL: may break only if T_0 = Q_1, which cannot be decided when opener_1 is still unplaced",
+   "branches": 2
+  }
+ ],
+ "coincidence": {
+  "n": 6,
+  "fixed_word": "entry(opener_0) = perms[0] by S6 left-multiplication",
+  "rows": [
+   {
+    "b0": 1,
+    "T0_ne_Q0": true,
+    "n_v1_with_T0_eq_Q1": 4,
+    "n_v1_with_Q1_eq_Q0": 4,
+    "orbit_size": 5
+   },
+   {
+    "b0": 2,
+    "T0_ne_Q0": true,
+    "n_v1_with_T0_eq_Q1": 4,
+    "n_v1_with_Q1_eq_Q0": 4,
+    "orbit_size": 5
+   },
+   {
+    "b0": 3,
+    "T0_ne_Q0": true,
+    "n_v1_with_T0_eq_Q1": 4,
+    "n_v1_with_Q1_eq_Q0": 4,
+    "orbit_size": 5
+   },
+   {
+    "b0": 4,
+    "T0_ne_Q0": true,
+    "n_v1_with_T0_eq_Q1": 4,
+    "n_v1_with_Q1_eq_Q0": 4,
+    "orbit_size": 5
+   },
+   {
+    "b0": 5,
+    "T0_ne_Q0": true,
+    "n_v1_with_T0_eq_Q1": 4,
+    "n_v1_with_Q1_eq_Q0": 4,
+    "orbit_size": 5
+   }
+  ],
+  "note": "the coincidence T_0 = Q_1 is possible for every split b_0 and pins entry(opener_1) into a 5-word orbit minus the 1 word shared with opener_0's hexagon - a 4/720 fraction of placements, so the beta branch is a genuinely narrow class, not an empty one"
+ },
+ "order_types": {
+  "be1": [
+   {
+    "pattern": "P0 (closer_0 free)",
+    "locks": "both unconditional",
+    "order_type": "alpha chain",
+    "n_order_types": 1
+   },
+   {
+    "pattern": "P1 (closer_1 free), alpha",
+    "locks": "both hold",
+    "order_type": "alpha chain",
+    "n_order_types": 1
+   },
+   {
+    "pattern": "P1 (closer_1 free), beta",
+    "locks": "opener_0 breaks",
+    "order_type": "beta nest",
+    "n_order_types": 4,
+    "note": "four order types, one per |U| in {1,2,3,4}"
+   }
+  ],
+  "be2": [
+   {
+    "model": "T",
+    "order_type": "alpha chain",
+    "n_order_types": 1,
+    "extra": "opener_1 is the LAST pass of the repeat run opened by closer_0, so orb(entry(opener_1)) = Q_0"
+   },
+   {
+    "model": "D-alpha",
+    "order_type": "alpha chain",
+    "n_order_types": 1
+   },
+   {
+    "model": "D-beta0",
+    "order_type": "beta nest",
+    "n_order_types": 4
+   }
+  ],
+  "alpha": {
+   "name": "alpha chain",
+   "shape": "opener_0 < closer_0 = opener_0 + 5 < opener_1 < closer_1 = opener_1 + 5",
+   "gap": "closer_0 < opener_1 is strict; the passes between are all full",
+   "free_parameter": "the gap length (>= 1)"
+  },
+  "beta": {
+   "name": "beta nest",
+   "shape": "opener_0 < opener_1 = opener_0 + |U| < closer_1 = opener_1 + 5 < closer_0 = opener_0 + 10",
+   "U_range": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "forced_block_passes": 11,
+   "forced_block_all_omega2": true,
+   "extra": "Q_1 is FULL (all 5 slots used, deficit 0); closer_0 is the last pass of V",
+   "requires": "T_0 = orb(entry(closer_0)) = Q_1 = orb(entry(opener_1))"
+  },
+  "be1_total_order_types": 6,
+  "be2_total_order_types": 6
+ },
+ "models": {
+  "e_definition": "e = r - O = sum over orbits of (#runs - 1); one orbit with three runs contributes 2, so Model T is legal by definition",
+  "model_T": {
+   "possible": true,
+   "shape": "opener_0 ends the first run F; the repeat run R opened by closer_0 ends at opener_1; the repeat run R' opened by closer_1 is the third",
+   "ruled_out": [
+    "opener_0 ends R",
+    "opener_1 ends R'",
+    "opener_0 ends R' and opener_1 ends R",
+    "opener_0 ends R' and opener_1 ends F"
+   ],
+   "n_shapes": 1,
+   "both_locks": "unconditional",
+   "positive_constraint": "orb(entry(opener_1)) = orb(entry(opener_0))"
+  },
+  "model_D": {
+   "sub": [
+    "D-alpha",
+    "D-beta0",
+    "D-beta1"
+   ],
+   "D_beta1": "IMPOSSIBLE by Theorem 132.1 - analytic kill",
+   "n_live_sub": 2
+  },
+  "do_not_assume_distinct": true
+ },
+ "audit": {
+  "source": "src/g2_cell_131.c + src/g2_k4_closure_131.py (not the round-131 JSON)",
+  "lock0mode_2": "apply the lock unless a KNOWN repeat orbit equals the target",
+  "lock0mode_1": "alpha - assume opener_0's lock holds and apply it",
+  "lock0mode_0": "beta - do not apply it and REQUIRE orb(entry(opener1)) == Q(opener0)",
+  "risky_branch_currently": "drops the lock (does NOT prune)",
+  "risky_prune_present": true,
+  "be2_branches_in_driver": 1,
+  "mapping": {
+   "alpha": "covers Model T and Model D-alpha",
+   "beta": "covers Model D-beta0 only"
+  },
+  "minimal": false,
+  "findings": [
+   "alpha/beta is exhaustive and sound but NOT minimal: Model T sits inside alpha with a strong positive orbit constraint that alpha does not use",
+   "the 'risky' case for opener_1 is EMPTY by Theorem 132.1, so the engine should prune there instead of dropping the lock",
+   "no third structural case is hidden: T, D-alpha, D-beta0 exhaust B/e=2 and D-beta1 is impossible"
+  ]
+ },
+ "budget": {
+  "words": 720,
+  "passes": 122,
+  "joints": 121,
+  "intra_pass_transitions": 598,
+  "L": 871,
+  "sum_omega_minus_2": 25,
+  "omega3_joints": 25,
+  "omega2_joints": 96,
+  "by_e": {
+   "e0": {
+    "runs": 28,
+    "inter_run_joints": 27,
+    "free_exits": 2,
+    "omega3_joints": 25,
+    "intra_run_omega2": 94,
+    "passes_minus_runs": 94,
+    "consistent": true
+   },
+   "e1": {
+    "runs": 29,
+    "inter_run_joints": 28,
+    "free_exits": 3,
+    "omega3_joints": 25,
+    "intra_run_omega2": 93,
+    "passes_minus_runs": 93,
+    "consistent": true
+   },
+   "e2": {
+    "runs": 30,
+    "inter_run_joints": 29,
+    "free_exits": 4,
+    "omega3_joints": 25,
+    "intra_run_omega2": 92,
+    "passes_minus_runs": 92,
+    "consistent": true
+   }
+  },
+  "all_consistent": true,
+  "one_unit_contradiction_found": false,
+  "note": "the accounting closes exactly for every e; no one-unit overflow is derivable at this level of counting (honest negative result)"
+ },
+ "run_counts": {
+  "be1_round131": 75,
+  "be1_round131_reason": "25 split shapes x (P0 needs 1 branch: both opener locks unconditional; P1 needs 2: opener_0's lock is undecidable at lock time, so alpha/beta)",
+  "be1_round132": 75,
+  "be1_round132_note": "the count is unchanged, but P0's opener_1 lock is now PROVED unconditional (Theorem 132.1) and beta gains the full order nest",
+  "be2_round131": 50,
+  "be2_round132": 75,
+  "be2_round132_note": "the alpha branch splits into Model T (positive orbit constraint) and Model D-alpha (negative one); D-beta0 is the old beta; D-beta1 is analytically dead",
+  "split_shapes_grouped": false,
+  "split_shape_note": "no proved grouping of the 25 ordered (b_0, b_1) shapes: the order and orbit theorems are stated for arbitrary b and do not depend on coarse features, so all 25 survive"
+ },
+ "n4_checks": {
+  "n": 4,
+  "typeB_x0_equality": 25,
+  "beta_walks": 16,
+  "lock_census": {
+   "e0_lock11": 7,
+   "e1_lock01": 14,
+   "e1_lock11": 2,
+   "e2_lock01": 2,
+   "e2_modelD": 2
+  },
+  "violations": {},
+  "clean": true
+ },
+ "exchange": {
+  "n": 4,
+  "walks": 29255,
+  "hg_relabel_is_a_symmetry": false,
+  "hg_reason": "slot index is defined by walk order, so relabelling h and g does not move any walk; 'which slot owns the free closer' is a walk invariant",
+  "reversal_legal": 29255,
+  "reversal_illegal": 0,
+  "reversal_changes_invariants": 23264,
+  "reversal_usable": false,
+  "verdict": "RETAIN BOTH B/e=1 patterns - no proved quotient"
+ }
+}
