@@ -605,9 +605,24 @@ static void dfs(int u, int len, int passes, int cost, int orbits, int runs,
 
         for (int oi = 0; oi < nopt && !found; oi++) {
             int nlen = opt_len[oi], kind = opt_kind[oi], slot = opt_slot[oi];
-            /* beta branch: opener 0's lock breaks only if orb(entry(opener1)) = Q(opener0). */
-            if (LOCK0MODE == 0 && MTYPE != 0 && kind == 2 && slot == 1
-                && (q0orb < 0 || nq != q0orb)) continue;
+            /* ---- Round 132: structural model of the second opener ------------------ */
+            if (MTYPE != 0 && kind == 2 && slot == 1 && bov[0] >= 0) {
+                /* beta: opener_0's lock breaks only if orb(entry(opener1)) = Q(opener0). */
+                if (LOCK0MODE == 0 && (q0orb < 0 || nq != q0orb)) continue;
+                /* Model T needs the two openers to share an orbit; D-alpha forbids it. */
+                if (LOCK0MODE == 3 && nq != orbid[bov[0]]) continue;
+                if (LOCK0MODE == 1 && nq == orbid[bov[0]]) continue;
+            }
+            /* ---- Round 132: proved walk-order chains ------------------------------- */
+            if (ORDPIN == 1 && MTYPE != 0) {          /* alpha chain */
+                if (kind == 3 && bpos[slot] >= 0 && passes != bpos[slot] + 5) continue;
+                if (kind == 2 && slot == 1 && bpos[0] >= 0 && passes <= bpos[0] + 5) continue;
+            } else if (ORDPIN == 2 && MTYPE != 0) {   /* beta nest */
+                if (kind == 2 && slot == 1 && bpos[0] >= 0
+                    && (passes < bpos[0] + 1 || passes > bpos[0] + 4)) continue;
+                if (kind == 3 && slot == 1 && bpos[1] >= 0 && passes != bpos[1] + 5) continue;
+                if (kind == 3 && slot == 0 && bpos[0] >= 0 && passes != bpos[0] + 10) continue;
+            }
             int completes = (kind == 0) || (kind == 1 && amask == 3) || (kind == 3);
             int d0 = 5 - __builtin_popcount(omask[nq]);
             if (fresh) defcnt[4]++; else { defcnt[d0]--; defcnt[d0 - 1]++; }
