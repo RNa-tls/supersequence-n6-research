@@ -9,7 +9,41 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 130 (generic (k,G) = (4,2) cell) — read this first.**
+> **Round 131 (generic (k,G) = (4,2) — remaining subcases) — read this first.**
+> **Three of the five `(4,2)` subcases are now fully closed; the cell is NOT closed.**
+> Claude-closed outer cells stay at **9 of 55 `(k, G)`** — **not** incremented.
+>
+> Round 131 proved **Theorem 131.1**, which pins the free-exit / repeat-run / lock pattern of
+> **all five** `(4,2)` subcases at once. Under the equality `f_out = F + e` that the cell forces:
+> (a) every ν-ascent short pass exits freely; (b) exactly `e` free ν-descents open **every**
+> repeat run, so no `ω ≥ 3` joint can open one and the repeat orbits are pinned to
+> `orb(entry(ν(d)))`; (c) an ascent's locality lock can break **only if** its target orbit is one
+> of those repeat orbits.
+>
+> ⚠ An earlier draft of (c) claimed *no lock ever breaks*. The `n = 4` census **refuted** it —
+> 288 of the 1,734 equality walks break a lock — so only the conditional form (c) went into the
+> engine. The retraction is recorded, not deleted.
+>
+> | subcase | branches | done | `UNSAT_COMPLETE` | caps | SAT | nodes | status |
+> |---|---|---|---|---|---|---|---|
+> | **`A / e=0`** | 10 | **10** | **10** | 0 | 0 | 6,878,643,289 | **closed** (Round 130) |
+> | **`B / e=0`** | 25 | **25** | **25** | 0 | 0 | 48,653,209,658 | **closed** (Round 130) |
+> | **`A / e=1`** | 10 | **10** | **10** | 0 | 0 | 133,241,733,429 | **closed** (Round 131) |
+> | `B / e=1` | 75 | 0 | — | — | — | — | **open — hard core** |
+> | `B / e=2` | 50 | 0 | — | — | — | — | **open — hard core** |
+>
+> `A/e=1` is fully forced: `arc2` is the unique case-(ii) exit, `orb(entry(arc0))` is the unique
+> split orbit, `pos(arc1) = pos(arc0) + 5`, `pos(arc2) = pos(arc0) + 10`, and there is exactly one
+> order type. The reduction came from the repeat-run pin, **not** from raising the node cap
+> (1.31× fewer nodes at the same 3×10¹⁰ cap).
+>
+> The two `B` subcases were reduced structurally — Theorem 131.1(a) makes the two branches that
+> leave an opener non-free **provably empty** (`B/e=1`: 100 → 75 branches) and the opener locks,
+> which Round 130 could not justify, are now proved (with an exhaustive α/β split where the
+> condition is undecidable at lock time: `B/e=2`: 25 → 50 branches). They remain
+> **computationally open**: every 6×10⁹-node pilot returned `UNKNOWN_CAP`, **never `UNSAT`**.
+>
+> **Round 130 (generic (k,G) = (4,2) cell) — superseded by Round 131.**
 > **Two of the five `(4,2)` subcases are fully closed; the cell is NOT closed.**
 > Claude-closed outer cells stay at **9 of 55 `(k, G)`** — **not** incremented.
 >

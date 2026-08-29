@@ -12411,5 +12411,341 @@
    "unchanged_by_this_round": true
   },
   "disclaimer": "This project has not proved L6 >= 872."
+ },
+ "round_131_G2_k4_remaining_subcases": {
+  "round": 131,
+  "cell": "(k,G) = (4,2)",
+  "outer_axis": "G (never F)",
+  "cell_closed": false,
+  "claude_closed_outer_cells": "9/55 (k,G) - NOT incremented",
+  "headline": "Theorem 131.1 pins the free-exit / repeat-run / lock pattern of all five (4,2) subcases; A/e=1 is now CLOSED (10/10 splits, 133,241,733,429 nodes) while B/e=1 and B/e=2 are structurally reduced (100 -> 75 and 25 -> 50 branches, opener locks now proved) but computationally open - their 6e9-node pilots all returned UNKNOWN_CAP, never UNSAT.  Closed subcases: A_e0, A_e1, B_e0.  The cell is NOT closed.",
+  "theorem_131_1": {
+   "name": "Theorem 131.1",
+   "lemmas": [
+    "131.L1 target orbit",
+    "131.L2 descent => repeat run",
+    "131.L3 broken lock => repeat run"
+   ],
+   "hypothesis": "f_out = F + e  (forced in every (k,G)=(4,2) subcase)",
+   "conclusions": [
+    "(a) every nu-ascent short pass exits freely",
+    "(b) #free descents = e exactly; every repeat run is opened by a free descent exit, so no repeat run is opened by an omega>=3 joint and the repeat orbits are exactly {orb(entry(nu(d)))}",
+    "(c) an ascent p's lock can break ONLY IF Q(p) is one of the repeat orbits of (b)"
+   ],
+   "retracted": "an earlier draft claimed (c) as 'no lock ever breaks'; the n=4 census REFUTED it (273 of 1734 equality walks break a lock). Counting alone cannot exclude a broken lock because the repeat run it needs may be the very run a free descent opens.",
+   "reproves": "Theorem 129.1 (f_out <= F + e)",
+   "applies_to": [
+    "A/e=0",
+    "A/e=1",
+    "B/e=0",
+    "B/e=1",
+    "B/e=2"
+   ]
+  },
+  "lock_corollaries": {
+   "A/e=0": {
+    "repeat_orbits": [],
+    "locks": [
+     "arc0: unconditional",
+     "arc1: unconditional"
+    ],
+    "branches": 1
+   },
+   "A/e=1": {
+    "repeat_orbits": [
+     "orb(entry(arc0))"
+    ],
+    "locks": [
+     "arc0: unconditional",
+     "arc1: unconditional"
+    ],
+    "branches": 1,
+    "reason": "entry(arc0), entry(arc1), entry(arc2) are three distinct words of h*, hence three distinct orbits"
+   },
+   "B/e=0": {
+    "repeat_orbits": [],
+    "locks": [
+     "opener0: unconditional",
+     "opener1: unconditional"
+    ],
+    "branches": 1
+   },
+   "B/e=1 (closer0 free)": {
+    "repeat_orbits": [
+     "orb(entry(opener0))"
+    ],
+    "locks": [
+     "opener0: unconditional",
+     "opener1: runtime check"
+    ],
+    "branches": 1
+   },
+   "B/e=1 (closer1 free)": {
+    "repeat_orbits": [
+     "orb(entry(opener1))"
+    ],
+    "locks": [
+     "opener0: alpha/beta split",
+     "opener1: unconditional"
+    ],
+    "branches": 2
+   },
+   "B/e=2": {
+    "repeat_orbits": [
+     "orb(entry(opener0))",
+     "orb(entry(opener1))"
+    ],
+    "locks": [
+     "opener0: alpha/beta split",
+     "opener1: runtime check"
+    ],
+    "branches": 2
+   }
+  },
+  "ae1_forcing": {
+   "n": 6,
+   "ascents": [
+    "arc0",
+    "arc1"
+   ],
+   "descent": "arc2",
+   "split_orbit": "orb(entry(arc0))",
+   "n_split_orbits": 1,
+   "three_arc_orbits_distinct": true,
+   "pos_arc1_minus_arc0": 5,
+   "pos_arc2_minus_arc0": 10,
+   "forced_block_after_arc0": 10,
+   "forced_block_all_omega2": true,
+   "run_S1": "[tau(entry(arc1)) .. arc1] = 4 full + arc1, exactly 5 passes",
+   "run_S2": "[tau(entry(arc2)) .. arc2] = 4 full + arc2, exactly 5 passes",
+   "R1_R2_slots": "R1 = [s0-a+1 .. s0], R2 = [s0+1 .. s0+b], a + b <= 5",
+   "n_order_types": 1,
+   "orbits_with_zero_deficit": [
+    "Q0 = orb(entry(arc1))",
+    "Q1 = orb(entry(arc2))"
+   ]
+  },
+  "b_order_theorem": {
+   "n": 6,
+   "branch": "alpha (both opener locks hold)",
+   "order": "opener0 < closer0 = opener0 + 5 < opener1 < closer1 = opener1 + 5",
+   "gap": "closer0 < opener1 (strict); the passes strictly between are all full",
+   "n_order_types": 1,
+   "repeat_runs": [
+    "opened right after closer0 in orb(entry(opener0))",
+    "opened right after closer1 in orb(entry(opener1))"
+   ],
+   "two_split_orbits_forced_distinct": false,
+   "two_split_orbits_note": "NOT proved: orb(entry(opener0)) = orb(entry(opener1)) is combinatorially consistent (that orbit then carries three runs), so the assignment is NOT pinned",
+   "beta_branch": "opener0's lock breaks; then orb(entry(opener1)) = orb(entry(closer0)) is a necessary condition and the order chain above does not apply"
+  },
+  "n4_census": {
+   "n": 4,
+   "maxlen": 39,
+   "walks": 29255,
+   "equality_walks": 1734,
+   "equality_broken_locks": 288,
+   "equality_typeA": 90,
+   "equality_by_F_e": {
+    "F0_e0": 325,
+    "F1_e0": 511,
+    "F1_e1": 170,
+    "F2_e0": 217,
+    "F2_e1": 276,
+    "F2_e2": 39,
+    "F3_e0": 25,
+    "F3_e1": 99,
+    "F3_e2": 53,
+    "F3_e3": 7,
+    "F4_e1": 5,
+    "F4_e2": 7
+   },
+   "violations": {},
+   "clean": true
+  },
+  "n4_order_census": {
+   "n": 4,
+   "x0_equality_walks": 27,
+   "typeA": 2,
+   "typeB": 25,
+   "broken_opener0_lock": 16,
+   "lock_pattern_census": {
+    "typeB_locks01_e1": 14,
+    "typeB_locks01_e2": 2,
+    "typeB_locks11_e0": 7,
+    "typeB_locks11_e1": 2
+   },
+   "violations": {},
+   "clean": true
+  },
+  "positive_control": {
+   "n": 4,
+   "maxlen": 39,
+   "walks": 29255,
+   "G2_walks": 10625,
+   "typeA_walks": 1184,
+   "typeA_rejected_by_round130_machine": 0,
+   "boundary_e1_examples": 30,
+   "boundary_replay": {
+    "accept": 30,
+    "in_scope": 30,
+    "total": 30
+   },
+   "in_scope": 524,
+   "accepted": 524,
+   "rejected": 0,
+   "false_rejection": 0,
+   "lock0mode_breakdown": {
+    "accept_lock0mode_012": 95,
+    "accept_lock0mode_02": 54,
+    "accept_lock0mode_12": 375
+   },
+   "in_scope_breakdown": {
+    "scope_A_F2_e0": 60,
+    "scope_A_F2_e1": 30,
+    "scope_B_F2_e0": 157,
+    "scope_B_F2_e1": 243,
+    "scope_B_F2_e2": 34
+   },
+   "reject_examples": [],
+   "clean": true
+  },
+  "controls": [
+   {
+    "name": "Round 125 e=0 f=0 rmax=26",
+    "recorded": 20584,
+    "replayed": 20584,
+    "matches": true,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   {
+    "name": "Round 125 e=1 f=0 rmax=26",
+    "recorded": 462058,
+    "replayed": 462058,
+    "matches": true,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   {
+    "name": "Round 125 e=1 f=1 rmax=26",
+    "recorded": 487122,
+    "replayed": 487122,
+    "matches": true,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   {
+    "name": "Round 130 regression A_e0_l114",
+    "recorded": 680651642,
+    "replayed": 680651642,
+    "matches": true,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   {
+    "name": "Round 130 regression B_e0_b11",
+    "recorded": 1738262553,
+    "replayed": 1738262553,
+    "matches": true,
+    "verdict": "UNSAT_COMPLETE"
+   }
+  ],
+  "branch_counts": {
+   "A_e1": {
+    "round130": 10,
+    "round131": 10
+   },
+   "B_e2": {
+    "round130": 25,
+    "round131": 50
+   },
+   "B_e1": {
+    "round130": 100,
+    "round131": 75
+   }
+  },
+  "cell_status": {
+   "A_e0": {
+    "source": "round 130",
+    "planned": 10,
+    "unsat": 10,
+    "nodes": 6878643289,
+    "closed": true
+   },
+   "B_e0": {
+    "source": "round 130",
+    "planned": 25,
+    "unsat": 25,
+    "nodes": 48653209658,
+    "closed": true
+   },
+   "A_e1": {
+    "source": "round 131",
+    "planned": 10,
+    "done": 10,
+    "unsat": 10,
+    "nodes": 133241733429,
+    "closed": true
+   },
+   "B_e1": {
+    "source": "round 131",
+    "planned": 75,
+    "done": 0,
+    "unsat": 0,
+    "nodes": 0,
+    "closed": false
+   },
+   "B_e2": {
+    "source": "round 131",
+    "planned": 50,
+    "done": 0,
+    "unsat": 0,
+    "nodes": 0,
+    "closed": false
+   }
+  },
+  "subcases_remaining": [
+   "B_e1",
+   "B_e2"
+  ],
+  "pilots": {
+   "A_e1_l114": {
+    "round130_nodes": 17038540046,
+    "round130_seconds": 1926.8,
+    "round131_nodes": 12981632834,
+    "round131_seconds": 1460,
+    "reduction_factor": 1.313,
+    "verdict": "UNSAT_COMPLETE"
+   },
+   "B_capped_pilots": [
+    {
+     "label": "B_e2_b11 alpha",
+     "nodes": 6000000178,
+     "seconds": 667,
+     "verdict": "UNKNOWN_CAP"
+    },
+    {
+     "label": "B_e2_b11 beta",
+     "nodes": 6000000138,
+     "seconds": 829,
+     "verdict": "UNKNOWN_CAP"
+    },
+    {
+     "label": "B_e1_b11 closer0",
+     "nodes": 6000000115,
+     "seconds": 624,
+     "verdict": "UNKNOWN_CAP"
+    }
+   ],
+   "node_rate_per_second": 9000000
+  },
+  "verdicts": {
+   "UNSAT_COMPLETE": 10
+  },
+  "total_nodes_round131": 133241733429,
+  "label": "ROUND-131 PROVISIONAL - CLAUDE ONLY - NOT INDEPENDENTLY AUDITED",
+  "ledger": {
+   "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+   "CLAUDE_FULL_JOINT_Q2": "6396/6396",
+   "NR6": "ASSUMED"
+  },
+  "disclaimer": "This project has not proved L6 >= 872"
  }
 }
