@@ -1,6 +1,8 @@
 """Independent persisted-word replayer: does not import block builders/replay."""
 import hashlib
 import json
+import sys
+import subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -37,6 +39,7 @@ def check(row,n):
     b,bp,bw,bj=measure(row['contracted']['word'],n)
     assert a==row['before'] and b==row['after']
     assert bw<aw and len(aw-bw)==2*n*(n-2)
+    assert len(row['original']['word'])-len(row['contracted']['word'])==2*(n*n-n-1)
     assert aj==bj # every paid source/target/tail weight literally preserved
     assert ap[0][0]==bp[0][0]
     assert row['original']['word'][-n:]==row['contracted']['word'][-n:]
@@ -72,6 +75,8 @@ def main():
     result=dict(schema='codex/g2-k4-contraction-independent-word-replay/1',verified=True,
                 literal_pairs=counts,control_sha256=sha(p),certificate_sha256=sha(c),
                 verifier_sha256=sha(Path(__file__)),
+                source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+                binary_sha256=sha(Path(sys.executable)),full_argv=[sys.executable,*sys.argv],
                 scope='independent persisted-word/control and ledger checks; hand reduction proof and inherited finite capacity explicitly required',
                 capacity_reenumerated=False,remaining_B_classes=0,global_L6_ge_872_proved=False)
     (ROOT/'outputs/rr_g2_k4_contraction_verified_codex.json').write_text(json.dumps(result,indent=2)+'\n')
