@@ -103,6 +103,15 @@ def n4():
     from verify_fg_repair_128 import walk_measure
     from verify_b_machine_132 import _structure
     table,W,walks=n4_walks(39);g=Geometry(4);out=[];counts=Counter()
+    # NR4 positive controls can contain heavy joints; the n6 local experiment
+    # intentionally listed only weights 2/3. Extend the literal checker, not the
+    # theorem premises, to retain those valid NR4 controls.
+    for a,w in enumerate(g.words):
+        for tail in itertools.permutations(w):
+            if g.weight(w,tail)!=4:continue
+            raw=w+tail
+            if any(len(set(raw[j:j+4]))==4 for j in range(1,4)):continue
+            g.joint[a].append((g.idx[tail],4))
     for L,seq in walks:
         m=walk_measure(table,W,seq,L)
         if m['G']!=2 or m['x'] or m['f_out']!=m['F']+m['e']:continue
