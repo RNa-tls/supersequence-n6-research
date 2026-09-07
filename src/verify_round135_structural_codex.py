@@ -65,6 +65,9 @@ def main():
     assert counts['SAT']==0 and counts['orbit_collision']==158 and counts['hex_collision']==154
     assert len(seam_rows)==312
     C=[r['result']['passes'] for r in cap['capacity']['replays'][:14]]
+    assert C==[20,20,33,33,46,46,49,58,62,66,70,74,83,83]
+    assert cap['capacity']['replays'][-1]['parameters']==[1,0,15]
+    assert cap['capacity']['replays'][-1]['result']['passes']==106
     assert all(not r['result']['capped'] for r in cap['capacity']['replays'])
     assert max(C[i]+C[13-i] for i in range(14))==112
     assert [i for i in range(14) if C[i]+C[13-i]==112]==[4,9]
@@ -146,7 +149,14 @@ def main():
         else:
             status='OPEN_EXCEPTIONAL';proof='two-removal instances closed, residual has <2 removable orbit intervals'
             shape='at least one partial-arc merge; hard core exactly one' if r['type']=='A' else '0 or 1 in hard core; state-specific'
-        ledger.append(r|dict(status=status,proof=proof,contraction_shape=shape))
+        outcomes=[]
+        if r['F']==2:
+            for u in range(r['x']+1):
+                outcomes.append(dict(condition='if two distinct orbit intervals are removable',
+                    removed_M3a=u,P=112+u,O=25,D=13-u,S=r['S']-u,H=r['H'],
+                    residual_e_plus_x=r['S']-u-24))
+        ledger.append(r|dict(status=status,proof=proof,contraction_shape=shape,
+                            two_removal_outputs=outcomes))
     result=dict(schema='codex/round135-independent-structural-verifier/1',verified=True,
                 source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
                 source_sha256=sha(__file__),binary_sha256=sha(sys.executable),argv=[sys.executable,*sys.argv],
@@ -158,6 +168,13 @@ def main():
                 naive_two_contraction_counterexamples=counterexamples,ledger=ledger,
                 closed_rows=sum(r['status']=='CLOSED' for r in ledger),open_rows=sum(r['status']!='CLOSED' for r in ledger),
                 cell_closed=False,outer_closed=10,outer_total=55,NR6='ASSUMED',global_bound_proved=False)
+    result['node_cap']=None
+    result['completed']=True
+    result['scope']='finite controls/extremal chains/seams only; NOT complete NR6 cell enumeration'
+    mathematical={k:result[k] for k in ['run_level_nodes','extreme_counts','independent_seam_counts',
+                  'seam_ledger','n4_counts','n4_decomposition_controls','short_w3_same_orbit_candidates',
+                  'n6_extra_geometry','n6_A_witnesses','naive_two_contraction_counterexamples','ledger']}
+    result['mathematical_certificate_digest']=hashlib.sha256(json.dumps(mathematical,sort_keys=True,separators=(',',':')).encode()).hexdigest()
     result['deterministic_digest']=hashlib.sha256(json.dumps(result,sort_keys=True).encode()).hexdigest()
     (ROOT/'outputs/rr_round135_verified_codex.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if k in ['verified','run_level_nodes','extreme_counts','independent_seam_counts','n4_counts','closed_rows','open_rows','n4_decomposition_controls']}))
