@@ -1,8 +1,8 @@
 # Preserve byte-level provenance for this new certificate bundle only.
-outputs/rr_alpha_gap_research_codex.json -text
-outputs/rr_locked_detour_contraction_codex.json -text
-outputs/rr_g2_k4_contraction_certificate_codex.json -text
-outputs/rr_g2_k4_contraction_verified_codex.json -text
+outputs/rr_alpha_gap_research_codex.json -text whitespace=cr-at-eol
+outputs/rr_locked_detour_contraction_codex.json -text whitespace=cr-at-eol
+outputs/rr_g2_k4_contraction_certificate_codex.json -text whitespace=cr-at-eol
+outputs/rr_g2_k4_contraction_verified_codex.json -text whitespace=cr-at-eol
 src/research_alpha_gap_codex.py -text
 src/verify_locked_detour_contraction_codex.py -text
 src/certify_g2_k4_contraction_codex.py -text
