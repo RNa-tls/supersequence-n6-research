@@ -1,0 +1,240 @@
+{
+ "round": 134,
+ "kind": "PROOF AUDIT",
+ "audit_of": "Astra/Codex locked-block contraction proof closing type-B (k,G) = (4,2)",
+ "overall": "CONFIRMED",
+ "verdicts": {
+  "single_locked_block_contraction_lemma": {
+   "verdict": "CONFIRMED",
+   "evidence": "3,600 n=6 blocks (720 words x 5 splits) and 72 n=4 blocks, zero violations; entrance v and exit sigma^5(v) identical, five internal joints all omega=2, dP = -5, dO = -1, dD = dS = dH = 0"
+  },
+  "external_context_preservation": {
+   "verdict": "CONFIRMED",
+   "evidence": "omega and legal_joint are pure functions of the ordered boundary word pair, and contraction preserves both boundary words verbatim; 4,800 seam-replay pairs (all four successor move types) show no weight change and identical literal seam text"
+  },
+  "alpha_double_contraction": {
+   "verdict": "CONFIRMED",
+   "evidence": "the two locked blocks are disjoint in all 100 configurations, each has the required shape, and the order is irrelevant"
+  },
+  "model_T_double_contraction": {
+   "verdict": "CONFIRMED",
+   "evidence": "both blocks contractible; the 2/100 configurations whose blocks overlap all have T_0 = T_1 and are impossible (ten passes in a five-slot orbit)",
+   "audit_finding": "Astra's stated argument OMITS the hypothesis T_0 != T_1, which is load-bearing for 'O decreases by exactly 2'. It is true and provable in one line, and this audit supplies that proof."
+  },
+  "beta_nested_contraction": {
+   "verdict": "CONFIRMED",
+   "evidence": "before contraction the outer structure is 11 passes, so outer-first is not even applicable (100/100); after contracting the inner block the outer is EXACTLY a locked 6-pass block - opener_0 followed by tau^1(c0)..tau^5(c0) = closer_0 filling all five phases (100/100)"
+  },
+  "contracted_parameter_accounting": {
+   "verdict": "CONFIRMED",
+   "evidence": "recomputed independently from P=122, O=28, D=18, S=25, H=0: P'=112, O'=26, D'=5*26-112=18, S'=25, H'=0"
+  },
+  "full_pass_chain_identity": {
+   "verdict": "CONFIRMED",
+   "evidence": "S' = (r'-1-f_out') + x' by counting joints; every contracted pass is FULL and a full pass's omega=2 successor is tau(entry) in the same orbit, so f_out' = 0, giving S' = O' - 1 + e' + x' with NO endpoint correction - valid for a partial chain. 25 = 26 - 1 + e' + x' forces e' = x' = 0 since both are non-negative"
+  },
+  "round115_model_inclusion": {
+   "verdict": "CONFIRMED",
+   "evidence": "11-point checklist all satisfied. The decisive fact: M3a is ALWAYS same-orbit (720/720), so it is an intra-run x-arc and never an inter-run connector; R115's two-connector chain model (W3b = M3b, W3c = M3c) is therefore complete, and with x' = 0 the contracted object contains no M3a joint, so all 25 of its omega=3 joints are chain connectors and the whole 112-pass object is ONE chain. chain_capacity_115.c bounds a CHAIN and never requires a complete 120-pass cover, so no completeness condition is imported"
+  },
+  "N_star_provenance_and_replay": {
+   "verdict": "CONFIRMED",
+   "evidence": "N*(0,0,20) = 103 with capped=false - exhaustively proved, not observed. Independently replayed: N*(0,0,18) = 103 in 626,824,474 nodes and N*(0,0,20) = 103 in 2,465,729,298 nodes, both capped=false and node-for-node identical to the stored table",
+   "replay": {
+    "s18": {
+     "passes": 103,
+     "nodes": 626824474,
+     "capped": false
+    },
+    "s20": {
+     "passes": 103,
+     "nodes": 2465729298,
+     "capped": false
+    }
+   }
+  },
+  "final_112_gt_103_contradiction": {
+   "verdict": "CONFIRMED",
+   "evidence": "both quantities count FULL PASSES in a single chain: R115's `passes` counter and the contracted P'. 112 > 103, and the contracted object satisfies b=0, g=0 and deficit sum 18 <= 20, so it lies in the bounded class. Contradiction"
+  }
+ },
+ "critical_failure_rule": {
+  "A_external_context_preserving_contraction": "CONFIRMED",
+  "B_round115_model_inclusion": "CONFIRMED",
+  "may_close": true
+ },
+ "contraction_lemma": {
+  "statement": "Let a walk contain a LOCKED BLOCK: a short pass (v, b) followed by five passes filling all five phases of orb(sigma^b(v)), the last of which is (sigma^b(v), 6-b). Replacing the six passes by the single full pass (v, 6) yields a walk with the same boundary words, hence the same external joints, and with P -> P-5, O -> O-1, D, S, H unchanged.",
+  "side_conditions": [
+   "orb(sigma^b(v)) != orb(v)  (verified in all 3,600 cases)",
+   "T_0 != T_1 for the two blocks  (Astra omitted this; proved here: two five-phase runs cannot share a five-slot orbit)"
+  ],
+  "note": "the lemma is about SHAPE, not about the Round-131/132 lock holding - this matters because in beta the outer lock is BROKEN yet the outer structure acquires the locked-block shape after the inner contraction"
+ },
+ "parameter_table": {
+  "original": {
+   "P": 122,
+   "O": 28,
+   "D": 18,
+   "S": 25,
+   "H": 0
+  },
+  "contracted": {
+   "P": 112,
+   "O": 26,
+   "D": 18,
+   "S": 25,
+   "H": 0
+  },
+  "matches_astra": {
+   "P": true,
+   "O": true,
+   "D": true,
+   "S": true,
+   "H": true
+  },
+  "identity": "S' = O' - 1 + e' + x'  (valid for a PARTIAL chain; no endpoint term)",
+  "identity_derivation": [
+   "joints = P' - 1",
+   "inter-run joints = r' - 1",
+   "intra-run joints = P' - r'",
+   "S' = (r' - 1 - f_out') + x'",
+   "every pass is full, and a full pass's omega=2 successor is tau(entry) in the SAME orbit, so f_out' = 0",
+   "r' = O' + e'  =>  S' = O' - 1 + e' + x'"
+  ],
+  "e_plus_x": 0,
+  "forces_e_and_x_zero": true,
+  "note": "e' >= 0 and x' >= 0, so e' + x' = 0 forces both to vanish; had the contracted object carried x' >= 1 the identity would demand e' < 0, which is impossible - so the conclusion holds either way"
+ },
+ "round115_checklist": [
+  {
+   "hypothesis": "all passes are full passes (one word per hexagon)",
+   "satisfied": true,
+   "detail": "after contracting both blocks every doubled hexagon is a single full pass and every other pass was already full; 112 passes on 112 distinct hexagons"
+  },
+  {
+   "hypothesis": "no two used words share a hexagon",
+   "satisfied": true,
+   "detail": "contraction only removes passes and merges two passes of ONE hexagon into one, so the hexagon multiset shrinks - duplicates cannot appear"
+  },
+  {
+   "hypothesis": "a run is a maximal set of consecutive passes inside one E-orbit",
+   "satisfied": true,
+   "detail": "unchanged by contraction; the model tracks phases per orbit"
+  },
+  {
+   "hypothesis": "a chain is a maximal run sequence joined by LIGHT connectors W3b/W3c only",
+   "satisfied": true,
+   "detail": "M3a is ALWAYS same-orbit (verified over all 720 words), so it is an intra-run x-arc and never an inter-run connector; with x' = 0 the contracted object has no M3a joint at all, so all 25 of its omega=3 joints are M3b/M3c => it is ONE chain"
+  },
+  {
+   "hypothesis": "b = local e + x = 0",
+   "satisfied": true,
+   "detail": "the identity forces e' = x' = 0"
+  },
+  {
+   "hypothesis": "g = handoff tokens = 0 (global pool 2e)",
+   "satisfied": true,
+   "detail": "e' = 0 so the pool is empty"
+  },
+  {
+   "hypothesis": "s: feasible() requires sum of deficits over TOUCHED orbits <= s",
+   "satisfied": true,
+   "detail": "contracted object: 26 touched orbits, 112 passes, deficit sum = 130 - 112 = 18 <= 20"
+  },
+  {
+   "hypothesis": "the bound is per-CHAIN, not per-complete-cover",
+   "satisfied": true,
+   "detail": "chain_capacity_115.c maximises `passes` over chains grown from one start word; it never requires 120 passes or a complete cover, so applying it to a 112-pass partial object imports no completeness condition"
+  },
+  {
+   "hypothesis": "S6 normalisation of the start word is legitimate",
+   "satisfied": true,
+   "detail": "left multiplication by a relabelling commutes with sigma, tau, W3b and W3c, and acts transitively on the 720 words"
+  },
+  {
+   "hypothesis": "the model is a RELAXATION of reality (so N* is a true upper bound)",
+   "satisfied": true,
+   "detail": "run extension may go to ANY unused phase (cost 0 if phase+1 else 1) whereas reality offers only M2 (phase+1, free) and M3a (an x-arc); joint legality is not even checked - all of this only enlarges the model"
+  },
+  {
+   "hypothesis": "s = 20 is admissible for an object with deficit 18",
+   "satisfied": true,
+   "detail": "feasible() is `sum <= SCAP`, monotone in SCAP, so the s=18 search space is contained in the s=20 one; both stored cells give 103"
+  }
+ ],
+ "m3a_fact": {
+  "M2_omega2_sameorbitTrue": 720,
+  "M3a_omega3_sameorbitTrue": 720,
+  "M3b_omega3_sameorbitFalse": 720,
+  "M3c_omega3_sameorbitFalse": 720
+ },
+ "local_suite": {
+  "n6_single_block_cases": 3600,
+  "n4_control_cases": 72,
+  "seam_replay_pairs": 4800,
+  "all_clean": true
+ },
+ "gap_independence": {
+  "claim": "the contraction argument never reads the gap",
+  "why": [
+   "the lemma is local: it only touches the six passes of one block and the two boundary words",
+   "the parameter deltas (P -5, O -1, D 0, S 0, H 0) are computed from the block alone",
+   "the final contradiction uses only the GLOBAL totals P', O', S' and the chain identity, none of which mentions the gap",
+   "gap passes are full passes both before and after contraction, so they enter the contracted object unchanged"
+  ],
+  "gap_appears_in_argument": false
+ },
+ "counterexample_search": [
+  {
+   "risk": "the contracted pass changes orbit from T_X to orb(v), so the joint AFTER the block can be reclassified between intra-run and inter-run",
+   "census": {
+    "M2:inter->intra": 515,
+    "M3a:inter->intra": 515,
+    "M3b:inter->inter": 515,
+    "M3c:inter->inter": 515
+   },
+   "resolution": "this never breaks the argument: the reclassification is exactly what makes f_out' = 0 and it is already accounted for by deriving the identity from the contracted object itself.  If a reclassified joint were an M3a (which would create x' >= 1), the identity would force e' = -x' < 0, impossible - so such a walk simply does not exist"
+  },
+  {
+   "risk": "a six-pass block whose middle run does NOT fill all five phases of its orbit would leave that orbit alive after contraction, so O would drop by 0, not 1, and D would change",
+   "found": 0,
+   "resolution": "excluded by the Round-131/132 lock geometry: the locked run is the tau-chain tau^1(c) .. tau^5(c) = c, which fills all five phases by construction; the 3,600-case check confirms it in every instance",
+   "excluded_by_lock_hypothesis": true
+  }
+ ],
+ "required_side_condition": {
+  "lemma": "T_0 != T_1 (the two locked runs cannot share an orbit)",
+  "proof": "each locked run fills all five phases of its orbit; two of them in one orbit would need ten passes in five slots",
+  "model_T_overlapping_configs": 2,
+  "all_overlaps_have_T0_eq_T1": true,
+  "overlaps_that_could_actually_exist": 0,
+  "verdict": "Astra's stated argument omits this hypothesis; it is true and cheap to prove, but it is load-bearing for 'O decreases by exactly 2' and must be stated"
+ },
+ "scope": {
+  "establishes": "NR6-conditional closure of the outer cell (k,G) = (4,2)",
+  "does_not_establish": [
+   "L6 >= 872",
+   "NR6"
+  ],
+  "NR6": "ASSUMED"
+ },
+ "ledger": {
+  "OUTER_CELLS_CLOSED": "10/55 (k,G)",
+  "previous": "9/55",
+  "cell_closed_by": "Astra contraction proof, independently audited by Claude in Round 134",
+  "INDEPENDENTLY_AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_Q2": "6396/6396",
+  "NR6": "ASSUMED"
+ },
+ "certificate": {
+  "source_commit": "3df225f2a4ad3f744ca99d66f75872aca09e0fea",
+  "gcc": "gcc -O2",
+  "chain_capacity_115_c": "2287c05efdfe0cb521a9175b100c71546b0ea386f63e299cbb1e16b271574edb",
+  "chain_capacity_115_bin": "82f847771db38511a92e9bc31d5dff22fe0a67b7d1b4ebc6f93a66252973a10c",
+  "auditor_module": "6ce5c9fe81ab75d487f2562302abe624652016c4fd52f567ebd5ea64557903a0",
+  "replay_command": "./chain_capacity_115.bin 0 0 {18,20} 20000000000"
+ },
+ "label": "ROUND-134 AUDIT - CLAUDE INDEPENDENT REVIEW OF AN ASTRA PROOF",
+ "disclaimer": "This project has not proved L6 >= 872"
+}

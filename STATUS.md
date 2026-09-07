@@ -9,7 +9,47 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 133 (type-B residual obstruction) — read this first.**
+> **Round 134 (audit of Astra's locked-block contraction proof) — read this first.**
+> **`(k,G) = (4,2)` is CLOSED, NR6-conditionally.** Outer cells closed: **10 of 55 `(k, G)`**
+> (was 9/55). This does **not** establish `L6 >= 872`, and **NR6 remains ASSUMED**.
+>
+> Astra/Codex proved the remaining type-B cases impossible by *locked-block contraction*.
+> Round 134 audited it independently — no arithmetic copied — and returns **CONFIRMED** on all
+> ten sub-steps, including both of the load-bearing ones.
+>
+> **The lemma.** A *locked block* — short pass `(v,b)`, then five passes filling all five
+> phases of `orb(σ^b v)`, the last being `(σ^b v, 6−b)` — may be replaced by the single full
+> pass `(v,6)`. Entrance `v` and exit `σ^5 v` are preserved verbatim, so both external joints
+> are the *same objects*; `P → P−5`, `O → O−1`, and `D`, `S`, `H` are unchanged (the five
+> internal joints are all ω=2). Verified on all 3,600 n=6 blocks, 72 n=4 blocks, and 4,800
+> seam-replay pairs with real context — zero violations. Note the lemma is about **shape**,
+> not about the Round-131/132 lock holding: in β the outer lock is *broken*, yet the outer
+> structure acquires the locked-block shape after the inner contraction, which is why
+> inner-first is forced (outer-first is not even applicable — the outer is 11 passes).
+>
+> **Two contractions** give `P' = 112`, `O' = 26`, `D' = 18`, `S' = 25`, `H' = 0`. Counting
+> joints gives `S' = O' − 1 + e' + x'` for a *partial* chain with no endpoint term (every
+> contracted pass is full, and a full pass's ω=2 successor stays in its orbit, so
+> `f_out' = 0`), forcing `e' = x' = 0`.
+>
+> **The decisive fact for Round-115 inclusion:** `M3a` is *always* same-orbit (720/720), so it
+> is an intra-run x-arc and can never be an inter-run connector. R115's two-connector chain
+> model (`W3b = M3b`, `W3c = M3c`) is therefore complete, and with `x' = 0` the contracted
+> object has no `M3a` joint — all 25 of its ω=3 joints are chain connectors, so the whole
+> 112-pass object is **one chain**. `chain_capacity_115.c` bounds a *chain* and never requires
+> a 120-pass cover, so no completeness condition is imported into a partial object.
+>
+> **Replayed, not trusted:** `N*(0,0,18) = N*(0,0,20) = 103`, `capped: false`, re-run live in
+> 626,824,474 and 2,465,729,298 nodes — node-for-node identical to the stored table. Since
+> `112 > 103`, contradiction.
+>
+> **Audit finding:** Astra's statement **omits the hypothesis `T₀ ≠ T₁`**, which is
+> load-bearing for "O decreases by exactly 2". It is true and provable in one line (two
+> five-phase runs cannot share a five-slot orbit), and this audit supplies that proof — 2 of
+> 100 synthetic Model-T configurations do have overlapping blocks, and all of them are exactly
+> the `T₀ = T₁` ones, none of which can exist.
+>
+> **Round 133 (type-B residual obstruction) — superseded by Round 134.**
 > **Three of the five `(4,2)` subcases are closed; `B/e=1` and `B/e=2` remain a hard core.**
 > Claude-closed outer cells stay at **9 of 55 `(k, G)`** — **not** incremented.
 >
