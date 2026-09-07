@@ -99,10 +99,11 @@ def finite_blocks():
 
 
 def n4():
-    from verify_f2_structure_126 import n4_walks
+    from verify_f2_structure_126 import setup
     from verify_fg_repair_128 import walk_measure
     from verify_b_machine_132 import _structure
-    table,W,walks=n4_walks(39);g=Geometry(4);out=[];counts=Counter()
+    table=setup(4);g=Geometry(4);out=[];counts=Counter()
+    W=[[g.weight(a,b) for b in g.words] for a in g.words]
     # NR4 positive controls can contain heavy joints; the n6 local experiment
     # intentionally listed only weights 2/3. Extend the literal checker, not the
     # theorem premises, to retain those valid NR4 controls.
@@ -112,6 +113,23 @@ def n4():
             raw=w+tail
             if any(len(set(raw[j:j+4]))==4 for j in range(1,4)):continue
             g.joint[a].append((g.idx[tail],4))
+    # Independent adjacency-based complete NR4 generator, now with exact node
+    # accounting. The older production generator is not called.
+    adj={v:sorted([(g.s(v),1)]+g.joint[v]) for v in range(24)}
+    walks=[];nodes=0
+    def dfs(v,used,path,cost):
+        nonlocal nodes
+        nodes+=1
+        remaining=24-len(path)
+        if 4+cost+remaining>39:return
+        if not remaining:
+            walks.append((4+cost,tuple(path)));return
+        for t,w in adj[v]:
+            if used>>t&1:continue
+            if 4+cost+w+remaining-1>39:continue
+            dfs(t,used|(1<<t),path+[t],cost+w)
+    dfs(0,1,[0],0)
+    assert len(walks)==29255,('independent NR4 universe mismatch',len(walks))
     for L,seq in walks:
         m=walk_measure(table,W,seq,L)
         if m['G']!=2 or m['x'] or m['f_out']!=m['F']+m['e']:continue
@@ -121,7 +139,8 @@ def n4():
         result=contract_two(g,m['passes']);counts[kind]+=1
         out.append(dict(kind=kind,L=L,**result))
     return dict(universe='all NR4 words from start0123, length<=39',
-                input_complete_walks=len(walks),counts=dict(counts),controls=out)
+                input_complete_walks=len(walks),node_count=nodes,node_cap=None,
+                counts=dict(counts),controls=out)
 
 
 def main():
@@ -136,7 +155,9 @@ def main():
                 finite_blocks=finite_blocks(),n4=n4())
     result['verdict']='UNSAT_COMPLETE'
     result['scope']='no counterexample to contraction in the stated finite controls; theorem is separately proved'
-    result['node_count']=sum(result['finite_blocks']['counts'].get(k,0) for k in ('all_S6_single_detours','beta_e1_input','beta_e2_input','T_input'))
+    result['configuration_count']=sum(result['finite_blocks']['counts'].get(k,0) for k in ('all_S6_single_detours','beta_e1_input','beta_e2_input','T_input'))
+    result['node_count']=result['n4']['node_count']
+    result['node_count_scope']='complete NR4 adjacency DFS; finite n6 configuration checks counted separately'
     result['seconds']=time.perf_counter()-t
     result['deterministic_digest']=digest({k:v for k,v in result.items() if k not in ('seconds','source_commit','full_argv')})
     (ROOT/'outputs/rr_locked_detour_contraction_codex.json').write_text(json.dumps(result,indent=2)+'\n')

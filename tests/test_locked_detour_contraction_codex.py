@@ -1,9 +1,12 @@
 import sys
 import unittest
+import json
+import copy
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from research_alpha_gap_codex import Geometry
 from verify_locked_detour_contraction_codex import contract_once,contract_two,metrics
+from verify_g2_k4_contraction_certificate_codex import check
 
 
 class ContractionTests(unittest.TestCase):
@@ -47,6 +50,19 @@ class ContractionTests(unittest.TestCase):
         self.assertEqual((P,O,5*O-P,S,H),(112,26,18,25,0))
         self.assertEqual(S-(O-1),0) # e' + x'
         self.assertGreater(P,103)
+
+    def test_independent_persisted_words(self):
+        root=Path(__file__).resolve().parents[1]
+        d=json.loads((root/'outputs/rr_locked_detour_contraction_codex.json').read_text())
+        for r in d['finite_blocks']['rigid_controls']+d['finite_blocks']['alpha_controls']:check(r,6)
+        for r in d['n4']['controls']:check(r,4)
+
+    def test_corrupted_persisted_control_rejected(self):
+        root=Path(__file__).resolve().parents[1]
+        d=json.loads((root/'outputs/rr_locked_detour_contraction_codex.json').read_text())
+        r=copy.deepcopy(d['finite_blocks']['rigid_controls'][0])
+        r['contracted']['word']+='012345'
+        with self.assertRaises(AssertionError):check(r,6)
 
 
 if __name__=='__main__':unittest.main()
