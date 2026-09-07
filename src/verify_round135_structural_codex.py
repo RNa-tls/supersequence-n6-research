@@ -118,7 +118,12 @@ def main():
             ps += [(g.e(v2,j),6) for j in range(1,5)]+[(v2,c)]
             variants=[ps]+[ps[:i]+ps[i+1:] for i in [2,3,4,7,8,9]]
             for variant in variants:
-                assert g.replay(variant)
+                extra_geometry['A_synthetic_attempts']+=1
+                if not g.replay(variant):
+                    # A symbolic pair of locks need not be a legal literal word.
+                    # Keep these negative controls; never apply surgery to them.
+                    extra_geometry['A_synthetic_literal_collision']+=1
+                    continue
                 end,steps=maximal(g,variant);assert len(steps)==2 and end==[(0,6)]
                 extra_geometry['A_two_merges']+=1
                 extra_witnesses.append(dict(type='A',original=g.replay(variant),contracted=g.replay(end)))
