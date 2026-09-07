@@ -2,7 +2,7 @@
 import hashlib,itertools,json,subprocess,sys
 from collections import Counter
 from research_alpha_gap_codex import Geometry,ROOT
-from research_round135_contraction_codex import resources,geometry,sha
+from research_round135_contraction_codex import resources,geometry,sha,maximal
 from verify_g2_k4_contraction_certificate_codex import measure
 
 
@@ -68,7 +68,7 @@ def main():
     assert all(not r['result']['capped'] for r in cap['capacity']['replays'])
     assert max(C[i]+C[13-i] for i in range(14))==112
     assert [i for i in range(14) if C[i]+C[13-i]==112]==[4,9]
-    cg=geometry(4);cc=Counter();counterexamples=[];decompositions=0
+    cg=geometry(4);cc=Counter();counterexamples={};decompositions=0
     for row in data['n4']['controls']:
         orig=row['original'];ps=[tuple(p) for p in orig['passes']]
         for step in row['steps']:
@@ -82,7 +82,10 @@ def main():
         if row['delta']==0:
             assert row['F']==2 and len(row['steps'])==2
         cc[str((row['delta'],len(row['steps'])))]+=1
-        if row['delta']==1 and len(row['steps'])<2 and len(counterexamples)<6:counterexamples.append(row)
+        if row['delta']==1 and len(row['steps'])<2:
+            ck=f"{row['type']}_merges{len(row['steps'])}"
+            old=counterexamples.get(ck)
+            if old is None or (len(row['original']['word']),row['original']['word'])<(len(old['original']['word']),old['original']['word']):counterexamples[ck]=row
         if not row['remaining_short']:
             m,passes,_,_=measure(row['contracted']['word'],4)
             pieces=[];cur=[]
@@ -107,6 +110,27 @@ def main():
         for b in range(1,6):
             same_short+=sum(w==3 and g.q[t]==g.q[v] for t,w in g.joint[g.s(v,b-1)])
     assert same_short==0
+    extra_geometry=Counter();extra_witnesses=[]
+    for a in range(1,5):
+        for b in range(1,6-a):
+            c=6-a-b;v1=g.s(0,a);v2=g.s(0,a+b)
+            ps=[(0,a)]+[(g.e(v1,j),6) for j in range(1,5)]+[(v1,b)]
+            ps += [(g.e(v2,j),6) for j in range(1,5)]+[(v2,c)]
+            variants=[ps]+[ps[:i]+ps[i+1:] for i in [2,3,4,7,8,9]]
+            for variant in variants:
+                assert g.replay(variant)
+                end,steps=maximal(g,variant);assert len(steps)==2 and end==[(0,6)]
+                extra_geometry['A_two_merges']+=1
+                extra_witnesses.append(dict(type='A',original=g.replay(variant),contracted=g.replay(end)))
+    oldcontrols=json.loads((ROOT/'outputs/rr_locked_detour_contraction_codex.json').read_text())
+    for row in oldcontrols['finite_blocks']['rigid_controls']:
+        ps=[tuple(p) for p in row['original']['passes']]
+        for i in range(1,len(ps)-1):
+            if ps[i-1][1]!=6 or ps[i][1]!=6:continue
+            if len({g.q[ps[j][0]] for j in [i-1,i,i+1]})!=1:continue
+            variant=ps[:i]+ps[i+1:];assert g.replay(variant)
+            end,steps=maximal(g,variant);assert len(steps)==2 and all(l==6 for v,l in end)
+            extra_geometry['B_one_M3a_two_merges']+=1
     ledger=[]
     for r in rs:
         if r['F']==1:status='CLOSED';proof='F1 equality order contradiction';shape='0: incompatible nu order'
@@ -125,6 +149,7 @@ def main():
                 run_level_nodes=nodes,extreme_counts={str(k):len(v) for k,v in ext.items()},
                 independent_seam_counts=dict(counts),seam_ledger=seam_rows,n4_counts=dict(cc),
                 n4_decomposition_controls=decompositions,short_w3_same_orbit_candidates=same_short,
+                n6_extra_geometry=dict(extra_geometry),n6_A_witnesses=extra_witnesses,
                 naive_two_contraction_counterexamples=counterexamples,ledger=ledger,
                 closed_rows=sum(r['status']=='CLOSED' for r in ledger),open_rows=sum(r['status']!='CLOSED' for r in ledger),
                 cell_closed=False,outer_closed=10,outer_total=55,NR6='ASSUMED',global_bound_proved=False)
