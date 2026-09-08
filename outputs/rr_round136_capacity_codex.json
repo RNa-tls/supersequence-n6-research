@@ -1,0 +1,339 @@
+{
+  "schema": "codex/round136-one-defect/1",
+  "source_commit": "a4c7e666b9552c15fe12aaf51d86f93f27eca3a0",
+  "source_sha256": "11ca7c6bc6ca3ec21f22994e7c53e1a2d178beb8ec5e73c73a451f0f387103c4",
+  "binary_sha256": "cce21c0e8710e304273e98ac4b2b0f5aceb639acbcd2343cbaa5c4e81619c45b",
+  "argv": [
+    "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "src/research_round136_defect_codex.py",
+    "--capacity"
+  ],
+  "rows": [
+    {
+      "id": "A_F2_d1_x0_H0_e0",
+      "type": "A",
+      "F": 2,
+      "delta": 1,
+      "e": 0,
+      "x": 0,
+      "H": 0,
+      "f_out": 1,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a1"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        }
+      ],
+      "short_shape": "a+b+c=6, a,b,c>=1"
+    },
+    {
+      "id": "A_F2_d1_x0_H0_e1",
+      "type": "A",
+      "F": 2,
+      "delta": 1,
+      "e": 1,
+      "x": 0,
+      "H": 0,
+      "f_out": 2,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a1",
+            "d0"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "d0"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "a1"
+          ],
+          "a": 0,
+          "eta": 1,
+          "mechanism": "EXTRA_REPEAT"
+        }
+      ],
+      "short_shape": "a+b+c=6, a,b,c>=1"
+    },
+    {
+      "id": "A_F2_d1_x0_H0_e2",
+      "type": "A",
+      "F": 2,
+      "delta": 1,
+      "e": 2,
+      "x": 0,
+      "H": 0,
+      "f_out": 3,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a0",
+            "a1",
+            "d0"
+          ],
+          "a": 0,
+          "eta": 1,
+          "mechanism": "EXTRA_REPEAT"
+        }
+      ],
+      "short_shape": "a+b+c=6, a,b,c>=1"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e0",
+      "type": "B",
+      "F": 2,
+      "delta": 1,
+      "e": 0,
+      "x": 0,
+      "H": 0,
+      "f_out": 1,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a1"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        }
+      ],
+      "short_shape": "(b0,6-b0),(b1,6-b1), b0,b1=1..5"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e1",
+      "type": "B",
+      "F": 2,
+      "delta": 1,
+      "e": 1,
+      "x": 0,
+      "H": 0,
+      "f_out": 2,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a1",
+            "d1"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a1",
+            "d0"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "d1"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "d0"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "a1"
+          ],
+          "a": 0,
+          "eta": 1,
+          "mechanism": "EXTRA_REPEAT"
+        }
+      ],
+      "short_shape": "(b0,6-b0),(b1,6-b1), b0,b1=1..5"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e2",
+      "type": "B",
+      "F": 2,
+      "delta": 1,
+      "e": 2,
+      "x": 0,
+      "H": 0,
+      "f_out": 3,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a1",
+            "d0",
+            "d1"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "d0",
+            "d1"
+          ],
+          "a": 1,
+          "eta": 0,
+          "mechanism": "MISSING_ASCENT"
+        },
+        {
+          "free": [
+            "a0",
+            "a1",
+            "d1"
+          ],
+          "a": 0,
+          "eta": 1,
+          "mechanism": "EXTRA_REPEAT"
+        },
+        {
+          "free": [
+            "a0",
+            "a1",
+            "d0"
+          ],
+          "a": 0,
+          "eta": 1,
+          "mechanism": "EXTRA_REPEAT"
+        }
+      ],
+      "short_shape": "(b0,6-b0),(b1,6-b1), b0,b1=1..5"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e3",
+      "type": "B",
+      "F": 2,
+      "delta": 1,
+      "e": 3,
+      "x": 0,
+      "H": 0,
+      "f_out": 4,
+      "S": 25,
+      "N": 0,
+      "L": 871,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "patterns": [
+        {
+          "free": [
+            "a0",
+            "a1",
+            "d0",
+            "d1"
+          ],
+          "a": 0,
+          "eta": 1,
+          "mechanism": "EXTRA_REPEAT"
+        }
+      ],
+      "short_shape": "(b0,6-b0),(b1,6-b1), b0,b1=1..5"
+    }
+  ],
+  "capacity": {
+    "argv": [
+      "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round115-f0-audit\\outputs\\chain_capacity_115_codex.exe",
+      "1",
+      "0",
+      "13",
+      "20000000000"
+    ],
+    "parameters": [
+      1,
+      0,
+      13
+    ],
+    "result": {
+      "b": 1,
+      "g": 0,
+      "s": 13,
+      "passes": 98,
+      "orbits": 22,
+      "runs": 23,
+      "nodes": 681902414,
+      "capped": false
+    },
+    "seconds": 28.828430499881506,
+    "binary_sha256": "b1942b9cdada4ddefac40bb9b9ef86c132817d8446de281e8c6647972044179c",
+    "source_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a"
+  },
+  "mathematical_digest": "256b180af9554468cffdb2c254feb8b8332b5855787e3e8c27edb1177f3c49cc"
+}
