@@ -151,9 +151,10 @@ def main():
             shape='at least one partial-arc merge; hard core exactly one' if r['type']=='A' else '0 or 1 in hard core; state-specific'
         outcomes=[]
         if r['F']==2:
-            for u in range(r['x']+1):
+            for u in range(r['x']+r['delta']+1):
                 outcomes.append(dict(condition='if two distinct orbit intervals are removable',
-                    removed_M3a=u,P=112+u,O=25,D=13-u,S=r['S']-u,H=r['H'],
+                    removed_paid_joints=u,removed_M3a=u if r['delta']==0 else 0,
+                    P=112+u,O=25,D=13-u,S=r['S']-u,H=r['H'],
                     residual_e_plus_x=r['S']-u-24))
         ledger.append(r|dict(status=status,proof=proof,contraction_shape=shape,
                             two_removal_outputs=outcomes))

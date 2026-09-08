@@ -43,6 +43,16 @@ class Round135(unittest.TestCase):
         self.assertFalse(d['cell_closed']);self.assertEqual(d['outer_closed'],10)
         self.assertEqual(d['independent_seam_counts']['all_label_tests'],17280)
         self.assertEqual(sum(r['status']=='CLOSED' for r in d['ledger']),18)
+    def test_paid_short_entry_also_removes_a_joint(self):
+        g=geometry(6);c=g.s(0,2)
+        ps=[(0,2)]+[(g.e(c,j),6) for j in [2,3,4]]+[(c,4)]
+        self.assertIsNotNone(g.replay(ps))
+        new,step=next(contractions(g,ps))
+        self.assertEqual(new,[(0,6)])
+        self.assertEqual(step['internal_weights'],[3,2,2,2])
+        self.assertEqual(step['before']['S']-step['after']['S'],1)
+        self.assertEqual(step['before']['x'],0)
+        self.assertEqual(step['before']['D']-step['after']['D'],1)
     def test_slack_one_counterexamples_not_discarded(self):
         d=json.loads((ROOT/'outputs/rr_round135_controls_codex.json').read_text())
         self.assertTrue(any(r['delta']==1 and not r['steps'] for r in d['n4']['controls']))
