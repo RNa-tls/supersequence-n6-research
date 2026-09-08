@@ -619,5 +619,67 @@
    "astra_argmax_claim": true
   },
   "both_contradict": true
- }
+ },
+ "verdict": "CLAUDE_ROUND137_CLOSURE_PARTIAL",
+ "per_item_verdicts": {
+  "1_artefact_recovery": "CONFIRMED",
+  "2_seven_row_resource_vector": "CONFIRMED",
+  "3_delta1_and_L871": "CONFIRMED",
+  "4_positional_identities_10800": "CONFIRMED",
+  "5_external_context_preservation": "CONFIRMED",
+  "6_gap_parameter_identities": "CONFIRMED",
+  "7_exactly_two_light_connectors": "CONFIRMED (hole found by this audit, then closed)",
+  "8_C0_ordinary_capacity": "CONFIRMED (independent, uncapped)",
+  "9_M_capacity_contradiction_117_gt_112": "CONFIRMED",
+  "10_R_root_return_capacity": "CONFIRMED (independent, uncapped; maxima AND chain counts)",
+  "11_R_capacity_contradiction_117_gt_103": "CONFIRMED",
+  "12_seven_row_coverage": "CONFIRMED",
+  "13_universal_privacy_gap_inclusion": "NOT_ESTABLISHED (hand proof; verified only on the specified finite domain; NOT refuted)",
+  "14_certificate_and_lineage": "DEFECT (one stale source SHA256; mathematically inconsequential)"
+ },
+ "residual_hard_core": {
+  "name": "R137-P",
+  "statement": "In every residual delta=1 configuration of (3,2), the orbits opened inside the multi-orbit extraction interval are always disjoint from the orbits retained outside it (shared orbits s = 0).",
+  "status": "verified on 835 finite controls (53 n=4 + 782 n=6); universal proof is Astra's hand argument only",
+  "why_load_bearing": "s = 1 raises the deficit budget to 18 and the M convolution to >= 132 > 117, destroying the M contradiction"
+ },
+ "ledger": {
+  "claude_independently_audited_outer_cells": "10/55",
+  "astra_claimed": "11/55",
+  "astra_claim_accepted": false,
+  "AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": "6396/6396",
+  "NR6": "ASSUMED",
+  "L6_ge_872": "NOT PROVED"
+ },
+ "astra_artefacts_sha256_prefix": {
+  "outputs/rr_round137_gap_cut_codex.json": "11d3d9af43d31515",
+  "outputs/rr_round137_root_return_capacity_codex.json": "4ee68304a0b914a4",
+  "outputs/rr_round137_gap_closure_ledger_codex.json": "a10011b42a9519a5",
+  "src/round137_root_return_capacity_codex.c": "4473e25b11f0aea3",
+  "src/verify_round137_root_return_codex.c": "547392dffaa07ca5",
+  "research/RR_G2_K3_ONE_DEFECT_GAP_CUT_CODEX.md": "1ae1a98f83198521"
+ },
+ "lineage_defect": {
+  "file": "src/chain_capacity_115.c",
+  "certificate_records": "c7694b66f3d31770...",
+  "committed_file_is": "2287c05efdfe0cb5...",
+  "file_unchanged_since": "c4291f6 (Round 115)",
+  "hash_found_anywhere_in_object_db": false,
+  "effect": "Astra's own verify_round137_gap_capacity_codex.py fails with AssertionError at ec8a5f1",
+  "with_that_one_line_bypassed": {
+   "verified": true,
+   "gap_controls": 835,
+   "M_bound": 112,
+   "R_bound": 103,
+   "required_pass_sum": 117
+  },
+  "astra_test_suite": "29/29 pass after rebuilding the missing binaries from committed source",
+  "run_level_nodes_rebuilt_with_cc": 7712526,
+  "port_level_nodes": 29959867,
+  "my_python_nodes": 71807973,
+  "any_capped": false,
+  "mathematical_impact": "none - the C0 table this file produces was independently recomputed and agrees"
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
 }

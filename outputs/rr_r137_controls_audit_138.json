@@ -1,0 +1,54 @@
+{
+ "replay": {
+  "rows_checked": 835,
+  "kinds": {
+   "4/M_FRESH_GAP": 53,
+   "6/M_FRESH_GAP": 268,
+   "6/R_ROOT_RETURN_GAP": 514
+  },
+  "failures": {},
+  "total_failures": 0,
+  "shared_orbit_examples": [],
+  "privacy_holds_on_all_controls": true,
+  "all_pass": true
+ },
+ "privacy_sensitivity": {
+  "cases": [
+   {
+    "shared_orbits": 0,
+    "deficit_budget": 13,
+    "M_best": 112,
+    "M_argmax": [
+     4,
+     9
+    ],
+    "R_best": 103,
+    "R_argmax": [
+     0,
+     13
+    ],
+    "M_still_contradicts": true,
+    "R_still_contradicts": true,
+    "note": "d1,d2 <= 13 인 조합만 썼으므로 s=1 의 값은 **하한**이다; 실제 최대는 더 클 수 있다."
+   },
+   {
+    "shared_orbits": 1,
+    "deficit_budget": 18,
+    "M_best": 132,
+    "M_argmax": [
+     6,
+     12
+    ],
+    "R_best": 107,
+    "R_argmax": [
+     6,
+     12
+    ],
+    "M_still_contradicts": false,
+    "R_still_contradicts": true,
+    "note": "d1,d2 <= 13 인 조합만 썼으므로 s=1 의 값은 **하한**이다; 실제 최대는 더 클 수 있다."
+   }
+  ],
+  "verdict": "사밀성은 완전히 하중을 받는다: 공유 궤도가 단 하나만 있어도 M 용량 합성곱이 117 을 넘으므로 §7 의 모순이 사라진다."
+ }
+}
