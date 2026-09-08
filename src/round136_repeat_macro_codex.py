@@ -51,12 +51,13 @@ def enumerate_macros():
                 v=g.e(c,u)
                 ps=[(0,a)]+[(g.e(c,j),6) for j in range(1,u)]
                 ps+=g.half(v,b)
-                ps += [(g.e(c,j),6) for j in range(u+2,5)]+[(c,6-a)]
+                stop=10 if u==4 else 5
+                ps += [(g.e(c,j),6) for j in range(u+2,stop)]+[(c,6-a)]
                 beta_counts['synthetic']+=1
                 rep=g.replay(ps)
                 if not rep:beta_counts['literal_collision_or_wrong_joint']+=1;continue
                 # u=4 would skip the closer phase itself and cannot be valid.
-                if u==4:continue
+                assert u!=4
                 end,steps=maximal(g,ps)
                 assert len(steps)==2 and end==[(0,6)]
                 m,*_=measure(rep['word'],6)
@@ -72,4 +73,4 @@ if __name__=='__main__':
         source_sha256=sha(__file__),binary_sha256=sha(sys.executable),argv=[sys.executable,*sys.argv],result=enumerate_macros())
     data['mathematical_digest']=digest(data['result'])
     (ROOT/'outputs/rr_round136_repeat_macros_codex.json').write_text(json.dumps(data,indent=2)+'\n')
-    print(json.dumps({k:v for k,v in data['result'].items() if k!='macros'}))
+    print(json.dumps({k:v for k,v in data['result'].items() if k not in ['macros','free_closer_controls','beta_paid_return']}))
