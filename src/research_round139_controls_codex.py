@@ -122,7 +122,6 @@ def nr4():
             selected=min(dec,key=lambda z:(len(z['pieces']),sum(p['metrics']['e']+p['metrics']['x'] for p in z['pieces']))) if dec else None
             tag=str((typ,d['F'],d['delta'],m['x'],m['H'],bool(dec)))
             hist[tag]+=1
-            a_events={i+1 for i,j in enumerate(d['nu']) if i<j and (i+1>=len(ps) or g.weight(g.words[g.s(*ps[i])],g.words[ps[i+1][0]])==0)} if False else []
             rows.append(dict(word=word,n=4,type=typ,classification=d,decomposition=selected))
             return
         for t,w in adj[v]:
@@ -146,10 +145,16 @@ def local_fusions():
     return out
 
 def main():
-    start=time.perf_counter();data=dict(schema='codex/round139-controls/1',local=local_fusions(),n4=nr4(),csp=event_csp())
+    head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+    assert subprocess.check_output(['git','ls-remote','origin','refs/heads/codex/round139-g2-k2-multidefect'],text=True).split()[0]==head
+    start=time.perf_counter();data=dict(schema='codex/round139-controls/1',local=local_fusions())
+    print('LOCAL',len(data['local']),flush=True);data['n4']=nr4()
+    print('NR4',data['n4']['nodes'],len(data['n4']['rows']),flush=True);data['csp']=event_csp()
     data['seconds']=time.perf_counter()-start
-    data['commit']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-    data['committed_source_sha256']=hashlib.sha256(subprocess.check_output(['git','show','HEAD:src/research_round139_controls_codex.py'])).hexdigest()
+    data['commit']=head
+    sources=['src/research_round139_controls_codex.py','src/research_alpha_gap_codex.py','src/research_round135_contraction_codex.py','src/research_round138_privacy_codex.py','src/verify_g2_k4_contraction_certificate_codex.py']
+    data['committed_source_sha256']={p:hashlib.sha256(subprocess.check_output(['git','show',head+':'+p])).hexdigest() for p in sources}
+    data['runtime_source_sha256']={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources}
     (ROOT/'outputs/rr_round139_controls_codex.json').write_text(json.dumps(data,indent=2)+'\n')
     print(data['n4']['histogram']);print('CSP',data['csp']['models']);print('seconds',data['seconds'])
 if __name__=='__main__':main()

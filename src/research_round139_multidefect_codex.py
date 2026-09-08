@@ -108,9 +108,11 @@ def heavy_seams():
 
 def main():
     t=time.perf_counter();r=dict(resources=resource_rows(),heavy_seams=heavy_seams())
-    r.update(schema='codex/round139-multidefect/1',seconds=time.perf_counter()-t,
-             commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
-             committed_source_sha256=hashlib.sha256(subprocess.check_output(['git','show','HEAD:src/research_round139_multidefect_codex.py'])).hexdigest())
+    head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+    sources=['src/research_round139_multidefect_codex.py','src/research_alpha_gap_codex.py']
+    r.update(schema='codex/round139-multidefect/1',seconds=time.perf_counter()-t,commit=head,
+             committed_source_sha256={p:hashlib.sha256(subprocess.check_output(['git','show',head+':'+p])).hexdigest() for p in sources},
+             runtime_source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sources})
     p=ROOT/'outputs/rr_round139_initial_codex.json';p.write_text(json.dumps(r,indent=2)+'\n')
     print(json.dumps({k:v for k,v in r['resources'].items() if k!='rows'}));print(r['heavy_seams']['counts'])
 
