@@ -131,12 +131,14 @@ def metadata_correction():
     oldpath=ROOT/'outputs/rr_round137_root_return_capacity_codex.json';old=json.loads(oldpath.read_text())
     raw=(ROOT/p).read_bytes();blob=subprocess.check_output(['git','show',commit+':'+p])
     recorded=old['source_sha256'][p]
-    assert hashlib.sha256(raw).hexdigest()==recorded
     assert raw.replace(b'\r\n',b'\n')==blob
-    return dict(schema='codex/round138-source-provenance-correction/1',historical_certificate=str(oldpath.relative_to(ROOT)),
+    historical_crlf=blob.replace(b'\n',b'\r\n')
+    assert hashlib.sha256(historical_crlf).hexdigest()==recorded
+    return dict(schema='codex/round138-source-provenance-correction/1',historical_certificate=oldpath.relative_to(ROOT).as_posix(),
                 historical_certificate_sha256=sha(oldpath),file=p,recorded_ambiguous_source_sha256=recorded,
                 correct_committed_blob_sha256=hashlib.sha256(blob).hexdigest(),commit=commit,
-                historical_worktree_sha256=hashlib.sha256(raw).hexdigest(),CRLF_lines=raw.count(b'\r\n'),
+                historical_worktree_sha256=hashlib.sha256(historical_crlf).hexdigest(),CRLF_lines=historical_crlf.count(b'\r\n'),
+                current_worktree_sha256=hashlib.sha256(raw).hexdigest(),
                 committed_CRLF_lines=blob.count(b'\r\n'),LF_normalized_equal=True,
                 correction='Old source_sha256 was the compiled WORKTREE byte hash, not the remotely retrievable committed blob hash. Explicitly distinguish both; content differs only by CRLF/LF.',
                 old_certificate_modified=False,capacity_recomputed=False)

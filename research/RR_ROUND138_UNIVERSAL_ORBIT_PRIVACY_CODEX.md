@@ -81,7 +81,7 @@ symbolically, w2 and tails 120/210 end with the source endpoint's first symbol,
 which differs from the pass entry's last symbol. Tail 201 ends with the
 endpoint's second symbol; this too differs except when the pass length is
 five. In that exceptional length-five case, writing the entry as abcdef, the
-target is bcdaef: the same last symbol f, but bcd ae is not a cyclic rotation
+target is bcdaef: the same last symbol f, but bcdae is not a cyclic rotation
 of abcde (the unique rotation starting b is bcdea). Thus its E-orbit still
 differs. A short pass is last in its run. One must NOT replace this argument
 by the false assertion that all short w3 joints change the last symbol.
@@ -277,6 +277,15 @@ formula. The audit's sensitivity at s=1 is therefore real. Section 3 and
 section 5 now establish s=0 universally for the canonical cuts, not merely
 in sampled controls.
 
+For precision, the formula assumes one orbit actually disappears from the
+UNION of the two pieces, not just from the outside piece. More generally, if
+r orbits disappear from that union then the identity is `18-5r+5s`. An ordinary
+deletion before extraction has r=1 by section 4.1. In beta inner-first order,
+section 3 proves the subsequently removed boundary orbit Q1 is absent from
+the inside piece, so r=1 there too. Merely removing Q1 outside without this
+argument would not justify even the proposed `13+5s` identity. No such
+outside-only deletion is used as a substitute for global orbit removal.
+
 | Row | Mechanisms needing privacy | Applicable cases | Status |
 |---|---|---|---|
 | A/e0 |M|Type-A M|proved|
@@ -359,5 +368,11 @@ controls and provenance. All scopes remain explicit.
 
 The producer requires current HEAD pushed to the Round138 branch. Neither
 command launches capacity or continuation searches.
+
+The ten new regression tests pass, including corrupt delta/orbit rejection,
+the short-length-five same-last-symbol exception, accepted internal R return,
+independent CSP histogram conservation, and committed-source hash validation.
+`py_compile` and whitespace checks pass. The prior result files remain byte
+identical to the pinned Round137 commit.
 
 ASTRA_R137_PRIVACY_PROVED

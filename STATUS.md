@@ -1,5 +1,19 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 138: the Round137 privacy proof layer is now explicit.**
+> The independent Round137 audit accepted its local algebra and capacities but
+> left universal orbit privacy PARTIAL; the accepted outer baseline was therefore
+> 10/55, not the provisional 11/55 below. Round138 proves privacy for the canonical
+> Type-A/Type-B M/R cuts by an injective charge of cross-piece shared orbits to
+> additional repeat-run opening events: `delta >= 1+s`. With delta=1, s=0.
+> R's designated internal root return is retained, not charged twice.
+> The independently confirmed capacities are reused without recomputation.
+> All seven rows now close with that missing premise supplied: **11/55 under
+> NR6**. **NR6 is ASSUMED; `L6 >= 872` is NOT PROVED.**
+> [Proof and counterexample domains](research/RR_ROUND138_UNIVERSAL_ORBIT_PRIVACY_CODEX.md)
+> · [Privacy ledger](outputs/rr_round138_privacy_ledger_codex.json)
+> · [Explicit CRLF/committed-blob hash correction](outputs/rr_round138_source_hash_correction_codex.json)
+
 > **Codex Round 137 update (NR6 conditional): `(k,G)=(3,2)` CLOSED.**
 > Both residual delta=1 mechanisms, M-off-target and R-target-coupled, are
 > excluded by multi-orbit gap extraction. The two extracted full-pass chains
