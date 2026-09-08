@@ -1,0 +1,225 @@
+{
+ "round": 139,
+ "role": "independent audit of Astra Round 139",
+ "astra_commit": "ab16be1533e8ad0a21b7e32b769a807846216298",
+ "astra_branch": "codex/round139-g2-k2-multidefect",
+ "A_splice_endpoint_identity": {
+  "per_n": {
+   "4": 96,
+   "5": 600,
+   "6": 4320
+  },
+  "total": 5016,
+  "expected_5016": true,
+  "failures": [],
+  "failure_count": 0,
+  "all_pass": true,
+  "statement": "sigma^(n-1)(sigma^l(v)) == sigma^(l-1)(v) for all v, 1<=l<=n",
+  "why": "full pass 로 치환해도 조인트의 출처 창이 문자 그대로 같으므로 모든 무게의 조인트가 그대로 옮겨진다"
+ },
+ "A2_splice_preserves_literal_joint": {
+  "triples_checked": 40788,
+  "failure_count": 0,
+  "failures": [],
+  "all_pass": true,
+  "note": "출처 창이 같으므로 무게·꼬리·중간창이 항등적으로 같다"
+ },
+ "B_topology": {
+  "cases": {
+   "A_F2": {
+    "path": [
+     0
+    ],
+    "circuits": [
+     [
+      1
+     ],
+     [
+      2
+     ]
+    ],
+    "n_circuits": 2,
+    "one_path": false
+   },
+   "A_F1": {
+    "path": [
+     0,
+     2,
+     1
+    ],
+    "circuits": [],
+    "n_circuits": 0,
+    "one_path": true
+   },
+   "B_disjoint": {
+    "path": [
+     0,
+     2
+    ],
+    "circuits": [
+     [
+      1
+     ],
+     [
+      3
+     ]
+    ],
+    "n_circuits": 2,
+    "one_path": false
+   },
+   "B_nested": {
+    "path": [
+     0
+    ],
+    "circuits": [
+     [
+      1,
+      3
+     ],
+     [
+      2
+     ]
+    ],
+    "n_circuits": 2,
+    "one_path": false
+   },
+   "B_crossing": {
+    "path": [
+     0,
+     3,
+     2,
+     1
+    ],
+    "circuits": [],
+    "n_circuits": 0,
+    "one_path": true
+   }
+  },
+  "componentwise_hex_simple": {
+   "A_F2": true,
+   "A_F1": false,
+   "B_disjoint": true,
+   "B_nested": true,
+   "B_crossing": false
+  },
+  "subdivision_invariant": true,
+  "case_count": 5,
+  "expected_five": true,
+  "circuits_by_case": {
+   "A_F2": 2,
+   "A_F1": 0,
+   "B_disjoint": 2,
+   "B_nested": 2,
+   "B_crossing": 0
+  },
+  "max_circuits": 2,
+  "one_path_cases": [
+   "A_F1",
+   "B_crossing"
+  ],
+  "three_component_cases": [
+   "A_F2",
+   "B_disjoint",
+   "B_nested"
+  ],
+  "hex_simple_iff_three_components": true
+ },
+ "CD_resource_and_master": {
+  "resource_rows": [
+   {
+    "k": 0,
+    "P": 122,
+    "O": 24,
+    "D": -2,
+    "D_is_5k_minus_2": true
+   },
+   {
+    "k": 1,
+    "P": 122,
+    "O": 25,
+    "D": 3,
+    "D_is_5k_minus_2": true
+   },
+   {
+    "k": 2,
+    "P": 122,
+    "O": 26,
+    "D": 8,
+    "D_is_5k_minus_2": true
+   },
+   {
+    "k": 3,
+    "P": 122,
+    "O": 27,
+    "D": 13,
+    "D_is_5k_minus_2": true
+   },
+   {
+    "k": 4,
+    "P": 122,
+    "O": 28,
+    "D": 18,
+    "D_is_5k_minus_2": true
+   },
+   {
+    "k": 5,
+    "P": 122,
+    "O": 29,
+    "D": 23,
+    "D_is_5k_minus_2": true
+   },
+   {
+    "k": 6,
+    "P": 122,
+    "O": 30,
+    "D": 28,
+    "D_is_5k_minus_2": true
+   }
+  ],
+  "all_D_equal_5k_minus_2": true,
+  "L_identity_846": true,
+  "budget_S_plus_H_le_25": true,
+  "master_consequences_sound": true,
+  "k_plus_H_le_2_plus_c": true,
+  "k_range_forced": "1 <= k <= 4  (D>=0 needs k>=1; k+H<=2+c<=4)",
+  "envelopes_sample": [
+   {
+    "k": 1,
+    "c": 0,
+    "H": 0,
+    "s": 0,
+    "B": 1,
+    "P_sum": 122,
+    "D_sum": 3
+   },
+   {
+    "k": 1,
+    "c": 0,
+    "H": 0,
+    "s": 1,
+    "B": 1,
+    "P_sum": 122,
+    "D_sum": 8
+   },
+   {
+    "k": 1,
+    "c": 0,
+    "H": 0,
+    "s": 2,
+    "B": 1,
+    "P_sum": 122,
+    "D_sum": 13
+   },
+   {
+    "k": 1,
+    "c": 0,
+    "H": 1,
+    "s": 0,
+    "B": 0,
+    "P_sum": 122,
+    "D_sum": 3
+   }
+  ],
+  "envelope_count": 144
+ }
+}
