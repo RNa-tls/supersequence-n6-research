@@ -63,7 +63,10 @@ def controls_and_extensions():
             y=g.s(v,a-1)
             for tail,offset in [((1,2,0),(2,3,4,0,1,5)),((2,0,1),(2,3,4,1,5,0)),((2,1,0),(2,3,4,1,0,5))]:
                 w=g.words[y];t=w[3:]+tuple(w[k] for k in tail);inv={z:k for k,z in enumerate(g.words[c])}
-                assert tuple(inv[z] for z in t)==offset;identities+=1
+                assert tuple(inv[z] for z in t)==offset
+                assert g.q[g.idx[t]]!=g.q[v]
+                if t[-1]==g.words[v][-1]:assert a==5 and tail==(2,0,1)
+                identities+=1
     return dict(input_sha256=sha(path),preserved_gap_controls=len(data['rows']),positional_identities=identities,
                 complementary_context_checks=contexts,attempted_one_port_contexts=configs,histogram=dict(count),
                 legal_shared_orbit_contexts=len(local),scope='specified finite external-one-full-pass domain; not universal enumeration',
