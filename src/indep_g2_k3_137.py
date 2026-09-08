@@ -270,3 +270,40 @@ if __name__ == "__main__":
     print("Theorem V:", d["capacity_growth"]["all_match"])
     print("delta decomposition:", json.dumps(d["delta_decomposition"]["by_row"]))
     print("n=4 adversarial:", json.dumps(d["n4_adversarial"], ensure_ascii=False))
+
+
+# ------------------------------------------------- 한 번 축약한 대상의 정확한 예산
+def contracted_budget():
+    """축약 한 번 뒤 대상의 `(P', O', D', b')` 를 정확히 계산한다.
+
+    축약은 잠긴 run(5 pass, 1 궤도) 을 지우고 짧은 pass 쌍을 full pass 하나로 합친다:
+    `P' = 122 − 5 = 117`, `O' = 27 − 1 = 26`, `D' = 5·26 − 117 = 13` (불변).
+
+    run 수: 잠긴 run 이 사라져 `r → r − 1`.  게다가 **닫는 pass 의 탈출 joint 가 축약 뒤
+    intra-run 이 될 수 있다** — 정리 I 때문이다.  닫는 pass `closer` 의 `ν`-목표는 opener 이고
+    `T(closer) = orb(entry(opener))`; 축약 후 그 자리에는 진입 `entry(opener)` 인 **full**
+    pass 가 있으므로 `M2`/`M3a` 는 **자기 궤도**로 간다.  따라서
+
+      * `closer` 의 탈출이 `M2` (자유) 였다면 → 축약 후 intra-run τ-걸음: run 이 하나 더
+        합쳐져 `r → r − 2`, `x' = 0`  ⇒ `e' = e − 1`, **`b' = e − 1`**;
+      * `M3a` 였다면 → 축약 후 intra-run `ω=3`, 즉 **`x'` 호**: `r → r − 2`, `x' = 1`
+        ⇒ `e' = e − 1`, **`b' = e`**;
+      * `M3b`/`M3c` 였다면 → 여전히 궤도를 바꾼다: `r → r − 1`, `x' = 0`
+        ⇒ `e' = e`, **`b' = e`**.
+    """
+    rows = []
+    for typ, emax in (("A", 2), ("B", 3)):
+        for e in range(0, emax + 1):
+            for exit_kind, dr, xp in (("M2 (free)", 2, 0), ("M3a", 2, 1),
+                                      ("M3b/M3c", 1, 0)):
+                ep = e - (dr - 1)
+                if ep < 0:
+                    continue
+                rows.append(dict(type=typ, e=e, closer_exit=exit_kind,
+                                 P_prime=117, O_prime=26, D_prime=13,
+                                 e_prime=ep, x_prime=xp, b_prime=ep + xp))
+    return dict(P_prime=117, O_prime=26, D_prime=13,
+                rule="b' = e - 1 if the contracted closer exited M2, else e",
+                rows=rows,
+                b_prime_values=sorted({r["b_prime"] for r in rows}),
+                kill_condition="a row dies iff N1*(b', 0, 13) < 117")
