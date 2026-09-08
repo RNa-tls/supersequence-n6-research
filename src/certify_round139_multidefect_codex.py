@@ -91,6 +91,13 @@ def seams_verify(initial):
                             assert why;cc['triple_'+why]+=1
     assert dict(cc)==dict(pairs=78,pair_orbit=30,pair_hex=40,triples=104,triple_orbit=53,triple_hex=51)
     old=read('rr_round135_heavy_seams_codex.json')['chains'];two=Counter()
+    from verify_round135_structural_codex import run_enum
+    regenerated={}
+    for T,D in [(46,4),(66,9)]:
+        nodes,paths=run_enum(g,T,D)
+        archived=next(r['rows'] for r in old if r['target']==T)
+        assert set(paths)=={tuple(r['path']) for r in archived}
+        regenerated[str(T)]=dict(deficit=D,nodes=nodes,extreme_count=len(paths),capped=False)
     for A,B in [old,old[::-1]]:
         for row in A['rows']:
             a=row['path']
@@ -102,7 +109,8 @@ def seams_verify(initial):
                     two[str(s)]+=1
     assert sum(two.values())==312 and two['1']==6
     return dict(three_chain=dict(cc),three_chain_orbit_rejections_also_hex_collide=True,
-                all_104_second_seams_hex_collide=True,two_chain_all_hex_collision=312,two_chain_shared_orbit_histogram=dict(two))
+                all_104_second_seams_hex_collide=True,two_chain_all_hex_collision=312,two_chain_shared_orbit_histogram=dict(two),
+                two_chain_extrema_regenerated=regenerated)
 
 def main():
     initial=read('rr_round139_initial_codex.json');controls=read('rr_round139_controls_codex.json')
@@ -151,7 +159,8 @@ def main():
                 'REVERSED_TRIPLE_ONE_DEFECT' if r['F']==1 else 'TWO_DEFECT_SHARED_OR_CROSSING')
         rows.append(r|dict(status='CLOSED' if closed else 'OPEN',proof_dependency=reason))
     assert len(rows)==73 and sum(r['status']=='CLOSED' for r in rows)==60
-    output=dict(schema='codex/round139-final-ledger/1',rows=rows,closed_rows=60,open_rows=13,raw_tuples=78,
+    output=dict(schema='codex/round139-intermediate-ledger/1',phase='HISTORICAL_INTERMEDIATE_NOT_CURRENT',
+        superseded_by='rr_round139_master_verified_codex.json',rows=rows,closed_rows=60,open_rows=13,raw_tuples=78,
         closed_raw_tuples=sum(len(r['heavy_multisets']) for r in rows if r['status']=='CLOSED'),
         capacities_verified=True,literal_controls_verified=checked,normalized_F2_controls=closed_controls,
         symbolic_event_models=csp['models'],seams=seams_verify(initial),bounds=bounds,
@@ -161,6 +170,6 @@ def main():
         report_sha256=sha(ROOT/'research/RR_ROUND139_G2_K2_MULTIDEFECT_CODEX.md'),
         commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         verifier_sha256=sha(__file__),verified=True)
-    (ROOT/'outputs/rr_round139_final_ledger_codex.json').write_text(json.dumps(output,indent=2)+'\n')
+    (ROOT/'outputs/rr_round139_intermediate_ledger_codex.json').write_text(json.dumps(output,indent=2)+'\n')
     print(json.dumps({k:output[k] for k in ['closed_rows','open_rows','closed_raw_tuples','literal_controls_verified','bounds','verified']}))
 if __name__=='__main__':main()

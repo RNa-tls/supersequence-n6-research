@@ -141,6 +141,40 @@ def arithmetic(data):
     assert actual==expected and len(actual)==38
     return dict(master_envelopes=38,by_k=dict(Counter(r['k'] for r in data['bounds']['rows'])),equality_rows=equalities)
 
+def resource_verify(data):
+    from verify_round139_multidefect_codex import independent_rows
+    rows=data['resource_coverage']['rows']
+    actual=sorted((r['resource']['type'],r['resource']['F'],r['resource']['delta'],r['resource']['x'],r['resource']['H'],r['resource']['e']) for r in rows)
+    assert actual==independent_rows() and len(rows)==73
+    for r in rows:
+        z=r['resource'];expected=[]
+        top=[1] if (z['type'],z['F'])==('A',1) else [3] if z['type']=='A' else [1,3]
+        for index,m in enumerate(data['bounds']['rows']):
+            if m['k']!=2 or m['topology_components'] not in top or m['H']!=z['H'] or list(m['heavy']) not in z['heavy_multisets']:continue
+            # Independently use S+1-O+c, not the producer's delta formula.
+            exact=z['S']+1-z['O']+m['c']
+            if 0<=m['s']<=exact:
+                assert exact-m['s']<=m['b'];expected.append(index)
+        assert expected==r['master_envelope_indices'] and r['status']=='CLOSED'
+        if not expected:
+            assert all(z['S']+1-z['O']+c<0 for t in top for c in range(t))
+    return dict(distinct_rows=73,heavy_refined_tuples=sum(len(r['resource']['heavy_multisets']) for r in rows),closed=73,open=0)
+
+def provenance_verify():
+    out={}
+    for f,field in [('rr_round139_capacities_codex.json','committed_blob_sha256'),
+                    ('rr_round139_independent_codex.json','committed_source_sha256'),
+                    ('rr_round139_master_capacities_codex.json','sources')]:
+        d=load(f);head=d['commit']
+        for p,expected in d[field].items():
+            assert hashlib.sha256(subprocess.check_output(['git','show',head+':'+p])).hexdigest()==expected
+        rows=d.get('rows',d.get('independent_b2',[]))
+        for r in rows:
+            assert not r['result']['capped'] and r.get('exit_code',0)==0
+        out[f]=dict(commit=head,committed_source_blobs=len(d[field]),all_runs_complete=True)
+    assert load('rr_round139_independent_codex.json')['input_sha256']['initial']==sha(ROOT/'outputs/rr_round139_initial_codex.json')
+    return out
+
 def main():
     data=load('rr_round139_splice_master_codex.json');hist=Counter()
     for row in data['controls']:hist[str(endpoint_audit(row))]+=1
@@ -151,13 +185,17 @@ def main():
             for length in range(1,n+1):
                 c=rotate(v,length);assert rotate(c,-1)==rotate(v,length-1);identities+=1
     assert identities==5016
-    sources=['src/verify_round139_splice_master_codex.py','src/certify_round139_multidefect_codex.py']
+    sources=['src/verify_round139_splice_master_codex.py','src/certify_round139_multidefect_codex.py',
+             'src/verify_round135_structural_codex.py','src/round135_heavy_seam_codex.py',
+             'src/research_round135_contraction_codex.py','src/research_alpha_gap_codex.py',
+             'src/verify_round139_multidefect_codex.py']
     head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     result=dict(schema='codex/round139-master-independent/1',endpoint_identity_count=identities,
         support_permutations=support_verify(),literal_controls=1510,histogram=dict(hist),arithmetic=arithmetic(data),
-        seams=seams_verify(load('rr_round139_initial_codex.json')),verified=True,
+        seams=seams_verify(load('rr_round139_initial_codex.json')),resources=resource_verify(data),provenance=provenance_verify(),verified=True,
         commit=head,committed_source_sha256={p:hashlib.sha256(subprocess.check_output(['git','show',head+':'+p])).hexdigest() for p in sources},
-        inputs={f:sha(ROOT/'outputs'/f) for f in ['rr_round139_splice_master_codex.json','rr_round139_initial_codex.json','rr_round139_capacities_codex.json','rr_round139_independent_codex.json','rr_round139_master_capacities_codex.json']},
+        runtime_source_sha256={p:sha(ROOT/p) for p in sources},
+        inputs={f:sha(ROOT/'outputs'/f) for f in ['rr_round139_splice_master_codex.json','rr_round139_initial_codex.json','rr_round139_capacities_codex.json','rr_round139_independent_codex.json','rr_round139_master_capacities_codex.json','rr_f0_column_115.json','rr_round136_capacity_codex.json','rr_round135_heavy_seams_codex.json']},
         universal_proof='research/RR_ROUND139_SUCCESSOR_SPLICING_MASTER_CODEX.md sections 1-6',
         theorem_scope='NR6 AND G=2 AND L<=871: no covering walk',
         new_cells=[[2,2],[1,2]],recovered_old_cells=[[3,2],[4,2]],outer_before='11/55',outer_after='13/55',

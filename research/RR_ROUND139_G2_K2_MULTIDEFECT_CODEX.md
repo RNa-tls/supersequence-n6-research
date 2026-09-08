@@ -1,5 +1,12 @@
 # Round 139 — two-defect bookkeeping, one-defect normalization with decorations
 
+> **Historical intermediate phase, superseded within this same round.**
+> The 60-closed/13-open resource ledger below is not the current result.
+> The final [successor-splicing master proof](RR_ROUND139_SUCCESSOR_SPLICING_MASTER_CODEX.md)
+> closes all 73 k2 resource rows and automatically k1. It replaces, rather
+> than assumes, the delicate original-order normalization in section 5.
+> Current conditional outer ledger: 13/55; NR6 still assumed.
+
 Author: CODEX. Scope: `(k,G)=(2,2)`, NR6 assumed. No full NR6 DFS.
 
 This report distinguishes hand proofs (PROVED), completed finite models

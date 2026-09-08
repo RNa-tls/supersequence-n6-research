@@ -44,10 +44,11 @@ class Round139(unittest.TestCase):
         p=ROOT/'outputs/rr_round139_independent_codex.json'
         if not p.exists():self.skipTest('run b2 verifier first')
         d=json.loads(p.read_text());self.assertEqual([z['result']['passes'] for z in d['independent_b2']],[62,77,92])
-    def test_global_ledger_not_advanced(self):
-        p=ROOT/'outputs/rr_round139_final_ledger_codex.json'
-        if not p.exists():self.skipTest('run final verifier first')
+    def test_intermediate_ledger_not_current(self):
+        p=ROOT/'outputs/rr_round139_intermediate_ledger_codex.json'
+        if not p.exists():self.skipTest('run intermediate verifier first')
         d=json.loads(p.read_text());self.assertEqual(d['conditional_outer_ledger'],'11/55 UNCHANGED')
         self.assertEqual((d['closed_rows'],d['open_rows']),(60,13));self.assertEqual(d['L6_ge_872'],'NOT_PROVED')
+        self.assertEqual(d['phase'],'HISTORICAL_INTERMEDIATE_NOT_CURRENT')
 
 if __name__=='__main__':unittest.main()
