@@ -321,12 +321,257 @@ def extraction_replay():
                             "갈라진 육각형 하나만 공유하고 E-궤도는 공유하지 않는다."))
 
 
+# ------------------------------ H. §1 일곱 행 자원 벡터의 독립 재유도
+def row_arithmetic():
+    """일곱 행의 `(P,O,D,S,N,L,f_out)` 을 우리 자신의 항등식만으로 다시 만든다.
+
+    쓰는 항등식(전부 이전 라운드에서 확립된 것):
+        `P = 120 + G`, `O = 24 + k`, `D = 5O - P`, `r = O + e`,
+        `S = (r-1) + x - f_out`, `N = S + G - O`, `L = 844 + G + S + H`,
+        master `L = 867 + k + G + e + x + H - f_out`.
+    `k=3, G=2, x=H=0` 을 넣고 `L=871` 을 요구하면 master 가 `f_out = e + 1` 을
+    **강제**한다.  그러면 `delta = (F+e) - f_out = F - 1 = 1` (F=2) 이므로 일곱 행이
+    전부 δ=1 이라는 것이 유도된다.  또 `S` 는 `e` 에 무관하게 25 가 된다.
+    """
+    k, Gm, x, H, F = 3, 2, 0, 0, 2
+    P, O = 120 + Gm, 24 + k
+    D = 5 * O - P
+    rows, ok = [], True
+    astra_fout = {("A", 0): 1, ("A", 1): 2, ("A", 2): 3,
+                  ("B", 0): 1, ("B", 1): 2, ("B", 2): 3, ("B", 3): 4}
+    for (t, e), af in sorted(astra_fout.items()):
+        f_out = 867 + k + Gm + e + x + H - 871          # master 를 f_out 에 대해 푼다
+        r = O + e
+        S = (r - 1) + x - f_out
+        N = S + Gm - O
+        L = 844 + Gm + S + H
+        delta = (F + e) - f_out
+        row = dict(type=t, e=e, f_out=f_out, r=r, S=S, N=N, L=L, delta=delta,
+                   f_out_matches_astra=(f_out == af),
+                   f_out_within_thm_129_1=(f_out <= F + e))
+        good = (f_out == af and f_out == e + 1 and S == 25 and N == 0
+                and L == 871 and delta == 1 and f_out <= F + e)
+        row["ok"] = good
+        ok = ok and good
+        rows.append(row)
+    return dict(k=k, G=Gm, P=P, O=O, D=D, F=F,
+                P_is_122=(P == 122), O_is_27=(O == 27), D_is_13=(D == 13),
+                rows=rows, all_rows_reproduced=ok,
+                derived_facts=["f_out = e + 1 for all seven rows",
+                               "S = 25 independent of e",
+                               "delta = F + e - f_out = 1",
+                               "L = 871 = 872 - 1"],
+                passes_after_one_ordinary_block=P - 5,
+                required_117=(P - 5 == 117))
+
+
+# --------------------- I. §2/§19 — 10,800 개 위치 항등식의 독립 재현
+def paid_tail_identities():
+    """`(v,a)` 짧은 pass 의 끝점 `y = sigma^(a-1)(v)` 에서 나가는 weight-3 표적 셋.
+
+    다음 진입 `c = sigma(y)`.  표적은 `y3 y4 y5` 뒤에 `(y0,y1,y2)` 의 꼬리 배열:
+    `120 -> (y1,y2,y0)`, `201 -> (y2,y0,y1)`, `210 -> (y2,y1,y0)`.
+
+    Astra §2 의 주장을 전수 확인한다 (720 단어 × 5 길이 × 3 꼬리 = 10,800):
+      * `120` 표적은 `c` 와 **같은** 궤도이며 정확히 `tau^2(c)`;
+      * `201`, `210` 표적은 `c` 와 **다른** 궤도;
+      * `a < 6` 이면 세 표적 모두 `orb(v)` 와 다르다;
+      * 값-정규화로 `c = 012345` 일 때 표적은 각각 234015 / 234150 / 234105.
+    """
+    TAILS = {"120": (1, 2, 0), "201": (2, 0, 1), "210": (2, 1, 0)}
+
+    def sig(w, t=1):
+        for _ in range(t):
+            w = IDX[SG(P6[w])]
+        return w
+
+    def target(y, tail):
+        q = P6[y]
+        return IDX[(q[3], q[4], q[5]) + tuple(q[i] for i in TAILS[tail])]
+
+    checked = 0
+    fails = Counter()
+    normalized = {}
+    for v in range(720):
+        for a in (1, 2, 3, 4, 5):
+            y = sig(v, a - 1)
+            c = sig(y)
+            assert c == sig(v, a)
+            rho = {val: i for i, val in enumerate(P6[c])}      # c -> 012345
+            for tail in TAILS:
+                checked += 1
+                t = target(y, tail)
+                same = ORB[t] == ORB[c]
+                if tail == "120":
+                    if not same:
+                        fails["120_not_same_orbit_as_c"] += 1
+                    if t != TAU[TAU[c]]:
+                        fails["120_not_tau2_of_c"] += 1
+                else:
+                    if same:
+                        fails[tail + "_same_orbit_as_c"] += 1
+                if ORB[t] == ORB[v] and a < 6:
+                    fails[tail + "_equals_orb_v"] += 1
+                normalized.setdefault(tail, set()).add(
+                    "".join(str(rho[val]) for val in P6[t]))
+    # a = 6 (full source pass) 통제: 120 만 orb(v) 에 남는다
+    full = Counter()
+    for v in range(720):
+        y = sig(v, 5)
+        for tail in TAILS:
+            t = target(y, tail)
+            full[(tail, ORB[t] == ORB[v])] += 1
+    return dict(checked=checked, expected=10800, count_matches=(checked == 10800),
+                failures=dict(fails), all_pass=(sum(fails.values()) == 0),
+                normalized_targets={k: sorted(v) for k, v in normalized.items()},
+                astra_normalized_claim={"120": ["234015"], "201": ["234150"],
+                                        "210": ["234105"]},
+                normalized_agree=all(
+                    sorted(normalized[k]) == v for k, v in
+                    {"120": ["234015"], "201": ["234150"],
+                     "210": ["234105"]}.items()),
+                full_pass_same_orbit_as_v={f"{t}:{b}": n
+                                           for (t, b), n in sorted(full.items())},
+                full_pass_120_intra_720_of_720=(full[("120", True)] == 720
+                                                and full[("201", True)] == 0
+                                                and full[("210", True)] == 0))
+
+
+# ------------- J. §13 모델 포함의 자원-계수 유도와 모델 밖 배치 탐색
+def model_inclusion_from_counting():
+    """`S = O - 1 + e` 가 사슬 모형을 **강제**한다는 것을 유한 확인으로 뒷받침한다.
+
+    추출된 조각은 pass 가 전부 full, `x = H = 0`.  full pass 다음 조인트에서:
+      * weight 1 (`sigma`) 는 이미 소진된 육각형 안이므로 불가능;
+      * weight 2 는 같은 궤도, 위상 +1 (= `tau`) — **무료** run 연장;
+      * weight 3 중 `120` 은 같은 궤도 위상 +2 (궤도 안 건너뛰기),
+        `201`/`210` 은 다른 궤도 (경량 연결자).
+    `S` 는 유료 조인트 수다.  `m` 개 궤도 위에 `O = m` 개 run 이 있으면 run 전환에
+    이미 `m - 1` 개 유료 조인트가 쓰인다.  §5 가 준 `S_in = m - 1` (M) 은 여분이
+    없다는 뜻이므로 궤도 안 유료 건너뛰기(`120`)가 **하나도** 있을 수 없다.
+    `S_in = m` (R) 은 정확히 하나의 여분 — 예외적 root 반환 — 을 허용한다.
+    따라서 조각은 `tau` 연장 + `201/210` 연결자만으로 이루어진 사슬이며, 이것이
+    바로 `C0(d)` 와 `R(d)` 가 세는 대상이다.
+
+    여기서는 그 이동 분류를 전수로 못 박는다.
+    """
+    def sig5(w):
+        for _ in range(5):
+            w = IDX[SG(P6[w])]
+        return w
+
+    cnt = Counter()
+    for w in range(720):
+        y = sig5(w)
+        q = P6[y]
+        # weight 2: y2..y5 + {y0,y1} 두 배열
+        for tail in ((0, 1), (1, 0)):
+            t = IDX[(q[2], q[3], q[4], q[5]) + tuple(q[i] for i in tail)]
+            same = ORB[t] == ORB[w]
+            dph = (OPH[t] - OPH[w]) % 5 if same else None
+            cnt[("w2", tail, same, dph)] += 1
+        for name, tail in (("120", (1, 2, 0)), ("201", (2, 0, 1)),
+                           ("210", (2, 1, 0))):
+            t = IDX[(q[3], q[4], q[5]) + tuple(q[i] for i in tail)]
+            same = ORB[t] == ORB[w]
+            dph = (OPH[t] - OPH[w]) % 5 if same else None
+            cnt[("w3", name, same, dph)] += 1
+    tab = {f"{a}/{b}/same={c}/dphase={d}": n for (a, b, c, d), n in sorted(
+        cnt.items(), key=lambda kv: str(kv[0]))}
+    tau_move = cnt[("w2", (0, 1), True, 1)] == 720 or cnt[("w2", (1, 0), True, 1)] == 720
+    m3a = cnt[("w3", "120", True, 2)] == 720
+    light = (cnt[("w3", "201", False, None)] == 720
+             and cnt[("w3", "210", False, None)] == 720)
+    return dict(move_table=tab,
+                unique_free_tau_extension_phase_plus1=tau_move,
+                m3a_is_intra_orbit_phase_plus2=m3a,
+                m3b_m3c_always_cross_orbit=light,
+                conclusion=("S = O - 1 (M) 은 궤도 안 유료 건너뛰기 120 을 0 개로 "
+                            "강제하고, S = O (R) 은 정확히 하나의 여분 유료 조인트 "
+                            "= 예외적 root 반환만 허용한다. 따라서 조각은 tau 연장 + "
+                            "201/210 연결자 사슬이며 C0(d) / R(d) 의 정의역과 일치한다."),
+                sound=(tau_move and m3a and light))
+
+
+# --------- K. 연결자가 정확히 둘뿐이라는 것: 조인트 합법성의 전수 확인
+def connector_legality():
+    """사슬 모형이 `201`/`210` **두 개**의 경량 연결자만 쓰는 것이 정당한가?
+
+    끝점 `y` 에서 나가는 weight-3 후보는 꼬리 6 개(= `(y0,y1,y2)` 의 배열) 전부이고
+    전부 `omega = 3` 이다.  그중 `012` 는 `sigma^3(y)` 로 같은 육각형이지만,
+    `021` 과 `102` 는 **다른** 육각형·**다른** 궤도라서 순진하게 보면 추가 경량
+    연결자처럼 보인다.  만약 정말 합법이라면 `C0(d)`/`R(d)` 는 상계가 아니게 되고
+    §7 의 용량 모순 전체가 무너진다.
+
+    닫는 것은 라운드 126 의 **조인트 합법성 기준**이다:
+        `omega = m` 인 전이 `a -> b` 는 그 `m - 1` 개 중간 창 가운데
+        **순열이 하나도 없을 때에만** 합법이다.
+    weight-3 에서 중간 창은 `y1..y5 t3` 와 `y2..y5 t3 t4` 이므로
+        `021`: `t3 = y0` → 첫 중간 창이 순열 → **불법**;
+        `102`: `{t3,t4} = {y0,y1}` → 둘째 중간 창이 순열 → **불법**;
+        `012`: `t3 = y0` → **불법** (게다가 같은 육각형).
+    남는 것은 정확히 `120`(궤도 안, 위상 +2), `201`, `210`(궤도 밖) 셋.
+    weight-2 도 마찬가지로 `(0,1)` 은 중간 창 `y1..y5 y0` 가 순열이라 불법이고
+    `(1,0) = tau` 만 합법이다.  이것이 "run 연장은 tau 뿐, run 전환은 201/210 뿐"
+    이라는 사슬 모형의 근거다.  라운드 126 의 카탈로그 `{w2: 1, w3: 3}` 와 일치.
+    """
+    def legal(a, b, m):
+        cat = list(P6[a]) + list(P6[b])[6 - m:]
+        for i in range(1, m):
+            if len(set(cat[i:i + 6])) == 6:
+                return False
+        return True
+
+    def sig5(w):
+        for _ in range(5):
+            w = IDX[SG(P6[w])]
+        return w
+
+    rec = {}
+    for m, base in ((2, 2), (3, 3)):
+        for tail in permutations(range(base)):
+            name = "".join(map(str, tail))
+            lg = ok = 0
+            props = set()
+            for w in range(720):
+                y = sig5(w)
+                q = P6[y]
+                t = IDX[tuple(q[base:]) + tuple(q[i] for i in tail)]
+                if legal(y, t, m):
+                    lg += 1
+                    props.add((HEX[t] == HEX[w], ORB[t] == ORB[w],
+                               (OPH[t] - OPH[w]) % 5 if ORB[t] == ORB[w] else None))
+                ok += 1
+            rec[f"w{m}/{name}"] = dict(legal_of_720=lg, checked=ok,
+                                       properties=sorted(map(str, props)))
+    legal_w2 = [k for k, v in rec.items() if k.startswith("w2") and v["legal_of_720"] == 720]
+    legal_w3 = [k for k, v in rec.items() if k.startswith("w3") and v["legal_of_720"] == 720]
+    partial = {k: v["legal_of_720"] for k, v in rec.items()
+               if 0 < v["legal_of_720"] < 720}
+    return dict(table=rec,
+                legal_weight2_moves=legal_w2, legal_weight3_moves=legal_w3,
+                counts={"w2": len(legal_w2), "w3": len(legal_w3)},
+                round126_catalogue={"w2": 1, "w3": 3},
+                matches_round126_catalogue=(len(legal_w2) == 1 and len(legal_w3) == 3),
+                no_partially_legal_tail=(partial == {}), partially_legal=partial,
+                exactly_two_light_connectors=(
+                    sorted(legal_w3) == ["w3/120", "w3/201", "w3/210"]),
+                conclusion=("합법 weight-3 이동은 120/201/210 셋뿐이고 그중 120 은 "
+                            "궤도 안(위상 +2)이므로 궤도를 바꾸는 경량 연결자는 "
+                            "201, 210 **둘뿐**이다. 021 과 102 는 중간 창이 순열이라 "
+                            "불법이다. 따라서 두 연결자 사슬 모형은 상계로서 건전하다."))
+
+
 def main():
     heavy = "--heavy" in sys.argv
     res = dict(round=137, role="independent audit of Astra Round 137",
                astra_commit="ec8a5f1aaa2d5b42dc885dca86420877287555aa",
                astra_branch="codex/round137-mr-hard-core")
     res["A_renaming_symmetry"] = renaming_symmetry()
+    res["H_row_arithmetic"] = row_arithmetic()
+    res["I_paid_tail_identities"] = paid_tail_identities()
+    res["J_model_inclusion_counting"] = model_inclusion_from_counting()
+    res["K_connector_legality"] = connector_legality()
     res["E_gap_parameters"] = gap_parameter_identities()
     res["F_row_coverage"] = row_coverage()
     res["G_extraction_replay"] = extraction_replay()
