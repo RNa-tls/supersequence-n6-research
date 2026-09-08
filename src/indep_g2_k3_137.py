@@ -307,3 +307,105 @@ def contracted_budget():
                 rows=rows,
                 b_prime_values=sorted({r["b_prime"] for r in rows}),
                 kill_condition="a row dies iff N1*(b', 0, 13) < 117")
+
+
+# ------------------------------------------------------- 새 정리 VI: 한-결함 용량 배제
+def one_defect_exclusion():
+    """**정리 VI (한-결함 용량 배제).**
+
+    `(3,2)` 의 `delta = 1` 행에서 축약이 **한 번** 가능하면 그 결과물은
+    `P' = 117`, `O' = 26`, `D' = 13`, `H' = 0` 이고 짧은 pass 가 **정확히 둘**(겹친 육각형
+    하나) 남는다.  정리 I 로 이 대상의 모든 joint 는 한-결함 사슬 모델의 이동이므로
+    (full pass 의 유료 탈출은 `M3b`/`M3c`, 짧은 pass 는 `M2`/`M3a`/`M3b`/`M3c`),
+    대상은 예산 `(b', 0, 13)` 짜리 **사슬 하나**다.  따라서
+
+        117 = P'  ≤  N1*(b', 0, 13).
+
+    전수(캡 없음) 계산: **`N1*(0,0,13) = 102`** (4,121,832,039 노드).
+    `102 < 117` 이므로 **`b' = 0` 인 배치는 전부 불가능**하다.
+
+    ### 축약이 반드시 존재하는가
+    * `e = 0` — 반복 run 이 없으므로 **lock 이 깨질 수 없다** (깨진 lock 은 반복 run 을
+      요구한다).  따라서 자유 상승의 lock 은 반드시 성립하고 축약이 존재한다. **무조건.**
+    * 메커니즘 `R` (`a = 0`) — 상승 **둘 다** 자유이고 `eta = 1` 이라 lock 은 많아야 하나
+      깨진다.  따라서 축약이 최소 하나 존재한다. **무조건.**
+    * 메커니즘 `M` 이면서 `e ≥ 1` — 자유 상승이 하나뿐이고 그 lock 이 깨질 수 있다.
+      이 경우에만 축약 존재가 **보장되지 않는다.**
+    """
+    cb = contracted_budget()
+    kills, cond, survive = [], [], []
+    for typ, emax in (("A", 2), ("B", 3)):
+        for e in range(0, emax + 1):
+            mechs = []
+            if e <= (1 if typ == "A" else 2):
+                mechs.append("M")
+            if e >= 1:
+                mechs.append("R")
+            for r in [z for z in cb["rows"] if z["type"] == typ and z["e"] == e]:
+                for mech in mechs:
+                    contraction_guaranteed = (e == 0) or (mech == "R")
+                    item = dict(row=f"{typ}/e{e}", mechanism=mech,
+                                closer_exit=r["closer_exit"], b_prime=r["b_prime"],
+                                required=117, capacity=(102 if r["b_prime"] == 0 else None),
+                                contraction_guaranteed=contraction_guaranteed)
+                    if r["b_prime"] == 0 and contraction_guaranteed:
+                        kills.append(item)
+                    elif r["b_prime"] == 0:
+                        cond.append(item)
+                    else:
+                        survive.append(item)
+    fully_dead = []
+    for typ, emax in (("A", 2), ("B", 3)):
+        for e in range(0, emax + 1):
+            tag = f"{typ}/e{e}"
+            rel = [z for z in kills + cond + survive if z["row"] == tag]
+            if rel and all(z in kills for z in rel):
+                fully_dead.append(tag)
+    return dict(
+        theorem="117 <= N1*(b',0,13); N1*(0,0,13) = 102 exhaustively, so b' = 0 is impossible",
+        capacity=dict(cell="N1*(0,0,13)", passes=102, orbits=23, runs=23,
+                      nodes=4121832039, capped=False),
+        also=dict(cell="N1*(0,0,12)", passes=99, nodes=1736792185, capped=False),
+        control="with the defect switched off the searcher reproduces Round 115 "
+                "node-for-node (469,852 at s=9 and 14,407,541 at s=13)",
+        unconditional_kills=kills, conditional_kills=cond, not_reached=survive,
+        rows_fully_eliminated=fully_dead,
+        summary=(f"{len(fully_dead)} of the 7 rows are eliminated outright; the remaining "
+                 f"rows are reduced but not closed"))
+
+
+def certificate():
+    """§21 — 재현 가능한 계산 증명서."""
+    import hashlib
+    import subprocess
+
+    def sha(p):
+        p = Path(p)
+        return hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
+    try:
+        commit = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"],
+                                capture_output=True, text=True, check=True).stdout.strip()
+    except Exception:
+        commit = None
+    return dict(
+        source_commit=commit, gcc="gcc -O2",
+        searcher_c=sha(ROOT / "src" / "chain_capacity_g1_137.c"),
+        searcher_bin=sha(ROOT / "src" / "chain_capacity_g1_137.bin"),
+        round115_c=sha(ROOT / "src" / "chain_capacity_115.c"),
+        module=sha(ROOT / "src" / "indep_g2_k3_137.py"),
+        runs=[
+            dict(argv="0 0 13 60000000000 1", cell="N1*(0,0,13)", passes=102, orbits=23,
+                 runs=23, nodes=4121832039, capped=False),
+            dict(argv="0 0 12 60000000000 1", cell="N1*(0,0,12)", passes=99, orbits=22,
+                 runs=22, nodes=1736792185, capped=False),
+            dict(argv="0 0 9 20000000000 1", cell="N1*(0,0,9)", passes=86, orbits=19,
+                 runs=19, nodes=109941651, capped=False),
+            dict(argv="1 0 6 40000000000 1", cell="N1*(1,0,6)", passes=84, orbits=18,
+                 runs=19, nodes=338860753, capped=False),
+            dict(argv="0 0 9 20000000000 0", cell="control = N*(0,0,9)", passes=66,
+                 nodes=469852, capped=False),
+            dict(argv="0 0 13 20000000000 0", cell="control = N*(0,0,13)", passes=83,
+                 nodes=14407541, capped=False)],
+        no_capped_values=True,
+        note="no cap was ever interpreted as UNSAT; N1*(1,0,13) was NOT computed and its "
+             "value 117 is a PREDICTION from the +15 law, not a proof")
