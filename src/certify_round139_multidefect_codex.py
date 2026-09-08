@@ -70,7 +70,11 @@ def seams_verify(initial):
         assert {tuple(z['path']) for z in new['rows']}=={tuple(z) for z in d['witnesses']}
     def transform(path,start):return [g.idx[tuple(g.words[start][a] for a in g.words[v])] for v in path]
     def failure(a,b):
-        if {g.q[v] for v in a}&{g.q[v] for v in b}:return 'orbit'
+        if {g.q[v] for v in a}&{g.q[v] for v in b}:
+            # New stronger check: these candidates fail literal hex occupancy
+            # too. The final k1 theorem ALLOWS shared orbits and needs this.
+            assert {g.h[v] for v in a}&{g.h[v] for v in b}
+            return 'orbit'
         if {g.h[v] for v in a}&{g.h[v] for v in b}:return 'hex'
         return None
     for ds in initial['heavy_seams']['extremal_splits']:
@@ -97,7 +101,8 @@ def seams_verify(initial):
                     hc=bool({g.h[v] for v in a}&{g.h[v] for v in b});assert hc
                     two[str(s)]+=1
     assert sum(two.values())==312 and two['1']==6
-    return dict(three_chain=dict(cc),two_chain_all_hex_collision=312,two_chain_shared_orbit_histogram=dict(two))
+    return dict(three_chain=dict(cc),three_chain_orbit_rejections_also_hex_collide=True,
+                all_104_second_seams_hex_collide=True,two_chain_all_hex_collision=312,two_chain_shared_orbit_histogram=dict(two))
 
 def main():
     initial=read('rr_round139_initial_codex.json');controls=read('rr_round139_controls_codex.json')
