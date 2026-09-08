@@ -38,8 +38,34 @@ def enumerate_macros():
                 if q not in seen:visit(t,path,nh,seen|{q},runs+1,repeat)
                 elif q==T and not repeat:visit(t,path,nh,seen,runs+1,True)
         visit(g.e(c),[(0,a)],{g.h[0]},{g.q[0],T},1,False)
+    free_closer=[]
+    for row in rows:
+        path=[tuple(p) for p in row['original']['passes']]
+        rep=g.replay(path+[(g.e(path[0][0]),6)])
+        if rep:free_closer.append(rep)
+    beta=[];beta_counts=Counter()
+    for a in range(1,6):
+        c=g.s(0,a)
+        for b in range(1,6):
+            for u in range(1,5):
+                v=g.e(c,u)
+                ps=[(0,a)]+[(g.e(c,j),6) for j in range(1,u)]
+                ps+=g.half(v,b)
+                ps += [(g.e(c,j),6) for j in range(u+2,5)]+[(c,6-a)]
+                beta_counts['synthetic']+=1
+                rep=g.replay(ps)
+                if not rep:beta_counts['literal_collision_or_wrong_joint']+=1;continue
+                # u=4 would skip the closer phase itself and cannot be valid.
+                if u==4:continue
+                end,steps=maximal(g,ps)
+                assert len(steps)==2 and end==[(0,6)]
+                m,*_=measure(rep['word'],6)
+                assert m['x']==m['H']==0 and m['S']==1
+                beta_counts['legal_two_merges']+=1
+                beta.append(dict(split0=a,split1=b,inner_phase=u,original=rep,contracted=g.replay(end),steps=steps))
     return dict(scope='one local split, free opener, exactly one paid return to its closer orbit, <=4 orbit runs',
-        nodes=nodes,node_cap=None,capped=False,counts=dict(counts),macros=rows)
+        nodes=nodes,node_cap=None,capped=False,counts=dict(counts),macros=rows,free_closer_controls=free_closer,
+        beta_paid_return_counts=dict(beta_counts),beta_paid_return=beta)
 
 if __name__=='__main__':
     data=dict(schema='codex/round136-local-repeat-macros/1',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
