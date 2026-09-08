@@ -355,4 +355,60 @@ New outer closures: `(2,2)` and `(1,2)` only. Conditional ledger: **13/55**.
 NR6 remains ASSUMED. No conclusion about G>=3 or removal of NR6 is made.
 The project has NOT proved `L6>=872` globally.
 
+## 13. Audit corrections, artifacts, and reproduction
+
+Two separate adversarial reviews checked the universal splicing inclusion
+and the capacity/deficit/seam scope. They identified two clarifications,
+both implemented before packaging: preserve ACTUAL literal gap weights
+instead of assuming a global maximum-overlap normalization; and regenerate
+the E2 deficit9 extrema instead of merely reusing their earlier certificate.
+Neither review found a counterexample to the corrected master theorem.
+These reviews are supporting scrutiny, not substitutes for the proof or
+the deterministic independent verifier.
+
+The final executable checks pass: **27/27 Round139 tests; 66/66 tests across
+Rounds135–139**, with no skips. `py_compile` and `git diff --check` pass.
+The canonical splice verifier checks every control by matching original
+EXIT WINDOWS, independently of the producer's nu-based reassignment.
+
+Primary files:
+
+* `outputs/rr_round139_splice_master_codex.json`: all 1,510 decompositions,
+  five support cases, all 38 master envelopes, and a per-row map for all
+  73 original resource rows (78 heavy-refined tuples). No residual row.
+* `outputs/rr_round139_master_verified_codex.json`: independent literal,
+  topology, arithmetic, resource-coverage, seam and source-blob checks.
+* `outputs/rr_round139_capacities_codex.json`: both marked-return models
+  and the R115 producer's b2/D8 result; marked models are not load-bearing.
+* `outputs/rr_round139_independent_codex.json`: independent b0/b1/b2/D8
+  controls and the 27,453,775-node b2 exhaustion.
+* `outputs/rr_round139_master_capacities_codex.json`: paired b0..3/D3
+  producer/verifier exhaustions, including the automatic k1 input.
+* `outputs/rr_round139_controls_codex.json`: complete specified NR4 domain,
+  preserved local fusion words, and the 131,518-model charging CSP.
+* `outputs/rr_round139_intermediate_ledger_codex.json`: explicitly
+  superseded intermediate 60/73 reduction, retained as research history.
+* `outputs/rr_round139_package_codex.json`: file hashes, source commit,
+  deterministic capacity-result digests, and captured regression results.
+
+Fast independent replay from the repository root (does NOT rerun capacities
+or full NR6 search):
+
+```powershell
+python src/verify_round139_splice_master_codex.py
+python -m unittest discover -s tests -p 'test_round13[5-9]*.py' -v
+```
+
+To reproduce the new capacities from source, compile the two new C verifiers
+with the exact compiler/arguments recorded in the runner certificates.
+`run_round139_capacities_codex.py`, `verify_round139_multidefect_codex.py`,
+and `run_round139_master_capacity_codex.py` record argv, caps, exit outcomes,
+node counts, executable hashes and committed-source hashes. Their historical
+commit assertions are intentionally strict: use the pinned revision/branch
+when recreating the original execution, or create a NEW labeled execution
+certificate. Do not silently relabel old runtime hashes as committed bytes.
+
+Stopping condition A is satisfied. No remaining G2 structural model is
+scheduled, and no G>=3 or unrestricted-NR6 continuation was started.
+
 ASTRA_G2_K2_AND_K1_CLOSED

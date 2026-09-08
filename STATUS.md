@@ -1,5 +1,23 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 139: the remaining G=2 cells `(2,2)` and `(1,2)` are CLOSED under NR6.**
+> Successor splicing preserves literal joint endpoints while replacing passes
+> by full passes, producing one path or one path plus two circuits. After
+> removing c pure-free circuits and cutting only paid boundaries, the exact
+> free-block identity is `sum b_j + s = S+1-O+c`. This retains orbit sharing,
+> rather than assuming privacy. All 73 k2 resource rows / 78 heavy-refined
+> tuples are covered; 38 conservative capacity envelopes across k1..4 close,
+> including five equality rows eliminated by literal hexagon seam collisions.
+> New capacities have independent port/run implementations; 1,510 literal
+> controls, 5,016 endpoint identities, and 66 Round135–139 tests pass.
+> The same proof recovers k3/k4, but these are not counted again.
+> **Current outer ledger: 13/55. NR6 is ASSUMED; `L6 >= 872` is NOT PROVED.**
+> G>=3 remains outside this round. The intermediate 60/73 reduction is
+> explicitly historical, not the final ledger.
+> [Master proof](research/RR_ROUND139_SUCCESSOR_SPLICING_MASTER_CODEX.md)
+> · [All resource rows and capacity envelopes](outputs/rr_round139_splice_master_codex.json)
+> · [Independent certificate](outputs/rr_round139_master_verified_codex.json)
+
 > **Codex Round 138: the Round137 privacy proof layer is now explicit.**
 > The independent Round137 audit accepted its local algebra and capacities but
 > left universal orbit privacy PARTIAL; the accepted outer baseline was therefore
