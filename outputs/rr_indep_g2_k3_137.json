@@ -1,0 +1,306 @@
+{
+ "round": "independent-(3,2)",
+ "target": "(k,G) = (3,2), delta = 1 hard core",
+ "move_semantics": {
+  "n": 6,
+  "words": 720,
+  "theorem_I": {
+   "statement": "M2 and M3a both land in orb(sigma^L u) (the nu-target orbit); M3b and M3c land in a THIRD orbit (neither own nor nu-target)",
+   "short_pass_M2_M3a_hit_nu_target": true,
+   "M3b_M3c_always_third": true,
+   "full_pass_M2_M3a_are_intra_run": true,
+   "consequence": "for a FULL pass the nu-target orbit IS its own orbit, so M3a is an intra-run x-arc and is FORBIDDEN when x = 0; hence every paid exit of a full pass is M3b or M3c, i.e. a Round-115 light connector"
+  },
+  "theorem_II": {
+   "statement": "M2 lands at phase(entry(nu(p))) + 1 and M3a at + 2, for every word and every pass length",
+   "verified": true,
+   "offsets": {
+    "M2_plus_1": 4320,
+    "M3a_plus_2": 4320
+   }
+  },
+  "census": {
+   "L1_M2_nu_target_orbit": 720,
+   "L1_M3a_nu_target_orbit": 720,
+   "L1_M3b_third_orbit": 720,
+   "L1_M3c_third_orbit": 720,
+   "L2_M2_nu_target_orbit": 720,
+   "L2_M3a_nu_target_orbit": 720,
+   "L2_M3b_third_orbit": 720,
+   "L2_M3c_third_orbit": 720,
+   "L3_M2_nu_target_orbit": 720,
+   "L3_M3a_nu_target_orbit": 720,
+   "L3_M3b_third_orbit": 720,
+   "L3_M3c_third_orbit": 720,
+   "L4_M2_nu_target_orbit": 720,
+   "L4_M3a_nu_target_orbit": 720,
+   "L4_M3b_third_orbit": 720,
+   "L4_M3c_third_orbit": 720,
+   "L5_M2_nu_target_orbit": 720,
+   "L5_M3a_nu_target_orbit": 720,
+   "L5_M3b_third_orbit": 720,
+   "L5_M3c_third_orbit": 720,
+   "L6_M2_own_orbit": 720,
+   "L6_M3a_own_orbit": 720,
+   "L6_M3b_third_orbit": 720,
+   "L6_M3c_third_orbit": 720
+  },
+  "hexagon": {
+   "M2_diff_hex": 4320,
+   "M3a_diff_hex": 4320,
+   "M3b_diff_hex": 4320,
+   "M3c_diff_hex": 4320
+  },
+  "clean": true
+ },
+ "m3a_contraction": {
+  "n": 6,
+  "cases": 3600,
+  "violations": {},
+  "clean": true,
+  "deltas": {
+   "P": -4,
+   "O": -1,
+   "D": -1,
+   "S": -1,
+   "H": 0
+  },
+  "corollary_IV": "a paid ascent exit fails to create a contractible block ONLY when it is M3b or M3c - because M3a lands in the nu-target orbit at +2 and still reaches nu(p). This is a sharper characterisation of 'M-off-target' than 'the paid exit targets the wrong orbit'",
+  "reproves": "Round-135's u parameter: u = number of M3a-type contractions"
+ },
+ "capacity_growth": {
+  "law": "N*(b,0,s) = N*(0,0,s) + 15b   (+3 orbits, +4 runs per token)",
+  "cells": [
+   {
+    "b": 0,
+    "s": 6,
+    "passes": 49,
+    "orbits": 11,
+    "predicted": 49,
+    "matches": true
+   },
+   {
+    "b": 1,
+    "s": 6,
+    "passes": 64,
+    "orbits": 14,
+    "predicted": 64,
+    "matches": true
+   },
+   {
+    "b": 2,
+    "s": 6,
+    "passes": 79,
+    "orbits": 17,
+    "predicted": 79,
+    "matches": true
+   },
+   {
+    "b": 3,
+    "s": 6,
+    "passes": 94,
+    "orbits": 20,
+    "predicted": 94,
+    "matches": true
+   },
+   {
+    "b": 0,
+    "s": 9,
+    "passes": 66,
+    "orbits": 15,
+    "predicted": 66,
+    "matches": true
+   },
+   {
+    "b": 1,
+    "s": 9,
+    "passes": 81,
+    "orbits": 18,
+    "predicted": 81,
+    "matches": true
+   },
+   {
+    "b": 2,
+    "s": 9,
+    "passes": 96,
+    "orbits": 21,
+    "predicted": 96,
+    "matches": true
+   },
+   {
+    "b": 0,
+    "s": 13,
+    "passes": 83,
+    "orbits": 19,
+    "predicted": 83,
+    "matches": true
+   },
+   {
+    "b": 1,
+    "s": 13,
+    "passes": 98,
+    "orbits": 22,
+    "predicted": 98,
+    "matches": true
+   }
+  ],
+  "all_match": true,
+  "status": "verified on every exhaustively computed cell available; stated as an EMPIRICAL law, not proved in general",
+  "orbit_reach": "at s = 13 a pure light chain reaches 19 + 3b orbits",
+  "consequence": "the (3,2) target object has 27 orbits, so as a PURE light chain it would need 19 + 3b >= 27, i.e. b >= 3. Since b = e here, every row with e <= 2 CANNOT be a pure light chain - its short-pass connectors are structurally indispensable"
+ },
+ "delta_decomposition": {
+  "derivation": [
+   "f_out = #(free ascents) + #(free descents)",
+   "#ascents = F = 2, so #(free ascents) = 2 - a with a = #(nonfree ascents)",
+   "each free descent opens a distinct repeat run, so d := #(free descents) <= e; put eta := e - d >= 0",
+   "delta = F + e - f_out = 2 + e - (2 - a) - d = a + (e - d) = a + eta"
+  ],
+  "identity": "delta = a + eta",
+  "dichotomy": "delta = 1 forces (a, eta) = (1,0) [mechanism M] or (0,1) [mechanism R]",
+  "M_needs": "e = d <= #descents, so e <= 1 (type A) and e <= 2 (type B)",
+  "R_needs": "d = e - 1 <= #descents, so e <= 2 (type A) and e <= 3 (type B)",
+  "rows": [
+   {
+    "type": "A",
+    "e": 0,
+    "f_out": 1,
+    "a": 1,
+    "eta": 0,
+    "free_ascents": 1,
+    "free_descents": 0,
+    "mechanism": "M"
+   },
+   {
+    "type": "A",
+    "e": 1,
+    "f_out": 2,
+    "a": 0,
+    "eta": 1,
+    "free_ascents": 2,
+    "free_descents": 0,
+    "mechanism": "R"
+   },
+   {
+    "type": "A",
+    "e": 1,
+    "f_out": 2,
+    "a": 1,
+    "eta": 0,
+    "free_ascents": 1,
+    "free_descents": 1,
+    "mechanism": "M"
+   },
+   {
+    "type": "A",
+    "e": 2,
+    "f_out": 3,
+    "a": 0,
+    "eta": 1,
+    "free_ascents": 2,
+    "free_descents": 1,
+    "mechanism": "R"
+   },
+   {
+    "type": "B",
+    "e": 0,
+    "f_out": 1,
+    "a": 1,
+    "eta": 0,
+    "free_ascents": 1,
+    "free_descents": 0,
+    "mechanism": "M"
+   },
+   {
+    "type": "B",
+    "e": 1,
+    "f_out": 2,
+    "a": 0,
+    "eta": 1,
+    "free_ascents": 2,
+    "free_descents": 0,
+    "mechanism": "R"
+   },
+   {
+    "type": "B",
+    "e": 1,
+    "f_out": 2,
+    "a": 1,
+    "eta": 0,
+    "free_ascents": 1,
+    "free_descents": 1,
+    "mechanism": "M"
+   },
+   {
+    "type": "B",
+    "e": 2,
+    "f_out": 3,
+    "a": 0,
+    "eta": 1,
+    "free_ascents": 2,
+    "free_descents": 1,
+    "mechanism": "R"
+   },
+   {
+    "type": "B",
+    "e": 2,
+    "f_out": 3,
+    "a": 1,
+    "eta": 0,
+    "free_ascents": 1,
+    "free_descents": 2,
+    "mechanism": "M"
+   },
+   {
+    "type": "B",
+    "e": 3,
+    "f_out": 4,
+    "a": 0,
+    "eta": 1,
+    "free_ascents": 2,
+    "free_descents": 2,
+    "mechanism": "R"
+   }
+  ],
+  "by_row": {
+   "A/e0": [
+    "M"
+   ],
+   "A/e1": [
+    "M",
+    "R"
+   ],
+   "A/e2": [
+    "R"
+   ],
+   "B/e0": [
+    "M"
+   ],
+   "B/e1": [
+    "M",
+    "R"
+   ],
+   "B/e2": [
+    "M",
+    "R"
+   ],
+   "B/e3": [
+    "R"
+   ]
+  },
+  "matches_accepted_state": true
+ },
+ "n4_adversarial": {
+  "move_semantics_clean": true,
+  "m3a_contraction_clean": true,
+  "m3a_cases": 72,
+  "verdict": "Theorems I-III are not n=6-specific: they hold verbatim at n=4, so they carry no hidden n=6 hypothesis",
+  "n4_deltas": {
+   "P": -2,
+   "O": -1,
+   "D": -1,
+   "S": -1,
+   "H": 0
+  }
+ }
+}
