@@ -1,0 +1,88 @@
+{
+ "k2": {
+  "k": 2,
+  "O": 26,
+  "P": 122,
+  "D": 8,
+  "distinct_rows": 73,
+  "heavy_refined_tuples": 78,
+  "by_delta_x_H": {
+   "0,0,0": 8,
+   "0,0,1": 8,
+   "0,0,2": 5,
+   "0,1,0": 8,
+   "0,1,1": 5,
+   "0,2,0": 5,
+   "1,0,0": 11,
+   "1,0,1": 7,
+   "1,1,0": 7,
+   "2,0,0": 9
+  },
+  "q_histogram": {
+   "0": 8,
+   "1": 27,
+   "2": 38
+  },
+  "length_condition": "delta+x+H <= F+0"
+ },
+ "k1": {
+  "k": 1,
+  "O": 25,
+  "P": 122,
+  "D": 3,
+  "distinct_rows": 162,
+  "heavy_refined_tuples": 192,
+  "by_delta_x_H": {
+   "0,0,0": 8,
+   "0,0,1": 8,
+   "0,0,2": 8,
+   "0,0,3": 5,
+   "0,1,0": 8,
+   "0,1,1": 8,
+   "0,1,2": 5,
+   "0,2,0": 8,
+   "0,2,1": 5,
+   "0,3,0": 5,
+   "1,0,0": 11,
+   "1,0,1": 11,
+   "1,0,2": 7,
+   "1,1,0": 11,
+   "1,1,1": 7,
+   "1,2,0": 7,
+   "2,0,0": 13,
+   "2,0,1": 9,
+   "2,1,0": 9,
+   "3,0,0": 9
+  },
+  "q_histogram": {
+   "0": 8,
+   "1": 27,
+   "2": 59,
+   "3": 68
+  },
+  "length_condition": "delta+x+H <= F+1"
+ },
+ "row_to_envelope": {
+  "checked": 705,
+  "violations": 0,
+  "examples": [],
+  "identity": "sum b_j + s = S+1-O+c = delta - F + x + c",
+  "budget": "<= B = 2-k+c-H, forced by L<=871",
+  "all_rows_fit_an_envelope": true
+ },
+ "defect_accounting": {
+  "distinct_typed_states": 108,
+  "delta_identity_holds_everywhere": true,
+  "note": "delta 는 F,e,f_out 만으로 결정되고 x/H 와 독립적으로 예산식에 들어간다; 한 단위가 두 자리를 차지할 수 없다"
+ },
+ "astra_k2_claim": {
+  "distinct_rows": 73,
+  "heavy_refined_tuples": 78,
+  "q_histogram": {
+   "0": 8,
+   "1": 27,
+   "2": 38
+  }
+ },
+ "k2_matches_astra": true
+}
