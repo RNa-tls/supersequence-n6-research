@@ -1,0 +1,182 @@
+{
+  "schema": "codex/round137-conditional-gap-closure/1",
+  "author": "CODEX",
+  "source_commit": "2b9dcf0cc12a685f8091a9eed9796570a16c25a3",
+  "dependencies_sha256": {
+    "research/RR_G2_K3_ONE_DEFECT_GAP_CUT_CODEX.md": "1ae1a98f83198521055aa7500d07dc4befa88ef78bead1363e0209032ab61c53",
+    "outputs/rr_round137_gap_cut_codex.json": "11d3d9af43d3151585d9d3c0334d77bce07129b5dd2d9d3a8c0a7fb7af1e5f15",
+    "outputs/rr_round137_verified_codex.json": "ebea22c25ff614400e85038b774ab082abee5d261c095979c08b37d25cdd033e",
+    "outputs/rr_round137_root_return_capacity_codex.json": "4ee68304a0b914a4c8bd18aececf30d20ec6f5709ab67b496f85d99fac8f9d7d",
+    "outputs/rr_round137_protected_seam_codex.json": "b7f3fa2d324588861fd2384d8480e3ac58c3814f849087d529bf38e41d139697",
+    "outputs/rr_round136_verified_codex.json": "ecf93537566eb206bce7f96ddba9e4c9dd43ad75515aae391a5ce8a99375a679",
+    "outputs/rr_round135_verified_codex.json": "3c2ece321f7ecb32f08738947c12bd486a0a62ad7e0b09594935224b586aeef1"
+  },
+  "rows": [
+    {
+      "id": "A_F2_d1_x0_H0_e0",
+      "type": "A",
+      "e": 0,
+      "f_out": 1,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "M"
+      ],
+      "bounds": {
+        "M": 112
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "A_F2_d1_x0_H0_e1",
+      "type": "A",
+      "e": 1,
+      "f_out": 2,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "M",
+        "R"
+      ],
+      "bounds": {
+        "M": 112,
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "A_F2_d1_x0_H0_e2",
+      "type": "A",
+      "e": 2,
+      "f_out": 3,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "R"
+      ],
+      "bounds": {
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e0",
+      "type": "B",
+      "e": 0,
+      "f_out": 1,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "M"
+      ],
+      "bounds": {
+        "M": 112
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e1",
+      "type": "B",
+      "e": 1,
+      "f_out": 2,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "M",
+        "R"
+      ],
+      "bounds": {
+        "M": 112,
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e2",
+      "type": "B",
+      "e": 2,
+      "f_out": 3,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "M",
+        "R"
+      ],
+      "bounds": {
+        "M": 112,
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e3",
+      "type": "B",
+      "e": 3,
+      "f_out": 4,
+      "P": 122,
+      "O": 27,
+      "D": 13,
+      "S": 25,
+      "N": 0,
+      "mechanisms": [
+        "R"
+      ],
+      "bounds": {
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "proof": "multi-orbit gap extraction inclusion + inherited/new finite capacities",
+      "status": "EXCLUDED_UNDER_NR6"
+    }
+  ],
+  "proof_layers": {
+    "universal_inclusion": "HAND_PROOF, sections 5-6; not certified by samples",
+    "local_capacities": "FINITE_COMPLETE, two algorithms",
+    "controls": "FINITE_SPECIFIED_DOMAIN"
+  },
+  "new_rows_closed": 7,
+  "prior_rows_closed": 18,
+  "total_cell_rows": 25,
+  "rows_remaining": 0,
+  "M_off_target": "EXCLUDED",
+  "R_target_coupled": "EXCLUDED",
+  "cell_3_2": "CLOSED_UNDER_NR6",
+  "outer_before": "10/55",
+  "outer_after": "11/55",
+  "NR6": "ASSUMED",
+  "L6_ge872": "NOT_PROVED",
+  "complete_NR6_search_performed": false,
+  "other_cells_investigated": false,
+  "final_status": "ASTRA_G2_K3_CLOSED",
+  "mathematical_digest": "ecd65f8978c63942d2fc81aa16c27995d89b1012d6a52ac65e31bce1af46325d"
+}

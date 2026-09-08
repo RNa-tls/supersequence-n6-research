@@ -1,0 +1,109 @@
+{
+  "schema": "codex/round137-independent-gap-capacity/1",
+  "verified": true,
+  "identity_count": 10800,
+  "gap_controls": 835,
+  "gap_histogram": {
+    "M_FRESH_GAP": 321,
+    "R_ROOT_RETURN_GAP": 514
+  },
+  "capacity_witnesses": 9,
+  "independent_capacity": {
+    "schema": "independent-port-root-return/1",
+    "nodes": 29959867,
+    "capped": false,
+    "rows": [
+      {
+        "deficit": 0,
+        "passes": 20,
+        "accepted": 4
+      },
+      {
+        "deficit": 1,
+        "passes": -1,
+        "accepted": 0
+      },
+      {
+        "deficit": 2,
+        "passes": 8,
+        "accepted": 3
+      },
+      {
+        "deficit": 3,
+        "passes": -1,
+        "accepted": 0
+      },
+      {
+        "deficit": 4,
+        "passes": -1,
+        "accepted": 0
+      },
+      {
+        "deficit": 5,
+        "passes": -1,
+        "accepted": 0
+      },
+      {
+        "deficit": 6,
+        "passes": 24,
+        "accepted": 48
+      },
+      {
+        "deficit": 7,
+        "passes": -1,
+        "accepted": 0
+      },
+      {
+        "deficit": 8,
+        "passes": 22,
+        "accepted": 26
+      },
+      {
+        "deficit": 9,
+        "passes": 21,
+        "accepted": 21
+      },
+      {
+        "deficit": 10,
+        "passes": 40,
+        "accepted": 216
+      },
+      {
+        "deficit": 11,
+        "passes": 39,
+        "accepted": 684
+      },
+      {
+        "deficit": 12,
+        "passes": 48,
+        "accepted": 1711
+      },
+      {
+        "deficit": 13,
+        "passes": 47,
+        "accepted": 2346
+      }
+    ]
+  },
+  "independent_seconds": 0.3264989999588579,
+  "independent_argv": [
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\verify_round137_root_return_codex.exe"
+  ],
+  "independent_source_sha256": "547392dffaa07ca54b35833e29296e0cd4051a35cfc638d96aa78f90b5434e64",
+  "independent_binary_sha256": "455b211ea55c3bbddb86f432fdeaff33fd0dd0474379d6acbdc33b197b568e47",
+  "verifier_sha256": "e5032c69bc9bd05acb8e7b092ffba72d5e99672ce163a5692a35d2b36c54f882",
+  "source_commit": "2b9dcf0cc12a685f8091a9eed9796570a16c25a3",
+  "input_sha256": {
+    "outputs/rr_round137_protected_seam_codex.json": "b7f3fa2d324588861fd2384d8480e3ac58c3814f849087d529bf38e41d139697",
+    "outputs/rr_round137_gap_cut_codex.json": "11d3d9af43d3151585d9d3c0334d77bce07129b5dd2d9d3a8c0a7fb7af1e5f15",
+    "outputs/rr_round137_root_return_capacity_codex.json": "4ee68304a0b914a4c8bd18aececf30d20ec6f5709ab67b496f85d99fac8f9d7d",
+    "outputs/rr_round135_capacity_codex.json": "cad30468a7884625abba3d1d3b6f0ce24a72cef1fa05106710b7d58b31b0eff4"
+  },
+  "M_bound": 112,
+  "R_bound": 103,
+  "required_pass_sum": 117,
+  "mathematical_scope": "finite controls and local capacity complete; universal gap inclusion is the separate hand proof",
+  "NR6": "ASSUMED",
+  "global_L6_ge872": false,
+  "mathematical_digest": "6635c31fe41d1aa4b65392f53a413a6696f0d1ea901a428ce5af599da8759aff"
+}

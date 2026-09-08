@@ -1,5 +1,19 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 137 update (NR6 conditional): `(k,G)=(3,2)` CLOSED.**
+> Both residual delta=1 mechanisms, M-off-target and R-target-coupled, are
+> excluded by multi-orbit gap extraction. The two extracted full-pass chains
+> must contain 117 passes with total deficit 13; verified bounds are 112 (M)
+> and 103 (R). The new root-return capacity is independently reproduced by
+> run-level and literal port-level enumeration (7,712,526 / 29,959,867 nodes,
+> neither capped). All seven remaining rows close; including the accepted
+> eighteen earlier exclusions, this cell is 25/25. The Codex conditional outer
+> ledger is now **11/55**, incorporating the preceding `(4,2)` closure.
+> **NR6 remains ASSUMED; `L6 >= 872` is NOT PROVED.** The older round summaries
+> below are historical, not the current outer ledger.
+> See [the inclusion proof and finite certificates](research/RR_G2_K3_ONE_DEFECT_GAP_CUT_CODEX.md)
+> and [the conditional ledger](outputs/rr_round137_gap_closure_ledger_codex.json).
+
 A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 
 > **Audited Q2 / Area-A residual: 4,782 states.** Rounds 103–104 identified the engine's
