@@ -13393,5 +13393,671 @@
   },
   "label": "ROUND-134 AUDIT - CLAUDE INDEPENDENT REVIEW OF AN ASTRA PROOF",
   "disclaimer": "This project has not proved L6 >= 872"
+ },
+ "round_135_audit_by_claude": {
+  "round": 135,
+  "kind": "PROOF AUDIT (Claude independent review of Astra/Codex Round 135)",
+  "target": "(k,G) = (3,2)",
+  "overall": "PARTIAL",
+  "overall_reason": "every mathematical claim that could be reconstructed independently reproduces exactly, but the Round-135 artefact itself (commit, branch, source, report, 18/18 regression suite) is absent from the repository, so sections 2, 15 and 16 could not be performed on the deliverable under audit",
+  "verdicts": {
+   "25_row_resource_decomposition": {
+    "verdict": "CONFIRMED",
+    "evidence": "independently derived P=122, O=27, D=13 and enumerated 25 live rows = {'A/F1': 3, 'A/F2': 9, 'B/F2': 13}; delta split {0: 18, 1: 7} - exactly 18 with delta=0 and 7 with delta=1"
+   },
+   "delta_plus_x_plus_H_le_F_minus_1": {
+    "verdict": "CONFIRMED",
+    "evidence": "L = 846 + S + H <= 871 gives f_out >= e + x + H + 1; Theorem 129.1 gives f_out = F + e - delta with delta >= 0; substituting yields the inequality. F=1 forces delta=x=H=0; F=2 allows delta+x+H <= 1"
+   },
+   "partial_rotational_arc_contraction": {
+    "verdict": "CONFIRMED",
+    "evidence": "lemma formulated and proved from scratch, verified on 10800 n=6 cases with zero violations: pass (v,a) + five passes filling orb(sigma^a v) ending at (sigma^a v, b) -> single pass (v, a+b); P-5, O-1, D/S/H unchanged. a+b=6 recovers Round 134",
+    "caveat": "Astra's own statement could NOT be recovered - see lineage"
+   },
+   "type_A_contraction": {
+    "verdict": "CONFIRMED",
+    "evidence": "the tripled hexagon needs two contractions whose intermediate replacement is a PARTIAL arc (v, l0+l1), which is exactly why the generalised lemma is needed; both contraction orders are valid, and the two locked runs sit in orb(sigma^{l0}v) and orb(sigma^{l0+l1}v), distinct words of one hexagon hence distinct orbits, so O drops by 2"
+   },
+   "type_B_nested_contraction": {
+    "verdict": "CONFIRMED",
+    "evidence": "inner-first is forced exactly as in Round 134 (audited and confirmed there): before the inner contraction the outer object is 11 passes, so it is not yet of locked-block shape"
+   },
+   "contracted_parameter_accounting": {
+    "verdict": "CONFIRMED",
+    "evidence": "P' = 112 + u, O' = 25, D' = 13 - u derived independently; u = number of orbit phases skipped inside the two contracted runs (u = 0 when x = 0, since a skip needs an intra-run omega>=3 arc). b' = e' + x' = 2 + x + delta - F, consistent on all 25 rows"
+   },
+   "H0_capacity_exclusions": {
+    "verdict": "CONFIRMED",
+    "evidence": "13 rows with delta=0, H=0; every one excluded for every admissible u, since required 112+u exceeds N*(b',0,13-u)",
+    "audit_note": "the reported capacity 106 is N*(1,0,15) - the s = 5k = 15 GLOBAL pool, not the contracted object's actual deficit. That is sound but loose. The tight cell is N*(1,0,13), which is NOT in the stored Round-115 table; this audit computed it fresh: 98 (681,902,414 nodes, uncapped). Both 98 and 106 are below 112, so the conclusion is unaffected"
+   },
+   "H1_unique_heavy_joint": {
+    "verdict": "CONFIRMED",
+    "evidence": "H = sum of (omega-3)+ over joints; total 1 forces exactly one term equal to 1, i.e. one omega=4 joint. Weight 5/6 contribute 2/3, two heavy joints contribute >= 2, and H has no endpoint term"
+   },
+   "equality_46_plus_66": {
+    "verdict": "CONFIRMED",
+    "evidence": "cutting at the unique weight-4 joint splits the deficit as d1+d2=13 with both pieces at b=g=0; max of N*(0,0,d1)+N*(0,0,d2) is 112 attained ONLY at [(4, 9, 46, 66), (9, 4, 66, 46)], so both chains must be extremal. All cells uncapped"
+   },
+   "seam_exhaustion_312": {
+    "verdict": "CONFIRMED",
+    "evidence": "312 reconstructed independently as 1*13*12 + 12*13*1 = 156+156; all 312 fail: {'both hexagon and orbit collision': 158, 'hexagon collision': 154}. Zero survivors. The two chains must be disjoint in BOTH hexagons and orbits (10+15 = 25 = O' and 46+66 = 112 = P' leave no slack)"
+   },
+   "18_row_exclusion": {
+    "verdict": "CONFIRMED",
+    "evidence": "the 18 excluded rows are exactly the delta=0 rows: 13 closed by the H=0 capacity argument and 5 by the H=1 argument"
+   },
+   "7_row_residual_classification": {
+    "verdict": "CONFIRMED",
+    "evidence": "the 7 survivors are exactly the delta=1 rows. delta=0 IS the equality case of Theorem 129.1, which is the sole hypothesis of Theorem 131.1; only there are the locality locks forced, so only there does a locked block exist to contract. The limitation is a THEOREM-SCOPE limit, not a compute limit"
+   },
+   "regression_suite_18_of_18": {
+    "verdict": "PARTIAL",
+    "evidence": "cannot be audited: the Round-135 branch and commit are absent from the repository, so the tests themselves are unavailable. This is a repository-state limitation, not a mathematical failure"
+   },
+   "lineage": {
+    "verdict": "PARTIAL",
+    "evidence": "commit 7b3fa9516bca80ac522dd8927f3adda05a4fb1f4 is not an object in this repository and branch codex/round135-g2-k3 is not among the remote heads after `git fetch origin`. Astra's source, report and certificate could not be inspected"
+   }
+  },
+  "independently_reconstructed": {
+   "P": 122,
+   "O": 27,
+   "D": 13,
+   "inequality": "delta + x + H <= F - 1   (delta := F + e - f_out)",
+   "n_rows": 25,
+   "by_delta": {
+    "0": 18,
+    "1": 7
+   },
+   "by_type_F": {
+    "A/F1": 3,
+    "A/F2": 9,
+    "B/F2": 13
+   },
+   "contracted": {
+    "P": "112 + u",
+    "O": 25,
+    "D": "13 - u"
+   },
+   "capacities": {
+    "N*(0,0,13)": [
+     83,
+     false
+    ],
+    "N*(1,0,13)": [
+     98,
+     false
+    ],
+    "N*(0,0,15)": [
+     96,
+     false
+    ],
+    "N*(1,0,15)": [
+     106,
+     false
+    ]
+   },
+   "equality_tuples": [
+    [
+     4,
+     9,
+     46,
+     66
+    ],
+    [
+     9,
+     4,
+     66,
+     46
+    ]
+   ],
+   "extremal_chains": {
+    "s4": 1,
+    "s9": 12
+   },
+   "seam_combinations": 312,
+   "seam_all_fail": true
+  },
+  "delta1_survivors": [
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 3,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 4,
+    "S": 25,
+    "r": 30,
+    "L": 871,
+    "S_plus_H": 25
+   }
+  ],
+  "h0_closure_table": [
+   {
+    "row": "A/F1/e0/x0/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F1/e1/x0/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F1/e2/x0/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e0/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e1/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e0/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e1/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e0/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e1/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e2/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e0/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e1/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e2/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   }
+  ],
+  "findings": [
+   "the reported capacity 106 is N*(1,0,15) (the s = 5k = 15 global pool), not the tight cell for the contracted object; the tight cell N*(1,0,13) is absent from the stored Round-115 table and was computed fresh here as 98. Conclusion unaffected - both are below the required 112",
+   "the Round-135 branch/commit is unavailable, so sections 2 (recover the exact definition), 15 (18/18 regression) and 16 (lineage) could not be performed",
+   "the 18/7 split is not an empirical outcome but an exact structural dichotomy: the excluded rows are precisely delta=0 and the survivors precisely delta=1"
+  ],
+  "scope": {
+   "cell_status": "(k,G) = (3,2) remains OPEN - 7 delta=1 rows survive",
+   "outer_ledger": "10/55 (k,G) - unchanged",
+   "NR6": "ASSUMED",
+   "does_not_prove": "L6 >= 872"
+  },
+  "certificate": {
+   "source_commit": "8e3d6883baed1545ca1b551f4d4e3fb1af18dd91",
+   "auditor_module": "ac3c906f0fc2a79973531f0cf2c56bb7486a1bbb2523b4ecffe92fa54fca8a7d",
+   "chain_capacity_115_c": "2287c05efdfe0cb521a9175b100c71546b0ea386f63e299cbb1e16b271574edb",
+   "chain_capacity_115_bin": "82f847771db38511a92e9bc31d5dff22fe0a67b7d1b4ebc6f93a66252973a10c",
+   "replays": [
+    {
+     "cell": "N*(1,0,13)",
+     "passes": 98,
+     "nodes": 681902414,
+     "capped": false
+    },
+    {
+     "cell": "N*(1,0,12)",
+     "passes": 98,
+     "nodes": 307634294,
+     "capped": false
+    },
+    {
+     "cell": "N*(0,0,13)",
+     "passes": 83,
+     "nodes": 14407541,
+     "capped": false
+    },
+    {
+     "cell": "N*(0,0,4)",
+     "passes": 46,
+     "nodes": 3555,
+     "capped": false
+    },
+    {
+     "cell": "N*(0,0,9)",
+     "passes": 66,
+     "nodes": 469852,
+     "capped": false
+    }
+   ],
+   "python_reimplementation": "src/audit_r135_136.py chain_search() reproduces the C node counts exactly (3,555 and 469,852)"
+  },
+  "label": "ROUND-135 AUDIT - CLAUDE INDEPENDENT REVIEW",
+  "disclaimer": "This project has not proved L6 >= 872"
  }
 }

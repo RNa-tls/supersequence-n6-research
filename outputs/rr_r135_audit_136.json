@@ -1,0 +1,1795 @@
+{
+ "round": 135,
+ "kind": "PROOF AUDIT (Claude independent review of Astra Round 135)",
+ "target": "(k,G) = (3,2)",
+ "resource_table": {
+  "P": 122,
+  "O": 27,
+  "D": 13,
+  "inequality": "delta + x + H <= F - 1   (delta := F + e - f_out)",
+  "derivation": [
+   "P = 120 + G = 122",
+   "O = 24 + k = 27",
+   "D = 5O - P = 13",
+   "S = (r-1) + x - f_out with r = O + e  =>  S = 26 + e + x - f_out",
+   "L = 846 + S + H <= 871  =>  f_out >= e + x + H + 1",
+   "Theorem 129.1: f_out <= F + e, so delta >= 0",
+   "substituting f_out = F + e - delta gives delta + x + H <= F - 1"
+  ],
+  "n_rows": 25,
+  "by_delta": {
+   "0": 18,
+   "1": 7
+  },
+  "by_type_F": {
+   "A/F1": 3,
+   "A/F2": 9,
+   "B/F2": 13
+  },
+  "all_L_within_budget": true,
+  "delta1_rows": [
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 3,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 4,
+    "S": 25,
+    "r": 30,
+    "L": 871,
+    "S_plus_H": 25
+   }
+  ],
+  "delta0_rows": [
+   {
+    "type": "A",
+    "F": 1,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 4,
+    "S": 24,
+    "r": 29,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 4,
+    "S": 24,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 4,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   }
+  ],
+  "rows": [
+   {
+    "type": "A",
+    "F": 1,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 4,
+    "S": 24,
+    "r": 29,
+    "L": 870,
+    "S_plus_H": 24
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 4,
+    "S": 24,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 4,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "r": 27,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "r": 28,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "r": 29,
+    "L": 871,
+    "S_plus_H": 25
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 3,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 4,
+    "S": 25,
+    "r": 30,
+    "L": 871,
+    "S_plus_H": 25
+   }
+  ]
+ },
+ "contracted_accounting": {
+  "formula": {
+   "P": "112 + u",
+   "O": 25,
+   "D": "13 - u",
+   "b": "e' + x' = 2 + x + delta - F",
+   "u": "total number of orbit phases skipped inside the two contracted runs; u = 0 whenever x = 0, and u <= x-many skips, each needing an intra-run omega>=3 arc"
+  },
+  "rows": [
+   {
+    "type": "A",
+    "F": 1,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 1,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 1,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 0,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 0,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 1,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 1,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 1
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 1
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "A",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 0,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 0,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 0,
+    "f_out": 4,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 0,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 2,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 1,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 3,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 1,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 1,
+    "delta": 0,
+    "f_out": 4,
+    "S": 24,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 24,
+    "H_prime": 1,
+    "b_prime": 0,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 2,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 1
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 3,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 1
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 1,
+    "H": 0,
+    "delta": 0,
+    "f_out": 4,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 1
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 0,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 1,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 1,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 2,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 2,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 3,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   },
+   {
+    "type": "B",
+    "F": 2,
+    "e": 3,
+    "x": 0,
+    "H": 0,
+    "delta": 1,
+    "f_out": 4,
+    "S": 25,
+    "P_prime": "112 + u",
+    "O_prime": 25,
+    "D_prime": "13 - u",
+    "S_prime": 25,
+    "H_prime": 0,
+    "b_prime": 1,
+    "b_prime_check": true,
+    "u_upper_bound": 0
+   }
+  ],
+  "all_b_consistent": true,
+  "b_values": {
+   "1": 15,
+   "0": 10
+  }
+ },
+ "capacity_exclusions": {
+  "note": "with u > 0 the requirement grows to 112 + u while the budget shrinks to 13 - u, so N*(b,0,13-u) <= N*(b,0,13) and the exclusion only gets stronger",
+  "rows": [
+   {
+    "row": "A/F1/e0/x0/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F1/e1/x0/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F1/e2/x0/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e0/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e1/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e0/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "A/F2/e1/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e0/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e1/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e2/x0/H0",
+    "b_prime": 0,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(0,0,13)",
+    "tight_value": 83,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(0,0,15)",
+    "loose_value": 96,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 83,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e0/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e1/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   },
+   {
+    "row": "B/F2/e2/x1/H0",
+    "b_prime": 1,
+    "required_passes_at_u0": 112,
+    "N_star_tight": "N*(1,0,13)",
+    "tight_value": 98,
+    "tight_uncapped": true,
+    "N_star_loose": "N*(1,0,15)",
+    "loose_value": 106,
+    "per_u": [
+     {
+      "u": 0,
+      "required": 112,
+      "budget_s": 13,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 1,
+      "required": 113,
+      "budget_s": 12,
+      "capacity": 98,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 3,
+      "required": 115,
+      "budget_s": 10,
+      "capacity": 85,
+      "uncapped": true,
+      "excluded": true
+     },
+     {
+      "u": 4,
+      "required": 116,
+      "budget_s": 9,
+      "capacity": 81,
+      "uncapped": true,
+      "excluded": true
+     }
+    ],
+    "excluded": true
+   }
+  ],
+  "n_rows": 13,
+  "all_excluded": true,
+  "capacities_used": {
+   "N*(0,0,13)": [
+    83,
+    false
+   ],
+   "N*(1,0,13)": [
+    98,
+    false
+   ],
+   "N*(0,0,15)": [
+    96,
+    false
+   ],
+   "N*(1,0,15)": [
+    106,
+    false
+   ]
+  }
+ },
+ "h1_unique_heavy": {
+  "definition": "H = sum over joints of max(omega - 3, 0)",
+  "conclusion": "H = 1  <=>  exactly one joint has omega = 4 and all others have omega <= 3",
+  "rules_out": [
+   "omega = 5 (contributes 2)",
+   "omega = 6 (contributes 3)",
+   "two or more heavy joints (sum >= 2)",
+   "endpoint artefacts (H is a sum over joints only)"
+  ],
+  "proved": true
+ },
+ "equality_classification": {
+  "required": 112,
+  "max_total": 112,
+  "splits": [
+   {
+    "d1": 0,
+    "d2": 13,
+    "cap1": 20,
+    "cap2": 83,
+    "total": 103,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 1,
+    "d2": 12,
+    "cap1": 20,
+    "cap2": 83,
+    "total": 103,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 2,
+    "d2": 11,
+    "cap1": 33,
+    "cap2": 74,
+    "total": 107,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 3,
+    "d2": 10,
+    "cap1": 33,
+    "cap2": 70,
+    "total": 103,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 4,
+    "d2": 9,
+    "cap1": 46,
+    "cap2": 66,
+    "total": 112,
+    "reaches_112": true,
+    "uncapped": true
+   },
+   {
+    "d1": 5,
+    "d2": 8,
+    "cap1": 46,
+    "cap2": 62,
+    "total": 108,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 6,
+    "d2": 7,
+    "cap1": 49,
+    "cap2": 58,
+    "total": 107,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 7,
+    "d2": 6,
+    "cap1": 58,
+    "cap2": 49,
+    "total": 107,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 8,
+    "d2": 5,
+    "cap1": 62,
+    "cap2": 46,
+    "total": 108,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 9,
+    "d2": 4,
+    "cap1": 66,
+    "cap2": 46,
+    "total": 112,
+    "reaches_112": true,
+    "uncapped": true
+   },
+   {
+    "d1": 10,
+    "d2": 3,
+    "cap1": 70,
+    "cap2": 33,
+    "total": 103,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 11,
+    "d2": 2,
+    "cap1": 74,
+    "cap2": 33,
+    "total": 107,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 12,
+    "d2": 1,
+    "cap1": 83,
+    "cap2": 20,
+    "total": 103,
+    "reaches_112": false,
+    "uncapped": true
+   },
+   {
+    "d1": 13,
+    "d2": 0,
+    "cap1": 83,
+    "cap2": 20,
+    "total": 103,
+    "reaches_112": false,
+    "uncapped": true
+   }
+  ],
+  "equality_tuples": [
+   [
+    4,
+    9,
+    46,
+    66
+   ],
+   [
+    9,
+    4,
+    66,
+    46
+   ]
+  ],
+  "unique_up_to_orientation": true,
+  "both_orientations_present": true,
+  "forces_both_chains_extremal": true,
+  "all_cells_uncapped": true
+ },
+ "extremal_census": {
+  "N_star_0_0_4": 46,
+  "N_star_0_0_9": 66,
+  "matches_round115": true,
+  "extremal_chains_s4": 1,
+  "extremal_chains_s9": 12,
+  "interpretation": "counts are S6-class representatives: the start word is fixed to one value, which is legitimate because relabelling acts simply transitively on the 720 words and commutes with sigma, tau, W3b and W3c",
+  "deficit_s4": 4,
+  "deficit_s9": 9,
+  "orbits_s4": 10,
+  "orbits_s9": 15,
+  "nodes": {
+   "s4": 3555,
+   "s9": 469852
+  }
+ },
+ "seam_exhaustion": {
+  "combinations": 312,
+  "expected": 312,
+  "matches_312": true,
+  "outcome": {
+   "both hexagon and orbit collision": 158,
+   "hexagon collision": 154
+  },
+  "second_chain_counts": {
+   "second_chain_count_46_then_66": 156,
+   "second_chain_count_66_then_46": 156
+  },
+  "all_fail": true,
+  "survivors": [],
+  "weight4_tail_count": 13,
+  "disjointness_requirement": "the two chains must use disjoint hexagon sets (each hexagon carries exactly one pass) AND disjoint orbit sets (g = 2e' = 0 forbids handing an orbit between chains); 10 + 15 = 25 = O' and 46 + 66 = 112 = P' leave no slack for any overlap"
+ },
+ "delta1_limitation": {
+  "reason": "delta = 0 is exactly the equality case of Theorem 129.1, which is the sole hypothesis of Theorem 131.1; only under it are the locality locks forced, hence only then does a locked block exist to contract",
+  "delta1_breaks": "with delta = 1 conclusions (a) and (b) of Theorem 131.1 fail, so no locked block is guaranteed and the contraction has nothing to act on",
+  "is_a_theorem_scope_limit": true,
+  "is_a_compute_limit": false,
+  "does_not_imply_feasible": "this says only that the CURRENT theorem cannot close the 7 rows; it says nothing about whether they are realisable"
+ },
+ "partial_arc_contraction": {
+  "lemma": "pass (v,a) + five passes filling orb(sigma^a v) ending at (sigma^a v, b) -> single pass (v, a+b);  P-5, O-1, D/S/H unchanged",
+  "generalises_round134": "a + b = 6 recovers the Round-134 full-pass lemma",
+  "cases": 10800,
+  "violations": {},
+  "clean": true,
+  "type_A": {
+   "counts": {
+    "order_arc01_first": 200,
+    "order_arc12_first": 200,
+    "final_is_full_pass": 200
+   },
+   "both_orders_valid": true,
+   "note": "for type A the two contractions may be done in EITHER order - unlike type-B beta, where the outer block only acquires the required shape after the inner contraction"
+  },
+  "deltas": {
+   "P": -5,
+   "O": -1,
+   "D": 0,
+   "S": 0,
+   "H": 0
+  }
+ }
+}

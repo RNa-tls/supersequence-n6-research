@@ -9,7 +9,47 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 134 (audit of Astra's locked-block contraction proof) — read this first.**
+> **Round 135 audit (Astra's `(k,G) = (3,2)` result) — read this first.**
+> **Verdict: PARTIAL.** Every mathematical claim I could reconstruct independently reproduces
+> **exactly**; the Round-135 artefact itself is **absent from the repository**, so three
+> requested sections could not be performed on the deliverable. `(3,2)` remains **OPEN**,
+> the outer ledger stays at **10/55**, NR6 stays **ASSUMED**, and this proves nothing about
+> `L6 >= 872`.
+>
+> Independently re-derived: `P=122, O=27, D=13`, and from `L = 846 + S + H <= 871` plus
+> Theorem 129.1 the inequality **`delta + x + H <= F - 1`** where `delta := F + e - f_out`.
+> Enumerating gives **exactly 25 rows** (A/F1 3, A/F2 9, B/F2 13), splitting **18 with
+> `delta = 0` and 7 with `delta = 1`** — matching the claim. The 18/7 split is not empirical
+> but an exact structural dichotomy: `delta = 0` *is* the equality case of Theorem 129.1,
+> which is the sole hypothesis of Theorem 131.1, so only there are the locality locks forced
+> and only there does a locked block exist to contract.
+>
+> The generalisation is genuinely needed: type A enters a hexagon **three** times, so the
+> intermediate replacement is a **partial arc** `(v, l0+l1)`, not a full pass. I stated and
+> proved the partial rotational-arc lemma from scratch and verified it on **10,800** n=6 cases
+> with zero violations; `a+b = 6` recovers Round 134. For type A **either** contraction order
+> works; for type-B beta inner-first is still forced.
+>
+> Contracted: `P' = 112 + u`, `O' = 25`, `D' = 13 - u`, with `u` = orbit phases skipped inside
+> the two contracted runs (`u = 0` when `x = 0`), and `b' = e' + x' = 2 + x + delta - F`.
+> All **13** `H=0, delta=0` rows are excluded for every admissible `u`.
+>
+> **H=1** (5 rows): `H = 1` forces exactly one weight-4 joint; cutting there gives two `b=g=0`
+> chains with `d1 + d2 = 13`, and `max Σ N*(0,0,di) = 112` is attained **only** at `(4,9)`
+> and `(9,4)` — so both chains must be extremal. I reimplemented the Round-115 chain model in
+> Python (it reproduces the C **node-for-node**: 3,555 and 469,852) and found **1** extremal
+> chain at `s=4` and **12** at `s=9`, giving `1·13·12 + 12·13·1 = ` **312** seams — **all 312
+> fail** (158 hexagon+orbit collisions, 154 hexagon collisions, zero survivors).
+>
+> **Audit findings.** (i) The reported capacity **106 is `N*(1,0,15)`** — the `s = 5k = 15`
+> global pool, not the contracted object's deficit. Sound but loose; the tight cell
+> `N*(1,0,13)` is **missing from the stored table** and I computed it fresh: **98**
+> (681,902,414 nodes, uncapped). Both are below 112, so the conclusion is unaffected. The
+> reported **83** is exact. (ii) Commit `7b3fa951…` is not an object here and branch
+> `codex/round135-g2-k3` is not among the remote heads after `git fetch` — a repository-state
+> limitation, **not** a mathematical failure.
+>
+> **Round 134 (audit of Astra's locked-block contraction proof) — superseded by the Round-135 audit.**
 > **`(k,G) = (4,2)` is CLOSED, NR6-conditionally.** Outer cells closed: **10 of 55 `(k, G)`**
 > (was 9/55). This does **not** establish `L6 >= 872`, and **NR6 remains ASSUMED**.
 >
