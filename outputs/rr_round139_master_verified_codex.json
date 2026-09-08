@@ -1,0 +1,291 @@
+{
+  "schema": "codex/round139-master-independent/1",
+  "endpoint_identity_count": 5016,
+  "support_permutations": [
+    {
+      "nu": [
+        1,
+        2,
+        0
+      ],
+      "extended_cycles": [
+        [
+          0,
+          3
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "nu": [
+        2,
+        0,
+        1
+      ],
+      "extended_cycles": [
+        [
+          0,
+          2,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "nu": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "extended_cycles": [
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "extended_cycles": [
+        [
+          0,
+          3,
+          2,
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "nu": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "extended_cycles": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ]
+      ]
+    }
+  ],
+  "literal_controls": 1510,
+  "histogram": {
+    "(4, 2, 0, 0, 0)": 662,
+    "(4, 0, 0, 0, 0)": 62,
+    "(4, 2, 1, 1, 0)": 90,
+    "(4, 2, 1, 0, 1)": 42,
+    "(4, 2, 1, 0, 0)": 617,
+    "(4, 2, 2, 1, 0)": 6,
+    "(4, 2, 2, 0, 0)": 27,
+    "(6, 2, 1, 0, 1)": 4
+  },
+  "arithmetic": {
+    "master_envelopes": 38,
+    "by_k": {
+      "1": 24,
+      "2": 10,
+      "3": 3,
+      "4": 1
+    },
+    "equality_rows": [
+      [
+        1,
+        3,
+        2,
+        1,
+        [
+          4
+        ],
+        2
+      ],
+      [
+        1,
+        3,
+        2,
+        2,
+        [
+          4,
+          4
+        ],
+        1
+      ],
+      [
+        2,
+        3,
+        2,
+        1,
+        [
+          4
+        ],
+        1
+      ],
+      [
+        2,
+        3,
+        2,
+        2,
+        [
+          4,
+          4
+        ],
+        0
+      ],
+      [
+        3,
+        3,
+        2,
+        1,
+        [
+          4
+        ],
+        0
+      ]
+    ]
+  },
+  "seams": {
+    "three_chain": {
+      "pairs": 78,
+      "pair_orbit": 30,
+      "pair_hex": 40,
+      "triples": 104,
+      "triple_orbit": 53,
+      "triple_hex": 51
+    },
+    "three_chain_orbit_rejections_also_hex_collide": true,
+    "all_104_second_seams_hex_collide": true,
+    "two_chain_all_hex_collision": 312,
+    "two_chain_shared_orbit_histogram": {
+      "8": 16,
+      "5": 14,
+      "2": 20,
+      "3": 18,
+      "6": 30,
+      "4": 24,
+      "0": 154,
+      "7": 26,
+      "1": 6,
+      "9": 4
+    },
+    "two_chain_extrema_regenerated": {
+      "46": {
+        "deficit": 4,
+        "nodes": 548,
+        "extreme_count": 1,
+        "capped": false
+      },
+      "66": {
+        "deficit": 9,
+        "nodes": 82162,
+        "extreme_count": 12,
+        "capped": false
+      }
+    }
+  },
+  "resources": {
+    "distinct_rows": 73,
+    "heavy_refined_tuples": 78,
+    "closed": 73,
+    "open": 0
+  },
+  "provenance": {
+    "rr_round139_capacities_codex.json": {
+      "commit": "ffda0e97b0c6144be888c58d3c7d662f0be32e52",
+      "committed_source_blobs": 4,
+      "all_runs_complete": true
+    },
+    "rr_round139_independent_codex.json": {
+      "commit": "dd0b321c65e797ed45033a9f8cefc8bd64cabc66",
+      "committed_source_blobs": 3,
+      "all_runs_complete": true
+    },
+    "rr_round139_master_capacities_codex.json": {
+      "commit": "d76fb7b1dfb9400c7cb7a815d89869a1823371a9",
+      "committed_source_blobs": 4,
+      "all_runs_complete": true
+    }
+  },
+  "verified": true,
+  "commit": "f943a7d8826b95b29d35c33874315acc1309e92e",
+  "committed_source_sha256": {
+    "src/verify_round139_splice_master_codex.py": "aebd2d010be9e57a43493403c658cdb51321a01343dd8587de40035d985bd98e",
+    "src/certify_round139_multidefect_codex.py": "ea70b407f19192a1d444e9d52b63614b953488a4d14347943c15a64efa9e1201",
+    "src/verify_round135_structural_codex.py": "b0ed80be75803434886a35ba078e995f4e0473f5c9397caf48377faf46da99cb",
+    "src/round135_heavy_seam_codex.py": "d89ea3bbc572273bb6f40ab5ce3e6f4a307770971e48cfcaad43f6ce67384d31",
+    "src/research_round135_contraction_codex.py": "9236423e830b590f234d8ad4eb5a69b3900651af18ec93da9a9dfe5b938b9087",
+    "src/research_alpha_gap_codex.py": "9bc825bf56e683c6393e8d6e5a2ac536426437cb2041114c3de41c9b3f841acf",
+    "src/verify_round139_multidefect_codex.py": "a79a6ae38873ae1206f5666f3a877fa1dbc16afeed70f6a39eb14de426474885"
+  },
+  "runtime_source_sha256": {
+    "src/verify_round139_splice_master_codex.py": "aebd2d010be9e57a43493403c658cdb51321a01343dd8587de40035d985bd98e",
+    "src/certify_round139_multidefect_codex.py": "ea70b407f19192a1d444e9d52b63614b953488a4d14347943c15a64efa9e1201",
+    "src/verify_round135_structural_codex.py": "b0ed80be75803434886a35ba078e995f4e0473f5c9397caf48377faf46da99cb",
+    "src/round135_heavy_seam_codex.py": "d89ea3bbc572273bb6f40ab5ce3e6f4a307770971e48cfcaad43f6ce67384d31",
+    "src/research_round135_contraction_codex.py": "9236423e830b590f234d8ad4eb5a69b3900651af18ec93da9a9dfe5b938b9087",
+    "src/research_alpha_gap_codex.py": "9bc825bf56e683c6393e8d6e5a2ac536426437cb2041114c3de41c9b3f841acf",
+    "src/verify_round139_multidefect_codex.py": "a79a6ae38873ae1206f5666f3a877fa1dbc16afeed70f6a39eb14de426474885"
+  },
+  "inputs": {
+    "rr_round139_splice_master_codex.json": "0477666ec79dee539ab723a5a71ae66405848780618828bd534a64e079adc3ea",
+    "rr_round139_initial_codex.json": "6bc4ff9c5248573c4754360c4d9d83218444a1d50d992651988ed821960207db",
+    "rr_round139_capacities_codex.json": "e753b57e1ac4022c30f0dd0f3720a66285b07372a918f4c7a732b1b6a3391c72",
+    "rr_round139_independent_codex.json": "915135c08a0240b818d212a6c1837616eecd05d0fda5bde7f7d8c79d5d0ea05f",
+    "rr_round139_master_capacities_codex.json": "ba93594c11252939310ef19d561ace0d9333a8fe95006369d94bdaee48d3e612",
+    "rr_f0_column_115.json": "efccccc6075440d40c56cedf31276f1d757a154be9909bc141ee54ed22e9eb51",
+    "rr_round136_capacity_codex.json": "4fc5e36475587970822ad0d5c0943dfd6ccead0b821c0fc07e233d0dfefae87a",
+    "rr_round135_heavy_seams_codex.json": "88fcd2008d455e2f2901bae234a08abe01f150bcedc9bcbd908c0075523f6650"
+  },
+  "universal_proof": "research/RR_ROUND139_SUCCESSOR_SPLICING_MASTER_CODEX.md sections 1-6",
+  "theorem_scope": "NR6 AND G=2 AND L<=871: no covering walk",
+  "new_cells": [
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "recovered_old_cells": [
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      2
+    ]
+  ],
+  "outer_before": "11/55",
+  "outer_after": "13/55",
+  "NR6": "ASSUMED",
+  "global_L6_ge_872": "NOT_PROVED"
+}
