@@ -1,0 +1,140 @@
+{
+  "schema": "codex/round138-universal-privacy-closure/1",
+  "author": "CODEX",
+  "source_commit": "a0780a50f4c54a9388630116876b1b76c1cbf4c7",
+  "dependencies_sha256": {
+    "research/RR_ROUND138_UNIVERSAL_ORBIT_PRIVACY_CODEX.md": "3b49fe44d927cc432f7a91c72e59d4e8a9a8776aa658c2ad75447f64a5414233",
+    "outputs/rr_round138_privacy_controls_codex.json": "9302006f17632d1f72c591a88a7909195b74268d572070a3aff3e1579c0dd80e",
+    "outputs/rr_round138_privacy_verified_codex.json": "4f1fff32eb8f251fff5766613789ad0208183eded97086556feeb462d2670f6a",
+    "outputs/rr_round138_source_hash_correction_codex.json": "885cf40a6ad89f1328237ad11a12712e77b0c5c9dd938688d0bb2a29e6bba992"
+  },
+  "inherited_unchanged_sha256": {
+    "outputs/rr_round137_gap_closure_ledger_codex.json": "a10011b42a9519a5a4428c4b75386e9c9af057f216d454e4b1730dff6ee29a95",
+    "outputs/rr_round137_root_return_capacity_codex.json": "4ee68304a0b914a4c8bd18aececf30d20ec6f5709ab67b496f85d99fac8f9d7d",
+    "outputs/rr_round137_verified_codex.json": "ebea22c25ff614400e85038b774ab082abee5d261c095979c08b37d25cdd033e"
+  },
+  "quantifier": "For every residual M/R walk, the cut selected by section 5 before testing privacy has disjoint registered orbit sets.",
+  "hand_proof": "Report sections 2-5: run-boundary separation, injective additional-repeat charge, exhaustive Type A/B instantiation.",
+  "hand_proof_machine_formalized": false,
+  "finite_controls_do_not_replace_proof": true,
+  "sharing_charge": "delta >= 1+s within the specified event geometry; delta=1 implies s=0",
+  "deficit_identity": "18-5*r+5*s; proved r=1,s=0 for canonical cuts => 13",
+  "rows": [
+    {
+      "id": "A_F2_d1_x0_H0_e0",
+      "mechanisms": [
+        "M"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "M": 112
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "A_F2_d1_x0_H0_e1",
+      "mechanisms": [
+        "M",
+        "R"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "M": 112,
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "A_F2_d1_x0_H0_e2",
+      "mechanisms": [
+        "R"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e0",
+      "mechanisms": [
+        "M"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "M": 112
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e1",
+      "mechanisms": [
+        "M",
+        "R"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "M": 112,
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e2",
+      "mechanisms": [
+        "M",
+        "R"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "M": 112,
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    },
+    {
+      "id": "B_F2_d1_x0_H0_e3",
+      "mechanisms": [
+        "R"
+      ],
+      "privacy": "PROVED_BY_RUN_OPENING_INJECTION",
+      "private_orbits_shared": 0,
+      "capacity": {
+        "R": 103
+      },
+      "required_pass_sum": 117,
+      "status": "EXCLUDED_UNDER_NR6"
+    }
+  ],
+  "rows_closed": 7,
+  "rows_remaining": 0,
+  "cell_3_2": "CLOSED_UNDER_NR6",
+  "accepted_outer_before": "10/55",
+  "accepted_outer_after": "11/55",
+  "prior_round137_status": "PROVISIONAL; independent audit PARTIAL at privacy layer",
+  "NR6": "ASSUMED",
+  "L6_ge872": "NOT_PROVED",
+  "capacity_recomputed": false,
+  "NR6_DFS_performed": false,
+  "other_cells_investigated": false,
+  "new_capacity_models": false,
+  "targeted_configurations": 19818,
+  "legal_sharing_configurations": 67,
+  "distinct_legal_sharing_words": 15,
+  "all_legal_sharing_delta": 2,
+  "supporting_event_CSP_models": 12972,
+  "source_correction": "outputs/rr_round138_source_hash_correction_codex.json",
+  "final_status": "ASTRA_R137_PRIVACY_PROVED"
+}

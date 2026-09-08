@@ -1,0 +1,17 @@
+{
+  "schema": "codex/round138-source-provenance-correction/1",
+  "historical_certificate": "outputs/rr_round137_root_return_capacity_codex.json",
+  "historical_certificate_sha256": "4ee68304a0b914a4c8bd18aececf30d20ec6f5709ab67b496f85d99fac8f9d7d",
+  "file": "src/chain_capacity_115.c",
+  "recorded_ambiguous_source_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a",
+  "correct_committed_blob_sha256": "2287c05efdfe0cb521a9175b100c71546b0ea386f63e299cbb1e16b271574edb",
+  "commit": "ec8a5f1aaa2d5b42dc885dca86420877287555aa",
+  "historical_worktree_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a",
+  "CRLF_lines": 202,
+  "current_worktree_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a",
+  "committed_CRLF_lines": 0,
+  "LF_normalized_equal": true,
+  "correction": "Old source_sha256 was the compiled WORKTREE byte hash, not the remotely retrievable committed blob hash. Explicitly distinguish both; content differs only by CRLF/LF.",
+  "old_certificate_modified": false,
+  "capacity_recomputed": false
+}

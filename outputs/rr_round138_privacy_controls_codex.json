@@ -1,0 +1,3764 @@
+{
+  "schema": "codex/round138-privacy-audit/1",
+  "source_commit": "a0780a50f4c54a9388630116876b1b76c1cbf4c7",
+  "remote_commit": "a0780a50f4c54a9388630116876b1b76c1cbf4c7",
+  "argv": [
+    "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "src/research_round138_privacy_codex.py"
+  ],
+  "source_sha256": {
+    "src/research_round138_privacy_codex.py": "270c153cac7b3fe13175e45b7610e5a35910b8aa16ab7f141acc1a45553d1ea8",
+    "src/research_alpha_gap_codex.py": "9bc825bf56e683c6393e8d6e5a2ac536426437cb2041114c3de41c9b3f841acf",
+    "src/verify_round137_gap_capacity_codex.py": "e5032c69bc9bd05acb8e7b092ffba72d5e99672ce163a5692a35d2b36c54f882",
+    "src/verify_g2_k4_contraction_certificate_codex.py": "145b980b1280a7f5b8a7f840c467550cfd6ae264a287cea4a17819a6dd337c82"
+  },
+  "binary_sha256": "cce21c0e8710e304273e98ac4b2b0f5aceb639acbcd2343cbaa5c4e81619c45b",
+  "controls": {
+    "input_sha256": "11d3d9af43d3151585d9d3c0334d77bce07129b5dd2d9d3a8c0a7fb7af1e5f15",
+    "preserved_gap_controls": 835,
+    "positional_identities": 10800,
+    "complementary_context_checks": 3600,
+    "attempted_one_port_contexts": 19818,
+    "histogram": {
+      "n4/literal_rejected": 638,
+      "n4/M_FRESH_GAP/before/delta2/x0": 5,
+      "n4/M_FRESH_GAP/after/delta2/x0": 5,
+      "n6/literal_rejected": 19113,
+      "n6/M_FRESH_GAP/before/delta2/x0": 39,
+      "n6/R_ROOT_RETURN_GAP/after/delta2/x0": 18
+    },
+    "legal_shared_orbit_contexts": 67,
+    "scope": "specified finite external-one-full-pass domain; not universal enumeration",
+    "capped": false,
+    "node_cap": null,
+    "rows": [
+      {
+        "n": 4,
+        "source_word_sha256": "cfb61745445f98c3126c9fd3d89dee84c6f3123b99e4c677cdf7ec2865c61f7b",
+        "word": "3102310123010321030120312013201",
+        "side": "before",
+        "inserted_port": 20,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 5,
+            "e": 2,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "ordinary": [
+            4
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "2d5182eddc3e9cc39316d2bdc2c9586db0bb22a946b00e7eed9f8489f147b224",
+        "word": "01230120312130213120231023210321",
+        "side": "after",
+        "inserted_port": 23,
+        "shared_orbit": 11,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 4,
+            "D": 6,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5
+          ],
+          "repeat": [
+            5
+          ],
+          "ordinary": [],
+          "exceptional": [
+            5
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "cbd61099e34b846a65c6fd9dedc7727f390089f7770ce16bb85f3d0f5bd852fb",
+        "word": "01230120312023132013231023210321",
+        "side": "after",
+        "inserted_port": 23,
+        "shared_orbit": 11,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 4,
+            "D": 6,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          "repeat": [
+            5
+          ],
+          "ordinary": [],
+          "exceptional": [
+            5
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "e4bccccfadde5a5d35dd878487ba7d9769f140081e48a72d3882bc8ea3398d8f",
+        "word": "0123012031201310231013201032103",
+        "side": "after",
+        "inserted_port": 7,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 4,
+            "e": 1,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          "repeat": [
+            5
+          ],
+          "ordinary": [],
+          "exceptional": [
+            5
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "03bdf7ecfb36e0155281d314c42f2a529af19b821ff78930209276313c74073d",
+        "word": "0123012031201310231013201032103",
+        "side": "after",
+        "inserted_port": 7,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 4,
+            "e": 1,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          "repeat": [
+            5
+          ],
+          "ordinary": [],
+          "exceptional": [
+            5
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "188fc78e6dad01fedf247483b3e200dd4b68b7aaf780bdd0987f749c7516de34",
+        "word": "0123012031302130312013201032103",
+        "side": "after",
+        "inserted_port": 7,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 5,
+            "e": 2,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5
+          ],
+          "repeat": [
+            4,
+            5
+          ],
+          "ordinary": [
+            4
+          ],
+          "exceptional": [
+            5
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "188fc78e6dad01fedf247483b3e200dd4b68b7aaf780bdd0987f749c7516de34",
+        "word": "3102310123012031302130312013201",
+        "side": "before",
+        "inserted_port": 20,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 5,
+            "e": 2,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          "repeat": [
+            4,
+            5
+          ],
+          "ordinary": [
+            5
+          ],
+          "exceptional": [
+            4
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "c0c82af541b46209782781c2579db232da587762b5e3cb3a3143d8a9fac576c6",
+        "word": "31023101230121303120313021320132",
+        "side": "before",
+        "inserted_port": 20,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 4,
+            "D": 6,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          "repeat": [
+            3,
+            5
+          ],
+          "ordinary": [
+            5
+          ],
+          "exceptional": [
+            3
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "67893e31be5533aeeb908a30e08e27c782a96ae24efe9de34c188bffdba13555",
+        "word": "3102310123010321030120312013201",
+        "side": "before",
+        "inserted_port": 20,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 5,
+            "e": 2,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "ordinary": [
+            4
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 4,
+        "source_word_sha256": "9ea68f3107ee92edcff14bc46f0b1ce7529f15c969f55067ab4e1ecaf16c4c5c",
+        "word": "31023101230103210301213021320132",
+        "side": "before",
+        "inserted_port": 20,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 4,
+            "D": 6,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "5802dba2dcc66775bf1766c9068f659fd0de3f18695243509c97e352a74b60c4",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "3112342bd2ac3fc4d612d18d864857848e4a1c9b7ebd364a6667a29916e2cb5d",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "0d0ec67ae0c5d0d4f98fdb064411a5ae9d90725f1beb74a08f47bdd5149e5fd3",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "075df104adaa42432031944768421e5d561f45f652b795a89c0349c06163f508",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "77e61010c888e726e7654f3e1e9cb4af62ad046de6537dc63f26fadd6c8eaace",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "7942ffbd8dc7aaa2098c25c141483ea17322519977daef4bc275948e6239324d",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "3a750777240ff89a957a2a8d30875f61b6138f104feff6ff1cc8bd09c7579d4c",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "99063edc7956c31b40b1fe4bebb2747b357dd01f9ef6d787c52dc8fb24fa74c4",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "9d79f242ce1cd776b429d50912bf9c6e2a07794670fb3aa36cb65c8ceaa681a2",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "eedbd2283382376d67882bd968d71945d75f441090bf3d813e21dcf21a014980",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "f90728c9039f644e4c15922115ed28c40ad967cfb4fb594a3c7a8d3764b04b9d",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "478343522827651fe623a36077d816655a6d6cb77896498864595e37fa909c4c",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "f2efb38b70a5fc3545ed3d1845f088f9bafbdc1d942340087b580a06978d3879",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "a24c14fe7ee8c33595d72e69cd21bdd84db3929532043994d28383084b4a2622",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "dac6aecc1a09a99c7b1f94aeb9f6788292208bff954f8080bbddfb68c428ce80",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "b0db8118ddcbdab767f58379c3b696b43d6b06ccb9100693f2329762d9969321",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "e48a4b9fb45ecfacf4ff5a2fb9dce18aca627e8ad05a4990ece50ee3b4529aac",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "cba2185acead095282b557924dcc4362b4278060b84eb2552c4ca660eb5664e1",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "b392f24a24666ff9012154dfbdb6239aa9da9004535054b5b5b9aa2c010c1a1b",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "cfd6588632abc373f7403f3037352857179c3a7a58b0380936a843fb2b72db66",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "15a06857f0145c73f891161dcfb1189e7056066657d67128377287b734d5f75c",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "986866280a43d7115443f00f9e400ae94c2262ad65f16f2388c7722ced8a7dc1",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "edcf3ff0562bd9d64fd569d9e1a1c77d707bd982ce47cada1a89189ce331e4f0",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "eca7ea49ba94f5fc8e6c3f732733d6e96eafd4613a44f53a45c4617e42509dc0",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "58a3e136c9b549a87d19da4e9aa4be73ce7d739033611663e2233464aec5c230",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "4024da3cc9aa5a8940b1200d42066ed3c9794f8f071769b40da8cae61831ea98",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "b2df054b39b05daa0156455e29d3e50358b1e446b0aee961df6408102d93c4a7",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "03f70a10c538bb6dce1c3f18210027be92713615e41946f5a36ad46c1ee32796",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "afa5efe9f6d6349e6aec4a1e5720eb9b5ef9b38ad95500627579ab68a216f646",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "f06f99bdbc2edc7ebbe6379d5d1f15c57e5e9760bf46484f6d686df3ce01b4bc",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "0da58caa27a324735a76c9d3c4fcc241d5311e11d23a54f53e62e91d8736e5ab",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "c46a289080eedb2037b645d3028b7d49188e198e203260ffc9857239c4491b9c",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "98a19c50936f442230b0104efa0e4f69a59ff8530f4905b12a0de8c4896ee6de",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "2c7541965a39fc095dfa9193a037869e6fc3cd629d99f2aca9b92b8b06e41e7f",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "1d3ddd9190a32e15da8d797fc4c31d84f404ad6b09c23d93c01a3036429b19a4",
+        "word": "53012453012345012534012530412530241530245130245013245012340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 9,
+            "O": 4,
+            "D": 11,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 48
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "203b28f7de3cd81539b4dd6cb9ba6af784c4491df29211a0f4f916ed3b3d889f",
+        "word": "5301245301234501253401253041253024153024513024501324501234052134052314052341052340152340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 2,
+          "G": 2,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 14,
+            "O": 5,
+            "D": 11,
+            "r": 7,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 72
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            13,
+            9,
+            10,
+            11,
+            12,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "5ee29f65890fef9abeb38a0dc8dfc815fc5ee5bf3ec87b18990393a091021c00",
+        "word": "5301245301234501253401253041253024153024513024501324501234051324051342051340251340521340512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 2,
+          "G": 2,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 14,
+            "O": 5,
+            "D": 11,
+            "r": 7,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 72
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            13,
+            9,
+            10,
+            11,
+            12,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "967ac68445b8bb5e230950db15ce536390831ae80d6978f6e3824684008ffa84",
+        "word": "5301245301234501253401253041253024153024513024501324501234051243051240351240531240513240512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 2,
+          "G": 2,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 14,
+            "O": 5,
+            "D": 11,
+            "r": 7,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 72
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            13,
+            9,
+            10,
+            11,
+            12,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "87d0056c9110e4c1cea7a99dee91cc18bdcc186594d7fd424dc1193c40fe289f",
+        "word": "5301245301234501253401253041253024153024513024501324501234051230451230541230514230512430512340",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 2,
+          "G": 2,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 14,
+            "O": 5,
+            "D": 11,
+            "r": 7,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 72
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            13,
+            9,
+            10,
+            11,
+            12,
+            8
+          ],
+          "repeat": [
+            2,
+            8
+          ],
+          "ordinary": [
+            8
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "7fd08835f502312829efe906b4335d656aef580d1437bd938b2d16ca96f28e34",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "bb31df88a849280755e3be0c676e2f4a05bb46013cbc8d9199e9641fceb47256",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "d5d00b096ab3438910d5fff4a2b34e18ecf43cbaf883d8d911f67390194b0a26",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "5b701d008c88c6aebe88999b84586b20381bf10dbce93047566dd5008efdcabd",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "37aaab3af6ad8b92a87da954165c8843e2bdbfb6cc3d8fbf738964f76115efee",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "a253f98c9f2f70db1d91c2db7950d80f5bd0c01985c8f61fb005ba7b420d7c54",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "5fb33fdc124ec8c997cd0175ef22a340f642dc5dad652f81e0bf53b3f76f2255",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "882181edd094a4bca0827e3ed9960a25e72a757882791bb0e9337986642ad9a1",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "7fbb596368aa7ab0367033fc00411fb70c45bc54c71694eb59f97de67f1582a9",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "672abaab98e87a8a9aa42be751b562979d135d910266cdee2fcceb29ba99fd99",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "b5bdfcd629e9d717128abbe387dd86d6654eea3f6dc13e7b0c500b862154d615",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "5ac3c9f705d5619a30972bc7c682405efd47ba95de7373b5b4b3ff9789998b52",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "88ff1ff247593fa86e2f2ab6bfdc9636b1837e2fdd5d40c089cfedaf211e25c6",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "c0d0cc645cd99ee574f0415949b9aa9a4ffd3db1c1d2366487e4a0d703a4197b",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "93ea86d82082e4ece3cd260314487c1683915b6eccfb8e94c8ac5f3f4fb141c3",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "da7c7af33a254a01a9163fdf7f600eb7ee87779050813292f737c0ba93943622",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "4be56c47f6844a0164a7b48e5ea514893c64c45fe474b66c6a7a24295cc3662d",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      },
+      {
+        "n": 6,
+        "source_word_sha256": "ad319de27414aac290faf0126ad122b3945e785e45edcbd8b7e1b5a93ed05ec6",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      }
+    ],
+    "minimal_examples": {
+      "n4/M_FRESH_GAP/before/delta2/x0": {
+        "n": 4,
+        "source_word_sha256": "cfb61745445f98c3126c9fd3d89dee84c6f3123b99e4c677cdf7ec2865c61f7b",
+        "word": "3102310123010321030120312013201",
+        "side": "before",
+        "inserted_port": 20,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 5,
+            "e": 2,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "ordinary": [
+            4
+          ],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      "n4/M_FRESH_GAP/after/delta2/x0": {
+        "n": 4,
+        "source_word_sha256": "e4bccccfadde5a5d35dd878487ba7d9769f140081e48a72d3882bc8ea3398d8f",
+        "word": "0123012031201310231013201032103",
+        "side": "after",
+        "inserted_port": 7,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 6,
+            "O": 3,
+            "D": 3,
+            "r": 4,
+            "e": 1,
+            "x": 0,
+            "S": 3,
+            "H": 0,
+            "windows": 20
+          },
+          "nu": [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          "repeat": [
+            5
+          ],
+          "ordinary": [],
+          "exceptional": [
+            5
+          ]
+        }
+      },
+      "n6/M_FRESH_GAP/before/delta2/x0": {
+        "n": 6,
+        "source_word_sha256": "5802dba2dcc66775bf1766c9068f659fd0de3f18695243509c97e352a74b60c4",
+        "word": "5301245301234501253401253041253024153024513024501324501234",
+        "side": "before",
+        "inserted_port": 672,
+        "shared_orbit": 4,
+        "mechanism": "M_FRESH_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 1,
+          "eta": 1,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 5,
+            "e": 1,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            0,
+            7,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "repeat": [
+            2
+          ],
+          "ordinary": [],
+          "exceptional": [
+            2
+          ]
+        }
+      },
+      "n6/R_ROOT_RETURN_GAP/after/delta2/x0": {
+        "n": 6,
+        "source_word_sha256": "7fd08835f502312829efe906b4335d656aef580d1437bd938b2d16ca96f28e34",
+        "word": "0123450213450241350241530241523041523401523450123415023415",
+        "side": "after",
+        "inserted_port": 303,
+        "shared_orbit": 225,
+        "mechanism": "R_ROOT_RETURN_GAP",
+        "classification": {
+          "F": 1,
+          "G": 1,
+          "a": 0,
+          "eta": 2,
+          "delta": 2,
+          "metrics": {
+            "P": 8,
+            "O": 4,
+            "D": 12,
+            "r": 6,
+            "e": 2,
+            "x": 0,
+            "S": 4,
+            "H": 0,
+            "windows": 42
+          },
+          "nu": [
+            6,
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7
+          ],
+          "repeat": [
+            6,
+            7
+          ],
+          "ordinary": [],
+          "exceptional": [
+            6,
+            7
+          ]
+        }
+      }
+    }
+  },
+  "event_csp": {
+    "domain": "ALL restricted-growth run equality patterns of length <=7; both one/two boundary-target models",
+    "nodes": 12972,
+    "node_cap": null,
+    "capped": false,
+    "histogram": {
+      "M/shared0/extra0": 1057,
+      "M/shared1/extra1": 3510,
+      "M/shared2/extra2": 2057,
+      "M/shared1/extra2": 2060,
+      "R/shared1/extra1": 430,
+      "M/shared1/extra3": 460,
+      "R/shared1/extra2": 223,
+      "M/shared2/extra3": 1067,
+      "R/shared2/extra2": 212,
+      "M/shared2/extra4": 142,
+      "R/shared2/extra3": 56,
+      "M/shared1/extra4": 47,
+      "R/shared1/extra3": 37,
+      "M/shared1/extra5": 1,
+      "R/shared1/extra4": 1,
+      "M/shared2/extra5": 3,
+      "M/shared0/extra1": 731,
+      "M/shared3/extra4": 81,
+      "M/shared3/extra3": 351,
+      "R/shared3/extra3": 9,
+      "R/shared0/extra0": 116,
+      "M/shared0/extra2": 193,
+      "R/shared0/extra1": 80,
+      "M/shared0/extra3": 26,
+      "R/shared0/extra2": 20,
+      "M/shared0/extra4": 1,
+      "R/shared0/extra3": 1
+    },
+    "model_counts": {
+      "M/B1": 5230,
+      "M/B2": 6557,
+      "R/B1": 796,
+      "R/B2": 389
+    },
+    "minimal_shared_models": {
+      "M/B1/s1": {
+        "run_orbits": [
+          0,
+          1,
+          0
+        ],
+        "inside": [
+          1,
+          3
+        ],
+        "boundary_targets": [
+          0
+        ],
+        "mode": "M",
+        "root_return_event": null,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2
+        ],
+        "shared_orbits": [
+          0
+        ],
+        "injection": {
+          "0": 2
+        },
+        "delta_lower_bound": 2
+      },
+      "M/B2/s1": {
+        "run_orbits": [
+          0,
+          1,
+          0
+        ],
+        "inside": [
+          2,
+          3
+        ],
+        "boundary_targets": [
+          0,
+          1
+        ],
+        "mode": "M",
+        "root_return_event": null,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2
+        ],
+        "shared_orbits": [
+          0
+        ],
+        "injection": {
+          "0": 2
+        },
+        "delta_lower_bound": 2
+      },
+      "M/B1/s2": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "inside": [
+          1,
+          3
+        ],
+        "boundary_targets": [
+          0
+        ],
+        "mode": "M",
+        "root_return_event": null,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2,
+          3
+        ],
+        "shared_orbits": [
+          0,
+          1
+        ],
+        "injection": {
+          "0": 2,
+          "1": 3
+        },
+        "delta_lower_bound": 3
+      },
+      "R/B1/s1": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "inside": [
+          1,
+          4
+        ],
+        "boundary_targets": [
+          0
+        ],
+        "mode": "R",
+        "root_return_event": 3,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2
+        ],
+        "shared_orbits": [
+          0
+        ],
+        "injection": {
+          "0": 2
+        },
+        "delta_lower_bound": 2
+      },
+      "M/B2/s2": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "inside": [
+          2,
+          4
+        ],
+        "boundary_targets": [
+          0,
+          1
+        ],
+        "mode": "M",
+        "root_return_event": null,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2,
+          3
+        ],
+        "shared_orbits": [
+          0,
+          1
+        ],
+        "injection": {
+          "0": 2,
+          "1": 3
+        },
+        "delta_lower_bound": 3
+      },
+      "R/B1/s2": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        "inside": [
+          1,
+          4
+        ],
+        "boundary_targets": [
+          0
+        ],
+        "mode": "R",
+        "root_return_event": 3,
+        "ordinary_repeat_events": [
+          4
+        ],
+        "unsupported_repeat_events": [
+          2,
+          5
+        ],
+        "shared_orbits": [
+          0,
+          1
+        ],
+        "injection": {
+          "0": 2,
+          "1": 5
+        },
+        "delta_lower_bound": 3
+      },
+      "M/B1/s3": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        "inside": [
+          2,
+          5
+        ],
+        "boundary_targets": [
+          1
+        ],
+        "mode": "M",
+        "root_return_event": null,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "shared_orbits": [
+          0,
+          1,
+          2
+        ],
+        "injection": {
+          "0": 2,
+          "1": 3,
+          "2": 6
+        },
+        "delta_lower_bound": 5
+      },
+      "M/B2/s3": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        "inside": [
+          2,
+          5
+        ],
+        "boundary_targets": [
+          0,
+          1
+        ],
+        "mode": "M",
+        "root_return_event": null,
+        "ordinary_repeat_events": [
+          5
+        ],
+        "unsupported_repeat_events": [
+          2,
+          3,
+          6
+        ],
+        "shared_orbits": [
+          0,
+          1,
+          2
+        ],
+        "injection": {
+          "0": 2,
+          "1": 3,
+          "2": 6
+        },
+        "delta_lower_bound": 4
+      },
+      "R/B2/s1": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        "inside": [
+          4,
+          7
+        ],
+        "boundary_targets": [
+          0,
+          1
+        ],
+        "mode": "R",
+        "root_return_event": 6,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          5
+        ],
+        "shared_orbits": [
+          0
+        ],
+        "injection": {
+          "0": 5
+        },
+        "delta_lower_bound": 2
+      },
+      "R/B1/s3": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          1,
+          2,
+          1,
+          2
+        ],
+        "inside": [
+          1,
+          5
+        ],
+        "boundary_targets": [
+          0
+        ],
+        "mode": "R",
+        "root_return_event": 3,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          2,
+          5,
+          6
+        ],
+        "shared_orbits": [
+          0,
+          1,
+          2
+        ],
+        "injection": {
+          "0": 2,
+          "1": 5,
+          "2": 6
+        },
+        "delta_lower_bound": 4
+      },
+      "R/B2/s2": {
+        "run_orbits": [
+          0,
+          1,
+          0,
+          2,
+          0,
+          1,
+          2
+        ],
+        "inside": [
+          3,
+          7
+        ],
+        "boundary_targets": [
+          0,
+          1
+        ],
+        "mode": "R",
+        "root_return_event": 6,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          4,
+          5
+        ],
+        "shared_orbits": [
+          0,
+          1
+        ],
+        "injection": {
+          "0": 4,
+          "1": 5
+        },
+        "delta_lower_bound": 3
+      },
+      "R/B2/s3": {
+        "run_orbits": [
+          0,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2
+        ],
+        "inside": [
+          2,
+          6
+        ],
+        "boundary_targets": [
+          0,
+          1
+        ],
+        "mode": "R",
+        "root_return_event": 4,
+        "ordinary_repeat_events": [],
+        "unsupported_repeat_events": [
+          3,
+          5,
+          6
+        ],
+        "shared_orbits": [
+          0,
+          1,
+          2
+        ],
+        "injection": {
+          "0": 3,
+          "1": 5,
+          "2": 6
+        },
+        "delta_lower_bound": 4
+      }
+    },
+    "violations": 0,
+    "proof_status": "finite check of the symbolic injection, not universal reachability proof"
+  },
+  "metadata_correction": {
+    "schema": "codex/round138-source-provenance-correction/1",
+    "historical_certificate": "outputs/rr_round137_root_return_capacity_codex.json",
+    "historical_certificate_sha256": "4ee68304a0b914a4c8bd18aececf30d20ec6f5709ab67b496f85d99fac8f9d7d",
+    "file": "src/chain_capacity_115.c",
+    "recorded_ambiguous_source_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a",
+    "correct_committed_blob_sha256": "2287c05efdfe0cb521a9175b100c71546b0ea386f63e299cbb1e16b271574edb",
+    "commit": "ec8a5f1aaa2d5b42dc885dca86420877287555aa",
+    "historical_worktree_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a",
+    "CRLF_lines": 202,
+    "current_worktree_sha256": "c7694b66f3d31770f5ed9d91b7b61a1973c2138d22513a0d7ca40615dc74544a",
+    "committed_CRLF_lines": 0,
+    "LF_normalized_equal": true,
+    "correction": "Old source_sha256 was the compiled WORKTREE byte hash, not the remotely retrievable committed blob hash. Explicitly distinguish both; content differs only by CRLF/LF.",
+    "old_certificate_modified": false,
+    "capacity_recomputed": false
+  },
+  "seconds": 2.677092800149694,
+  "mathematical_digest": "2f0d519ce798ae23e157991d008cb1a7ddef291791b9590634d00eadbbdfe93c"
+}
