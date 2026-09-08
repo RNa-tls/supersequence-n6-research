@@ -78,6 +78,17 @@ def controls():
         d=dissect(row['original']['word'],4);assert d['delta']==1 and d['a']+d['eta']==1
         d['type']=row['type'];out.append(d)
         subtype='MISSING_ASCENT' if d['a'] else d['extra_repeat'][0]['kind']
+        if d['a']:
+            i=d['missing_ascents'][0];j=d['nu'][i]
+            aligned=d['registered_orbit_sequence'][i+1]==d['registered_orbit_sequence'][j]
+            d['residual_model']='M_ALIGNED' if aligned else 'M_OFF_TARGET'
+            if aligned:assert d['maximal_merges']==2
+        else:
+            assert subtype=='PAID_REENTRY', 'free-ascent exception would refute the no-AF lemma'
+            targets={d['registered_orbit_sequence'][d['nu'][i]] for i in range(len(d['nu'])) if i<d['nu'][i]}
+            attached=d['extra_repeat'][0]['target_orbit'] in targets
+            d['residual_model']='R_ASCENT_TARGET' if attached else 'R_OTHER_TARGET'
+            if not attached:assert d['maximal_merges']==2
         key=f"{d['type']}/{subtype}/broken{len(d['broken_free_locks'])}/merges{d['maximal_merges']}"
         hist[key]+=1
         # A literal minimum within this preserved finite control set only.
