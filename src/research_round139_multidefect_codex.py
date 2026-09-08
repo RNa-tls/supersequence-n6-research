@@ -60,11 +60,12 @@ def heavy_seams():
     """All extremal triples for C0 convolution at total deficit eight.
     Literal genuine weight-four seams, exact value renaming; no quotient of histories.
     """
-    g=Geometry(6);tables={d:full_chains(d) for d in [0,4]}
+    g=Geometry(6);tables={d:full_chains(d) for d in [0,2,4]}
     C=[20,20,33,33,46,46,49,58,62]
     conv=[(a,b,8-a-b,C[a]+C[b]+C[8-a-b]) for a in range(9) for b in range(9-a)]
     maximum=max(z[3] for z in conv);splits=[z[:3] for z in conv if z[3]==maximum]
-    assert maximum==112 and set(splits)=={(0,4,4),(4,0,4),(4,4,0)}
+    assert maximum==112
+    assert set(splits)==set(itertools.permutations((0,4,4)))|set(itertools.permutations((2,2,4)))
     moves={}
     for v in range(720):
         p=g.words[g.s(v,5)];out=[]
