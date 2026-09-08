@@ -768,13 +768,39 @@
   ],
   "kill_condition": "a row dies iff N1*(b', 0, 13) < 117"
  },
+ "equality_frontier": {
+  "law_checks": [
+   {
+    "cell": "N1*(1,0,6)",
+    "value": 84,
+    "base": 69,
+    "matches": true
+   },
+   {
+    "cell": "N1*(1,0,9)",
+    "value": 101,
+    "base": 86,
+    "matches": true
+   }
+  ],
+  "prediction": {
+   "cell": "N1*(1,0,13)",
+   "predicted": 117,
+   "required": 117,
+   "is_equality": true,
+   "computed": false,
+   "estimated_nodes": "about 2e11 - not run in this round"
+  },
+  "status": "PREDICTION, not a proof; a cap was never read as UNSAT",
+  "next_step": "enumerate only the extremal witnesses at (1,0,13) and test whether the seam and boundary conditions can actually connect them"
+ },
  "certificate": {
-  "source_commit": "380bcab3adcc961f37d7fef47bda87d1b7fb820a",
+  "source_commit": "e8ce341dcc1af2c88d3ee8e9f021ff68c85fb785",
   "gcc": "gcc -O2",
   "searcher_c": "6d828274d7f1a210093b11855609b9238cfb68afd332a0942e92747e1be98462",
   "searcher_bin": "704f99ea5f318ca793513883483304fbd6d72b1bb497218108660bdef739d9dc",
   "round115_c": "2287c05efdfe0cb521a9175b100c71546b0ea386f63e299cbb1e16b271574edb",
-  "module": "049e9369009f839b0807d84d9f1c9f462b6df67ac0adc19b46999ff911e32c7b",
+  "module": "b80d725c7ec52e0bc06100896bfa3527a5851e2a5c43ad0660fcb3be00715a1b",
   "runs": [
    {
     "argv": "0 0 13 60000000000 1",
@@ -810,6 +836,15 @@
     "orbits": 18,
     "runs": 19,
     "nodes": 338860753,
+    "capped": false
+   },
+   {
+    "argv": "1 0 9 40000000000 1",
+    "cell": "N1*(1,0,9)",
+    "passes": 101,
+    "orbits": 22,
+    "runs": 23,
+    "nodes": 6572464021,
     "capped": false
    },
    {

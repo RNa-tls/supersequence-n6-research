@@ -374,6 +374,26 @@ def one_defect_exclusion():
                  f"rows are reduced but not closed"))
 
 
+def equality_frontier():
+    """`b' = 1` 배치가 **정확히 등호**에 걸린다는 관측 (증명 아님).
+
+    `+15` 법칙은 한-결함 모델에서도 두 번 확인된다:
+        N1*(1,0,6) = 84 = 69 + 15,   N1*(1,0,9) = 101 = 86 + 15.
+    따라서 `N1*(1,0,13) = 102 + 15 = 117` 이 예측되고, 필요한 pass 수도 정확히 117 이다.
+    **등호는 모순이 아니다** — 라운드 135 가 `46 + 66 = 112` 에서 했듯 극값 증인만 열거해
+    이음매/경계 조건이 이어질 수 있는지 보는 것이 정확한 다음 단계다.
+    """
+    return dict(
+        law_checks=[dict(cell="N1*(1,0,6)", value=84, base=69, matches=True),
+                    dict(cell="N1*(1,0,9)", value=101, base=86, matches=True)],
+        prediction=dict(cell="N1*(1,0,13)", predicted=117, required=117,
+                        is_equality=True, computed=False,
+                        estimated_nodes="about 2e11 - not run in this round"),
+        status="PREDICTION, not a proof; a cap was never read as UNSAT",
+        next_step="enumerate only the extremal witnesses at (1,0,13) and test whether the "
+                  "seam and boundary conditions can actually connect them")
+
+
 def certificate():
     """§21 — 재현 가능한 계산 증명서."""
     import hashlib
@@ -402,6 +422,8 @@ def certificate():
                  runs=19, nodes=109941651, capped=False),
             dict(argv="1 0 6 40000000000 1", cell="N1*(1,0,6)", passes=84, orbits=18,
                  runs=19, nodes=338860753, capped=False),
+            dict(argv="1 0 9 40000000000 1", cell="N1*(1,0,9)", passes=101, orbits=22,
+                 runs=23, nodes=6572464021, capped=False),
             dict(argv="0 0 9 20000000000 0", cell="control = N*(0,0,9)", passes=66,
                  nodes=469852, capped=False),
             dict(argv="0 0 13 20000000000 0", cell="control = N*(0,0,13)", passes=83,

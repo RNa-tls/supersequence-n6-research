@@ -9,7 +9,44 @@ A round-by-round log of the research program lives in [ROUNDS.md](ROUNDS.md).
 > a precondition that holds on all 173,409 real assignments and is now asserted, so the counts
 > survive with a corrected statement.
 >
-> **Round 135 audit (Astra's `(k,G) = (3,2)` result) — read this first.**
+> **Independent `(3,2)` attack — read this first.**
+> **Two of the seven `delta = 1` rows are eliminated outright: `A/e=0` and `B/e=0`.**
+> `(3,2)` remains **OPEN** (5 rows survive), outer ledger stays **10/55**, NR6 **ASSUMED**,
+> and this proves nothing about `L6 >= 872`.
+>
+> This was a deliberately independent line, not a continuation of Astra's. Starting from the
+> definitions I re-derived `delta = a + eta` and reproduced the accepted row table exactly
+> (A/e0→M, A/e1→M|R, A/e2→R, B/e0→M, B/e1→M|R, B/e2→M|R, B/e3→R).
+>
+> **Theorem I (move–orbit semantics).** For a pass with entry `u`, length `ℓ`, both `M2` and
+> `M3a` land in `orb(σ^ℓ u)` — the ν-target orbit — while `M3b`/`M3c` land in a *third* orbit.
+> For a full pass the ν-target is its own orbit, so `M3a` is an intra-run x-arc, forbidden when
+> `x = 0`: **every paid exit of a full pass is a Round-115 light connector.** That is the lever
+> for everything below. **Theorem II:** `M2` lands at ν-target phase `+1`, `M3a` at `+2`,
+> uniformly (720/720, every length).
+>
+> **Theorem III / Corollary IV.** A ν-ascent exiting *paid* via `M3a` still yields a
+> contractible 5-pass block (`ΔP=−4, ΔO=−1, ΔD=−1, ΔS=−1`) — independently re-deriving Round
+> 135's `u` as the count of M3a-type contractions. So **M-off-target means exactly: the paid
+> ascent exit is `M3b`/`M3c`.**
+>
+> **Theorem VI (main result).** I extended the Round-115 searcher with one doubled hexagon,
+> using Theorems I–II for exact short-pass semantics; with the defect disabled it reproduces
+> Round 115 **node-for-node**. A doubled hexagon buys +20 passes. One contraction leaves
+> `P' = 117, O' = 26, D' = 13` as a single one-defect chain with budget `(b', 0, 13)`, and
+> **`N1*(0,0,13) = 102`** (exhaustive, uncapped, 4,121,832,039 nodes) `< 117`. Since `e = 0`
+> admits no broken lock, `A/e=0` and `B/e=0` die unconditionally.
+>
+> **Honest negative:** the cut-and-sum route is *provably* dead with only one contraction —
+> ceilings are 120 (2 chains) and 150 (3 chains) against the 115 needed. And the 2-chain/
+> deficit-13 ceiling being exactly 112 independently explains why Round 135 needed its seam
+> argument at `H = 1`.
+>
+> **Equality frontier:** the `+15` law holds in the one-defect model too (`N1*(1,0,6) = 84`,
+> `N1*(1,0,9) = 101`), predicting `N1*(1,0,13) = 117` — *exactly* the requirement. That is a
+> **prediction, not a proof**; the extremal-witness technique is the precise next step.
+>
+> **Round 135 audit (Astra's `(k,G) = (3,2)` result) — superseded as the current front.**
 > **Verdict: PARTIAL.** Every mathematical claim I could reconstruct independently reproduces
 > **exactly**; the Round-135 artefact itself is **absent from the repository**, so three
 > requested sections could not be performed on the deliverable. `(3,2)` remains **OPEN**,
