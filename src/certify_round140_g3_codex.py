@@ -51,6 +51,11 @@ def cap_bounds():
     return dict(rows=out,counts_by_k=dict(Counter(r['k'] for r in out)),used_capacities=used,all_closed=True)
 def main():
     head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip();base=load('rr_round140_g3_codex.json');bounds=cap_bounds()
+    # Do not assign an equality closure label merely because arithmetic is
+    # tight. The independent verifier additionally regenerates the domains.
+    assert not base['seams']['capped'] and len(base['seams']['rows'])==52
+    assert base['seams']['counts']=={'HEX_COLLISION':52}
+    assert all(r['status']=='HEX_COLLISION' and r['overlapping_hexagons'] for r in base['seams']['rows'])
     nr4=load('rr_round140_nr4_codex.json');assert not nr4['summary']['capped'];hist=Counter();representatives={};Jmin={};stronger=None;privacy=None
     fnv=1469598103934665603
     for word in nr4['words']:

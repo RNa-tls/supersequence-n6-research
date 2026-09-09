@@ -115,6 +115,15 @@ def capacities(cert):
         new.setdefault((d['b'],d['s']),[]).append(d['passes'])
         assert hashlib.sha256(json.dumps(d,sort_keys=True,separators=(',',':')).encode()).hexdigest()==r['result_digest']
     assert all(len(v)==2 and v[0]==v[1] for v in new.values())
+    # The seam certificate is complete only if these are ALL extremal
+    # deficit allocations, not merely two convenient extremal chains.
+    equality_splits=[]
+    for d in range(13):
+        lhs=old[f'0,0,{d}'];rhs=old[f'0,0,{12-d}']
+        assert not lhs['capped'] and not rhs['capped']
+        total=lhs['passes']+rhs['passes'];assert total<=108
+        if total==108:equality_splits.append([d,12-d])
+    assert equality_splits==[[4,8],[8,4]]
     def C(b,d):
         if b==3:assert d<=2;return new[3,2][0]
         if b==2:assert d<=7;return new[2,2 if d<=2 else 7][0]
@@ -157,7 +166,8 @@ def capacities(cert):
         expected_indices=[i for i,z in enumerate(cert['bounds']['rows']) if z['k']==r['k'] and z['K'] in Ks and z['H']==r['H'] and 0<=z['s']<=r['S']+1-r['O']+z['c']]
         assert expected_indices==r['master_envelope_indices'] and r['status']=='CLOSED'
         if not expected_indices:assert all(r['S']+1-r['O']+c<0 for K in Ks for c in range(K))
-    return dict(envelopes=40,equalities=3,resource_rows=516,by_k=dict(Counter(r['k'] for r in rows)))
+    return dict(envelopes=40,equalities=3,equality_deficit_splits=equality_splits,
+        resource_rows=516,by_k=dict(Counter(r['k'] for r in rows)))
 def seams(base):
     from research_alpha_gap_codex import Geometry
     from verify_round135_structural_codex import run_enum

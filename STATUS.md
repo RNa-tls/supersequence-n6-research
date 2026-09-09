@@ -1,5 +1,24 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 140: general Theorem A and successor splicing; all four G=3 cells CLOSED under NR6.**
+> A new event-injective proof gives `f_out <= F+e` for arbitrary G; no distinct
+> repeat-orbit assumption is needed. Connected nu/beta incidence gives
+> `K+R <= G+1`, yielding `m <= G+1-c+h` and the exact free-block identity
+> `sum b_j+s = S+1-O+c`. This independently re-proves the needed splicing
+> foundation instead of assuming the provisional Round139 theorem.
+> All 516 G3 resource rows / 580 heavy-refined rows are covered by 40 capacity
+> envelopes; 37 strict bounds and 3 equality envelopes close. The only equality
+> seam has 52 possible literal connections, all rejected by hexagon collisions.
+> Seven new capacity cells have matching complete port/run enumerations.
+> **Combined outer ledger: 17/55 PROVISIONAL**, inheriting the still-pending
+> external Round139 audit of the incoming 13/55. This does not silently upgrade
+> historical audit status. **NR6 is ASSUMED; `L6 >= 872` is NOT PROVED.**
+> [General proofs and G3 closure](research/RR_ROUND140_GENERAL_THEOREM_A_AND_G3_SPLICING_CODEX.md)
+> · [All envelopes and literal certificates](outputs/rr_round140_certificate_codex.json)
+> · [Independent verification](outputs/rr_round140_verified_codex.json)
+> · [Publication hashes and tests](outputs/rr_round140_publication_codex.json)
+> Earlier round blocks below are historical snapshots.
+
 > **Codex Round 139: the remaining G=2 cells `(2,2)` and `(1,2)` are CLOSED under NR6.**
 > Successor splicing preserves literal joint endpoints while replacing passes
 > by full passes, producing one path or one path plus two circuits. After
