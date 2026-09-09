@@ -11,13 +11,19 @@ def main():
     assert remote==head,'push first'
     files=['src/run_round141_extrema_codex.py','src/round141_extrema_codex.c','src/chain_capacity_115.c']
     committed={p:hashlib.sha256(subprocess.check_output(['git','show',head+':'+p])).hexdigest() for p in files}
-    runtime={p:sha(ROOT/p) for p in files};assert runtime==committed
+    runtime={p:sha(ROOT/p) for p in files}
+    newline_only=[]
+    for p in files:
+        local=(ROOT/p).read_bytes();blob=subprocess.check_output(['git','show',head+':'+p])
+        assert local.replace(b'\r\n',b'\n')==blob.replace(b'\r\n',b'\n')
+        if local!=blob:newline_only.append(p)
     binary=ROOT/'outputs/round141_extrema_codex.exe'
     build=[str(ZIG),'cc','-O3','src/round141_extrema_codex.c','-o',str(binary)]
     subprocess.run(build,cwd=ROOT,check=True,capture_output=True)
     out=dict(schema='codex/round141-extrema/1',source_commit=head,build=build,
         compiler=subprocess.check_output([str(ZIG),'version'],text=True).strip(),
-        executable_sha256=sha(binary),committed_source_sha256=committed,runtime_source_sha256=runtime,rows=[])
+        executable_sha256=sha(binary),committed_source_sha256=committed,runtime_source_sha256=runtime,
+        newline_only_runtime_differences=newline_only,rows=[])
     for T,D in [(46,4),(58,7),(62,8),(96,14)]:
         argv=[str(binary),str(T),str(D),'20000000000'];start=time.perf_counter()
         r=subprocess.run(argv,cwd=ROOT,capture_output=True,text=True)
