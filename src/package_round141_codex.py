@@ -38,8 +38,15 @@ def main():
     assert len(outer['ledger']['new_cells'])==38 and len(outer['ledger']['rows'])==160
     for artifact in data.values():
         if 'input_sha256' in artifact:
-            for f,h in artifact['input_sha256'].items():
-                if (ROOT/'outputs'/f).is_file():assert sha(ROOT/'outputs'/f)==h
+            binding=artifact['input_sha256']
+            if isinstance(binding,str):
+                assert sha(ROOT/artifact['input_path'])==binding
+            else:
+                aliases={'foundation':ROOT/'outputs/rr_round141_nr6_foundation_codex.json',
+                         '872_witness':ROOT/'data/verified_872_witness.txt'}
+                for f,h in binding.items():
+                    path=aliases.get(f,ROOT/'outputs'/f)
+                    assert path.is_file() and sha(path)==h, 'missing or altered input '+f
     for f in ['rr_round141_j_topology_verified_codex.json','rr_round141_nr6_verified_codex.json','rr_round141_nr_geodesic_templates_codex.json']:
         assert data[f]['verified']
     assert all(data[f]['NR6']=='UNPROVED' for f in ['rr_round141_nr6_foundation_codex.json','rr_round141_repeat_credit_codex.json','rr_round141_nr6_verified_codex.json','rr_round141_nr_geodesic_templates_codex.json'])
