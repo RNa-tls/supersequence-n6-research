@@ -1,0 +1,722 @@
+{
+ "round": 140,
+ "role": "independent audit of Astra Round 140",
+ "astra_commit": "92b62a9e3acccc8334c91ce93859d87f3d33fec0",
+ "astra_branch": "codex/round140-g3-general-splicing",
+ "verdict": "CLAUDE_ROUND140_CONFIRMED",
+ "per_item_verdicts": {
+  "universal_f_out_le_F_plus_e": "CONFIRMED",
+  "G3_multiplicity_classification": "CONFIRMED",
+  "possible_F_values": "CONFIRMED",
+  "516_row_resource_enumeration": "CONFIRMED",
+  "general_successor_splicing_lemma": "CONFIRMED",
+  "multi_splice_composition": "CONFIRMED",
+  "shared_orbit_accounting": "CONFIRMED",
+  "capacity_model_inclusion": "CONFIRMED",
+  "capacity_values": "CONFIRMED",
+  "equality_enumeration": "CONFIRMED",
+  "52_collision_eliminations": "CONFIRMED",
+  "cell_4_3_closure": "CONFIRMED",
+  "cell_3_3_closure": "CONFIRMED",
+  "cell_2_3_closure": "CONFIRMED",
+  "cell_1_3_closure": "CONFIRMED",
+  "certificate_integrity": "PARTIAL"
+ },
+ "theoremA": {
+  "identity_2_1": {
+   "per_n": {
+    "4": 24,
+    "5": 120,
+    "6": 720
+   },
+   "total": 864,
+   "failures": [],
+   "failure_count": 0,
+   "all_pass": true,
+   "statement": "the unique legal weight-2 target of p' is E(sigma(p'))"
+  },
+  "nr4": {
+   "count": 29255,
+   "nodes": 181086819,
+   "seconds": 95.6,
+   "maxlen": 39,
+   "astra_claims_29255": true,
+   "astra_nodes": 49682345,
+   "my_nodes": 181086819,
+   "G_histogram": {
+    "0": 827,
+    "1": 5999,
+    "2": 10625,
+    "3": 7545,
+    "4": 3384,
+    "5": 629,
+    "6": 246
+   },
+   "astra_G_histogram": [
+    827,
+    5999,
+    10625,
+    7545,
+    3384,
+    629,
+    246
+   ],
+   "G_histogram_matches": true,
+   "theoremA_violations": 0,
+   "theoremA_violation_witnesses": [],
+   "S_identity_violations": 0,
+   "Ord_subset_Rpt_violations": 0,
+   "old_theorem_violations": 0,
+   "identity_2_2_violations": 0,
+   "O_bound_violations": 0,
+   "delta_ge_J_counterexamples": 22,
+   "all_pass": true
+  }
+ },
+ "injection": {
+  "words_checked": 29255,
+  "failures": {},
+  "total_failures": 0,
+  "hexagons_supplying_descending_obligations": {
+   "0": 11663,
+   "1": 11397,
+   "2": 4632,
+   "3": 1362,
+   "4": 197,
+   "5": 4
+  },
+  "words_with_obligations_from_2plus_hexagons": 6195,
+  "words_with_obligations_from_3plus_hexagons": 1563,
+  "tight_words": 1734,
+  "all_pass": true,
+  "conclusion": "내림 자유이탈 i 의 표적 궤도는 언제나 pass nu(i) 의 궤도이고 nu(i) < i 이므로 이미 열려 있다.  i |-> i+1 은 단사이며 상은 Rpt 안에 있다.  이 사상은 육각형을 전혀 참조하지 않으므로 여러 육각형의 의무가 충돌하지 않는다 — 한 사건이 두 의무를 갚는 일은 구조적으로 불가능하다."
+ },
+ "g3_classification": {
+  "total_supports": 41,
+  "by_type": {
+   "4": 6,
+   "32": 20,
+   "222": 15
+  },
+  "by_type_F": {
+   "4": {
+    "1": 1,
+    "2": 4,
+    "3": 1
+   },
+   "32": {
+    "2": 10,
+    "3": 10
+   },
+   "222": {
+    "3": 15
+   }
+  },
+  "decorated_by_type": {
+   "4": 60,
+   "32": 1000,
+   "222": 1875
+  },
+  "decorated_total": 2935,
+  "decorated_by_F": {
+   "1": 10,
+   "2": 540,
+   "3": 2385
+  },
+  "KR_distribution": {
+   "(2,0)": 1,
+   "(2,1)": 8,
+   "(2,2)": 21,
+   "(4,0)": 11
+  },
+  "K_plus_R_le_G_plus_1": true,
+  "K_parity_matches_G_plus_1": true,
+  "K_values": [
+   2,
+   4
+  ],
+  "violations": 0
+ },
+ "resources": {
+  "per_k": {
+   "1": {
+    "k": 1,
+    "O": 25,
+    "D": 2,
+    "P": 123,
+    "arithmetic_rows": 322,
+    "heavy_refined_rows": 377,
+    "by_type": {
+     "A4": 107,
+     "A3B2": 120,
+     "B222": 95
+    },
+    "by_F": {
+     "1": 17,
+     "2": 80,
+     "3": 225
+    },
+    "by_delta": {
+     "0": 144,
+     "1": 104,
+     "2": 56,
+     "3": 18
+    },
+    "by_x": {
+     "0": 183,
+     "1": 93,
+     "2": 37,
+     "3": 9
+    },
+    "by_H": {
+     "0": 183,
+     "1": 93,
+     "2": 37,
+     "3": 9
+    }
+   },
+   "2": {
+    "k": 2,
+    "O": 26,
+    "D": 7,
+    "P": 123,
+    "arithmetic_rows": 139,
+    "heavy_refined_rows": 148,
+    "by_type": {
+     "A4": 42,
+     "A3B2": 52,
+     "B222": 45
+    },
+    "by_F": {
+     "1": 4,
+     "2": 30,
+     "3": 105
+    },
+    "by_delta": {
+     "0": 79,
+     "1": 45,
+     "2": 15
+    },
+    "by_x": {
+     "0": 93,
+     "1": 37,
+     "2": 9
+    },
+    "by_H": {
+     "0": 93,
+     "1": 37,
+     "2": 9
+    }
+   },
+   "3": {
+    "k": 3,
+    "O": 27,
+    "D": 12,
+    "P": 123,
+    "arithmetic_rows": 46,
+    "heavy_refined_rows": 46,
+    "by_type": {
+     "A4": 12,
+     "A3B2": 17,
+     "B222": 17
+    },
+    "by_F": {
+     "2": 7,
+     "3": 39
+    },
+    "by_delta": {
+     "0": 34,
+     "1": 12
+    },
+    "by_x": {
+     "0": 37,
+     "1": 9
+    },
+    "by_H": {
+     "0": 37,
+     "1": 9
+    }
+   },
+   "4": {
+    "k": 4,
+    "O": 28,
+    "D": 17,
+    "P": 123,
+    "arithmetic_rows": 9,
+    "heavy_refined_rows": 9,
+    "by_type": {
+     "A4": 2,
+     "A3B2": 3,
+     "B222": 4
+    },
+    "by_F": {
+     "3": 9
+    },
+    "by_delta": {
+     "0": 9
+    },
+    "by_x": {
+     "0": 9
+    },
+    "by_H": {
+     "0": 9
+    }
+   }
+  },
+  "arithmetic_total": 516,
+  "heavy_refined_total": 580,
+  "astra_claims": {
+   "arithmetic": 516,
+   "heavy_refined": 580,
+   "per_k": {
+    "4": 9,
+    "3": 46,
+    "2": 139,
+    "1": 322
+   },
+   "per_k_refined": {
+    "4": 9,
+    "3": 46,
+    "2": 148,
+    "1": 377
+   }
+  },
+  "matches_516": true,
+  "matches_580": true,
+  "per_k_matches": true,
+  "per_k_refined_matches": true,
+  "length_violations": 0,
+  "identities": {
+   "P": 123,
+   "D_formula": "5k-G",
+   "D_by_k": {
+    "1": 2,
+    "2": 7,
+    "3": 12,
+    "4": 17
+   },
+   "length": "L = 867+k+J+delta+x+H, J=G-F",
+   "condition": "delta+x+H <= F+1-k"
+  }
+ },
+ "envelopes": {
+  "total_envelopes": 40,
+  "by_k": {
+   "1": 26,
+   "2": 10,
+   "3": 3,
+   "4": 1
+  },
+  "astra_claims": {
+   "total": 40,
+   "by_k": {
+    "4": 1,
+    "3": 3,
+    "2": 10,
+    "1": 26
+   }
+  },
+  "matches_40": true,
+  "by_k_matches": true,
+  "strict": 37,
+  "equality": 3,
+  "open": 0,
+  "equality_rows": [
+   {
+    "K": 4,
+    "k": 1,
+    "c": 3,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "s": 2,
+    "b": 0,
+    "max_pieces": 2,
+    "D_sum": 12,
+    "required_passes": 108,
+    "capacity_bound": 108
+   },
+   {
+    "K": 4,
+    "k": 2,
+    "c": 3,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "s": 1,
+    "b": 0,
+    "max_pieces": 2,
+    "D_sum": 12,
+    "required_passes": 108,
+    "capacity_bound": 108
+   },
+   {
+    "K": 4,
+    "k": 3,
+    "c": 3,
+    "H": 1,
+    "heavy": [
+     4
+    ],
+    "s": 0,
+    "b": 0,
+    "max_pieces": 2,
+    "D_sum": 12,
+    "required_passes": 108,
+    "capacity_bound": 108
+   }
+  ],
+  "open_rows": [],
+  "capacity_cells_needed_but_not_independently_computed": [
+   [
+    0,
+    17,
+    "uses inherited N*(0,0,18)=103"
+   ],
+   [
+    1,
+    12,
+    "uses inherited N*(1,0,13)=98"
+   ]
+  ]
+ },
+ "seams": {
+  "exact_deficit_maxima": {
+   "0": 20,
+   "1": 19,
+   "2": 33,
+   "3": 32,
+   "4": 46,
+   "5": 45,
+   "6": 49,
+   "7": 58,
+   "8": 62,
+   "9": 66,
+   "10": 70,
+   "11": 74,
+   "12": 83
+  },
+  "search_nodes": 6332475,
+  "convolution_max": 108,
+  "convolution_argmax": [
+   [
+    8,
+    4
+   ],
+   [
+    4,
+    8
+   ]
+  ],
+  "astra_claims_108_at_4_and_8": true,
+  "maxima_46_and_62": true,
+  "extremal_counts": {
+   "4": 1,
+   "8": 2
+  },
+  "astra_claims_1_and_2": true,
+  "total_seams": 52,
+  "astra_claims_52": true,
+  "hexagon_collisions": 52,
+  "seams_with_shared_orbit_also_hex_colliding": 30,
+  "survivors": [],
+  "survivor_count": 0,
+  "all_52_collide_in_hexagons": true,
+  "w4_legal_tails": 13
+ },
+ "splicing": {
+  "endpoint_identity": {
+   "per_n": {
+    "4": 96,
+    "5": 600,
+    "6": 4320,
+    "7": 35280
+   },
+   "total": 40296,
+   "failures": [],
+   "failure_count": 0,
+   "all_pass": true,
+   "symbolic": "sigma^-1 . sigma^l = sigma^(l-1) since sigma^n = id"
+  },
+  "joint_preservation": {
+   "triples_checked": 40788,
+   "failure_count": 0,
+   "failures": [],
+   "all_pass": true
+  },
+  "composition_bound": {
+   "combinations": 416,
+   "violations": 0,
+   "examples": [],
+   "all_tight_le_loose": true,
+   "c_le_K_minus_1": "the dummy-containing component is never an all-free circuit",
+   "note": "K+R <= G+1 (접속 사건 정리) 이 곧바로 m <= K-c+h+R <= G+1-c+h 를 준다"
+  },
+  "pure_free_circuits": {
+   "argument": "splice 후 모든 자유 변은 문자 그대로 E-단계다 (§2 의 (2.1)). 진입/진출 차수가 최대 1 이므로 자유 변만으로 이루어진 순환은 성분 전체이고, E 의 위수가 n-1 이므로 그 순환은 한 궤도의 n-1 개 포트를 정확히 한 번씩 지난다.  진입 유일성 때문에 그 궤도는 다른 곳에 나타날 수 없고, 제거는 궤도 하나와 n-1 개 진입을 전역에서 없앤다.",
+   "verified_empirically_in_round139": "819 pure-free circuits, all exactly n-1 in one orbit",
+   "c_bound": "c <= K-1"
+  },
+  "move_taxonomy": {
+   "legal_weight2": [
+    "w2/10"
+   ],
+   "legal_weight3": [
+    "w3/120",
+    "w3/201",
+    "w3/210"
+   ],
+   "counts": {
+    "w2": 1,
+    "w3": 3
+   },
+   "no_partial": true,
+   "partial": {},
+   "matches_round126_catalogue": true,
+   "inclusion": "사슬의 이동은 tau 연장 + 120(궤도 안 위상 점프) + 201/210(궤도 밖 경량 연결자) 뿐이고, N*(b,0,d) 는 임의의 비-E 위상 점프와 같은 궤도로의 재진입까지 허용하므로 이들을 모두 포함하는 완화다."
+  }
+ },
+ "astra_self_refutations_reproduced": {
+  "astra_refutations": {
+   "delta_ge_J_refutation": {
+    "word": "012301202130210312032102031023103201320",
+    "computed": {
+     "G": 3,
+     "F": 2,
+     "J": 1,
+     "e": 2,
+     "x": 1,
+     "S": 2,
+     "H": 2,
+     "delta": 0,
+     "f_out": 4
+    },
+    "astra_claim": {
+     "G": 3,
+     "F": 2,
+     "J": 1,
+     "e": 2,
+     "x": 1,
+     "S": 2,
+     "H": 2,
+     "delta": 0,
+     "f_out": 4
+    },
+    "matches": true,
+    "delta_lt_J": true,
+    "theoremA_still_holds": true,
+    "note": "delta >= J 는 실제 문자 단어로 반증된다; 정리 A 자체는 성립"
+   },
+   "delta_ge_q_plus_s_word": {
+    "word": "012302313203120321032013231023012130213",
+    "computed": {
+     "G": 3,
+     "F": 3,
+     "J": 0,
+     "e": 2,
+     "x": 0,
+     "S": 4,
+     "H": 0,
+     "delta": 3,
+     "f_out": 2
+    },
+    "astra_delta_claim": 3,
+    "delta_matches": true,
+    "theoremA_still_holds": true
+   },
+   "arbitrary_paid_cut_word": {
+    "word": "0123012013201",
+    "computed": {
+     "P": 2,
+     "G": 0,
+     "F": 0,
+     "O": 1,
+     "e": 0,
+     "x": 1,
+     "S": 1,
+     "delta": 0,
+     "f_out": 0
+    },
+    "astra_claim": "two passes in one orbit, e=0 and x=1",
+    "e_is_0": true,
+    "x_is_1": true,
+    "theoremA_still_holds": true,
+    "note": "임의 유료 자름에서는 r-1 반복 run 사건이 존재하지 않을 수 있으므로 run-존중 사밀 보조정리 대신 자유-블록 항등식(§6)을 써야 한다"
+   }
+  },
+  "master_algebra": {
+   "checks": 4950,
+   "violations": 0,
+   "examples": [],
+   "identity_chain_violations": 0,
+   "identities": [
+    "sum D_j = 5k - G + 5s",
+    "sum P_j = 120 + G - 5c",
+    "sum b_j + s = S+1-O+c = delta-F+x+c",
+    "L<=871  =>  sum b_j + s <= 4-G-k+c-H"
+   ],
+   "all_hold": true
+  },
+  "sharing_multiplicity": {
+   "rows": [
+    {
+     "pieces_containing_orbit": 1,
+     "contributes_to_s": 0,
+     "contributes_to_sum_O": 1,
+     "contributes_to_sum_D": 0,
+     "linear_in_t": true
+    },
+    {
+     "pieces_containing_orbit": 2,
+     "contributes_to_s": 1,
+     "contributes_to_sum_O": 2,
+     "contributes_to_sum_D": 5,
+     "linear_in_t": true
+    },
+    {
+     "pieces_containing_orbit": 3,
+     "contributes_to_s": 2,
+     "contributes_to_sum_O": 3,
+     "contributes_to_sum_D": 10,
+     "linear_in_t": true
+    },
+    {
+     "pieces_containing_orbit": 4,
+     "contributes_to_s": 3,
+     "contributes_to_sum_O": 4,
+     "contributes_to_sum_D": 15,
+     "linear_in_t": true
+    },
+    {
+     "pieces_containing_orbit": 5,
+     "contributes_to_s": 4,
+     "contributes_to_sum_O": 5,
+     "contributes_to_sum_D": 20,
+     "linear_in_t": true
+    }
+   ],
+   "all_linear": true,
+   "note": "t 개 조각에 걸친 궤도는 s 에 t-1, sum D_j 에 5(t-1) 을 기여한다. t>=3 도 같은 선형식이므로 3 개 이상 공유가 따로 예외가 되지 않는다."
+  }
+ },
+ "capacity_replays": {
+  "(1,3)": {
+   "value": 48,
+   "nodes": 63036,
+   "capped": false
+  },
+  "(0,17)": {
+   "value": 103,
+   "nodes": 307079129,
+   "capped": false
+  },
+  "(2,8)": {
+   "value": 92,
+   "nodes": 271115024,
+   "capped": false
+  },
+  "(0,3)": {
+   "value": 33,
+   "nodes": 1221,
+   "capped": false
+  },
+  "(2,3)": {
+   "value": 63,
+   "nodes": 1696230,
+   "capped": false
+  },
+  "(1,8)": {
+   "value": 77,
+   "nodes": 9936486,
+   "capped": false
+  },
+  "(3,3)": {
+   "value": 78,
+   "nodes": 34921301,
+   "capped": false
+  },
+  "(0,8)": {
+   "value": 62,
+   "nodes": 186282,
+   "capped": false
+  }
+ },
+ "tight_cell_4_3": {
+  "envelope": "K=4, c=3, H=0, B=0, b=s=0, m=1",
+  "required_passes": 108,
+  "deficit": 17,
+  "N_star_0_0_17": 103,
+  "nodes": 307079129,
+  "capped": false,
+  "margin": 5,
+  "closure": "STRICT",
+  "note": "the single forced envelope; the whole cell closes on this one value"
+ },
+ "capacity_not_replayed_here": {
+  "N*(1,0,13)=98": "independently computed in my own Round-135 audit (681,902,414 nodes, matching the producer); used only for the k=3,c=3,H=0 envelope"
+ },
+ "certificate": {
+  "branch_head_matches": true,
+  "committed_blob_LF_matches": 50,
+  "crlf_worktree_matches": 2,
+  "real_content_mismatches": 0,
+  "distinct_committed_files_covered": 21,
+  "astra_claimed_files": 14,
+  "regression_tests": "85/85 after rebuilding missing binaries from committed source with cc",
+  "defect": {
+   "file": "rr_f0_column_115.json",
+   "certificate_records": "efccccc6... (CRLF form)",
+   "committed_blob_is": "6c2d4d20... (LF)",
+   "effect": "Astra's own verify_round140_g3_codex.py fails with AssertionError at the audit commit",
+   "with_that_one_entry_bypassed": {
+    "verified": true,
+    "nr4_words": 29255,
+    "spliced_literal_controls": 1994,
+    "envelopes": 40,
+    "equalities": 3,
+    "equality_deficit_splits": [
+     [
+      4,
+      8
+     ],
+     [
+      8,
+      4
+     ]
+    ],
+    "resource_rows": 516,
+    "by_k": {
+     "1": 322,
+     "2": 139,
+     "3": 46,
+     "4": 9
+    },
+    "seams": {
+     "attempts": 52,
+     "hex_collision": 52
+    }
+   },
+   "mathematical_impact": "none - content identical modulo line endings, and the file is not a load-bearing G=3 value",
+   "note": "same defect class reported in my Round-137 audit, recurring after Round 138 codified the convention"
+  }
+ },
+ "extremal_witnesses_identical_to_producer": true,
+ "ledger": {
+  "previous": "13/55",
+  "now": "17/55",
+  "newly_closed": [
+   "(1,3)",
+   "(2,3)",
+   "(3,3)",
+   "(4,3)"
+  ],
+  "G3_column": "CLOSED under NR6",
+  "AUDITED_Q2_RESIDUAL": 4782,
+  "CLAUDE_FULL_JOINT_UNSAT_COMPLETE": "6396/6396",
+  "NR6": "ASSUMED",
+  "L6_ge_872": "NOT PROVED"
+ },
+ "disclaimer": "This project has not proved L6 >= 872."
+}
