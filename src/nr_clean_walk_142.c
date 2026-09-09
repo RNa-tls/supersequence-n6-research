@@ -34,6 +34,10 @@ static uint64_t cov[2];
 static int covcnt;
 static int *hexrem;         /* uncovered count per hexagon */
 static int hexopen;         /* hexagons with uncovered > 0 */
+static int *hexmask;        /* per hexagon: bitmask of UNCOVERED cycle slots */
+static int *hexslot;        /* vertex -> its slot index inside its hexagon */
+static int *ARCS;           /* mask -> number of maximal circular runs of 1s */
+static int arcsum;          /* sum over hexagons of ARCS[hexmask[h]] */
 static int *walk;           /* vertex sequence */
 static int wlen;
 static long long solcount[64];
@@ -110,6 +114,18 @@ static void build(void){
     }
     adjstart[NP]=pos; free(s);
     hexrem=malloc(sizeof(int)*NHEX);
+    hexmask=malloc(sizeof(int)*NHEX);
+    hexslot=malloc(sizeof(int)*NP);
+    for(i=0;i<NP;i++) hexslot[i]=-1;
+    for(i=0;i<NP;i++) if(hexslot[i]<0){ int x=i; for(k=0;k<n;k++){ hexslot[x]=k; x=SIG[x]; } }
+    ARCS=malloc(sizeof(int)*(1<<n));
+    for(i=0;i<(1<<n);i++){
+        int c=0,b;
+        for(b=0;b<n;b++){ int prev=(b+n-1)%n;
+            if((i>>b&1)&&!((i>>prev)&1)) c++; }
+        if(i==(1<<n)-1) c=1;      /* full circle is one arc */
+        ARCS[i]=c;
+    }
 }
 
 static inline int isc(int v){ return (cov[v>>6]>>(v&63))&1ULL; }
@@ -130,21 +146,31 @@ static void rec(int cur,int wt){
         return;
     }
     int u=NP-covcnt;
-    int entries=hexopen-(hexrem[hexid[cur]]>0?1:0);
-    if(entries<0) entries=0;
-    if(wt+u+entries>BUD) return;
+    /* remaining weight >= u + (sum of uncovered arcs) - 1.
+       Each remaining edge adds <=1 new vertex, so #edges >= u; weight >=
+       #edges + #non-sigma edges; #runs = #non-sigma + 1 counting from here;
+       and #runs + #revisits >= arcsum since a run covers one contiguous
+       stretch of one hexagon and bridging two arcs costs a revisit. */
+    /* The one continuation run can only start covering an arc when the
+       sigma-successor of the current vertex is still uncovered. */
+    int lb=u+arcsum-(isc(SIG[cur])?0:1); if(lb<u) lb=u;
+    if(wt+lb>BUD) return;
     int a=adjstart[cur],e=a+adjcnt[cur];
     for(;a<e;a++){
         int q=adjq[a], w=adjw[a];
         if(wt+w>BUD) continue;
         int fresh=!isc(q);
         cov[q>>6]|=1ULL<<(q&63);
-        int oc=covcnt, oh=hexopen;
-        if(fresh){ covcnt++; if(--hexrem[hexid[q]]==0) hexopen--; }
+        int oc=covcnt, oh=hexopen, oa=arcsum, hq=hexid[q], om=hexmask[hq];
+        if(fresh){ covcnt++; if(--hexrem[hq]==0) hexopen--;
+                   arcsum-=ARCS[om];
+                   hexmask[hq]=om & ~(1<<hexslot[q]);
+                   arcsum+=ARCS[hexmask[hq]]; }
         walk[wlen++]=q;
         rec(q,wt+w);
         wlen--;
-        if(fresh){ covcnt=oc; hexopen=oh; hexrem[hexid[q]]++; cov[q>>6]&=~(1ULL<<(q&63)); }
+        if(fresh){ covcnt=oc; hexopen=oh; arcsum=oa; hexmask[hq]=om;
+                   hexrem[hq]++; cov[q>>6]&=~(1ULL<<(q&63)); }
         if(capped) return;
     }
 }
@@ -158,9 +184,12 @@ int main(int argc,char**argv){
     walk=malloc(sizeof(int)*(BUD+4));
     memset(solcount,0,sizeof(solcount));
     cov[0]=cov[1]=0; covcnt=0;
-    for(int h=0;h<NHEX;h++) hexrem[h]=n;
-    hexopen=NHEX;
-    cov[0]|=1ULL; covcnt=1; if(--hexrem[hexid[0]]==0) hexopen--;
+    for(int h=0;h<NHEX;h++){ hexrem[h]=n; hexmask[h]=(1<<n)-1; }
+    hexopen=NHEX; arcsum=NHEX;      /* each full circle is one arc */
+    cov[0]|=1ULL; covcnt=1;
+    { int h0=hexid[0]; if(--hexrem[h0]==0) hexopen--;
+      arcsum-=ARCS[hexmask[h0]]; hexmask[h0]&=~(1<<hexslot[0]);
+      arcsum+=ARCS[hexmask[h0]]; }
     walk[0]=0; wlen=1;
     rec(0,0);
     printf("{\"n\":%d,\"budget\":%d,\"word_length\":%d,\"nodes\":%lld,\"capped\":%d,",
