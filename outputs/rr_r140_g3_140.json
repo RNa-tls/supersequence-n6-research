@@ -1,0 +1,248 @@
+{
+ "patterns": [
+  {
+   "excess": [
+    3
+   ],
+   "multiplicities": [
+    4
+   ],
+   "short_passes": 4,
+   "n_split_hexagons": 1
+  },
+  {
+   "excess": [
+    2,
+    1
+   ],
+   "multiplicities": [
+    3,
+    2
+   ],
+   "short_passes": 5,
+   "n_split_hexagons": 2
+  },
+  {
+   "excess": [
+    1,
+    1,
+    1
+   ],
+   "multiplicities": [
+    2,
+    2,
+    2
+   ],
+   "short_passes": 6,
+   "n_split_hexagons": 3
+  }
+ ],
+ "incidence": {
+  "total_supports": 41,
+  "by_type": {
+   "4": 6,
+   "32": 20,
+   "222": 15
+  },
+  "by_type_F": {
+   "4": {
+    "1": 1,
+    "2": 4,
+    "3": 1
+   },
+   "32": {
+    "2": 10,
+    "3": 10
+   },
+   "222": {
+    "3": 15
+   }
+  },
+  "decorated_by_type": {
+   "4": 60,
+   "32": 1000,
+   "222": 1875
+  },
+  "decorated_total": 2935,
+  "decorated_by_F": {
+   "1": 10,
+   "2": 540,
+   "3": 2385
+  },
+  "KR_distribution": {
+   "(2,0)": 1,
+   "(2,1)": 8,
+   "(2,2)": 21,
+   "(4,0)": 11
+  },
+  "K_plus_R_le_G_plus_1": true,
+  "K_parity_matches_G_plus_1": true,
+  "K_values": [
+   2,
+   4
+  ],
+  "violations": 0
+ },
+ "resources": {
+  "per_k": {
+   "1": {
+    "k": 1,
+    "O": 25,
+    "D": 2,
+    "P": 123,
+    "arithmetic_rows": 322,
+    "heavy_refined_rows": 377,
+    "by_type": {
+     "A4": 107,
+     "A3B2": 120,
+     "B222": 95
+    },
+    "by_F": {
+     "1": 17,
+     "2": 80,
+     "3": 225
+    },
+    "by_delta": {
+     "0": 144,
+     "1": 104,
+     "2": 56,
+     "3": 18
+    },
+    "by_x": {
+     "0": 183,
+     "1": 93,
+     "2": 37,
+     "3": 9
+    },
+    "by_H": {
+     "0": 183,
+     "1": 93,
+     "2": 37,
+     "3": 9
+    }
+   },
+   "2": {
+    "k": 2,
+    "O": 26,
+    "D": 7,
+    "P": 123,
+    "arithmetic_rows": 139,
+    "heavy_refined_rows": 148,
+    "by_type": {
+     "A4": 42,
+     "A3B2": 52,
+     "B222": 45
+    },
+    "by_F": {
+     "1": 4,
+     "2": 30,
+     "3": 105
+    },
+    "by_delta": {
+     "0": 79,
+     "1": 45,
+     "2": 15
+    },
+    "by_x": {
+     "0": 93,
+     "1": 37,
+     "2": 9
+    },
+    "by_H": {
+     "0": 93,
+     "1": 37,
+     "2": 9
+    }
+   },
+   "3": {
+    "k": 3,
+    "O": 27,
+    "D": 12,
+    "P": 123,
+    "arithmetic_rows": 46,
+    "heavy_refined_rows": 46,
+    "by_type": {
+     "A4": 12,
+     "A3B2": 17,
+     "B222": 17
+    },
+    "by_F": {
+     "2": 7,
+     "3": 39
+    },
+    "by_delta": {
+     "0": 34,
+     "1": 12
+    },
+    "by_x": {
+     "0": 37,
+     "1": 9
+    },
+    "by_H": {
+     "0": 37,
+     "1": 9
+    }
+   },
+   "4": {
+    "k": 4,
+    "O": 28,
+    "D": 17,
+    "P": 123,
+    "arithmetic_rows": 9,
+    "heavy_refined_rows": 9,
+    "by_type": {
+     "A4": 2,
+     "A3B2": 3,
+     "B222": 4
+    },
+    "by_F": {
+     "3": 9
+    },
+    "by_delta": {
+     "0": 9
+    },
+    "by_x": {
+     "0": 9
+    },
+    "by_H": {
+     "0": 9
+    }
+   }
+  },
+  "arithmetic_total": 516,
+  "heavy_refined_total": 580,
+  "astra_claims": {
+   "arithmetic": 516,
+   "heavy_refined": 580,
+   "per_k": {
+    "4": 9,
+    "3": 46,
+    "2": 139,
+    "1": 322
+   },
+   "per_k_refined": {
+    "4": 9,
+    "3": 46,
+    "2": 148,
+    "1": 377
+   }
+  },
+  "matches_516": true,
+  "matches_580": true,
+  "per_k_matches": true,
+  "per_k_refined_matches": true,
+  "length_violations": 0,
+  "identities": {
+   "P": 123,
+   "D_formula": "5k-G",
+   "D_by_k": {
+    "1": 2,
+    "2": 7,
+    "3": 12,
+    "4": 17
+   },
+   "length": "L = 867+k+J+delta+x+H, J=G-F",
+   "condition": "delta+x+H <= F+1-k"
+  }
+ }
+}
