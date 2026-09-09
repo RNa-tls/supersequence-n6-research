@@ -9,6 +9,9 @@
 > A distinct NR6-removal track proves an unconditional repetition-credit
 > theorem: any covering word of length <=871 has at most 27 repeated
 > permutation-window occurrences. This does **not** eliminate the repeats.
+> First-occurrence projection yields a literal geodesic fixed point; its
+> zero-credit repeating connectors have exactly seven normalized templates
+> (five gap shapes), with at most four positive-credit connectors.
 > A precisely specified plateau-exchange lemma remains MISSING.
 > **NR6 is UNPROVED; unrestricted `L6>=872` is NOT PROVED.**
 > [55-cell theorem](research/RR_ROUND141_ALL_G_OUTER_CLOSURE_CODEX.md)
