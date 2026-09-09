@@ -21,7 +21,7 @@
 #include <string.h>
 #include <stdint.h>
 
-static int n, NP, BUD, MODE;
+static int n, NP, BUD, MODE, DUMP=0;
 static long long NODECAP, nodes = 0; static int capped = 0;
 static int *perm;           /* NP * n */
 static int *W;              /* NP*NP weights */
@@ -136,6 +136,9 @@ static void rec(int cur,int wt){
     if(covcnt==NP){
         int rep=wlen-NP;
         if(rep<64) solcount[rep]++;
+        if(DUMP){ printf("{\"sol\":[");
+            for(int i=0;i<wlen;i++) printf("%s%d",i?",":"",walk[i]);
+            printf("],\"weight\":%d,\"repeats\":%d}\n",wt,rep); }
         if(rep>0&&!reported){
             reported=1;
             printf("{\"REPEAT_SOLUTION\":true,\"weight\":%d,\"repeats\":%d,\"walk\":[",wt,rep);
@@ -179,7 +182,7 @@ int main(int argc,char**argv){
     if(argc<3){fprintf(stderr,"usage: %s n BUDGET [nodecap] [mode]\n",argv[0]);return 1;}
     n=atoi(argv[1]); BUD=atoi(argv[2]);
     NODECAP=argc>3?atoll(argv[3]):100000000000LL;
-    MODE=argc>4?atoi(argv[4]):0;
+    MODE=argc>4?atoi(argv[4]):0; DUMP=(MODE==2);
     build();
     walk=malloc(sizeof(int)*(BUD+4));
     memset(solcount,0,sizeof(solcount));
