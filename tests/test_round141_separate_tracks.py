@@ -7,6 +7,7 @@ import research_round141_repeat_credit_codex as repeat
 import verify_round141_nr_foundation_codex as nr
 import research_round141_nr6_codex as foundation
 import verify_round141_j_topology_codex as topo
+import verify_round141_nr_geodesic_templates_codex as templates
 def load(name):return json.loads((ROOT/'outputs'/name).read_text())
 
 class OuterTests(unittest.TestCase):
@@ -76,6 +77,17 @@ class OuterTests(unittest.TestCase):
             self.assertNotIn('true_phase_walk_capacity(', (ROOT/p).read_text())
 
 class NRTests(unittest.TestCase):
+    def test_local_repeat_template_catalog(self):
+        a=templates.endpoint_catalog(6);b,nodes=templates.tail_catalog(6)
+        self.assertEqual(nodes,55986);self.assertEqual(len(a),719)
+        self.assertTrue(all(all(v[k]==a[t][k] for k in v) for t,v in b.items()))
+        zero=[r for r in a.values() if r['hidden_count'] and not r['necessary_credit']]
+        self.assertEqual(len(zero),7);self.assertEqual(len({tuple(r['actual_gaps']) for r in zero}),5)
+    def test_first_projection_equality_is_literal(self):
+        for w in ['0120121021','0121020102120','0120102102']:
+            path=templates.stabilize(w,3)
+            self.assertTrue(all(len(b)<len(a) for a,b in zip(path,path[1:])))
+            self.assertEqual(templates.project_first(path[-1],3),path[-1])
     def test_literal_negative_delta_is_retained(self):
         r=repeat.analyse('0120121021',3)
         self.assertGreater(r['Y'],0);self.assertLess(r['delta'],0)

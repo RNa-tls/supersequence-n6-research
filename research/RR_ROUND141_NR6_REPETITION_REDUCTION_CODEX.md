@@ -13,6 +13,13 @@ weight-2 event class. This is a hand theorem, independently audited, with
 two literal implementations checking 3,096 n=3 controls and explicit n=4/6
 controls. It is not a no-repeat continuation search.
 
+Further, deterministic first-occurrence projection terminates at a
+length-nonincreasing geodesic fixed point. In a <=871 fixed point, all but
+at most four charged connectors are zero-credit; exactly **seven repeating
+zero-credit local templates** exist, in five actual-gap shapes. This catalog
+is exhaustively verified by two different local enumerations. It does not
+decide global history or give an exact-state quotient.
+
 The remaining normalization implication is isolated as the plateau-exchange
 lemma in Section 8. All reductions leading to that lemma, its permitted
 moves, coverage/length guarantees and termination implication are proved
@@ -67,11 +74,18 @@ permutation windows. Those windows can regenerate repeats after selecting
 each vertex only once. The explicit n=3 fixture in the foundation JSON
 demonstrates this distinction.
 
-For a globally shortest word X, its first-occurrence Hamilton projection
-has exactly the same length. Otherwise X was not shortest. All individual
-distance inequalities are then equalities, so its overlaps reproduce X
-literally. A minimal counterexample may therefore be analyzed as a shortest
-Hamilton-order SPELLING, still allowing hidden repeated windows.
+This preprocessing can be made canonical and terminating even without
+assuming global minimality. Let T(X) minimally respell the FIRST-occurrence
+order. If those starts are a0<...<a719, then
+
+    |T(X)|=6+sum minimum_gaps <=6+a719-a0<=|X|.
+
+Equality forces a0=0, a719+6=|X|, and every gap minimal and <=6.
+The source and target windows then uniquely determine every intervening
+substring, so **equal length implies T(X)=X literally**. Hence each nonfixed
+projection strictly shortens; iteration terminates in a first-occurrence
+geodesic fixed point. It may still have repeated windows. In particular
+every global minimum is already such a fixed point.
 
 ### Equal-window deletion and essential intervals
 
@@ -284,6 +298,52 @@ that assumed no-repeat. No new n=5 exact search was needed or performed.
 
 ## 7. Minimal-counterexample consequences
 
+### A complete finite local catalog before attempting a global exchange
+
+In a first-occurrence geodesic fixed point, every selected endpoint occurs
+for the first time and every internal permutation window of a connector
+occurred earlier. Conversely every repeated occurrence is internal to exactly
+one connector. Equal permutations cannot start fewer than six positions
+apart, so the internal windows of each connector are distinct.
+
+Normalize its first permutation to 012345. Its different final permutation
+has 719 possibilities; its minimal gap is <=6. For one connector let h be
+its internal permutation-window count, y the number of those internal
+windows whose NEXT actual gap is 2, and H_local its actual heavy excess.
+Every Y event's repeated source is such an internal window. Consequently
+
+    u=h-y+H_local>=0,
+    sum u=R_rep-sum y+H <=R_rep-Y+H
+         <=4-k-J-a-eta-x.                                  (LOCAL-CREDIT)
+
+At most 4-k-J-a-eta-x connectors have positive integer u. All other
+REPEATING connectors must be one of these seven zero-u templates, up to
+proved value-renaming:
+
+| normalized target | actual gaps | internal repeats |
+|---|---|---:|
+| 103254 | 2,2,2 | 2 |
+| 345021 | 1,2 | 1 |
+| 451032 | 2,2 | 1 |
+| 502143 | 1,2,2 | 2 |
+| 512043 | 3,2 | 1 |
+| 520143 | 3,2 | 1 |
+| 521043 | 3,2 | 1 |
+
+There are also five nonrepeating zero-u templates. A target-pair/overlap
+enumerator and an independent enumeration of ALL 55,986 appended symbol
+tails of lengths 1..6 produce the identical 719-entry catalog. Smaller
+n=3,4,5 catalogs are cross-checked as controls. No stored frontier or
+continuation engine participates.
+
+“Eligible for Y” is not “is Y”: the blocked/fresh history conditions still
+have to hold. If one of these eligible sources is not an actual Y, it
+consumes R_rep-Y elsewhere in the same small global budget. Thus the seven
+local shapes do not imply any literal global history exists or does not
+exist. Nor are they seven equivalence classes of continuation states.
+The positive-credit exceptional connectors are fully listed in the catalog,
+with total cost <=4-k-J-a-eta-x; none is silently excluded.
+
 Assume a <=871 covering word exists but no no-longer NR6 output does.
 Choose a global minimum length word and then a minimum repeat count.
 It is trimmed, first/last windows are unique, its repeated intervals are
@@ -308,8 +368,8 @@ connected components are equal-length relocation plateaus. A finite
 component can be certified by listing all vertices and all legal exits.
 
 **MISSING — bounded repetition plateau-escape lemma (sufficient, not claimed):**
-For every repeated covering Hamilton spelling of length <=871 that is
-irreducible under equal-window coverage deletions, its equal-length
+For every repeated FIRST-OCCURRENCE-GEODESIC FIXED POINT of length <=871
+that is irreducible under equal-window coverage deletions, its equal-length
 relocation plateau contains either
 
 1. a word with fewer repeated permutation occurrences, or
@@ -317,22 +377,25 @@ relocation plateau contains either
 
 Equivalently one can restrict to plateaus minimizing repeat count internally;
 every such positive-repeat plateau must have a shorter exit. Its domain is
-sharply constrained by R_rep<=27 and the typed credit envelope; no port-only
-or coverage-count quotient is substituted for its full literal order.
+sharply constrained by R_rep<=27, the typed credit envelope, the seven
+zero-credit repeating connectors and at most four charged connectors.
+No port-only or coverage-count quotient is substituted for its full literal order.
 The n=3 graph proves the required escape mechanism in that finite analogue.
 The strict n=4 trap is not a counterexample because weak moves escape it.
 The universal n=6 assertion is unproved; even universal single-vertex
 relocation may be too restrictive and must be falsified before use.
 
-**Why this ONE lemma is sufficient:** start with the trimmed Hamilton
-projection. If a coverage-preserving equal-window deletion exists, shorten
-and reproject. Otherwise apply the asserted plateau escape. Its finite
+**Why this ONE lemma is sufficient:** iterate the first-occurrence projection
+to a fixed point. If a coverage-preserving equal-window deletion exists,
+shorten and reproject to a fixed point. Otherwise apply the asserted escape. Its finite
 equal-length path followed by an exit decreases `(length,repeats)`
 lexicographically. Repeat. Length is a nonnegative integer and, at fixed
 length, repeats are nonnegative (indeed <=27); this terminates at a complete
 word with zero repeats. Projection after a strict shortening need not preserve
-repeat count because the FIRST potential coordinate decreases. If a plateau
-already contains a cleaner word, no projection is required. Every intermediate
+repeat count because the FIRST potential coordinate decreases. After a cleaner
+word is found, project it again: if projection is length-neutral it preserves
+that word literally (and its new repeat count); if shorter it improves the
+first coordinate. Every intermediate
 move is literal, coverage preserving and length nonincreasing. Confluence
 is unnecessary. Thus the missing escape assertion alone implies threshold
 NR6; no unproved outer closure is used in this implication.
@@ -347,9 +410,11 @@ No phantom finite UNSAT or formal proof-assistant certificate is claimed.
 
 Sources: `research_round141_nr6_codex.py`,
 `research_round141_repeat_credit_codex.py`,
-`verify_round141_nr_foundation_codex.py`.
+`verify_round141_nr_foundation_codex.py`,
+`verify_round141_nr_geodesic_templates_codex.py`.
 Evidence: `rr_round141_nr6_foundation_codex.json`,
-`rr_round141_repeat_credit_codex.json`, `rr_round141_nr6_verified_codex.json`.
+`rr_round141_repeat_credit_codex.json`, `rr_round141_nr6_verified_codex.json`,
+`rr_round141_nr_geodesic_templates_codex.json`.
 They retain literal counterexamples, complete small rewrite domains,
 normalization paths, input/source hashes and scopes. The publication manifest
 records canonical committed sources separately from runtime hashes.

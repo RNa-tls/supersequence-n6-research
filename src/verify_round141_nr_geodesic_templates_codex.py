@@ -8,6 +8,24 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def digest(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+def project_first(word,n):
+    alphabet=set(map(str,range(n)));order=[]
+    for i in range(len(word)-n+1):
+        p=word[i:i+n]
+        if set(p)==alphabet and p not in order:order.append(p)
+    assert len(order)==len(list(itertools.permutations(range(n))))
+    out=order[0]
+    for target in order[1:]:
+        ov=max(i for i in range(n) if i==0 or out[-i:]==target[:i]);out+=target[ov:]
+    assert len(out)<=len(word)
+    if len(out)==len(word):assert out==word
+    return out
+def stabilize(word,n):
+    path=[word]
+    while True:
+        new=project_first(path[-1],n)
+        if new==path[-1]:return path
+        assert len(new)<len(path[-1]);path.append(new)
 def endpoint_catalog(n):
     a=''.join(map(str,range(n)));out={}
     for tup in itertools.permutations(a):
@@ -62,15 +80,28 @@ def main():
               '512043':[3,2],'520143':[3,2],'521043':[3,2]}
     assert {r['target']:r['actual_gaps'] for r in zero}==expected
     histogram=collections.Counter((r['hidden_count'],r['necessary_credit']) for r in n6.values())
+    # Complete cheap first-projection controls, independent of an NR engine.
+    projected=[];fixed_repeat=[]
+    for order in itertools.permutations(['012','021','102','120','201','210']):
+        word=order[0]
+        for t in order[1:]:
+            d=next(d for d in range(1,4) if (word+t[-d:])[-3:]==t);word+=t[-d:]
+        path=stabilize(word,3);end=path[-1]
+        count=sum(len(set(end[i:i+3]))==3 for i in range(len(end)-2))
+        projected.append(dict(order=order,path=path,final_repeat_count=count-6))
+        if count>6:fixed_repeat.append(end)
     result=dict(schema='round141-nr-geodesic-template-certificate-v1',source_commit=head,
         committed_source_sha256=hashlib.sha256(raw).hexdigest(),runtime_source_sha256=sha(__file__),
         argv=[sys.executable,*sys.argv],python_version=platform.python_version(),executable_sha256=sha(sys.executable),
         completed=True,capped=False,continuation_search=False,verified=True,controls=controls,
         table=list(n6.values()),histogram=[dict(hidden=h,necessary_credit=u,count=c) for (h,u),c in sorted(histogram.items())],
         zero_credit_repeating_templates=zero,zero_credit_repeating_count=len(zero),gap_shape_count=len({tuple(r['actual_gaps']) for r in zero}),
-        hand_dependency='First-occurrence Hamilton projection is literal equality for a global minimum; every repetition is an internal connector window',
-        proved_scope='Local catalog plus necessary summed-credit bound for globally shortest complete words; NOT global history feasibility or NR6',
+        hand_dependency='Repeated first-occurrence projection strictly shortens unless it is literally fixed; every repetition in a fixed point is an internal connector window',
+        proved_scope='Local catalog plus necessary summed-credit bound for first-occurrence-geodesic fixed points; every covering word projects to one no longer; NOT NR6',
         exact_global_relation='sum(h-y_eligible+H_local)<=R_rep-Y+H<=4-k-J-a-eta-x',
+        first_projection_controls=dict(orders=720,clean=sum(r['final_repeat_count']==0 for r in projected),
+            repeated=sum(r['final_repeat_count']>0 for r in projected),distinct_fixed_repeated_words=sorted(set(fixed_repeat)),
+            records=projected,scope='Complete S3 order domain only; fixed-point existence is a hand theorem'),
         NR6='UNPROVED',seconds=time.perf_counter()-start)
     result['deterministic_digest']=digest(dict(table=result['table'],histogram=result['histogram'],controls=controls))
     (ROOT/'outputs/rr_round141_nr_geodesic_templates_codex.json').write_text(json.dumps(result,indent=2)+'\n',newline='\n')
