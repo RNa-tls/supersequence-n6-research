@@ -1,0 +1,123 @@
+{
+ "astra_refutations": {
+  "delta_ge_J_refutation": {
+   "word": "012301202130210312032102031023103201320",
+   "computed": {
+    "G": 3,
+    "F": 2,
+    "J": 1,
+    "e": 2,
+    "x": 1,
+    "S": 2,
+    "H": 2,
+    "delta": 0,
+    "f_out": 4
+   },
+   "astra_claim": {
+    "G": 3,
+    "F": 2,
+    "J": 1,
+    "e": 2,
+    "x": 1,
+    "S": 2,
+    "H": 2,
+    "delta": 0,
+    "f_out": 4
+   },
+   "matches": true,
+   "delta_lt_J": true,
+   "theoremA_still_holds": true,
+   "note": "delta >= J 는 실제 문자 단어로 반증된다; 정리 A 자체는 성립"
+  },
+  "delta_ge_q_plus_s_word": {
+   "word": "012302313203120321032013231023012130213",
+   "computed": {
+    "G": 3,
+    "F": 3,
+    "J": 0,
+    "e": 2,
+    "x": 0,
+    "S": 4,
+    "H": 0,
+    "delta": 3,
+    "f_out": 2
+   },
+   "astra_delta_claim": 3,
+   "delta_matches": true,
+   "theoremA_still_holds": true
+  },
+  "arbitrary_paid_cut_word": {
+   "word": "0123012013201",
+   "computed": {
+    "P": 2,
+    "G": 0,
+    "F": 0,
+    "O": 1,
+    "e": 0,
+    "x": 1,
+    "S": 1,
+    "delta": 0,
+    "f_out": 0
+   },
+   "astra_claim": "two passes in one orbit, e=0 and x=1",
+   "e_is_0": true,
+   "x_is_1": true,
+   "theoremA_still_holds": true,
+   "note": "임의 유료 자름에서는 r-1 반복 run 사건이 존재하지 않을 수 있으므로 run-존중 사밀 보조정리 대신 자유-블록 항등식(§6)을 써야 한다"
+  }
+ },
+ "master_algebra": {
+  "checks": 4950,
+  "violations": 0,
+  "examples": [],
+  "identity_chain_violations": 0,
+  "identities": [
+   "sum D_j = 5k - G + 5s",
+   "sum P_j = 120 + G - 5c",
+   "sum b_j + s = S+1-O+c = delta-F+x+c",
+   "L<=871  =>  sum b_j + s <= 4-G-k+c-H"
+  ],
+  "all_hold": true
+ },
+ "sharing_multiplicity": {
+  "rows": [
+   {
+    "pieces_containing_orbit": 1,
+    "contributes_to_s": 0,
+    "contributes_to_sum_O": 1,
+    "contributes_to_sum_D": 0,
+    "linear_in_t": true
+   },
+   {
+    "pieces_containing_orbit": 2,
+    "contributes_to_s": 1,
+    "contributes_to_sum_O": 2,
+    "contributes_to_sum_D": 5,
+    "linear_in_t": true
+   },
+   {
+    "pieces_containing_orbit": 3,
+    "contributes_to_s": 2,
+    "contributes_to_sum_O": 3,
+    "contributes_to_sum_D": 10,
+    "linear_in_t": true
+   },
+   {
+    "pieces_containing_orbit": 4,
+    "contributes_to_s": 3,
+    "contributes_to_sum_O": 4,
+    "contributes_to_sum_D": 15,
+    "linear_in_t": true
+   },
+   {
+    "pieces_containing_orbit": 5,
+    "contributes_to_s": 4,
+    "contributes_to_sum_O": 5,
+    "contributes_to_sum_D": 20,
+    "linear_in_t": true
+   }
+  ],
+  "all_linear": true,
+  "note": "t 개 조각에 걸친 궤도는 s 에 t-1, sum D_j 에 5(t-1) 을 기여한다. t>=3 도 같은 선형식이므로 3 개 이상 공유가 따로 예외가 되지 않는다."
+ }
+}

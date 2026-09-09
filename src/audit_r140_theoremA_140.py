@@ -93,6 +93,9 @@ def nr4_words(g, maxlen=39, start=None):
         if len(seq) == N:
             words.append(tuple(seq))
             return
+        # 건전한 가지치기: 남은 순열 하나마다 최소 무게 1 이 더 붙는다.
+        if length + (N - len(seq)) > maxlen:
+            return
         for b in range(N):
             if used[b]:
                 continue
@@ -136,9 +139,9 @@ def analyse(g, seq):
         k += 1
     S = sum(1 for w in jw if w >= 3)
     H = sum(w - 3 for w in jw if w > 3)
-    Gm = Pn - (len(g["P"]) // n) * 1 * 0 - (len(g["P"]) - 0)  # placeholder
-    Gm = Pn - len(g["P"]) // n * 0
-    Gm = Pn - (len(g["P"]) // n)          # G = P - (#hexagons) = P - N/n
+    # G = 다중도 초과 = P - (진입이 닿은 서로 다른 육각형 수) = sum_h (m_h - 1).
+    # 완전 덮기 단어에서는 P - N/n 과 같지만, 국소 단어에도 옳다.
+    Gm = Pn - len({HEX[e] for e in entry})
     pos_of = {e: i for i, e in enumerate(entry)}
     # nu
     nu = []
@@ -151,11 +154,12 @@ def analyse(g, seq):
         return None
     F = sum(1 for i in range(Pn) if i < nu[i])
     J = Gm - F
-    # runs: 인접 pass 가 같은 궤도이고 조인트가 자유(weight 2)이면 같은 run
+    # run = **같은 E-궤도에 있는 pass 진입의 극대 연속열** (보고서 §1).
+    # 유료 궤도-내부 조인트(x-호)는 run 을 끊지 않는다 ("paid intra-run joints").
     runs = []
     curr = [0]
     for i in range(Pn - 1):
-        if jw[i] == 2 and ORB[entry[i + 1]] == ORB[entry[i]]:
+        if ORB[entry[i + 1]] == ORB[entry[i]]:
             curr.append(i + 1)
         else:
             runs.append(curr)
@@ -184,6 +188,7 @@ def analyse(g, seq):
     eta = len(set(Rpt) - Ord)
     delta = F + e - f_out
     return dict(P=Pn, G=Gm, F=F, J=J, O=O, e=e, x=x, S=S, H=H, f_out=f_out,
+                S_identity=(S == O + e - 1 - f_out + x),
                 delta=delta, a=a, eta=eta, r=r, nu=nu,
                 Ord_subset_Rpt=Ord.issubset(set(Rpt)),
                 identity_2_2=(delta == a + eta),
@@ -226,7 +231,8 @@ if __name__ == "__main__":
             continue
         hist[r["G"]] += 1
         if not r["theoremA"]:
-            viol_A.append(seq)
+            viol_A.append(dict(seq=list(seq), **{k: r[k] for k in
+                               ("P","G","F","e","x","S","H","f_out","delta")}))
         if not r["identity_2_2"]:
             viol_id.append(seq)
         if not r["O_bound"]:
@@ -241,6 +247,13 @@ if __name__ == "__main__":
                       G_histogram_matches=([hist[i] for i in range(7)]
                                            == [827, 5999, 10625, 7545, 3384, 629, 246]),
                       theoremA_violations=len(viol_A),
+                      theoremA_violation_witnesses=viol_A[:5],
+                      S_identity_violations=sum(1 for r in rows
+                                                if not r["S_identity"]),
+                      Ord_subset_Rpt_violations=sum(1 for r in rows
+                                                    if not r["Ord_subset_Rpt"]),
+                      old_theorem_violations=sum(1 for r in rows
+                                                 if not r["theoremA_old"]),
                       identity_2_2_violations=len(viol_id),
                       O_bound_violations=len(viol_O),
                       delta_ge_J_counterexamples=sum(
