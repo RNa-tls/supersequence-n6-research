@@ -1,0 +1,124 @@
+{
+  "schema": "codex/round140-publication/1",
+  "source_commit": "59061de7f73f3b3afc8679e51cc203cc38c74f9d",
+  "verified": true,
+  "tests": {
+    "new": 19,
+    "retained": 66,
+    "total": 85
+  },
+  "committed_source_sha256": {
+    "src/certify_round140_g3_codex.py": "9d826462cb8c5632f6e54cebff8a3b47fd93d7c076c083e44d8fd4e0ffc3b01e",
+    "src/package_round140_codex.py": "a43e740a215943934feb1d25495d141938a6865707c48ed66adcb28d8bc87db5",
+    "src/research_round140_g3_codex.py": "a43cde0a27785b12d8c9ba00b72e886e68dd0a1beae4bb1ff3b17eeda34f6274",
+    "src/round140_nr4_controls_codex.c": "674411e0481cbb1412491a245a2688d1f2f22f49599ce6ce889203ba5c0ba870",
+    "src/run_round140_finite_codex.py": "d8e62318bc08bd1cd64ba6861edcc7f3827080acea221860d92f2bd213128137",
+    "src/verify_round140_g3_codex.py": "7332d4162faca47b7a2ade2d0e0cc29f5b7cd3473a42a506399da92b0a363ab6",
+    "tests/test_round140_g3_codex.py": "c18b73ba43a22e70bcf717004096abc405e68ce62488af26792fc12ac633fa91",
+    "research/RR_ROUND140_GENERAL_THEOREM_A_AND_G3_SPLICING_CODEX.md": "d8a689b19e002198daafd50c3b58f8c1449ea4ae53f15ac545a80dba558d5113"
+  },
+  "runtime_source_sha256": {
+    "src/certify_round140_g3_codex.py": "9d826462cb8c5632f6e54cebff8a3b47fd93d7c076c083e44d8fd4e0ffc3b01e",
+    "src/package_round140_codex.py": "a43e740a215943934feb1d25495d141938a6865707c48ed66adcb28d8bc87db5",
+    "src/research_round140_g3_codex.py": "a43cde0a27785b12d8c9ba00b72e886e68dd0a1beae4bb1ff3b17eeda34f6274",
+    "src/round140_nr4_controls_codex.c": "674411e0481cbb1412491a245a2688d1f2f22f49599ce6ce889203ba5c0ba870",
+    "src/run_round140_finite_codex.py": "d8e62318bc08bd1cd64ba6861edcc7f3827080acea221860d92f2bd213128137",
+    "src/verify_round140_g3_codex.py": "7332d4162faca47b7a2ade2d0e0cc29f5b7cd3473a42a506399da92b0a363ab6",
+    "tests/test_round140_g3_codex.py": "c18b73ba43a22e70bcf717004096abc405e68ce62488af26792fc12ac633fa91",
+    "research/RR_ROUND140_GENERAL_THEOREM_A_AND_G3_SPLICING_CODEX.md": "d8a689b19e002198daafd50c3b58f8c1449ea4ae53f15ac545a80dba558d5113"
+  },
+  "artifacts": {
+    "outputs/rr_round140_capacity_codex.json": {
+      "sha256": "a424767c7fa229710c75834886d1f4eaada3fb48d5a8f3b440bfe11ac0ee2f51",
+      "bytes": 19531
+    },
+    "outputs/rr_round140_certificate_codex.json": {
+      "sha256": "e7b4ad09a884c8565b147d30585cfbf423bbc2dc32e33d29269b6e0b39de5410",
+      "bytes": 1443082
+    },
+    "outputs/rr_round140_g3_codex.json": {
+      "sha256": "60ff9cb834534f8ef78cdca38b82b26adae8690738b922161700bae708e5f9e2",
+      "bytes": 3083630
+    },
+    "outputs/rr_round140_nr4_codex.json": {
+      "sha256": "aaf817ef087116822ca4edb2df857dcccd8a381adbd4008ecd9e7c46cd040c4a",
+      "bytes": 1392258
+    },
+    "outputs/rr_round140_verified_codex.json": {
+      "sha256": "3c628fe70a2117b70592122c541963a6941d3df7f8d325f6b82461457484e073",
+      "bytes": 3498
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-m",
+        "py_compile",
+        "src/certify_round140_g3_codex.py",
+        "src/package_round140_codex.py",
+        "src/research_round140_g3_codex.py",
+        "src/run_round140_finite_codex.py",
+        "src/verify_round140_g3_codex.py",
+        "tests/test_round140_g3_codex.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "src/certify_round140_g3_codex.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"bounds\": {\"1\": 26, \"2\": 10, \"3\": 3, \"4\": 1}, \"controls\": 29255, \"representatives\": 594, \"resources\": 516, \"J_delta_min\": {\"0\": 0, \"1\": 0, \"2\": 0}}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "src/verify_round140_g3_codex.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"verified\": true, \"nr4_words\": 29255, \"spliced_literal_controls\": 1994, \"capacity_arithmetic\": {\"envelopes\": 40, \"equalities\": 3, \"equality_deficit_splits\": [[4, 8], [8, 4]], \"resource_rows\": 516, \"by_k\": {\"1\": 322, \"2\": 139, \"3\": 46, \"4\": 9}}, \"seams\": {\"attempts\": 52, \"hex_collision\": 52, \"independent_extreme_nodes\": {\"4\": 548, \"8\": 31812}, \"extreme_counts\": {\"4\": 1, \"8\": 2}}}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_round140_g3_codex.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_G3_supports_and_F (test_round140_g3_codex.Round140.test_G3_supports_and_F) ... ok\ntest_actual_gap_not_silently_minimized (test_round140_g3_codex.Round140.test_actual_gap_not_silently_minimized) ... ok\ntest_all_G_charging_on_complete_NR4_domain (test_round140_g3_codex.Round140.test_all_G_charging_on_complete_NR4_domain) ... ok\ntest_all_capacity_envelopes_and_unique_equality_splits (test_round140_g3_codex.Round140.test_all_capacity_envelopes_and_unique_equality_splits) ... ok\ntest_all_connected_incidence_controls (test_round140_g3_codex.Round140.test_all_connected_incidence_controls) ... ok\ntest_all_extremal_seams_hex_collide (test_round140_g3_codex.Round140.test_all_extremal_seams_hex_collide) ... ok\ntest_all_saved_piece_controls (test_round140_g3_codex.Round140.test_all_saved_piece_controls) ... ok\ntest_arbitrary_paid_cut_need_not_charge_repeat_run (test_round140_g3_codex.Round140.test_arbitrary_paid_cut_need_not_charge_repeat_run) ... ok\ntest_arc_lengths_not_F_equals_G (test_round140_g3_codex.Round140.test_arc_lengths_not_F_equals_G) ... ok\ntest_cap_cannot_mean_complete (test_round140_g3_codex.Round140.test_cap_cannot_mean_complete) ... ok\ntest_exact_counterexample_to_delta_ge_J (test_round140_g3_codex.Round140.test_exact_counterexample_to_delta_ge_J) ... ok\ntest_heavy_refined_resource_coverage (test_round140_g3_codex.Round140.test_heavy_refined_resource_coverage) ... ok\ntest_no_repeat_not_registration_only (test_round140_g3_codex.Round140.test_no_repeat_not_registration_only) ... ok\ntest_paired_capacity_complete (test_round140_g3_codex.Round140.test_paired_capacity_complete) ... ok\ntest_scope_and_provisional_inheritance (test_round140_g3_codex.Round140.test_scope_and_provisional_inheritance) ... ok\ntest_shared_orbits_not_assumed_private (test_round140_g3_codex.Round140.test_shared_orbits_not_assumed_private) ... ok\ntest_unqualified_privacy_counterexample_and_correct_charge (test_round140_g3_codex.Round140.test_unqualified_privacy_counterexample_and_correct_charge) ... ok\ntest_wrong_capacity_arithmetic_rejected (test_round140_g3_codex.Round140.test_wrong_capacity_arithmetic_rejected) ... ok\ntest_wrong_piece_or_sharing_is_rejected (test_round140_g3_codex.Round140.test_wrong_piece_or_sharing_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 2.819s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_round13*_codex.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_F1_distinct_from_G (test_round135_contraction_codex.Round135.test_F1_distinct_from_G) ... ok\ntest_external_orbit_registration_blocks_removal (test_round135_contraction_codex.Round135.test_external_orbit_registration_blocks_removal) ... ok\ntest_heavy_seam_equality_not_coarse_closure (test_round135_contraction_codex.Round135.test_heavy_seam_equality_not_coarse_closure) ... ok\ntest_paid_short_entry_also_removes_a_joint (test_round135_contraction_codex.Round135.test_paid_short_entry_also_removes_a_joint) ... ok\ntest_partial_arc_merge_not_fullpass_assumption (test_round135_contraction_codex.Round135.test_partial_arc_merge_not_fullpass_assumption) ... ok\ntest_provenance_cap_and_residual (test_round135_contraction_codex.Round135.test_provenance_cap_and_residual) ... ok\ntest_resource_table (test_round135_contraction_codex.Round135.test_resource_table) ... ok\ntest_slack_one_counterexamples_not_discarded (test_round135_contraction_codex.Round135.test_slack_one_counterexamples_not_discarded) ... ok\ntest_x_arc_shortening (test_round135_contraction_codex.Round135.test_x_arc_shortening) ... ok\ntest_corrupt_repeat_decoration_rejected (test_round136_defect_codex.Round136.test_corrupt_repeat_decoration_rejected) ... ok\ntest_coupled_lock_counterexample_retained (test_round136_defect_codex.Round136.test_coupled_lock_counterexample_retained) ... ok\ntest_delta_is_sum_not_missing_exit_alone (test_round136_defect_codex.Round136.test_delta_is_sum_not_missing_exit_alone) ... ok\ntest_no_free_ascent_exception_in_complete_controls (test_round136_defect_codex.Round136.test_no_free_ascent_exception_in_complete_controls) ... ok\ntest_repeat_becomes_M3a_after_inner_contraction (test_round136_defect_codex.Round136.test_repeat_becomes_M3a_after_inner_contraction) ... ok\ntest_same_successor_orbit_defect_absorbed (test_round136_defect_codex.Round136.test_same_successor_orbit_defect_absorbed) ... ok\ntest_seven_rows_eighteen_free_patterns (test_round136_defect_codex.Round136.test_seven_rows_eighteen_free_patterns) ... ok\ntest_surviving_local_macros_are_not_Nstar_chains (test_round136_defect_codex.Round136.test_surviving_local_macros_are_not_Nstar_chains) ... ok\ntest_tight_capacity_and_scope (test_round136_defect_codex.Round136.test_tight_capacity_and_scope) ... ok\ntest_all_preserved_gap_certificates (test_round137_gap_codex.Round137.test_all_preserved_gap_certificates) ... ok\ntest_complete_not_capped (test_round137_gap_codex.Round137.test_complete_not_capped) ... ok\ntest_conditional_seven_row_ledger (test_round137_gap_codex.Round137.test_conditional_seven_row_ledger) ... ok\ntest_corrupt_deficit_rejected (test_round137_gap_codex.Round137.test_corrupt_deficit_rejected) ... ok\ntest_disjoint_orbits_not_disjoint_hexes (test_round137_gap_codex.Round137.test_disjoint_orbits_not_disjoint_hexes) ... ok\ntest_duplicate_hex_witness_rejected (test_round137_gap_codex.Round137.test_duplicate_hex_witness_rejected) ... ok\ntest_independent_nodes_differ_but_capacities_agree (test_round137_gap_codex.Round137.test_independent_nodes_differ_but_capacities_agree) ... ok\ntest_root_return_extrema_replay (test_round137_gap_codex.Round137.test_root_return_extrema_replay) ... ok\ntest_strict_convolutions (test_round137_gap_codex.Round137.test_strict_convolutions) ... ok\ntest_tiny_cap_is_not_a_proof (test_round137_gap_codex.Round137.test_tiny_cap_is_not_a_proof) ... ok\ntest_wrong_cut_rejected (test_round137_gap_codex.Round137.test_wrong_cut_rejected) ... ok\ntest_all_deliberately_shared_literal_contexts (test_round138_privacy_codex.Round138.test_all_deliberately_shared_literal_contexts) ... ok\ntest_committed_hash_correction_is_explicit (test_round138_privacy_codex.Round138.test_committed_hash_correction_is_explicit) ... ok\ntest_complete_symbolic_domain_independent (test_round138_privacy_codex.Round138.test_complete_symbolic_domain_independent) ... ok\ntest_existing_controls_are_support_not_universal_certificate (test_round138_privacy_codex.Round138.test_existing_controls_are_support_not_universal_certificate) ... ok\ntest_false_delta_one_decoration_rejected (test_round138_privacy_codex.Round138.test_false_delta_one_decoration_rejected) ... ok\ntest_false_orbit_decoration_rejected (test_round138_privacy_codex.Round138.test_false_orbit_decoration_rejected) ... ok\ntest_g2_sharing_is_not_automatically_literal_collision (test_round138_privacy_codex.Round138.test_g2_sharing_is_not_automatically_literal_collision) ... ok\ntest_generalized_deficit_counts_shared_orbits (test_round138_privacy_codex.Round138.test_generalized_deficit_counts_shared_orbits) ... ok\ntest_internal_root_return_not_excluded (test_round138_privacy_codex.Round138.test_internal_root_return_not_excluded) ... ok\ntest_orbit_not_last_symbol_short5_edge_case (test_round138_privacy_codex.Round138.test_orbit_not_last_symbol_short5_edge_case) ... ok\ntest_designated_overlap_cannot_be_ignored (test_round139_multidefect_codex.Round139.test_designated_overlap_cannot_be_ignored) ... ok\ntest_fusion (test_round139_multidefect_codex.Round139.test_fusion) ... ok\ntest_hard_core_positive (test_round139_multidefect_codex.Round139.test_hard_core_positive) ... ok\ntest_heavy_multisets (test_round139_multidefect_codex.Round139.test_heavy_multisets) ... ok\ntest_independent_rows (test_round139_multidefect_codex.Round139.test_independent_rows) ... ok\ntest_intermediate_ledger_not_current (test_round139_multidefect_codex.Round139.test_intermediate_ledger_not_current) ... ok\ntest_literal_repeat_rejected (test_round139_multidefect_codex.Round139.test_literal_repeat_rejected) ... ok\ntest_master_slack (test_round139_multidefect_codex.Round139.test_master_slack) ... ok\ntest_no_global_plus15 (test_round139_multidefect_codex.Round139.test_no_global_plus15) ... ok\ntest_repeat_multiplicity (test_round139_multidefect_codex.Round139.test_repeat_multiplicity) ... ok\ntest_resource_count (test_round139_multidefect_codex.Round139.test_resource_count) ... ok\ntest_root_tables_independent (test_round139_multidefect_codex.Round139.test_root_tables_independent) ... ok\ntest_two_token_independent (test_round139_multidefect_codex.Round139.test_two_token_independent) ... ok\ntest_all_literal_controls (test_round139_splice_master_codex.SpliceMaster.test_all_literal_controls) ... ok\ntest_all_master_envelopes (test_round139_splice_master_codex.SpliceMaster.test_all_master_envelopes) ... ok\ntest_all_original_rows_accounted_for (test_round139_splice_master_codex.SpliceMaster.test_all_original_rows_accounted_for) ... ok\ntest_five_support_cases (test_round139_splice_master_codex.SpliceMaster.test_five_support_cases) ... ok\ntest_hard_core_control_now_decomposes (test_round139_splice_master_codex.SpliceMaster.test_hard_core_control_now_decomposes) ... ok\ntest_new_capacity_regressions_complete (test_round139_splice_master_codex.SpliceMaster.test_new_capacity_regressions_complete) ... ok\ntest_nonminimal_disjoint_gap_not_normalized_silently (test_round139_splice_master_codex.SpliceMaster.test_nonminimal_disjoint_gap_not_normalized_silently) ... ok\ntest_positive_shared_orbit_controls_retained (test_round139_splice_master_codex.SpliceMaster.test_positive_shared_orbit_controls_retained) ... ok\ntest_reversed_triple_is_not_forward (test_round139_splice_master_codex.SpliceMaster.test_reversed_triple_is_not_forward) ... ok\ntest_scope_and_no_double_counting (test_round139_splice_master_codex.SpliceMaster.test_scope_and_no_double_counting) ... ok\ntest_seams_are_hex_failures_not_privacy (test_round139_splice_master_codex.SpliceMaster.test_seams_are_hex_failures_not_privacy) ... ok\ntest_small_weight_overlap_is_unique (test_round139_splice_master_codex.SpliceMaster.test_small_weight_overlap_is_unique) ... ok\ntest_wrong_piece_word_rejected (test_round139_splice_master_codex.SpliceMaster.test_wrong_piece_word_rejected) ... ok\ntest_wrong_sharing_rejected (test_round139_splice_master_codex.SpliceMaster.test_wrong_sharing_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 66 tests in 1.402s\n\nOK\n"
+    }
+  ],
+  "NR6": "ASSUMED",
+  "global_L6_ge_872": "NOT_PROVED",
+  "combined_provisional_ledger": "17/55",
+  "inherited_R139": "PROVISIONAL_PENDING_EXTERNAL_AUDIT"
+}
