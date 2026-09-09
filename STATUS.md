@@ -1,5 +1,22 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 141 — two separate conclusions (2026-09-10).**
+> The incoming R139/R140 baseline is now independently confirmed per the
+> current research handoff. The all-G splice envelope closes the remaining
+> 38 cells: **55/55 NR6-conditional outer cells CLOSED**. The certificate
+> retains actual orbit sharing, all 160 new envelopes, both complete extreme
+> chain enumerations, 65 heavy seams and the necessary static cover failures.
+> A distinct NR6-removal track proves an unconditional repetition-credit
+> theorem: any covering word of length <=871 has at most 27 repeated
+> permutation-window occurrences. This does **not** eliminate the repeats.
+> A precisely specified plateau-exchange lemma remains MISSING.
+> **NR6 is UNPROVED; unrestricted `L6>=872` is NOT PROVED.**
+> [55-cell theorem](research/RR_ROUND141_ALL_G_OUTER_CLOSURE_CODEX.md)
+> · [Independent outer certificate](outputs/rr_round141_outer_verified_codex.json)
+> · [Separate NR6 reduction and gap](research/RR_ROUND141_NR6_REPETITION_REDUCTION_CODEX.md)
+> The earlier 17/55 provisional block below is a historical snapshot, not
+> the current accepted baseline or current closure count.
+
 > **Codex Round 140: general Theorem A and successor splicing; all four G=3 cells CLOSED under NR6.**
 > A new event-injective proof gives `f_out <= F+e` for arbitrary G; no distinct
 > repeat-orbit assumption is needed. Connected nu/beta incidence gives

@@ -72,7 +72,7 @@ def moves(order,block_length=1):
         for b in range(len(rest)+1):children.add(rest[:b]+block+rest[b:])
     children.discard(order);return children
 def plateau(order,limit=10000):
-    queue=[order];seen={order};edges=[];escapes=[];word0=spelling(order)
+    queue=[order];seen={order};edges=[];escapes=[];word0=spelling(order);parent={order:None}
     for u in queue:
         for v in sorted(moves(u)):
             if len(spelling(v))<=len(spelling(u)):
@@ -80,7 +80,7 @@ def plateau(order,limit=10000):
                 if len(literal(spelling(v),4))==24:escapes.append(v)
                 if v not in seen:
                     if len(seen)==limit:return dict(completed=False,cap=limit,states=len(seen))
-                    seen.add(v);queue.append(v)
+                    seen.add(v);queue.append(v);parent[v]=u
     block_escapes=[]
     for length in [2,3,4]:
         for v in sorted(moves(order,length)):
@@ -88,10 +88,16 @@ def plateau(order,limit=10000):
             if len(text)<=len(word0) and len(literal(text,4))==24:
                 block_escapes.append(dict(block_length=length,order=v,word=text,length=len(text)))
         if block_escapes:break
-    return dict(completed=True,states=len(seen),edges=len(edges),clean_reachable=len(escapes),
-        orders=sorted(seen),same_length_words=sorted({spelling(v) for v in seen}),
+    path=[]
+    if escapes:
+        u=escapes[0]
+        while u is not None:path.append(u);u=parent[u]
+        path.reverse()
+    return dict(completed=True,states=len(seen),edges=len(edges),clean_reachable=len(set(escapes)),
+        orders=sorted(seen),reachable_words=sorted({spelling(v) for v in seen}),
+        normalization_path=path,normalization_lengths=[len(spelling(v)) for v in path],
         single_relocation_normalization_refuted=not escapes,block_escape=block_escapes[:1],
-        scope='THIS ONE COMPLETE LOCAL REWRITE COMPONENT, NOT NR4/NR6 COUNTEREXAMPLE')
+        scope='THIS COMPLETE NONINCREASING-LENGTH RELOCATION REACHABILITY DOMAIN, NOT A GENERAL NR4/NR6 PROOF')
 def main():
     start=time.perf_counter();head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     rel=Path(__file__).relative_to(ROOT).as_posix()

@@ -26,7 +26,8 @@ def full_word(entries):
 def binary_cover(U,candidates,k):
     # Independent include/exclude by fixed row order, not uncovered-column
     # branching. Dynamic programming retains suffix index, unlike producer.
-    candidates=[i for i in candidates if BLOCKS[i]&U]
+    all_candidates=tuple(candidates);assert len(set(all_candidates))==len(all_candidates)>=k>=0
+    candidates=[i for i in all_candidates if BLOCKS[i]&U]
     freq={i:sum(bool(BLOCKS[v]>>i&1) for v in candidates) for i in range(120) if U>>i&1}
     candidates.sort(key=lambda v:(-sum(1/freq[i] for i in freq if BLOCKS[v]>>i&1),v))
     masks=[BLOCKS[v]&U for v in candidates];suffix=[0]*(len(masks)+1)
@@ -45,6 +46,10 @@ def binary_cover(U,candidates,k):
             if tail is not None:return (candidates[i],)+tail
         return rec(i+1,rem,slots)
     answer=rec(0,U,k)
+    if answer is not None:
+        answer=tuple((list(answer)+[i for i in all_candidates if i not in answer])[:k])
+        assert len(answer)==len(set(answer))==k and all(i in all_candidates for i in answer)
+        assert U&~functools.reduce(int.__or__,(BLOCKS[i] for i in answer),0)==0
     return dict(status='UNSAT' if answer is None else 'SAT',nodes=nodes,witness=answer,
         capped=False,prunes=dict(prunes),transcript_sha256=trace.hexdigest())
 def cover_instance(entries,k):
@@ -157,5 +162,5 @@ def main():
     out['input_sha256']={f:sha(ROOT/'outputs'/f) for f in ['rr_round141_extrema_codex.json','rr_round141_outer_codex.json','rr_round141_completion_cover_codex.json','rr_f0_column_115.json','rr_round140_capacity_codex.json','rr_round136_capacity_codex.json']}
     out['deterministic_digest']=digest(dict(extrema=ext,seams=seams,completion_covers=covers,ledger=ledger))
     (ROOT/'outputs/rr_round141_outer_verified_codex.json').write_text(json.dumps(out,indent=2)+'\n')
-    print(json.dumps(dict(verified=True,closed=ledger['closed'],seams=dict(collections.Counter((r['G'],r['status']) for r in seams)) if False else {str(k):v for k,v in collections.Counter((r['G'],r['status']) for r in seams).items()},cover_nodes=[r['nodes'] for r in covers])))
+    print(json.dumps(dict(verified=True,closed=ledger['closed'],seams={str(k):v for k,v in collections.Counter((r['G'],r['status']) for r in seams).items()},cover_nodes=[r['nodes'] for r in covers])))
 if __name__=='__main__':main()
