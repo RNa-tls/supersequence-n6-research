@@ -1,7 +1,7 @@
 {
   "schema": "round141-nr-independent-v1",
-  "source_commit": "ae05cb895b4c3749fe08fcc8b2343114ec81fd77",
-  "source_sha256": "9d6937980d91db22a790c4c2294f9fe00ff562ad5d20b78e012cdec149e17f74",
+  "source_commit": "850d570afde9f08ac696b6e2b82070ab0e1dd357",
+  "source_sha256": "0446e15b7d187ef10843130520f4684ab2c70f88f81e38afce1dc6ef2e39ecee",
   "input_sha256": {
     "rr_round141_nr6_foundation_codex.json": "dfe10f9dc35cdc08892b3ae8b81111794ff2d88e3b7ec7b2343167acb0f8c39c",
     "rr_round141_repeat_credit_codex.json": "3dc8e2773ac195c4673124bbe286a79deb169fb0ae5dbabd075e03a7df7e4371"
@@ -17,7 +17,7 @@
     "completed": true,
     "states": 20,
     "edges": 54,
-    "clean_reachable": 9,
+    "clean_reachable": 4,
     "orders": [
       [
         "1032",
@@ -540,7 +540,7 @@
         "3021"
       ]
     ],
-    "same_length_words": [
+    "reachable_words": [
       "103210301230132013031203102310213021",
       "1032103012301320131203120231023021302",
       "103210301230132013120312102310213021",
@@ -551,12 +551,97 @@
       "1032103012301320131203123102313021302",
       "1032103123012301320131203102310213021"
     ],
+    "normalization_path": [
+      [
+        "1032",
+        "0321",
+        "3210",
+        "2103",
+        "3012",
+        "0123",
+        "1230",
+        "2301",
+        "0132",
+        "1320",
+        "3201",
+        "2013",
+        "1203",
+        "2031",
+        "0312",
+        "3120",
+        "0231",
+        "2310",
+        "3102",
+        "1023",
+        "3021",
+        "0213",
+        "2130",
+        "1302"
+      ],
+      [
+        "1032",
+        "0321",
+        "3210",
+        "2103",
+        "3012",
+        "0123",
+        "1230",
+        "2301",
+        "0132",
+        "1320",
+        "3201",
+        "2013",
+        "3120",
+        "1203",
+        "2031",
+        "0312",
+        "0231",
+        "2310",
+        "3102",
+        "1023",
+        "3021",
+        "0213",
+        "2130",
+        "1302"
+      ],
+      [
+        "1032",
+        "0321",
+        "3210",
+        "2103",
+        "3012",
+        "0123",
+        "1230",
+        "2301",
+        "0132",
+        "1320",
+        "3201",
+        "2013",
+        "3120",
+        "1203",
+        "2031",
+        "0312",
+        "2310",
+        "3102",
+        "1023",
+        "3021",
+        "0213",
+        "2130",
+        "1302",
+        "0231"
+      ]
+    ],
+    "normalization_lengths": [
+      37,
+      37,
+      37
+    ],
     "single_relocation_normalization_refuted": false,
     "block_escape": [],
-    "scope": "THIS ONE COMPLETE LOCAL REWRITE COMPONENT, NOT NR4/NR6 COUNTEREXAMPLE"
+    "scope": "THIS COMPLETE NONINCREASING-LENGTH RELOCATION REACHABILITY DOMAIN, NOT A GENERAL NR4/NR6 PROOF"
   },
   "n4_bound_layouts_verified": 6,
   "verified": true,
   "NR6": "UNPROVED",
-  "seconds": 0.5376369999721646
+  "seconds": 0.5421076000202447
 }

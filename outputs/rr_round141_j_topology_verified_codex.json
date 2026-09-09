@@ -1,0 +1,230 @@
+{
+  "schema": "codex/round141-j-topology-independent/1",
+  "verified": true,
+  "completed": true,
+  "status": "COMPLETE_FINITE_AUDIT",
+  "capped": false,
+  "node_limit": null,
+  "continuation_search": false,
+  "scope": "All abstract supports size1..8 and the preserved complete normalized NR4 length<=39 corpus; not an NR6 search",
+  "hand_proof_dependency": "Distinct beta circuits charge distinct chronological ascents; pure-free circuits charge free ascents",
+  "exact_identities": [
+    "K-1<=F",
+    "J<=2g",
+    "c<=F-a",
+    "omega=F-a-c>=0",
+    "z=J+a+omega=2g+d",
+    "sum(b_j)+s=eta+x-omega>=0"
+  ],
+  "dependency_role": {
+    "src/verify_round140_g3_codex.py": "Independent Round140 literal exit-window parser, not producer parse/support/splice"
+  },
+  "abstract_permutations": 46233,
+  "abstract_count_by_size": {
+    "1": 1,
+    "2": 2,
+    "3": 6,
+    "4": 24,
+    "5": 120,
+    "6": 720,
+    "7": 5040,
+    "8": 40320
+  },
+  "abstract_J_genus_histogram": {
+    "(0, 0)": 2055,
+    "(0, 1)": 2811,
+    "(0, 2)": 428,
+    "(0, 3)": 1,
+    "(1, 1)": 9201,
+    "(1, 2)": 5192,
+    "(1, 3)": 129,
+    "(2, 1)": 2811,
+    "(2, 2)": 11847,
+    "(2, 3)": 1431,
+    "(3, 2)": 5192,
+    "(3, 3)": 3146,
+    "(4, 2)": 428,
+    "(4, 3)": 1431,
+    "(5, 3)": 129,
+    "(6, 3)": 1
+  },
+  "abstract_transcript_sha256": "b994b316a5190055d4cd6264a037918a273714325942fe90ea14923d5ec9e0cd",
+  "nr4_words": 29255,
+  "literal_G_J_omega_histogram": {
+    "(0, 0, 0)": 827,
+    "(1, 0, 0)": 4057,
+    "(1, 0, 1)": 1942,
+    "(2, 0, 0)": 4388,
+    "(2, 0, 1)": 4895,
+    "(2, 0, 2)": 1296,
+    "(2, 1, 0)": 24,
+    "(2, 1, 1)": 22,
+    "(3, 0, 0)": 1885,
+    "(3, 0, 1)": 3396,
+    "(3, 0, 2)": 1688,
+    "(3, 0, 3)": 239,
+    "(3, 1, 0)": 110,
+    "(3, 1, 1)": 150,
+    "(3, 1, 2)": 77,
+    "(4, 0, 0)": 193,
+    "(4, 0, 1)": 966,
+    "(4, 0, 2)": 1021,
+    "(4, 0, 3)": 295,
+    "(4, 0, 4)": 9,
+    "(4, 1, 0)": 133,
+    "(4, 1, 1)": 453,
+    "(4, 1, 2)": 276,
+    "(4, 1, 3)": 38,
+    "(5, 0, 1)": 17,
+    "(5, 0, 2)": 42,
+    "(5, 0, 3)": 11,
+    "(5, 1, 0)": 23,
+    "(5, 1, 1)": 337,
+    "(5, 1, 2)": 190,
+    "(5, 1, 3)": 5,
+    "(5, 2, 0)": 3,
+    "(5, 2, 1)": 1,
+    "(6, 1, 1)": 117,
+    "(6, 1, 2)": 123,
+    "(6, 1, 3)": 4,
+    "(6, 2, 1)": 1,
+    "(6, 2, 2)": 1
+  },
+  "literal_transcript_sha256": "0d51bd808ac22ff52a8dc583aa9bc094e8932f87670fd7ed66eb9071317cb7d1",
+  "counterexamples": {
+    "J0_does_not_imply_noncrossing_or_genus_zero": {
+      "word": "012301203102130210312013201023103210",
+      "n": 4,
+      "length": 36,
+      "nu": [
+        0,
+        5,
+        7,
+        3,
+        8,
+        1,
+        6,
+        2,
+        4
+      ],
+      "G": 3,
+      "F": 3,
+      "J": 0,
+      "K": 2,
+      "g": 1,
+      "R": 0,
+      "c": 1,
+      "a": 0,
+      "eta": 2,
+      "x": 0,
+      "omega": 2,
+      "z": 2,
+      "d": 0,
+      "exact_freeblock_budget": 0,
+      "pure_cycle_charge_origins": [
+        1
+      ],
+      "crossing": {
+        "cycles": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "endpoints": [
+          1,
+          2,
+          5,
+          7
+        ]
+      }
+    }
+  },
+  "sharpness_controls": {
+    "z_equals_positive_J": {
+      "word": "012310213012023120312301320130210321023",
+      "n": 4,
+      "length": 39,
+      "nu": [
+        6,
+        10,
+        8,
+        0,
+        1,
+        5,
+        3,
+        7,
+        2,
+        9,
+        4
+      ],
+      "G": 5,
+      "F": 3,
+      "J": 2,
+      "K": 4,
+      "g": 1,
+      "R": 0,
+      "c": 3,
+      "a": 0,
+      "eta": 0,
+      "x": 0,
+      "omega": 0,
+      "z": 2,
+      "d": 0,
+      "exact_freeblock_budget": 0,
+      "pure_cycle_charge_origins": [
+        2,
+        1,
+        0
+      ],
+      "crossing": {
+        "cycles": [
+          [
+            0,
+            6,
+            3
+          ],
+          [
+            1,
+            10,
+            4
+          ]
+        ],
+        "endpoints": [
+          0,
+          1,
+          3,
+          4
+        ]
+      }
+    }
+  },
+  "nodes": {
+    "abstract_supports": 46233,
+    "literal_words": 29255
+  },
+  "commit": "850d570afde9f08ac696b6e2b82070ab0e1dd357",
+  "committed_sha256": {
+    "src/verify_round141_j_topology_codex.py": "1702c50a06386cbe59871fec6c83888a5dabe5e1e4be7668e3ea3a11a31994f6",
+    "src/verify_round140_g3_codex.py": "7332d4162faca47b7a2ade2d0e0cc29f5b7cd3473a42a506399da92b0a363ab6",
+    "outputs/rr_round140_nr4_codex.json": "aaf817ef087116822ca4edb2df857dcccd8a381adbd4008ecd9e7c46cd040c4a"
+  },
+  "runtime_sha256": {
+    "src/verify_round141_j_topology_codex.py": "1702c50a06386cbe59871fec6c83888a5dabe5e1e4be7668e3ea3a11a31994f6",
+    "src/verify_round140_g3_codex.py": "7332d4162faca47b7a2ade2d0e0cc29f5b7cd3473a42a506399da92b0a363ab6",
+    "outputs/rr_round140_nr4_codex.json": "aaf817ef087116822ca4edb2df857dcccd8a381adbd4008ecd9e7c46cd040c4a"
+  },
+  "newline_only_runtime_differences": [],
+  "argv": [
+    "src/verify_round141_j_topology_codex.py"
+  ],
+  "python_executable": "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+  "python_executable_sha256": "cce21c0e8710e304273e98ac4b2b0f5aceb639acbcd2343cbaa5c4e81619c45b",
+  "python_version": "3.14.3",
+  "seconds": 9.074285299982876,
+  "mathematical_digest": "4f5965800a39dcb3d37b2d9980ed859724a9fa4c21c133038581dd6330c6c3ff"
+}
