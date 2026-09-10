@@ -1,4 +1,4 @@
-"""Two independent SMALL marked-chain capacities, b=0, D<=3.
+"""Two independent SMALL marked-chain capacities, b=0, D<=5.
 
 Model A admits E-sigma dirty w3 (locally literal-realizable wrap).
 Model AB also admits sigma-E with explicit external-visited ghost obligation.
@@ -97,13 +97,13 @@ def main():
     assert path.read_bytes()==subprocess.check_output(['git','show',head+':'+rel],cwd=ROOT)
     rows=[];start=time.perf_counter()
     for mode in ['A','AB']:
-        for D in range(4):
+        for D in range(6):
             a=whole(D,mode);b=port(D,mode);assert a['max_passes']==b['max_passes']
             witnesses=[verify_witness(x['witness'],mode) for x in [a,b]]
             rows.append(dict(mode=mode,D=D,producer=a,independent=b,witnesses=witnesses))
             print(json.dumps(dict(mode=mode,D=D,passes=a['max_passes'],nodes=[a['nodes'],b['nodes']])),flush=True)
     out=dict(schema='round142-shadow-capacity-small-v1',source_commit=head,source_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
         capped=False,completed=True,independent_match=True,rows=rows,seconds=time.perf_counter()-start,
-        scope='EXACT_FINITE_b0_D0to3_MARKED_CHAIN_MODELS; AB IS GLOBAL-HISTORY RELAXATION; NOT NR6 SEARCH')
+        scope='EXACT_FINITE_b0_D0to5_MARKED_CHAIN_MODELS; AB IS GLOBAL-HISTORY RELAXATION; NOT NR6 SEARCH')
     (ROOT/'outputs/rr_round142_shadow_capacities_codex.json').write_text(json.dumps(out,indent=2)+'\n',newline='\n')
 if __name__=='__main__':main()

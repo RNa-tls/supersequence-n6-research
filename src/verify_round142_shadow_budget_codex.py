@@ -34,9 +34,9 @@ def verify(r):
             if hexa(entries[v])==hexa(t):same.add(v)
             else:cross.add(v)
         if w>=4:heavyhidden+=len(hidden)
-    retained=set();Dsum=0;globalpieces=set();btotal=0;Ototal=0
+    retained=set();Dsum=0;globalpieces=set();btotal=0;Ototal=0;piece_indices=[]
     for piece in r['pieces']:
-        path=piece['indices'];globalpieces.update(path)
+        path=piece['indices'];globalpieces.update(path);piece_indices+=path
         ports=[entries[v] for v in path];orbits=set(map(orbit,ports))
         assert len(set(map(hexa,ports)))==len(ports)
         missing={p for p in pp if orbit(p) in orbits and p not in ports}
@@ -54,6 +54,17 @@ def verify(r):
         assert freeblocks-len(orbits)==piece['b']
         Dsum+=len(missing);btotal+=piece['b'];Ototal+=len(orbits)
     cutcross=cross-retained
+    assert len(piece_indices)==len(set(piece_indices))
+    removed=set(range(len(entries)))-globalpieces
+    removed_orbits={orbit(entries[v]) for v in removed}
+    assert len(removed)==(n-1)*len(removed_orbits)==(n-1)*r['c']
+    assert removed_orbits.isdisjoint(orbit(entries[v]) for v in globalpieces)
+    for v in removed:
+        target,w,hidden=edges[v]
+        assert target in removed and w==2 and not hidden and entries[target]==ep(entries[v])
+    G=len(entries)-math.factorial(n-1);Z=G-len(removed_orbits)-d2
+    assert (G,Z)==(r['G'],r['Z'])
+    assert r['H']==sum(max(0,w-3) for _,w,_ in edges.values())
     assert len(cutcross)==r['mixed_cut']<=r['Z']-(len(same)-d2)
     assert len(cross)<=Dsum+len(cutcross)
     assert heavyhidden<=3*r['H']

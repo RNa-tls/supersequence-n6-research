@@ -5,6 +5,8 @@ import research_round142_route_a_codex as a
 import research_round142_dirty_topology_codex as b
 import verify_round142_dirty_catalog_codex as c
 import verify_round142_selected_outer_codex as v
+import verify_round142_shadow_budget_codex as shadow
+import research_round142_shadow_capacity_codex as cap
 
 class RepeatDomain(unittest.TestCase):
     def test_clean_suffix_independent(self):
@@ -51,5 +53,29 @@ class RepeatDomain(unittest.TestCase):
     def test_frontier_not_used(self):
         for mod in (a,b,c,v):
             self.assertNotIn('search_rr_target_a',Path(mod.__file__).read_text())
+    def test_local_repeat_penalty_not_independent(self):
+        r=a.formula_catalog(6)['345021']
+        self.assertEqual((r['hidden_count'],r['extra_cost']),(1,3))
+    def test_shadow_port_not_double_charged(self):
+        for order in itertools.permutations(['012','021','102','120','201','210']):
+            w,_=b.fixed_point(b.spelling(order),3)
+            r=b.audit_word(w,3,keep_mixed=True);shadow.verify(r)
+    def test_small_marked_capacities(self):
+        for mode in ('A','AB'):
+            for D,value in [(0,20),(1,20),(2,33),(3,33)]:
+                row=cap.whole(D,mode);self.assertEqual(row['max_passes'],value)
+                cap.verify_witness(row['witness'],mode)
+    def test_light_clean_all_cells_verified(self):
+        root=Path(__file__).resolve().parents[1]
+        d=json.loads((root/'outputs/rr_round142_light_clean_all_g_verified_codex.json').read_text())
+        self.assertTrue(d['all_light_clean_cells_closed'])
+        self.assertEqual(d['envelope_counts'],{'STRICT':276,'EQUALITY':21,'OPEN_UPPER_BOUND':3})
+        self.assertEqual(sum(r['seams'] for r in d['cases']),3504)
+        self.assertEqual(sum(r['dirty_seams'] for r in d['cases']),1606)
+        self.assertEqual(sum(r['full_disjoint'] for r in d['cases']),3)
+    def test_old_outer_not_unconditionally_relabelled(self):
+        root=Path(__file__).resolve().parents[1]
+        d=json.loads((root/'outputs/rr_round141_outer_verified_codex.json').read_text())
+        self.assertEqual(d['NR6'],'ASSUMED')
 
 if __name__=='__main__':unittest.main()
