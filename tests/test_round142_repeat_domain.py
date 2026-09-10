@@ -77,5 +77,36 @@ class RepeatDomain(unittest.TestCase):
         root=Path(__file__).resolve().parents[1]
         d=json.loads((root/'outputs/rr_round141_outer_verified_codex.json').read_text())
         self.assertEqual(d['NR6'],'ASSUMED')
+    def test_all_envelopes_independent_resource_enumeration(self):
+        root=Path(__file__).resolve().parents[1]
+        d=json.loads((root/'outputs/rr_round142_light_clean_envelopes_codex.json').read_text())
+        got={(r['k'],r['G'],r['c'],r['H'],tuple(r['heavy']),r['s']) for r in d['rows']}
+        expected=set()
+        heavy=[()]
+        for count in range(1,5):
+            heavy+=list(itertools.combinations_with_replacement(range(4,8),count))
+        for k in range(5):
+            for G in range(5*k+1):
+                for c0 in range(G+1):
+                    for hs in heavy:
+                        H=sum(x-3 for x in hs);B=4-G-k+c0-H;m=G+1-c0+len(hs)
+                        if B<0:continue
+                        for s in range(B+1):
+                            if m==1 and s:continue
+                            expected.add((k,G,c0,H,hs,s))
+        self.assertEqual(got,expected);self.assertEqual(len(got),300)
+    def test_cross_type_shadow_collision_forces_hex_collision(self):
+        for p in itertools.permutations(range(6)):
+            ghost=c.sigma(p)
+            target=c.sigma(ghost)
+            self.assertNotEqual(p,target)
+            self.assertEqual(c.hx(p),c.hx(target))
+    def test_unconditional_low_slack_only(self):
+        root=Path(__file__).resolve().parents[1]
+        d=json.loads((root/'outputs/rr_round142_low_slack_verified_codex.json').read_text())
+        self.assertFalse(d['NR6_assumed'])
+        self.assertEqual((d['L6_lower_bound'],d['L6_upper_bound']),(869,872))
+        self.assertEqual(len(d['rows']),14)
+        self.assertTrue(all(r['upper']<r['required'] for r in d['rows']))
 
 if __name__=='__main__':unittest.main()

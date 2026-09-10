@@ -1,5 +1,24 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 142 — repeat-domain structural reduction (2026-09-11).**
+> New hand inclusion plus two independent small marked-chain computations
+> exclude every literal cover of length<=868 **without NR6**:
+> **869<=L6<=872**. Lengths869/870/871 remain unresolved.
+> First-occurrence splicing gives `L=867+k+Z+H+B*` and a shadow-port charge;
+> a putative <=871 cover has a fixed representative with **R<=20**, not27.
+> Every **light-clean first-occurrence** cover has L>=872 even with dirty
+> heavy joints:300 resource envelopes and3504 heavy seams were audited.
+> Normalization into that light-clean class is still UNPROVED. Remaining
+> candidates require one of four dirty light mechanisms, with global history
+> retained. This is not four solved CSPs, nor a proof of NR-UNIVERSAL(6).
+> Route A separately proves the exact direct-clean distance formula and
+> refutes boundary-fixed cheap cleaning. The old plateau lemma is not the
+> active target. Historical round blocks below remain snapshots.
+> [Separate-route summary](research/RR_ROUND142_SUMMARY_CODEX.md)
+> · [Unconditional869 proof](research/RR_ROUND142_UNCONDITIONAL_869_CODEX.md)
+> · [Repeat-domain outer proof](research/RR_ROUND142_REPEAT_DOMAIN_OUTER_CODEX.md)
+> · [Low-slack certificate](outputs/rr_round142_low_slack_verified_codex.json)
+
 > **Codex Round 141 — two separate conclusions (2026-09-10).**
 > The incoming R139/R140 baseline is now independently confirmed per the
 > current research handoff. The all-G splice envelope closes the remaining
