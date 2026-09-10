@@ -1,0 +1,5507 @@
+{
+  "schema": "codex/round142-dirty-splicing-controls/1",
+  "completed": true,
+  "verified": true,
+  "capped": false,
+  "continuation_search": false,
+  "scope": "All720 NR3 order projections plus preserved NR4 trap and five NR6 literal controls; no global NR6 closure",
+  "hand_claim": "Cut every dirty joint; same-hex dirty edges charge R_int; clean pieces only",
+  "exact_length": "L=B_n+k+(G-c-D2)+H+sum(b_j)+s",
+  "selected_outer_consequence": "At n6,L<=871: k<=4 and G<=5k, without claiming unchanged clean capacities",
+  "n3_order_count": 720,
+  "control_count": 68,
+  "rows": [
+    {
+      "n": 3,
+      "word": "012010210",
+      "length": 9,
+      "selected_P": 2,
+      "selected_O": 1,
+      "G": 0,
+      "k": 0,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 9,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        12,
+        10,
+        9
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0120121021",
+      "length": 10,
+      "selected_P": 2,
+      "selected_O": 2,
+      "G": 0,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            1
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0120210201",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0120212010210",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        0,
+        1,
+        3
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 0,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0120212012102",
+      "length": 13,
+      "selected_P": 4,
+      "selected_O": 3,
+      "G": 2,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 1,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "012101201021",
+      "length": 12,
+      "selected_P": 4,
+      "selected_O": 2,
+      "G": 2,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "01210120210201",
+      "length": 14,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ],
+      "K": 3,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 1,
+      "b_sum": 0,
+      "orbit_sharing": 1,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 14,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14
+      ]
+    },
+    {
+      "n": 3,
+      "word": "012101202120102",
+      "length": 15,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        5,
+        4,
+        1,
+        0,
+        3
+      ],
+      "K": 1,
+      "g": 2,
+      "R_int": 4,
+      "c": 0,
+      "z": 4,
+      "Z": 4,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            5
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            3
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 15,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0121020102120",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            2
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "012102012021",
+      "length": 12,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        3,
+        4,
+        0,
+        2,
+        1
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 1,
+      "D2": 1,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 0,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0121021201",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0210120102",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0210121020120",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        0,
+        1,
+        3
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 0,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0210121021201",
+      "length": 13,
+      "selected_P": 4,
+      "selected_O": 3,
+      "G": 2,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 1,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "021020120",
+      "length": 9,
+      "selected_P": 2,
+      "selected_O": 1,
+      "G": 0,
+      "k": 0,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 9,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        9
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0210212012",
+      "length": 10,
+      "selected_P": 2,
+      "selected_O": 2,
+      "G": 0,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            1
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0212010201210",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            2
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "021201021012",
+      "length": 12,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        3,
+        4,
+        0,
+        2,
+        1
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 1,
+      "D2": 1,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 0,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "0212012102",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        18,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "02120210120102",
+      "length": 14,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ],
+      "K": 3,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 1,
+      "b_sum": 0,
+      "orbit_sharing": 1,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 14,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14
+      ]
+    },
+    {
+      "n": 3,
+      "word": "021202101210201",
+      "length": 15,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        5,
+        4,
+        1,
+        0,
+        3
+      ],
+      "K": 1,
+      "g": 2,
+      "R_int": 4,
+      "c": 0,
+      "z": 4,
+      "Z": 4,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            5
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            3
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 15,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15
+      ]
+    },
+    {
+      "n": 3,
+      "word": "021202102012",
+      "length": 12,
+      "selected_P": 4,
+      "selected_O": 2,
+      "G": 2,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "102010210120",
+      "length": 12,
+      "selected_P": 4,
+      "selected_O": 2,
+      "G": 2,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "10201021201210",
+      "length": 14,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ],
+      "K": 3,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 1,
+      "b_sum": 0,
+      "orbit_sharing": 1,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 14,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14
+      ]
+    },
+    {
+      "n": 3,
+      "word": "102010212021012",
+      "length": 15,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        5,
+        4,
+        1,
+        0,
+        3
+      ],
+      "K": 1,
+      "g": 2,
+      "R_int": 4,
+      "c": 0,
+      "z": 4,
+      "Z": 4,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            5
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            3
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 15,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1020120210",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1020121012021",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            2
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "102012102120",
+      "length": 12,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        3,
+        4,
+        0,
+        2,
+        1
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 1,
+      "D2": 1,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 0,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "102101201",
+      "length": 9,
+      "selected_P": 2,
+      "selected_O": 1,
+      "G": 0,
+      "k": 0,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 9,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        9
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1021020120",
+      "length": 10,
+      "selected_P": 2,
+      "selected_O": 2,
+      "G": 0,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            1
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1021201210",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1021202101201",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        0,
+        1,
+        3
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 0,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1021202102012",
+      "length": 13,
+      "selected_P": 4,
+      "selected_O": 3,
+      "G": 2,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 1,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        18,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1201020120210",
+      "length": 13,
+      "selected_P": 4,
+      "selected_O": 3,
+      "G": 2,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 1,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1201020121021",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        0,
+        1,
+        3
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 0,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1201021012",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1201202102",
+      "length": 10,
+      "selected_P": 2,
+      "selected_O": 2,
+      "G": 0,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            1
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "120121021",
+      "length": 9,
+      "selected_P": 2,
+      "selected_O": 1,
+      "G": 0,
+      "k": 0,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 9,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        12,
+        9
+      ]
+    },
+    {
+      "n": 3,
+      "word": "120210120102",
+      "length": 12,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        3,
+        4,
+        0,
+        2,
+        1
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 1,
+      "D2": 1,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 0,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1202101210201",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            2
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "1202102012",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "120212010201210",
+      "length": 15,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        5,
+        4,
+        1,
+        0,
+        3
+      ],
+      "K": 1,
+      "g": 2,
+      "R_int": 4,
+      "c": 0,
+      "z": 4,
+      "Z": 4,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            5
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            3
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 15,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15
+      ]
+    },
+    {
+      "n": 3,
+      "word": "12021201021012",
+      "length": 14,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ],
+      "K": 3,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 1,
+      "b_sum": 0,
+      "orbit_sharing": 1,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 14,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14
+      ]
+    },
+    {
+      "n": 3,
+      "word": "120212012102",
+      "length": 12,
+      "selected_P": 4,
+      "selected_O": 2,
+      "G": 2,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "201020120210",
+      "length": 12,
+      "selected_P": 4,
+      "selected_O": 2,
+      "G": 2,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "201020121012021",
+      "length": 15,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        5,
+        4,
+        1,
+        0,
+        3
+      ],
+      "K": 1,
+      "g": 2,
+      "R_int": 4,
+      "c": 0,
+      "z": 4,
+      "Z": 4,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            5
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            3
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 15,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15
+      ]
+    },
+    {
+      "n": 3,
+      "word": "20102012102120",
+      "length": 14,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ],
+      "K": 3,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 1,
+      "b_sum": 0,
+      "orbit_sharing": 1,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "02102",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 14,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2010210120",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "201021201210",
+      "length": 12,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        3,
+        4,
+        0,
+        2,
+        1
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 1,
+      "D2": 1,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            1
+          ],
+          "word": "012010210",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 0,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2010212021012",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            2
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2012010210",
+      "length": 10,
+      "selected_P": 2,
+      "selected_O": 2,
+      "G": 0,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            1
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "201202102",
+      "length": 9,
+      "selected_P": 2,
+      "selected_O": 1,
+      "G": 0,
+      "k": 0,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 9,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        9
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2012101201021",
+      "length": 13,
+      "selected_P": 4,
+      "selected_O": 3,
+      "G": 2,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 1,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2012101202102",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        0,
+        1,
+        3
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 0,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "120121021",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "10210",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2012102120",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "20120",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2101201021",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "210120210201",
+      "length": 12,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        3,
+        4,
+        0,
+        2,
+        1
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 1,
+      "D2": 1,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 0,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2101202120102",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3,
+            2
+          ],
+          "word": "201202102",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "210121020102120",
+      "length": 15,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        5,
+        4,
+        1,
+        0,
+        3
+      ],
+      "K": 1,
+      "g": 2,
+      "R_int": 4,
+      "c": 0,
+      "z": 4,
+      "Z": 4,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            5
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            3
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 15,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15
+      ]
+    },
+    {
+      "n": 3,
+      "word": "21012102012021",
+      "length": 14,
+      "selected_P": 6,
+      "selected_O": 3,
+      "G": 4,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ],
+      "K": 3,
+      "g": 1,
+      "R_int": 1,
+      "c": 1,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 3,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 1,
+      "b_sum": 0,
+      "orbit_sharing": 1,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "12012",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 14,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14
+      ]
+    },
+    {
+      "n": 3,
+      "word": "210121021201",
+      "length": 12,
+      "selected_P": 4,
+      "selected_O": 2,
+      "G": 2,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "102101201",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 12,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        12
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2102010210120",
+      "length": 13,
+      "selected_P": 4,
+      "selected_O": 3,
+      "G": 2,
+      "k": 2,
+      "S": 2,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 1,
+      "R_int": 2,
+      "c": 0,
+      "z": 2,
+      "Z": 2,
+      "D2": 0,
+      "D3_cross": 2,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 1,
+        "DIRTY_W3_CROSS_HEX": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            3
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 2,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2102010212012",
+      "length": 13,
+      "selected_P": 5,
+      "selected_O": 3,
+      "G": 3,
+      "k": 2,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        4,
+        0,
+        1,
+        3
+      ],
+      "K": 2,
+      "g": 1,
+      "R_int": 1,
+      "c": 0,
+      "z": 3,
+      "Z": 2,
+      "D2": 1,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 2,
+      "R_literal": 2,
+      "joint_types": {
+        "CLEAN_W2_E": 2,
+        "DIRTY_W3_CROSS_HEX": 1,
+        "DIRTY_W2_SIGMA": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            3
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            2,
+            1
+          ],
+          "word": "021020120",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [
+        {
+          "source": 1,
+          "before": 1,
+          "after": 0
+        }
+      ],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 13,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        16,
+        13
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2102012021",
+      "length": 10,
+      "selected_P": 3,
+      "selected_O": 2,
+      "G": 1,
+      "k": 1,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        2,
+        1,
+        0
+      ],
+      "K": 2,
+      "g": 0,
+      "R_int": 0,
+      "c": 1,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 2
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        15,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "2102101201",
+      "length": 10,
+      "selected_P": 2,
+      "selected_O": 2,
+      "G": 0,
+      "k": 1,
+      "S": 1,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 1,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "DIRTY_W3_CROSS_HEX": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0
+          ],
+          "word": "21021",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            1
+          ],
+          "word": "01201",
+          "P": 1,
+          "O": 1,
+          "b": 0,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 10,
+      "keep_mixed": false,
+      "mixed_cut": 1,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        12,
+        10
+      ]
+    },
+    {
+      "n": 3,
+      "word": "210212012",
+      "length": 9,
+      "selected_P": 2,
+      "selected_O": 1,
+      "G": 0,
+      "k": 0,
+      "S": 0,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 1
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "word": "210212012",
+          "P": 2,
+          "O": 1,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 9,
+      "exact_length_rhs": 9,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        14,
+        9
+      ]
+    },
+    {
+      "n": 4,
+      "word": "1032103012301320131203120231023021302",
+      "length": 37,
+      "selected_P": 6,
+      "selected_O": 4,
+      "G": 0,
+      "k": 2,
+      "S": 4,
+      "H": 1,
+      "h": 1,
+      "nu": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "K": 1,
+      "g": 0,
+      "R_int": 0,
+      "c": 0,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 1,
+      "R_literal": 1,
+      "joint_types": {
+        "CLEAN_W3": 3,
+        "CLEAN_W2_E": 1,
+        "HEAVY": 1
+      },
+      "Bstar": 1,
+      "b_sum": 1,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "word": "103210301230132013120312",
+          "P": 4,
+          "O": 3,
+          "b": 0,
+          "D": 5,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        },
+        {
+          "indices": [
+            4,
+            5
+          ],
+          "word": "0231023021302",
+          "P": 2,
+          "O": 1,
+          "b": 1,
+          "D": 1,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 33,
+      "exact_length_rhs": 37,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        37
+      ]
+    },
+    {
+      "n": 6,
+      "word": "01234501234051234015234012534012354013254103254130254132054132504132540135241035241305241350241530241503241502341502431052431025431024531024351023451032451302451320451324051324501324510342513042513402513420513425013425103452130452134052134502134520134521034512035412035142035124035120435120345102354102351402351042351024315024135204135240135420135402153402154302154032154023154021354012304512304152304125304123504123054123014523104523140523145023145203154203152403152043152034152031452301425310425314025314205312405312045312054312053410253410523410532410534210543210453214053214503214530214532015432015342015324015320415320145321043521403521430521435021435201435210432514032514302514320514325014325104321504231504213504215304215034215043210542310542130542103542105341205314250312450312540312504312503412503142530142350142305142301542301245301243501243051243015243012543012",
+      "length": 872,
+      "selected_P": 145,
+      "selected_O": 29,
+      "G": 25,
+      "k": 5,
+      "S": 3,
+      "H": 0,
+      "h": 0,
+      "nu": [
+        0,
+        1,
+        2,
+        3,
+        64,
+        10,
+        6,
+        7,
+        8,
+        9,
+        5,
+        56,
+        12,
+        13,
+        54,
+        15,
+        16,
+        17,
+        53,
+        19,
+        20,
+        21,
+        52,
+        48,
+        29,
+        25,
+        26,
+        27,
+        28,
+        24,
+        35,
+        31,
+        32,
+        33,
+        34,
+        30,
+        41,
+        37,
+        38,
+        39,
+        40,
+        36,
+        47,
+        43,
+        44,
+        45,
+        46,
+        42,
+        23,
+        49,
+        50,
+        51,
+        22,
+        18,
+        14,
+        55,
+        11,
+        57,
+        63,
+        59,
+        60,
+        61,
+        62,
+        58,
+        4,
+        65,
+        66,
+        67,
+        68,
+        69,
+        80,
+        71,
+        72,
+        73,
+        79,
+        75,
+        76,
+        77,
+        78,
+        74,
+        70,
+        136,
+        82,
+        83,
+        129,
+        85,
+        86,
+        87,
+        128,
+        89,
+        90,
+        91,
+        127,
+        123,
+        104,
+        95,
+        96,
+        97,
+        103,
+        99,
+        100,
+        101,
+        102,
+        98,
+        94,
+        110,
+        106,
+        107,
+        108,
+        109,
+        105,
+        116,
+        112,
+        113,
+        114,
+        115,
+        111,
+        122,
+        118,
+        119,
+        120,
+        121,
+        117,
+        93,
+        124,
+        125,
+        126,
+        92,
+        88,
+        84,
+        135,
+        131,
+        132,
+        133,
+        134,
+        130,
+        81,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "K": 26,
+      "g": 0,
+      "R_int": 0,
+      "c": 25,
+      "z": 0,
+      "Z": 0,
+      "D2": 0,
+      "D3_cross": 0,
+      "D3_same": 0,
+      "dirty_count": 0,
+      "R_literal": 0,
+      "joint_types": {
+        "CLEAN_W2_E": 141,
+        "CLEAN_W3": 3
+      },
+      "Bstar": 0,
+      "b_sum": 0,
+      "orbit_sharing": 0,
+      "pieces": [
+        {
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            81,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144
+          ],
+          "word": "012345012340512340152340125340123540123045123041523041253041235041230541230145230142530142350142305142301542301245301243501243051243015243012543012",
+          "P": 20,
+          "O": 4,
+          "b": 0,
+          "D": 0,
+          "shadow_ports": [],
+          "literal_NR_claimed": true
+        }
+      ],
+      "cycle_cuts": [],
+      "linear_dirty_cuts": [],
+      "duplicate_cuts": [],
+      "exact_length_base": 867,
+      "exact_length_rhs": 872,
+      "keep_mixed": false,
+      "mixed_cut": 0,
+      "retained_mixed": 0,
+      "new_repeat_bound": null,
+      "normalization_lengths": [
+        878,
+        872
+      ]
+    }
+  ],
+  "source_commit": "1819d8be2dc4d3dc4d5c1c4d86ba5e4d91dd99b9",
+  "committed_source_sha256": "2f31579bf272f8f1a835e8612c9736b8021e3c53c3f374f5aee9d85c5a2c907d",
+  "runtime_source_sha256": "2f31579bf272f8f1a835e8612c9736b8021e3c53c3f374f5aee9d85c5a2c907d",
+  "input_sha256": {
+    "outputs/rr_round141_repeat_credit_codex.json": "3dc8e2773ac195c4673124bbe286a79deb169fb0ae5dbabd075e03a7df7e4371"
+  },
+  "argv": [
+    "src/research_round142_dirty_topology_codex.py"
+  ],
+  "executable": "C:\\Users\\parks\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+  "executable_sha256": "cce21c0e8710e304273e98ac4b2b0f5aceb639acbcd2343cbaa5c4e81619c45b",
+  "seconds": 0.14811359997838736,
+  "deterministic_digest": "c8bec57dcd9701a386425b520f6d31520368cf7c1ff326e80d51c8b643bb3667"
+}
