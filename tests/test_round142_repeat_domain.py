@@ -46,6 +46,18 @@ class RepeatDomain(unittest.TestCase):
         for w in ww:
             r=b.audit_word(w,3);v.check(r)
             self.assertLessEqual(r['D2']+r['D3_same'],r['R_int'])
+    def test_same_hex_dirty_full_wrap_cannot_be_next_first_occurrence(self):
+        for n in range(3,7):
+            for entry in itertools.permutations(range(n)):
+                word=''.join(map(str,entry+entry[:-1]))
+                visited={window for _,window in a.window_list(word,n)}
+                self.assertEqual(len(visited),n)
+                endpoint=tuple(map(int,word[-n:]))
+                self.assertEqual(c.sigma(endpoint),entry)
+                for turns in (2,3):
+                    target=endpoint
+                    for _ in range(turns):target=c.sigma(target)
+                    self.assertIn(''.join(map(str,target)),visited)
     def test_no_capacity_sigma_silently(self):
         r=b.audit_word(b.fixed_point('0120102102',3)[0],3)
         for p in r['pieces']:

@@ -68,7 +68,13 @@ against the original word's R.
 
 A dirty w2 skips sigma(p), already first-seen earlier. That earlier selected
 visit cannot be a rotation from p, since p is first appearing now. Therefore
-sigma(p) is an earlier selected pass entry: nu(i)<i. A clean blocked w2
+sigma(p) is a selected pass entry. The possible current-pass case nu(i)=i
+would make this a full six-window pass. The dirty target sigma^2(p) would
+then already have appeared in that pass, contradicting its next first
+occurrence. Thus nu(i)<i. The same argument applies to the hidden sigma(p)
+of type B: after a full wrap its target sigma^3(p) is already selected too.
+This explicitly excludes wraparound rather than assuming an earlier pass.
+A clean blocked w2
 targets E(sigma(p)), in the orbit of that registered earlier entry.
 
 Let Y_d be the number of blocked **dirty w2** exits opening a fresh selected
