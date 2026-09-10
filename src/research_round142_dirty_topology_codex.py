@@ -106,7 +106,7 @@ def component_paths(P, edge):
     return components
 
 
-def audit_word(word, n):
+def audit_word(word, n, keep_mixed=False):
     selected = first_windows(word, n)
     assert spelling([value for _, value in selected]) == word, "Requires geodesic first-occurrence fixed point"
     assert selected[0][0] == 0 and selected[-1][0] + n == len(word)
@@ -185,15 +185,15 @@ def audit_word(word, n):
     keep = set(range(P)) - removed
     assert len({orbit(entries[v]) for v in keep}) == O-c
     assert {orbit(entries[v]) for v in keep}.isdisjoint(orbit(entries[v]) for v in removed)
-    cuts = {v for v, joint in edge.items() if v in keep and
-            joint["kind"] in ("HEAVY", "DIRTY_W3_CROSS_HEX")}
+    mandatory = ("HEAVY",) if keep_mixed else ("HEAVY", "DIRTY_W3_CROSS_HEX")
+    cuts = {v for v, joint in edge.items() if v in keep and joint["kind"] in mandatory}
     cycle_cuts = []
     for cycle in components[1:]:
         if cycle in pure or set(cycle) & cuts:
             continue
         candidates = set(cycle) & same_dirty
         if not candidates:
-            candidates = {v for v in cycle if edge[v]["kind"] == "CLEAN_W3"}
+            candidates = {v for v in cycle if edge[v]["weight"] == 3}
         assert candidates
         cut = min(candidates)
         cuts.add(cut)
@@ -239,7 +239,7 @@ def audit_word(word, n):
             block_hexagons = {hexagon(entries[v]) for v in block}
             assert len(block_hexagons) == len(block)
             if block_hexagons & seen:
-                assert previous is not None and edge[previous]["kind"] == "CLEAN_W3"
+                assert previous is not None and edge[previous]["weight"] == 3
                 cuts.add(previous)
                 duplicate_cuts.append(previous)
                 seen = set()
@@ -253,17 +253,20 @@ def audit_word(word, n):
     D3_cross = types["DIRTY_W3_CROSS_HEX"]
     certificate = []
     total_b = total_O = total_D = 0
+    retained_mixed = 0
     for path in pieces():
         piece_word = entries[path[0]]
         for j, v in enumerate(path):
             if j:
                 joint = edge[path[j-1]]
-                assert not joint["dirty"] and joint["weight"] <= 3
+                assert joint["weight"] <= 3 and (not joint["dirty"] or keep_mixed)
                 piece_word += entries[v][-joint["weight"]:]
             piece_word += entries[v][:n-1]
         literal = windows(piece_word, n)
-        assert len(literal) == n*len(path) == len({value for _, value in literal})
-        assert len({hexagon(value) for _, value in literal}) == len(path)
+        if not keep_mixed:
+            assert len(literal) == n*len(path) == len({value for _, value in literal})
+            assert len({hexagon(value) for _, value in literal}) == len(path)
+        assert len({hexagon(entries[v]) for v in path}) == len(path)
         qs = [orbit(entries[v]) for v in path]
         piece_O = len(set(qs))
         repeat_runs = 1 + sum(a != b for a, b in zip(qs, qs[1:])) - piece_O
@@ -271,10 +274,25 @@ def audit_word(word, n):
         b = repeat_runs+intra_paid
         deficit = (n-1)*piece_O-len(path)
         assert min(b, deficit) >= 0
+        ghosts=[]
+        for v in path[:-1]:
+            if edge[v]['kind'] != 'DIRTY_W3_CROSS_HEX': continue
+            source_entry=entries[v]; target=entries[edge[v]['target_index']]
+            if target==E(sigma(source_entry)):
+                ghost=sigma(source_entry); subtype='E_SIGMA'
+            else:
+                assert target==sigma(E(source_entry))
+                ghost=E(source_entry); subtype='SIGMA_E'
+            assert ghost not in [entries[i] for i in path]
+            assert orbit(ghost) in set(qs)
+            ghosts.append(dict(source=v,ghost=ghost,subtype=subtype))
+        assert len(ghosts)==len({x['ghost'] for x in ghosts})<=deficit
+        retained_mixed+=len(ghosts)
         total_b += b
         total_O += piece_O
         total_D += deficit
-        certificate.append(dict(indices=path, word=piece_word, P=len(path), O=piece_O, b=b, D=deficit))
+        certificate.append(dict(indices=path, word=piece_word, P=len(path), O=piece_O, b=b, D=deficit,
+                                shadow_ports=ghosts, literal_NR_claimed=not keep_mixed))
     sharing = total_O-(O-c)
     Bstar = total_b+sharing
     z = G-c
@@ -289,6 +307,18 @@ def audit_word(word, n):
     R_literal = len(windows(word, n))-math.factorial(n)
     dirty_count = sum(joint["dirty"] for joint in edge.values())
     assert D2 <= dirty_count <= R_literal
+    mixed_cut=sum(edge[v]['kind']=='DIRTY_W3_CROSS_HEX' for v in cuts)
+    new_repeat_bound=None
+    if keep_mixed:
+        assert len(certificate)<=z+1+h
+        assert mixed_cut<=Z-types['DIRTY_W3_SAME_HEX']
+        assert D3_cross==retained_mixed+mixed_cut<=total_D+Z-types['DIRTY_W3_SAME_HEX']
+        hidden_heavy=sum(len(j['intermediate']) for j in edge.values() if j['weight']>=4)
+        assert hidden_heavy<=3*H
+        assert R_literal==D2+2*types['DIRTY_W3_SAME_HEX']+D3_cross+hidden_heavy
+        t=len(word)-base
+        new_repeat_bound=(n-1)*t-c-(n-2)*Z-(n-4)*H
+        assert R_literal<=new_repeat_bound
     return dict(n=n, word=word, length=len(word), selected_P=P, selected_O=O,
                 G=G, k=k, S=S, H=H, h=h, nu=nu, K=K, g=genus, R_int=R_int,
                 c=c, z=z, Z=Z, D2=D2, D3_cross=D3_cross,
@@ -297,7 +327,8 @@ def audit_word(word, n):
                 b_sum=total_b, orbit_sharing=sharing, pieces=certificate,
                 cycle_cuts=cycle_cuts, linear_dirty_cuts=linear_dirty_cuts,
                 duplicate_cuts=duplicate_cuts, exact_length_base=base,
-                exact_length_rhs=base+k+Z+H+Bstar)
+                exact_length_rhs=base+k+Z+H+Bstar,keep_mixed=keep_mixed,
+                mixed_cut=mixed_cut,retained_mixed=retained_mixed,new_repeat_bound=new_repeat_bound)
 
 
 def main():
