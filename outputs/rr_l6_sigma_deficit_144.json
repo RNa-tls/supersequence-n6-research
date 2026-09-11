@@ -1,0 +1,61 @@
+{
+ "transform": {
+  "checked": 720,
+  "violations": 0,
+  "holds": true,
+  "order_of_E": 5,
+  "orbits": 144,
+  "hexagons": 120,
+  "orbit_ports_lie_in_distinct_hexes": true
+ },
+ "forbidden_pattern": {
+  "starts": 720,
+  "max_intermediate_fours": 8,
+  "cases": 6480,
+  "violations": 0,
+  "examples": [],
+  "lemma_holds": true,
+  "claim": "the fifth entry of the closing five-run has hex h(s), already visited, and is reached by an E step"
+ },
+ "sharp_controls": [
+  {
+   "lengths": [
+    5,
+    4
+   ],
+   "P": 9,
+   "Q": 2,
+   "D": 1,
+   "A": 1,
+   "distinct_ports": true,
+   "slack": 0
+  },
+  {
+   "lengths": [
+    5,
+    3,
+    5
+   ],
+   "P": 13,
+   "Q": 3,
+   "D": 2,
+   "A": 2,
+   "distinct_ports": true,
+   "slack": 0
+  }
+ ],
+ "brute_force": {
+  "maxP": 13,
+  "nodes": 60000001,
+  "capped": true,
+  "min_slack": 0,
+  "witness_at_min": {
+   "P": 5,
+   "Q": 1,
+   "A": 0,
+   "b": 0
+  },
+  "theorem_holds": true,
+  "note": "slack = D + 5b - A; theorem is slack >= 0"
+ }
+}
