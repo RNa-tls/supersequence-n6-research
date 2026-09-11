@@ -69,9 +69,11 @@ def replay(entries):
 def validate_capacity_file(path):
     raw = path.read_bytes()
     data = json.loads(raw)
+    assert data['schema'] != 'round143-paired-exact-P-v1', 'Exact-P decisions are not capacity maxima'
     cells = []
     for row in data['rows']:
         first, second = row['producer'], row['independent']
+        assert not any(x.get('suffix_bound_enabled',False) for x in (first,second)), 'Threshold-pruned results are not scalar capacities'
         # Earlier AB certificates predate the optional SIGMA alphabet.
         # Only an explicit ordinary mode justifies interpreting absent A as 0.
         if 'A_exact' not in first or 'A_exact' not in second:
