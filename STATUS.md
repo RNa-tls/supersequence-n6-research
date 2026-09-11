@@ -1,5 +1,16 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 143 — intermediate unconditional progress (2026-09-12).**
+> Dirty-sigma companion charging, a run-deficit hand theorem and two
+> independent coupled-capacity implementations exclude lengths869 and870.
+> **871<=L6<=872 without NR6.** The 92/427 necessary arithmetic rows close
+> completely. Length871 is still OPEN; no equality or capped computation
+> is called a closure. This is an interim checkpoint, not Chapter1 completion.
+> [Proof and limits](research/RR_ROUND143_UNCONDITIONAL_871_CODEX.md)
+> · [Independent extraction audit](research/RR_ROUND143_COUPLED_SIGMA_INDEPENDENT_CODEX.md)
+> · [Threshold ledger](outputs/rr_round143_coupled_extraction_codex.json)
+> Historical round blocks below retain their then-current bounds.
+
 > **Codex Round 142 — repeat-domain structural reduction (2026-09-11).**
 > New hand inclusion plus two independent small marked-chain computations
 > exclude every literal cover of length<=868 **without NR6**:
