@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 ZIG=Path('C:/Users/parks/AppData/Local/Temp/round137_compiler/ziglang/zig.exe')
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--cap',type=int,default=0);ap.add_argument('--cells',default='0:0,0:1,0:2,0:3,0:4,0:5,0:6,0:7,0:8,0:9,0:10,1:0,1:1,1:2,1:3,1:4,1:5,2:0');ap.add_argument('--output',default='outputs/rr_round143_marked_capacities_codex.json');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--cap',type=int,default=0);ap.add_argument('--cells',default='0:0,0:1,0:2,0:3,0:4,0:5,0:6,0:7,0:8,0:9,0:10,1:0,1:1,1:2,1:3,1:4,1:5,2:0');ap.add_argument('--output',default='outputs/rr_round143_marked_capacities_codex.json');ap.add_argument('--mode',default='AB');args=ap.parse_args()
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     branch=subprocess.check_output(['git','branch','--show-current'],cwd=ROOT,text=True).strip()
     remote=subprocess.check_output(['git','ls-remote','origin','refs/heads/'+branch],cwd=ROOT,text=True).split()[0]
@@ -26,7 +26,7 @@ def main():
     for b,D in [tuple(map(int,x.split(':'))) for x in args.cells.split(',')]:
         runs=[]
         for exe in bins:
-            argv=[str(exe),str(b),str(D),str(args.cap),'AB'];t=time.perf_counter();pr=subprocess.run(argv,capture_output=True,text=True,check=True)
+            argv=[str(exe),str(b),str(D),str(args.cap),args.mode];t=time.perf_counter();pr=subprocess.run(argv,capture_output=True,text=True,check=True)
             rr=json.loads(pr.stdout);rr.update(argv=argv,seconds=time.perf_counter()-t,stdout_sha256=hashlib.sha256(pr.stdout.encode()).hexdigest());runs.append(rr)
         complete=all(not r['capped'] for r in runs)
         if complete:

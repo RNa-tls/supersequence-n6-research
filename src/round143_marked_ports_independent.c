@@ -21,16 +21,17 @@
 #define NW 720
 #define NQ 144
 #define NH 120
-#define MAXP 120
+#define MAXP 720
 
 enum { FREE_E=0, CLEAN_120=1, CLEAN_201=2, CLEAN_210=3,
-       E_SIGMA=4, SIGMA_E=5 };
+       E_SIGMA=4, SIGMA_E=5, DIRTY_A=6 };
 static const char *kind_name[] = {
-    "E", "CLEAN_120", "CLEAN_201", "CLEAN_210", "E_SIGMA", "SIGMA_E"
+    "E", "CLEAN_120", "CLEAN_201", "CLEAN_210", "E_SIGMA", "SIGMA_E", "DIRTY_A"
 };
 static unsigned char words[NW][6];
 static int word_count, hex_id[NW], orbit_id[NW], phase[NW];
 static int free_target[NW], paid_target[NW][5], paid_kind[NW][5];
+static int dirty_a_target[NW],A_CAP=0,used_A=0;
 static uint64_t hex_lo[NW], hex_hi[NW];
 static unsigned char phase_mask[NQ];
 static uint64_t visited_lo, visited_hi;
@@ -124,7 +125,7 @@ static void geometry(void) {
         unsigned char endpoint[6], raw[9];
         endpoint[0]=words[v][5];
         for (int j=1; j<6; ++j) endpoint[j]=words[v][j-1];
-        int nfree=0, npaid=0;
+        int nfree=0, npaid=0, ndirty_a=0;
         free_target[v]=-1;
         for (int target=0; target<NW; ++target) {
             int gap;
@@ -140,6 +141,7 @@ static void geometry(void) {
             }
             if (gap==2) {
                 if (!nhidden) { free_target[v]=target; ++nfree; }
+                else if(nhidden==1 && hidden[0]==v) {dirty_a_target[v]=target;++ndirty_a;}
                 continue;
             }
             int kind=-1;
@@ -167,7 +169,7 @@ static void geometry(void) {
             paid_target[v][npaid]=target;
             paid_kind[v][npaid++]=kind;
         }
-        assert(nfree==1 && npaid==5);
+        assert(nfree==1 && npaid==5 && ndirty_a==1);
         assert(orbit_id[free_target[v]]==orbit_id[v]);
         assert(phase[free_target[v]]==(phase[v]+1)%5);
         unsigned types=0;
@@ -211,10 +213,11 @@ static void export_prefix(int passes, int b, int deficit, int opened) {
 static void dfs(int current, int used_b, int passes, int deficit, int opened);
 static void add_target(int target, int kind, int used_b, int passes, int deficit, int opened) {
     if (capped) return;
-    if ((visited_lo&hex_lo[target]) || (visited_hi&hex_hi[target])) { ++collision_prunes; return; }
+    int old_hex=((visited_lo&hex_lo[target]) || (visited_hi&hex_hi[target]));
+    if (old_hex && kind!=DIRTY_A) { ++collision_prunes; return; }
     int q=orbit_id[target], bit=1<<phase[target];
     unsigned old=phase_mask[q];
-    assert(!(old & (unsigned)bit));
+    if(old & (unsigned)bit) {++collision_prunes;return;}
     int fresh=old==0;
     int next_b=used_b + (kind!=FREE_E && !fresh);
     if (next_b>BOUND_B) { ++token_prunes; return; }
@@ -222,7 +225,7 @@ static void add_target(int target, int kind, int used_b, int passes, int deficit
     visited_lo|=hex_lo[target]; visited_hi|=hex_hi[target];
     trail[passes]=target; trail_kind[passes]=kind;
     dfs(target,next_b,passes+1,deficit+(fresh?4:-1),opened+fresh);
-    visited_lo&=~hex_lo[target]; visited_hi&=~hex_hi[target];
+    if(!old_hex) {visited_lo&=~hex_lo[target]; visited_hi&=~hex_hi[target];}
     phase_mask[q]=(unsigned char)old;
 }
 static void dfs(int current, int used_b, int passes, int deficit, int opened) {
@@ -235,7 +238,8 @@ static void dfs(int current, int used_b, int passes, int deficit, int opened) {
     hash_number(&transcript,(uint64_t)passes);
     hash_number(&transcript,(uint64_t)deficit);
     hash_number(&transcript,(uint64_t)trail_kind[passes-1]);
-    if (deficit<=BOUND_D) {
+    hash_number(&transcript,(uint64_t)used_A);
+    if (deficit<=BOUND_D && used_A==A_CAP) {
         ++accepted;
         int first_length=1,last_length=1;
         while(first_length<passes && trail_kind[first_length]==FREE_E) ++first_length;
@@ -264,6 +268,7 @@ static void dfs(int current, int used_b, int passes, int deficit, int opened) {
         if (kind==SIGMA_E && !ALLOW_D) continue;
         add_target(paid_target[current][i],kind,used_b,passes,deficit,opened);
     }
+    if(!capped && used_A<A_CAP) {++used_A;add_target(dirty_a_target[current],DIRTY_A,used_b,passes,deficit,opened);--used_A;}
 }
 static int integer_arg(const char *text, int maximum) {
     char *end; errno=0;
@@ -281,6 +286,7 @@ int main(int argc, char **argv) {
     if (errno || *end || argv[3][0]=='-') fail("Invalid node cap");
     if (argc>=5) {
         if (strcmp(argv[4],"A")==0) ALLOW_D=0;
+        else if(strncmp(argv[4],"SIGMA:",6)==0) A_CAP=integer_arg(argv[4]+6,20);
         else if (strcmp(argv[4],"AB")!=0) fail("Mode must be A or AB");
     }
     if (argc==7) {
@@ -299,7 +305,8 @@ int main(int argc, char **argv) {
     trail[0]=0; trail_kind[0]=FREE_E;
     dfs(0,0,1,4,1);
     if (extrema && fclose(extrema)) fail("Extrema close failed");
-    printf("{\"schema\":\"round143-marked-independent-port-v1\",\"mode\":\"%s\","
+    printf("{\"A_exact\":%d,",A_CAP);
+    printf("\"schema\":\"round143-marked-independent-port-v1\",\"mode\":\"%s\","
            "\"b\":%d,\"D\":%d,\"node_cap\":%" PRIu64 ",\"nodes\":%" PRIu64 ","
            "\"capped\":%s,\"completed\":%s,\"status\":\"%s\",\"max_passes\":%d,"
            "\"accepted_prefixes\":%" PRIu64 ",\"deficit_prunes\":%" PRIu64 ","
