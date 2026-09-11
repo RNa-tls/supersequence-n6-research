@@ -45,10 +45,37 @@ static int capped, best_passes, best_b, best_D, best_orbits;
 static int endpoint_best[4];
 static int rich_best[50];
 static FILE *extrema;
+static int suffix_mode=0,suffix_upper[21][21][221];
+static uint64_t suffix_rejections=0;
 
 static void fail(const char *message) {
     fprintf(stderr, "%s\n", message);
     exit(2);
+}
+static void read_suffix_certificate(const char *name) {
+    FILE *stream=fopen(name,"rb");
+    if(!stream)fail("Missing suffix certificate");
+    int records[2048][4],n=0,a,b,d,p;
+    while(fscanf(stream,"%d %d %d %d",&a,&b,&d,&p)==4) {
+        if(n==2048 || a<0 || b<0 || d<0 || p<0)fail("Bad suffix row");
+        records[n][0]=a;records[n][1]=b;records[n][2]=d;records[n++][3]=p;
+    }
+    if(!feof(stream)||n==0)fail("Malformed suffix certificate");
+    fclose(stream);
+    if(BOUND_B>20 || BOUND_D+5*BOUND_B>220 || !TARGET_P)fail("Suffix query range");
+    for(int x=0;x<=A_CAP;x++) for(int r=0;r<=BOUND_B;r++) for(int v=0;v<=BOUND_D+5*BOUND_B;v++) {
+        int answer=0;
+        if(x<=v)for(int old=0;old<=r && 5*old<=v;old++) {
+            int best=100000;
+            for(int j=n-1;j>=0;j--) {
+                if(records[j][0]!=x || records[j][1]<old || records[j][2]<v-5*old)continue;
+                if(records[j][3]<best)best=records[j][3];
+            }
+            if(best>answer)answer=best;
+        }
+        suffix_upper[x][r][v]=answer;
+    }
+    suffix_mode=1;
 }
 static void hash_number(uint64_t *state, uint64_t value) {
     for (int j=0; j<8; ++j) {
@@ -221,6 +248,15 @@ static void add_target(int target, int kind, int used_b, int passes, int deficit
     int fresh=old==0;
     int next_b=used_b + (kind!=FREE_E && !fresh);
     if (next_b>BOUND_B) { ++token_prunes; return; }
+    if(suffix_mode && kind!=FREE_E) {
+        /* used_A already includes a candidate DIRTY_A at this call site. */
+        int remaining_a=A_CAP-used_A;
+        int remaining_b=BOUND_B-next_b;
+        int delta=BOUND_D+5*BOUND_B-deficit-5*used_b;
+        if(delta<0 || remaining_a<0 || passes+suffix_upper[remaining_a][remaining_b][delta]<TARGET_P) {
+            ++suffix_rejections;return;
+        }
+    }
     phase_mask[q]=(unsigned char)(old|(unsigned)bit);
     visited_lo|=hex_lo[target]; visited_hi|=hex_hi[target];
     trail[passes]=target; trail_kind[passes]=kind;
@@ -255,7 +291,7 @@ static void dfs(int current, int used_b, int passes, int deficit, int opened) {
         }
         export_prefix(passes,used_b,deficit,opened);
     }
-    if (passes==MAXP) return;
+    if (passes==MAXP || (suffix_mode && passes==TARGET_P)) return;
     /* Independent, deliberately loose deficit lower bound. Grant all
      * missing current-Q phases free. Each remaining non-E old-Q entry can
      * repair at most four phases elsewhere. New Q deficits are nonnegative.
@@ -277,7 +313,7 @@ static int integer_arg(const char *text, int maximum) {
     return (int)value;
 }
 int main(int argc, char **argv) {
-    if (argc!=4 && argc!=5 && argc!=7) {
+    if (argc!=4 && argc!=5 && argc!=7 && argc!=8) {
         fprintf(stderr,"usage: %s b D node_cap [AB|A] [target_passes extrema.jsonl]\n",argv[0]);
         return 2;
     }
@@ -289,7 +325,7 @@ int main(int argc, char **argv) {
         else if(strncmp(argv[4],"SIGMA:",6)==0) A_CAP=integer_arg(argv[4]+6,20);
         else if (strcmp(argv[4],"AB")!=0) fail("Mode must be A or AB");
     }
-    if (argc==7) {
+    if (argc>=7) {
         TARGET_P=integer_arg(argv[5],MAXP);
         if (!TARGET_P) fail("target_passes must be positive");
         FILE *exists=fopen(argv[6],"rb");
@@ -297,6 +333,7 @@ int main(int argc, char **argv) {
         extrema=fopen(argv[6],"wb");
         if (!extrema) fail("Cannot create extrema file");
     }
+    if(argc==8)read_suffix_certificate(argv[7]);
     clock_t started=clock();
     geometry();
     assert(rank_word(words[0])==0);
@@ -305,7 +342,7 @@ int main(int argc, char **argv) {
     trail[0]=0; trail_kind[0]=FREE_E;
     dfs(0,0,1,4,1);
     if (extrema && fclose(extrema)) fail("Extrema close failed");
-    printf("{\"A_exact\":%d,",A_CAP);
+    printf("{\"A_exact\":%d,\"suffix_bound_enabled\":%s,\"suffix_bound_prunes\":%" PRIu64 ",\"proof_query\":\"%s\",",A_CAP,suffix_mode?"true":"false",suffix_rejections,suffix_mode?"EXACT_P_NOT_CAPACITY":"CAPACITY_OR_LEGACY_PREFIX");
     printf("\"schema\":\"round143-marked-independent-port-v1\",\"mode\":\"%s\","
            "\"b\":%d,\"D\":%d,\"node_cap\":%" PRIu64 ",\"nodes\":%" PRIu64 ","
            "\"capped\":%s,\"completed\":%s,\"status\":\"%s\",\"max_passes\":%d,"

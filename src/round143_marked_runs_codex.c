@@ -17,6 +17,34 @@ static int rich_best[50],run_depth=0;
 static int acap=0,usedA=0,port_seen[720];
 static uint64_t nodes=0,limit=0,accepts=0,digest=UINT64_C(1469598103934665603),extrema=0;
 static FILE *exportf=NULL;
+static int bound_mode=0,ub[21][21][221];
+static uint64_t suffix_prunes=0;
+static void load_bounds(const char *name){
+ FILE*f=fopen(name,"rb");if(!f){fprintf(stderr,"bounds absent\n");exit(2);}
+ int rows[2048][4],n=0,a,b,d,p;
+ while(fscanf(f,"%d %d %d %d",&a,&b,&d,&p)==4){
+  if(n>=2048||a<0||b<0||d<0||p<0){fprintf(stderr,"bad bounds\n");exit(2);}
+  rows[n][0]=a;rows[n][1]=b;rows[n][2]=d;rows[n++][3]=p;
+ }
+ if(!feof(f)||!n){fprintf(stderr,"bad bounds file\n");exit(2);}fclose(f);
+ if(dcap+5*bcap>220||!target){fprintf(stderr,"bound query range\n");exit(2);}
+ for(a=0;a<=acap;a++)for(b=0;b<=bcap;b++)for(d=0;d<=dcap+5*bcap;d++){
+  int answer=0;
+  if(a<=d)for(int bs=0;bs<=b&&5*bs<=d;bs++){
+   int one=100000;
+   for(int j=0;j<n;j++)if(rows[j][0]==a&&rows[j][1]>=bs&&rows[j][2]>=d-5*bs&&rows[j][3]<one)one=rows[j][3];
+   if(one>answer)answer=one;
+  }
+  ub[a][b][d]=answer;
+ }
+ bound_mode=1;
+}
+static int can_finish(int t,int len,int b,int D,int isA){
+ if(!bound_mode)return 1;
+ int rem_b=bcap-b-(uq[qn[t]]>0),rem_A=acap-usedA-isA,delta=dcap+5*bcap-D-5*b;
+ if(rem_b<0||rem_A<0||delta<0||len+ub[rem_A][rem_b][delta]<target){suffix_prunes++;return 0;}
+ return 1;
+}
 static void perm(int d){if(d==6){memcpy(pp[count++],tmp,sizeof tmp);return;}for(int x=0;x<6;x++)if(!used[x]){used[x]=1;tmp[d]=x;perm(d+1);used[x]=0;}}
 static int id(const int *p){int v=0;for(int i=0;i<6;i++){int less=0;for(int j=i+1;j<6;j++)less+=p[j]<p[i];v=v*(6-i)+less;}return v;}
 static void init(void){
@@ -54,9 +82,9 @@ static void rec(int v,int b,int D,int len,int allow_old_start){
      missing ports; new orbits add nonnegative final deficit. Overestimation
      of repairs makes this a safe necessary bound, including repeated q0. */
   if((!target||len+r<target)&&nd-4*(bcap-nb)<=dcap){
-   for(int j=0;j<(modeab?5:4);j++){int t=paid[u][j];if(!uh[hn[t]]&&(nb+(uq[qn[t]]>0)<=bcap))rec(t,nb,nd,len+r,0);if(capflag)break;}
+   for(int j=0;j<(modeab?5:4);j++){int t=paid[u][j];if(!uh[hn[t]]&&(nb+(uq[qn[t]]>0)<=bcap)&&can_finish(t,len+r,nb,nd,0))rec(t,nb,nd,len+r,0);if(capflag)break;}
    if(!capflag && usedA<acap){int p[6];for(int j=0;j<6;j++)p[j]=pp[u][(j+1)%6];int t=id(p);
-    if(!port_seen[t] && nb+(uq[qn[t]]>0)<=bcap){usedA++;rec(t,nb,nd,len+r,1);usedA--;}}
+    if(!port_seen[t] && nb+(uq[qn[t]]>0)<=bcap&&can_finish(t,len+r,nb,nd,1)){usedA++;rec(t,nb,nd,len+r,1);usedA--;}}
   }
   if(capflag)break;u=en[u];
  }
@@ -66,11 +94,12 @@ int main(int argc,char **argv){
  if(argc<4){fprintf(stderr,"b D node_cap [A|AB] [target file]\n");return 2;}
  bcap=atoi(argv[1]);dcap=atoi(argv[2]);limit=strtoull(argv[3],NULL,10);if(argc>4)modeab=strcmp(argv[4],"A")!=0;
  if(argc>4 && strncmp(argv[4],"SIGMA:",6)==0)acap=atoi(argv[4]+6);
- if(argc>5){target=atoi(argv[5]);if(argc<7)return 2;exportf=fopen(argv[6],"wb");if(!exportf)return 2;}
- if(bcap<0||dcap<0||bcap>20||dcap>120)return 2;init();
+ if(argc>5){target=atoi(argv[5]);if(argc<7||target<1||target>140)return 2;FILE*prior=fopen(argv[6],"rb");if(prior){fclose(prior);fprintf(stderr,"refuse overwrite\n");return 2;}exportf=fopen(argv[6],"wb");if(!exportf)return 2;}
+ if(bcap<0||dcap<0||bcap>20||dcap>120||acap<0||acap>20||argc>8)return 2;
+ if(argc==8)load_bounds(argv[7]);init();
  /* Initial block opens its orbit without consuming b. */
  rec(0,0,0,0,0);if(exportf)fclose(exportf);
- printf("{\"A_exact\":%d,",acap);
+ printf("{\"A_exact\":%d,\"suffix_bound_enabled\":%s,\"suffix_bound_prunes\":%" PRIu64 ",\"proof_query\":\"%s\",",acap,bound_mode?"true":"false",suffix_prunes,bound_mode?"EXACT_P_NOT_CAPACITY":"CAPACITY_OR_LEGACY_PREFIX");
  printf("\"implementation\":\"whole-E-runs\",\"mode\":\"%s\",\"b\":%d,\"D\":%d,\"nodes\":%" PRIu64 ",\"capped\":%s,\"completed\":%s,\"max_passes\":%d,\"accepted_prefixes\":%" PRIu64 ",\"extrema\":%" PRIu64 ",\"transcript_fnv64\":\"%016" PRIx64 "\",\"witness\":[",modeab?"AB":"A",bcap,dcap,nodes,capflag?"true":"false",capflag?"false":"true",best,accepts,extrema,digest);
  for(int j=0;j<best;j++)printf("%s%d",j?",":"",bestpath[j]);printf("],\"endpoint_max_passes\":[%d,%d,%d,%d],\"rich_endpoint_max_passes\":[",endpoint_best[0],endpoint_best[1],endpoint_best[2],endpoint_best[3]);for(int j=0;j<50;j++)printf("%s%d",j?",":"",rich_best[j]);printf("]}\n");return 0;
 }
