@@ -32,6 +32,7 @@ def main():
         if complete:
             assert runs[0]['max_passes']==runs[1]['max_passes'],runs
             assert runs[0]['endpoint_max_passes']==runs[1]['endpoint_max_passes'],runs
+            assert runs[0]['rich_endpoint_max_passes']==runs[1]['rich_endpoint_max_passes'],runs
         row=dict(b=b,D=D,producer=runs[0],independent=runs[1],complete=complete,status='VERIFIED_CAPACITY' if complete else 'UNKNOWN_CAP')
         result['rows'].append(row)
         (ROOT/args.output).write_text(json.dumps(result,indent=2)+'\n',newline='\n')
