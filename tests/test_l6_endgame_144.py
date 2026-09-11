@@ -14,6 +14,7 @@ import l6_master_identity_144 as MI          # noqa: E402
 import l6_sigma_deficit_144 as SD            # noqa: E402
 import l6_marked_capacity_144 as MC          # noqa: E402
 import l6_coupled_144 as CP                  # noqa: E402
+import l6_chain_rows_144 as CR               # noqa: E402
 
 TABLE = ROOT / "outputs" / "rr_l6_marked_capacity_table_144.json"
 
@@ -93,12 +94,12 @@ def test_pruned_checker_agrees_with_unpruned():
         [83, 73, 73, 68]
 
 
-def test_coupled_closes_length_869():
+def test_piece_model_closes_length_869():
     if not TABLE.exists():
         return
     CP.load_caps()
     r = CP.run(2, coupled=True)
-    assert r["unknown"] == 0, r["unknown"]
+    assert r["surviving_with_fallback_cell"] == 0
     assert r["surviving"] == 0, r["surviving_rows"][:3]
 
 
@@ -109,6 +110,44 @@ def test_independent_fragment_capacities_are_NOT_enough_at_869():
     CP.load_caps()
     r = CP.run(2, coupled=False)
     assert r["surviving"] > 0
+
+
+def test_chain_searcher_reproduces_the_piece_capacity_at_a_zero():
+    """amax=bmax=emax=0 인 사슬은 육각 단순 조각과 같은 대상이어야 한다."""
+    exe = ROOT / "outputs" / "l6chain_144.exe"
+    if not exe.exists():
+        return
+    c = json.loads(subprocess.run([str(exe), "0", "6", "0", "0", "0"],
+                                  capture_output=True, text=True).stdout)
+    assert c["capped"] is False and c["nodes"] == 157364
+    assert [c["table"][str(d)] for d in range(7)] == [20, 20, 33, 33, 46, 46, 49]
+
+
+def test_A_edges_buy_nothing_below_deficit_six():
+    """동반 육각 보조정리의 직접 귀결: D<=5 에서 sigma 이음매는 이득이 없다."""
+    exe = ROOT / "outputs" / "l6chain_144.exe"
+    if not exe.exists():
+        return
+    c = json.loads(subprocess.run([str(exe), "0", "5", "4", "0", "0"],
+                                  capture_output=True, text=True).stdout)
+    assert c["capped"] is False
+    assert [c["table"][str(d)] for d in range(6)] == [20, 20, 33, 33, 46, 46]
+
+
+def test_shadow_theorem_geometry():
+    assert MC.shadow_theorem()["holds"] is True
+
+
+def test_chain_model_closes_867_to_870():
+    if not (ROOT / "outputs" / "rr_l6_chain_capacity_144.json").exists():
+        return
+    CR.load_cache()
+    for t in (0, 1, 2, 3):
+        CR.REQUESTED.clear()
+        CR._best.cache_clear()
+        r = CR.run(t)
+        assert r["surviving"] == 0, (t, r["surviving_rows"][:2])
+        assert len(CR.REQUESTED) == 0, (t, sorted(CR.REQUESTED)[:5])
 
 
 if __name__ == "__main__":
