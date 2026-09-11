@@ -41,6 +41,7 @@ static uint64_t transcript=UINT64_C(14695981039346656037);
 static uint64_t geometry_digest=UINT64_C(14695981039346656037);
 static uint64_t extrema_count;
 static int capped, best_passes, best_b, best_D, best_orbits;
+static int endpoint_best[4];
 static FILE *extrema;
 
 static void fail(const char *message) {
@@ -235,6 +236,11 @@ static void dfs(int current, int used_b, int passes, int deficit, int opened) {
     hash_number(&transcript,(uint64_t)trail_kind[passes-1]);
     if (deficit<=BOUND_D) {
         ++accepted;
+        int first_length=1,last_length=1;
+        while(first_length<passes && trail_kind[first_length]==FREE_E) ++first_length;
+        while(last_length<passes && trail_kind[passes-last_length]==FREE_E) ++last_length;
+        int mask=(first_length<5?1:0)|(last_length<5?2:0);
+        if(passes>endpoint_best[mask]) endpoint_best[mask]=passes;
         if (passes>best_passes) {
             best_passes=passes; best_b=used_b; best_D=deficit; best_orbits=opened;
             memcpy(best_trail,trail,(size_t)passes*sizeof(int));
@@ -304,6 +310,6 @@ int main(int argc, char **argv) {
            TARGET_P,extrema_count,(TARGET_P && !capped)?"true":"false",(double)(clock()-started)/CLOCKS_PER_SEC,
            best_b,best_D,best_orbits);
     print_path(stdout,best_trail,best_kind,best_passes);
-    fputs("}}\n",stdout);
+    printf("},\"endpoint_max_passes\":[%d,%d,%d,%d]}\n",endpoint_best[0],endpoint_best[1],endpoint_best[2],endpoint_best[3]);
     return 0;
 }

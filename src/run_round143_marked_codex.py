@@ -29,7 +29,9 @@ def main():
             argv=[str(exe),str(b),str(D),str(args.cap),'AB'];t=time.perf_counter();pr=subprocess.run(argv,capture_output=True,text=True,check=True)
             rr=json.loads(pr.stdout);rr.update(argv=argv,seconds=time.perf_counter()-t,stdout_sha256=hashlib.sha256(pr.stdout.encode()).hexdigest());runs.append(rr)
         complete=all(not r['capped'] for r in runs)
-        if complete:assert runs[0]['max_passes']==runs[1]['max_passes'],runs
+        if complete:
+            assert runs[0]['max_passes']==runs[1]['max_passes'],runs
+            assert runs[0]['endpoint_max_passes']==runs[1]['endpoint_max_passes'],runs
         row=dict(b=b,D=D,producer=runs[0],independent=runs[1],complete=complete,status='VERIFIED_CAPACITY' if complete else 'UNKNOWN_CAP')
         result['rows'].append(row)
         (ROOT/args.output).write_text(json.dumps(result,indent=2)+'\n',newline='\n')

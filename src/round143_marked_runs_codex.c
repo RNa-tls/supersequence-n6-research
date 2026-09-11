@@ -12,6 +12,7 @@
 static int pp[720][6],qn[720],hn[720],en[720],paid[720][5];
 static int count=0,used[6],tmp[6],uq[144],uh[120],path[721],bestpath[721];
 static int bcap,dcap,modeab=1,capflag=0,best=0,target=0;
+static int first_run_length=0,endpoint_best[4];
 static uint64_t nodes=0,limit=0,accepts=0,digest=UINT64_C(1469598103934665603),extrema=0;
 static FILE *exportf=NULL;
 static void perm(int d){if(d==6){memcpy(pp[count++],tmp,sizeof tmp);return;}for(int x=0;x<6;x++)if(!used[x]){used[x]=1;tmp[d]=x;perm(d+1);used[x]=0;}}
@@ -37,7 +38,9 @@ static void rec(int v,int b,int D,int len){
  int nd=D+(old?0:5);uq[q]++;int taken[5],n=0,u=v;
  for(int r=1;r<=5;r++){
   if(uh[hn[u]])break;uh[hn[u]]=1;taken[n++]=hn[u];path[len+r-1]=u;nd--;
+  if(len==0)first_run_length=r;
   if(nd<=dcap){accepts++;if(len+r>best){best=len+r;memcpy(bestpath,path,best*sizeof(int));}
+   int mask=(first_run_length<5?1:0)|(r<5?2:0);if(len+r>endpoint_best[mask])endpoint_best[mask]=len+r;
    if(target&&len+r==target){extrema++;if(exportf){fprintf(exportf,"[");for(int j=0;j<target;j++)fprintf(exportf,"%s%d",j?",":"",path[j]);fprintf(exportf,"]\n");}}
   }
   /* After ending this run, each remaining paid re-entry can fill at most4
@@ -58,5 +61,5 @@ int main(int argc,char **argv){
  /* Initial block opens its orbit without consuming b. */
  rec(0,0,0,0);if(exportf)fclose(exportf);
  printf("{\"implementation\":\"whole-E-runs\",\"mode\":\"%s\",\"b\":%d,\"D\":%d,\"nodes\":%" PRIu64 ",\"capped\":%s,\"completed\":%s,\"max_passes\":%d,\"accepted_prefixes\":%" PRIu64 ",\"extrema\":%" PRIu64 ",\"transcript_fnv64\":\"%016" PRIx64 "\",\"witness\":[",modeab?"AB":"A",bcap,dcap,nodes,capflag?"true":"false",capflag?"false":"true",best,accepts,extrema,digest);
- for(int j=0;j<best;j++)printf("%s%d",j?",":"",bestpath[j]);printf("]}\n");return 0;
+ for(int j=0;j<best;j++)printf("%s%d",j?",":"",bestpath[j]);printf("],\"endpoint_max_passes\":[%d,%d,%d,%d]}\n",endpoint_best[0],endpoint_best[1],endpoint_best[2],endpoint_best[3]);return 0;
 }
