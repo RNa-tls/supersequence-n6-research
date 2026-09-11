@@ -220,7 +220,15 @@
    "8|00": 92,
    "8|10": 92,
    "8|01": 92,
-   "8|11": 92
+   "8|11": 92,
+   "9|00": 96,
+   "9|10": 96,
+   "9|01": 96,
+   "9|11": 96,
+   "10|00": 100,
+   "10|10": 100,
+   "10|01": 100,
+   "10|11": 100
   }
  },
  "cells": {
@@ -647,6 +655,22 @@
    "wall": 114.9,
    "pruned": true,
    "model": "AB"
+  },
+  "2|9": {
+   "nodes": 5620036006,
+   "capped": false,
+   "seconds": 299.7,
+   "wall": 299.7,
+   "pruned": true,
+   "model": "AB"
+  },
+  "2|10": {
+   "nodes": 12800033621,
+   "capped": false,
+   "seconds": 683.9,
+   "wall": 683.9,
+   "pruned": true,
+   "model": "AB"
   }
  },
  "bmax": {
@@ -654,7 +678,7 @@
   "1": 15,
   "4": 0,
   "3": 5,
-  "2": 8
+  "2": 10
  },
  "dmax": 20,
  "note": "C(b,D,mask); mask=fp lp, 1 means that endpoint clean-E block is REQUIRED partial (<5 ports). -1 = infeasible."

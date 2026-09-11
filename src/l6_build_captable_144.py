@@ -29,12 +29,23 @@ def load():
 
 
 def write_ub(st):
+    """Emit every proved cell as a suffix upper bound.
+
+    For a restricted model (ABS) the unrestricted AB table is ALSO emitted:
+    its values are valid upper bounds for the restricted model too, and the
+    searcher keeps the minimum of duplicated entries.
+    """
     lines = []
-    for b, tab in st["tables"].items():
-        for key, val in tab.items():
-            d, mask = key.split("|")
-            if mask == "00" and val >= 0:
-                lines.append(f"{b} {d} {val}")
+    base = ROOT / "outputs" / "rr_l6_marked_capacity_table_144.json"
+    srcs = [st]
+    if MODEL != "AB" and base.exists():
+        srcs.append(json.loads(base.read_text()))
+    for src in srcs:
+        for b, tab in src["tables"].items():
+            for key, val in tab.items():
+                d, mask = key.split("|")
+                if mask == "00" and val >= 0:
+                    lines.append(f"{b} {d} {val}")
     UB.write_text("\n".join(lines) + "\n")
 
 

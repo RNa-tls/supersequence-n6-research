@@ -162,7 +162,7 @@ def evaluate_row(r, coupled=True):
     nB = max(0, r["Qs"] - r["d"])                 # retained interior B seams
     badmax = max(0, r["Z"] - r["Qs"])             # full/full A seams affordable
     nmark = max(0, nA - badmax) if coupled else 0
-    m_lo = nA + nB + 1
+    m_lo = max(1, r["D2"] + r["Qs"] - r["d"] + 1)   # every retained A/B edge is a join
     m_hi = r["m_max"]
     if m_lo > m_hi:
         return NEG, dict(reason="m_lo>m_hi", m_lo=m_lo, m_hi=m_hi, nmark=nmark)
