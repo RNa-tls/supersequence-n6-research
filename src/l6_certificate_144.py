@@ -28,6 +28,7 @@ def main():
             "an exhaustive search inside an explicitly relaxed upper-bound "
             "model, or an identity check.  Capped searches are marked."}
     sources = ["src/l6_master_identity_144.py", "src/l6_sigma_deficit_144.py",
+               "src/l6_incidence_144.py", "src/l6_certificate_144.py",
                "src/l6_marked_capacity_144.py", "src/l6_marked_capacity_144.c",
                "src/l6_marked_capacity_pruned_144.c", "src/l6_coupled_144.py",
                "src/l6_chain_capacity_144.c", "src/l6_chain_rows_144.py",
@@ -54,6 +55,14 @@ def main():
         total_nodes=sum(v["nodes"] for v in ct.values()))
 
     sys.path.insert(0, str(ROOT / "src"))
+    import l6_marked_capacity_144 as MC
+    import l6_incidence_144 as IN
+    cert["hand_lemmas"] = dict(
+        joint_catalogue=MC.catalogue_check(),
+        companion_hex=MC.companion_lemma(),
+        mixed_shadow=MC.shadow_theorem(),
+        left_S6_symmetry=MC.s6_symmetry(),
+        incidence=IN.check(4000))
     import l6_chain_rows_144 as CR
     CR.load_cache()
     verdicts = {}
@@ -62,7 +71,9 @@ def main():
         CR._best.cache_clear()
         r = CR.run(t)
         verdicts[f"L{867 + t}"] = dict(
-            rows=r["rows"], strict=r["strict"], surviving=r["surviving"],
+            rows=r["rows"], strict=r["strict"],
+            strict_by_piece_model=r["strict_by_piece_model"],
+            surviving=r["surviving"],
             surviving_using_fallback=r["surviving_using_fallback"],
             unproved_cells=len(CR.REQUESTED),
             row_digest=digest([[x["verdict"], x["chain_bound"], x["required"]]
@@ -71,8 +82,10 @@ def main():
     (ROOT / "outputs" / "rr_l6_certificate_144.json").write_text(
         json.dumps(cert, ensure_ascii=False, indent=1))
     print(json.dumps({k: v for k, v in cert.items()
-                      if k not in ("sources", "binaries")},
+                      if k not in ("sources", "binaries", "hand_lemmas")},
                      ensure_ascii=False, indent=1)[:2500])
+    print(json.dumps({k: v.get("holds") for k, v in cert["hand_lemmas"].items()},
+                     ensure_ascii=False))
 
 
 if __name__ == "__main__":

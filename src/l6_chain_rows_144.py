@@ -44,7 +44,26 @@ HEXCAP = 120
 NEG = -10 ** 9
 
 sys.path.insert(0, str(ROOT / "src"))
+import l6_coupled_144 as PIECE                                    # noqa: E402
 from l6_coupled_144 import rows_for                              # noqa: E402
+
+_PIECE_READY = [False]
+
+
+def piece_bound(r):
+    """The independent endpoint-marked PIECE bound (src/l6_coupled_144.py).
+
+    Both models are sound upper bounds, so a row may be closed by either.
+    Evaluating the cheap piece bound first keeps the expensive chain cells to
+    the rows that really need them.
+    """
+    if not _PIECE_READY[0]:
+        PIECE.load_caps()
+        _PIECE_READY[0] = True
+    v, det = PIECE.evaluate_row(dict(r), coupled=True)
+    if det.get("unknown_seen"):
+        return None
+    return v
 
 _C: dict = {}
 REQUESTED: set = set()
@@ -145,8 +164,19 @@ def row_bound(r):
 def run(t, use_sigma_deficit=False):
     rows = rows_for(t, use_sigma_deficit)
     strict = surv = fb = 0
+    by_piece = 0
     surviving = []
     for r in rows:
+        pv = piece_bound(r)
+        if pv is not None and pv < r["required"]:
+            r["chains"] = r["d"] + 1 + r["h"]
+            r["piece_bound"] = pv
+            r["chain_bound"] = None
+            r["verdict"] = "STRICT"
+            strict += 1
+            by_piece += 1
+            continue
+        r["piece_bound"] = pv
         v, nch, used_fb = row_bound(r)
         r["chains"] = nch
         r["chain_bound"] = v
@@ -159,7 +189,8 @@ def run(t, use_sigma_deficit=False):
             surviving.append(r)
             if used_fb:
                 fb += 1
-    return dict(t=t, L=867 + t, rows=len(rows), strict=strict, surviving=surv,
+    return dict(t=t, L=867 + t, rows=len(rows), strict=strict,
+                strict_by_piece_model=by_piece, surviving=surv,
                 surviving_using_fallback=fb, surviving_rows=surviving)
 
 

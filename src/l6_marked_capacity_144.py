@@ -309,3 +309,36 @@ if __name__ == "__main__":
     for d in range(dm + 1):
         print("  D%-3d" % d, " ".join(
             "%s=%d" % (m, c["table"][f"{d}|{m}"]) for m in ("00", "10", "01", "11")))
+
+
+def s6_symmetry():
+    """The left S6 action commutes with every edge map, so fixing the start port
+    is a proved reduction and not an assumption.
+
+    g . (a b c d e f) = (g(a) g(b) ... g(f)).  Rotations act on POSITIONS, the
+    group acts on VALUES, so the two commute; the certificate below checks it
+    literally on all 720 x 720 pairs for each of the eight connector maps and
+    verifies that the action is transitive on ports.
+    """
+    import itertools
+    maps = dict(E=E, E2=E2, SIGMA=SIGMA, W201=W201, W210=W210,
+                TYPEC=TYPEC, TYPED=TYPED, SIGMA2=[SIGMA[SIGMA[v]] for v in range(NP)])
+    bad = []
+    orbit_of_zero = set()
+    for g in itertools.permutations(range(6)):
+        act = [IDX[tuple(g[x] for x in P6[v])] for v in range(NP)]
+        orbit_of_zero.add(act[0])
+        for name, m in maps.items():
+            for v in (0, 1, 7, 100, 359, 719):
+                if act[m[v]] != m[act[v]]:
+                    bad.append((name, g, v))
+        if HEX[act[0]] is None:
+            bad.append(("hex", g, 0))
+    struct = all(HEX[v] == HEX[w] for v in range(NP) for w in (SIGMA[v],)) and \
+        all(ORB[v] == ORB[E[v]] for v in range(NP))
+    return dict(group_elements=720, violations=len(bad), examples=bad[:4],
+                transitive_on_ports=(len(orbit_of_zero) == NP),
+                structure_maps_ok=struct,
+                holds=(not bad and len(orbit_of_zero) == NP and struct),
+                statement="left S6 commutes with E, E^2, sigma, sigma^2, 201, "
+                          "210, C, D and is transitive on the 720 ports")

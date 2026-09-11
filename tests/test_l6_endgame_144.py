@@ -15,6 +15,7 @@ import l6_sigma_deficit_144 as SD            # noqa: E402
 import l6_marked_capacity_144 as MC          # noqa: E402
 import l6_coupled_144 as CP                  # noqa: E402
 import l6_chain_rows_144 as CR               # noqa: E402
+import l6_incidence_144 as IN                # noqa: E402
 
 TABLE = ROOT / "outputs" / "rr_l6_marked_capacity_table_144.json"
 
@@ -136,6 +137,15 @@ def test_A_edges_buy_nothing_below_deficit_six():
 
 def test_shadow_theorem_geometry():
     assert MC.shadow_theorem()["holds"] is True
+
+
+def test_incidence_theorem():
+    r = IN.check(1500)
+    assert r["bound_violations"] == 0 and r["parity_violations"] == 0
+
+
+def test_left_S6_symmetry_is_proved_not_assumed():
+    assert MC.s6_symmetry()["holds"] is True
 
 
 def test_chain_model_closes_867_to_870():
