@@ -87,7 +87,9 @@ without NR6. Equality or open rows at larger t are NOT closures.
 - `rr_round143_endpoint_capacities_codex.json`: paired finite capacities.
 - `rr_round143_endpoint_envelopes_codex.json`: independent t2 optimizers.
 - `rr_round143_companion_verified_codex.json`: local geometry and cover controls.
-- `rr_round143_general_endpoint_codex.json`: larger-budget necessary envelopes.
+- `rr_round143_general_endpoint_corrected_codex.json`: larger-budget necessary
+  envelopes with the explicit cycle-opening correction. The uncommitted
+  draft `rr_round143_general_endpoint_codex.json` is not a proof source.
 
 No full-cover search, old frontier reconstruction, or NR6 normalization
 claim is used. General closure at870/871 remains subject to their explicit ledgers.
