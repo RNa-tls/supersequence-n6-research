@@ -19,8 +19,18 @@
  *   sum over chains of deficit = 5k - G + 5s
  *   sum over chains of a       = D2 + Qs      (retained same-hex dirty edges)
  *   number of chains           = d + 1 + h
+ *   sum of EXTRA hex reuses    = Z - Qs        (see below)
  *
- * Usage: ./l6chain b dmax amax bmax [node_cap] [ubfile] [target]
+ * EXTRA reuses.  A chain is NOT hexagon-simple: the piece decomposition also
+ * cuts it at ordinary hexagon collisions.  Their number is bounded by the
+ * within-component duplicate-hex excess R_int <= 2g minus the one collision
+ * each retained A/B edge already forces, i.e. by 2g-D2-Qs+x+y <= Z-Qs.  So the
+ * searcher takes a separate budget EMAX of collisions at ARBITRARY edges.
+ * At Z = Qs (in particular at Z = 0) that budget is zero.  Taking amax = D2,
+ * bmax = Qs and emax = Z-Qs at the same time is generous to the hypothetical
+ * cover, hence sound.
+ *
+ * Usage: ./l6chain b dmax amax bmax emax [node_cap] [ubfile] [target]
  * ubfile lines: "b d a value" with a = amax+bmax.  Output: one JSON object.
  */
 #include <stdio.h>
@@ -117,7 +127,7 @@ static void geometry(void) {
     }
 }
 
-static int BOUND_B, DMAX, AMAX, BMAX, TARGET;
+static int BOUND_B, DMAX, AMAX, BMAX, EMAX, TARGET;
 static uint64_t NODECAP, nodes, capped;
 static unsigned char hexu[NH], phm[NQ];
 static int opened[NQ], nopened, deficit;
@@ -146,9 +156,9 @@ static int feas(int tok, int skip) {
     return tot <= DMAX;
 }
 
-static void step(int t, int corb, int ports, int tok, int au, int bu, int isdirty);
+static void step(int t, int corb, int ports, int tok, int au, int bu, int eu, int isdirty);
 
-static void rec(int cur, int corb, int ports, int tok, int au, int bu) {
+static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu) {
     ++nodes;
     if (NODECAP && nodes > NODECAP) { capped = 1; return; }
     if (deficit <= DMAX) {
@@ -157,20 +167,24 @@ static void rec(int cur, int corb, int ports, int tok, int au, int bu) {
     }
     if (!feas(tok, corb)) return;
     int reach = ports + ubound(tok, DMAX - deficit + 4 + 5 * tok,
-                               (AMAX - au) + (BMAX - bu)) - 1;
+                               (AMAX - au) + (BMAX - bu) + (EMAX - eu)) - 1;
     if (TARGET && reach < TARGET) return;
     if (have_ub && reach <= record) return;
-    step(freetgt[cur], corb, ports, tok, au, bu, -1);          /* free E */
+    step(freetgt[cur], corb, ports, tok, au, bu, eu, -1);          /* free E */
     for (int i = 0; i < 5; ++i)
-        step(paidtgt[cur][i], corb, ports, tok, au, bu, 0);    /* paid clean/mixed */
-    if (au < AMAX) step(dirtyA[cur], corb, ports, tok, au, bu, 1);   /* A: sigma   */
-    if (bu < BMAX) step(dirtyB[cur], corb, ports, tok, au, bu, 2);   /* B: sigma^2 */
+        step(paidtgt[cur][i], corb, ports, tok, au, bu, eu, 0);    /* paid */
+    if (au < AMAX) step(dirtyA[cur], corb, ports, tok, au, bu, eu, 1);
+    if (bu < BMAX) step(dirtyB[cur], corb, ports, tok, au, bu, eu, 2);
 }
 
-static void step(int t, int corb, int ports, int tok, int au, int bu, int isdirty) {
+static void step(int t, int corb, int ports, int tok, int au, int bu, int eu, int isdirty) {
     if (capped) return;
     int newhex = !hexu[hexid[t]];
-    if (!newhex && isdirty <= 0) return;        /* only A/B may reuse a hexagon */
+    int spend_e = 0;
+    if (!newhex && isdirty <= 0) {              /* an ordinary hexagon collision */
+        if (eu >= EMAX) return;
+        spend_e = 1;
+    }
     int q = orbid[t];
     if (phm[q] >> phase[t] & 1) return;         /* ports are distinct */
     int fresh = (phm[q] == 0);
@@ -181,7 +195,8 @@ static void step(int t, int corb, int ports, int tok, int au, int bu, int isdirt
     phm[q] = (unsigned char)(old | (1u << phase[t]));
     if (fresh) { opened[nopened++] = q; deficit += 4; } else deficit -= 1;
     if (newhex) hexu[hexid[t]] = 1;
-    rec(t, q, ports + 1, tok - cost, au + (isdirty == 1), bu + (isdirty == 2));
+    rec(t, q, ports + 1, tok - cost, au + (isdirty == 1), bu + (isdirty == 2),
+        eu + spend_e);
     if (newhex) hexu[hexid[t]] = 0;
     if (fresh) { --nopened; deficit -= 4; } else deficit += 1;
     phm[q] = old;
@@ -192,13 +207,14 @@ int main(int argc, char **argv) {
     DMAX    = argc > 2 ? atoi(argv[2]) : 6;
     AMAX    = argc > 3 ? atoi(argv[3]) : 0;
     BMAX    = argc > 4 ? atoi(argv[4]) : 0;
-    NODECAP = argc > 5 ? strtoull(argv[5], NULL, 10) : 0;
-    if (DMAX > UBD || AMAX + BMAX > UBA) { fprintf(stderr, "budget too large\n"); return 2; }
+    EMAX    = argc > 5 ? atoi(argv[5]) : 0;
+    NODECAP = argc > 6 ? strtoull(argv[6], NULL, 10) : 0;
+    if (DMAX > UBD || AMAX + BMAX + EMAX > UBA) { fprintf(stderr, "budget too large\n"); return 2; }
     geometry();
     for (int i = 0; i < 6; ++i) for (int j = 0; j <= UBD; ++j) for (int a = 0; a <= UBA; ++a)
         UB[i][j][a] = 120;
-    if (argc > 6 && strcmp(argv[6], "-")) {
-        FILE *f = fopen(argv[6], "r");
+    if (argc > 7 && strcmp(argv[7], "-")) {
+        FILE *f = fopen(argv[7], "r");
         if (!f) { fprintf(stderr, "ubfile\n"); return 2; }
         int bb, dd, aa, vv;
         while (fscanf(f, "%d %d %d %d", &bb, &dd, &aa, &vv) == 4)
@@ -212,20 +228,20 @@ int main(int argc, char **argv) {
             }
         have_ub = 1;
     }
-    TARGET = argc > 7 ? atoi(argv[7]) : 0;
+    TARGET = argc > 8 ? atoi(argv[8]) : 0;
     for (int d = 0; d <= UBD; ++d) best[d] = -1;
     record = -1;
     memset(hexu, 0, sizeof hexu); memset(phm, 0, sizeof phm);
     hexu[hexid[0]] = 1; phm[orbid[0]] = (unsigned char)(1u << phase[0]);
     opened[nopened++] = orbid[0]; deficit = 4;
     clock_t t0 = clock();
-    rec(0, orbid[0], 1, BOUND_B, 0, 0);
+    rec(0, orbid[0], 1, BOUND_B, 0, 0, 0);
     double secs = (double)(clock() - t0) / CLOCKS_PER_SEC;
     int run = -1, cum[UBD + 1];
     for (int d = 0; d <= DMAX; ++d) { if (best[d] > run) run = best[d]; cum[d] = run; }
-    printf("{\"b\":%d,\"dmax\":%d,\"amax\":%d,\"bmax\":%d,\"nodes\":%llu,\"capped\":%s,"
+    printf("{\"b\":%d,\"dmax\":%d,\"amax\":%d,\"bmax\":%d,\"emax\":%d,\"nodes\":%llu,\"capped\":%s,"
            "\"seconds\":%.1f,\"pruned\":%s,\"target\":%d,\"cc\":%d,\"table\":{",
-           BOUND_B, DMAX, AMAX, BMAX, (unsigned long long)nodes, capped ? "true" : "false",
+           BOUND_B, DMAX, AMAX, BMAX, EMAX, (unsigned long long)nodes, capped ? "true" : "false",
            secs, have_ub ? "true" : "false", TARGET, cum[DMAX]);
     for (int d = 0; d <= DMAX; ++d) printf("%s\"%d\":%d", d ? "," : "", d, cum[d]);
     printf("},\"kinds\":[\"E\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"A\",\"B\"]}\n",

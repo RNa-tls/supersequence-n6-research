@@ -18,21 +18,23 @@ def main(ts, cap, rounds=6):
     CR.load_cache()
     for it in range(rounds):
         CR.REQUESTED.clear()
+        CR._best.cache_clear()
         for t in ts:
             CR.run(t)
-        need = sorted(CR.REQUESTED, key=lambda x: (x[1], x[2] + x[3], x[0]))
+        need = sorted(CR.REQUESTED, key=lambda x: (x[1], x[2] + x[3] + x[4], x[0]))
         need = [x for x in need
-                if not CR._C.get("%d|%d|%d|%d" % x, {}).get("cc") or
-                CR._C.get("%d|%d|%d|%d" % x, {}).get("capped")]
+                if CR._C.get("%d|%d|%d|%d|%d" % x, {}).get("cc") is None or
+                CR._C.get("%d|%d|%d|%d|%d" % x, {}).get("capped")]
         print(f"--- pass {it}: {len(need)} cells to prove", flush=True)
         if not need:
             return
-        for (b, d, a, bb) in need:
+        for (b, d, a, bb, e) in need:
             t0 = time.time()
-            rec = CR.compute(b, d, a, bb, node_cap=cap)
-            print("  CC(b=%d,D=%2d,a=%2d,B=%d) = %-4d nodes=%-14d capped=%s  %.1fs"
-                  % (b, d, a, bb, rec["cc"], rec["nodes"], rec["capped"],
+            rec = CR.compute(b, d, a, bb, e, node_cap=cap)
+            print("  CC(b=%d,D=%2d,a=%2d,B=%d,E=%d) = %-4d nodes=%-14d capped=%s  %.1fs"
+                  % (b, d, a, bb, e, rec["cc"], rec["nodes"], rec["capped"],
                      time.time() - t0), flush=True)
+            CR._best.cache_clear()
 
 
 if __name__ == "__main__":
