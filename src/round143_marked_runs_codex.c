@@ -1,0 +1,62 @@
+/* Whole-E-run marked capacities. Necessary relaxation, NOT a literal cover DFS.
+   b = number of non-E entries into previously used orbits (includes same Q).
+   D = 5*openedQ - entries; all hexagons distinct inside a piece.
+   C and D dirty shadows have external-history obligations relaxed.
+   argv: b D node_cap [mode=A|AB] [target_passes extrema.jsonl]
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <inttypes.h>
+static int pp[720][6],qn[720],hn[720],en[720],paid[720][5];
+static int count=0,used[6],tmp[6],uq[144],uh[120],path[721],bestpath[721];
+static int bcap,dcap,modeab=1,capflag=0,best=0,target=0;
+static uint64_t nodes=0,limit=0,accepts=0,digest=UINT64_C(1469598103934665603),extrema=0;
+static FILE *exportf=NULL;
+static void perm(int d){if(d==6){memcpy(pp[count++],tmp,sizeof tmp);return;}for(int x=0;x<6;x++)if(!used[x]){used[x]=1;tmp[d]=x;perm(d+1);used[x]=0;}}
+static int id(const int *p){int v=0;for(int i=0;i<6;i++){int less=0;for(int j=i+1;j<6;j++)less+=p[j]<p[i];v=v*(6-i)+less;}return v;}
+static void init(void){
+ perm(0);int qt[720],ht[720],nq=0,nh=0;for(int v=0;v<720;v++)qt[v]=ht[v]=-1;
+ for(int v=0;v<720;v++){
+  int qmin=720,hmin=720,p[6],s[6],tail[5][3]={{1,2,0},{2,0,1},{2,1,0},{0,2,1},{1,0,2}};
+  for(int k=0;k<5;k++){for(int j=0;j<5;j++)p[j]=pp[v][(j+k)%5];p[5]=pp[v][5];int z=id(p);if(z<qmin)qmin=z;}
+  for(int k=0;k<6;k++){for(int j=0;j<6;j++)p[j]=pp[v][(j+k)%6];int z=id(p);if(z<hmin)hmin=z;}
+  if(qt[qmin]<0)qt[qmin]=nq++;if(ht[hmin]<0)ht[hmin]=nh++;
+  qn[v]=qt[qmin];hn[v]=ht[hmin];for(int j=0;j<5;j++)p[j]=pp[v][(j+1)%5];p[5]=pp[v][5];en[v]=id(p);
+  s[0]=pp[v][5];for(int j=1;j<6;j++)s[j]=pp[v][j-1];
+  for(int t=0;t<5;t++){for(int j=0;j<3;j++)p[j]=s[j+3];for(int j=0;j<3;j++)p[j+3]=s[tail[t][j]];paid[v][t]=id(p);}
+ }
+ if(nq!=144||nh!=120){fprintf(stderr,"geometry count\n");exit(2);}
+}
+static void hashstep(uint64_t x){digest^=x;digest*=UINT64_C(1099511628211);}
+static void rec(int v,int b,int D,int len){
+ if(capflag)return;if(limit&&nodes>=limit){capflag=1;return;}nodes++;
+ hashstep((uint64_t)v+720u*(b+16u*(D+80u*len)));
+ int q=qn[v],old=uq[q]>0,nb=b+old;if(nb>bcap)return;
+ int nd=D+(old?0:5);uq[q]++;int taken[5],n=0,u=v;
+ for(int r=1;r<=5;r++){
+  if(uh[hn[u]])break;uh[hn[u]]=1;taken[n++]=hn[u];path[len+r-1]=u;nd--;
+  if(nd<=dcap){accepts++;if(len+r>best){best=len+r;memcpy(bestpath,path,best*sizeof(int));}
+   if(target&&len+r==target){extrema++;if(exportf){fprintf(exportf,"[");for(int j=0;j<target;j++)fprintf(exportf,"%s%d",j?",":"",path[j]);fprintf(exportf,"]\n");}}
+  }
+  /* After ending this run, each remaining paid re-entry can fill at most4
+     missing ports; new orbits add nonnegative final deficit. Overestimation
+     of repairs makes this a safe necessary bound, including repeated q0. */
+  if((!target||len+r<target)&&nd-4*(bcap-nb)<=dcap){
+   for(int j=0;j<(modeab?5:4);j++){int t=paid[u][j];if(!uh[hn[t]]&&(nb+(uq[qn[t]]>0)<=bcap))rec(t,nb,nd,len+r);if(capflag)break;}
+  }
+  if(capflag)break;u=en[u];
+ }
+ for(int j=0;j<n;j++)uh[taken[j]]=0;uq[q]--;
+}
+int main(int argc,char **argv){
+ if(argc<4){fprintf(stderr,"b D node_cap [A|AB] [target file]\n");return 2;}
+ bcap=atoi(argv[1]);dcap=atoi(argv[2]);limit=strtoull(argv[3],NULL,10);if(argc>4)modeab=strcmp(argv[4],"A")!=0;
+ if(argc>5){target=atoi(argv[5]);if(argc<7)return 2;exportf=fopen(argv[6],"wb");if(!exportf)return 2;}
+ if(bcap<0||dcap<0||bcap>20||dcap>120)return 2;init();
+ /* Initial block opens its orbit without consuming b. */
+ rec(0,0,0,0);if(exportf)fclose(exportf);
+ printf("{\"implementation\":\"whole-E-runs\",\"mode\":\"%s\",\"b\":%d,\"D\":%d,\"nodes\":%" PRIu64 ",\"capped\":%s,\"completed\":%s,\"max_passes\":%d,\"accepted_prefixes\":%" PRIu64 ",\"extrema\":%" PRIu64 ",\"transcript_fnv64\":\"%016" PRIx64 "\",\"witness\":[",modeab?"AB":"A",bcap,dcap,nodes,capflag?"true":"false",capflag?"false":"true",best,accepts,extrema,digest);
+ for(int j=0;j<best;j++)printf("%s%d",j?",":"",bestpath[j]);printf("]}\n");return 0;
+}
