@@ -255,7 +255,15 @@ def invariants(W, n=6):
     if Bstar < 0:
         fail.append("B* < 0")
     L_fo = n + (N - P) + 2 * (P - 1) + S + H
-    L_master = 867 + k + Z + H + Bstar
+    # MASTER's additive constant 867 = n + n! + (n-1)! - 2 + (n-1)*n!/(n(n-1))
+    # is n-specific; the general form is base_n + k + Z + H + B* with
+    # base_n = n + n! + (n-1)! - 2 + (n-1) * n!/(n*(n-1)).
+    # (FO) base is n + n! + (n-1)! - 2 ; substituting G = Z+D2+c and
+    # S = B* + O - 1 - D2 - c with O = n!/(n(n-1)) + k turns it into
+    #     L = [n + n! + (n-1)! - 2 + n!/(n(n-1)) - 1] + k + Z + H + B*.
+    # For n = 6 the bracket is 844 + 24 - 1 = 867.
+    base = n + N + factorial(n - 1) - 2 + N // (n * (n - 1)) - 1
+    L_master = base + k + Z + H + Bstar
     if L_fo != len(W):
         fail.append(f"(FO) gives {L_fo} not {len(W)}")
     if L_master != len(W):
@@ -280,21 +288,25 @@ def _last(entry, ln):
 
 # ---------------------------------------------------------------- driver
 def words_from(path):
+    """Yield (word, n).  Accepts n = 4, 5, 6 so that corpora containing dirty
+    joints can be ingested -- without this the driver silently skipped them and
+    a mutation to the hidden-window count escaped detection (round 146 M5)."""
     op = gzip.open if str(path).endswith(".gz") else open
     with op(path, "rt") as fh:
         for line in fh:
             s = line.strip()
             if not s or s.startswith("#"):
                 continue
-            if len(set(s)) == 6 and len(s) >= 800:
-                yield s
+            n = len(set(s))
+            if n in (4, 5, 6) and len(s) >= factorial(n) // n + n:
+                yield s, n
 
 
 if __name__ == "__main__":
     prof, bad, total, lens = Counter(), [], 0, Counter()
     for path in sys.argv[1:]:
-        for w in words_from(path):
-            r = invariants(w)
+        for w, nn in words_from(path):
+            r = invariants(w, nn)
             total += 1
             if not r.get("ok"):
                 bad.append((path, w[:24], r.get("failures") or r.get("why")))

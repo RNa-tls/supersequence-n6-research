@@ -109,8 +109,8 @@ mut("M5_drop_one_hidden_window", ["src/l6_cleanroom_146.py"],
     lambda: patch("src/l6_cleanroom_146.py",
                   "for o in range(1, gap) if len(set(raw[o:o + n])) == n]",
                   "for o in range(1, max(1, gap - 1)) if len(set(raw[o:o + n])) == n]"),
-    lambda: _cleanroom(),
-    "the hidden-count check must fire")
+    lambda: _cleanroom(dirty=True),
+    "the hidden-count check must fire (needs a corpus with dirty joints)")
 
 # ---- M6: change one connector weight
 mut("M6_connector_weight_shifted", ["src/l6_cleanroom_146.py"],
@@ -173,9 +173,14 @@ def _rows_871():
     return dict(detected=not (j["surv"] == 2 and j["fb"] == 0), observed=j)
 
 
-def _cleanroom():
-    r = run("python3 src/l6_cleanroom_146.py data/verified_872_witness.txt "
-            "legacy_research/outputs/standard_6.txt")
+def _cleanroom(dirty=False):
+    """Default: the two n=6 covers.  dirty=True adds the n=4/n=5 corpus, which
+    is the only corpus containing type A/B/C/D joints -- a mutation touching
+    hidden windows is invisible without it."""
+    files = "data/verified_872_witness.txt legacy_research/outputs/standard_6.txt"
+    if dirty:
+        files += f" {SC}/c146_n4.txt {SC}/c146_n5.txt"
+    r = run(f"python3 src/l6_cleanroom_146.py {files}")
     return dict(detected=(r.returncode != 0 or "failures=0" not in r.stdout),
                 observed=r.stdout.strip().splitlines()[:1])
 
@@ -204,9 +209,11 @@ def _witness_counts():
 if __name__ == "__main__":
     res = []
     # only TRACKED modifications matter; new untracked outputs are fine
-    st = run("git status --porcelain --untracked-files=no")
+    st = run("git status --porcelain --untracked-files=no -- "
+             + " ".join(sorted({f for m in MUTATIONS for f in m["files"]})))
     if st.stdout.strip():
-        print("REFUSING: tracked files are already modified"); sys.exit(2)
+        print("REFUSING: a file to be mutated is already modified:",
+              st.stdout.strip()); sys.exit(2)
     for m in MUTATIONS:
         snapshot(m["files"])
         applied = m["apply"]()
@@ -222,12 +229,16 @@ if __name__ == "__main__":
         restore(m["files"])
         res.append(dict(name=m["name"], applied=True, why=m["why"], **d))
         print(f"{m['name']:38s} detected={d.get('detected')}  {d.get('observed', d.get('note',''))}")
-    st = run("git status --porcelain --untracked-files=no")
-    clean = (not st.stdout.strip()) and all(
-        (ROOT / f).read_bytes() == b for f, b in _SNAP.items())
+    # only the mutated SOURCES must be byte-identical again; the detectors
+    # legitimately rewrite outputs/*.json
+    clean = all((ROOT / f).read_bytes() == b for f, b in _SNAP.items())
+    st = run("git status --porcelain --untracked-files=no -- "
+             + " ".join(sorted({f for m in MUTATIONS for f in m["files"]})))
     escaped = [r["name"] for r in res if r.get("applied") and not r.get("detected")]
-    out = dict(mutations=res, tree_restored=clean, escaped=escaped,
-               ok=(clean and not escaped))
+    out = dict(mutations=res, sources_restored=clean,
+               src_tests_data_clean=(not st.stdout.strip()), escaped=escaped,
+               ok=(clean and not st.stdout.strip() and not escaped))
     (ROOT / "outputs" / "rr_l6_mutation_146.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=1))
-    print(f"\ntree_restored={clean}  escaped={escaped}")
+    print(f"\nsources_restored={clean}  src/tests/data clean="
+          f"{not st.stdout.strip()}  escaped={escaped}")
