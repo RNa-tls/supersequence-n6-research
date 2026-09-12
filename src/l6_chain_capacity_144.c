@@ -18,7 +18,8 @@
  *                                             already opened orbit
  *   sum over chains of deficit = 5k - G + 5s
  *   sum over chains of a       = D2 + Qs      (retained same-hex dirty edges)
- *   number of chains           = d + 1 + h
+ *   number of chains           = d + 1        (heavy joints kept INSIDE)
+ *   sum of heavy cost sum(w-3) <= H
  *   sum of EXTRA hex reuses    = Z - Qs        (see below)
  *
  * EXTRA reuses.  A chain is NOT hexagon-simple: the piece decomposition also
@@ -30,8 +31,15 @@
  * bmax = Qs and emax = Z-Qs at the same time is generous to the hypothetical
  * cover, hence sound.
  *
- * Usage: ./l6chain b dmax amax bmax emax [node_cap] [ubfile] [target]
- * ubfile lines: "b d a value" with a = amax+bmax.  Output: one JSON object.
+ * HEAVY joints.  A joint of weight w >= 4 was cut in the extraction, which
+ * handed the piece model h <= H extra free objects.  Keeping it inside costs a
+ * budget instead: its target ranges only over the 24 / 120 / 566 shortest
+ * weight-4 / 5 / 6 connectors out of end(v), it obeys the same hexagon and
+ * orbit rules as any other paid edge, and it consumes w-3 units of H.  With
+ * HMAX = H the number of chains drops from d+1+h to d+1.
+ *
+ * Usage: ./l6chain b dmax amax bmax emax hmax [node_cap] [ubfile] [target]
+ * ubfile lines: "b d a h value" with a = amax+bmax+emax.  Output: one JSON object.
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,12 +52,15 @@
 #define NH 120
 #define UBD 40
 #define UBA 24
+#define UBH 6
 
 static unsigned char W[NW][6];
 static int nW;
 static int hexid[NW], orbid[NW], phase[NW];
 static int freetgt[NW], paidtgt[NW][5], paidkind[NW][5];
 static int dirtyA[NW], dirtyB[NW];
+#define MAXHV 720
+static int heavy[NW][MAXHV], heavycost[NW][MAXHV], nheavy[NW];
 static const char *KN[5] = {"120", "201", "210", "E_SIGMA", "SIGMA_E"};
 
 static int rankw(const unsigned char *p) {
@@ -121,27 +132,42 @@ static void geometry(void) {
             if (np >= 5) exit(2);
             paidtgt[v][np] = t; paidkind[v][np++] = kind;
         }
+        nheavy[v] = 0;
+        for (int t = 0; t < NW; ++t) {
+            if (t == v) continue;
+            int gap = 6;
+            for (int k = 1; k < 6; ++k) if (!memcmp(e + k, W[t], (size_t)(6 - k))) { gap = k; break; }
+            if (gap < 4) continue;
+            if (!memcmp(W[t], e, 6)) continue;      /* the identity connector */
+            heavycost[v][nheavy[v]] = gap - 3;
+            heavy[v][nheavy[v]++] = t;
+        }
         if (nf != 1 || np != 5 || na != 1 || nb != 1) {
             fprintf(stderr, "catalogue v=%d nf=%d np=%d na=%d nb=%d\n", v, nf, np, na, nb); exit(2); }
         if (hexid[dirtyA[v]] != hexid[v] || hexid[dirtyB[v]] != hexid[v]) exit(2);
     }
 }
 
-static int BOUND_B, DMAX, AMAX, BMAX, EMAX, TARGET;
+static int BOUND_B, DMAX, AMAX, BMAX, EMAX, HMAX, TARGET;
 static uint64_t NODECAP, nodes, capped;
 static unsigned char hexu[NH], phm[NQ];
-static int opened[NQ], nopened, deficit;
+static int opened[NQ], nopened, deficit, hexcount;
 static int best[UBD + 1];
 static int record;
-static int UB[6][UBD + 1][UBA + 1];
+static int UB[6][UBD + 1][UBA + 1][UBH + 1];
 static int have_ub;
 
-static int ubound(int tok, int d, int a) {
+/* UB[b][d][a][h] must bound a chain with b tokens, deficit <= d, a units of
+ * hexagon-reuse budget and h units of heavy-joint budget.  Conflating the
+ * heavy budget with the reuse budget would NOT be sound, so it is a separate
+ * index. */
+static int ubound(int tok, int d, int a, int h) {
     if (!have_ub) return 120;
     if (tok > 5) tok = 5;
     if (d < 0) d = 0; if (d > UBD) d = UBD;
     if (a < 0) a = 0; if (a > UBA) a = UBA;
-    return UB[tok][d][a];
+    if (h < 0) h = 0; if (h > UBH) h = UBH;
+    return UB[tok][d][a][h];
 }
 static int pc5(unsigned x) { int c = 0; while (x) { x &= x - 1; ++c; } return c; }
 static int feas(int tok, int skip) {
@@ -156,9 +182,11 @@ static int feas(int tok, int skip) {
     return tot <= DMAX;
 }
 
-static void step(int t, int corb, int ports, int tok, int au, int bu, int eu, int isdirty);
+static void step(int t, int corb, int ports, int tok, int au, int bu, int eu,
+                 int hu, int isdirty);
 
-static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu) {
+static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu,
+                int hu) {
     ++nodes;
     if (NODECAP && nodes > NODECAP) { capped = 1; return; }
     if (deficit <= DMAX) {
@@ -166,18 +194,27 @@ static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu) {
         if (ports > record) record = ports;
     }
     if (!feas(tok, corb)) return;
+    int left = (AMAX - au) + (BMAX - bu) + (EMAX - eu);
     int reach = ports + ubound(tok, DMAX - deficit + 4 + 5 * tok,
-                               (AMAX - au) + (BMAX - bu) + (EMAX - eu)) - 1;
+                               left, HMAX - hu) - 1;
+    /* every further port needs a fresh hexagon or one unit of the reuse budget */
+    int reach2 = ports + (NH - hexcount) + left;   /* heavy edges need fresh hexes too */
+    if (reach2 < reach) reach = reach2;
     if (TARGET && reach < TARGET) return;
     if (have_ub && reach <= record) return;
-    step(freetgt[cur], corb, ports, tok, au, bu, eu, -1);          /* free E */
+    step(freetgt[cur], corb, ports, tok, au, bu, eu, hu, -1);      /* free E */
     for (int i = 0; i < 5; ++i)
-        step(paidtgt[cur][i], corb, ports, tok, au, bu, eu, 0);    /* paid */
-    if (au < AMAX) step(dirtyA[cur], corb, ports, tok, au, bu, eu, 1);
-    if (bu < BMAX) step(dirtyB[cur], corb, ports, tok, au, bu, eu, 2);
+        step(paidtgt[cur][i], corb, ports, tok, au, bu, eu, hu, 0);
+    if (au < AMAX) step(dirtyA[cur], corb, ports, tok, au, bu, eu, hu, 1);
+    if (bu < BMAX) step(dirtyB[cur], corb, ports, tok, au, bu, eu, hu, 2);
+    for (int i = 0; i < nheavy[cur]; ++i)                          /* w >= 4 */
+        if (hu + heavycost[cur][i] <= HMAX)
+            step(heavy[cur][i], corb, ports, tok, au, bu, eu,
+                 hu + heavycost[cur][i], 0);
 }
 
-static void step(int t, int corb, int ports, int tok, int au, int bu, int eu, int isdirty) {
+static void step(int t, int corb, int ports, int tok, int au, int bu, int eu,
+                 int hu, int isdirty) {
     if (capped) return;
     int newhex = !hexu[hexid[t]];
     int spend_e = 0;
@@ -194,10 +231,10 @@ static void step(int t, int corb, int ports, int tok, int au, int bu, int eu, in
     unsigned char old = phm[q];
     phm[q] = (unsigned char)(old | (1u << phase[t]));
     if (fresh) { opened[nopened++] = q; deficit += 4; } else deficit -= 1;
-    if (newhex) hexu[hexid[t]] = 1;
+    if (newhex) { hexu[hexid[t]] = 1; ++hexcount; }
     rec(t, q, ports + 1, tok - cost, au + (isdirty == 1), bu + (isdirty == 2),
-        eu + spend_e);
-    if (newhex) hexu[hexid[t]] = 0;
+        eu + spend_e, hu);
+    if (newhex) { hexu[hexid[t]] = 0; --hexcount; }
     if (fresh) { --nopened; deficit -= 4; } else deficit += 1;
     phm[q] = old;
 }
@@ -208,43 +245,53 @@ int main(int argc, char **argv) {
     AMAX    = argc > 3 ? atoi(argv[3]) : 0;
     BMAX    = argc > 4 ? atoi(argv[4]) : 0;
     EMAX    = argc > 5 ? atoi(argv[5]) : 0;
-    NODECAP = argc > 6 ? strtoull(argv[6], NULL, 10) : 0;
-    if (DMAX > UBD || AMAX + BMAX + EMAX > UBA) { fprintf(stderr, "budget too large\n"); return 2; }
+    HMAX    = argc > 6 ? atoi(argv[6]) : 0;
+    NODECAP = argc > 7 ? strtoull(argv[7], NULL, 10) : 0;
+    if (DMAX > UBD || AMAX + BMAX + EMAX + HMAX > UBA) {
+        fprintf(stderr, "budget too large\n"); return 2; }
     geometry();
-    for (int i = 0; i < 6; ++i) for (int j = 0; j <= UBD; ++j) for (int a = 0; a <= UBA; ++a)
-        UB[i][j][a] = 120;
-    if (argc > 7 && strcmp(argv[7], "-")) {
-        FILE *f = fopen(argv[7], "r");
+    for (int i = 0; i < 6; ++i) for (int j = 0; j <= UBD; ++j)
+        for (int a = 0; a <= UBA; ++a) for (int h = 0; h <= UBH; ++h)
+            UB[i][j][a][h] = 120;
+    if (argc > 8 && strcmp(argv[8], "-")) {
+        FILE *f = fopen(argv[8], "r");
         if (!f) { fprintf(stderr, "ubfile\n"); return 2; }
-        int bb, dd, aa, vv;
-        while (fscanf(f, "%d %d %d %d", &bb, &dd, &aa, &vv) == 4)
+        int bb, dd, aa, hh, vv;
+        while (fscanf(f, "%d %d %d %d %d", &bb, &dd, &aa, &hh, &vv) == 5)
             if (bb >= 0 && bb < 6 && dd >= 0 && dd <= UBD && aa >= 0 && aa <= UBA
-                && vv < UB[bb][dd][aa]) UB[bb][dd][aa] = vv;
+                && hh >= 0 && hh <= UBH && vv < UB[bb][dd][aa][hh])
+                UB[bb][dd][aa][hh] = vv;
         fclose(f);
-        for (int i = 0; i < 6; ++i)            /* monotone in d and in a */
-            for (int j = 0; j <= UBD; ++j) for (int a = 0; a <= UBA; ++a) {
-                if (j && UB[i][j][a] < UB[i][j - 1][a]) UB[i][j][a] = UB[i][j - 1][a];
-                if (a && UB[i][j][a] < UB[i][j][a - 1]) UB[i][j][a] = UB[i][j][a - 1];
-            }
+        for (int i = 0; i < 6; ++i)            /* monotone in d, a and h */
+            for (int j = 0; j <= UBD; ++j) for (int a = 0; a <= UBA; ++a)
+                for (int h = 0; h <= UBH; ++h) {
+                    if (j && UB[i][j][a][h] < UB[i][j-1][a][h]) UB[i][j][a][h] = UB[i][j-1][a][h];
+                    if (a && UB[i][j][a][h] < UB[i][j][a-1][h]) UB[i][j][a][h] = UB[i][j][a-1][h];
+                    if (h && UB[i][j][a][h] < UB[i][j][a][h-1]) UB[i][j][a][h] = UB[i][j][a][h-1];
+                }
         have_ub = 1;
     }
-    TARGET = argc > 8 ? atoi(argv[8]) : 0;
+    TARGET = argc > 9 ? atoi(argv[9]) : 0;
     for (int d = 0; d <= UBD; ++d) best[d] = -1;
     record = -1;
     memset(hexu, 0, sizeof hexu); memset(phm, 0, sizeof phm);
-    hexu[hexid[0]] = 1; phm[orbid[0]] = (unsigned char)(1u << phase[0]);
+    hexu[hexid[0]] = 1; hexcount = 1;
+    phm[orbid[0]] = (unsigned char)(1u << phase[0]);
     opened[nopened++] = orbid[0]; deficit = 4;
     clock_t t0 = clock();
-    rec(0, orbid[0], 1, BOUND_B, 0, 0, 0);
+    rec(0, orbid[0], 1, BOUND_B, 0, 0, 0, 0);
     double secs = (double)(clock() - t0) / CLOCKS_PER_SEC;
     int run = -1, cum[UBD + 1];
     for (int d = 0; d <= DMAX; ++d) { if (best[d] > run) run = best[d]; cum[d] = run; }
-    printf("{\"b\":%d,\"dmax\":%d,\"amax\":%d,\"bmax\":%d,\"emax\":%d,\"nodes\":%llu,\"capped\":%s,"
+    printf("{\"b\":%d,\"dmax\":%d,\"amax\":%d,\"bmax\":%d,\"emax\":%d,\"hmax\":%d,"
+           "\"nodes\":%llu,\"capped\":%s,"
            "\"seconds\":%.1f,\"pruned\":%s,\"target\":%d,\"cc\":%d,\"table\":{",
-           BOUND_B, DMAX, AMAX, BMAX, EMAX, (unsigned long long)nodes, capped ? "true" : "false",
+           BOUND_B, DMAX, AMAX, BMAX, EMAX, HMAX, (unsigned long long)nodes,
+           capped ? "true" : "false",
            secs, have_ub ? "true" : "false", TARGET, cum[DMAX]);
     for (int d = 0; d <= DMAX; ++d) printf("%s\"%d\":%d", d ? "," : "", d, cum[d]);
-    printf("},\"kinds\":[\"E\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"A\",\"B\"]}\n",
-           KN[0], KN[1], KN[2], KN[3], KN[4]);
+    printf("},\"heavy_targets\":%d,"
+           "\"kinds\":[\"E\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"A\",\"B\",\"HEAVY\"]}\n",
+           nheavy[0], KN[0], KN[1], KN[2], KN[3], KN[4]);
     return 0;
 }

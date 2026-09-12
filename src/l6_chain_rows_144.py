@@ -89,7 +89,8 @@ def write_ub():
         if rec.get("capped"):
             continue
         b, d, a, bb, e = (int(x) for x in key.split("|"))
-        lines.append(f"{b} {d} {a + bb + e} {rec['cc']}")
+        v = rec["cc"] if not rec.get("bound_below") else rec["bound_below"] - 1
+        lines.append(f"{b} {d} {a + bb + e} 0 {v}")
     base = ROOT / "outputs" / "rr_l6_marked_capacity_table_144.json"
     if base.exists():                          # a = 0 coincides with the pieces
         st = json.loads(base.read_text())
@@ -97,57 +98,86 @@ def write_ub():
             for k, v in tab.items():
                 dd, mask = k.split("|")
                 if mask == "00" and v >= 0:
-                    lines.append(f"{b} {dd} 0 {v}")
+                    lines.append(f"{b} {dd} 0 0 {v}")
+    hv = ROOT / "outputs" / "rr_l6_heavychain_capacity_144.json"
+    if hv.exists():                        # proved heavy cells bound deeper ones
+        for key, rec in json.loads(hv.read_text()).items():
+            if rec.get("capped"):
+                continue
+            b, d, a, bb, e, h = (int(x) for x in key.split("|"))
+            v = rec["cc"] if not rec.get("bound_below") else rec["bound_below"] - 1
+            lines.append(f"{b} {d} {a + bb + e} {h} {v}")
     UB.write_text("\n".join(lines) + "\n")
 
 
-def compute(b, d, a, bb, e, node_cap=0):
+def compute(b, d, a, bb, e, node_cap=0, target=0):
+    """Prove one chain cell.
+
+    With `target > 0` the searcher only answers "is `target` reachable?".  That
+    is still exhaustive for THAT question -- every prefix of a chain with
+    `target` ports has reach >= target, so it is never pruned -- so a run that
+    ends uncapped below the target proves `CC <= target - 1`.
+    """
     write_ub()
     r = subprocess.run([str(EXE), str(b), str(d), str(a), str(bb), str(e),
-                        str(node_cap), str(UB)], capture_output=True, text=True)
+                        str(node_cap), str(UB), str(target)],
+                       capture_output=True, text=True)
     if r.returncode != 0:
         raise SystemExit(f"chain cell {b},{d},{a},{bb},{e} failed: {r.stderr[:300]}")
     c = json.loads(r.stdout)
-    _C[f"{b}|{d}|{a}|{bb}|{e}"] = dict(cc=c["cc"], nodes=c["nodes"],
-                                       capped=c["capped"], seconds=c["seconds"])
+    rec = dict(cc=c["cc"], nodes=c["nodes"], capped=c["capped"],
+               seconds=c["seconds"])
+    if target and not c["capped"] and c["cc"] < target:
+        rec["bound_below"] = target      # proved: CC <= target - 1
+    elif target:
+        rec["target_run"] = target
+    _C[f"{b}|{d}|{a}|{bb}|{e}"] = rec
     CACHE.write_text(json.dumps(_C, ensure_ascii=False, indent=1))
-    return _C[f"{b}|{d}|{a}|{bb}|{e}"]
+    return rec
 
 
 def CC(b, d, a, bb, e):
-    """Chain capacity; HEXCAP for cells not yet proved (a sound over-bound)."""
+    """Chain capacity and whether it is the sound HEXCAP fallback, not a proof.
+
+    A cell proved only in TARGET mode carries `bound_below`: the search was
+    exhaustive for the question "are `bound_below` ports reachable?", so
+    `bound_below - 1` is a proved upper bound for this cell.
+    """
+    # absolute bound: every port needs a fresh hexagon or one unit of reuse
+    absolute = HEXCAP + a + bb + e
     rec = _C.get(f"{b}|{d}|{a}|{bb}|{e}")
-    if rec is None or rec.get("capped"):
+    if rec is None or (rec.get("capped") and not rec.get("bound_below")):
         REQUESTED.add((b, d, a, bb, e))
-        FALLBACK[0] = True
-        return HEXCAP
-    return rec["cc"]
+        return absolute, True
+    if rec.get("bound_below"):
+        return min(rec["bound_below"] - 1, absolute), False
+    return rec["cc"], False
 
 
 @lru_cache(maxsize=600000)
-def _best(nch, b, D, a, bb, e, tot):
+def _best(nch, b, D, a, bb, e, tot):   # returns (value, used_fallback)
     """Max sum of CC over nch chains inside the budget envelope.
 
     a, bb, e are the remaining type A / type B / ordinary-collision budgets and
     `tot` the remaining shared repeat budget R_int; every unit of a, bb or e
     consumes one unit of tot.
     """
-    best = NEG
+    best, fb = NEG, False
     for xb in range(b + 1):
         for xd in range(D + 1):
             for xa in range(min(a, tot) + 1):
                 for xbb in range(min(bb, tot - xa) + 1):
                     for xe in range(min(e, tot - xa - xbb) + 1):
-                        v = CC(xb, xd, xa, xbb, xe)
+                        v, f1 = CC(xb, xd, xa, xbb, xe)
                         if nch == 1:
                             if xb == b and xd == D and v > best:
-                                best = v
+                                best, fb = v, f1
                             continue
-                        r = _best(nch - 1, b - xb, D - xd, a - xa, bb - xbb,
-                                  e - xe, tot - xa - xbb - xe)
+                        r, f2 = _best(nch - 1, b - xb, D - xd, a - xa, bb - xbb,
+                                      e - xe, tot - xa - xbb - xe)
                         if v + r > best:
-                            best = v + r
-    return best
+                            best, fb = v + r, (f1 or f2)
+    return best, fb
 
 
 def row_bound(r):
@@ -155,10 +185,9 @@ def row_bound(r):
     nch = r["d"] + 1 + r["h"]
     tot = 2 * r["g"]
     emax = max(0, r["Z"] - r["Qs"])
-    FALLBACK[0] = False
-    v = _best(nch, r["b_sum"], r["D_sum"], min(r["D2"], tot),
-              min(r["Qs"], tot), min(emax, tot), tot)
-    return v, nch, FALLBACK[0]
+    v, fb = _best(nch, r["b_sum"], r["D_sum"], min(r["D2"], tot),
+                  min(r["Qs"], tot), min(emax, tot), tot)
+    return v, nch, fb
 
 
 def run(t, use_sigma_deficit=False):
