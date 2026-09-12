@@ -227,6 +227,74 @@ def test_witness_counts_are_two_and_one():
         assert len([l for l in b.read_text().splitlines() if l.strip()]) == 1
 
 
+
+
+
+# --------------------------------------------------------------- round 145
+def test_fixed_representative_reduction():
+    import l6_fixed_representative_145 as FR
+    r = FR.run(n4=40)
+    assert r["n4"]["ok"] and r["n4"]["failures"] == 0
+    assert r["n5"]["ok"] and r["n5"]["all_minima_already_fixed"]
+    assert r["n6_witness"]["ok"] and r["n6_witness"]["already_fixed"]
+    assert r["n6_witness"]["audit"]["repeats"] == 0
+    assert r["n6_witness_FO"]["identity_holds"]
+    assert r["n6_witness_FO"]["t"] == 5
+
+
+def test_splicing_on_real_covers():
+    import l6_splicing_145 as SP
+    r = SP.run()
+    assert r["n4_optimum"]["ok"] and r["n4_optimum"]["FO_holds"]
+    assert r["n5_minima"]["all_ok"] and r["n5_minima"]["count"] == 8
+    w = r["n6_witness_872"]
+    assert w["ok"] and w["FO_holds"] and w["MASTER_holds"]
+    assert (w["P"], w["G"], w["k"], w["c"], w["K"], w["R_int"]) == \
+        (145, 25, 5, 25, 26, 0)
+    assert w["MASTER"] == 872
+
+
+def test_same_hex_bound():
+    import l6_same_hex_145 as SH
+    r = SH.run(tries4=120, tries5=60)
+    assert r["ok"] and r["nfail"] == 0
+    assert r["n4"]["with_A"] > 0 and r["n4"]["with_B"] > 0   # dirty paths exercised
+
+
+def test_chain_extraction_budgets():
+    import l6_extraction_145 as EX
+    r = EX.run(tries4=60, tries5=30)
+    assert r["ok"]
+    w = r["n6_witness_872"]
+    assert (w["chains"], w["sum_P"], w["sum_D"], w["sum_tok"], w["sigma"]) == \
+        (1, 20, 0, 0, 0)
+    assert r["n4_sweep"]["failures"] == 0 and r["n5_sweep"]["failures"] == 0
+
+
+def test_872_witness_is_a_cover_of_length_872():
+    import itertools
+    W = (ROOT / "data" / "verified_872_witness.txt").read_text().strip()
+    assert len(W) == 872
+    alpha = sorted(set(W))
+    assert len(alpha) == 6
+    need = {"".join(p) for p in itertools.permutations(alpha)}
+    got = {W[i:i + 6] for i in range(len(W) - 5) if len(set(W[i:i + 6])) == 6}
+    assert got == need
+
+
+def test_end_to_end_verdict():
+    import l6_proof_145 as PR
+    r = PR.main()
+    for k, v in r.items():
+        if k == "verdict":
+            continue
+        assert v["ok"], (k, v)
+    assert r["verdict"]["lower_bound_L6_ge_872"]
+    assert r["verdict"]["upper_bound_L6_le_872"]
+    assert r["verdict"]["L6_equals_872"]
+    assert r["verdict"]["uses_NR6"] is False
+
+
 if __name__ == "__main__":
     import traceback
     fails = 0

@@ -1,0 +1,253 @@
+{
+ "step1_upper_bound": {
+  "length": 872,
+  "alphabet": 6,
+  "windows": 720,
+  "covers_all": true,
+  "ok": true
+ },
+ "step2_fixed_representative": {
+  "n4": {
+   "tested": 249,
+   "shortened": 247,
+   "failures": 0,
+   "examples": [],
+   "ok": true
+  },
+  "n5": {
+   "minima": 8,
+   "failures": 0,
+   "all_minima_already_fixed": true
+  },
+  "n6_witness_already_fixed": true,
+  "n6_witness_repeats": 0,
+  "ok": true
+ },
+ "step3_FO": {
+  "witness": {
+   "passes": 145,
+   "G": 25,
+   "S": 3,
+   "H": 0,
+   "L_from_identity": 872,
+   "L_actual": 872,
+   "identity_holds": true,
+   "t": 5
+  },
+  "symbolic": true,
+  "ok": true
+ },
+ "step4_splicing": {
+  "n4": {
+   "ok": true,
+   "FO": true
+  },
+  "n5": {
+   "count": 8,
+   "ok": true
+  },
+  "n6_witness": {
+   "length": 872,
+   "P": 145,
+   "G": 25,
+   "O": 29,
+   "k": 5,
+   "S": 3,
+   "H": 0,
+   "D2": 0,
+   "Qs": 0,
+   "K": 26,
+   "R_int": 0,
+   "c": 25,
+   "d": 0,
+   "g": 0,
+   "Z": 0,
+   "Bstar": 0,
+   "MASTER": 872,
+   "MASTER_holds": true,
+   "types": {
+    "E": 141,
+    "clean_w3": 3
+   }
+  },
+  "ok": true
+ },
+ "step5_incidence": {
+  "trials": 3000,
+  "bound_violations": 0,
+  "parity_violations": 0,
+  "witness_tight": true,
+  "ok": true
+ },
+ "step6_same_hex": {
+  "n4": {
+   "words": 101,
+   "with_dirty": 87,
+   "with_A": 43,
+   "with_B": 16,
+   "with_C": 44,
+   "with_D": 37,
+   "with_heavy": 100,
+   "tight": 1,
+   "max_D2": 2,
+   "max_Qs": 2,
+   "max_R_int": 12
+  },
+  "n5": {
+   "words": 251,
+   "with_dirty": 250,
+   "with_A": 205,
+   "with_B": 104,
+   "with_C": 149,
+   "with_D": 151,
+   "with_heavy": 251,
+   "tight": 1,
+   "max_D2": 5,
+   "max_Qs": 4,
+   "max_R_int": 64
+  },
+  "nfail": 0,
+  "ok": true
+ },
+ "step7_bookkeeping": {
+  "symbolic": {
+   "trials": 50000,
+   "violations": 0,
+   "holds": true
+  },
+  "extraction": {
+   "n6_witness": {
+    "chains": 1,
+    "sum_P": 20,
+    "sum_D": 0,
+    "sum_tok": 0,
+    "sigma": 0,
+    "blocks": 4,
+    "Bstar": 0,
+    "hex_repeats": 0,
+    "chain_sizes": [
+     20
+    ]
+   },
+   "n5_minima_ok": true,
+   "n4_sweep": {
+    "words": 41,
+    "failures": 0,
+    "with_AB": 32,
+    "with_heavy": 80,
+    "multi_chain": 75,
+    "sigma_pos": 66
+   },
+   "n5_sweep": {
+    "words": 20,
+    "failures": 0,
+    "with_AB": 30,
+    "with_heavy": 40,
+    "multi_chain": 40,
+    "sigma_pos": 40
+   },
+   "ok": true
+  },
+  "ok": true
+ },
+ "step8_geometry": {
+  "joint_catalogue": true,
+  "companion_hex": true,
+  "left_S6": true,
+  "ok": true
+ },
+ "step9_rows": {
+  "table": {
+   "L867": {
+    "coordinate_rows": 1,
+    "strict": 1,
+    "surviving": 0,
+    "fallback": 0
+   },
+   "L868": {
+    "coordinate_rows": 14,
+    "strict": 14,
+    "surviving": 0,
+    "fallback": 0
+   },
+   "L869": {
+    "coordinate_rows": 85,
+    "strict": 85,
+    "surviving": 0,
+    "fallback": 0
+   },
+   "L870": {
+    "coordinate_rows": 353,
+    "strict": 353,
+    "surviving": 0,
+    "fallback": 0
+   },
+   "L871": {
+    "coordinate_rows": 1156,
+    "strict": 1154,
+    "surviving": 2,
+    "fallback": 0
+   }
+  },
+  "t_le_3_all_strict": true,
+  "t4_surviving": 2,
+  "t4_no_fallback": true,
+  "survivors": [
+   {
+    "k": 3,
+    "Z": 0,
+    "H": 1,
+    "Bstar": 0,
+    "G": 7,
+    "c": 7,
+    "d": 0,
+    "D2": 0,
+    "h": 1,
+    "required": 92,
+    "bound": 92
+   },
+   {
+    "k": 4,
+    "Z": 0,
+    "H": 0,
+    "Bstar": 0,
+    "G": 6,
+    "c": 6,
+    "d": 0,
+    "D2": 0,
+    "h": 0,
+    "required": 96,
+    "bound": 96
+   }
+  ],
+  "ok": true
+ },
+ "step10_equality_rows": {
+  "detail": {
+   "wit_Q1.jsonl": {
+    "c": 6,
+    "witnesses": 2,
+    "independent_enumeration_agrees": true,
+    "dfs_solver_finds_any": false,
+    "subset_solver_finds_any": false,
+    "excluded": true
+   },
+   "wit_Q2.jsonl": {
+    "c": 7,
+    "witnesses": 1,
+    "independent_enumeration_agrees": true,
+    "dfs_solver_finds_any": false,
+    "subset_solver_finds_any": false,
+    "excluded": true
+   }
+  },
+  "ok": true
+ },
+ "verdict": {
+  "lower_bound_L6_ge_872": true,
+  "upper_bound_L6_le_872": true,
+  "L6_equals_872": true,
+  "uses_NR6": false,
+  "statement": "Every n=6 covering word has length at least 872, and a covering word of length 872 exists; hence L6 = 872."
+ }
+}

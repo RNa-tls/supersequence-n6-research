@@ -1,0 +1,67 @@
+{
+ "n4": {
+  "tested": 249,
+  "shortened": 247,
+  "failures": 0,
+  "examples": [],
+  "ok": true
+ },
+ "n5": {
+  "minima": 8,
+  "all_minima_already_fixed": true,
+  "failures": 0,
+  "examples": [],
+  "perturbation_sweep": {
+   "tested": 122,
+   "shortened": 121,
+   "failures": 0,
+   "examples": [],
+   "ok": true
+  },
+  "ok": true
+ },
+ "n6_witness": {
+  "input_length": 872,
+  "fixed_length": 872,
+  "iterations": 1,
+  "lengths": [
+   872,
+   872
+  ],
+  "already_fixed": true,
+  "audit": {
+   "ok": true,
+   "length": 872,
+   "passes": null,
+   "repeats": 0,
+   "gaps_all_shortest": true,
+   "selected": 720,
+   "max_gap": 3,
+   "gap_histogram": {
+    "1": 575,
+    "2": 141,
+    "3": 3
+   }
+  },
+  "ok": true
+ },
+ "n6_perturbations": {
+  "tested": 10,
+  "shortened": 9,
+  "failures": 0,
+  "examples": [],
+  "ok": true
+ },
+ "n6_witness_FO": {
+  "passes": 145,
+  "G": 25,
+  "S": 3,
+  "H": 0,
+  "L_from_identity": 872,
+  "L_actual": 872,
+  "identity_holds": true,
+  "t": 5
+ },
+ "conclusion": "Every cover has a fixed representative that is no longer, is itself a cover, spells every selected connector at maximum overlap, and whose repeats are exactly hidden connector windows.  A lower bound for fixed representatives is therefore a lower bound for all covers.",
+ "all_ok": true
+}
