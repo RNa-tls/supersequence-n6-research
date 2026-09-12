@@ -38,7 +38,14 @@
  * orbit rules as any other paid edge, and it consumes w-3 units of H.  With
  * HMAX = H the number of chains drops from d+1+h to d+1.
  *
- * Usage: ./l6chain b dmax amax bmax emax hmax [node_cap] [ubfile] [target]
+ * WITNESS mode.  With a 10th argument (a path) the searcher dumps every chain
+ * whose port count equals TARGET and whose deficit equals DMAX exactly, one
+ * JSON object per line.  The best-so-far prune is switched OFF in that mode
+ * (it could discard a chain that merely TIES the record), leaving only the
+ * sound deficit, hexagon and target prunes, so the dump is exhaustive whenever
+ * the run ends uncapped.
+ *
+ * Usage: ./l6chain b dmax amax bmax emax hmax [node_cap] [ubfile] [target] [witness]
  * ubfile lines: "b d a h value" with a = amax+bmax+emax.  Output: one JSON object.
  */
 #include <stdio.h>
@@ -149,6 +156,9 @@ static void geometry(void) {
 }
 
 static int BOUND_B, DMAX, AMAX, BMAX, EMAX, HMAX, TARGET;
+static FILE *WIT;
+static uint64_t witcount;
+static int trail[800];
 static uint64_t NODECAP, nodes, capped;
 static unsigned char hexu[NH], phm[NQ];
 static int opened[NQ], nopened, deficit, hexcount;
@@ -192,6 +202,13 @@ static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu,
     if (deficit <= DMAX) {
         if (ports > best[deficit]) best[deficit] = ports;
         if (ports > record) record = ports;
+        if (WIT && ports == TARGET && deficit == DMAX) {
+            ++witcount;
+            fputs("{\"ports\":[", WIT);
+            for (int i = 0; i < ports; ++i) fprintf(WIT, "%s%d", i ? "," : "", trail[i]);
+            fputs("]}\n", WIT);
+            if (ferror(WIT)) { fprintf(stderr, "witness write\n"); exit(2); }
+        }
     }
     if (!feas(tok, corb)) return;
     int left = (AMAX - au) + (BMAX - bu) + (EMAX - eu);
@@ -201,7 +218,7 @@ static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu,
     int reach2 = ports + (NH - hexcount) + left;   /* heavy edges need fresh hexes too */
     if (reach2 < reach) reach = reach2;
     if (TARGET && reach < TARGET) return;
-    if (have_ub && reach <= record) return;
+    if (have_ub && !WIT && reach <= record) return;
     step(freetgt[cur], corb, ports, tok, au, bu, eu, hu, -1);      /* free E */
     for (int i = 0; i < 5; ++i)
         step(paidtgt[cur][i], corb, ports, tok, au, bu, eu, hu, 0);
@@ -232,6 +249,7 @@ static void step(int t, int corb, int ports, int tok, int au, int bu, int eu,
     phm[q] = (unsigned char)(old | (1u << phase[t]));
     if (fresh) { opened[nopened++] = q; deficit += 4; } else deficit -= 1;
     if (newhex) { hexu[hexid[t]] = 1; ++hexcount; }
+    trail[ports] = t;
     rec(t, q, ports + 1, tok - cost, au + (isdirty == 1), bu + (isdirty == 2),
         eu + spend_e, hu);
     if (newhex) { hexu[hexid[t]] = 0; --hexcount; }
@@ -272,6 +290,11 @@ int main(int argc, char **argv) {
         have_ub = 1;
     }
     TARGET = argc > 9 ? atoi(argv[9]) : 0;
+    if (argc > 10) {
+        if (!TARGET) { fprintf(stderr, "witness mode needs a target\n"); return 2; }
+        WIT = fopen(argv[10], "w");
+        if (!WIT) { fprintf(stderr, "witness file\n"); return 2; }
+    }
     for (int d = 0; d <= UBD; ++d) best[d] = -1;
     record = -1;
     memset(hexu, 0, sizeof hexu); memset(phm, 0, sizeof phm);
@@ -279,7 +302,9 @@ int main(int argc, char **argv) {
     phm[orbid[0]] = (unsigned char)(1u << phase[0]);
     opened[nopened++] = orbid[0]; deficit = 4;
     clock_t t0 = clock();
+    trail[0] = 0;
     rec(0, orbid[0], 1, BOUND_B, 0, 0, 0, 0);
+    if (WIT) fclose(WIT);
     double secs = (double)(clock() - t0) / CLOCKS_PER_SEC;
     int run = -1, cum[UBD + 1];
     for (int d = 0; d <= DMAX; ++d) { if (best[d] > run) run = best[d]; cum[d] = run; }
@@ -290,8 +315,9 @@ int main(int argc, char **argv) {
            capped ? "true" : "false",
            secs, have_ub ? "true" : "false", TARGET, cum[DMAX]);
     for (int d = 0; d <= DMAX; ++d) printf("%s\"%d\":%d", d ? "," : "", d, cum[d]);
-    printf("},\"heavy_targets\":%d,"
+    printf("},\"witnesses\":%llu,\"heavy_targets\":%d,"
            "\"kinds\":[\"E\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"A\",\"B\",\"HEAVY\"]}\n",
-           nheavy[0], KN[0], KN[1], KN[2], KN[3], KN[4]);
+           (unsigned long long)witcount, nheavy[0],
+           KN[0], KN[1], KN[2], KN[3], KN[4]);
     return 0;
 }
