@@ -82,6 +82,32 @@ def load_cache():
     return _C
 
 
+# ---------------------------------------------------------------------------
+# ROUND 146 -- WHY THE EMITTED TABLE WAS NOT A VALID UPPER BOUND.
+#
+# The searcher's pruning table is keyed by the COMBINED remaining budget
+#     left = (AMAX - au) + (BMAX - bu) + (EMAX - eu),
+# so UB[tok][d][S][h] has to bound every chain whose three budgets sum to at
+# most S, i.e. it has to be the MAXIMUM over the splits (x, y, z) with
+# x + y + z <= S.  `write_ub` emitted one line per CACHED CELL, i.e. one line
+# per split, all under the same key S = a + bb + e, and the C loader keeps the
+# SMALLEST value it sees for a key ("several independent upper bounds, take the
+# best").  For 163 of the 425 keys the splits disagree -- e.g. b=0, d=0, S=10
+# carries values from 20 to 50 -- so the table handed the searcher 20 where 50
+# was needed, the searcher over-pruned, and the cells it then recorded were
+# BELOW the true capacity (measured: 0|0|0|0|9 recorded 45, true 50;
+# 0|0|0|0|10 recorded 40, true 55; 87 of the 377 b<=0,d<=1 cells too small).
+# A capacity table that is too small is not a sound upper-bound model, so every
+# row closed only by the chain models has to be redone.  See
+# research/ERRATA_146_CHAIN_UB.md and src/l6_chain_recheck_146.py.
+#
+# The fix below aggregates by MAX per key, which is the sound direction.  It is
+# NOT by itself enough: the values being aggregated must themselves come from
+# runs that did not use an unsound table, which is what the recheck driver
+# establishes cell by cell.
+# ---------------------------------------------------------------------------
+
+
 def write_ub():
     """Every proved chain cell is a sound suffix bound for a deeper search."""
     lines = []
@@ -107,20 +133,62 @@ def write_ub():
             b, d, a, bb, e, h = (int(x) for x in key.split("|"))
             v = rec["cc"] if not rec.get("bound_below") else rec["bound_below"] - 1
             lines.append(f"{b} {d} {a + bb + e} {h} {v}")
-    UB.write_text("\n".join(lines) + "\n")
+    # aggregate by MAX per (b, d, combined budget, h) key: the C loader keeps
+    # the minimum it sees, so emitting only the per-key maximum makes the two
+    # agree on the one sound value.
+    best: dict = {}
+    for ln in lines:
+        b, d, a, h, v = (int(x) for x in ln.split())
+        k = (b, d, a, h)
+        if k not in best or v > best[k]:
+            best[k] = v
+    UB.write_text("\n".join(f"{b} {d} {a} {h} {v}"
+                            for (b, d, a, h), v in sorted(best.items())) + "\n")
 
 
-def compute(b, d, a, bb, e, node_cap=0, target=0):
+def _save_cache():
+    """Persist the chain cell cache, refusing to SHRINK it.
+
+    ROUND 146 DATA-INTEGRITY GUARD.  `compute()` used to write `_C` straight
+    back to the 1,501-cell ledger.  `_C` starts EMPTY and is only filled by
+    `load_cache()`, so a single call to `compute()` without that preceding call
+    replaced the whole audited ledger with one entry.  (It happened during the
+    round-146 audit and was restored from git.)  Writing now (i) loads first if
+    `_C` is empty, (ii) refuses any write that would drop cells, and (iii) is
+    atomic, so an interrupted write cannot leave a truncated file behind.
+    """
+    on_disk = json.loads(CACHE.read_text()) if CACHE.exists() else {}
+    missing = set(on_disk) - set(_C)
+    if missing:
+        raise SystemExit(
+            f"refusing to shrink {CACHE.name}: {len(missing)} cached cells "
+            f"would be lost (call load_cache() first)")
+    tmp = CACHE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(_C, ensure_ascii=False, indent=1))
+    tmp.replace(CACHE)
+
+
+def compute(b, d, a, bb, e, node_cap=0, target=0, h=0):
     """Prove one chain cell.
 
     With `target > 0` the searcher only answers "is `target` reachable?".  That
     is still exhaustive for THAT question -- every prefix of a chain with
     `target` ports has reach >= target, so it is never pruned -- so a run that
     ends uncapped below the target proves `CC <= target - 1`.
+
+    ROUND 146 FIX.  The searcher grew a separate heavy budget HMAX (argv[6])
+    when the heavy chain cells were added, and this driver was never updated:
+    it passed `node_cap` where HMAX is read, the ub path where NODECAP is read
+    and `target` where the ub FILE NAME is read, so every call died with
+    "ubfile".  The 1,501 cached chain cells all predate that change and were
+    produced by the then-correct six-argument call; the argument list below is
+    the one `l6_871_analysis_144.heavy_cell` already used correctly.
     """
+    if not _C:
+        load_cache()
     write_ub()
     r = subprocess.run([str(EXE), str(b), str(d), str(a), str(bb), str(e),
-                        str(node_cap), str(UB), str(target)],
+                        str(h), str(node_cap), str(UB), str(target)],
                        capture_output=True, text=True)
     if r.returncode != 0:
         raise SystemExit(f"chain cell {b},{d},{a},{bb},{e} failed: {r.stderr[:300]}")
@@ -132,7 +200,7 @@ def compute(b, d, a, bb, e, node_cap=0, target=0):
     elif target:
         rec["target_run"] = target
     _C[f"{b}|{d}|{a}|{bb}|{e}"] = rec
-    CACHE.write_text(json.dumps(_C, ensure_ascii=False, indent=1))
+    _save_cache()
     return rec
 
 
