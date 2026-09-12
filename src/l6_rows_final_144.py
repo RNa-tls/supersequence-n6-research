@@ -96,9 +96,10 @@ def merged_max(variants, node_cap=8_000_000_000, allow_compute=True):
             if not allow_compute:
                 NEED_MERGED.add(args)
                 return None, True
-            rec = AN.heavy_cell(*args, node_cap=node_cap)
+            # the decision form first: it is only ever used to CLOSE a row
+            rec = AN.heavy_cell(*args, node_cap=node_cap, target=r["required"])
             if rec["capped"]:
-                rec = AN.heavy_cell(*args, node_cap=40_000_000_000,
+                rec = AN.heavy_cell(*args, node_cap=node_cap * 5,
                                     target=r["required"])
         if rec["capped"]:
             NEED_MERGED.add(args)
