@@ -1,0 +1,296 @@
+{
+  "schema": "round143-independent-cycle-controls-v1",
+  "verified": true,
+  "controls": [
+    {
+      "query": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5
+      ],
+      "oracle_cycles": 0,
+      "runs": [
+        {
+          "side": 0,
+          "bounded": false,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 0,
+          "bounded": true,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": false,
+          "nodes": 21,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": true,
+          "nodes": 5,
+          "exports": 0
+        }
+      ]
+    },
+    {
+      "query": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20
+      ],
+      "oracle_cycles": 1,
+      "runs": [
+        {
+          "side": 0,
+          "bounded": false,
+          "nodes": 10,
+          "exports": 1
+        },
+        {
+          "side": 0,
+          "bounded": true,
+          "nodes": 10,
+          "exports": 1
+        },
+        {
+          "side": 1,
+          "bounded": false,
+          "nodes": 128,
+          "exports": 1
+        },
+        {
+          "side": 1,
+          "bounded": true,
+          "nodes": 32,
+          "exports": 1
+        }
+      ]
+    },
+    {
+      "query": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        10
+      ],
+      "oracle_cycles": 1,
+      "runs": [
+        {
+          "side": 0,
+          "bounded": false,
+          "nodes": 6,
+          "exports": 1
+        },
+        {
+          "side": 0,
+          "bounded": true,
+          "nodes": 5,
+          "exports": 1
+        },
+        {
+          "side": 1,
+          "bounded": false,
+          "nodes": 140,
+          "exports": 1
+        },
+        {
+          "side": 1,
+          "bounded": true,
+          "nodes": 24,
+          "exports": 1
+        }
+      ]
+    },
+    {
+      "query": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        5
+      ],
+      "oracle_cycles": 0,
+      "runs": [
+        {
+          "side": 0,
+          "bounded": false,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 0,
+          "bounded": true,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": false,
+          "nodes": 25,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": true,
+          "nodes": 5,
+          "exports": 0
+        }
+      ]
+    },
+    {
+      "query": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        5
+      ],
+      "oracle_cycles": 0,
+      "runs": [
+        {
+          "side": 0,
+          "bounded": false,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 0,
+          "bounded": true,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": false,
+          "nodes": 25,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": true,
+          "nodes": 5,
+          "exports": 0
+        }
+      ]
+    },
+    {
+      "query": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        5
+      ],
+      "oracle_cycles": 0,
+      "runs": [
+        {
+          "side": 0,
+          "bounded": false,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 0,
+          "bounded": true,
+          "nodes": 1,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": false,
+          "nodes": 108,
+          "exports": 0
+        },
+        {
+          "side": 1,
+          "bounded": true,
+          "nodes": 5,
+          "exports": 0
+        }
+      ]
+    }
+  ],
+  "cycle_capacity_grid": [
+    {
+      "b": 0,
+      "D": 0,
+      "P": 10
+    }
+  ],
+  "capacity_summaries": [
+    {
+      "schema": "round143-cycle-whole-runs-v2",
+      "proof_query": "CYCLE_CAPACITY",
+      "max_passes": 10,
+      "accepted_cycles": 1,
+      "completed": true,
+      "capped": false,
+      "nodes": 24,
+      "exported_prefixes": 1,
+      "suffix_bound_enabled": false,
+      "suffix_bound_prunes": 16,
+      "transcript_fnv64": "d1e9dd0e9e440a3c"
+    },
+    {
+      "schema": "round143-cycle-independent-port-v2",
+      "proof_query": "CYCLE_CAPACITY",
+      "max_passes": 10,
+      "accepted_cycles": 1,
+      "b": 0,
+      "D": 0,
+      "A_exact": 2,
+      "Qs_exact": 0,
+      "R_cap": 2,
+      "H_cap": 0,
+      "target_passes": 122,
+      "node_cap": 0,
+      "nodes": 635,
+      "max_depth": 24,
+      "completed": true,
+      "capped": false,
+      "status": "EXHAUSTED_FINITE_MODEL",
+      "exported_prefixes": 1,
+      "extrema_complete": true,
+      "port_collision_prunes": 78,
+      "repeat_budget_prunes": 213,
+      "resource_prunes": 155,
+      "deficit_prunes": 497,
+      "suffix_bound_prunes": 0,
+      "suffix_bound_enabled": false,
+      "suffix_bound_rows": 0,
+      "suffix_bound_fnv64": "cbf29ce484222325",
+      "geometry_comparisons": 518400,
+      "geometry_fnv64": "5daf83e139d23211",
+      "transcript_fnv64": "121ba3c1a339969c",
+      "export_fnv64": "3ea0ad8a91f491ff",
+      "cpu_seconds": 0.002
+    }
+  ],
+  "source_sha256": {
+    "src/round143_cycle_runs_codex.c": "e907a936b16bdf1b7434d5b52d6e8eb24aa27d29a0a040e97ab0afb27d21f0f6",
+    "src/round143_cycle_ports_independent.c": "f8aca3d126c920895316b6fb8bbd5bfd9756dc092bb58d3714e5a26ac76f7b7b",
+    "src/verify_round143_cycle_controls_codex.py": "dde8388af8452e80c24728fc580a13ac0a923c7cfe206c6848e8cf0934c6fdcb"
+  },
+  "scope": "Small complete literal oracle and paired cycle-grid check; no threshold closure asserted"
+}
