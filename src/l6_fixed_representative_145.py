@@ -39,11 +39,18 @@ LEMMA 3 (equality is rigidity).  If |Phi(W)| = |W| then |W_trim| = |W| (no
 trimming) and g_j = omega_j for every j.  A word is determined by its window
 sequence and gaps, so W = W_trim = Phi(W).
 
-LEMMA 4 (a fixed point exists, no longer than W).  |Phi^{m}(W)| is a
-non-increasing sequence of integers bounded below by n, so it is eventually
-constant; at the first index m with |Phi^{m+1}(W)| = |Phi^{m}(W)| Lemma 3 gives
-Phi^{m+1}(W) = Phi^{m}(W).  Put W* = Phi^m(W); then W* is a cover,
-|W*| <= |W| and Phi(W*) = W*.
+LEMMA 4 (a fixed point exists, no longer than W, within an EXPLICIT number of
+steps).  By Lemma 3, Phi(V) != V forces |Phi(V)| <= |V| - 1: each non-fixed
+iteration drops the length by at least one whole letter.  Every cover has length
+at least n! + n - 1, because its n! permutation windows need n! distinct start
+positions.  So the number of non-fixed iterations starting from W is at most
+
+        |W| - (n! + n - 1),
+
+and Phi^m(W) is a fixed point for some m <= |W| - (n! + n - 1).  Put W* = that
+fixed point; it is a cover, |W*| <= |W|, and Phi(W*) = W*.  (The `max_iter`
+argument in the code below is only a defensive guard: it RAISES rather than
+returning a non-fixed word, so it can never fake a fixed point.)
 
 LEMMA 5 (what a fixed point looks like).  Let W* = Phi(W*).  Then
 

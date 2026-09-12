@@ -46,10 +46,15 @@ duplicate-hexagon excess,
 
         K + R_int <= G + 1,     K = G + 1  (mod 2).
 
-LEMMA E (pure clean-E circuits are whole orbits).  E = tau advances the phase by
-one inside an (n-1)-element orbit, so a beta-cycle all of whose edges are clean
-E edges stays in one orbit, has length exactly n-1 and uses ALL its ports.  No
-other pass can lie in that orbit, because the orbit has only n-1 elements.
+LEMMA E (pure clean-E circuits are whole orbits).  A clean E edge sends the pass
+entry v to tau(v), which is in the same orbit with the phase advanced by exactly
+one.  So a beta-cycle all of whose edges are clean E edges keeps one orbit, and
+if it has length m its total phase advance is m; returning to its starting pass
+forces m = 0 (mod n-1), i.e. (n-1) | m.  Its m passes have DISTINCT entries
+(pass entries are distinct selected windows) inside an orbit of only n-1
+elements, so m <= n-1.  Hence m = n-1 exactly, the cycle's entries are ALL n-1
+elements of the orbit, and no other pass can lie in that orbit -- a further pass
+there would need an n-th distinct entry.
 
 LEMMA F (block count).  There are P - 1 joints, S of them paid (w >= 3), and D2
 of the free ones are the dirty weight-2 type A.  So the clean E edges number
