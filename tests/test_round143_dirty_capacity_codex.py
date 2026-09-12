@@ -3,6 +3,7 @@ import itertools
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -11,6 +12,7 @@ from research_round143_budgets_codex import domain
 from verify_round143_general_endpoint_codex import solver, forward
 from verify_round143_coupled_codex import replay, WORDS, validate_capacity_file
 from verify_round143_coupled_extraction_codex import optimizers as coupled_optimizers
+from verify_round143_coupled_endpoint_codex import optimizers as endpoint_optimizers
 
 
 class Round143(unittest.TestCase):
@@ -31,6 +33,33 @@ class Round143(unittest.TestCase):
 
     def test_missing_capacity_is_unknown(self):
         self.assertIsNone(solver({})(0,0,0,0,0,0))
+
+    def test_restricted_alphabet_rejected(self):
+        data=json.loads((ROOT/'outputs/rr_round143_coupled_A2_pilot_codex.json').read_text())
+        for row in data['rows']:
+            row['producer']['mode']=row['independent']['mode']='A'
+        with tempfile.TemporaryDirectory(dir=ROOT/'outputs') as folder:
+            path=Path(folder)/'wrong_alphabet.json'
+            path.write_text(json.dumps(data))
+            with self.assertRaisesRegex(AssertionError,'Restricted A-only'):
+                validate_capacity_file(path)
+
+    def test_coupled_endpoint_allocations(self):
+        cells=[dict(A=0,b=0,D=0,endpoints=[5,0,0,0]),
+               dict(A=0,b=0,D=1,endpoints=[5,4,4,3]),
+               dict(A=0,b=0,D=2,endpoints=[5,4,4,4]),
+               dict(A=1,b=0,D=1,endpoints=[0,9,9,8]),
+               dict(A=1,b=0,D=2,endpoints=[0,10,10,9])]
+        cap,back,fwd=endpoint_optimizers(cells)
+        for a,seams,other,d,bad in itertools.product(range(3),range(2),range(2),range(3),range(2)):
+            self.assertEqual(back(a,seams,other,0,d,bad),fwd(a,seams,other,0,d,bad))
+
+    def test_positive_ZH_residual_not_closed(self):
+        data=json.loads((ROOT/'outputs/rr_round143_t4_combined_codex.json').read_text())
+        rows=[r for r in data['rows'] if r['L']==871 and r['status'] in ('EQUALITY','OPEN_CAPACITY','UNKNOWN_CAPACITY')]
+        self.assertEqual(len(rows),182)
+        self.assertTrue(all(r['Z'] or r['H'] for r in rows))
+        self.assertFalse(data['threshold_closed']['871'])
 
     def test_literal_sigma_pair(self):
         ids=[WORDS.index(tuple(map(int,p))) for p in ('012345','123450')]

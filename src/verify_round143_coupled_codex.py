@@ -73,11 +73,12 @@ def validate_capacity_file(path):
     cells = []
     for row in data['rows']:
         first, second = row['producer'], row['independent']
+        assert first['mode'] == second['mode'] == 'AB', 'Restricted A-only alphabet cannot bound the complete marked model'
         assert not any(x.get('suffix_bound_enabled',False) for x in (first,second)), 'Threshold-pruned results are not scalar capacities'
         # Earlier AB certificates predate the optional SIGMA alphabet.
         # Only an explicit ordinary mode justifies interpreting absent A as 0.
         if 'A_exact' not in first or 'A_exact' not in second:
-            assert first['mode'] in ('A','AB') and second['mode'] in ('A','AB')
+            assert first['mode'] == second['mode'] == 'AB'
             assert all('SIGMA:' not in str(x.get('argv',[])) for x in (first,second))
         A = first.get('A_exact',0)
         assert A == second.get('A_exact',0)
@@ -99,6 +100,7 @@ def validate_capacity_file(path):
                     continue
                 assert first[field] == second[field], (path, A, row['b'], row['D'], field)
             cells.append(dict(A=A, b=row['b'], D=row['D'], upper=first['max_passes'],
+                              endpoints=first['endpoint_max_passes'],
                               source=path.relative_to(ROOT).as_posix()))
     return cells, hashlib.sha256(raw).hexdigest()
 

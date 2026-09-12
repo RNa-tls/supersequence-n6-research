@@ -1,4 +1,5 @@
 """Apply exact-P paired decisions only to their proved one-path domain."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -13,8 +14,12 @@ SOURCES=['outputs/rr_round143_t4_exact_prefix_pilot_codex.json',
 
 
 def main():
-    out=json.loads((ROOT/BASE).read_text());hashes={};queries={}
-    for name in [BASE]+SOURCES:
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--base',default=BASE)
+    ap.add_argument('--output',default='outputs/rr_round143_t4_exact_query_ledger_codex.json')
+    args=ap.parse_args()
+    out=json.loads((ROOT/args.base).read_text());hashes={};queries={}
+    for name in [args.base]+SOURCES:
         hashes[name]=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     for name in SOURCES:
         data=json.loads((ROOT/name).read_text())
@@ -69,7 +74,7 @@ def main():
     out['counts']={str(L):dict(Counter(r['status'] for r in out['rows'] if r['L']==L)) for L in (869,870,871)}
     out['threshold_closed']={str(L):all(r['status'] in closed for r in out['rows'] if r['L']==L) for L in (869,870,871)}
     out['Z0_H0_871_closed']=all(r['status'] in closed for r in out['rows'] if r['L']==871 and r['Z']==r['H']==0)
-    (ROOT/'outputs/rr_round143_t4_exact_query_ledger_codex.json').write_text(json.dumps(out,indent=2)+'\n',newline='\n')
+    (ROOT/args.output).write_text(json.dumps(out,indent=2)+'\n',newline='\n')
     print(json.dumps(dict(counts=out['counts'],queries=out['unique_queries'],query_counts=out['query_status_counts'],Z0_H0_871_closed=out['Z0_H0_871_closed'])))
 
 
