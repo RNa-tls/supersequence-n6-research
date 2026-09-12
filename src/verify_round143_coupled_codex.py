@@ -69,7 +69,7 @@ def replay(entries):
 def validate_capacity_file(path):
     raw = path.read_bytes()
     data = json.loads(raw)
-    assert data['schema'] != 'round143-paired-exact-P-v1', 'Exact-P decisions are not capacity maxima'
+    assert data['schema'] not in ('round143-paired-exact-P-v1','round143-paired-general-exact-P-v1'), 'Exact-P decisions are not capacity maxima'
     cells = []
     for row in data['rows']:
         first, second = row['producer'], row['independent']
