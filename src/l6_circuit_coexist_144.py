@@ -47,7 +47,15 @@ ORBHEX = [sorted({HEX[v] for v in ORBPORTS[q]}) for q in range(NQ)]
 assert all(len(h) == 5 for h in ORBHEX), "a tau-orbit must meet five hexagons"
 
 
-def coexist(chain, c, node_cap=20_000_000):
+class _Found(Exception):
+    """Raised to stop at the first solution when first_only is set.
+
+    Opt-in only: with first_only False (the default, and what every Q1/Q2
+    verdict uses) the search is byte-for-byte the exhaustive one.
+    """
+
+
+def coexist(chain, c, node_cap=20_000_000, first_only=False):
     """Can c tau-orbits, disjoint from the chain's orbits, cover its complement?"""
     Hc = {HEX[v] for v in chain}
     Oc = {ORB[v] for v in chain}
@@ -69,6 +77,8 @@ def coexist(chain, c, node_cap=20_000_000):
         if len(used) == c:
             if covered == Fset:
                 sols.append(sorted(used))
+                if first_only:
+                    raise _Found()
             return
         rem = [h for h in F if h not in covered]
         if not rem:
@@ -86,7 +96,10 @@ def coexist(chain, c, node_cap=20_000_000):
                 continue
             rec(covered | new, used | {q}, waste + w)
 
-    rec(frozenset(), frozenset(), 0)
+    try:
+        rec(frozenset(), frozenset(), 0)
+    except _Found:
+        pass
     return dict(ok=bool(sols), solutions=len(sols), nodes=nodes[0],
                 examples=[s for s in sols[:3]], free_hexes=len(F),
                 chain_orbits=len(Oc), c=c)

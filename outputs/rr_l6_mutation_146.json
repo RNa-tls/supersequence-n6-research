@@ -1,0 +1,83 @@
+{
+ "mutations": [
+  {
+   "name": "M1_heavy_reuse_budget_conflation",
+   "applied": true,
+   "why": "should make the Q2 witness enumeration wrong (root-pruned)",
+   "detected": true,
+   "observed": {
+    "witnesses": 0,
+    "lines": 0,
+    "capped": false
+   }
+  },
+  {
+   "name": "M2_common_s_model_combination",
+   "applied": true,
+   "why": "dropping the one-object s=0 rule must change the 871 survivor set",
+   "detected": true,
+   "observed": {
+    "surv": 4,
+    "fb": 0
+   }
+  },
+  {
+   "name": "M3_hexagon_classes_merged",
+   "applied": false,
+   "note": "patch target not found"
+  },
+  {
+   "name": "M3b_hexagon_step_wrong",
+   "applied": true,
+   "why": "reversing the hexagon step must break passes, nu and the identities",
+   "detected": true,
+   "observed": []
+  },
+  {
+   "name": "M3c_orbit_step_wrong",
+   "applied": true,
+   "why": "confusing tau with sigma must break the clean-E classification and MASTER",
+   "detected": true,
+   "observed": []
+  },
+  {
+   "name": "M4_orbit_id_altered",
+   "applied": false,
+   "note": "patch target not found"
+  },
+  {
+   "name": "M5_drop_one_hidden_window",
+   "applied": false,
+   "note": "patch target not found"
+  },
+  {
+   "name": "M6_connector_weight_shifted",
+   "applied": true,
+   "why": "a wrong omega must break (FO) and the fixed-representative test",
+   "detected": true,
+   "observed": []
+  },
+  {
+   "name": "M7_shift_ORBHEX_by_one",
+   "applied": true,
+   "why": "a shifted orbit->hexagon table must change the coexistence verdict",
+   "detected": false,
+   "observed": [
+    false,
+    false
+   ]
+  },
+  {
+   "name": "M8_remove_one_equality_witness",
+   "applied": true,
+   "why": "the witness-count test must fail",
+   "detected": true,
+   "observed": ""
+  }
+ ],
+ "tree_restored": true,
+ "escaped": [
+  "M7_shift_ORBHEX_by_one"
+ ],
+ "ok": false
+}

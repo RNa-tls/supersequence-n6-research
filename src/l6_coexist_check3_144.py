@@ -33,7 +33,11 @@ for q in range(NQ):
     OH.append(hs)
 
 
-def solve(chain, c):
+class _Found(Exception):
+    """Opt-in early exit; default behaviour is unchanged and exhaustive."""
+
+
+def solve(chain, c, first_only=False):
     Hc = {HEX[v] for v in chain}
     Oc = {ORB[v] for v in chain}
     F = set(range(NH)) - Hc
@@ -47,6 +51,8 @@ def solve(chain, c):
         if len(chosen) == c:
             if ssum >= len(F) and set().union(*[OH[q] & F for q in chosen]) == F:
                 sols.append(sorted(chosen))
+                if first_only:
+                    raise _Found()
             return
         slots = c - len(chosen)
         if i >= n:
@@ -59,7 +65,10 @@ def solve(chain, c):
                 break
             rec(j + 1, chosen + [q], ssum + k)
 
-    rec(0, [], 0)
+    try:
+        rec(0, [], 0)
+    except _Found:
+        pass
     return dict(ports=len(chain), free=len(F), c=c, candidates=n,
                 overlap_top=[k for k, _ in cands[:c]], nodes=nodes[0],
                 solutions=len(sols), examples=sols[:2], ok=bool(sols))
