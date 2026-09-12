@@ -143,7 +143,10 @@ def rows_for(t, use_sigma_deficit=True):
                                    5 * k - G + 5 * Bs < D2 + Qs - Z - d:
                                     continue
                                 for s in range(0, Bs + 1):
-                                    for h in range(0, H + 1):
+                                    # H = sum (w-3)+ >= 1 forces at least one
+                                    # heavy joint, and h <= H because each
+                                    # heavy joint contributes at least one
+                                    for h in range(1 if H else 0, H + 1):
                                         Dsum = 5 * k - G + 5 * s
                                         if Dsum < 0:
                                             continue

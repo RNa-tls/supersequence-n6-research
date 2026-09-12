@@ -63,22 +63,36 @@ def main():
         mixed_shadow=MC.shadow_theorem(),
         left_S6_symmetry=MC.s6_symmetry(),
         incidence=IN.check(4000))
+    import l6_coupled_144 as PIECE
     import l6_chain_rows_144 as CR
+    import l6_871_analysis_144 as AN
+    import l6_rows_final_144 as RF
+    PIECE.load_caps()
     CR.load_cache()
+    AN.load_h()
     verdicts = {}
     for t in range(0, 5):
-        CR.REQUESTED.clear()
-        CR._best.cache_clear()
-        r = CR.run(t)
+        r = RF.run(t, allow_compute=False)
         verdicts[f"L{867 + t}"] = dict(
-            rows=r["rows"], strict=r["strict"],
-            strict_by_piece_model=r["strict_by_piece_model"],
+            coordinate_rows=r["coordinate_rows"], strict=r["strict"],
             surviving=r["surviving"],
-            surviving_using_fallback=r["surviving_using_fallback"],
-            unproved_cells=len(CR.REQUESTED),
-            row_digest=digest([[x["verdict"], x["chain_bound"], x["required"]]
-                               for x in CR.rows_for(t, False)]))
-    cert["chain_model_verdicts"] = verdicts
+            surviving_with_fallback=r["surviving_with_fallback"],
+            survivors=[{k: x[k] for k in ("k", "Z", "H", "Bstar", "G", "c", "d",
+                                          "D2", "h", "required", "bound",
+                                          "verdict")} for x in r["survivors"]],
+            row_digest=digest(sorted(
+                [[x["verdict"], x["bound"], x["required"]] for x in
+                 RF.run(t, allow_compute=False)["survivors"]])))
+    cert["model_verdicts"] = verdicts
+
+    wit = ROOT / "outputs" / "witness_144"
+    cert["equality_witnesses"] = {}
+    for name in sorted(p.name for p in wit.glob("*.jsonl")):
+        txt = (wit / name).read_text()
+        lines = [l for l in txt.splitlines() if l.strip()]
+        cert["equality_witnesses"][name] = dict(
+            count=len(lines),
+            digest=hashlib.sha256(txt.encode()).hexdigest())
     (ROOT / "outputs" / "rr_l6_certificate_144.json").write_text(
         json.dumps(cert, ensure_ascii=False, indent=1))
     print(json.dumps({k: v for k, v in cert.items()

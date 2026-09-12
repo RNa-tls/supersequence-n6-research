@@ -16,6 +16,13 @@ import l6_marked_capacity_144 as MC          # noqa: E402
 import l6_coupled_144 as CP                  # noqa: E402
 import l6_chain_rows_144 as CR               # noqa: E402
 import l6_incidence_144 as IN                # noqa: E402
+import l6_bookkeeping_144 as BK              # noqa: E402
+import l6_rows_final_144 as RF               # noqa: E402
+import l6_circuit_coexist_144 as CO          # noqa: E402
+import l6_coexist_check3_144 as CO3          # noqa: E402
+import l6_871_analysis_144 as AN             # noqa: E402
+
+WIT = ROOT / "outputs" / "witness_144"
 
 TABLE = ROOT / "outputs" / "rr_l6_marked_capacity_table_144.json"
 
@@ -148,6 +155,10 @@ def test_left_S6_symmetry_is_proved_not_assumed():
     assert MC.s6_symmetry()["holds"] is True
 
 
+def test_extraction_bookkeeping():
+    assert BK.check(20000)["holds"] is True
+
+
 def test_chain_model_closes_867_to_870():
     if not (ROOT / "outputs" / "rr_l6_chain_capacity_144.json").exists():
         return
@@ -158,6 +169,62 @@ def test_chain_model_closes_867_to_870():
         r = CR.run(t)
         assert r["surviving"] == 0, (t, r["surviving_rows"][:2])
         assert len(CR.REQUESTED) == 0, (t, sorted(CR.REQUESTED)[:5])
+
+
+def test_h_is_positive_whenever_H_is():
+    """H = sum (w-3)+ >= 1 forces at least one heavy joint."""
+    for t in (2, 3, 4):
+        for r in CP.rows_for(t, False):
+            assert (r["H"] == 0) == (r["h"] == 0)
+            assert r["h"] <= r["H"]
+
+
+def test_sound_model_combination_closes_867_to_870():
+    if not (ROOT / "outputs" / "rr_l6_chain_capacity_144.json").exists():
+        return
+    CP.load_caps()
+    CR.load_cache()
+    AN.load_h()
+    for t in (0, 1, 2, 3):
+        r = RF.run(t, allow_compute=False)
+        assert r["surviving"] == 0, (t, r["survivors"][:2])
+        assert r["surviving_with_fallback"] == 0
+
+
+def test_871_leaves_exactly_two_equality_rows():
+    if not (ROOT / "outputs" / "rr_l6_chain_capacity_144.json").exists():
+        return
+    CP.load_caps()
+    CR.load_cache()
+    AN.load_h()
+    r = RF.run(4, allow_compute=False)
+    assert r["surviving"] == 2, [x for x in r["survivors"]]
+    assert r["surviving_with_fallback"] == 0
+    got = sorted((x["k"], x["G"], x["c"], x["h"], x["required"], x["bound"])
+                 for x in r["survivors"])
+    assert got == [(3, 7, 7, 1, 92, 92), (4, 6, 6, 0, 96, 96)], got
+
+
+def test_equality_witnesses_admit_no_pure_circuits():
+    for name, c in (("wit_Q1.jsonl", 6), ("wit_Q2.jsonl", 7)):
+        f = WIT / name
+        if not f.exists():
+            continue
+        chains = [json.loads(l)["ports"] for l in f.read_text().splitlines()
+                  if l.strip()]
+        assert chains
+        for ch in chains:
+            assert CO.coexist(ch, c)["ok"] is False
+            assert CO3.solve(ch, c)["ok"] is False
+
+
+def test_witness_counts_are_two_and_one():
+    a = WIT / "wit_Q1.jsonl"
+    b = WIT / "wit_Q2.jsonl"
+    if a.exists():
+        assert len([l for l in a.read_text().splitlines() if l.strip()]) == 2
+    if b.exists():
+        assert len([l for l in b.read_text().splitlines() if l.strip()]) == 1
 
 
 if __name__ == "__main__":

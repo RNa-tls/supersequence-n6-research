@@ -1,0 +1,112 @@
+{
+ "disclaimer": "Upper-bound (relaxed) models plus one exhaustive witness analysis. This script does NOT re-audit the Round-142 hand reductions it stands on, and it does not assert L6 = 872.",
+ "identities": {
+  "master": true,
+  "fo": true,
+  "bookkeeping": true
+ },
+ "lemmas": {
+  "joint_catalogue": true,
+  "companion_hex": true,
+  "mixed_shadow": true,
+  "left_S6": true,
+  "incidence": true
+ },
+ "rows": {
+  "L867": {
+   "coordinate_rows": 1,
+   "strict": 1,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": []
+  },
+  "L868": {
+   "coordinate_rows": 14,
+   "strict": 14,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": []
+  },
+  "L869": {
+   "coordinate_rows": 85,
+   "strict": 85,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": []
+  },
+  "L870": {
+   "coordinate_rows": 353,
+   "strict": 353,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": []
+  },
+  "L871": {
+   "coordinate_rows": 1156,
+   "strict": 1154,
+   "surviving": 2,
+   "surviving_with_fallback": 0,
+   "survivors": [
+    {
+     "k": 3,
+     "Z": 0,
+     "H": 1,
+     "Bstar": 0,
+     "G": 7,
+     "c": 7,
+     "d": 0,
+     "D2": 0,
+     "h": 1,
+     "required": 92,
+     "bound": 92,
+     "verdict": "EQUALITY"
+    },
+    {
+     "k": 4,
+     "Z": 0,
+     "H": 0,
+     "Bstar": 0,
+     "G": 6,
+     "c": 6,
+     "d": 0,
+     "D2": 0,
+     "h": 0,
+     "required": 96,
+     "bound": 96,
+     "verdict": "EQUALITY"
+    }
+   ]
+  }
+ },
+ "equality_rows": {
+  "Q1": {
+   "required": 96,
+   "ports": 96,
+   "deficit": 14,
+   "heavy": 0,
+   "c": 6,
+   "witnesses": 2,
+   "coexist_dfs_any": false,
+   "coexist_subset_any": false,
+   "excluded": true
+  },
+  "Q2": {
+   "required": 92,
+   "ports": 92,
+   "deficit": 8,
+   "heavy": 1,
+   "c": 7,
+   "witnesses": 1,
+   "coexist_dfs_any": false,
+   "coexist_subset_any": false,
+   "excluded": true
+  }
+ },
+ "summary": {
+  "rows_867_870_all_strict": true,
+  "L871_equality_rows": 2,
+  "L871_equality_rows_excluded_by_witnesses": true,
+  "every_length_up_to_871_excluded": true,
+  "note": "'excluded' means excluded inside the stated relaxations, given the Round-142 first-occurrence framework.  NR6 is NOT used."
+ }
+}

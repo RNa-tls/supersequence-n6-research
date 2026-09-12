@@ -1,0 +1,173 @@
+{
+ "disclaimer": "This repository has NOT proved L6 >= 872.  Every number below is an exhaustive search inside an explicitly relaxed upper-bound model, or an identity check.  Capped searches are marked.",
+ "sources": {
+  "src/l6_master_identity_144.py": "6a50574014beb4e5181dd07151c3afc4d92ffc4af25375001beea39753b6e816",
+  "src/l6_sigma_deficit_144.py": "acbd744ea5bc055a8716c15645f7237345964ceeb1515fe99d671c97029c0189",
+  "src/l6_incidence_144.py": "6176f05e61bc5adad68e7e2462443826c3e4017cc1c8b4d75dfa48a4f9473d9f",
+  "src/l6_certificate_144.py": "d4f0f2bd5b54c00e30fb5d6eb3f684d1163d8b3bd7815d07264075fdd56bd2d8",
+  "src/l6_marked_capacity_144.py": "726cd7be06f84a464fcb15401d86d6b55857982f595c523b9f84d454bde82b82",
+  "src/l6_marked_capacity_144.c": "8244fc627f430d06e69336566b3816070150e889468ead7395b8634c7cd916bc",
+  "src/l6_marked_capacity_pruned_144.c": "05d24827132ef34a0cb71e32e0991aca08c3fed4ce32d4bc1feccae11afbb898",
+  "src/l6_coupled_144.py": "a0ecd85b922b9125316de08b8b44a131f7e937391f5ec5b9627a0fcef6df2da3",
+  "src/l6_chain_capacity_144.c": "ec883fc431a75a9b40f1a5184f9acb590d686ef934f07eedb4f52e550f1ff5bf",
+  "src/l6_chain_rows_144.py": "a1d165c683b69b24a9169a2e104968db28dc65d56128711c301ee6918c00c257",
+  "src/l6_build_captable_144.py": "567de5444931df683f1ff63ea63d26913801b73f3bcc03eb8ab2bd776ec4d9fa",
+  "src/l6_build_chaintable_144.py": "2c7a2294103ee9a256d01430a5e60eb6f593a213ed9bc02bafa005f769e9439f"
+ },
+ "binaries": {
+  "l6cap_144.exe": "f093aa9660343ee3ba6393f01d94895fcd5a656a5b04979ee2feff7f1239e81a",
+  "l6cap_p_144.exe": "ffaf5ff03fa8aded704e20e6726c9a8fdf249e65af86b225970633acda58402b",
+  "l6chain_144.exe": "3568f84285d1024ea031e696ad31f62dabeef74790d665bbd80d4e4f1d4793cf"
+ },
+ "piece_table": {
+  "digest": "abad3bfe420b50eaee53bf82363544cfc108f04a58c13f9cc18e8b5e2b2e90c3",
+  "cells": 55,
+  "capped_cells": [],
+  "total_nodes": 32893096500,
+  "bmax": {
+   "0": 20,
+   "1": 15,
+   "4": 0,
+   "3": 5,
+   "2": 10
+  }
+ },
+ "chain_table": {
+  "digest": "086eb75344df9a03cc49fb435bab956f7441d7b65ddc9cc5a27e36abcb08b373",
+  "cells": 1501,
+  "capped_cells": [],
+  "total_nodes": 64865484472
+ },
+ "hand_lemmas": {
+  "joint_catalogue": {
+   "checked": 720,
+   "violations": 0,
+   "examples": [],
+   "holds": true
+  },
+  "companion_hex": {
+   "checked": 720,
+   "violations": 0,
+   "examples": [],
+   "holds": true,
+   "statement": "orb(v) cap orb(sigma v) hexes == {h(v), h(Ev)}"
+  },
+  "mixed_shadow": {
+   "checked": 720,
+   "violations": 0,
+   "examples": [],
+   "injective_C": true,
+   "injective_D": true,
+   "cross_type_collisions_refuted": true,
+   "holds": true,
+   "statement": "mixed (type C/D) edges in one piece <= D_j"
+  },
+  "left_S6_symmetry": {
+   "group_elements": 720,
+   "violations": 0,
+   "examples": [],
+   "transitive_on_ports": true,
+   "structure_maps_ok": true,
+   "holds": true,
+   "statement": "left S6 commutes with E, E^2, sigma, sigma^2, 201, 210, C, D and is transitive on the 720 ports"
+  },
+  "incidence": {
+   "trials": 4000,
+   "bound_violations": 0,
+   "examples": [],
+   "parity_violations": 0,
+   "parity_examples": [],
+   "holds": true,
+   "statement": "K + R_int <= G+1 and K == G+1 (mod 2)"
+  }
+ },
+ "model_verdicts": {
+  "L867": {
+   "coordinate_rows": 1,
+   "strict": 1,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": [],
+   "row_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "L868": {
+   "coordinate_rows": 14,
+   "strict": 14,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": [],
+   "row_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "L869": {
+   "coordinate_rows": 85,
+   "strict": 85,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": [],
+   "row_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "L870": {
+   "coordinate_rows": 353,
+   "strict": 353,
+   "surviving": 0,
+   "surviving_with_fallback": 0,
+   "survivors": [],
+   "row_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "L871": {
+   "coordinate_rows": 1156,
+   "strict": 1154,
+   "surviving": 2,
+   "surviving_with_fallback": 0,
+   "survivors": [
+    {
+     "k": 3,
+     "Z": 0,
+     "H": 1,
+     "Bstar": 0,
+     "G": 7,
+     "c": 7,
+     "d": 0,
+     "D2": 0,
+     "h": 1,
+     "required": 92,
+     "bound": 92,
+     "verdict": "EQUALITY"
+    },
+    {
+     "k": 4,
+     "Z": 0,
+     "H": 0,
+     "Bstar": 0,
+     "G": 6,
+     "c": 6,
+     "d": 0,
+     "D2": 0,
+     "h": 0,
+     "required": 96,
+     "bound": 96,
+     "verdict": "EQUALITY"
+    }
+   ],
+   "row_digest": "1916827148a35f2cbd79307382835624ad0175e3e69c534d1e9b826675eedaf7"
+  }
+ },
+ "equality_witnesses": {
+  "wit_Q1.jsonl": {
+   "count": 2,
+   "digest": "cfcdea133d6c0813b3334ecb75193924a5ae90cab148097f754dbdb47eef6aed"
+  },
+  "wit_Q1_noub.jsonl": {
+   "count": 2,
+   "digest": "cfcdea133d6c0813b3334ecb75193924a5ae90cab148097f754dbdb47eef6aed"
+  },
+  "wit_Q2.jsonl": {
+   "count": 1,
+   "digest": "09f7b33903d7d62c949083a6d29101c2bb195417037f37167b311c046b19073e"
+  },
+  "wit_Q2_noub.jsonl": {
+   "count": 1,
+   "digest": "09f7b33903d7d62c949083a6d29101c2bb195417037f37167b311c046b19073e"
+  }
+ }
+}
