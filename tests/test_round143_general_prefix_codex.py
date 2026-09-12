@@ -41,5 +41,18 @@ class GeneralPrefix(unittest.TestCase):
         self.assertEqual(table[(0,0,0,0,0,0)],100000)
         self.assertEqual(table[(1,0,0,0,0,1)],0)
 
+    def test_all_one_path_threshold_rows_closed(self):
+        data=json.loads((ROOT/'outputs/rr_round143_generic_query_ledger_codex.json').read_text())
+        self.assertTrue(data['d0_871_closed'])
+        self.assertEqual(data['generic_unique_queries'],90)
+        self.assertEqual(data['generic_query_counts'],{'NO_EXACT_P_PREFIX':89,'EXACT_P_PREFIXES_COMPLETE':1})
+        residual=[r for r in data['rows'] if r['L']==871 and r['status'] in ('EQUALITY','OPEN_CAPACITY','UNKNOWN_CAPACITY')]
+        self.assertEqual(len(residual),61)
+        self.assertTrue(all(r['d']>0 for r in residual))
+        self.assertFalse(data['threshold_closed']['871'])
+        static=data['generic_static_checks']
+        self.assertEqual(len(static),1)
+        self.assertEqual((static[0]['c'],static[0]['decision']['nodes'],static[0]['decision']['status']),(7,151,'UNSAT'))
+
 
 if __name__=='__main__':unittest.main()
