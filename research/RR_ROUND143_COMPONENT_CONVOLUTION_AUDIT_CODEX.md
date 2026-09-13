@@ -31,6 +31,12 @@ included. A cycle closure adds its A/B/heavy cost but no new vertex, b, D,
 or r. Treating the closing target as another entry would invalidate the
 10-port E/A cycle positive control.
 
+The actual deficit also forces P_i=-D_i modulo five, because
+D_i=5O_i-P_i. Round any scalar path upper bound down to the largest
+nonnegative number in this residue class. The same rounding applies to
+an opened-cycle path upper bound. This uses actual component D, not an
+arbitrary bounding rectangle's D cap.
+
 ## Bounds and missing data
 
 For each allocation, sum an upper capacity for the path and for each cycle.

@@ -27,6 +27,11 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def exact_deficit_round(upper, D):
+    """Actual D=5O-P, so any positive P is congruent to -D modulo five."""
+    return max(0, upper-(upper+D)%5)
+
+
 def read_cycles(path):
     raw = json.loads(path.read_text())
     assert raw['schema'] == 'round143-paired-cycle-capacity-v1'
@@ -116,6 +121,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('cycles', nargs='*')
     ap.add_argument('--output', required=True)
+    ap.add_argument('--export-pairs', action='store_true')
     args = ap.parse_args()
     data = json.loads((ROOT/BASE).read_text())
     hashes = {BASE:sha(ROOT/BASE)}
@@ -148,7 +154,7 @@ def main():
             c = direct(a,b,D)
             if c is not None:
                 value = min(value,c)
-        return value
+        return exact_deficit_round(value,D)
 
     @functools.lru_cache(None)
     def cycle(a,q,e,h,b,D):
@@ -174,6 +180,7 @@ def main():
 
     back,forward = allocators(path,cycle)
     checked = {}
+    pair_cache = {}
     for row in residual:
         extra = row['Z']-row['d']-row['Qs']
         assert extra>=0
@@ -195,9 +202,32 @@ def main():
         else:
             row['upper']=min(row['upper'],upper) if row['upper'] is not None else upper
             row['status']='EQUALITY' if row['upper']==row['P_required'] else 'OPEN_CAPACITY'
+            if args.export_pairs and row['d']==1:
+                pair_id=(row['D2'],row['Qs'],extra,row['H'],row['Bstar'],
+                         5*row['k']-row['G'],row['P_required'])
+                if pair_id not in pair_cache:
+                    pairs=set()
+                    for allocation in options:
+                        budget=tuple(allocation['resources'])
+                        for ck in itertools.product(*(range(x+1) for x in budget)):
+                            pk=tuple(x-y for x,y in zip(budget,ck))
+                            cu,pu=cycle(*ck),path(*pk)
+                            if not cu or not pu or cu+pu<row['P_required']:
+                                continue
+                            for cp in range(max(1,row['P_required']-pu),cu+1):
+                                pp=row['P_required']-cp
+                                if pp<1 or (cp+ck[-1])%5 or (pp+pk[-1])%5:
+                                    continue
+                                def literal_query(key,p):
+                                    a,q,e,h,b,D=key
+                                    return a,q,a+q+e,h,b,D,p
+                                pairs.add((literal_query(pk,pp),literal_query(ck,cp)))
+                    pair_cache[pair_id]=sorted(pairs)
+                row['component_exact_P_pairs']=[dict(path=p,cycle=c) for p,c in pair_cache[pair_id]]
     data.update(schema='round143-path-cycle-convolution-v1',component_input_sha256=hashes,
                 component_verifier_sha256=sha(Path(__file__)),
                 component_suffix_cells=nchecked,component_allocation_cells=len(checked),
+                component_exact_P_pair_domains=len(pair_cache),
                 component_cycle_capacity_evidence=[evidence[k] for k in sorted(evidence)],
                 component_missing_cell_policy='proved opened-path relaxation; no capped maximum used')
     data['counts']={str(L):dict(Counter(r['status'] for r in data['rows'] if r['L']==L)) for L in (869,870,871)}

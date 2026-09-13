@@ -4,11 +4,16 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
-from verify_round143_component_convolution_codex import allocators
+from verify_round143_component_convolution_codex import allocators, exact_deficit_round
 from verify_round143_coupled_extraction_codex import NEG
 
 
 class ComponentConvolution(unittest.TestCase):
+    def test_actual_deficit_congruence(self):
+        for upper,D in itertools.product(range(30),range(15)):
+            choices=[p for p in range(1,upper+1) if (p+D)%5==0]
+            self.assertEqual(exact_deficit_round(upper,D),max(choices,default=0))
+
     def test_backward_forward_and_literal_product(self):
         # Deliberately nonmonotone exact A/Q and exact D data.
         pathrows={(0,0,0,0,0,0):5,(1,0,0,0,0,1):9,(0,0,0,0,1,0):10}
