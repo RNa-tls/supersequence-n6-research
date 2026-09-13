@@ -1,5 +1,18 @@
 # Status: n = 6 minimal superpermutation length
 
+> **Codex Round 143 — computer-assisted unconditional closure (2026-09-14).**
+> The independently regenerated necessary domains at lengths 869/870/871 have
+> 92/427/1548 rows, all excluded. The last 61 d>0 rows close by 20 strict
+> component bounds and 41 complete exact-size pair exclusions. Four path
+> queries and 80 cycle queries exhaust independently in two implementations.
+> The archived 872-character word is directly rechecked. **This repository's
+> computer-assisted proof establishes L6=872 without NR6.**
+> This is not a claim of external peer review or proof-assistant formalization.
+> [End-to-end proof](research/RR_ROUND143_UNCONDITIONAL_872_CODEX.md)
+> · [Final ledger](outputs/rr_round143_threshold_final_codex.json)
+> · [Independent verification](outputs/rr_round143_final_verified_codex.json)
+> Historical reports below retain their then-current bounds and limitations.
+
 > **Codex Round 143 — intermediate unconditional progress (2026-09-12).**
 > Dirty-sigma companion charging, a run-deficit hand theorem and two
 > independent coupled-capacity implementations exclude lengths869 and870.

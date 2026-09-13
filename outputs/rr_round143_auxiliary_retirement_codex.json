@@ -1,0 +1,66 @@
+{
+  "schema": "round143-auxiliary-capacity-retirement-v1",
+  "reason": "Required threshold exact-P certificate finished; remaining full-grid capacities no longer needed by the proof.",
+  "stopped": [
+    {
+      "pid": 587548,
+      "parent_pid": 595096,
+      "command_line": "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe 1 5 0 3 0 3 0 0 C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\3_0_3_0_1_5_1.jsonl",
+      "creation_time": "2026-09-13T14:04:55.3264600+09:00",
+      "cpu_seconds": 111.71875,
+      "working_set_bytes": 7524352,
+      "reason": "Redundant full-grid query; required threshold exact-P decisions independently complete",
+      "action": "INTENTIONAL_STOP_NOT_EXHAUSTION"
+    }
+  ],
+  "ordinary": {
+    "local_artifact": "outputs/rr_round143_cycle_ordinary_complete_codex.json",
+    "status": "PARTIAL_INTENTIONALLY_STOPPED",
+    "scheduled_cells": 12,
+    "paired_complete_cells": 8,
+    "in_progress_cell": [
+      3,
+      0,
+      3,
+      0,
+      1,
+      5
+    ],
+    "in_progress_status": "UNKNOWN_NOT_EXHAUSTED",
+    "unstarted_cells": [
+      [
+        4,
+        0,
+        4,
+        0,
+        1,
+        5
+      ],
+      [
+        3,
+        0,
+        3,
+        0,
+        0,
+        10
+      ],
+      [
+        4,
+        0,
+        4,
+        0,
+        0,
+        10
+      ]
+    ]
+  },
+  "exceptional": {
+    "local_artifact": "outputs/rr_round143_cycle_exceptional_complete_codex.json",
+    "status": "ALL_14_CELLS_COMPLETE",
+    "scheduled_cells": 14,
+    "paired_complete_cells": 14
+  },
+  "proof_sources": "Final proof consumes only immutable dominant/snapshot1 capacity certificates plus exact-P decisions, not the interrupted cell or any unstarted cell.",
+  "files_deleted": false,
+  "automatic_restart": false
+}
