@@ -1,15 +1,23 @@
 {
- "nodes": 37,
+ "nodes": 40,
  "on_path_to_final": 36,
  "status_counts": {
-  "EXHAUSTIVE_COMPUTATION": 11,
+  "REFUTED": 5,
   "INDEPENDENTLY_DUPLICATED": 23,
-  "PURE_HAND_PROOF": 2
+  "PURE_HAND_PROOF": 2,
+  "EXHAUSTIVE_COMPUTATION": 6
  },
  "offending": {
   "TEST_ONLY": [],
   "EXTERNAL_DEPENDENCY": [],
-  "UNAUDITED": []
+  "UNAUDITED": [],
+  "REFUTED": [
+   "C.final",
+   "C.lower",
+   "E.chaintab",
+   "E.heavytab",
+   "E.rows"
+  ]
  },
  "dangling": [],
  "pure_hand_proof_on_path": [
@@ -17,9 +25,28 @@
   "D.words"
  ],
  "validation_only": [
+  "E.rows870",
+  "C.lower870",
+  "C.interval",
   "V.archive"
  ],
- "ok": true,
+ "ok": false,
+ "surviving_conclusion": {
+  "root": "C.interval",
+  "on_path": 26,
+  "status_counts": {
+   "EXHAUSTIVE_COMPUTATION": 6,
+   "INDEPENDENTLY_DUPLICATED": 18,
+   "PURE_HAND_PROOF": 2
+  },
+  "offending": {
+   "TEST_ONLY": [],
+   "EXTERNAL_DEPENDENCY": [],
+   "UNAUDITED": [],
+   "REFUTED": []
+  },
+  "ok": true
+ },
  "dag": {
   "D.words": {
    "kind": "definition",
@@ -268,8 +295,8 @@
   },
   "E.chaintab": {
    "kind": "exhaustive computation",
-   "status": "EXHAUSTIVE_COMPUTATION",
-   "what": "chain capacity table: 1501 cells, 0 capped, 6.49e10 nodes",
+   "status": "REFUTED",
+   "what": "chain capacity table: 1501 cells, 0 capped, 6.49e10 nodes -- REFUTED in round 146: the pruning table it was computed with was not a valid upper bound (per-split lines under a combined-budget key, loader takes the minimum), so recorded capacities are BELOW the truth (0|0|0|0|9: 45 < 50; 0|0|0|0|10: 40 < 55; 87 of the 377 cells with b=0, d<=1). See research/ERRATA_146_CHAIN_UB.md",
    "deps": [
     "L.catalogue",
     "L.S6"
@@ -278,8 +305,8 @@
   },
   "E.heavytab": {
    "kind": "exhaustive computation",
-   "status": "EXHAUSTIVE_COMPUTATION",
-   "what": "heavy-merged chain table: 42 cells, 0 capped",
+   "status": "REFUTED",
+   "what": "heavy-merged chain table: 42 cells, 0 capped -- same defect as E.chaintab (computed with the same invalid pruning table)",
    "deps": [
     "L.catalogue",
     "L.S6"
@@ -288,8 +315,8 @@
   },
   "E.rows": {
    "kind": "exhaustive computation",
-   "status": "EXHAUSTIVE_COMPUTATION",
-   "what": "every coordinate row with t <= 4 is strict except two at t = 4",
+   "status": "REFUTED",
+   "what": "every coordinate row with t <= 4 is strict except two at t = 4 -- REFUTED as stated: 61 of the 353 rows at t=3 and 552 of the 1156 at t=4 are closed ONLY by a bound read off the refuted chain tables. The t=2 layer survives: all 85 rows are closed by the piece model alone",
    "deps": [
     "L.master",
     "L.envelope",
@@ -324,13 +351,13 @@
   "E.coexist": {
    "kind": "exhaustive computation",
    "status": "EXHAUSTIVE_COMPUTATION",
-   "what": "no witness admits the forced pure circuits (two solvers; positive controls from real 872 covers confirm the solvers find solutions when they exist)",
+   "what": "no witness admits the forced pure circuits: three independent procedures (recursive DFS over frozensets, subset enumeration, and round 146's layered BFS over bitmasks with no waste bookkeeping).  The third carries its own positive control -- the minimum number of tau-orbits that DOES cover F is 8 on all three witnesses, margin 2/2/1 -- so it said NO from a state in which it can say YES.  NOTE: this node survives round 146 but hangs off E.q1/E.q2, which hang off the refuted E.rows, so it closes nothing on its own",
    "deps": [
     "E.q1",
     "E.q2",
     "L.cover"
    ],
-   "where": "src/l6_circuit_coexist_144.py, src/l6_coexist_check3_144.py, src/l6_coexist_control_146.py"
+   "where": "src/l6_circuit_coexist_144.py, src/l6_coexist_check3_144.py, src/l6_cover_bfs_146.py"
   },
   "E.n3rigid": {
    "kind": "exhaustive computation",
@@ -350,8 +377,8 @@
   },
   "C.lower": {
    "kind": "conclusion",
-   "status": "EXHAUSTIVE_COMPUTATION",
-   "what": "L6 >= 872",
+   "status": "REFUTED",
+   "what": "L6 >= 872 -- RETRACTED in round 146; it rests on E.rows, which rests on the refuted chain tables",
    "deps": [
     "L.fixedrep",
     "L.master",
@@ -362,12 +389,48 @@
    ],
    "where": ""
   },
-  "C.final": {
+  "E.rows870": {
+   "kind": "exhaustive computation",
+   "status": "EXHAUSTIVE_COMPUTATION",
+   "what": "every coordinate row with t <= 2 is strict, by the PIECE model alone (85 of 85 rows; the piece UB file emits only mask-00 cells, has no budget dimension in its key and no conflicting duplicate line, and five sampled cells recomputed with no table at all agree exactly)",
+   "deps": [
+    "L.master",
+    "L.envelope",
+    "L.extract",
+    "D.models",
+    "E.piecetab"
+   ],
+   "where": "src/l6_rows_final_144.py, outputs/rr_l6_chain_dependency_146.json"
+  },
+  "C.lower870": {
    "kind": "conclusion",
    "status": "EXHAUSTIVE_COMPUTATION",
-   "what": "L6 = 872",
+   "what": "L6 >= 870 -- what survives the round-146 retraction",
+   "deps": [
+    "L.fixedrep",
+    "L.master",
+    "E.rows870",
+    "E.n3rigid",
+    "L.splice"
+   ],
+   "where": ""
+  },
+  "C.final": {
+   "kind": "conclusion",
+   "status": "REFUTED",
+   "what": "L6 = 872 -- RETRACTED in round 146 (see C.lower)",
    "deps": [
     "C.lower",
+    "W.872"
+   ],
+   "where": ""
+  },
+  "C.interval": {
+   "kind": "conclusion",
+   "status": "EXHAUSTIVE_COMPUTATION",
+   "what": "L6 in {870, 871, 872}",
+   "deps": [
+    "C.lower870",
     "W.872"
    ],
    "where": ""

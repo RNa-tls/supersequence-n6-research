@@ -124,14 +124,23 @@ node("E.piecetab", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
      "implementations agreeing to the node count",
      ["L.catalogue", "L.S6", "L.companion"],
      "outputs/rr_l6_marked_capacity_table_144.json")
-node("E.chaintab", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
-     "chain capacity table: 1501 cells, 0 capped, 6.49e10 nodes",
+node("E.chaintab", "exhaustive computation", "REFUTED",
+     "chain capacity table: 1501 cells, 0 capped, 6.49e10 nodes -- REFUTED in "
+     "round 146: the pruning table it was computed with was not a valid upper "
+     "bound (per-split lines under a combined-budget key, loader takes the "
+     "minimum), so recorded capacities are BELOW the truth (0|0|0|0|9: 45 < 50; "
+     "0|0|0|0|10: 40 < 55; 87 of the 377 cells with b=0, d<=1). "
+     "See research/ERRATA_146_CHAIN_UB.md",
      ["L.catalogue", "L.S6"], "outputs/rr_l6_chain_capacity_144.json")
-node("E.heavytab", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
-     "heavy-merged chain table: 42 cells, 0 capped",
+node("E.heavytab", "exhaustive computation", "REFUTED",
+     "heavy-merged chain table: 42 cells, 0 capped -- same defect as "
+     "E.chaintab (computed with the same invalid pruning table)",
      ["L.catalogue", "L.S6"], "outputs/rr_l6_heavychain_capacity_144.json")
-node("E.rows", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
-     "every coordinate row with t <= 4 is strict except two at t = 4",
+node("E.rows", "exhaustive computation", "REFUTED",
+     "every coordinate row with t <= 4 is strict except two at t = 4 -- "
+     "REFUTED as stated: 61 of the 353 rows at t=3 and 552 of the 1156 at t=4 "
+     "are closed ONLY by a bound read off the refuted chain tables. "
+     "The t=2 layer survives: all 85 rows are closed by the piece model alone",
      ["L.master", "L.envelope", "L.extract", "D.models",
       "E.piecetab", "E.chaintab", "E.heavytab"],
      "src/l6_rows_final_144.py, outputs/rr_l6_rows_final_144.json")
@@ -143,12 +152,17 @@ node("E.q2", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
      "Q2 equality witnesses: exactly 1 up to left S6 (three routes)",
      ["E.rows", "L.S6"], "outputs/witness_144/wit_Q2*.jsonl")
 node("E.coexist", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
-     "no witness admits the forced pure circuits (two solvers; positive "
-     "controls from real 872 covers confirm the solvers find solutions when "
-     "they exist)",
+     "no witness admits the forced pure circuits: three independent procedures "
+     "(recursive DFS over frozensets, subset enumeration, and round 146's "
+     "layered BFS over bitmasks with no waste bookkeeping).  The third carries "
+     "its own positive control -- the minimum number of tau-orbits that DOES "
+     "cover F is 8 on all three witnesses, margin 2/2/1 -- so it said NO from "
+     "a state in which it can say YES.  NOTE: this node survives round 146 but "
+     "hangs off E.q1/E.q2, which hang off the refuted E.rows, so it closes "
+     "nothing on its own",
      ["E.q1", "E.q2", "L.cover"],
      "src/l6_circuit_coexist_144.py, src/l6_coexist_check3_144.py, "
-     "src/l6_coexist_control_146.py")
+     "src/l6_cover_bfs_146.py")
 node("E.n3rigid", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
      "rigidity of |Phi(W)|=|W| exhaustively over all words on 3 letters up to "
      "length 13: 2,391,471 words, 9,732 covers, 54 equal-length, 0 counterexamples",
@@ -160,11 +174,24 @@ node("W.872", "witness", "EXHAUSTIVE_COMPUTATION",
      [], "src/l6_proof_145.py::step1")
 
 # --------------------------------------------------------------- conclusions
-node("C.lower", "conclusion", "EXHAUSTIVE_COMPUTATION",
-     "L6 >= 872",
+node("C.lower", "conclusion", "REFUTED",
+     "L6 >= 872 -- RETRACTED in round 146; it rests on E.rows, which rests on "
+     "the refuted chain tables",
      ["L.fixedrep", "L.master", "E.rows", "E.coexist", "E.n3rigid", "L.splice"])
-node("C.final", "conclusion", "EXHAUSTIVE_COMPUTATION",
-     "L6 = 872", ["C.lower", "W.872"])
+node("E.rows870", "exhaustive computation", "EXHAUSTIVE_COMPUTATION",
+     "every coordinate row with t <= 2 is strict, by the PIECE model alone "
+     "(85 of 85 rows; the piece UB file emits only mask-00 cells, has no "
+     "budget dimension in its key and no conflicting duplicate line, and five "
+     "sampled cells recomputed with no table at all agree exactly)",
+     ["L.master", "L.envelope", "L.extract", "D.models", "E.piecetab"],
+     "src/l6_rows_final_144.py, outputs/rr_l6_chain_dependency_146.json")
+node("C.lower870", "conclusion", "EXHAUSTIVE_COMPUTATION",
+     "L6 >= 870 -- what survives the round-146 retraction",
+     ["L.fixedrep", "L.master", "E.rows870", "E.n3rigid", "L.splice"])
+node("C.final", "conclusion", "REFUTED",
+     "L6 = 872 -- RETRACTED in round 146 (see C.lower)", ["C.lower", "W.872"])
+node("C.interval", "conclusion", "EXHAUSTIVE_COMPUTATION",
+     "L6 in {870, 871, 872}", ["C.lower870", "W.872"])
 
 # -------- validation only: NOT a dependency of the proof
 node("V.archive", "certificate", "EXHAUSTIVE_COMPUTATION",
@@ -187,11 +214,17 @@ def closure(root):
 
 if __name__ == "__main__":
     dep = closure("C.final")
-    bad = {s: [n for n in sorted(dep) if N[n]["status"] == s]
-           for s in ("TEST_ONLY", "EXTERNAL_DEPENDENCY", "UNAUDITED")}
+    OFFEND = ("TEST_ONLY", "EXTERNAL_DEPENDENCY", "UNAUDITED", "REFUTED")
+    bad = {s: [n for n in sorted(dep) if N[n]["status"] == s] for s in OFFEND}
     counts = {}
     for n in sorted(dep):
         counts[N[n]["status"]] = counts.get(N[n]["status"], 0) + 1
+    # the conclusion that SURVIVES round 146, audited the same way
+    dep2 = closure("C.interval")
+    bad2 = {s: [n for n in sorted(dep2) if N[n]["status"] == s] for s in OFFEND}
+    counts2 = {}
+    for n in sorted(dep2):
+        counts2[N[n]["status"]] = counts2.get(N[n]["status"], 0) + 1
     # every node must be reachable-checked for dangling deps
     dangling = [(n, d) for n in N for d in N[n]["deps"] if d not in N]
     out = dict(nodes=len(N), on_path_to_final=len(dep),
@@ -200,6 +233,9 @@ if __name__ == "__main__":
                                         if N[n]["status"] == "PURE_HAND_PROOF"],
                validation_only=[n for n in N if n not in dep],
                ok=(not any(bad.values()) and not dangling),
+               surviving_conclusion=dict(
+                   root="C.interval", on_path=len(dep2), status_counts=counts2,
+                   offending=bad2, ok=(not any(bad2.values()) and not dangling)),
                dag={k: v for k, v in N.items()})
     (ROOT / "outputs" / "rr_l6_dag_146.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=1))
