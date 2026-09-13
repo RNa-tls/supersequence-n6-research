@@ -1,0 +1,729 @@
+{
+  "schema": "round143-paired-cycle-capacity-v1",
+  "source_commit": "3557cb938a977a70ef3226ef8d2903da6d31366b",
+  "source_provenance": [
+    {
+      "path": "src/round143_cycle_runs_codex.c",
+      "committed_lf_sha256": "e907a936b16bdf1b7434d5b52d6e8eb24aa27d29a0a040e97ab0afb27d21f0f6",
+      "runtime_sha256": "e907a936b16bdf1b7434d5b52d6e8eb24aa27d29a0a040e97ab0afb27d21f0f6",
+      "binary_sha256": "f364aebb2d9c98268fff8844fc18967129be2d98423ad6a453eb2ef1157767c6",
+      "compile_argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Temp\\round137_compiler\\ziglang\\zig.exe",
+        "cc",
+        "-O3",
+        "-std=c11",
+        "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\src\\round143_cycle_runs_codex.c",
+        "-o",
+        "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_runs_codex_e907a936b16b.exe"
+      ]
+    },
+    {
+      "path": "src/round143_cycle_ports_independent.c",
+      "committed_lf_sha256": "f8aca3d126c920895316b6fb8bbd5bfd9756dc092bb58d3714e5a26ac76f7b7b",
+      "runtime_sha256": "f8aca3d126c920895316b6fb8bbd5bfd9756dc092bb58d3714e5a26ac76f7b7b",
+      "binary_sha256": "8b67564f28fcc5e50130708e6cc0bc0451396c3aab265a52b829a359b126de60",
+      "compile_argv": [
+        "C:\\Users\\parks\\AppData\\Local\\Temp\\round137_compiler\\ziglang\\zig.exe",
+        "cc",
+        "-O3",
+        "-std=c11",
+        "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\src\\round143_cycle_ports_independent.c",
+        "-o",
+        "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe"
+      ]
+    },
+    {
+      "path": "src/run_round143_cycle_capacities_codex.py",
+      "committed_lf_sha256": "7719444b93ff48fafad5c7e59a988861972dae77342603900b7238ee86b3f78c",
+      "runtime_sha256": "7719444b93ff48fafad5c7e59a988861972dae77342603900b7238ee86b3f78c"
+    },
+    {
+      "path": "src/verify_round143_cycle_controls_codex.py",
+      "committed_lf_sha256": "dde8388af8452e80c24728fc580a13ac0a923c7cfe206c6848e8cf0934c6fdcb",
+      "runtime_sha256": "dde8388af8452e80c24728fc580a13ac0a923c7cfe206c6848e8cf0934c6fdcb"
+    },
+    {
+      "path": "src/run_round143_general_prefix_codex.py",
+      "committed_lf_sha256": "dcea1ec98363d0bdcc418588a4f470293eb82585917d0659bf7bee1ede42a6d6",
+      "runtime_sha256": "dcea1ec98363d0bdcc418588a4f470293eb82585917d0659bf7bee1ede42a6d6"
+    }
+  ],
+  "argv": [
+    "src/run_round143_cycle_capacities_codex.py",
+    "--cells",
+    "0:0:0:0:2:2,1:0:1:0:2:2,2:0:2:0:2:2,0:0:0:0:1:7,1:0:1:0:1:7,2:0:2:0:1:7,3:0:3:0:2:0,4:0:4:0:2:0,3:0:3:0:1:5,4:0:4:0:1:5,3:0:3:0:0:10,4:0:4:0:0:10",
+    "--cap",
+    "0",
+    "--output",
+    "outputs/rr_round143_cycle_ordinary_complete_codex.json"
+  ],
+  "compiler": "0.16.0",
+  "scope": "Nonpure beta cycles; A/B closing preferred when present; exact A/Q; upper R/H/b/D; all prefix ports distinct",
+  "rows": [
+    {
+      "A": 0,
+      "Qs": 0,
+      "R": 0,
+      "H": 0,
+      "b": 2,
+      "D": 2,
+      "producer": {
+        "schema": "round143-cycle-whole-runs-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 50,
+        "accepted_cycles": 1051,
+        "completed": true,
+        "capped": false,
+        "nodes": 1663407,
+        "exported_prefixes": 9,
+        "suffix_bound_enabled": false,
+        "suffix_bound_prunes": 0,
+        "transcript_fnv64": "ed772a782096ed39",
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_runs_codex_e907a936b16b.exe",
+          "2",
+          "2",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\0_0_0_0_2_2_0.jsonl"
+        ],
+        "seconds": 0.10117609999724664,
+        "stdout_sha256": "ba3146f7457107d1798dfa0f267a53c8c31d2515c91dae19b737fd3eb479989c",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/0_0_0_0_2_2_0.jsonl",
+        "export_sha256": "6087a3b99aceda122afb414f310345bcf5cd2a7b6a42225126845e85f8f904d2",
+        "independently_replayed_grid_witnesses": 9
+      },
+      "independent": {
+        "schema": "round143-cycle-independent-port-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 50,
+        "accepted_cycles": 1051,
+        "b": 2,
+        "D": 2,
+        "A_exact": 0,
+        "Qs_exact": 0,
+        "R_cap": 0,
+        "H_cap": 0,
+        "target_passes": 120,
+        "node_cap": 0,
+        "nodes": 18117661,
+        "max_depth": 71,
+        "completed": true,
+        "capped": false,
+        "status": "EXHAUSTED_FINITE_MODEL",
+        "exported_prefixes": 9,
+        "extrema_complete": true,
+        "port_collision_prunes": 1962624,
+        "repeat_budget_prunes": 15553978,
+        "resource_prunes": 12906,
+        "deficit_prunes": 13661765,
+        "suffix_bound_prunes": 0,
+        "suffix_bound_enabled": false,
+        "suffix_bound_rows": 0,
+        "suffix_bound_fnv64": "cbf29ce484222325",
+        "geometry_comparisons": 518400,
+        "geometry_fnv64": "5daf83e139d23211",
+        "transcript_fnv64": "814aec219056d2ea",
+        "export_fnv64": "b9b119828a250694",
+        "cpu_seconds": 1.256,
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe",
+          "2",
+          "2",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\0_0_0_0_2_2_1.jsonl"
+        ],
+        "seconds": 1.2970337999868207,
+        "stdout_sha256": "658b0868ff15c176518ea3b85d99b75c9a2d723d765e1bc05833674a2905355f",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/0_0_0_0_2_2_1.jsonl",
+        "export_sha256": "f207547f5e6d2ce6341bbfa2bf5d058233f20a2fbb77694a7464cdbfe0ec8736",
+        "independently_replayed_grid_witnesses": 9
+      },
+      "complete": true,
+      "status": "VERIFIED_CYCLE_CAPACITY",
+      "exact_resource_grid": [
+        {
+          "b": 0,
+          "D": 0,
+          "maximum": 20
+        },
+        {
+          "b": 0,
+          "D": 1,
+          "maximum": 4
+        },
+        {
+          "b": 0,
+          "D": 2,
+          "maximum": 8
+        },
+        {
+          "b": 1,
+          "D": 0,
+          "maximum": 35
+        },
+        {
+          "b": 1,
+          "D": 1,
+          "maximum": 19
+        },
+        {
+          "b": 1,
+          "D": 2,
+          "maximum": 23
+        },
+        {
+          "b": 2,
+          "D": 0,
+          "maximum": 50
+        },
+        {
+          "b": 2,
+          "D": 1,
+          "maximum": 34
+        },
+        {
+          "b": 2,
+          "D": 2,
+          "maximum": 38
+        }
+      ]
+    },
+    {
+      "A": 1,
+      "Qs": 0,
+      "R": 1,
+      "H": 0,
+      "b": 2,
+      "D": 2,
+      "producer": {
+        "schema": "round143-cycle-whole-runs-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 39,
+        "accepted_cycles": 162,
+        "completed": true,
+        "capped": false,
+        "nodes": 10893710,
+        "exported_prefixes": 5,
+        "suffix_bound_enabled": false,
+        "suffix_bound_prunes": 672131,
+        "transcript_fnv64": "c0981d152f3f4a2c",
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_runs_codex_e907a936b16b.exe",
+          "2",
+          "2",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\1_0_1_0_2_2_0.jsonl"
+        ],
+        "seconds": 0.4875177999783773,
+        "stdout_sha256": "74b6ded166811d84b20ea927b9d143d66edc6488ad3889409ce181e1c4dfaa6d",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/1_0_1_0_2_2_0.jsonl",
+        "export_sha256": "b74bfeb3683eb83e037fdcd0d3eea27a7c0e4bfb4058d5a0b318863b15b8b148",
+        "independently_replayed_grid_witnesses": 5
+      },
+      "independent": {
+        "schema": "round143-cycle-independent-port-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 39,
+        "accepted_cycles": 162,
+        "b": 2,
+        "D": 2,
+        "A_exact": 1,
+        "Qs_exact": 0,
+        "R_cap": 1,
+        "H_cap": 0,
+        "target_passes": 121,
+        "node_cap": 0,
+        "nodes": 172406493,
+        "max_depth": 74,
+        "completed": true,
+        "capped": false,
+        "status": "EXHAUSTED_FINITE_MODEL",
+        "exported_prefixes": 5,
+        "extrema_complete": true,
+        "port_collision_prunes": 18964944,
+        "repeat_budget_prunes": 129773632,
+        "resource_prunes": 4517444,
+        "deficit_prunes": 131669355,
+        "suffix_bound_prunes": 0,
+        "suffix_bound_enabled": false,
+        "suffix_bound_rows": 0,
+        "suffix_bound_fnv64": "cbf29ce484222325",
+        "geometry_comparisons": 518400,
+        "geometry_fnv64": "5daf83e139d23211",
+        "transcript_fnv64": "69eddefbd75521f5",
+        "export_fnv64": "042ce661b0392f83",
+        "cpu_seconds": 22.778,
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe",
+          "2",
+          "2",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\1_0_1_0_2_2_1.jsonl"
+        ],
+        "seconds": 22.810387900011847,
+        "stdout_sha256": "3f810be0d11bb0b2158caa9246f5052b8e93d9c9e0a0e4295ac3037c0c9437bb",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/1_0_1_0_2_2_1.jsonl",
+        "export_sha256": "0841e2340b00959b02def79719b626e40bde1dbaae767424629ce9ed0d737631",
+        "independently_replayed_grid_witnesses": 5
+      },
+      "complete": true,
+      "status": "VERIFIED_CYCLE_CAPACITY",
+      "exact_resource_grid": [
+        {
+          "b": 0,
+          "D": 1,
+          "maximum": 9
+        },
+        {
+          "b": 1,
+          "D": 1,
+          "maximum": 24
+        },
+        {
+          "b": 1,
+          "D": 2,
+          "maximum": 8
+        },
+        {
+          "b": 2,
+          "D": 1,
+          "maximum": 39
+        },
+        {
+          "b": 2,
+          "D": 2,
+          "maximum": 23
+        }
+      ]
+    },
+    {
+      "A": 2,
+      "Qs": 0,
+      "R": 2,
+      "H": 0,
+      "b": 2,
+      "D": 2,
+      "producer": {
+        "schema": "round143-cycle-whole-runs-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 40,
+        "accepted_cycles": 788,
+        "completed": true,
+        "capped": false,
+        "nodes": 40683745,
+        "exported_prefixes": 7,
+        "suffix_bound_enabled": false,
+        "suffix_bound_prunes": 15778112,
+        "transcript_fnv64": "5009b450848569ec",
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_runs_codex_e907a936b16b.exe",
+          "2",
+          "2",
+          "0",
+          "2",
+          "0",
+          "2",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\2_0_2_0_2_2_0.jsonl"
+        ],
+        "seconds": 2.0085911999922246,
+        "stdout_sha256": "6e46d214dbbc328d78b090cfefcb213b5bde5ddce12452067828d88b57622a3b",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/2_0_2_0_2_2_0.jsonl",
+        "export_sha256": "374a38b6a4461f85b75d9ddcc1d33de3db5aec013ca46b1b044ec7906c0d297d",
+        "independently_replayed_grid_witnesses": 7
+      },
+      "independent": {
+        "schema": "round143-cycle-independent-port-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 40,
+        "accepted_cycles": 788,
+        "b": 2,
+        "D": 2,
+        "A_exact": 2,
+        "Qs_exact": 0,
+        "R_cap": 2,
+        "H_cap": 0,
+        "target_passes": 122,
+        "node_cap": 0,
+        "nodes": 1008537001,
+        "max_depth": 86,
+        "completed": true,
+        "capped": false,
+        "status": "EXHAUSTED_FINITE_MODEL",
+        "exported_prefixes": 7,
+        "extrema_complete": true,
+        "port_collision_prunes": 115954245,
+        "repeat_budget_prunes": 701609131,
+        "resource_prunes": 40659024,
+        "deficit_prunes": 774926803,
+        "suffix_bound_prunes": 0,
+        "suffix_bound_enabled": false,
+        "suffix_bound_rows": 0,
+        "suffix_bound_fnv64": "cbf29ce484222325",
+        "geometry_comparisons": 518400,
+        "geometry_fnv64": "5daf83e139d23211",
+        "transcript_fnv64": "16d37c7f7b0ba6a3",
+        "export_fnv64": "c5486812d5a1765d",
+        "cpu_seconds": 151.799,
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe",
+          "2",
+          "2",
+          "0",
+          "2",
+          "0",
+          "2",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\2_0_2_0_2_2_1.jsonl"
+        ],
+        "seconds": 151.87243960000342,
+        "stdout_sha256": "ab1216d8174e3650f3b02bc729252a8cbd00dfd51f416d3243066d2ff739dcc0",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/2_0_2_0_2_2_1.jsonl",
+        "export_sha256": "7fd305ee0ae0fe3145742cccec2c76c86b07f6759471bbfb4858de604160d81f",
+        "independently_replayed_grid_witnesses": 7
+      },
+      "complete": true,
+      "status": "VERIFIED_CYCLE_CAPACITY",
+      "exact_resource_grid": [
+        {
+          "b": 0,
+          "D": 0,
+          "maximum": 10
+        },
+        {
+          "b": 1,
+          "D": 0,
+          "maximum": 25
+        },
+        {
+          "b": 1,
+          "D": 1,
+          "maximum": 9
+        },
+        {
+          "b": 1,
+          "D": 2,
+          "maximum": 13
+        },
+        {
+          "b": 2,
+          "D": 0,
+          "maximum": 40
+        },
+        {
+          "b": 2,
+          "D": 1,
+          "maximum": 24
+        },
+        {
+          "b": 2,
+          "D": 2,
+          "maximum": 28
+        }
+      ]
+    },
+    {
+      "A": 0,
+      "Qs": 0,
+      "R": 0,
+      "H": 0,
+      "b": 1,
+      "D": 7,
+      "producer": {
+        "schema": "round143-cycle-whole-runs-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 39,
+        "accepted_cycles": 726,
+        "completed": true,
+        "capped": false,
+        "nodes": 4916100,
+        "exported_prefixes": 12,
+        "suffix_bound_enabled": false,
+        "suffix_bound_prunes": 0,
+        "transcript_fnv64": "255749e911ed31b1",
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_runs_codex_e907a936b16b.exe",
+          "1",
+          "7",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\0_0_0_0_1_7_0.jsonl"
+        ],
+        "seconds": 0.2603114999947138,
+        "stdout_sha256": "1a099597c7bf08847446159228e61ef4eb341cff5751b6016d8e9d403c77eb4f",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/0_0_0_0_1_7_0.jsonl",
+        "export_sha256": "276ad1b7399dcfc7de78523de90e42f730449586faa056dddb8c34268b5c0bbe",
+        "independently_replayed_grid_witnesses": 12
+      },
+      "independent": {
+        "schema": "round143-cycle-independent-port-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 39,
+        "accepted_cycles": 726,
+        "b": 1,
+        "D": 7,
+        "A_exact": 0,
+        "Qs_exact": 0,
+        "R_cap": 0,
+        "H_cap": 0,
+        "target_passes": 120,
+        "node_cap": 0,
+        "nodes": 52636196,
+        "max_depth": 75,
+        "completed": true,
+        "capped": false,
+        "status": "EXHAUSTED_FINITE_MODEL",
+        "exported_prefixes": 12,
+        "extrema_complete": true,
+        "port_collision_prunes": 5833040,
+        "repeat_budget_prunes": 46739103,
+        "resource_prunes": 909886,
+        "deficit_prunes": 39371418,
+        "suffix_bound_prunes": 0,
+        "suffix_bound_enabled": false,
+        "suffix_bound_rows": 0,
+        "suffix_bound_fnv64": "cbf29ce484222325",
+        "geometry_comparisons": 518400,
+        "geometry_fnv64": "5daf83e139d23211",
+        "transcript_fnv64": "9920ed37c8db4872",
+        "export_fnv64": "2cc5f9cfe237837d",
+        "cpu_seconds": 4.586,
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe",
+          "1",
+          "7",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\0_0_0_0_1_7_1.jsonl"
+        ],
+        "seconds": 4.628279800002929,
+        "stdout_sha256": "5898c2cb24504f2069b62ed7fb94a92fb8ff249aa289370075dcbdf05c88ca98",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/0_0_0_0_1_7_1.jsonl",
+        "export_sha256": "cefbd039d94a8a819bd0f5224f1481c0f52a2489252241085cdb4cdef5ca286e",
+        "independently_replayed_grid_witnesses": 12
+      },
+      "complete": true,
+      "status": "VERIFIED_CYCLE_CAPACITY",
+      "exact_resource_grid": [
+        {
+          "b": 0,
+          "D": 0,
+          "maximum": 20
+        },
+        {
+          "b": 0,
+          "D": 1,
+          "maximum": 4
+        },
+        {
+          "b": 0,
+          "D": 2,
+          "maximum": 8
+        },
+        {
+          "b": 0,
+          "D": 6,
+          "maximum": 24
+        },
+        {
+          "b": 1,
+          "D": 0,
+          "maximum": 35
+        },
+        {
+          "b": 1,
+          "D": 1,
+          "maximum": 19
+        },
+        {
+          "b": 1,
+          "D": 2,
+          "maximum": 23
+        },
+        {
+          "b": 1,
+          "D": 3,
+          "maximum": 7
+        },
+        {
+          "b": 1,
+          "D": 4,
+          "maximum": 11
+        },
+        {
+          "b": 1,
+          "D": 5,
+          "maximum": 15
+        },
+        {
+          "b": 1,
+          "D": 6,
+          "maximum": 39
+        },
+        {
+          "b": 1,
+          "D": 7,
+          "maximum": 23
+        }
+      ]
+    },
+    {
+      "A": 1,
+      "Qs": 0,
+      "R": 1,
+      "H": 0,
+      "b": 1,
+      "D": 7,
+      "producer": {
+        "schema": "round143-cycle-whole-runs-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 28,
+        "accepted_cycles": 198,
+        "completed": true,
+        "capped": false,
+        "nodes": 34655641,
+        "exported_prefixes": 7,
+        "suffix_bound_enabled": false,
+        "suffix_bound_prunes": 1995467,
+        "transcript_fnv64": "c0feefb7ad1fa0ad",
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_runs_codex_e907a936b16b.exe",
+          "1",
+          "7",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\1_0_1_0_1_7_0.jsonl"
+        ],
+        "seconds": 1.5276182000234257,
+        "stdout_sha256": "1cb3714a89535c9fd33716a45e92b9f35162b1e2d443ec5ac2615ec354e60b04",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/1_0_1_0_1_7_0.jsonl",
+        "export_sha256": "e68fa8c0a65ec483d38ee6e65d4692db24e9daaeeef4f58d916b467206590fcb",
+        "independently_replayed_grid_witnesses": 7
+      },
+      "independent": {
+        "schema": "round143-cycle-independent-port-v2",
+        "proof_query": "CYCLE_CAPACITY",
+        "max_passes": 28,
+        "accepted_cycles": 198,
+        "b": 1,
+        "D": 7,
+        "A_exact": 1,
+        "Qs_exact": 0,
+        "R_cap": 1,
+        "H_cap": 0,
+        "target_passes": 121,
+        "node_cap": 0,
+        "nodes": 539630246,
+        "max_depth": 80,
+        "completed": true,
+        "capped": false,
+        "status": "EXHAUSTED_FINITE_MODEL",
+        "exported_prefixes": 7,
+        "extrema_complete": true,
+        "port_collision_prunes": 60888186,
+        "repeat_budget_prunes": 423309150,
+        "resource_prunes": 21402275,
+        "deficit_prunes": 408896514,
+        "suffix_bound_prunes": 0,
+        "suffix_bound_enabled": false,
+        "suffix_bound_rows": 0,
+        "suffix_bound_fnv64": "cbf29ce484222325",
+        "geometry_comparisons": 518400,
+        "geometry_fnv64": "5daf83e139d23211",
+        "transcript_fnv64": "009fb76a08fd3ef7",
+        "export_fnv64": "4019fce2fec59d1d",
+        "cpu_seconds": 77.833,
+        "argv": [
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\round143_round143_cycle_ports_independent_f8aca3d126c9.exe",
+          "1",
+          "7",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-alpha-gap\\outputs\\rr_round143_cycle_ordinary_complete_codex\\1_0_1_0_1_7_1.jsonl"
+        ],
+        "seconds": 77.87597639998421,
+        "stdout_sha256": "9048fa082125f738a3aa102505655f2725aac30efa219afea1bcc2e33ed9d521",
+        "export_file": "outputs/rr_round143_cycle_ordinary_complete_codex/1_0_1_0_1_7_1.jsonl",
+        "export_sha256": "75421f33f722a03ff011114ed670f744248e6d9468ebd51cfafa25ebc520c0b4",
+        "independently_replayed_grid_witnesses": 7
+      },
+      "complete": true,
+      "status": "VERIFIED_CYCLE_CAPACITY",
+      "exact_resource_grid": [
+        {
+          "b": 0,
+          "D": 1,
+          "maximum": 9
+        },
+        {
+          "b": 0,
+          "D": 7,
+          "maximum": 8
+        },
+        {
+          "b": 1,
+          "D": 1,
+          "maximum": 24
+        },
+        {
+          "b": 1,
+          "D": 2,
+          "maximum": 8
+        },
+        {
+          "b": 1,
+          "D": 3,
+          "maximum": 12
+        },
+        {
+          "b": 1,
+          "D": 4,
+          "maximum": 16
+        },
+        {
+          "b": 1,
+          "D": 7,
+          "maximum": 28
+        }
+      ]
+    }
+  ]
+}
