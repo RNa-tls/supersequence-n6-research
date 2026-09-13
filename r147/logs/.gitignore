@@ -1,0 +1,9 @@
+# Per-cell pruning tables and control scratch.  NOT committed: each one is
+# regenerated deterministically from r147/tables/chain_cells_147.json by
+# r147/src/ub147.py::write_table (and re-derived independently by
+# validate_table), so the committed cell ledger plus that code IS the
+# provenance.  The recorded ub_rows / ub_verified_used / ub_validation_ok
+# fields in each cell record pin down which table was used.
+ub/
+controls/
+failclosed/
