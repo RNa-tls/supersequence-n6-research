@@ -1,0 +1,364 @@
+{
+ "nodes": 32,
+ "conclusions": [
+  {
+   "root": "C.le872",
+   "claim": "L6 <= 872",
+   "nodes": 2,
+   "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 2
+   },
+   "offending": {},
+   "proved": true
+  },
+  {
+   "root": "C.ge870",
+   "claim": "L6 >= 870",
+   "nodes": 11,
+   "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 9,
+    "PURE_HAND_PROOF": 1,
+    "EXHAUSTIVE": 1
+   },
+   "offending": {},
+   "proved": true
+  },
+  {
+   "root": "C.ge871",
+   "claim": "L6 >= 871",
+   "nodes": 24,
+   "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 16,
+    "MISSING": 3,
+    "UNKNOWN_CAP": 2,
+    "EXHAUSTIVE": 2,
+    "PURE_HAND_PROOF": 1
+   },
+   "offending": {
+    "UNKNOWN_CAP": [
+     "E.chaintab147",
+     "E.heavytab147"
+    ],
+    "MISSING": [
+     "E.controls147",
+     "E.rows870",
+     "E.second147"
+    ]
+   },
+   "proved": false
+  },
+  {
+   "root": "C.ge872",
+   "claim": "L6 >= 872",
+   "nodes": 27,
+   "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 17,
+    "MISSING": 4,
+    "UNKNOWN_CAP": 2,
+    "EXHAUSTIVE": 3,
+    "PURE_HAND_PROOF": 1
+   },
+   "offending": {
+    "UNKNOWN_CAP": [
+     "E.chaintab147",
+     "E.heavytab147"
+    ],
+    "MISSING": [
+     "E.controls147",
+     "E.rows870",
+     "E.rows871",
+     "E.second147"
+    ]
+   },
+   "proved": false
+  },
+  {
+   "root": "C.eq872",
+   "claim": "L6 = 872",
+   "nodes": 30,
+   "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 19,
+    "MISSING": 4,
+    "UNKNOWN_CAP": 2,
+    "EXHAUSTIVE": 4,
+    "PURE_HAND_PROOF": 1
+   },
+   "offending": {
+    "UNKNOWN_CAP": [
+     "E.chaintab147",
+     "E.heavytab147"
+    ],
+    "MISSING": [
+     "E.controls147",
+     "E.rows870",
+     "E.rows871",
+     "E.second147"
+    ]
+   },
+   "proved": false
+  }
+ ],
+ "dag": {
+  "L.fixedrep": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "fixed representative: Phi never lengthens a cover, and |Phi(W)|=|W| forces W=Phi(W) (exhaustive at n=3 to length 13)",
+   "deps": [],
+   "where": "src/l6_fixed_representative_145.py, src/l6_rigidity_146.py"
+  },
+  "L.master": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "MASTER-142: L = 867 + k + Z + H + B* with every term >= 0",
+   "deps": [],
+   "where": "src/l6_master_identity_144.py"
+  },
+  "L.splice": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "successor splicing and the beta permutation",
+   "deps": [],
+   "where": "src/l6_splicing_145.py"
+  },
+  "L.incidence": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "K + R_int <= G+1, K = G+1 (mod 2), equality iff tree",
+   "deps": [],
+   "where": "src/l6_incidence_144.py, src/l6_incidence_graph_146.py"
+  },
+  "L.samehex": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "SAME-HEX: D2 + Qs <= R_int <= 2g",
+   "deps": [],
+   "where": "src/l6_same_hex_145.py"
+  },
+  "L.extract": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "extraction bookkeeping",
+   "deps": [],
+   "where": "src/l6_extraction_145.py"
+  },
+  "L.envelope": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "envelope: a <= D2, bb <= Qs, e <= Z-Qs, a+bb+e <= 2g",
+   "deps": [],
+   "where": "src/l6_envelope_146.py"
+  },
+  "L.monotone": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "(P1) capacity is monotone non-decreasing in every budget",
+   "deps": [],
+   "where": "research/RR_L6_R147_SOUND_UB.md section 2, r147/src/monotone147.py"
+  },
+  "L.hexcount": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "(P2) cap(K) <= 120 + a + bb + e",
+   "deps": [],
+   "where": "research/RR_L6_R147_SOUND_UB.md section 2"
+  },
+  "D.models": {
+   "status": "PURE_HAND_PROOF",
+   "what": "the three upper-bound models and what each relaxes",
+   "deps": [],
+   "where": "research/RR_L6_ENDGAME_144_CLAUDE.md"
+  },
+  "E.catalogue": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the searcher's geometry rebuilt from string algebra agrees on all ten tables (720 words, 120 hexagons, 144 orbits, 511,200 heavy connectors)",
+   "deps": [],
+   "where": "r147/src/catalogue147.py"
+  },
+  "E.soundub": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the pruning table is keyed by the full budget vector; every entry is min(120+a+bb+e, min over dominating verified cells), sound by (P1)+(P2), generated and then re-derived by an independent brute force",
+   "deps": [
+    "L.monotone",
+    "L.hexcount"
+   ],
+   "where": "r147/src/ub147.py"
+  },
+  "E.failclosed": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the loader rejects every malformed table (16/16 cases)",
+   "deps": [
+    "E.soundub"
+   ],
+   "where": "r147/src/failclosed147.py"
+  },
+  "E.chaintab147": {
+   "status": "UNKNOWN_CAP",
+   "what": "sound chain capacities: 722/825 cells EXACT_UNCAPPED, 103 unresolved",
+   "deps": [
+    "E.catalogue",
+    "E.soundub",
+    "E.failclosed"
+   ],
+   "where": "r147/tables/chain_cells_147.json"
+  },
+  "E.heavytab147": {
+   "status": "UNKNOWN_CAP",
+   "what": "sound heavy capacities: 0/276 cells EXACT_UNCAPPED, 276 unresolved",
+   "deps": [
+    "E.catalogue",
+    "E.soundub",
+    "E.failclosed"
+   ],
+   "where": "r147/tables/heavy_cells_147.json"
+  },
+  "E.mono147": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the sound table satisfies every proved monotonicity direction and the analytic bound, with zero violations",
+   "deps": [
+    "E.chaintab147",
+    "L.monotone",
+    "L.hexcount"
+   ],
+   "where": "r147/src/monotone147.py"
+  },
+  "E.controls147": {
+   "status": "MISSING",
+   "what": "no-UB controls: the table-pruned value equals the value computed with the pruning table switched off, on every control cell",
+   "deps": [
+    "E.chaintab147"
+   ],
+   "where": "r147/src/noub_controls147.py"
+  },
+  "E.second147": {
+   "status": "MISSING",
+   "what": "an independent implementation reproduces every load-bearing capacity",
+   "deps": [
+    "E.catalogue"
+   ],
+   "where": "r147/src/chain2_147.py"
+  },
+  "E.piecetab": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the piece capacity table, untouched by the round-146 defect: its UB file emits only mask-00 cells, has no budget dimension in its key and no conflicting duplicate row; mask dominance and monotonicity violations 0; five sampled cells recomputed with no table agree on all four masks",
+   "deps": [],
+   "where": "outputs/rr_l6_marked_capacity_table_144.json"
+  },
+  "L.catalogue": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the joint catalogue out of end(v) = sigma^{-1}(v)",
+   "deps": [],
+   "where": "src/l6_marked_capacity_144.py"
+  },
+  "E.rowsdef": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "coordinate rows regenerated from the definitions, agreeing as sets with the round-144 enumeration: 1 / 14 / 85 / 353 / 1156 groups for L = 867..871, and satisfied by all 44,127 archive covers",
+   "deps": [
+    "L.master",
+    "L.incidence",
+    "L.samehex",
+    "L.extract"
+   ],
+   "where": "r147/src/rows147.py"
+  },
+  "E.rows869": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "every coordinate row with L <= 869 (1 + 14 + 85 = 100 rows) is closed by the PIECE model alone, which never reads a chain table",
+   "deps": [
+    "E.rowsdef",
+    "E.piecetab",
+    "D.models"
+   ],
+   "where": "outputs/rr_l6_piece_only_870_146.json"
+  },
+  "E.rows870": {
+   "status": "MISSING",
+   "what": "L = 870: not evaluated",
+   "deps": [
+    "E.rowsdef",
+    "E.piecetab",
+    "E.chaintab147",
+    "E.heavytab147",
+    "E.mono147",
+    "E.controls147",
+    "E.second147",
+    "L.envelope",
+    "D.models"
+   ],
+   "where": "r147/src/rows_eval147.py"
+  },
+  "E.rows871": {
+   "status": "MISSING",
+   "what": "L = 871: not evaluated",
+   "deps": [
+    "E.rowsdef",
+    "E.piecetab",
+    "E.chaintab147",
+    "E.heavytab147",
+    "E.mono147",
+    "E.controls147",
+    "E.second147",
+    "L.envelope",
+    "D.models"
+   ],
+   "where": "r147/src/rows_eval147.py"
+  },
+  "E.coexist": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "no equality witness admits its forced pure circuits; three procedures, the third with a positive control (minimum orbits to cover F is 8)",
+   "deps": [
+    "L.incidence"
+   ],
+   "where": "src/l6_cover_bfs_146.py"
+  },
+  "W.872": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "data/verified_872_witness.txt is a cover of length 872",
+   "deps": [],
+   "where": "src/l6_proof_145.py::step1"
+  },
+  "V.archive": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "44,121 length-872 and 6 length-873 archive covers: 0 invariant failures. VALIDATION ONLY -- no lower bound depends on it",
+   "deps": [],
+   "where": "outputs/rr_l6_cleanroom_146.json"
+  },
+  "C.le872": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "L6 <= 872",
+   "deps": [
+    "W.872"
+   ],
+   "where": ""
+  },
+  "C.ge870": {
+   "status": "EXHAUSTIVE",
+   "what": "L6 >= 870",
+   "deps": [
+    "L.fixedrep",
+    "L.master",
+    "L.splice",
+    "E.rows869"
+   ],
+   "where": ""
+  },
+  "C.ge871": {
+   "status": "EXHAUSTIVE",
+   "what": "L6 >= 871",
+   "deps": [
+    "C.ge870",
+    "E.rows870"
+   ],
+   "where": ""
+  },
+  "C.ge872": {
+   "status": "EXHAUSTIVE",
+   "what": "L6 >= 872",
+   "deps": [
+    "C.ge871",
+    "E.rows871",
+    "E.coexist"
+   ],
+   "where": ""
+  },
+  "C.eq872": {
+   "status": "EXHAUSTIVE",
+   "what": "L6 = 872",
+   "deps": [
+    "C.ge872",
+    "C.le872"
+   ],
+   "where": ""
+  }
+ }
+}
