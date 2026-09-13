@@ -37,7 +37,7 @@ or "UNKNOWN_CAP" (hit the node cap -- NOT promoted to anything).
 """
 from __future__ import annotations
 import json, os, subprocess, sys, time
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -48,19 +48,27 @@ NODECAP = 200_000_000_000
 WORKERS = int(os.environ.get("RECHECK_WORKERS", "3"))
 
 
-def run_cell(cell):
+def run_cell(job):
+    """One cell, table-free.  `target` > 0 asks only "is `target` reachable?",
+    which is exhaustive for THAT question (a prefix of a chain that reaches
+    `target` always has reach2 >= target, so it is never pruned) and is how the
+    six cells round 144 recorded only as `bound_below` are re-checked."""
+    cell, target = job
     b, d, a, bb, e = cell
     t0 = time.time()
     r = subprocess.run([str(EXE), str(b), str(d), str(a), str(bb), str(e),
-                        "0", str(NODECAP), "-", "0"],
+                        "0", str(NODECAP), "-", str(target)],
                        capture_output=True, text=True, cwd=ROOT)
     if r.returncode != 0:
         return cell, dict(status="ERROR", stderr=r.stderr[:200])
     j = json.loads(r.stdout)
     return cell, dict(cc=j["cc"], nodes=j["nodes"], capped=j["capped"],
                       seconds=round(time.time() - t0, 1),
-                      pruned_with_table=j["pruned"],
-                      status="UNKNOWN_CAP" if j["capped"] else "exact")
+                      pruned_with_table=j["pruned"], target=target,
+                      status=("UNKNOWN_CAP" if j["capped"]
+                              else "exact" if not target
+                              else "bound_below" if j["cc"] < target
+                              else "target_reached"))
 
 
 def main(argv):
@@ -68,30 +76,51 @@ def main(argv):
     ledger = json.loads(LEDGER.read_text())
     done = json.loads(OUT.read_text()) if OUT.exists() else {}
     todo = [c for c in cells if "%d|%d|%d|%d|%d" % c not in done]
+    # a cell round 144 only ever bounded from below is re-checked in the same
+    # decision form at the same target, so the comparison is like for like
+    jobs = [(c, ledger.get("%d|%d|%d|%d|%d" % c, {}).get("bound_below", 0))
+            for c in todo]
     # cheapest first, so coverage grows fast and a kill loses little
-    todo.sort(key=lambda c: ledger.get("%d|%d|%d|%d|%d" % c, {}).get("nodes", 0))
+    jobs.sort(key=lambda j: (10 ** 6 if j[1] else
+                             ledger.get("%d|%d|%d|%d|%d" % j[0], {}).get("nodes", 0)))
     print(f"cells={len(cells)} already={len(done)} todo={len(todo)} "
           f"workers={WORKERS}", flush=True)
     t0 = time.time()
     with ProcessPoolExecutor(max_workers=WORKERS) as ex:
-        for i, (cell, rec) in enumerate(ex.map(run_cell, todo, chunksize=1)):
+        futs = [ex.submit(run_cell, j) for j in jobs]
+        for i, fut in enumerate(as_completed(futs)):
+            cell, rec = fut.result()
             key = "%d|%d|%d|%d|%d" % cell
             old = ledger.get(key, {})
             oldv = (old.get("bound_below", 0) - 1) if old.get("bound_below") else old.get("cc")
             rec["recorded_144"] = oldv
-            rec["verdict"] = ("TOO_SMALL" if rec.get("cc") is not None and oldv is not None
-                              and not rec["capped"] and rec["cc"] > oldv
-                              else "agrees" if rec.get("cc") == oldv else rec["status"])
+            if rec["capped"]:
+                rec["verdict"] = "UNKNOWN_CAP"
+            elif rec["status"] == "bound_below":
+                rec["verdict"] = "agrees"     # same question, same answer
+            elif rec["status"] == "target_reached":
+                rec["verdict"] = "TOO_SMALL"  # the target IS reachable, so the
+                # round-144 "CC <= target - 1" was an artifact of the bad table
+            elif oldv is not None and rec["cc"] > oldv:
+                rec["verdict"] = "TOO_SMALL"
+            elif rec["cc"] == oldv:
+                rec["verdict"] = "agrees"
+            else:
+                rec["verdict"] = "smaller_than_recorded"
             done[key] = rec
             OUT.write_text(json.dumps(done, indent=1, sort_keys=True) + "\n")
             if rec["verdict"] == "TOO_SMALL":
-                print(f"TOO_SMALL {key}: recorded {oldv} < true {rec['cc']}", flush=True)
+                print(f"TOO_SMALL {key}: recorded {oldv} < true {rec['cc']} "
+                      f"(target={rec['target']})", flush=True)
             if i % 25 == 0:
                 bad = sum(1 for v in done.values() if v["verdict"] == "TOO_SMALL")
                 print(f"[{i + 1}/{len(todo)}] {key} {rec['verdict']} "
                       f"too_small_so_far={bad} elapsed={time.time() - t0:.0f}s",
                       flush=True)
     bad = [k for k, v in done.items() if v["verdict"] == "TOO_SMALL"]
+    odd = [k for k, v in done.items() if v["verdict"] == "smaller_than_recorded"]
+    print("smaller_than_recorded (must be empty; a non-empty list would mean "
+          "the table-free run is NOT a relaxation):", odd)
     cap = [k for k, v in done.items() if v["status"] == "UNKNOWN_CAP"]
     print(json.dumps(dict(cells=len(done), too_small=len(bad),
                           unknown_cap=len(cap), too_small_keys=bad[:40])))
