@@ -1,0 +1,18 @@
+{
+ "note": "Two builds of the same round-147 searcher source exist.  The phase-2 table was produced by the first; the second differs only in the witness-argument gate (an empty or \"-\" witness path no longer enters witness mode, so the bestprune argument can be supplied), which does not touch the search.  The rebuilt binary reproduces sampled cells with IDENTICAL node counts.",
+ "phase2_build": {
+  "source_sha256": "c7a43dcfdec7",
+  "exe": "r147/l6chain147.exe",
+  "exe_sha256": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7"
+ },
+ "rebuilt_build": {
+  "source_sha256": "00bae86d3f48634440da474fc132fde5b95c3eef6b975ae46255e9604282b6ce",
+  "exe": "r147/l6chain147b.exe",
+  "exe_sha256": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0"
+ },
+ "reproduction_check": {
+  "cells": [[0,0,0,0,0,0],[0,4,1,0,2,0],[0,8,2,0,0,0],[0,14,0,0,0,0],[0,8,0,0,0,1],[1,2,1,0,0,0],[0,11,3,0,0,0]],
+  "mismatches": 0,
+  "node_counts_identical": true
+ }
+}
