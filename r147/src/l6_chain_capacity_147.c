@@ -398,7 +398,7 @@ int main(int argc, char **argv) {
     }
     BESTPRUNE = argc > 11 ? atoi(argv[11]) : have_ub;
     TARGET = argc > 9 ? atoi(argv[9]) : 0;
-    if (argc > 10) {
+    if (argc > 10 && argv[10][0] && strcmp(argv[10], "-")) {
         if (!TARGET) { fprintf(stderr, "witness mode needs a target\n"); return 2; }
         WIT = fopen(argv[10], "w");
         if (!WIT) { fprintf(stderr, "witness file\n"); return 2; }
