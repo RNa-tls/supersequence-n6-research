@@ -1,0 +1,203 @@
+{
+ "rows": [
+  {
+   "name": "L871_k3_G7_c7_h1",
+   "cell": [
+    0,
+    8,
+    0,
+    0,
+    0,
+    1
+   ],
+   "target": 92,
+   "c": 7,
+   "status": "EXHAUSTIVE",
+   "capped": false,
+   "nodes": 5775,
+   "cc": 92,
+   "seconds": 0.5,
+   "witnesses_raw": 1,
+   "classes_up_to_left_S6": 1,
+   "ub_rows": 82,
+   "ub_validation_ok": true,
+   "pure_circuit_test": [
+    {
+     "cls": 0,
+     "members": 1,
+     "ports": 92,
+     "bfs": {
+      "ports": 92,
+      "hex_simple": true,
+      "Fsize": 28,
+      "c": 7,
+      "F_equals_4c": true,
+      "coverable_by_c_orbits": false,
+      "nodes_at_c": 180,
+      "min_orbits_to_cover_F": 8,
+      "nodes_control": 23297,
+      "capped": false,
+      "margin": 1
+     },
+     "counting": {
+      "Fsize": 28,
+      "top_c": [
+       5,
+       5,
+       5,
+       5,
+       5,
+       5,
+       5
+      ],
+      "sum_top_c": 35,
+      "settles_row": false
+     }
+    }
+   ],
+   "all_excluded": true,
+   "all_controls_positive": true,
+   "row": {
+    "k": 3,
+    "Z": 0,
+    "H": 1,
+    "Bstar": 0,
+    "G": 7,
+    "g": 0,
+    "c": 7,
+    "d": 0,
+    "D2": 0,
+    "Qs": 0,
+    "h": 1,
+    "verdict": "EQUALITY",
+    "closed_by": "piece",
+    "bound": 92,
+    "required": 92,
+    "bounds": {
+     "piece": 92,
+     "split": 92,
+     "merged": 92
+    },
+    "flags": {
+     "piece": false,
+     "split": false,
+     "merged": false
+    }
+   }
+  },
+  {
+   "name": "L871_k4_G6_c6_h0",
+   "cell": [
+    0,
+    14,
+    0,
+    0,
+    0,
+    0
+   ],
+   "target": 96,
+   "c": 6,
+   "status": "EXHAUSTIVE",
+   "capped": false,
+   "nodes": 16555,
+   "cc": 96,
+   "seconds": 0.2,
+   "witnesses_raw": 2,
+   "classes_up_to_left_S6": 2,
+   "ub_rows": 41,
+   "ub_validation_ok": true,
+   "pure_circuit_test": [
+    {
+     "cls": 0,
+     "members": 1,
+     "ports": 96,
+     "bfs": {
+      "ports": 96,
+      "hex_simple": true,
+      "Fsize": 24,
+      "c": 6,
+      "F_equals_4c": true,
+      "coverable_by_c_orbits": false,
+      "nodes_at_c": 123,
+      "min_orbits_to_cover_F": 8,
+      "nodes_control": 7290,
+      "capped": false,
+      "margin": 2
+     },
+     "counting": {
+      "Fsize": 24,
+      "top_c": [
+       5,
+       5,
+       3,
+       3,
+       3,
+       3
+      ],
+      "sum_top_c": 22,
+      "settles_row": true
+     }
+    },
+    {
+     "cls": 1,
+     "members": 1,
+     "ports": 96,
+     "bfs": {
+      "ports": 96,
+      "hex_simple": true,
+      "Fsize": 24,
+      "c": 6,
+      "F_equals_4c": true,
+      "coverable_by_c_orbits": false,
+      "nodes_at_c": 248,
+      "min_orbits_to_cover_F": 8,
+      "nodes_control": 16303,
+      "capped": false,
+      "margin": 2
+     },
+     "counting": {
+      "Fsize": 24,
+      "top_c": [
+       5,
+       5,
+       5,
+       5,
+       3,
+       3
+      ],
+      "sum_top_c": 26,
+      "settles_row": false
+     }
+    }
+   ],
+   "all_excluded": true,
+   "all_controls_positive": true,
+   "row": {
+    "k": 4,
+    "Z": 0,
+    "H": 0,
+    "Bstar": 0,
+    "G": 6,
+    "g": 0,
+    "c": 6,
+    "d": 0,
+    "D2": 0,
+    "Qs": 0,
+    "h": 0,
+    "verdict": "EQUALITY",
+    "closed_by": "piece",
+    "bound": 96,
+    "required": 96,
+    "bounds": {
+     "piece": 96,
+     "split": 96
+    },
+    "flags": {
+     "piece": false,
+     "split": false
+    }
+   }
+  }
+ ],
+ "ok": true
+}
