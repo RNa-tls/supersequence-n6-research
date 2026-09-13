@@ -1,0 +1,49 @@
+{
+  "schema": "round143-publication-verification-v1",
+  "verified": true,
+  "analysis_author": "CODEX",
+  "remote": "https://github.com/RNa-tls/supersequence-n6-research.git",
+  "remote_branch": "codex/round143-dirty-threshold",
+  "verified_commit": "8415e3175d6accce16ce847beaec208b2db83c9d",
+  "parent_commit": "f176a0d5d0b92dbd0898dc752b3cfcd6f51023a9",
+  "ls_remote_output": "8415e3175d6accce16ce847beaec208b2db83c9d\trefs/heads/codex/round143-dirty-threshold",
+  "fresh_fetch_head_matched": true,
+  "published_file_count": 169,
+  "runtime_byte_identical_files": 168,
+  "line_ending_only_differences": {
+    "STATUS.md": {
+      "canonical_lf_sha256": "d7cd3f87d20712a067219a41600a2063c9b603ebffddc9ae57d5781d94c52709",
+      "runtime_sha256": "937d7f485295986d271d1918e8fd7aabdd26c0ef8417c0f53441a5fb21bf3af5",
+      "normalized_bytes_equal": true
+    }
+  },
+  "proof_input_hashes_checked_against_fetched_tree": 22,
+  "proof_input_mismatches": 0,
+  "published_lfs_pointer_count": 0,
+  "main_file_sha256": {
+    "research/RR_ROUND143_UNCONDITIONAL_872_CODEX.md": "0325a660f46cd1a35f5a80cbc52f37a3ee542429c79de770b79715e03e0a86c8",
+    "research/RR_ROUND143_CYCLE_SUFFIX_FINAL_AUDIT_CODEX.md": "173ec885ffab493e98135b9a6c9ec769a9a7c9e2cad62f7f7fdd9e02449e6876",
+    "outputs/rr_round143_threshold_final_codex.json": "31114ba6dd2d5b346f7e7bd24f9fd08e6233c97d302637fe7585da1b1a7a1d2c",
+    "outputs/rr_round143_final_verified_codex.json": "92b7d5c31574908d1a2bd9571be81dea65adf4343e4ae79cee6e76668478318b",
+    "outputs/rr_round143_cycle_pair_decisions_codex.json": "be231c61ffa2deeb78313fe4c29b99a451890a4c39083f2bc02bfb4bb21c61e7",
+    "src/verify_round143_end_to_end_codex.py": "700cc255c8e1569657596c41ceeac0b3cdab98123ba38dedfba4f37998018df5",
+    "tests/test_round143_end_to_end_codex.py": "1f18702417de36f0c7320e0cf8d3f30b7812239ef515867ef18ffa0579e8a641"
+  },
+  "test_results": {
+    "python_compile": "PASS",
+    "round143_unittests": {"passed": 26, "failed": 0},
+    "witness_unittests": {"passed": 6, "failed": 0},
+    "not_a_full_historical_repository_test_run": true
+  },
+  "publication_end_to_end_recheck": {
+    "verified": true,
+    "independent_arithmetic_rows": 2067,
+    "all_deterministic_fields_match_previous_final_certificate": true,
+    "only_differences": "elapsed_seconds in the three independently rerun static-cover decisions",
+    "threshold_closed": {"869": true, "870": true, "871": true},
+    "upper_witness_length": 872,
+    "upper_witness_distinct_permutations": 720
+  },
+  "attribution_note": "Git author metadata inherited the repository's configured Claude identity. The CODEX-labelled implementations, reports and audit work in this publication were performed by Codex; the Git identity is not evidence of independent Claude reproduction.",
+  "scope": "Remote publication and artifact consistency. Does not claim external peer review or proof-assistant formalization. Does not promote optional interrupted capacity queries to proof inputs."
+}
