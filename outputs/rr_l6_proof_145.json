@@ -1,4 +1,54 @@
 {
+ "step0_tables_not_refuted": {
+  "ok": false,
+  "too_small": 23,
+  "too_small_keys": [
+   "0|4|1|0|2",
+   "0|4|1|1|1",
+   "0|4|1|2|0",
+   "0|4|2|0|2",
+   "0|4|2|1|1",
+   "0|4|2|2|0",
+   "0|4|3|0|2",
+   "0|4|3|1|1",
+   "0|4|3|2|0",
+   "0|4|4|0|2",
+   "0|4|4|1|1",
+   "0|4|4|2|0",
+   "0|5|0|2|0",
+   "0|5|1|0|2",
+   "0|5|1|1|1",
+   "0|5|1|2|0",
+   "0|5|2|0|2",
+   "0|5|2|1|1",
+   "0|5|2|2|0",
+   "0|6|0|0|2"
+  ],
+  "unresolved": 362,
+  "unresolved_keys": [
+   "0|10|0|0|1",
+   "0|10|1|0|0",
+   "0|10|1|0|1",
+   "0|10|1|1|0",
+   "0|10|2|0|1",
+   "0|10|2|1|0",
+   "0|10|3|0|0",
+   "0|10|3|0|1",
+   "0|10|3|1|0",
+   "0|11|0|0|1",
+   "0|11|1|0|1",
+   "0|11|1|1|0",
+   "0|11|2|0|1",
+   "0|11|2|1|0",
+   "0|11|3|0|1",
+   "0|11|3|1|0",
+   "0|11|4|0|0",
+   "0|11|5|0|0",
+   "0|11|6|0|0",
+   "0|11|7|0|0"
+  ],
+  "reason": "the chain capacity table is refuted: recorded capacities are below the table-free truth"
+ },
  "step1_upper_bound": {
   "length": 872,
   "alphabet": 6,
@@ -244,10 +294,10 @@
   "ok": true
  },
  "verdict": {
-  "lower_bound_L6_ge_872": true,
+  "lower_bound_L6_ge_872": false,
   "upper_bound_L6_le_872": true,
-  "L6_equals_872": true,
+  "L6_equals_872": false,
   "uses_NR6": false,
-  "statement": "Every n=6 covering word has length at least 872, and a covering word of length 872 exists; hence L6 = 872."
+  "statement": "NOT ESTABLISHED -- the chain capacity tables step 9 reads are refuted (research/ERRATA_146_CHAIN_UB.md).  What survives: L6 >= 870 by the piece model alone and L6 <= 872 by the witness, so L6 is in {870, 871, 872}."
  }
 }

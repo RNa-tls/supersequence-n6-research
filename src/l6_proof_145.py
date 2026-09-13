@@ -42,6 +42,43 @@ def step1():
                 ok=(len(W) == 872 and got == need and len(alpha) == 6))
 
 
+def table_guard():
+    """REFUSE to certify while the chain capacity tables stand refuted.
+
+    ROUND 146.  This verifier's row step reads the cached capacity tables and
+    believes them, so it happily reported `L6 = 872` after round 146 proved the
+    chain table is NOT a valid upper bound (its pruning table collapsed
+    per-split capacities under a combined-budget key and the loader took the
+    minimum, so recorded capacities sit BELOW the truth).  A verifier that
+    cannot fail on refuted input is not a check, so the guard below is now the
+    first step: any cell whose table-free recheck beat the recorded value, or
+    any recheck still missing, blocks the certificate.
+    See research/ERRATA_146_CHAIN_UB.md.
+    """
+    rp = ROOT / "outputs" / "rr_l6_chain_recheck_146.json"
+    hp = ROOT / "outputs" / "rr_l6_heavy_recheck_146.json"
+    dp = ROOT / "outputs" / "rr_l6_chain_dependency_146.json"
+    if not rp.exists():
+        return dict(ok=False, reason="chain recheck has not been run at all")
+    ch = json.loads(rp.read_text())
+    hv = json.loads(hp.read_text()) if hp.exists() else {}
+    need = {"%d|%d|%d|%d|%d" % tuple(c)
+            for c in json.loads(dp.read_text())["cells"]} if dp.exists() else set()
+    too_small = sorted(k for k, v in ch.items() if v.get("verdict") == "TOO_SMALL")
+    too_small += sorted("heavy " + k for k, v in hv.items()
+                        if v.get("verdict") == "TOO_SMALL")
+    unresolved = sorted(k for k in need
+                        if ch.get(k, {}).get("status") not in ("exact", "bound_below"))
+    return dict(ok=not too_small and not unresolved,
+                too_small=len(too_small), too_small_keys=too_small[:20],
+                unresolved=len(unresolved), unresolved_keys=unresolved[:20],
+                reason=("the chain capacity table is refuted: recorded "
+                        "capacities are below the table-free truth"
+                        if too_small else
+                        "some load-bearing cell has no conclusive recheck"
+                        if unresolved else "tables clear"))
+
+
 def main():
     import l6_fixed_representative_145 as FR
     import l6_splicing_145 as SP
@@ -58,6 +95,7 @@ def main():
     import l6_coexist_check3_144 as CO3
 
     out = {}
+    out["step0_tables_not_refuted"] = table_guard()
     out["step1_upper_bound"] = step1()
 
     fr = FR.run(n4=120 if not FULL else 400)
@@ -163,7 +201,8 @@ def main():
         detail=eq, ok=all(v["excluded"] for v in eq.values()))
 
     lower = all(out[k]["ok"] for k in
-                ("step2_fixed_representative", "step3_FO", "step4_splicing",
+                ("step0_tables_not_refuted",
+                 "step2_fixed_representative", "step3_FO", "step4_splicing",
                  "step5_incidence", "step6_same_hex", "step7_bookkeeping",
                  "step8_geometry", "step9_rows", "step10_equality_rows"))
     upper = out["step1_upper_bound"]["ok"]
@@ -173,7 +212,12 @@ def main():
         uses_NR6=False,
         statement=("Every n=6 covering word has length at least 872, and a "
                    "covering word of length 872 exists; hence L6 = 872.")
-        if (lower and upper) else "NOT ESTABLISHED")
+        if (lower and upper) else
+        ("NOT ESTABLISHED -- the chain capacity tables step 9 reads are "
+         "refuted (research/ERRATA_146_CHAIN_UB.md).  What survives: "
+         "L6 >= 870 by the piece model alone and L6 <= 872 by the witness, "
+         "so L6 is in {870, 871, 872}."
+         if not out["step0_tables_not_refuted"]["ok"] else "NOT ESTABLISHED"))
     return out
 
 
