@@ -25,7 +25,11 @@ import ub147                                                        # noqa: E402
 
 EXE = R147 / "l6chain147.exe"
 SRC = R147 / "src" / "l6_chain_capacity_147.c"
-OUT = R147 / "tables" / "chain_cells_147.json"
+OUT = R147 / "tables" / os.environ.get("R147_OUT", "chain_cells_147.json")
+# extra already-verified stores to seed the pruning table from (the heavy pass
+# is pruned with the plain chain cells as well as with heavy ones)
+SEEDS = [R147 / "tables" / f for f in
+         os.environ.get("R147_SEEDS", "").split(",") if f]
 LOG = R147 / "logs" / "recompute147.log"
 NODECAP = int(os.environ.get("R147_NODECAP", "80000000000"))
 
@@ -94,6 +98,10 @@ def main(argv):
         if key in done and done[key].get("status") == "EXACT_UNCAPPED":
             continue
         store = store_from(done)
+        for sp in SEEDS:
+            if sp.exists():
+                for k, v in store_from(json.loads(sp.read_text())).items():
+                    store.setdefault(k, v)
         rec = run_one(cell, store, tmpdir)
         rec["provenance"] = "r147 phase2"
         done[key] = rec
