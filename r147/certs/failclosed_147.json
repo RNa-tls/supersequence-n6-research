@@ -1,0 +1,150 @@
+{
+ "cases": [
+  {
+   "case": "good_table",
+   "returncode": 0,
+   "stderr": [],
+   "expected": "accept",
+   "ok": true
+  },
+  {
+   "case": "wrong_magic",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: bad magic (expected \"UB7 <count>\")"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "no_magic",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: bad magic (expected \"UB7 <count>\")"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "arity_5_round144_chain_file",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: header says 3 rows, read 1 (truncated or padded)"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "arity_3_round144_piece_file",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: header says 2 rows, read 0 (truncated or padded)"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "truncated",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: header says 82 rows, read 79 (truncated or padded)"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "padded",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: header says 79 rows, read 82 (truncated or padded)"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "duplicate_conflicting_key",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: duplicate key 0 0 0 0 0 0 with conflicting values 20 and 19"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "index_out_of_range",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: row 1 out of range"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "value_out_of_range",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: row 1 out of range"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "negative_value",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: row 1 out of range"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "malformed_row",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: malformed row 2"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "non_monotone_in_d",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: monotonicity violated (dir 1) at 0 2 0 0 0 0"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "round144_chain_ub_verbatim",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: bad magic (expected \"UB7 <count>\")"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "round144_piece_ub_verbatim",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: bad magic (expected \"UB7 <count>\")"
+   ],
+   "expected": "reject",
+   "ok": true
+  },
+  {
+   "case": "missing_file",
+   "returncode": 3,
+   "stderr": [
+    "ubfile: cannot open /home/user/supersequence-n6-research/r147/logs/failclosed/does_not_exist.txt"
+   ],
+   "expected": "reject",
+   "ok": true
+  }
+ ],
+ "total": 16,
+ "rejected_as_required": 16,
+ "failures": [],
+ "ok": true
+}
