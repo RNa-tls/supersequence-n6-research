@@ -1,0 +1,63 @@
+{
+  "clauses": [
+    {
+      "clause": "skip_current",
+      "interpretation": "omit nonnegative current-orbit deficit",
+      "role": "MONOTONE_RELAXATION",
+      "verdict": "SOUND"
+    },
+    {
+      "clause": "opened_only",
+      "interpretation": "u=5-popcount over nonzero opened masks",
+      "role": "EXACT_IDENTITY",
+      "verdict": "SOUND"
+    },
+    {
+      "clause": "ignore_hist0",
+      "interpretation": "zero contributes zero",
+      "role": "EXACT_IDENTITY",
+      "verdict": "SOUND"
+    },
+    {
+      "clause": "descending_deficits",
+      "interpretation": "erase largest deficits to MINIMIZE required final deficit",
+      "role": "LOWER_BOUND_MINIMIZATION",
+      "verdict": "IDENTICAL"
+    },
+    {
+      "clause": "take_min",
+      "interpretation": "take=min(hist[d],tok_left)",
+      "role": "EXACT_RELAXED_ALLOCATION",
+      "verdict": "IDENTICAL"
+    },
+    {
+      "clause": "token_subtraction",
+      "interpretation": "one erased orbit per relaxed token",
+      "role": "NECESSARY_RESOURCE_LOWER_BOUND",
+      "verdict": "IDENTICAL"
+    },
+    {
+      "clause": "residual_sum",
+      "interpretation": "sum deficits not erased",
+      "role": "LOWER_BOUND_ON_FINAL_DEFICIT",
+      "verdict": "IDENTICAL"
+    },
+    {
+      "clause": "final_compare",
+      "interpretation": "reject iff lower bound > final deficit upper budget",
+      "role": "NECESSARY_CONDITION_FAILURE",
+      "verdict": "IDENTICAL"
+    }
+  ],
+  "budget_semantics": "all six are upper budgets",
+  "monotonicity": {
+    "tok": "nondecreasing acceptance",
+    "d": "nondecreasing acceptance",
+    "a": "feas independent; completion set nondecreasing",
+    "bb": "feas independent; completion set nondecreasing",
+    "e": "feas independent; completion set nondecreasing",
+    "h": "feas independent; completion set nondecreasing"
+  },
+  "only_rejection_clause": "tot > DMAX",
+  "universal_proof": "r150/PROOF.md"
+}

@@ -1,0 +1,71 @@
+{
+  "row_counts_with_s": {
+    "0": 1,
+    "1": 15,
+    "2": 100,
+    "3": 453,
+    "4": 1609
+  },
+  "row_total": 2178,
+  "t_le_4_maxima": {
+    "b": 4,
+    "d": 20,
+    "a": 20,
+    "bb": 3,
+    "e": 3,
+    "h": 4
+  },
+  "declared_limits": [
+    5,
+    40,
+    24,
+    24,
+    24,
+    6
+  ],
+  "load_bearing_cells": 905,
+  "load_bearing_budget_maxima": [
+    3,
+    18,
+    12,
+    2,
+    2,
+    3
+  ],
+  "all_stored_capacity_cells": 1101,
+  "dependence": "All 905 explicit load-bearing chain/heavy cells use production A feas(); B repeats the same condition. Historical marked/piece capacities use the same lemma too.",
+  "no_per_prune_trace_available": true,
+  "source_hashes": [
+    {
+      "file": "r147/src/l6_chain_capacity_147.c",
+      "worktree_sha256": "0fadaffc0d4cb47fca1de219c92bf625507569144cc569463bbfd1c0eed5e4f9",
+      "git_blob_sha256": "00bae86d3f48634440da474fc132fde5b95c3eef6b975ae46255e9604282b6ce",
+      "only_CRLF_difference": true
+    },
+    {
+      "file": "r147/src/chain2_147.c",
+      "worktree_sha256": "e4f043add0cc0d3db04fd9a1513316c1669ecba6791954e4cf9de9eb6e9e1992",
+      "git_blob_sha256": "6afc83a957c7693923639437c921335ae4fb1f85a4525ac528a45d8dd682b9d2",
+      "only_CRLF_difference": true
+    },
+    {
+      "file": "src/l6_marked_capacity_pruned_144.c",
+      "worktree_sha256": "1413a02386a67351cb84b380bbffb2843779881fefe1bde38d9278e536c65c29",
+      "git_blob_sha256": "05d24827132ef34a0cb71e32e0991aca08c3fed4ce32d4bc1feccae11afbb898",
+      "only_CRLF_difference": true
+    },
+    {
+      "file": "src/l6_marked_capacity_144.c",
+      "worktree_sha256": "4201874f4ec579db22ec4d474336235273dcff86e988a8ac9c7b09ce6521dadb",
+      "git_blob_sha256": "8244fc627f430d06e69336566b3816070150e889468ead7395b8634c7cd916bc",
+      "only_CRLF_difference": true
+    },
+    {
+      "file": "src/l6_chain_capacity_144.c",
+      "worktree_sha256": "2b09df6501fd70e7d4ecaead69e18e766536cd2a29a0c839734be3fb84f3bcf5",
+      "git_blob_sha256": "ec883fc431a75a9b40f1a5184f9acb590d686ef934f07eedb4f52e550f1ff5bf",
+      "only_CRLF_difference": true
+    }
+  ],
+  "ok": true
+}

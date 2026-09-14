@@ -1,0 +1,253 @@
+{
+  "mutations": 18,
+  "detected": 18,
+  "escaped": [],
+  "baseline_passes": true,
+  "restored_passes": true,
+  "ok": true,
+  "detail": [
+    {
+      "mutation": "none (baseline)",
+      "returncode": 0,
+      "failed": [],
+      "detected": true,
+      "note": "the clean tree must PASS"
+    },
+    {
+      "mutation": "1_capacity_decreased_by_1",
+      "target": "r147\\tables\\chain_cells_147.json",
+      "why": "an equality cell's capacity no longer equals the required port count",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C13_equality_cell_capacities_equal_required_ports"
+      ]
+    },
+    {
+      "mutation": "2_capacity_increased_by_1",
+      "target": "r147\\tables\\chain_cells_147.json",
+      "why": "breaks monotonicity against its neighbours",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C2_monotonicity_and_analytic_bound_recomputed"
+      ]
+    },
+    {
+      "mutation": "3_cell_removed",
+      "target": "r147\\tables\\chain_cells_147.json",
+      "why": "a load-bearing cell goes missing",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C1_no_load_bearing_cell_missing",
+        "C2_monotonicity_and_analytic_bound_recomputed",
+        "C2b_stored_monotonicity_certificate_agrees",
+        "C13_equality_cell_capacities_equal_required_ports"
+      ]
+    },
+    {
+      "mutation": "4_cell_marked_capped",
+      "target": "r147\\tables\\chain_cells_147.json",
+      "why": "a capped cell may never be used as a bound",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C1_all_cells_exact_uncapped",
+        "C2_monotonicity_and_analytic_bound_recomputed",
+        "C2b_stored_monotonicity_certificate_agrees"
+      ]
+    },
+    {
+      "mutation": "5_heavy_cell_removed",
+      "target": "r147\\tables\\heavy_cells_147.json",
+      "why": "the 92-port equality cell goes missing",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C1_no_load_bearing_cell_missing",
+        "C2_monotonicity_and_analytic_bound_recomputed",
+        "C2b_stored_monotonicity_certificate_agrees",
+        "C13_equality_cell_capacities_equal_required_ports"
+      ]
+    },
+    {
+      "mutation": "6_budget_columns_swapped",
+      "target": "r147\\tables\\chain_cells_147.json",
+      "why": "the a and bb budgets are transposed in a key",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C1_no_load_bearing_cell_missing"
+      ]
+    },
+    {
+      "mutation": "7_monotonicity_certificate_falsified",
+      "target": "r147\\certs\\monotonicity_147.json",
+      "why": "a monotonicity violation is reported",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C2b_stored_monotonicity_certificate_agrees"
+      ]
+    },
+    {
+      "mutation": "8_implementation_B_incomplete",
+      "target": "r147\\certs\\second_impl_147.json",
+      "why": "one load-bearing cell is only assumed, not cross-checked",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C3_implementation_B_agrees_everywhere"
+      ]
+    },
+    {
+      "mutation": "9_failclosed_certificate_falsified",
+      "target": "r147\\certs\\failclosed_147.json",
+      "why": "the loader would accept a round-144 UB file",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C4_loader_fails_closed"
+      ]
+    },
+    {
+      "mutation": "10_source_hash_changed",
+      "target": "r147\\certs\\binaries_147.json",
+      "why": "the recorded executable hash no longer matches",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "R150_historical_producer_hash_matches_1101_table_records"
+      ]
+    },
+    {
+      "mutation": "11_L870_row_left_open",
+      "target": "r148\\rows\\census_148.json",
+      "why": "one L=870 row survives",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C7_L870_zero_non_strict"
+      ]
+    },
+    {
+      "mutation": "12_L871_third_equality_row",
+      "target": "r148\\rows\\census_148.json",
+      "why": "a third equality row appears",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C8_L871_exactly_two_equality_rows"
+      ]
+    },
+    {
+      "mutation": "13_equality_witness_deleted",
+      "target": "r148\\witnesses\\row96_table.jsonl",
+      "why": "one of the two 96-port witnesses is removed",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C14_witness_files_recanonicalised_and_reexcluded"
+      ]
+    },
+    {
+      "mutation": "14_witness_permutation_rank_altered",
+      "target": "r148\\witnesses\\row96_table.jsonl",
+      "why": "one port index inside a witness is changed",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C14_witness_files_recanonicalised_and_reexcluded"
+      ]
+    },
+    {
+      "mutation": "15_coexistence_result_missing",
+      "target": "r148\\certs\\witnesses_148.json",
+      "why": "the coexistence verdicts are gone",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C10_coexistence_certificates_present",
+        "C10_all_equality_witnesses_excluded",
+        "C10_positive_controls_present"
+      ]
+    },
+    {
+      "mutation": "16_notable_route_marked_capped",
+      "target": "r148\\certs\\witnesses_148.json",
+      "why": "the table-free enumeration did not finish",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C9_equality_witnesses_enumerated_both_routes_one_without_table"
+      ]
+    },
+    {
+      "mutation": "17_872_witness_truncated",
+      "target": "data\\verified_872_witness.txt",
+      "why": "the upper-bound witness is no longer a cover",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C11_length_872_witness_is_a_cover"
+      ]
+    },
+    {
+      "mutation": "18_loadbearing_cell_not_in_ledger",
+      "target": "r147\\tables\\loadbearing_cells_147.json",
+      "why": "a load-bearing cell has no computed capacity",
+      "returncode": 1,
+      "detected": true,
+      "failed_checks": [
+        "C1_no_load_bearing_cell_missing"
+      ]
+    },
+    {
+      "mutation": "none (restored)",
+      "returncode": 0,
+      "failed": [],
+      "detected": true,
+      "note": "the tree must PASS again"
+    }
+  ],
+  "restored_r147_files_sha256": {
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\binaries_147.json": "e3f221f3b5e6bc5cfc12b5672f1fc1f48fbdd6e3f0d16cb7c6f5e2466c0139b2",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\catalogue_agreement_147.json": "8f56ed6bb444a6c5f217766d2dd3f8867909827d2bdd4cbe548e366e81a4f1f5",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\dag_147.json": "69339b12fbd2b31c274a698acfb561e5b301d6a6acc56367689327aaa1c61334",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\failclosed_147.json": "0018001fe9963879045f6b1dfdcf98deb3abb77325748af17fec2bb678e404df",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\monotonicity_147.json": "85e8018485988e4ccfeffc3d62753623d3046da53682dd324b7461a1da92021e",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\piece_only_870_147.json": "d7235ac6664074453404adde39d1a9b6f839b45689132f0766d6934fe303daac",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\rows_vs_archive_147.json": "4f7b94639b02ced4344826c2bff17f99fc410bc6572c7f3e587c5a3f1a2f0d82",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\second_impl_147.json": "a64815e568074d588cf06debfa938e9e2b02add9205c8d9fa985a1b79780ce19",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\certs\\witnesses_147.json": "c0e5bdae10fb0381a5428c5dac371bd68601a2404c914d8834f7f29ec870b83b",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\rows\\rows_eval_147.json": "72f2066a361f980e96b61268155beabd01fa83d46b8632fb52866313cd33e8ab",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\rows\\rows_regenerated_147.json": "62a948d1033a1e52a5f5cb0813252ff24b036db7671131499333d3d63f4b46e4",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\catalogue147.h": "0196a0a3a94688dca86322e69c2acc3987c2c9d77bea7d2f473706db500685cf",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\catalogue147.py": "2e3f4a722d393e397f7d5d262c16c08583e35004d5cfb615eff126844afac281",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\chain2_147.c": "6afc83a957c7693923639437c921335ae4fb1f85a4525ac528a45d8dd682b9d2",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\dag147.py": "069941dea3f15644c0143e18c24db301125d8b99528f895688ff2b795c3f2c04",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\failclosed147.py": "4f1ebdb5734c6d508235610bac96e36f4fb4c0604343312027662c8eff6f2609",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\genheader147.py": "c10bfff91e850e08783213771c93e50fcc51f74c7891d5f4b791bd765f54522f",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\l6_catalogue_dump_147.c": "e11e873352f1b7229c76059414dd265af62b275e1a41fc183ad10d9b7fa9e00b",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\l6_chain_capacity_147.c": "00bae86d3f48634440da474fc132fde5b95c3eef6b975ae46255e9604282b6ce",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\loadbearing147.py": "4413760dca437bf24c1178a17245c1e1b0e682105ee568155e29a2f574885535",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\monotone147.py": "a5e511dc16095cc14266c60a3cdea4cc9ba42acb89f136f32ba492deede7eb0f",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\nodeid147.py": "3839a299a83f1c0f33efac832b9732c124978242bc9a82ba0badd48db61802fb",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\noub_controls147.py": "b70c37b173f24273e2009286e4176f5a9c3ebfcdebc7afaf9698ef45453b0937",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\recompute147.py": "f6e993226dfe4d056765fe1bf6dd5dc1a4145e7764c97aa417aa3546b85d034d",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\rows147.py": "9f8ed17560d99e022bae1e4343556a0409fcd8a0b932969e8923347ea26a0d4b",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\rows_eval147.py": "213def1ea70719956ea257df301758f3d434ceae052fd55022220cf5a7c5f2d9",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\survivors147.py": "a60575ef1c2bdb8a8b098fe6c46faa4fba6fcb872eb8ce862164131f8c3b4805",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\ub147.py": "3d4535ac848b10d7c8b6ea8ee1798778867c3201ab89be069dc5b542d08e72bd",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\verify2_147.py": "0880bd38fed8874db1b14e06cab18e23145db7629e4cc903de004a21c4605f8b",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\src\\witness147.py": "e672daeca095ccd3cd5f8827d116d40b5f1c23ca92765d529f0e6b41565fbc1e",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\tables\\catalogue_C147.json": "8999d0d43c317db49f4b515cd332f80dcef7d55451d00ab48167b934dbb97d0d",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\tables\\chain_cells_147.json": "c72dca147aed7501f5b79b576a58604b70513076ef2aca186b6aa973b16d842d",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\tables\\heavy_cells_147.json": "77ff105d7bfa6bf78f1414bf9f9f3d402b8902d30875c3fbfd41540a39842fb0",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\tables\\heavy_dependency_147.json": "24713582fc0b6a351377fbf594c2e4b3c8b1f9d01b8a717b7f72cdfc3c3e9e28",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\tables\\loadbearing_cells_147.json": "acb4cc78fd5dc3f81431f564b4e40ec7e148fda3617ad8c559f7d9b6483177e5",
+    "C:\\Users\\parks\\Documents\\Codex\\2026-07-20\\a-n-ge-4-s-n\\supersequence-n6-research-round150-clean\\r147\\tables\\r146_table_free_seed.json": "776d04d185a3269f61f85fe118798bb7b3b182f9589d952c49015d4db4f310b2"
+  },
+  "verifier": "r150/src/master150.py; old 18 mutations unchanged"
+}

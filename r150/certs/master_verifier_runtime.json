@@ -1,0 +1,353 @@
+{
+ "verdict": "NOT CERTIFIED",
+ "certified": false,
+ "checks": [
+  {
+   "check": "C1_all_cells_exact_uncapped",
+   "ok": true,
+   "detail": {
+    "non_exact": {},
+    "capped": [],
+    "chain": 825,
+    "heavy": 276
+   }
+  },
+  {
+   "check": "C1_no_load_bearing_cell_missing",
+   "ok": true,
+   "detail": {
+    "load_bearing": 905,
+    "missing": []
+   }
+  },
+  {
+   "check": "C2_monotonicity_and_analytic_bound_recomputed",
+   "ok": true,
+   "detail": {
+    "cells": 1101,
+    "monotonicity_violations": 0,
+    "analytic_violations": 0,
+    "examples": []
+   }
+  },
+  {
+   "check": "C2b_stored_monotonicity_certificate_agrees",
+   "ok": true,
+   "detail": {
+    "cells": 1101,
+    "adjacent_violations": 0,
+    "comparable_violations": 0,
+    "analytic_violations": 0,
+    "ok": true
+   }
+  },
+  {
+   "check": "C3_implementation_B_agrees_everywhere",
+   "ok": true,
+   "detail": {
+    "cells_total": 905,
+    "verified": 905,
+    "agreeing": 905,
+    "disagreeing": [],
+    "identical_node_counts_no_table": 0,
+    "timeouts": [],
+    "ok": true
+   }
+  },
+  {
+   "check": "C4_loader_fails_closed",
+   "ok": true,
+   "detail": {
+    "total": 16,
+    "rejected_as_required": 16,
+    "failures": [],
+    "ok": true
+   }
+  },
+  {
+   "check": "C5_rows_from_definitions",
+   "ok": true,
+   "detail": {
+    "layers": {
+     "L867": 1,
+     "L868": 14,
+     "L869": 85,
+     "L870": 353,
+     "L871": 1156
+    },
+    "archive_profiles": 10,
+    "archive_words": 44127
+   }
+  },
+  {
+   "check": "C6_L869_closed_by_piece_model_alone",
+   "ok": true,
+   "detail": {
+    "L867": {
+     "rows": 1,
+     "closed": 1
+    },
+    "L868": {
+     "rows": 14,
+     "closed": 14
+    },
+    "L869": {
+     "rows": 85,
+     "closed": 85
+    }
+   }
+  },
+  {
+   "check": "C7_L870_zero_non_strict",
+   "ok": true,
+   "detail": {
+    "tally": {
+     "STRICTLY_CLOSED": 353
+    },
+    "rows": 353,
+    "closed_by": {
+     "split": 202,
+     "merged": 20,
+     "piece": 131
+    }
+   }
+  },
+  {
+   "check": "C8_L871_exactly_two_equality_rows",
+   "ok": true,
+   "detail": {
+    "tally": {
+     "STRICTLY_CLOSED": 1154,
+     "EQUALITY": 2
+    },
+    "rows": 1156,
+    "closed_by": {
+     "piece": 374,
+     "merged": 135,
+     "split": 645
+    }
+   }
+  },
+  {
+   "check": "C9_equality_witnesses_enumerated_both_routes_one_without_table",
+   "ok": true,
+   "detail": [
+    {
+     "row": "row96",
+     "table": {
+      "w": 2,
+      "cls": 2,
+      "nodes": 16555
+     },
+     "notable": {
+      "w": 2,
+      "cls": 2,
+      "nodes": 900166560
+     },
+     "same_sha": true
+    },
+    {
+     "row": "row92",
+     "table": {
+      "w": 1,
+      "cls": 1,
+      "nodes": 5775
+     },
+     "notable": {
+      "w": 1,
+      "cls": 1,
+      "nodes": 149792913
+     },
+     "same_sha": true
+    }
+   ]
+  },
+  {
+   "check": "C10_coexistence_certificates_present",
+   "ok": true,
+   "detail": {
+    "rows": 2,
+    "with_certificates": 2
+   }
+  },
+  {
+   "check": "C10_all_equality_witnesses_excluded",
+   "ok": true,
+   "detail": [
+    {
+     "row": "row96",
+     "verdicts": [
+      {
+       "bfs": false,
+       "dfs": false,
+       "subset": false,
+       "min_orbits": 8
+      },
+      {
+       "bfs": false,
+       "dfs": false,
+       "subset": false,
+       "min_orbits": 8
+      }
+     ]
+    },
+    {
+     "row": "row92",
+     "verdicts": [
+      {
+       "bfs": false,
+       "dfs": false,
+       "subset": false,
+       "min_orbits": 8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "check": "C10_positive_controls_present",
+   "ok": true,
+   "detail": [
+    {
+     "row": "row96",
+     "controls": {
+      "bfs": "self-controlled: reports the minimum orbits covering F",
+      "dfs": "real length-872 cover instance (solver_controls_148.json)",
+      "subset": "same instance at the minimum orbit count"
+     }
+    },
+    {
+     "row": "row92",
+     "controls": {
+      "bfs": "self-controlled: reports the minimum orbits covering F",
+      "dfs": "real length-872 cover instance (solver_controls_148.json)",
+      "subset": "same instance at the minimum orbit count"
+     }
+    }
+   ]
+  },
+  {
+   "check": "C13_equality_cell_capacities_equal_required_ports",
+   "ok": true,
+   "detail": {
+    "expected": {
+     "0|14|0|0|0|0": 96,
+     "0|8|0|0|0|1": 92
+    },
+    "ledger": {
+     "0|14|0|0|0|0": 96,
+     "0|8|0|0|0|1": 92
+    }
+   }
+  },
+  {
+   "check": "C14_witness_files_recanonicalised_and_reexcluded",
+   "ok": true,
+   "detail": [
+    {
+     "row": "row96",
+     "routes": {
+      "table": {
+       "witnesses": 2,
+       "classes": 2,
+       "sha256": "c4dc920b90137c166ab8c02ff745af2d78f46ad0beec8e97525c1656169b1162",
+       "excluded": [
+        true,
+        true
+       ],
+       "min_orbits": [
+        8,
+        8
+       ]
+      },
+      "notable": {
+       "witnesses": 2,
+       "classes": 2,
+       "sha256": "c4dc920b90137c166ab8c02ff745af2d78f46ad0beec8e97525c1656169b1162",
+       "excluded": [
+        true,
+        true
+       ],
+       "min_orbits": [
+        8,
+        8
+       ]
+      }
+     },
+     "routes_agree": true
+    },
+    {
+     "row": "row92",
+     "routes": {
+      "table": {
+       "witnesses": 1,
+       "classes": 1,
+       "sha256": "aebfcf4c9a9944e2dfb00096c3ab36e1d993e74f649880e52888306aa7284bcc",
+       "excluded": [
+        true
+       ],
+       "min_orbits": [
+        8
+       ]
+      },
+      "notable": {
+       "witnesses": 1,
+       "classes": 1,
+       "sha256": "aebfcf4c9a9944e2dfb00096c3ab36e1d993e74f649880e52888306aa7284bcc",
+       "excluded": [
+        true
+       ],
+       "min_orbits": [
+        8
+       ]
+      }
+     },
+     "routes_agree": true
+    }
+   ]
+  },
+  {
+   "check": "C11_length_872_witness_is_a_cover",
+   "ok": true,
+   "detail": {
+    "length": 872,
+    "distinct_permutation_windows": 720,
+    "covers_all_720": true
+   }
+  },
+  {
+   "check": "C12_provenance_hashes_match_disk",
+   "ok": false,
+   "detail": {
+    "builds": {
+     "rebuilt_build": {
+      "exe": "r147/l6chain147b.exe",
+      "recorded": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0",
+      "on_disk": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0",
+      "required": true,
+      "matches": true
+     },
+     "phase2_build": {
+      "exe": "r147/l6chain147.exe",
+      "recorded": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
+      "on_disk": null,
+      "required": false,
+      "matches": false
+     }
+    },
+    "mismatches": [
+     "source: recorded 00bae86d3f48 but file hashes 0fadaffc0d4c"
+    ],
+    "source_sha256": {
+     "l6_chain_capacity_147.c": "0fadaffc0d4cb47fca1de219c92bf625507569144cc569463bbfd1c0eed5e4f9",
+     "chain2_147.c": "e4f043add0cc0d3db04fd9a1513316c1669ecba6791954e4cf9de9eb6e9e1992",
+     "ub147.py": "f062b63ca94e4e0bf8a477ab5f42368a7280f897d798df975bdb7a40710417db",
+     "l6_marked_capacity_pruned_144.c": "1413a02386a67351cb84b380bbffb2843779881fefe1bde38d9278e536c65c29"
+    }
+   }
+  }
+ ],
+ "failed": [
+  "C12_provenance_hashes_match_disk"
+ ]
+}

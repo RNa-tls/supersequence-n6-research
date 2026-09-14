@@ -1,0 +1,214 @@
+{
+ "mutations": 18,
+ "detected": 17,
+ "escaped": [
+  "10_source_hash_changed"
+ ],
+ "baseline_passes": true,
+ "restored_passes": true,
+ "ok": false,
+ "detail": [
+  {
+   "mutation": "none (baseline)",
+   "returncode": 0,
+   "failed": [],
+   "detected": true,
+   "note": "the clean tree must PASS"
+  },
+  {
+   "mutation": "1_capacity_decreased_by_1",
+   "target": "r147\\tables\\chain_cells_147.json",
+   "why": "an equality cell's capacity no longer equals the required port count",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C13_equality_cell_capacities_equal_required_ports"
+   ]
+  },
+  {
+   "mutation": "2_capacity_increased_by_1",
+   "target": "r147\\tables\\chain_cells_147.json",
+   "why": "breaks monotonicity against its neighbours",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C2_monotonicity_and_analytic_bound_recomputed"
+   ]
+  },
+  {
+   "mutation": "3_cell_removed",
+   "target": "r147\\tables\\chain_cells_147.json",
+   "why": "a load-bearing cell goes missing",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C1_no_load_bearing_cell_missing",
+    "C2_monotonicity_and_analytic_bound_recomputed",
+    "C2b_stored_monotonicity_certificate_agrees",
+    "C13_equality_cell_capacities_equal_required_ports"
+   ]
+  },
+  {
+   "mutation": "4_cell_marked_capped",
+   "target": "r147\\tables\\chain_cells_147.json",
+   "why": "a capped cell may never be used as a bound",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C1_all_cells_exact_uncapped",
+    "C2_monotonicity_and_analytic_bound_recomputed",
+    "C2b_stored_monotonicity_certificate_agrees"
+   ]
+  },
+  {
+   "mutation": "5_heavy_cell_removed",
+   "target": "r147\\tables\\heavy_cells_147.json",
+   "why": "the 92-port equality cell goes missing",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C1_no_load_bearing_cell_missing",
+    "C2_monotonicity_and_analytic_bound_recomputed",
+    "C2b_stored_monotonicity_certificate_agrees",
+    "C13_equality_cell_capacities_equal_required_ports"
+   ]
+  },
+  {
+   "mutation": "6_budget_columns_swapped",
+   "target": "r147\\tables\\chain_cells_147.json",
+   "why": "the a and bb budgets are transposed in a key",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C1_no_load_bearing_cell_missing"
+   ]
+  },
+  {
+   "mutation": "7_monotonicity_certificate_falsified",
+   "target": "r147\\certs\\monotonicity_147.json",
+   "why": "a monotonicity violation is reported",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C2b_stored_monotonicity_certificate_agrees"
+   ]
+  },
+  {
+   "mutation": "8_implementation_B_incomplete",
+   "target": "r147\\certs\\second_impl_147.json",
+   "why": "one load-bearing cell is only assumed, not cross-checked",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C3_implementation_B_agrees_everywhere"
+   ]
+  },
+  {
+   "mutation": "9_failclosed_certificate_falsified",
+   "target": "r147\\certs\\failclosed_147.json",
+   "why": "the loader would accept a round-144 UB file",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C4_loader_fails_closed"
+   ]
+  },
+  {
+   "mutation": "10_source_hash_changed",
+   "target": "r147\\certs\\binaries_147.json",
+   "why": "the recorded executable hash no longer matches",
+   "returncode": 0,
+   "detected": false,
+   "failed_checks": []
+  },
+  {
+   "mutation": "11_L870_row_left_open",
+   "target": "r148\\rows\\census_148.json",
+   "why": "one L=870 row survives",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C7_L870_zero_non_strict"
+   ]
+  },
+  {
+   "mutation": "12_L871_third_equality_row",
+   "target": "r148\\rows\\census_148.json",
+   "why": "a third equality row appears",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C8_L871_exactly_two_equality_rows"
+   ]
+  },
+  {
+   "mutation": "13_equality_witness_deleted",
+   "target": "r148\\witnesses\\row96_table.jsonl",
+   "why": "one of the two 96-port witnesses is removed",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C14_witness_files_recanonicalised_and_reexcluded"
+   ]
+  },
+  {
+   "mutation": "14_witness_permutation_rank_altered",
+   "target": "r148\\witnesses\\row96_table.jsonl",
+   "why": "one port index inside a witness is changed",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C14_witness_files_recanonicalised_and_reexcluded"
+   ]
+  },
+  {
+   "mutation": "15_coexistence_result_missing",
+   "target": "r148\\certs\\witnesses_148.json",
+   "why": "the coexistence verdicts are gone",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C10_coexistence_certificates_present",
+    "C10_all_equality_witnesses_excluded",
+    "C10_positive_controls_present"
+   ]
+  },
+  {
+   "mutation": "16_notable_route_marked_capped",
+   "target": "r148\\certs\\witnesses_148.json",
+   "why": "the table-free enumeration did not finish",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C9_equality_witnesses_enumerated_both_routes_one_without_table"
+   ]
+  },
+  {
+   "mutation": "17_872_witness_truncated",
+   "target": "data\\verified_872_witness.txt",
+   "why": "the upper-bound witness is no longer a cover",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C11_length_872_witness_is_a_cover"
+   ]
+  },
+  {
+   "mutation": "18_loadbearing_cell_not_in_ledger",
+   "target": "r147\\tables\\loadbearing_cells_147.json",
+   "why": "a load-bearing cell has no computed capacity",
+   "returncode": 1,
+   "detected": true,
+   "failed_checks": [
+    "C1_no_load_bearing_cell_missing"
+   ]
+  },
+  {
+   "mutation": "none (restored)",
+   "returncode": 0,
+   "failed": [],
+   "detected": true,
+   "note": "the tree must PASS again"
+  }
+ ]
+}

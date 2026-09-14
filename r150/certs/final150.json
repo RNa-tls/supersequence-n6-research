@@ -1,0 +1,92 @@
+{
+  "verdict": "ROUND150_FEAS_FULLY_CERTIFIED",
+  "success_route": "A: universal hand proof of all clauses + independent tests, not old-prune transcript certification",
+  "source_conformance_cases": 179850,
+  "implementations": 5,
+  "arbitrary_states": 104448,
+  "rejected_state_budget_pairs": 146784,
+  "false_rejections": 0,
+  "independent_n6_cells": 16,
+  "n6_matches": 16,
+  "n6_unknown": 0,
+  "targeted_mutations": {
+    "DETECTED": 12,
+    "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION": 6
+  },
+  "historical_mutations_before": {
+    "detected": 17,
+    "escaped": [
+      "10_source_hash_changed"
+    ]
+  },
+  "master150_mutations": {
+    "detected": 18,
+    "escaped": []
+  },
+  "master_verifier": true,
+  "row_units": {
+    "0": {
+      "with_s": 1,
+      "coordinate_groups": 1
+    },
+    "1": {
+      "with_s": 15,
+      "coordinate_groups": 14
+    },
+    "2": {
+      "with_s": 100,
+      "coordinate_groups": 85
+    },
+    "3": {
+      "with_s": 453,
+      "coordinate_groups": 353
+    },
+    "4": {
+      "with_s": 1609,
+      "coordinate_groups": 1156
+    }
+  },
+  "budget_maxima": {
+    "b": 4,
+    "d": 20,
+    "a": 20,
+    "bb": 3,
+    "e": 3,
+    "h": 4
+  },
+  "regression_stdout": "",
+  "regression_stderr": "test_budget_monotonicity (test_feas150.FeasTests.test_budget_monotonicity) ... ok\ntest_current_is_not_charged (test_feas150.FeasTests.test_current_is_not_charged) ... ok\ntest_dual_vs_allocation (test_feas150.FeasTests.test_dual_vs_allocation) ... ok\ntest_no_invalid_domain_certificate (test_feas150.FeasTests.test_no_invalid_domain_certificate) ... ok\ntest_phase_pattern_does_not_matter (test_feas150.FeasTests.test_phase_pattern_does_not_matter) ... ok\ntest_q0_is_not_permanently_exempt (test_feas150.FeasTests.test_q0_is_not_permanently_exempt) ... ok\ntest_untouched_old_orbit (test_feas150.FeasTests.test_untouched_old_orbit) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.022s\n\nOK\n",
+  "pure_hand_nodes": [
+    "H.feas",
+    "H.models"
+  ],
+  "cheapest_remaining_risk": "Error in an accepted extraction/charging premise or production state-maintenance implementation; not removed by A/B agreement. No proof-assistant kernel or historical per-prune certificates are claimed.",
+  "limits": "No large cell recomputation, no full historical search replay, no expansion of theorem scope beyond accepted R148/R149 premises.",
+  "input_commit": "195d11bdbfa68666b118010232258686195893fc",
+  "branch": "codex/round150-feas-audit",
+  "audit_sha256": {
+    "r150/PROOF.md": "5a79aadf57ccea83683fe65c20ae7eb7f27d85e773b1e4fe16638fe3d470fd6a",
+    "r150/REPORT.md": "a9cba14aab9002095beaaff385cbdbcfd4273714e00f868d6e54c4750b0519b9",
+    "r150/certs/arbitrary_states.json": "e5261595009b6cbe9d2497b80872bb2518721a5b55707f2ccc7386717be339c8",
+    "r150/certs/blocks.json": "fb091699072b698a84b8e6cb8b9a8db3db8d985b48d4ef93e70cc488143c3628",
+    "r150/certs/blocks_production_comparison.json": "f5c3cf64fb9dd949f7b774d0507ccc637325013c043cdf0cc8e7fd2d50b4d884",
+    "r150/certs/clauses_and_monotonicity.json": "6ed2fcb68864a6998ccb7bc0f61241ad5674e26344d6b01dfb27601e5485405c",
+    "r150/certs/coverage.json": "e781186d17415eedff9966449ea4479f680eac09105445585ba6db4756815a36",
+    "r150/certs/dag150.json": "103132c87c612ff87771eb527c6ac5d04ac620713313304f6f1b93cfa40e2c8a",
+    "r150/certs/legacy_mutation_unmodified_master.json": "c8908669425d3961909d31ad2386a3d3da567677914f0272e9850cd50234515a",
+    "r150/certs/master150.json": "90e9b73c0fb575f6a17bf27724366b58c25ce98a33142f1481e9862a5de7d615",
+    "r150/certs/master_mutations150.json": "ebd59a5be677b3b835f40fbecc8eb01069e3dc10a0e40fece9bcf8575982203f",
+    "r150/certs/master_verifier_clean.json": "a43b529470fbee713937870bd9f2176fd767f84004db2e26a2b2965b4b08402a",
+    "r150/certs/master_verifier_runtime.json": "3e02b03655fd17f0f2f9d9269b1ebb480dbfc794667325c90e66da73753f9192",
+    "r150/certs/source_conformance.json": "e3ddd55610b48999deadd4e54e420c457d78d9edcaf2604e3dc677c8ef941369",
+    "r150/src/audit_feas150.py": "df4609ad7cc29c7ced79fc1a6d93cacb2713c95e07c0eee1550de646fec40db2",
+    "r150/src/blocks150.py": "faf5e967a7348833bf1a3e6d771ec3acf83ca6200381ac12d66b04bb7b2b8423",
+    "r150/src/certificate150.py": "642c0c408697e12df0a240b895f15a7513c4e731893a7220d8ff4d057123f463",
+    "r150/src/compare_blocks150.py": "a803cfea3ff877da1c86538b1f1685feab908acdd3dde4df39d17cd99cd20502",
+    "r150/src/coverage150.py": "2087bbfc31839ee08288448af0dd7fa1547eafaaee1906b5f182f21958b91b7f",
+    "r150/src/finalize150.py": "f774718ca734dc792a792236e25b51626c23f2f6527ddbfc4e329098bc9698b2",
+    "r150/src/master150.py": "1c4eee4f911c2aaf9cd1d0b21d9dbc0abd97acef3166b0721eb444a3b6df583a",
+    "r150/src/replay_master_mutations150.py": "e830025d423b9831bf33a66031e98aae96b8b61555ea262b13732918d6d5d8f9",
+    "r150/src/test_feas150.py": "7043817acfd28d92952cd54d7aec16a9f3a85b16a7b01b303342f37ea0be790d"
+  }
+}

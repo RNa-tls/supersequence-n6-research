@@ -1,0 +1,265 @@
+{
+  "sources": [
+    {
+      "file": "r147/src/l6_chain_capacity_147.c",
+      "sha256": "0fadaffc0d4cb47fca1de219c92bf625507569144cc569463bbfd1c0eed5e4f9",
+      "definition_line": 241,
+      "call_lines": [
+        271
+      ],
+      "original_function": "static int feas(int tok, int skip) {\n    int hist[5] = {0, 0, 0, 0, 0};\n    for (int i = 0; i < nopened; ++i) {\n        int q = opened[i]; if (q == skip) continue;\n        hist[5 - pc5(phm[q])]++;\n    }\n    int tot = 0, left = tok;\n    for (int d = 4; d >= 1; --d) { int take = hist[d] < left ? hist[d] : left;\n        left -= take; tot += (hist[d] - take) * d; }\n    return tot <= DMAX;\n}",
+      "mathematical_condition": "TOP_K_ERASURE_LOWER_BOUND <= DMAX"
+    },
+    {
+      "file": "r147/src/chain2_147.c",
+      "sha256": "e4f043add0cc0d3db04fd9a1513316c1669ecba6791954e4cf9de9eb6e9e1992",
+      "definition_line": 80,
+      "call_lines": [
+        134
+      ],
+      "original_function": "static int feas(int tok, int corb) {\n    int hist[6] = {0, 0, 0, 0, 0, 0};\n    for (int q = 0; q < NQ2; ++q) {\n        if (!ocnt[q] || q == corb) continue;\n        hist[5 - ocnt[q]]++;\n    }\n    int tot = 0, left = tok;\n    for (int d = 4; d >= 1; --d) {\n        int take = hist[d] < left ? hist[d] : left;\n        left -= take;\n        tot += (hist[d] - take) * d;\n    }\n    return tot <= DM;\n}",
+      "mathematical_condition": "TOP_K_ERASURE_LOWER_BOUND <= DMAX"
+    },
+    {
+      "file": "src/l6_marked_capacity_pruned_144.c",
+      "sha256": "1413a02386a67351cb84b380bbffb2843779881fefe1bde38d9278e536c65c29",
+      "definition_line": 154,
+      "call_lines": [
+        184
+      ],
+      "original_function": "static int feas(int tok, int skip) {\n    int hist[5] = {0, 0, 0, 0, 0};\n    for (int i = 0; i < nopened; ++i) {\n        int q = opened[i];\n        int d = 5 - pc5(phm[q]);\n        if (q == skip) continue;\n        hist[d]++;\n    }\n    int tot = 0, left = tok;\n    for (int d = 4; d >= 1; --d) {\n        int take = hist[d] < left ? hist[d] : left;\n        left -= take; tot += (hist[d] - take) * d;\n    }\n    return tot <= DMAX;\n}",
+      "mathematical_condition": "TOP_K_ERASURE_LOWER_BOUND <= DMAX"
+    },
+    {
+      "file": "src/l6_marked_capacity_144.c",
+      "sha256": "4201874f4ec579db22ec4d474336235273dcff86e988a8ac9c7b09ce6521dadb",
+      "definition_line": 119,
+      "call_lines": [
+        143
+      ],
+      "original_function": "static int feas(int tok, int skip) {\n    int hist[5] = {0, 0, 0, 0, 0};\n    for (int i = 0; i < nopened; ++i) {\n        int q = opened[i];\n        int d = 5 - pc5(phm[q]);\n        if (q == skip) continue;\n        hist[d]++;\n    }\n    int tot = 0, left = tok;\n    for (int d = 4; d >= 1; --d) {\n        int take = hist[d] < left ? hist[d] : left;\n        left -= take; tot += (hist[d] - take) * d;\n    }\n    return tot <= DMAX;\n}",
+      "mathematical_condition": "TOP_K_ERASURE_LOWER_BOUND <= DMAX"
+    },
+    {
+      "file": "src/l6_chain_capacity_144.c",
+      "sha256": "2b09df6501fd70e7d4ecaead69e18e766536cd2a29a0c839734be3fb84f3bcf5",
+      "definition_line": 183,
+      "call_lines": [
+        213
+      ],
+      "original_function": "static int feas(int tok, int skip) {\n    int hist[5] = {0, 0, 0, 0, 0};\n    for (int i = 0; i < nopened; ++i) {\n        int q = opened[i]; if (q == skip) continue;\n        hist[5 - pc5(phm[q])]++;\n    }\n    int tot = 0, left = tok;\n    for (int d = 4; d >= 1; --d) { int take = hist[d] < left ? hist[d] : left;\n        left -= take; tot += (hist[d] - take) * d; }\n    return tot <= DMAX;\n}",
+      "mathematical_condition": "TOP_K_ERASURE_LOWER_BOUND <= DMAX"
+    }
+  ],
+  "cases": 179850,
+  "implementations": 5,
+  "disagreements": 0,
+  "finite_domain": "all deficit multisets of at most 8 noncurrent orbits, every current deficit 0..4, tok 0..5, boundary DMAX tests; plus seeded maximal-size cases",
+  "potential_transition_checks": {
+    "dual_DP_equality": 7722,
+    "fresh": 38610,
+    "old_current": 32175,
+    "old_different": 171600
+  },
+  "mutation_results": {
+    "reverse_final_inequality": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [],
+        "tok": 0,
+        "DMAX": 1,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "strict_lt": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [],
+        "tok": 0,
+        "DMAX": 0,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "lower_bound_plus_one": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [],
+        "tok": 0,
+        "DMAX": 0,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "lower_bound_minus_one": {
+      "expected": "SAFE_WEAKENING",
+      "actual": "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION",
+      "witness": null,
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "budget_minus_one": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [],
+        "tok": 0,
+        "DMAX": 0,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "budget_plus_one": {
+      "expected": "SAFE_WEAKENING",
+      "actual": "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION",
+      "witness": null,
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "minimum_instead_of_maximum_dual": {
+      "expected": "SAFE_WEAKENING",
+      "actual": "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION",
+      "witness": null,
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "erase_smallest_instead_of_largest": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          3,
+          4
+        ],
+        "tok": 1,
+        "DMAX": 3,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 3
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "delete_token_term": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          4
+        ],
+        "tok": 1,
+        "DMAX": 0,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "double_token_term": {
+      "expected": "SAFE_WEAKENING",
+      "actual": "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION",
+      "witness": null,
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "double_deficit_term": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          4
+        ],
+        "tok": 0,
+        "DMAX": 4,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 4
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "delete_deficit_term": {
+      "expected": "SAFE_WEAKENING",
+      "actual": "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION",
+      "witness": null,
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "include_current_orbit": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [],
+        "tok": 0,
+        "DMAX": 0,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "used_instead_of_remaining_tok_at_initial": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          4
+        ],
+        "tok": 1,
+        "DMAX": 0,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 0
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "used_instead_of_deficit_budget": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          4
+        ],
+        "tok": 0,
+        "DMAX": 4,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 4
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "wrong_deficit_4_minus_popcount": {
+      "expected": "SAFE_WEAKENING",
+      "actual": "NO_FALSE_REJECTION_BY_MONOTONE_RELAXATION",
+      "witness": null,
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "wrong_deficit_6_minus_popcount": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          3
+        ],
+        "tok": 0,
+        "DMAX": 3,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 3
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    },
+    "ascending_histogram": {
+      "expected": "UNSOUND_MUTANT",
+      "actual": "DETECTED",
+      "witness": {
+        "noncurrent_deficits": [
+          3,
+          4
+        ],
+        "tok": 1,
+        "DMAX": 3,
+        "current_deficit": 4,
+        "exact_optimistic_minimum": 3
+      },
+      "scope": "OPTIMISTIC_ABSTRACT_MODEL; NOT_A_PRODUCTION_COUNTEREXAMPLE"
+    }
+  },
+  "harness_sha256": "c1cc071067045287db60d99cbd429c88d825723ba48247a1366454b5b5e5821b",
+  "exe_sha256": "151b9dc63e1964b83e60b848f9ea87d27c31b66194eb994c9854c9e66ce5c317",
+  "ok": true
+}
