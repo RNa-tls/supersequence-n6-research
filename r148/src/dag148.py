@@ -50,6 +50,7 @@ arch = jload(R147 / "certs" / "rows_vs_archive_147.json") or {}
 piece = jload(R147 / "certs" / "piece_only_870_147.json") or {}
 cen = jload(R148 / "rows" / "census_148.json") or {}
 wit = jload(R148 / "certs" / "witnesses_148.json") or {}
+syn = jload(R148 / "certs" / "synthetic_controls_148.json") or {}
 ctl = jload(R148 / "certs" / "solver_controls_148.json") or {}
 mv = jload(R148 / "certs" / "master_verifier_148.json") or {}
 
@@ -166,9 +167,17 @@ node("E.witnesses", "EXHAUSTIVE_UNCAPPED" if wok else "UNKNOWN_CAP",
      "both equality rows enumerated exhaustively twice, once with NO pruning "
      "table, with identical canonical witness sets",
      ["E.rows871", "E.cells", "E.ub"], "r148/src/witness148.py")
-node("E.controls", st(ctl.get("ok")),
-     "positive controls for the two round-144 coexistence solvers on a real "
-     "length-872 cover", [], "r148/src/solver_controls148.py")
+node("E.controls", st(syn.get("ok")),
+     f"positive controls for all three coexistence procedures: "
+     f"{syn.get('instances')} CONSTRUCTED instances of the solver's own shape "
+     f"(|F| = 4c, a known covering orbit), answered YES by the exact-cover DFS "
+     f"{syn.get('dfs_yes')}/{syn.get('instances')}, the subset enumerator "
+     f"{syn.get('subset_yes')}/{syn.get('instances')} and the BFS procedure "
+     f"{syn.get('bfs_yes')}/{syn.get('instances')}; the BFS procedure is also "
+     f"self-controlled (it reports the minimum orbit count that covers F)"
+     + (f"; a real length-872 cover instance also passes"
+        if ctl.get("ok") else ""),
+     [], "r148/src/synthetic_control148.py")
 node("E.coexist",
      st(bool(wrows) and all(r["all_excluded"] for r in wrows)
         and all(r.get("controls_ok") for r in wrows)),

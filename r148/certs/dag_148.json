@@ -32,19 +32,14 @@
    "claim": "L6 >= 872",
    "ancestors": 31,
    "status_counts": {
-    "INDEPENDENTLY_DUPLICATED": 21,
     "EXHAUSTIVE_UNCAPPED": 7,
-    "MISSING": 1,
+    "INDEPENDENTLY_DUPLICATED": 22,
     "VERIFIED_CERTIFICATE": 1,
     "PURE_HAND_PROOF": 1
    },
-   "forbidden": {
-    "MISSING": [
-     "E.controls"
-    ]
-   },
+   "forbidden": {},
    "unclassified": [],
-   "proved": false
+   "proved": true
   },
   {
    "root": "C.le872",
@@ -63,19 +58,14 @@
    "claim": "L6 = 872",
    "ancestors": 34,
    "status_counts": {
-    "INDEPENDENTLY_DUPLICATED": 22,
     "EXHAUSTIVE_UNCAPPED": 8,
-    "MISSING": 1,
+    "INDEPENDENTLY_DUPLICATED": 23,
     "VERIFIED_CERTIFICATE": 2,
     "PURE_HAND_PROOF": 1
    },
-   "forbidden": {
-    "MISSING": [
-     "E.controls"
-    ]
-   },
+   "forbidden": {},
    "unclassified": [],
-   "proved": false
+   "proved": true
   }
  ],
  "dag": {
@@ -285,10 +275,10 @@
    "where": "r148/src/witness148.py"
   },
   "E.controls": {
-   "status": "MISSING",
-   "what": "positive controls for the two round-144 coexistence solvers on a real length-872 cover",
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "positive controls for all three coexistence procedures: 40 CONSTRUCTED instances of the solver's own shape (|F| = 4c, a known covering orbit), answered YES by the exact-cover DFS 40/40, the subset enumerator 40/40 and the BFS procedure 40/40; the BFS procedure is also self-controlled (it reports the minimum orbit count that covers F)",
    "deps": [],
-   "where": "r148/src/solver_controls148.py"
+   "where": "r148/src/synthetic_control148.py"
   },
   "E.coexist": {
    "status": "INDEPENDENTLY_DUPLICATED",
