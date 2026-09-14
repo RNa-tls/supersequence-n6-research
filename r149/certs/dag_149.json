@@ -1,0 +1,30 @@
+{
+ "ancestors_of_L6_eq_872": 40,
+ "status_counts": {
+  "VERIFIED_CERTIFICATE": 2,
+  "EXHAUSTIVE_UNCAPPED": 13,
+  "INDEPENDENTLY_DUPLICATED": 23,
+  "PURE_HAND_PROOF": 2
+ },
+ "forbidden": {},
+ "pure_hand_proof_nodes": [
+  "H.extraction_budgets",
+  "H.models"
+ ],
+ "h_models_corroboration_only_nodes": [
+  "H.walk_replay"
+ ],
+ "adversarial_trace": {
+  "assume": "a cover W with |W| <= 871 exists",
+  "step1": "t = |W| - 867 <= 4; by the fixed-representative reduction W may be taken to be its own fixed representative",
+  "step2": "its coordinate vector satisfies the row constraints, so it is one of the 1,609 rows at t <= 4",
+  "step3": "by Claim 1 its chains carry exactly 120 + G - 5c ports",
+  "step4": "by H.catalogue_complete + H.charging_rules + H.start_wlog those chains are walks in the transition system, and by H.extraction_budgets their resources are inside the row's budgets",
+  "step5": "for every row at t <= 4 except two, the computed maximum over such walks is STRICTLY below the required port count -- contradiction",
+  "step6": "for the two equality rows the maximum equals the requirement, so the chains must ATTAIN it; the equality witnesses were enumerated exhaustively twice, once with no pruning table",
+  "step7": "the incidence equality then forces the tree condition, all 120 hexagons used, and c pure circuits covering F with |F| = 4c; three independent solvers with positive controls show no such c orbits exist -- contradiction",
+  "which_lemma_must_break": "H.catalogue_complete or H.charging_rules: the cover's chain would have to use a joint outside the catalogue, or charge less than the rules say.  Both are closed by finite enumeration, not by sampling.",
+  "smallest_violating_object": "a chain with 21+ ports at budget (0,0,0,0,0,0); impossible arithmetically (P = 5*O) and by independent brute force"
+ },
+ "ok": true
+}

@@ -1,0 +1,33 @@
+{
+ "orbit_blocks_well_formed": true,
+ "every_orbit_meets_five_distinct_hexagons": true,
+ "exhaustive_nodes": 15120,
+ "max_ports_at_all_zero_budget": 20,
+ "max_orbits": 4,
+ "table_value": 20,
+ "agrees_with_table": true,
+ "arithmetic_note": "deficit 0 forces P = 5*O, so 21 ports is impossible before any search; the search settles O <= 4",
+ "witness_chain": [
+  "123456",
+  "234516",
+  "345126",
+  "451236",
+  "512346",
+  "234156",
+  "341526",
+  "415236",
+  "152346",
+  "523416",
+  "341256",
+  "412536",
+  "125346",
+  "253416",
+  "534126",
+  "412356",
+  "123546",
+  "235416",
+  "354126",
+  "541236"
+ ],
+ "ok": true
+}
