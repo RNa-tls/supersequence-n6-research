@@ -282,17 +282,39 @@ def test_872_witness_is_a_cover_of_length_872():
     assert got == need
 
 
-def test_end_to_end_verdict():
+def test_round145_verifier_refuses_on_its_refuted_tables():
+    """The round-145 end-to-end verifier must now FAIL, not succeed.
+
+    Its step 9 reads the round-144 chain capacity tables, and round 146 proved
+    those tables are not valid upper bounds (research/ERRATA_146_CHAIN_UB.md).
+    The guard added in round 146 is what makes it refuse.  A verifier that
+    still certified from refuted input would be the bug; this test pins the
+    refusal down so the retraction cannot silently come undone.
+    """
     import l6_proof_145 as PR
     r = PR.main()
-    for k, v in r.items():
-        if k == "verdict":
-            continue
-        assert v["ok"], (k, v)
-    assert r["verdict"]["lower_bound_L6_ge_872"]
-    assert r["verdict"]["upper_bound_L6_le_872"]
-    assert r["verdict"]["L6_equals_872"]
+    assert r["step0_tables_not_refuted"]["ok"] is False
+    assert r["step0_tables_not_refuted"]["too_small"] > 0
+    assert r["verdict"]["lower_bound_L6_ge_872"] is False
+    assert r["verdict"]["L6_equals_872"] is False
     assert r["verdict"]["uses_NR6"] is False
+    assert r["verdict"]["upper_bound_L6_le_872"] is True
+    # the steps that do not depend on the refuted tables still hold
+    for k in ("step2_fixed_representative", "step3_FO", "step4_splicing",
+              "step5_incidence", "step6_same_hex", "step7_bookkeeping",
+              "step10_equality_rows"):
+        assert r[k]["ok"], (k, r[k])
+
+
+def test_round148_verifier_certifies():
+    """The replacement chain, built on the round-147 sound tables, must pass
+    the fail-closed master verifier."""
+    import json
+    cert = ROOT / "r148" / "certs" / "master_verifier_148.json"
+    assert cert.exists(), "run r148/src/verifier148.py first"
+    d = json.loads(cert.read_text())
+    assert d["certified"] is True, d.get("failed")
+    assert not d["failed"]
 
 
 if __name__ == "__main__":
