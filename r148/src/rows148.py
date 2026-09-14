@@ -174,6 +174,7 @@ def census(t):
 
 def main(argv):
     load()
+    PIECE.load_caps()
     out = dict(chain_cells=len(CH), heavy_cells=len(HV), layers={})
     for t in [int(x) for x in (argv or ["3", "4"])]:
         c = census(t)
