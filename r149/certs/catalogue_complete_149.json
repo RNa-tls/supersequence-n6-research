@@ -1,0 +1,31 @@
+{
+ "gap_distribution": {
+  "1": 720,
+  "6": 408240,
+  "2": 1440,
+  "3": 4320,
+  "4": 17280,
+  "5": 86400
+ },
+ "weight2_classified": 1440,
+ "weight2_dropped": 0,
+ "weight3_classified": 4320,
+ "weight3_dropped": 0,
+ "heavy_excluded_pairs": 720,
+ "heavy_exclusion_reason": "t == v and t == end(v) are the only pairs the heavy list omits. Both are impossible for a real joint: t is a FIRST occurrence and both v and end(v) are windows already written when the joint is taken.",
+ "freeE_is_tau": true,
+ "dirtyA_is_sigma": true,
+ "dirtyB_is_sigma_squared": true,
+ "dirtyA_same_hexagon": true,
+ "dirtyB_same_hexagon": true,
+ "paid_never_lands_in_source_hexagon": true,
+ "heavy_landing_in_source_hexagon": 1440,
+ "per_source_counts": {
+  "free": 1,
+  "dirtyA": 1,
+  "dirtyB": 1,
+  "paid": 5,
+  "heavy": 710
+ },
+ "ok": true
+}
