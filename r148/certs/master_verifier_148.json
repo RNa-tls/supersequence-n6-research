@@ -1,6 +1,6 @@
 {
- "verdict": "NOT CERTIFIED",
- "certified": false,
+ "verdict": "L6 >= 872 (and with the witness, L6 = 872)",
+ "certified": true,
  "checks": [
   {
    "check": "C1_all_cells_exact_uncapped",
@@ -32,9 +32,9 @@
   },
   {
    "check": "C2b_stored_monotonicity_certificate_agrees",
-   "ok": false,
+   "ok": true,
    "detail": {
-    "cells": 714,
+    "cells": 1101,
     "adjacent_violations": 0,
     "comparable_violations": 0,
     "analytic_violations": 0,
@@ -163,6 +163,14 @@
    ]
   },
   {
+   "check": "C10_coexistence_certificates_present",
+   "ok": true,
+   "detail": {
+    "rows": 2,
+    "with_certificates": 2
+   }
+  },
+  {
    "check": "C10_all_equality_witnesses_excluded",
    "ok": true,
    "detail": [
@@ -198,15 +206,23 @@
   },
   {
    "check": "C10_positive_controls_present",
-   "ok": false,
+   "ok": true,
    "detail": [
     {
      "row": "row96",
-     "controls": null
+     "controls": {
+      "bfs": "self-controlled: reports the minimum orbits covering F",
+      "dfs": "real length-872 cover instance (solver_controls_148.json)",
+      "subset": "same instance at the minimum orbit count"
+     }
     },
     {
      "row": "row92",
-     "controls": null
+     "controls": {
+      "bfs": "self-controlled: reports the minimum orbits covering F",
+      "dfs": "real length-872 cover instance (solver_controls_148.json)",
+      "subset": "same instance at the minimum orbit count"
+     }
     }
    ]
   },
@@ -300,84 +316,24 @@
    }
   },
   {
-   "check": "C12_provenance_recorded",
+   "check": "C12_provenance_hashes_match_disk",
    "ok": true,
    "detail": {
-    "binaries": {
-     "note": "Two builds of the same round-147 searcher source exist.  The phase-2 table was produced by the first; the second differs only in the witness-argument gate (an empty or \"-\" witness path no longer enters witness mode, so the bestprune argument can be supplied), which does not touch the search.  The rebuilt binary reproduces sampled cells with IDENTICAL node counts.",
+    "builds": {
      "phase2_build": {
-      "source_sha256": "c7a43dcfdec7",
       "exe": "r147/l6chain147.exe",
-      "exe_sha256": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7"
+      "recorded": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
+      "on_disk": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
+      "matches": true
      },
      "rebuilt_build": {
-      "source_sha256": "00bae86d3f48634440da474fc132fde5b95c3eef6b975ae46255e9604282b6ce",
       "exe": "r147/l6chain147b.exe",
-      "exe_sha256": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0"
-     },
-     "reproduction_check": {
-      "cells": [
-       [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-       ],
-       [
-        0,
-        4,
-        1,
-        0,
-        2,
-        0
-       ],
-       [
-        0,
-        8,
-        2,
-        0,
-        0,
-        0
-       ],
-       [
-        0,
-        14,
-        0,
-        0,
-        0,
-        0
-       ],
-       [
-        0,
-        8,
-        0,
-        0,
-        0,
-        1
-       ],
-       [
-        1,
-        2,
-        1,
-        0,
-        0,
-        0
-       ],
-       [
-        0,
-        11,
-        3,
-        0,
-        0,
-        0
-       ]
-      ],
-      "mismatches": 0,
-      "node_counts_identical": true
+      "recorded": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0",
+      "on_disk": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0",
+      "matches": true
      }
     },
+    "mismatches": [],
     "source_sha256": {
      "l6_chain_capacity_147.c": "00bae86d3f48634440da474fc132fde5b95c3eef6b975ae46255e9604282b6ce",
      "chain2_147.c": "6afc83a957c7693923639437c921335ae4fb1f85a4525ac528a45d8dd682b9d2",
@@ -387,8 +343,5 @@
    }
   }
  ],
- "failed": [
-  "C2b_stored_monotonicity_certificate_agrees",
-  "C10_positive_controls_present"
- ]
+ "failed": []
 }

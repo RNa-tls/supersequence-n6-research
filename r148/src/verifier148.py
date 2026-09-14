@@ -162,15 +162,19 @@ def main(argv):
                              cls=r["route_notable"]["classes"],
                              nodes=r["route_notable"]["nodes"]),
                 same_sha=r["routes_agree"]) for r in rows])
-    excl = bool(rows) and all(r["all_excluded"] for r in rows)
-    ctrl = bool(rows) and all(r.get("controls_ok") for r in rows)
+    have_certs = bool(rows) and all(r.get("certificates") for r in rows)
+    excl = have_certs and all(r.get("all_excluded") for r in rows)
+    ctrl = have_certs and all(r.get("controls_ok") for r in rows)
+    check("C10_coexistence_certificates_present", have_certs,
+          dict(rows=len(rows),
+               with_certificates=sum(1 for r in rows if r.get("certificates"))))
     check("C10_all_equality_witnesses_excluded", excl,
           [dict(row=r["name"],
                 verdicts=[dict(bfs=c["solver_bfs"]["coverable"],
                                dfs=c["solver_dfs"]["ok"],
                                subset=c["solver_subset"]["ok"],
                                min_orbits=c["solver_bfs"]["min_orbits"])
-                          for c in r["certificates"]]) for r in rows])
+                          for c in r.get("certificates", [])]) for r in rows])
     check("C10_positive_controls_present", ctrl,
           [dict(row=r["name"], controls=r.get("controls")) for r in rows])
     # ---- C13 the equality cells carry exactly the required port count, read
@@ -245,15 +249,37 @@ def main(argv):
         detail872 = dict(length=len(W), distinct_permutation_windows=len(wins),
                          covers_all_720=wins >= allp)
     check("C11_length_872_witness_is_a_cover", ok872, detail872)
-    # ---- C12 provenance
-    bins = jload(R147 / "certs" / "binaries_147.json")
-    srcs = {p.name: sha(p) for p in [
-        R147 / "src" / "l6_chain_capacity_147.c",
-        R147 / "src" / "chain2_147.c",
-        R147 / "src" / "ub147.py",
+    # ---- C12 provenance, VERIFIED rather than merely recorded.
+    # Recording a hash and never comparing it is not provenance: a mutated
+    # hash escaped this check until round 148's mutation run caught it.
+    # The build is bit-reproducible (gcc -O2 on the same source gives the same
+    # SHA-256), so both source and executable hashes are compared to disk.
+    bins = jload(R147 / "certs" / "binaries_147.json") or {}
+    prov, mism = {}, []
+    for tag in ("phase2_build", "rebuilt_build"):
+        b = bins.get(tag) or {}
+        exe = b.get("exe")
+        rec = b.get("exe_sha256")
+        got = sha(ROOT / exe) if exe else None
+        prov[tag] = dict(exe=exe, recorded=rec, on_disk=got,
+                         matches=(rec is not None and got == rec))
+        if exe and rec and got is not None and got != rec:
+            mism.append(f"{tag}: recorded {rec[:12]} but {exe} hashes {got[:12]}")
+        if exe and rec and got is None:
+            mism.append(f"{tag}: {exe} is missing, cannot verify its hash")
+    srcsrc = bins.get("rebuilt_build", {}).get("source_sha256")
+    src_file = R147 / "src" / "l6_chain_capacity_147.c"
+    src_now = sha(src_file)
+    if srcsrc and src_now != srcsrc:
+        mism.append(f"source: recorded {srcsrc[:12]} but file hashes "
+                    f"{(src_now or '')[:12]}")
+    srcs = {q.name: sha(q) for q in [
+        src_file, R147 / "src" / "chain2_147.c", R147 / "src" / "ub147.py",
         ROOT / "src" / "l6_marked_capacity_pruned_144.c"]}
-    check("C12_provenance_recorded", bool(bins) and all(srcs.values()),
-          dict(binaries=bins, source_sha256=srcs))
+    check("C12_provenance_hashes_match_disk",
+          bool(bins) and all(srcs.values()) and not mism
+          and any(v["matches"] for v in prov.values()),
+          dict(builds=prov, mismatches=mism, source_sha256=srcs))
 
     ok = all(c["ok"] for c in CHECKS)
     out = dict(verdict=("L6 >= 872 (and with the witness, L6 = 872)" if ok

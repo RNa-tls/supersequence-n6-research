@@ -6,9 +6,9 @@
    "claim": "L6 >= 870",
    "ancestors": 12,
    "status_counts": {
-    "EXHAUSTIVE_UNCAPPED": 1,
     "INDEPENDENTLY_DUPLICATED": 10,
-    "PURE_HAND_PROOF": 1
+    "PURE_HAND_PROOF": 1,
+    "EXHAUSTIVE_UNCAPPED": 1
    },
    "forbidden": {},
    "unclassified": [],
@@ -19,8 +19,8 @@
    "claim": "L6 >= 871",
    "ancestors": 24,
    "status_counts": {
-    "EXHAUSTIVE_UNCAPPED": 4,
     "INDEPENDENTLY_DUPLICATED": 19,
+    "EXHAUSTIVE_UNCAPPED": 4,
     "PURE_HAND_PROOF": 1
    },
    "forbidden": {},
@@ -32,16 +32,15 @@
    "claim": "L6 >= 872",
    "ancestors": 31,
    "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 21,
     "EXHAUSTIVE_UNCAPPED": 7,
-    "INDEPENDENTLY_DUPLICATED": 20,
-    "MISSING": 3,
+    "MISSING": 1,
+    "VERIFIED_CERTIFICATE": 1,
     "PURE_HAND_PROOF": 1
    },
    "forbidden": {
     "MISSING": [
-     "E.coexist",
-     "E.controls",
-     "E.verifier"
+     "E.controls"
     ]
    },
    "unclassified": [],
@@ -64,17 +63,15 @@
    "claim": "L6 = 872",
    "ancestors": 34,
    "status_counts": {
+    "INDEPENDENTLY_DUPLICATED": 22,
     "EXHAUSTIVE_UNCAPPED": 8,
-    "INDEPENDENTLY_DUPLICATED": 21,
-    "MISSING": 3,
-    "VERIFIED_CERTIFICATE": 1,
+    "MISSING": 1,
+    "VERIFIED_CERTIFICATE": 2,
     "PURE_HAND_PROOF": 1
    },
    "forbidden": {
     "MISSING": [
-     "E.coexist",
-     "E.controls",
-     "E.verifier"
+     "E.controls"
     ]
    },
    "unclassified": [],
@@ -294,7 +291,7 @@
    "where": "r148/src/solver_controls148.py"
   },
   "E.coexist": {
-   "status": "MISSING",
+   "status": "INDEPENDENTLY_DUPLICATED",
    "what": "every equality witness excluded by three solvers, each with a positive control",
    "deps": [
     "E.witnesses",
@@ -305,7 +302,7 @@
    "where": "src/l6_cover_bfs_146.py, src/l6_circuit_coexist_144.py, src/l6_coexist_check3_144.py"
   },
   "E.verifier": {
-   "status": "MISSING",
+   "status": "VERIFIED_CERTIFICATE",
    "what": "the fail-closed master verifier accepts the whole chain",
    "deps": [
     "E.cells",

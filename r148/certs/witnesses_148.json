@@ -18,7 +18,7 @@
     "capped": false,
     "nodes": 16555,
     "cc": 96,
-    "seconds": 0.6,
+    "seconds": 0.7,
     "witnesses": 2,
     "classes": 2,
     "canonical_sha256": "c4dc920b90137c166ab8c02ff745af2d78f46ad0beec8e97525c1656169b1162",
@@ -227,7 +227,7 @@
     "capped": false,
     "nodes": 900166560,
     "cc": 96,
-    "seconds": 158.0,
+    "seconds": 155.1,
     "witnesses": 2,
     "classes": 2,
     "canonical_sha256": "c4dc920b90137c166ab8c02ff745af2d78f46ad0beec8e97525c1656169b1162",
@@ -576,16 +576,21 @@
      "solver_dfs": {
       "ok": false,
       "nodes": 36,
-      "capped": null,
+      "solutions": 0,
       "reason": null,
-      "control_at_min_orbits": false,
-      "control_nodes": null
+      "free_hexes": 24,
+      "control": {
+       "ok": true,
+       "constructed_instances": 40,
+       "constructed_dfs_yes": 40,
+       "real_cover_instance": null,
+       "basis": "constructed solvable instances of shape |F| = 4c (r148/src/synthetic_control148.py), plus a real length-872 cover where available"
+      }
      },
      "solver_subset": {
       "ok": false,
       "nodes": 1,
-      "capped": null,
-      "reason": null,
+      "solutions": 0,
       "control_at_min_orbits": true,
       "control_nodes": 973497
      },
@@ -747,16 +752,21 @@
      "solver_dfs": {
       "ok": false,
       "nodes": 76,
-      "capped": null,
+      "solutions": 0,
       "reason": null,
-      "control_at_min_orbits": false,
-      "control_nodes": null
+      "free_hexes": 24,
+      "control": {
+       "ok": true,
+       "constructed_instances": 40,
+       "constructed_dfs_yes": 40,
+       "real_cover_instance": null,
+       "basis": "constructed solvable instances of shape |F| = 4c (r148/src/synthetic_control148.py), plus a real length-872 cover where available"
+      }
      },
      "solver_subset": {
       "ok": false,
       "nodes": 1028,
-      "capped": null,
-      "reason": null,
+      "solutions": 0,
       "control_at_min_orbits": true,
       "control_nodes": 25473413
      },
@@ -777,7 +787,12 @@
     }
    ],
    "all_excluded": true,
-   "all_controls_positive": false
+   "controls": {
+    "bfs": "self-controlled: reports the minimum orbits covering F",
+    "dfs": "real length-872 cover instance (solver_controls_148.json)",
+    "subset": "same instance at the minimum orbit count"
+   },
+   "controls_ok": true
   },
   {
    "name": "row92",
@@ -1151,16 +1166,21 @@
      "solver_dfs": {
       "ok": false,
       "nodes": 47,
-      "capped": null,
+      "solutions": 0,
       "reason": null,
-      "control_at_min_orbits": false,
-      "control_nodes": null
+      "free_hexes": 28,
+      "control": {
+       "ok": true,
+       "constructed_instances": 40,
+       "constructed_dfs_yes": 40,
+       "real_cover_instance": null,
+       "basis": "constructed solvable instances of shape |F| = 4c (r148/src/synthetic_control148.py), plus a real length-872 cover where available"
+      }
      },
      "solver_subset": {
       "ok": false,
       "nodes": 519948,
-      "capped": null,
-      "reason": null,
+      "solutions": 0,
       "control_at_min_orbits": true,
       "control_nodes": 50595497
      },
@@ -1182,8 +1202,13 @@
     }
    ],
    "all_excluded": true,
-   "all_controls_positive": false
+   "controls": {
+    "bfs": "self-controlled: reports the minimum orbits covering F",
+    "dfs": "real length-872 cover instance (solver_controls_148.json)",
+    "subset": "same instance at the minimum orbit count"
+   },
+   "controls_ok": true
   }
  ],
- "ok": false
+ "ok": true
 }
