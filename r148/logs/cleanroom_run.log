@@ -1,0 +1,181 @@
+== environment
+commit:        6108eca14677ec04c50583b4fbcc207175bde604
+branch:        claude/n6-supersequence-length-rn17wf
+dirty:         1 files
+compiler:      gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+flags:         -O2 -Wall -Wextra
+python:        Python 3.11.15
+os:            Linux 6.18.44-fc-v24 GNU/Linux
+cpus:          4
+
+== deleting every inherited executable, then rebuilding from source
+./r147/l6chain147b.exe
+./r147/l6catdump147.exe
+./r147/chain2_147.exe
+./outputs/l6chain_144.exe
+./outputs/l6cap_p_144.exe
+./outputs/nr_clean_walk_142.exe
+./outputs/l6cap_144.exe
+rebuilt hashes:
+bb4836fc4289fe872dbef90dfc4629947ddd098144ec640ffee2c235f6f69680  r147/chain2_147.exe
+dd212a8129eb5a83f6c2baefbbff74c9c474e9069459272437640a7fd4fc39c0  r147/l6catdump147.exe
+edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0  r147/l6chain147b.exe
+
+== catalogue reconstruction
+{
+ "fields": [
+  "dirtyA",
+  "dirtyB",
+  "freetgt",
+  "heavy",
+  "hexid",
+  "n",
+  "orbid",
+  "paidkind",
+  "paidtgt",
+  "phase",
+  "words"
+ ],
+ "agree": true,
+ "diffs": [],
+ "hexagons": 120,
+ "orbits": 144,
+ "heavy_total": 511200
+}
+   -> exit 0
+
+== regenerate the C header and diff
+   -> exit 0
+
+== fail-closed table loader
+OK  good_table                         rc=  0 []
+OK  wrong_magic                        rc=  3 ['ubfile: bad magic (expected "UB7 <count>")']
+OK  no_magic                           rc=  3 ['ubfile: bad magic (expected "UB7 <count>")']
+OK  arity_5_round144_chain_file        rc=  3 ['ubfile: header says 3 rows, read 1 (truncated or padded)']
+OK  arity_3_round144_piece_file        rc=  3 ['ubfile: header says 2 rows, read 0 (truncated or padded)']
+OK  truncated                          rc=  3 ['ubfile: header says 82 rows, read 79 (truncated or padded)']
+OK  padded                             rc=  3 ['ubfile: header says 79 rows, read 82 (truncated or padded)']
+OK  duplicate_conflicting_key          rc=  3 ['ubfile: duplicate key 0 0 0 0 0 0 with conflicting values 20 and 19']
+OK  index_out_of_range                 rc=  3 ['ubfile: row 1 out of range']
+OK  value_out_of_range                 rc=  3 ['ubfile: row 1 out of range']
+OK  negative_value                     rc=  3 ['ubfile: row 1 out of range']
+OK  malformed_row                      rc=  3 ['ubfile: malformed row 2']
+OK  non_monotone_in_d                  rc=  3 ['ubfile: monotonicity violated (dir 1) at 0 2 0 0 0 0']
+OK  round144_chain_ub_verbatim         rc=  3 ['ubfile: bad magic (expected "UB7 <count>")']
+OK  round144_piece_ub_verbatim         rc=  3 ['ubfile: bad magic (expected "UB7 <count>")']
+OK  missing_file                       rc=  3 ['ubfile: cannot open /tmp/claude-0/-home-user-supersequence-n6-research/0161dc0f-40e0-56e3-8c56-97df10c350b4/scratchpad/clean148/r147/logs/failclosed/does_not_exist.txt']
+{"total": 16, "rejected_as_required": 16, "failures": [], "ok": true}
+   -> exit 0
+
+== monotonicity of the cell table
+{
+ "cells": 1101,
+ "adjacent_violations": 0,
+ "comparable_violations": 0,
+ "analytic_violations": 0,
+ "examples": [],
+ "ok": true
+}
+   -> exit 0
+
+== rows from definitions (r147)
+{"t": 0, "L": 867, "rows_with_s": 1, "rows_144": 1, "coordinate_groups": 1, "only_mine": 0, "only_144": 0, "derived_field_mismatches": 0, "examples_only_mine": [], "examples_only_144": [], "agree": true}
+{"t": 1, "L": 868, "rows_with_s": 15, "rows_144": 15, "coordinate_groups": 14, "only_mine": 0, "only_144": 0, "derived_field_mismatches": 0, "examples_only_mine": [], "examples_only_144": [], "agree": true}
+{"t": 2, "L": 869, "rows_with_s": 100, "rows_144": 100, "coordinate_groups": 85, "only_mine": 0, "only_144": 0, "derived_field_mismatches": 0, "examples_only_mine": [], "examples_only_144": [], "agree": true}
+{"t": 3, "L": 870, "rows_with_s": 453, "rows_144": 453, "coordinate_groups": 353, "only_mine": 0, "only_144": 0, "derived_field_mismatches": 0, "examples_only_mine": [], "examples_only_144": [], "agree": true}
+{"t": 4, "L": 871, "rows_with_s": 1609, "rows_144": 1609, "coordinate_groups": 1156, "only_mine": 0, "only_144": 0, "derived_field_mismatches": 0, "examples_only_mine": [], "examples_only_144": [], "agree": true}
+   -> exit 0
+
+== constructed solver controls
+{"instances": 40, "dfs_yes": 40, "subset_yes": 40, "bfs_yes": 40, "ok": true}
+   -> exit 0
+
+== fresh L=870 / L=871 census
+L870: rows=353 {"STRICTLY_CLOSED": 353} closed_by={"split": 202, "merged": 20, "piece": 131} fallbacks_used=4
+L871: rows=1156 {"STRICTLY_CLOSED": 1154, "EQUALITY": 2} closed_by={"piece": 374, "merged": 135, "split": 645} fallbacks_used=270
+    {"k": 3, "Z": 0, "H": 1, "Bstar": 0, "G": 7, "g": 0, "c": 7, "d": 0, "D2": 0, "Qs": 0, "h": 1, "required": 92, "verdict": "EQUALITY", "bounds": {"piece": 92, "split": 92, "merged": 92}}
+    {"k": 4, "Z": 0, "H": 0, "Bstar": 0, "G": 6, "g": 0, "c": 6, "d": 0, "D2": 0, "Qs": 0, "h": 0, "required": 96, "verdict": "EQUALITY", "bounds": {"piece": 96, "split": 96}}
+   -> exit 0
+
+== equality witnesses + coexistence
+== row96 cell=(0, 14, 0, 0, 0, 0) target=96 c=6 ub_rows=41 validator_ok=True
+   R1 (sound table): {"status": "EXHAUSTIVE", "capped": false, "nodes": 16555, "cc": 96, "seconds": 0.2, "witnesses": 2, "classes": 2, "canonical_sha256": "c4dc920b90137c166ab8c02ff745af2d78f46ad0beec8e97525c1656169b1162", "file": "r148/witnesses/row96_table.jsonl"}
+   R2 (NO table)   : {"status": "EXHAUSTIVE", "capped": false, "nodes": 900166560, "cc": 96, "seconds": 157.2, "witnesses": 2, "classes": 2, "canonical_sha256": "c4dc920b90137c166ab8c02ff745af2d78f46ad0beec8e97525c1656169b1162", "file": "r148/witnesses/row96_notable.jsonl"}
+   class 0:  {"ports": 96, "hex_simple": true, "F_size": 24, "F_equals_4c": true, "circuits_required": 6, "clean_E_orbits_inside_F": 2, "distinct_chain_orbits": 22, "solver_bfs": {"coverable": false, "nodes": 123, "capped": false, "min_orbits": 8, "margin": 2, "control_nodes": 7290}, "solver_dfs": {"ok": false, "nodes": 36, "solutions": 0, "reason": null, "free_hexes": 24, "control": {"ok": true, "constructed_instances": 40, "constructed_dfs_yes": 40, "real_cover_instance": null, "basis": "constructed solvable instances of shape |F| = 4c (r148/src/synthetic_control148.py), plus a real length-872 cover where available"}}, "solver_subset": {"ok": false, "nodes": 1, "solutions": 0, "control_at_min_orbits": true, "control_nodes": 973497}, "hand_obstruction": {"top_c": [5, 5, 3, 3, 3, 3], "sum_top_c": 22, "F_size": 24, "applies": true, "statement": "5 + 5 + 3 + 3 + 3 + 3 = 22 < 24"}}
+   class 1:  {"ports": 96, "hex_simple": true, "F_size": 24, "F_equals_4c": true, "circuits_required": 6, "clean_E_orbits_inside_F": 4, "distinct_chain_orbits": 22, "solver_bfs": {"coverable": false, "nodes": 248, "capped": false, "min_orbits": 8, "margin": 2, "control_nodes": 16303}, "solver_dfs": {"ok": false, "nodes": 76, "solutions": 0, "reason": null, "free_hexes": 24, "control": {"ok": true, "constructed_instances": 40, "constructed_dfs_yes": 40, "real_cover_instance": null, "basis": "constructed solvable instances of shape |F| = 4c (r148/src/synthetic_control148.py), plus a real length-872 cover where available"}}, "solver_subset": {"ok": false, "nodes": 1028, "solutions": 0, "control_at_min_orbits": true, "control_nodes": 25473413}, "hand_obstruction": {"top_c": [5, 5, 5, 5, 3, 3], "sum_top_c": 26, "F_size": 24, "applies": false, "statement": "5 + 5 + 5 + 5 + 3 + 3 = 26 >= 24: the hand bound does NOT settle this witness"}}
+== row92 cell=(0, 8, 0, 0, 0, 1) target=92 c=7 ub_rows=82 validator_ok=True
+   R1 (sound table): {"status": "EXHAUSTIVE", "capped": false, "nodes": 5775, "cc": 92, "seconds": 0.2, "witnesses": 1, "classes": 1, "canonical_sha256": "aebfcf4c9a9944e2dfb00096c3ab36e1d993e74f649880e52888306aa7284bcc", "file": "r148/witnesses/row92_table.jsonl"}
+   R2 (NO table)   : {"status": "EXHAUSTIVE", "capped": false, "nodes": 149792913, "cc": 92, "seconds": 23.9, "witnesses": 1, "classes": 1, "canonical_sha256": "aebfcf4c9a9944e2dfb00096c3ab36e1d993e74f649880e52888306aa7284bcc", "file": "r148/witnesses/row92_notable.jsonl"}
+   class 0:  {"ports": 92, "hex_simple": true, "F_size": 28, "F_equals_4c": true, "circuits_required": 7, "clean_E_orbits_inside_F": 8, "distinct_chain_orbits": 20, "solver_bfs": {"coverable": false, "nodes": 180, "capped": false, "min_orbits": 8, "margin": 1, "control_nodes": 23297}, "solver_dfs": {"ok": false, "nodes": 47, "solutions": 0, "reason": null, "free_hexes": 28, "control": {"ok": true, "constructed_instances": 40, "constructed_dfs_yes": 40, "real_cover_instance": null, "basis": "constructed solvable instances of shape |F| = 4c (r148/src/synthetic_control148.py), plus a real length-872 cover where available"}}, "solver_subset": {"ok": false, "nodes": 519948, "solutions": 0, "control_at_min_orbits": true, "control_nodes": 50595497}, "hand_obstruction": {"top_c": [5, 5, 5, 5, 5, 5, 5], "sum_top_c": 35, "F_size": 28, "applies": false, "statement": "5 + 5 + 5 + 5 + 5 + 5 + 5 = 35 >= 28: the hand bound does NOT settle this witness"}}
+PHASE 10/11 OK: True
+   -> exit 0
+
+== MASTER VERIFIER
+PASS  C1_all_cells_exact_uncapped
+PASS  C1_no_load_bearing_cell_missing
+PASS  C2_monotonicity_and_analytic_bound_recomputed
+PASS  C2b_stored_monotonicity_certificate_agrees
+PASS  C3_implementation_B_agrees_everywhere
+PASS  C4_loader_fails_closed
+PASS  C5_rows_from_definitions
+PASS  C6_L869_closed_by_piece_model_alone
+PASS  C7_L870_zero_non_strict
+PASS  C8_L871_exactly_two_equality_rows
+PASS  C9_equality_witnesses_enumerated_both_routes_one_without_table
+PASS  C10_coexistence_certificates_present
+PASS  C10_all_equality_witnesses_excluded
+PASS  C10_positive_controls_present
+PASS  C13_equality_cell_capacities_equal_required_ports
+PASS  C14_witness_files_recanonicalised_and_reexcluded
+PASS  C11_length_872_witness_is_a_cover
+PASS  C12_provenance_hashes_match_disk
+
+CERTIFIED: True | L6 >= 872 (and with the witness, L6 = 872)
+   -> exit 0
+
+== final proof DAG
+C.ge870   L6 >= 870    ancestors= 12 proved=True  forbidden={}
+C.ge871   L6 >= 871    ancestors= 24 proved=True  forbidden={}
+C.ge872   L6 >= 872    ancestors= 31 proved=True  forbidden={}
+C.le872   L6 <= 872    ancestors=  2 proved=True  forbidden={}
+C.eq872   L6 = 872     ancestors= 34 proved=True  forbidden={}
+   -> exit 0
+
+== regression suite
+PASS test_871_leaves_exactly_two_equality_rows
+PASS test_872_witness_is_a_cover_of_length_872
+PASS test_A_edges_buy_nothing_below_deficit_six
+PASS test_budget_row_counts
+PASS test_c_checker_agrees_with_python
+PASS test_chain_extraction_budgets
+PASS test_chain_model_closes_867_to_870
+PASS test_chain_searcher_reproduces_the_piece_capacity_at_a_zero
+PASS test_companion_hex_lemma
+PASS test_equality_witnesses_admit_no_pure_circuits
+PASS test_extraction_bookkeeping
+PASS test_fixed_representative_reduction
+PASS test_full_endpoint_blocks_are_forced_at_zero_deficit
+PASS test_h_is_positive_whenever_H_is
+PASS test_incidence_theorem
+PASS test_independent_fragment_capacities_are_NOT_enough_at_869
+PASS test_joint_catalogue_is_the_literal_overlap_catalogue
+PASS test_left_S6_symmetry_is_proved_not_assumed
+PASS test_master_identity_is_a_rearrangement
+PASS test_piece_model_closes_length_869
+PASS test_pruned_checker_agrees_with_unpruned
+PASS test_round145_verifier_refuses_on_its_refuted_tables
+PASS test_round148_verifier_certifies
+PASS test_same_hex_bound
+PASS test_shadow_theorem_geometry
+PASS test_sigma_deficit_forbidden_pattern
+PASS test_sigma_deficit_is_sharp
+PASS test_sigma_deficit_transform
+PASS test_sound_model_combination_closes_867_to_870
+PASS test_splicing_on_real_covers
+PASS test_unmarked_capacity_reproduces_the_old_N_star
+PASS test_witness_counts_are_two_and_one
+failures: 0
+   -> exit 0
+
+==============================================
+CLEAN CHECKOUT REPRODUCED THE VERDICT
