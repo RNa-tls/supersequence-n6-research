@@ -16,7 +16,10 @@ R147 = ROOT / "r147"
 sys.path.insert(0, str(R147 / "src"))
 import ub147                                                        # noqa: E402
 
-EXE = R147 / "l6chain147.exe"
+# the REBUILT searcher (its source is committed and the build is
+# bit-reproducible); the historical phase-2 binary is never driven here
+EXE = (R147 / "l6chain147b.exe" if (R147 / "l6chain147b.exe").exists()
+       else R147 / "l6chain147.exe")
 TMP = R147 / "logs" / "failclosed"
 CELL = (0, 2, 1, 0, 0, 0)          # cheap, and its table is small
 

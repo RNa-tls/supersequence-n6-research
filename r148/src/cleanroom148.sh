@@ -20,7 +20,11 @@ find . -name '*.exe' -print -delete
 gcc -O2 -Wall -Wextra -o r147/l6chain147b.exe r147/src/l6_chain_capacity_147.c || exit 2
 gcc -O2 -Wall -Wextra -o r147/chain2_147.exe  r147/src/chain2_147.c          || exit 2
 gcc -O2 -Wall          -o r147/l6catdump147.exe r147/src/l6_catalogue_dump_147.c 2>/dev/null
-cp r147/l6chain147b.exe r147/l6chain147.exe   # the fail-closed tests drive this name
+# NOTE: the historical phase-2 binary is deliberately NOT recreated.
+# Copying the rebuilt binary under that name made C12 report a hash
+# mismatch against the recorded historical hash -- correctly, since
+# the two are different builds.  Nothing needs it: the fail-closed
+# tests drive the rebuilt binary.
 gcc -O2 -o outputs/l6cap_p_144.exe src/l6_marked_capacity_pruned_144.c 2>/dev/null
 gcc -O2 -o outputs/l6cap_144.exe   src/l6_marked_capacity_144.c        2>/dev/null
 gcc -O2 -o outputs/l6chain_144.exe src/l6_chain_capacity_144.c         2>/dev/null

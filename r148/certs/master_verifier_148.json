@@ -320,16 +320,18 @@
    "ok": true,
    "detail": {
     "builds": {
-     "phase2_build": {
-      "exe": "r147/l6chain147.exe",
-      "recorded": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
-      "on_disk": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
-      "matches": true
-     },
      "rebuilt_build": {
       "exe": "r147/l6chain147b.exe",
       "recorded": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0",
       "on_disk": "edf92f7ae7e28e40ac4fb223d8f3ac9f50fa1fb15ce4d121ecd7ffecf2dcb8c0",
+      "required": true,
+      "matches": true
+     },
+     "phase2_build": {
+      "exe": "r147/l6chain147.exe",
+      "recorded": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
+      "on_disk": "25b5e8f56e6c93425a738968ae92d93aa4da00957310eeb57faca161800280d7",
+      "required": false,
       "matches": true
      }
     },
