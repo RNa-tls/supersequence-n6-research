@@ -27,5 +27,19 @@
   "paid": 5,
   "heavy": 710
  },
- "ok": true
+ "ok": true,
+ "left_S6_equivariance": {
+  "group_elements": 720,
+  "ports": 720,
+  "pairs_checked": 518400,
+  "violations": 0,
+  "maps": [
+   "freeE",
+   "dirtyA",
+   "dirtyB",
+   "paid(5)"
+  ],
+  "exhaustive": true,
+  "structural_reason": "left S6 is a letterwise bijection and sigma, tau, end, the overlap distance and \"is this window a permutation\" are defined purely by positions and letter equality, so they commute with it"
+ }
 }

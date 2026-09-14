@@ -8,3 +8,12 @@ DETECTED 7_monotonicity_certificate_falsified: ['C2b_stored_monotonicity_certifi
 DETECTED 8_implementation_B_incomplete: ['C3_implementation_B_agrees_everywhere']
 DETECTED 9_failclosed_certificate_falsified: ['C4_loader_fails_closed']
 DETECTED 10_source_hash_changed: ['C12_provenance_hashes_match_disk']
+DETECTED 11_L870_row_left_open: ['C7_L870_zero_non_strict']
+DETECTED 12_L871_third_equality_row: ['C8_L871_exactly_two_equality_rows']
+DETECTED 13_equality_witness_deleted: ['C14_witness_files_recanonicalised_and_reexcluded']
+DETECTED 14_witness_permutation_rank_altered: ['C14_witness_files_recanonicalised_and_reexcluded']
+DETECTED 15_coexistence_result_missing: ['C10_coexistence_certificates_present', 'C10_all_equality_witnesses_excluded', 'C10_positive_controls_present']
+DETECTED 16_notable_route_marked_capped: ['C9_equality_witnesses_enumerated_both_routes_one_without_table']
+DETECTED 17_872_witness_truncated: ['C11_length_872_witness_is_a_cover']
+DETECTED 18_loadbearing_cell_not_in_ledger: ['C1_no_load_bearing_cell_missing']
+{"mutations": 18, "detected": 18, "escaped": [], "baseline_passes": true, "restored_passes": true, "ok": true}
