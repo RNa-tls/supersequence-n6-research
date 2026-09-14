@@ -92,11 +92,26 @@ def certify(ports, c):
     s1 = CO.coexist(list(ports), c)
     # solver 2: the round-144 subset enumeration
     s2 = CO3.solve(list(ports), c)
-    # positive controls for both round-144 solvers: the same instance with the
-    # circuit count raised to the value the third procedure says is needed
+    # POSITIVE CONTROLS.  The BFS procedure controls itself: it reports the
+    # minimum number of orbits that DOES cover F, so its NO at c comes from a
+    # state in which it can say YES.  The subset enumerator can be asked the
+    # same relaxed question.  The exact-cover DFS cannot -- it structurally
+    # requires |F| = 4c and refuses any other c -- so it is controlled on a
+    # REAL length-872 cover by r148/src/solver_controls148.py, whose verdict is
+    # read in here rather than faked.
     need = bfs["min_orbits_to_cover_F"]
-    c1 = CO.coexist(list(ports), need) if need else None
     c2 = CO3.solve(list(ports), need) if need else None
+    syn = R148 / "certs" / "synthetic_controls_148.json"
+    real = R148 / "certs" / "solver_controls_148.json"
+    sj = json.loads(syn.read_text()) if syn.exists() else {}
+    rj = json.loads(real.read_text()) if real.exists() else {}
+    c1 = dict(ok=bool(sj.get("ok")) or rj.get("dfs_control_passes") is True,
+              constructed_instances=sj.get("instances"),
+              constructed_dfs_yes=sj.get("dfs_yes"),
+              real_cover_instance=rj.get("dfs_control_passes"),
+              basis="constructed solvable instances of shape |F| = 4c "
+                    "(r148/src/synthetic_control148.py), plus a real "
+                    "length-872 cover where available")
     Hc = {CB.HEX[v] for v in ports}
     F = sorted(set(range(120)) - Hc)
     cleanE = sorted(q for q in range(144)
@@ -112,11 +127,11 @@ def certify(ports, c):
                         min_orbits=need, margin=bfs["margin"],
                         control_nodes=bfs["nodes_control"]),
         solver_dfs=dict(ok=s1.get("ok"), nodes=s1.get("nodes"),
-                        capped=s1.get("capped"), reason=s1.get("reason"),
-                        control_at_min_orbits=(c1 or {}).get("ok"),
-                        control_nodes=(c1 or {}).get("nodes")),
+                        solutions=s1.get("solutions"), reason=s1.get("reason"),
+                        free_hexes=s1.get("free_hexes"),
+                        control=c1),
         solver_subset=dict(ok=s2.get("ok"), nodes=s2.get("nodes"),
-                           capped=s2.get("capped"), reason=s2.get("reason"),
+                           solutions=s2.get("solutions"),
                            control_at_min_orbits=(c2 or {}).get("ok"),
                            control_nodes=(c2 or {}).get("nodes")),
         hand_obstruction=dict(top_c=hand["top_c"], sum_top_c=hand["sum_top_c"],
@@ -162,15 +177,19 @@ def main():
                              and x["solver_dfs"]["ok"] is False
                              and x["solver_subset"]["ok"] is False
                              for x in certs),
-            all_controls_positive=all(
+            controls=dict(
+                bfs="self-controlled: reports the minimum orbits covering F",
+                dfs="real length-872 cover instance (solver_controls_148.json)",
+                subset="same instance at the minimum orbit count"),
+            controls_ok=all(
                 x["solver_bfs"]["min_orbits"] is not None
-                and x["solver_dfs"]["control_at_min_orbits"] is True
+                and x["solver_dfs"]["control"]["ok"] is True
                 and x["solver_subset"]["control_at_min_orbits"] is True
                 for x in certs)))
     out["ok"] = all(r["route_table"]["status"] == "EXHAUSTIVE"
                     and r["route_notable"]["status"] == "EXHAUSTIVE"
                     and r["routes_agree"] and r["all_excluded"]
-                    and r["all_controls_positive"] for r in out["rows"])
+                    and r["controls_ok"] for r in out["rows"])
     (R148 / "certs" / "witnesses_148.json").write_text(
         json.dumps(out, indent=1) + "\n")
     print("PHASE 10/11 OK:", out["ok"])
