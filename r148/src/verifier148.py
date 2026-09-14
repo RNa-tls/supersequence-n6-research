@@ -256,17 +256,27 @@ def main(argv):
     # SHA-256), so both source and executable hashes are compared to disk.
     bins = jload(R147 / "certs" / "binaries_147.json") or {}
     prov, mism = {}, []
-    for tag in ("phase2_build", "rebuilt_build"):
+    # rebuilt_build is the REPRODUCIBLE one: its source is committed and
+    # gcc -O2 on it gives back exactly the recorded SHA-256.  phase2_build is
+    # historical -- its source was patched afterwards (the witness-argument
+    # gate only), so it cannot be rebuilt; its hash is kept for the record and
+    # its binary is optional, because the rebuilt binary reproduces phase-2
+    # cells with identical node counts (binaries_147.json::reproduction_check).
+    for tag, required in (("rebuilt_build", True), ("phase2_build", False)):
         b = bins.get(tag) or {}
         exe = b.get("exe")
         rec = b.get("exe_sha256")
         got = sha(ROOT / exe) if exe else None
-        prov[tag] = dict(exe=exe, recorded=rec, on_disk=got,
+        prov[tag] = dict(exe=exe, recorded=rec, on_disk=got, required=required,
                          matches=(rec is not None and got == rec))
         if exe and rec and got is not None and got != rec:
             mism.append(f"{tag}: recorded {rec[:12]} but {exe} hashes {got[:12]}")
-        if exe and rec and got is None:
-            mism.append(f"{tag}: {exe} is missing, cannot verify its hash")
+        if required and (not exe or not rec or got is None):
+            mism.append(f"{tag}: the reproducible build is missing")
+    rc = bins.get("reproduction_check") or {}
+    if rc.get("mismatches") != 0 or not rc.get("node_counts_identical"):
+        mism.append("the rebuilt binary is not recorded as reproducing "
+                    "phase-2 cells")
     srcsrc = bins.get("rebuilt_build", {}).get("source_sha256")
     src_file = R147 / "src" / "l6_chain_capacity_147.c"
     src_now = sha(src_file)
@@ -278,7 +288,7 @@ def main(argv):
         ROOT / "src" / "l6_marked_capacity_pruned_144.c"]}
     check("C12_provenance_hashes_match_disk",
           bool(bins) and all(srcs.values()) and not mism
-          and any(v["matches"] for v in prov.values()),
+          and prov["rebuilt_build"]["matches"],
           dict(builds=prov, mismatches=mism, source_sha256=srcs))
 
     ok = all(c["ok"] for c in CHECKS)
