@@ -1,0 +1,66 @@
+{
+ "turn_it_off_audit": "UNAVAILABLE -- with the prune disabled even the smallest cell does not finish in 120 s, so the comparison could not be run and is NOT claimed",
+ "walks_audited": 383,
+ "violations": 0,
+ "examples": [],
+ "sample": [
+  {
+   "ok": true,
+   "max_tot_over_prefixes": 14,
+   "final_deficit": 14,
+   "ports": 96,
+   "cell": [
+    0,
+    14,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "ok": true,
+   "max_tot_over_prefixes": 14,
+   "final_deficit": 14,
+   "ports": 96,
+   "cell": [
+    0,
+    14,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "ok": true,
+   "max_tot_over_prefixes": 8,
+   "final_deficit": 8,
+   "ports": 92,
+   "cell": [
+    0,
+    8,
+    0,
+    0,
+    0,
+    1
+   ]
+  },
+  {
+   "ok": true,
+   "max_tot_over_prefixes": 0,
+   "final_deficit": 0,
+   "ports": 20,
+   "cell": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ ],
+ "lemma": "at every prefix of a walk that attains its cell's capacity, the prune's quantity tot never exceeds that walk's final deficit, so the prune never discarded it",
+ "ok": true
+}

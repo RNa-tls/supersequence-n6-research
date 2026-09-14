@@ -55,11 +55,16 @@ def main(argv):
     tmp = R149 / "logs" / "feas"
     tmp.mkdir(parents=True, exist_ok=True)
     want = int(argv[0]) if argv else 60
-    cells = sorted((k for k in ST if (ST[k]["nodes"] or 0) < 40_000_000),
-                   key=lambda k: ST[k]["nodes"] or 0)
+    # Disabling feas removes a strong prune, so the search explodes on any cell
+    # with a large deficit budget.  The comparison is therefore run on the small
+    # cells only, and the certificate says so rather than implying more.
+    cells = sorted((k for k in ST
+                    if k[1] <= 3 and k[2] + k[3] + k[4] <= 3 and k[5] <= 1),
+                   key=lambda k: (k[1], k[2] + k[3] + k[4], k[0]))
     step = max(1, len(cells) // want)
-    sel = [(0, 14, 0, 0, 0, 0), (0, 8, 0, 0, 0, 1)]
-    sel += [c for c in cells[::step] if c not in sel]
+    # cheapest first: with feas disabled a high-deficit cell can blow up, and
+    # evidence from many cheap cells is worth more than a stall on one big one
+    sel = cells[:want]
     rows, bad, to = [], [], []
     for cell in sel:
         ubp = tmp / ("ub_%d_%d_%d_%d_%d_%d.txt" % cell)
@@ -82,10 +87,20 @@ def main(argv):
         rows.append(rec)
         if not rec["equal"]:
             bad.append(rec)
+        # write incrementally so a kill never loses the evidence
+        (R149 / "certs" / "feas_149.json").write_text(json.dumps(dict(
+            cells=len(rows), equal=sum(1 for r in rows if r["equal"]),
+            capacity_changed=bad, not_affordable=to, partial=True,
+            examples=rows[:5]), indent=1) + "\n")
     out = dict(cells=len(rows), equal=sum(1 for r in rows if r["equal"]),
                capacity_changed=bad, not_affordable=to,
                claim="a too aggressive prune would make capacities SMALLER, so "
                      "disabling it must not raise any of them",
+               scope="cells with deficit budget <= 3, total reuse budget <= 3 "
+                     "and heavy budget <= 1.  Larger cells are not affordable "
+                     "with the prune off and are NOT claimed to be checked; "
+                     "for those the soundness argument in the docstring is the "
+                     "evidence.",
                examples=rows[:5],
                ok=(len(rows) > 0 and not bad))
     (R149 / "certs" / "feas_149.json").write_text(json.dumps(out, indent=1) + "\n")
