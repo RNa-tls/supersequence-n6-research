@@ -1,8 +1,8 @@
 {
  "total_load_bearing": 905,
- "checked": 370,
+ "checked": 371,
  "tally": {
-  "EXACT_NODE_MATCH": 366,
+  "EXACT_NODE_MATCH": 367,
   "NOT_AFFORDABLE": 4
  },
  "disagreements": [],
@@ -2951,6 +2951,16 @@
    "B_nodes": 42515032,
    "seconds": 39.88,
    "reason": null
+  },
+  "0|10|9|0|0|0": {
+   "status": "EXACT_NODE_MATCH",
+   "cc": 80,
+   "A_nodes": 158900430,
+   "B_nodes": 158900430,
+   "seconds": 149.31,
+   "reason": null
   }
- }
+ },
+ "note": "Supplementary sharper check, stopped after the affordable cells.  With the same sound table and the best-so-far prune OFF every remaining prune is a function of the state alone, so the two implementations must visit the same number of nodes -- and on every cell that finished they did.  NOT_AFFORDABLE cells are NOT counted as agreement.  The proof does not need this check: it needs exact CAPACITY equality, which r147/certs/second_impl_147.json establishes for all 905 load-bearing cells.",
+ "capacity_equality_established_elsewhere": "r147/certs/second_impl_147.json: 905/905 MATCH, 0 DISAGREE, 0 TIMEOUT"
 }
