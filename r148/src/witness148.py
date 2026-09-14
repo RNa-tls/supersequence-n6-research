@@ -91,12 +91,12 @@ def certify(ports, c):
     # solver 1: the round-144 exact-cover DFS
     s1 = CO.coexist(list(ports), c)
     # solver 2: the round-144 subset enumeration
-    s2 = CO3.coexist(list(ports), c)
+    s2 = CO3.solve(list(ports), c)
     # positive controls for both round-144 solvers: the same instance with the
     # circuit count raised to the value the third procedure says is needed
     need = bfs["min_orbits_to_cover_F"]
     c1 = CO.coexist(list(ports), need) if need else None
-    c2 = CO3.coexist(list(ports), need) if need else None
+    c2 = CO3.solve(list(ports), need) if need else None
     Hc = {CB.HEX[v] for v in ports}
     F = sorted(set(range(120)) - Hc)
     cleanE = sorted(q for q in range(144)
