@@ -27,7 +27,12 @@ import ub147                                                        # noqa: E402
 A = R147 / "l6chain147.exe"
 B = R147 / "chain2_147.exe"
 OUT = R147 / "certs" / "second_impl_147.json"
-TMP = R147 / "logs" / "ub2"
+TMP = Path(os.environ.get("R147_TMP", str(R147 / "logs" / "ub2")))
+# ROUND 148: the round-147 default lives under r147/logs, which round 148
+# Phase 4 deliberately DELETES to prove the proof survives losing its
+# scratch.  Those two collided once (the running B job lost its table
+# mid-search and died with FileNotFoundError), so the directory is now
+# settable and round 148 points it outside the deletion target.
 WORKERS = int(os.environ.get("R147_WORKERS", "3"))
 PER_CELL = int(os.environ.get("R147_B_SECONDS", "1800"))
 EXACT_NODE_BUDGET = int(os.environ.get("R147_EXACT_NODES", "20000000"))
