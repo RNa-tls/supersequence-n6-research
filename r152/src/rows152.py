@@ -31,8 +31,11 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 COORD = ("k", "Z", "H", "Bstar", "G", "g", "c", "d", "D2", "Qs", "h")
 HEXCAP, NEG = 120, -10 ** 9
 CERT = {}
+PCERT = {}                # certified marked piece capacities C(b,d,fp,lp)
 FALLBACKS = Counter()
+PFALLBACKS = Counter()
 USED = Counter()          # which certified cells the census actually reads
+PUSED = Counter()
 
 
 def rows(t):
@@ -101,9 +104,104 @@ def best(n, b, D, a, bb, e, tot):
     return r, fb
 
 
+# ------------------------------------------------------- the piece model
+def PC(b, d, fp, lp):
+    """A certified marked piece capacity.
+
+    None means the mask is provably unreachable (the certificate carries -1 and
+    the checker exhausted that space).  A budget vector with no certified cell
+    falls back to the analytic bound 120: a piece is hex-simple, so it can
+    never have more ports than there are hexagons.
+    """
+    if b < 0 or d < 0:
+        return HEXCAP, True
+    v = PCERT.get((b, d, fp, lp))
+    if v is None:
+        PFALLBACKS[(b, d, fp, lp)] += 1
+        return HEXCAP, True
+    PUSED[(b, d, fp, lp)] += 1
+    return (None if v < 0 else v), False
+
+
+def best_chain(m, btot, Dtot, nmark):
+    """Max sum of marked capacities over m pieces in a path.
+
+    `nmark` constrained seams are placed adversarially among the m-1 seams; a
+    constrained seam needs its left piece's LAST block or its right piece's
+    FIRST block to be partial.  The recursion is the round-144 coupled DP; what
+    is new here is that every capacity it reads carries a round-152 certificate.
+    """
+    fb = [False]
+
+    @lru_cache(maxsize=None)
+    def go(j, b, d, a, forced_fp):
+        if j == m:
+            return 0 if (a == 0 and not forced_fp) else NEG
+        if a > m - j - 1:
+            return NEG
+        best_v = NEG
+        for fp in ((1,) if forced_fp else (0, 1)):
+            for lp in (0, 1):
+                for bb in range(b + 1):
+                    for dd in range(d + 1):
+                        v, f = PC(bb, dd, fp, lp)
+                        if v is None:
+                            continue
+                        fb[0] = fb[0] or f
+                        if j == m - 1:
+                            r = go(j + 1, b - bb, d - dd, a, 0)
+                            if r > NEG // 2:
+                                best_v = max(best_v, v + r)
+                            continue
+                        r = go(j + 1, b - bb, d - dd, a, 0)
+                        if r > NEG // 2:
+                            best_v = max(best_v, v + r)
+                        if a > 0:
+                            if lp:
+                                r = go(j + 1, b - bb, d - dd, a - 1, 0)
+                                if r > NEG // 2:
+                                    best_v = max(best_v, v + r)
+                            r = go(j + 1, b - bb, d - dd, a - 1, 1)
+                            if r > NEG // 2:
+                                best_v = max(best_v, v + r)
+        return best_v
+
+    r = go(0, btot, Dtot, nmark, 0)
+    go.cache_clear()
+    return r, fb[0]
+
+
+def piece_bound(r):
+    """The coupled piece bound for one row variant."""
+    nA = max(0, r["D2"] - r["d"])
+    badmax = max(0, r["Z"] - r["Qs"])
+    nmark = max(0, nA - badmax)
+    m_lo = max(1, r["D2"] + r["Qs"] - r["d"] + 1)
+    m_hi = r["m_max"]
+    if m_lo > m_hi:
+        return NEG, False
+    best_v, fb = NEG, False
+    for m in range(m_lo, m_hi + 1):
+        v, f = best_chain(m, r["b_sum"], r["D_sum"], min(nmark, m - 1))
+        fb = fb or f
+        if v > best_v:
+            best_v = v
+    return best_v, fb
+
+
 def bounds(variants):
     req = variants[0]["required"]
     res = {}
+    # The piece bound is recorded even when it comes out NEG: NEG means no
+    # admissible assignment of the constrained seams exists at all, so the row
+    # is infeasible, which is the strongest possible closure.  Round 148 kept
+    # the same convention; dropping it would silently reopen closed rows.
+    pv = NEG
+    for r in variants:
+        v, _ = piece_bound(r)
+        if v > pv:
+            pv = v
+    res["piece"] = pv
     sv = NEG
     for r in variants:                                  # heavy CUT: d+1+h chains
         n = r["d"] + 1 + r["h"]
@@ -154,6 +252,7 @@ def census(t):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--verify", action="append", required=True)
+    ap.add_argument("--verify-piece", action="append", default=[])
     ap.add_argument("--layers", nargs="*", type=int, default=[3, 4])
     ap.add_argument("--out", default="r152/certs/census_152.json")
     a = ap.parse_args()
@@ -163,8 +262,17 @@ def main():
             if row["status"] not in ("EXACT_CERTIFIED", "UPPER_CERTIFIED"):
                 continue
             CERT[tuple(int(x) for x in row["cell"].split("|"))] = row["cap"]
-    print(f"certified cells available: {len(CERT)}", flush=True)
-    out = dict(certified_cells=len(CERT), verify_reports=a.verify, layers={})
+    for f in a.verify_piece:
+        rep = json.loads(Path(f).read_text())
+        for row in rep["rows"]:
+            if row["status"] not in ("EXACT_CERTIFIED", "UPPER_CERTIFIED"):
+                continue
+            PCERT[(row["b"], row["d"], row["fp"], row["lp"])] = row["cap"]
+    print(f"certified chain cells: {len(CERT)}  "
+          f"certified piece cells: {len(PCERT)}", flush=True)
+    out = dict(certified_cells=len(CERT), certified_piece_cells=len(PCERT),
+               verify_reports=a.verify, verify_piece_reports=a.verify_piece,
+               layers={})
     for t in a.layers:
         c = census(t)
         out["layers"][f"L{867 + t}"] = c
@@ -174,6 +282,9 @@ def main():
             print("   ", json.dumps(x), flush=True)
     out["analytic_fallback_cells"] = len(FALLBACKS)
     out["analytic_fallback_uses"] = sum(FALLBACKS.values())
+    out["piece_fallback_vectors"] = sorted(
+        "|".join(map(str, k)) for k in PFALLBACKS)
+    out["piece_cells_read"] = len(PUSED)
     out["certified_cells_read"] = len(USED)
     out["certified_cells_unread"] = sorted(
         "|".join(map(str, k)) for k in CERT if k not in USED)
@@ -181,7 +292,8 @@ def main():
         "|".join(map(str, k)) for k in FALLBACKS)
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(out, indent=1) + "\n")
-    print(f"fallback cells={len(FALLBACKS)} uses={sum(FALLBACKS.values())}")
+    print(f"chain fallback cells={len(FALLBACKS)} uses={sum(FALLBACKS.values())}; "
+          f"piece fallback cells={len(PFALLBACKS)} uses={sum(PFALLBACKS.values())}")
     return 0
 
 
