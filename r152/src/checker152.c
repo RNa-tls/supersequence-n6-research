@@ -351,17 +351,53 @@ static void common_setup(void) {
     ub_init();
 }
 
+/* ---------------------------------------------------- second-pass pruning
+ * A cell whose tree is too large to exhaust with the bounds available in the
+ * ascending pass can be retried with the bounds that pass PROVED, including
+ * cells with LARGER budgets that had not been reached yet.  That is still
+ * (P1) and it is still acyclic: every value in the list was certified in a run
+ * that could not have used this cell (this cell was not certified there), and
+ * the cell itself is excluded from its own table below.  The list is plain
+ * text, one "<b> <d> <a> <bb> <e> <h> <cap>" per line. */
+static int EXT_ARG[MAXCELL][6], EXT_VAL[MAXCELL], NEXT_;
+
+static void read_prune(const char *path) {
+    FILE *f = fopen(path, "r");
+    if (!f) { fprintf(stderr, "cannot open %s\n", path); exit(3); }
+    while (NEXT_ < MAXCELL &&
+           fscanf(f, "%d %d %d %d %d %d %d", &EXT_ARG[NEXT_][0],
+                  &EXT_ARG[NEXT_][1], &EXT_ARG[NEXT_][2], &EXT_ARG[NEXT_][3],
+                  &EXT_ARG[NEXT_][4], &EXT_ARG[NEXT_][5], &EXT_VAL[NEXT_]) == 7)
+        ++NEXT_;
+    fclose(f);
+    fprintf(stderr, "prune list: %d cells from %s\n", NEXT_, path);
+}
+
+static void ub_rebuild_excluding(const int *self) {
+    for (int t = 0; t < UT; ++t) for (int d = 0; d < UD; ++d)
+      for (int a = 0; a < UA; ++a) for (int b = 0; b < UB2; ++b)
+        for (int e = 0; e < UE; ++e) for (int h = 0; h < UH; ++h)
+            UBT[UIX(t, d, a, b, e, h)] = 120 + a + b + e;
+    for (int i = 0; i < NEXT_; ++i) {
+        if (!memcmp(EXT_ARG[i], self, sizeof(int) * 6)) continue;   /* self */
+        ub_add(EXT_ARG[i], EXT_VAL[i]);
+    }
+}
+
 #ifndef CHECKER152_NO_MAIN
 int main(int argc, char **argv) {
-    if (argc < 2) { fprintf(stderr, "usage: %s <cert.txt> [node_cap]\n", argv[0]); return 3; }
+    if (argc < 2) { fprintf(stderr, "usage: %s <cert.txt> [node_cap] [prune_list.txt]\n", argv[0]); return 3; }
     NODECAP = argc > 2 ? strtoull(argv[2], NULL, 10) : 0;
     common_setup();
     read_cert(argv[1]);
+    const char *prune_path = argc > 3 ? argv[3] : NULL;
+    if (prune_path) read_prune(prune_path);
 
     uint64_t total = 0; int ok = 1, ncert = 0;
     printf("{\"checker\":\"C152\",\"cells\":%d,\"rows\":[\n", NCELL);
     for (int i = 0; i < NCELL; ++i) {
         Cell *c = &CELLS[i];
+        if (prune_path) ub_rebuild_excluding(c->arg);
         clock_t t0 = clock();
         const char *status, *detail = "";
         /* n == 0 means the certificate carries NO witness for this cell: the
