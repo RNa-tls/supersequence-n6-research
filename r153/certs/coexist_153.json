@@ -237,6 +237,128 @@
     }
    ],
    "all_excluded": true
+  },
+  {
+   "name": "E2",
+   "cell": "0|8|0|0|0|1",
+   "target": 92,
+   "circuits": 7,
+   "witnesses": 1,
+   "certificates": [
+    {
+     "index": 0,
+     "deficit": 8,
+     "ports": 92,
+     "sha256": "51b81f56c12ab6b4b9d5ca2dfaf15e020b87a0eceb0149ab93ca08d1d61184dc",
+     "lemmaE": {
+      "F_size": 28,
+      "candidates": 76,
+      "hex_simple": true,
+      "F_equals_4c": true,
+      "chain_orbits": 20,
+      "bfs": {
+       "coverable": false,
+       "at": null,
+       "nodes": 180
+      },
+      "dfs_lowest": {
+       "coverable": false,
+       "nodes": 236,
+       "solution": null
+      },
+      "dfs_fewest": {
+       "coverable": false,
+       "nodes": 236,
+       "solution": null
+      },
+      "counting": {
+       "top_c": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+       ],
+       "sum_top_c": 35,
+       "F_size": 28,
+       "settles": false
+      },
+      "agree": true,
+      "excluded": true,
+      "positive_control_same_instance": {
+       "min_orbits": 8,
+       "nodes": 1103,
+       "solution": [
+        23,
+        9,
+        40,
+        48,
+        50,
+        60,
+        116,
+        84
+       ]
+      }
+     },
+     "unrestricted": {
+      "F_size": 28,
+      "candidates": 80,
+      "hex_simple": true,
+      "F_equals_4c": true,
+      "chain_orbits": 20,
+      "bfs": {
+       "coverable": false,
+       "at": null,
+       "nodes": 216
+      },
+      "dfs_lowest": {
+       "coverable": false,
+       "nodes": 385,
+       "solution": null
+      },
+      "dfs_fewest": {
+       "coverable": false,
+       "nodes": 385,
+       "solution": null
+      },
+      "counting": {
+       "top_c": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+       ],
+       "sum_top_c": 35,
+       "F_size": 28,
+       "settles": false
+      },
+      "agree": true,
+      "excluded": true,
+      "positive_control_same_instance": {
+       "min_orbits": 8,
+       "nodes": 209,
+       "solution": [
+        2,
+        8,
+        38,
+        48,
+        50,
+        60,
+        62,
+        84
+       ]
+      }
+     },
+     "excluded": true,
+     "excluded_without_lemmaE": true
+    }
+   ],
+   "all_excluded": true
   }
  ],
  "constructed_controls": {
