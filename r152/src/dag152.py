@@ -54,6 +54,9 @@ def main():
     extr = jload(R152 / "certs" / "extree_pilot_152.json")
     emut = jload(R152 / "certs" / "mutations_extree_152.json")
     inv = jload(R152 / "certs" / "invariants_152.json")
+    hyg = jload(R152 / "certs" / "hygiene_152.json")
+    sub = jload(R152 / "certs" / "verify_subset_152.json")
+    agr_p = jload(R152 / "certs" / "agreement_piece_152.json")
     cat = jload(R152 / "certs" / "catalogue_crosscheck_152.json")
     hfx = jload(R152 / "certs" / "heavyfix_152.json")
 
@@ -172,6 +175,28 @@ def main():
          ["V.piecemutation", "V.invariants", "H.catalogue"],
          "r152/certs/verify_piece_*.json")
 
+    node("V.hygiene",
+         "VERIFIED_CERTIFICATE" if (hyg or {}).get("ok") else "MISSING",
+         "the certified-only pipeline reads no production capacity table, no UB "
+         "file and no retracted round-144/146 artefact; the heavy-retained model "
+         "is keyed on H; no report feeding the census carries an UNKNOWN_CAP or "
+         "a DISAGREE row", [], "r152/src/hygiene152.py")
+    node("V.pysubset",
+         "INDEPENDENTLY_DUPLICATED"
+         if (sub and sub.get("all_certified")) else "MISSING",
+         "the Python checker re-established a large subset of the chain cells "
+         + (f"({sub['certified']}/{sub['cells']} cells, "
+            f"{sub['total_nodes']:,} nodes)" if sub else ""),
+         ["V.twochecks"], "r152/certs/verify_subset_152.json")
+    node("V.piecetwochecks",
+         "INDEPENDENTLY_DUPLICATED"
+         if (agr_p and agr_p.get("agree")) else "MISSING",
+         "the two piece checkers agree cell by cell on the same certificate "
+         + (f"({agr_p.get('cells')} cells, "
+            f"{agr_p.get('cells_with_different_node_counts')} node-count "
+            f"differences)" if agr_p else ""),
+         [], "r152/src/agree152.py --kind piece")
+
     lay = (cen or {}).get("layers", {})
     t871 = lay.get("L871", {}).get("tally", {})
     t870 = lay.get("L870", {}).get("tally", {})
@@ -182,14 +207,15 @@ def main():
          else ("UNKNOWN_CAP" if t871 else "MISSING"),
          f"L = 871 census using certified capacities only: {json.dumps(t871)}",
          ["E.certcells", "E.equalitycells", "E.heavyfix", "E.piececells",
-          "E.extree", "V.catalogue"], "r152/src/rows152.py")
+          "E.extree", "V.catalogue", "V.hygiene", "V.pysubset",
+          "V.piecetwochecks"], "r152/src/rows152.py")
     node("E.census870",
          "VERIFIED_CERTIFICATE"
          if (t870 and set(t870) == {"STRICTLY_CLOSED"}) else
          ("UNKNOWN_CAP" if t870 else "MISSING"),
          f"L = 870 census using certified capacities only: {json.dumps(t870)}",
-         ["E.certcells", "E.heavyfix", "E.piececells", "V.catalogue"],
-         "r152/src/rows152.py")
+         ["E.certcells", "E.heavyfix", "E.piececells", "V.catalogue",
+          "V.hygiene"], "r152/src/rows152.py")
 
     # ---------------------------------------------------------------- report
     bad = {k: v for k, v in N.items() if v["status"] in FORBIDDEN}
