@@ -24,6 +24,9 @@ FILES = [
     "r153/certs/mutations_153.json", "r153/certs/adversarial_153.json",
     "r153/certs/theorem_153.json", "r153/certs/dag_153.json",
     "r153/certs/witness872_153.json",
+    "r153/logs/cleanroom_153.log",
+    "r153/certs/cleanroom_153.json",
+    "research/RR_L6_ROUND153_EQUALITY_COEXISTENCE.md",
     # the inputs it consumes
     "r152/certs/verify_all_c152.json", "r152/certs/verify_piece_c152.json",
     "r152/certs/census_152.json", "r152/certs/dag_152.json",

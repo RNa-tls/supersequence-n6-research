@@ -1,0 +1,396 @@
+== environment
+commit:   5adb33b472b8f43219678a6dcf958e8242fb3a40
+branch:   round153-equality-coexistence
+dirty:    0 files
+compiler: cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+python:   Python 3.11.15
+
+== deleting round-152/153 executables and rebuilding from source
+checker152.exe
+piece152.exe
+eqwit153.exe
+
+== 1a round-152 capacity certificates, not regenerated
+   r152/certs/verify_all_c152.json: 1101/1101 cells, 0 not certified
+   r152/certs/verify_piece_c152.json: 220/220 cells, 0 not certified
+   0|14|0|0|0|0: cap=96 status=EXACT_CERTIFIED
+   0|8|0|0|0|1: cap=92 status=EXACT_CERTIFIED
+   -> exit 0
+
+== 1b the round-152 capacity DAG
+  PURE_HAND_PROOF            H.monotone         (P1) cap is monotone non-decreasing in every budget
+  PURE_HAND_PROOF            H.hexcount         (P2) cap(K) <= 120 + a + bb + e
+  PURE_HAND_PROOF            H.catalogue        the joint catalogue is complete and the charging rules are exhaustive
+  PURE_HAND_PROOF            H.wlog             fixing the start port is WLOG (left S6 transitive, catalogue equivariant; 518,400 pairs ch
+  PURE_HAND_PROOF            H.feas             the feasibility prune never removes a realisable continuation
+  PURE_HAND_PROOF            D.cap              cap(K) defined as a maximum over chains, every budget an upper bound
+  VERIFIED_CERTIFICATE       V.mutation         every mutation of the certificate and of the checker source is refused (12/12)
+  INDEPENDENTLY_DUPLICATED   V.twochecks        a Python and a C checker, sharing no code and no data file, reach the same verdict on the 
+  VERIFIED_CERTIFICATE       E.certcells        1101/1101 cells carry a verified upper bound (1044 of them exact); 0 not verified
+  VERIFIED_CERTIFICATE       E.equalitycells    the two cells the L=871 equality rows rest on, 0|14|0|0|0|0 = 96 and 0|8|0|0|0|1 = 92, are
+  INDEPENDENTLY_DUPLICATED   E.heavyfix         the heavy-retained model is keyed on HMAX = H; the round-148 code used the joint count h. 
+  INDEPENDENTLY_DUPLICATED   V.invariants       the catalogue invariants I1-I6, checked over all 720 words; they say which guards in the s
+  INDEPENDENTLY_DUPLICATED   V.catalogue        the checker's own catalogue agrees field by field with round 147's, including all 511,200 
+  VERIFIED_CERTIFICATE       E.extree           an EXPLICIT exhaustion tree for the cells the equality rows rest on, validated by a progra
+  VERIFIED_CERTIFICATE       V.piecemutation    every mutation of a piece certificate and of the piece checker source is refused
+  VERIFIED_CERTIFICATE       E.piececells       220/220 marked piece capacities carry a verified bound (203 exact); 0 not verified
+  VERIFIED_CERTIFICATE       V.hygiene          the certified-only pipeline reads no production capacity table, no UB file and no retracte
+  INDEPENDENTLY_DUPLICATED   V.pysubset         the Python checker re-established a large subset of the chain cells (854/854 cells, 169,43
+  INDEPENDENTLY_DUPLICATED   V.piecetwochecks   the two piece checkers agree cell by cell on the same certificate (111 cells, 0 node-count
+  VERIFIED_CERTIFICATE       E.census871        L = 871 census using certified capacities only: {"STRICTLY_CLOSED": 1154, "EQUALITY": 2}
+  VERIFIED_CERTIFICATE       E.census870        L = 870 census using certified capacities only: {"STRICTLY_CLOSED": 353}
+
+forbidden statuses anywhere: none
+forbidden on the path to E.census871: none
+capacity layer certified: True
+   -> exit 0
+
+== 2  re-enumerate the equality witnesses
+prune list: 1101 cells from r153/certs/prune_certified_153.txt
+{"enumerator":"EQ153","cell":"0|14|0|0|0|0","target":96,"route":"table","witnesses":2,"nodes":16555,"capped":false,"seconds":0.01,"file":"/tmp/r153_E1.jsonl"}
+prune list: 1101 cells from r153/certs/prune_certified_153.txt
+{"enumerator":"EQ153","cell":"0|8|0|0|0|1","target":92,"route":"table","witnesses":1,"nodes":5775,"capped":false,"seconds":0.00,"file":"/tmp/r153_E2.jsonl"}
+   -> exit 0
+
+== 2b all five enumeration routes agree
+{
+ "group": 720,
+ "words": 720,
+ "pairs": 518400,
+ "violations": 0,
+ "ok": true
+}
+  E1 cell=0|14|0|0|0|0 target=96: routes=5 witnesses=2 classes=2 raw_identical=True canonical_identical=True replay_failures=False
+      A_round148_table       n=2 classes=2 raw=c4dc920b90137c16 canon=c4dc920b90137c16 deficits=[14]
+      A_round148_notable     n=2 classes=2 raw=c4dc920b90137c16 canon=c4dc920b90137c16 deficits=[14]
+      B_r153_c_table         n=2 classes=2 raw=c4dc920b90137c16 canon=c4dc920b90137c16 deficits=[14]
+      B_r153_c_notable       n=2 classes=2 raw=c4dc920b90137c16 canon=c4dc920b90137c16 deficits=[14]
+      C_r153_python          n=2 classes=2 raw=c4dc920b90137c16 canon=c4dc920b90137c16 deficits=[14]
+  E2 cell=0|8|0|0|0|1 target=92: routes=5 witnesses=1 classes=1 raw_identical=True canonical_identical=True replay_failures=False
+      A_round148_table       n=1 classes=1 raw=aebfcf4c9a9944e2 canon=aebfcf4c9a9944e2 deficits=[8]
+      A_round148_notable     n=1 classes=1 raw=aebfcf4c9a9944e2 canon=aebfcf4c9a9944e2 deficits=[8]
+      B_r153_c_table         n=1 classes=1 raw=aebfcf4c9a9944e2 canon=aebfcf4c9a9944e2 deficits=[8]
+      B_r153_c_notable       n=1 classes=1 raw=aebfcf4c9a9944e2 canon=aebfcf4c9a9944e2 deficits=[8]
+      C_r153_python          n=1 classes=1 raw=aebfcf4c9a9944e2 canon=aebfcf4c9a9944e2 deficits=[8]
+ok: True (48.5s)
+   -> exit 0
+
+== 3  coexistence exclusion trees
+  E1#0 c=6 |F|=24 EXCLUDED nodes=295
+  E1#1 c=6 |F|=24 EXCLUDED nodes=619
+  E2#0 c=7 |F|=28 EXCLUDED nodes=385
+{
+ "tree": "r153/certs/covertree_153.txt",
+ "tree_sha256": "0d84e824e05f85a4c18d19ae3dd29a3ac008916c4e47de9ef262667b72b50ae5",
+ "all_excluded": true
+}
+   -> exit 0
+
+== 3b coexistence solvers and controls
+{
+ "geometry": {
+  "hexagons": 120,
+  "orbits": 144,
+  "orbit_hexagon_counts": {
+   "5": 144
+  },
+  "every_orbit_meets_five_hexagons": true
+ },
+ "constructed_controls": {
+  "6": {
+   "instances": 40,
+   "bfs_yes": 40,
+   "dfs_lowest_yes": 40,
+   "dfs_fewest_yes": 40,
+   "all_yes": true
+  },
+  "7": {
+   "instances": 40,
+   "bfs_yes": 40,
+   "dfs_lowest_yes": 40,
+   "dfs_fewest_yes": 40,
+   "all_yes": true
+  }
+ },
+ "controls_ok": true,
+ "ok": true
+}
+  E1: witnesses=2 all_excluded=True
+    #0 |F|=24 lemmaE: excluded=True nodes=123/203/71 | unrestricted: excluded=True nodes=132/295/295 | counting settles=True | min cover=8
+    #1 |F|=24 lemmaE: excluded=True nodes=248/427/71 | unrestricted: excluded=True nodes=264/619/619 | counting settles=False | min cover=8
+  E2: witnesses=1 all_excluded=True
+    #0 |F|=28 lemmaE: excluded=True nodes=180/236/236 | unrestricted: excluded=True nodes=216/385/385 | counting settles=False | min cover=8
+   -> exit 0
+
+== 4  the explicit length-872 cover
+{
+ "file": "data/verified_872_witness.txt",
+ "sha256": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef",
+ "bytes": 873,
+ "length": 872,
+ "alphabet": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6"
+ ],
+ "alphabet_ok": true,
+ "permutations_needed": 720,
+ "permutations_covered": 720,
+ "missing": [],
+ "is_superpermutation": true,
+ "length_is_872": true,
+ "ok": true
+}
+   -> exit 0
+
+== 5  certified-only row census
+certified chain cells: 1101  certified piece cells: 220
+L867: rows=1 {"STRICTLY_CLOSED": 1} closed_by={"piece": 1}
+L868: rows=14 {"STRICTLY_CLOSED": 14} closed_by={"split": 4, "piece": 10}
+L869: rows=85 {"STRICTLY_CLOSED": 85} closed_by={"split": 42, "merged": 1, "piece": 42}
+L870: rows=353 {"STRICTLY_CLOSED": 353} closed_by={"split": 202, "merged": 19, "piece": 132}
+L871: rows=1156 {"STRICTLY_CLOSED": 1154, "EQUALITY": 2} closed_by={"piece": 381, "merged": 122, "split": 651}
+    {"k": 3, "Z": 0, "H": 1, "Bstar": 0, "G": 7, "g": 0, "c": 7, "d": 0, "D2": 0, "Qs": 0, "h": 1, "required": 92, "verdict": "EQUALITY", "bounds": {"piece": 92, "split": 92, "merged": 92}}
+    {"k": 4, "Z": 0, "H": 0, "Bstar": 0, "G": 6, "g": 0, "c": 6, "d": 0, "D2": 0, "Qs": 0, "h": 0, "required": 96, "verdict": "EQUALITY", "bounds": {"piece": 96, "split": 96}}
+chain fallback cells=115 uses=270; piece fallback cells=0 uses=0
+   -> exit 0
+
+== 6  adversarial trace
+{
+ "L867": {
+  "STRICTLY_CLOSED": 1
+ },
+ "L868": {
+  "STRICTLY_CLOSED": 14
+ },
+ "L869": {
+  "STRICTLY_CLOSED": 85
+ },
+ "L870": {
+  "STRICTLY_CLOSED": 353
+ },
+ "L871": {
+  "STRICTLY_CLOSED": 1154,
+  "EQUALITY": 2
+ }
+}
+  E1 cell=0|14|0|0|0|0 cap=96 required=96 deficit budget 14 = 5k-G=14
+    witness #0: hex_simple=True |F|=24=4c=24 -> escaping family of size <= 6: False (search 295 nodes); smallest covering family has 8 orbits, gap +2
+    witness #1: hex_simple=True |F|=24=4c=24 -> escaping family of size <= 6: False (search 619 nodes); smallest covering family has 8 orbits, gap +2
+  E2 cell=0|8|0|0|0|1 cap=92 required=92 deficit budget 8 = 5k-G=8
+    witness #0: hex_simple=True |F|=28=4c=28 -> escaping family of size <= 7: False (search 385 nodes); smallest covering family has 8 orbits, gap +1
+any escaping object: False  ok: True
+   -> exit 0
+
+== 6b integrated certified-only theorem
+{
+ "capacity_chain": {
+  "cells": 1101,
+  "expected": 1101,
+  "not_certified": [],
+  "sha256": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85"
+ },
+ "capacity_piece": {
+  "cells": 220,
+  "expected": 220,
+  "not_certified": [],
+  "sha256": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa"
+ },
+ "census": {
+  "tallies": {
+   "L867": {
+    "STRICTLY_CLOSED": 1
+   },
+   "L868": {
+    "STRICTLY_CLOSED": 14
+   },
+   "L869": {
+    "STRICTLY_CLOSED": 85
+   },
+   "L870": {
+    "STRICTLY_CLOSED": 353
+   },
+   "L871": {
+    "STRICTLY_CLOSED": 1154,
+    "EQUALITY": 2
+   }
+  },
+  "chain_cells_read": 1101,
+  "piece_cells_read": 220,
+  "chain_cells_unread": 0,
+  "sha256": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb"
+ },
+ "equality": {
+  "equivariance": {
+   "group": 720,
+   "words": 720,
+   "pairs": 518400,
+   "violations": 0,
+   "ok": true
+  },
+  "rows": [
+   {
+    "name": "E1",
+    "cell": "0|14|0|0|0|0",
+    "target": 96,
+    "routes": 5,
+    "witnesses": 2,
+    "classes": 2,
+    "agree": true
+   },
+   {
+    "name": "E2",
+    "cell": "0|8|0|0|0|1",
+    "target": 92,
+    "routes": 5,
+    "witnesses": 1,
+    "classes": 1,
+    "agree": true
+   }
+  ],
+  "sha256": "c34bb8b4961d9b9f7fec9004e69690d3e9092f4e96d58af28b31d8aa20b3d773"
+ },
+ "coexistence": {
+  "trees": [
+   {
+    "name": "E1",
+    "index": 0,
+    "c": 6,
+    "F": 24,
+    "status": "EXCLUDED",
+    "nodes": 295
+   },
+   {
+    "name": "E1",
+    "index": 1,
+    "c": 6,
+    "F": 24,
+    "status": "EXCLUDED",
+    "nodes": 619
+   },
+   {
+    "name": "E2",
+    "index": 0,
+    "c": 7,
+    "F": 28,
+    "status": "EXCLUDED",
+    "nodes": 385
+   }
+  ],
+  "all_excluded": true,
+  "tree_sha256": "0d84e824e05f85a4c18d19ae3dd29a3ac008916c4e47de9ef262667b72b50ae5",
+  "tree_file_sha256": "0d84e824e05f85a4c18d19ae3dd29a3ac008916c4e47de9ef262667b72b50ae5",
+  "solvers_agree": true,
+  "excluded_without_lemmaE": true,
+  "controls_ok": true
+ },
+ "every_enumerated_witness_is_excluded": true,
+ "witness872": {
+  "length": 872,
+  "covered": 720,
+  "ok": true,
+  "sha256": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef"
+ },
+ "pipeline_reads_no_retracted_artefact": true,
+ "failures": [],
+ "L6_ge_872": true,
+ "L6_le_872": true,
+ "L6_equals_872": true
+}
+FAILURES: none
+L6 >= 872: True  L6 <= 872: True  L6 = 872: True
+   -> exit 0
+
+== 6c final DAG
+  PROVEN_ANALYTIC     A.hexcount       (P2) cap(K) <= 120 + a + bb + e; a piece is hexagon-simple so it has at most 120 ports
+  PROVEN_ANALYTIC     A.monotone       (P1) capacity is monotone non-decreasing in every budget
+  CERTIFIED_MACHINE   A.orbitfive      every tau-orbit meets exactly five hexagons (all 144 checked)
+  CERTIFIED_MACHINE   C.census         the certified-only census: {"L867": {"STRICTLY_CLOSED": 1}, "L868": {"STRICTLY_CLOSED": 14}, "L8
+  CERTIFIED_MACHINE   C.chaincaps      1101 chain capacities independently certified, 0 not
+  CERTIFIED_MACHINE   C.dag152         the round-152 capacity DAG has no forbidden ancestor
+  CERTIFIED_MACHINE   C.piececaps      220 marked piece capacities independently certified, 0 not
+  CERTIFIED_MACHINE   E.enumeration    every capacity-attaining walk enumerated five ways with identical raw and canonical sets: E1 2 w
+  CERTIFIED_MACHINE   E.equivariance   left S6 commutes with the whole catalogue: 518400 pairs, 0 violations
+  AUDITED_HAND_PROOF  H.catalogue      the joint catalogue is complete and the charging rules are exhaustive
+  AUDITED_HAND_PROOF  H.envelope       a <= D2, bb <= Qs, e <= Z - Qs, a + bb + e <= 2g
+  AUDITED_HAND_PROOF  H.extract        the extraction bookkeeping
+  AUDITED_HAND_PROOF  H.feas           the feasibility prune removes no realisable continuation
+  AUDITED_HAND_PROOF  H.fixedrep       every cover has a fixed representative of no greater length
+  AUDITED_HAND_PROOF  H.incidence      K + R_int <= G + 1, with equality iff the incidence graph is a tree
+  AUDITED_HAND_PROOF  H.master         MASTER-142: L = 867 + k + Z + H + B*, every term >= 0
+  AUDITED_HAND_PROOF  H.models         the three upper-bound models and what each relaxes
+  AUDITED_HAND_PROOF  H.samehex        SAME-HEX: D2 + Qs <= R_int <= 2g
+  AUDITED_HAND_PROOF  H.splice         successor splicing and the beta permutation
+  AUDITED_HAND_PROOF  H.tight          at an equality row the incidence bound is tight, so the chain is hexagon-simple, all 120 hexagon
+  AUDITED_HAND_PROOF  H.wlog           fixing the start word is WLOG: left S6 is transitive and the catalogue is equivariant
+  CERTIFIED_MACHINE   T.eq872          L6 = 872
+  CERTIFIED_MACHINE   T.ge872          L6 >= 872
+  EXPLICIT_WITNESS    T.le872          L6 <= 872
+  EXPLICIT_WITNESS    W.872            data/verified_872_witness.txt is a word of length 872 over {1..6} containing all 720 permutation
+  CERTIFIED_MACHINE   X.adversarial    the attempt to construct an escaping family fails; the smallest family of orbits covering F has 
+  CERTIFIED_MACHINE   X.controls       each decision procedure answers YES on constructed instances that do have a cover, and reports t
+  CERTIFIED_MACHINE   X.exclusion      an explicit exhaustion tree, validated without search, shows no c tau-orbits cover F for any wit
+  CERTIFIED_MACHINE   X.mutation       every invalid mutation of the equality/coexistence chain is refused, and the two checks that do 
+  CERTIFIED_MACHINE   X.nolemmaE       the exclusion holds with every tau-orbit allowed as a circuit, so it does not rest on the round-
+  CERTIFIED_MACHINE   X.structure      each witness is hexagon-simple and leaves |F| = 4c hexagons unused
+
+  AUDITED_HAND_PROOF: 12
+  CERTIFIED_MACHINE: 15
+  EXPLICIT_WITNESS: 2
+  PROVEN_ANALYTIC: 2
+forbidden: []  retracted: []  unresolved: []
+theorem path clean: True
+   -> exit 0
+
+== 7  mutation tests
+baseline: exit 0
+  CAUGHT  T1_child_count_reduced (exit 1)
+  CAUGHT  T2_subtree_replaced_by_unjustified_leaf (exit 1)
+  CAUGHT  T3_token_deleted (exit 1)
+  accepted T4_circuit_budget_lowered (validity-preserving, exit 0)
+  CAUGHT  T9_one_child_orbit_id_changed (exit 1)
+  CAUGHT  T5_circuit_budget_raised (exit 1)
+  CAUGHT  T6_one_hexagon_of_F_changed (exit 1)
+  CAUGHT  T7_one_hexagon_removed_from_F (exit 1)
+  CAUGHT  T8_F_size_inconsistent (exit 1)
+  CAUGHT  G1_orbit_to_hexagon_table_corrupted (exit 1)
+  CAUGHT  G2_orbit_labels_shifted (exit 1)
+  CAUGHT  G4_one_hexagon_removed_from_a_branching_orbit (exit 1)
+  CAUGHT  G5_one_hexagon_added_to_one_orbit (exit 1)
+  CAUGHT  G6_two_orbits_merged (exit 1)
+  accepted G3a_id_check_removed_on_the_HONEST_tree (validity-preserving, exit 0)
+  LOAD-BEARING G3a_child_id_check (mutant on a changed-id tree: exit 0)
+  LOAD-BEARING G3b_leaf_justification (mutant on a raised-budget tree: exit 0)
+  CAUGHT  W_E1_corrupt_one_port (replay failures 1)
+  CAUGHT  W_E1_swap_two_ports (replay failures 1)
+  CAUGHT  W_E1_truncate (replay failures 1)
+  CAUGHT  W_E1_duplicate_witness (replay failures 0)
+  CAUGHT  W_E1_one_witness_deleted (exit 1)
+  CAUGHT  S1_left_S6_action_corrupted (equivariance ok=False)
+  CAUGHT  H1_certificate_hash_modified
+{
+ "invalid_all_caught": true,
+ "ok": true
+}
+   -> exit 0
+
+== 8  provenance hashes
+{
+ "recorded_hashes_match_files": {
+  "covertree_153.txt": true,
+  "verified_872_witness.txt": true
+ },
+ "all_recorded_hashes_match": true,
+ "absent": [],
+ "git_head": "5adb33b472b8f43219678a6dcf958e8242fb3a40",
+ "git_dirty": true,
+ "ok": true
+}
+files hashed: 46
+   -> exit 0
+
+==============================================
+CLEAN VERIFICATION OK: L6 = 872
