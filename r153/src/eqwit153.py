@@ -134,8 +134,33 @@ def check_witness(cell, target, ports):
 
 
 # ------------------------------------------------------------ the traversal
-def enumerate_witnesses(cell, target, node_cap=0):
+def load_prune(path):
+    """Round-152 CERTIFIED capacities, as the checker's prune-list format."""
+    out = {}
+    for line in Path(path).read_text().splitlines():
+        if not line.strip():
+            continue
+        *k, v = (int(x) for x in line.split())
+        out[tuple(k)] = v
+    return out
+
+
+def enumerate_witnesses(cell, target, node_cap=0, prune=None):
     b, dmax, amax, bmax, emax, hmax = cell
+    memo = {}
+
+    def ub(tok, d, a, bb, e, h):
+        key = (tok, d, a, bb, e, h)
+        v = memo.get(key)
+        if v is None:
+            v = 120 + a + bb + e
+            if prune:
+                for (kb, kd, ka, kbb, ke, kh), cc in prune.items():
+                    if (kb >= tok and kd >= d and ka >= a and kbb >= bb
+                            and ke >= e and kh >= h and cc < v):
+                        v = cc
+            memo[key] = v
+        return v
     phm = {ORB[0]: {PHASE[0]}}
     hexc = {HEX[0]: 1}
     path = [0]
@@ -156,8 +181,13 @@ def enumerate_witnesses(cell, target, node_cap=0):
             return
         if not feas(corb, tok):
             return
-        if ports + (NHEX - len(hexc)) + (amax - au) + (bmax - bu) \
-           + (emax - eu) < target:
+        reach = ports + (NHEX - len(hexc)) + (amax - au) + (bmax - bu) \
+            + (emax - eu)
+        if prune:
+            reach = min(reach, ports + ub(tok, dmax - deficit + 4 + 5 * tok,
+                                          amax - au, bmax - bu, emax - eu,
+                                          hmax - hu) - 1)
+        if reach < target:
             return
         for t, kind, cost in reversed(MOVES[v]):      # the reverse order
             q = ORB[t]
@@ -229,11 +259,15 @@ def main(argv):
     target = int(argv[7])
     if mode == "enumerate":
         t0 = time.time()
-        wits, nodes = enumerate_witnesses(cell, target)
+        pr = None
+        if len(argv) > 9 and argv[9] == "--prune":
+            pr = load_prune(argv[10])
+        wits, nodes = enumerate_witnesses(cell, target, prune=pr)
         Path(argv[8]).write_text(
             "".join(json.dumps(w) + "\n" for w in wits))
         print(json.dumps(dict(enumerator="PY153", cell="|".join(map(str, cell)),
-                              target=target, route="no-table",
+                              target=target,
+                              route="table" if pr else "no-table",
                               witnesses=len(wits), nodes=nodes,
                               seconds=round(time.time() - t0, 2),
                               file=argv[8])))

@@ -1,0 +1,260 @@
+{
+ "geometry": {
+  "hexagons": 120,
+  "orbits": 144,
+  "orbit_hexagon_counts": {
+   "5": 144
+  },
+  "every_orbit_meets_five_hexagons": true
+ },
+ "rows": [
+  {
+   "name": "E1",
+   "cell": "0|14|0|0|0|0",
+   "target": 96,
+   "circuits": 6,
+   "witnesses": 2,
+   "certificates": [
+    {
+     "index": 0,
+     "deficit": 14,
+     "ports": 96,
+     "sha256": "6b1e6e38d35fda3a1753ea73175fd2680ce00670caff047fee5dc2ebb0cbd535",
+     "lemmaE": {
+      "F_size": 24,
+      "candidates": 80,
+      "hex_simple": true,
+      "F_equals_4c": true,
+      "chain_orbits": 22,
+      "bfs": {
+       "coverable": false,
+       "at": null,
+       "nodes": 123
+      },
+      "dfs_lowest": {
+       "coverable": false,
+       "nodes": 203,
+       "solution": null
+      },
+      "dfs_fewest": {
+       "coverable": false,
+       "nodes": 71,
+       "solution": null
+      },
+      "counting": {
+       "top_c": [
+        5,
+        5,
+        3,
+        3,
+        3,
+        3
+       ],
+       "sum_top_c": 22,
+       "F_size": 24,
+       "settles": true
+      },
+      "agree": true,
+      "excluded": true,
+      "positive_control_same_instance": {
+       "min_orbits": 8,
+       "nodes": 8818,
+       "solution": [
+        5,
+        8,
+        19,
+        24,
+        88,
+        94,
+        79,
+        116
+       ]
+      }
+     },
+     "unrestricted": {
+      "F_size": 24,
+      "candidates": 86,
+      "hex_simple": true,
+      "F_equals_4c": true,
+      "chain_orbits": 22,
+      "bfs": {
+       "coverable": false,
+       "at": null,
+       "nodes": 132
+      },
+      "dfs_lowest": {
+       "coverable": false,
+       "nodes": 295,
+       "solution": null
+      },
+      "dfs_fewest": {
+       "coverable": false,
+       "nodes": 295,
+       "solution": null
+      },
+      "counting": {
+       "top_c": [
+        5,
+        5,
+        3,
+        3,
+        3,
+        3
+       ],
+       "sum_top_c": 22,
+       "F_size": 24,
+       "settles": true
+      },
+      "agree": true,
+      "excluded": true,
+      "positive_control_same_instance": {
+       "min_orbits": 8,
+       "nodes": 3319,
+       "solution": [
+        2,
+        8,
+        24,
+        38,
+        48,
+        80,
+        86,
+        84
+       ]
+      }
+     },
+     "excluded": true,
+     "excluded_without_lemmaE": true
+    },
+    {
+     "index": 1,
+     "deficit": 14,
+     "ports": 96,
+     "sha256": "e7a5c6061c1d27386306bccd08fd878ade6ad54c0b2d0cdcc4e1a81f1485ae5d",
+     "lemmaE": {
+      "F_size": 24,
+      "candidates": 76,
+      "hex_simple": true,
+      "F_equals_4c": true,
+      "chain_orbits": 22,
+      "bfs": {
+       "coverable": false,
+       "at": null,
+       "nodes": 248
+      },
+      "dfs_lowest": {
+       "coverable": false,
+       "nodes": 427,
+       "solution": null
+      },
+      "dfs_fewest": {
+       "coverable": false,
+       "nodes": 71,
+       "solution": null
+      },
+      "counting": {
+       "top_c": [
+        5,
+        5,
+        5,
+        5,
+        3,
+        3
+       ],
+       "sum_top_c": 26,
+       "F_size": 24,
+       "settles": false
+      },
+      "agree": true,
+      "excluded": true,
+      "positive_control_same_instance": {
+       "min_orbits": 8,
+       "nodes": 14882,
+       "solution": [
+        5,
+        8,
+        19,
+        24,
+        40,
+        82,
+        92,
+        90
+       ]
+      }
+     },
+     "unrestricted": {
+      "F_size": 24,
+      "candidates": 82,
+      "hex_simple": true,
+      "F_equals_4c": true,
+      "chain_orbits": 22,
+      "bfs": {
+       "coverable": false,
+       "at": null,
+       "nodes": 264
+      },
+      "dfs_lowest": {
+       "coverable": false,
+       "nodes": 619,
+       "solution": null
+      },
+      "dfs_fewest": {
+       "coverable": false,
+       "nodes": 619,
+       "solution": null
+      },
+      "counting": {
+       "top_c": [
+        5,
+        5,
+        5,
+        5,
+        3,
+        3
+       ],
+       "sum_top_c": 26,
+       "F_size": 24,
+       "settles": false
+      },
+      "agree": true,
+      "excluded": true,
+      "positive_control_same_instance": {
+       "min_orbits": 8,
+       "nodes": 4084,
+       "solution": [
+        2,
+        8,
+        24,
+        38,
+        48,
+        82,
+        92,
+        84
+       ]
+      }
+     },
+     "excluded": true,
+     "excluded_without_lemmaE": true
+    }
+   ],
+   "all_excluded": true
+  }
+ ],
+ "constructed_controls": {
+  "6": {
+   "instances": 40,
+   "bfs_yes": 40,
+   "dfs_lowest_yes": 40,
+   "dfs_fewest_yes": 40,
+   "all_yes": true
+  },
+  "7": {
+   "instances": 40,
+   "bfs_yes": 40,
+   "dfs_lowest_yes": 40,
+   "dfs_fewest_yes": 40,
+   "all_yes": true
+  }
+ },
+ "controls_ok": true,
+ "ok": true
+}
