@@ -46,8 +46,8 @@
    "where": "r152/src/mutate152.py"
   },
   "V.twochecks": {
-   "status": "MISSING",
-   "what": "a Python and a C checker, sharing no code and no data file, reach the same verdict on the same certificate bytes",
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "a Python and a C checker, sharing no code and no data file, reach the same verdict on the same certificate bytes (24 cells, 0 node-count differences)",
    "deps": [
     "D.cap",
     "H.monotone",
@@ -57,8 +57,8 @@
    "where": "r152/src/checker152.py, r152/src/checker152.c"
   },
   "E.certcells": {
-   "status": "MISSING",
-   "what": "no verification run",
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "1101/1101 cells carry a verified upper bound (1044 of them exact); 0 not verified",
    "deps": [
     "V.twochecks",
     "V.mutation"
@@ -104,14 +104,14 @@
    "where": "r152/src/extree152.py"
   },
   "V.piecemutation": {
-   "status": "MISSING",
+   "status": "VERIFIED_CERTIFICATE",
    "what": "every mutation of a piece certificate and of the piece checker source is refused",
    "deps": [],
    "where": "r152/src/pmutate152.py"
   },
   "E.piececells": {
-   "status": "MISSING",
-   "what": "no piece verification run",
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "220/220 marked piece capacities carry a verified bound (203 exact); 0 not verified",
    "deps": [
     "V.piecemutation",
     "V.invariants",
@@ -119,46 +119,57 @@
    ],
    "where": "r152/certs/verify_piece_*.json"
   },
+  "V.hygiene": {
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "the certified-only pipeline reads no production capacity table, no UB file and no retracted round-144/146 artefact; the heavy-retained model is keyed on H; no report feeding the census carries an UNKNOWN_CAP or a DISAGREE row",
+   "deps": [],
+   "where": "r152/src/hygiene152.py"
+  },
+  "V.pysubset": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the Python checker re-established a large subset of the chain cells (854/854 cells, 169,435,169 nodes)",
+   "deps": [
+    "V.twochecks"
+   ],
+   "where": "r152/certs/verify_subset_152.json"
+  },
+  "V.piecetwochecks": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the two piece checkers agree cell by cell on the same certificate (111 cells, 0 node-count differences)",
+   "deps": [],
+   "where": "r152/src/agree152.py --kind piece"
+  },
   "E.census871": {
-   "status": "MISSING",
-   "what": "L = 871 census using certified capacities only: {}",
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "L = 871 census using certified capacities only: {\"STRICTLY_CLOSED\": 1154, \"EQUALITY\": 2}",
    "deps": [
     "E.certcells",
     "E.equalitycells",
     "E.heavyfix",
     "E.piececells",
     "E.extree",
-    "V.catalogue"
+    "V.catalogue",
+    "V.hygiene",
+    "V.pysubset",
+    "V.piecetwochecks"
    ],
    "where": "r152/src/rows152.py"
   },
   "E.census870": {
-   "status": "MISSING",
-   "what": "L = 870 census using certified capacities only: {}",
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "L = 870 census using certified capacities only: {\"STRICTLY_CLOSED\": 353}",
    "deps": [
     "E.certcells",
     "E.heavyfix",
     "E.piececells",
-    "V.catalogue"
+    "V.catalogue",
+    "V.hygiene"
    ],
    "where": "r152/src/rows152.py"
   }
  },
- "forbidden_statuses": [
-  "E.census870",
-  "E.census871",
-  "E.certcells",
-  "E.piececells",
-  "V.piecemutation",
-  "V.twochecks"
- ],
+ "forbidden_statuses": [],
  "top": "E.census871",
- "forbidden_on_path_to_top": [
-  "E.census871",
-  "E.certcells",
-  "E.piececells",
-  "V.piecemutation",
-  "V.twochecks"
- ],
- "capacity_layer_certified": false
+ "forbidden_on_path_to_top": [],
+ "capacity_layer_certified": true
 }
