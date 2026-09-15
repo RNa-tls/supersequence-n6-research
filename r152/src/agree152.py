@@ -18,17 +18,24 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cert", required=True)
     ap.add_argument("--node-cap", type=int, default=200_000_000)
+    ap.add_argument("--kind", choices=("chain", "piece"), default="chain")
     ap.add_argument("--out", default="r152/certs/agreement_152.json")
     a = ap.parse_args()
 
-    c = subprocess.run([str(SRC / "checker152.exe"), a.cert, str(a.node_cap)],
-                       capture_output=True, text=True)
+    if a.kind == "chain":
+        ccmd = [str(SRC / "checker152.exe"), a.cert, str(a.node_cap)]
+        pycmd = [sys.executable, str(SRC / "checker152.py"), "--cert", a.cert,
+                 "--node-cap", str(a.node_cap), "--report", "REPORT"]
+    else:
+        ccmd = [str(SRC / "piece152.exe"), "check", a.cert, str(a.node_cap)]
+        pycmd = [sys.executable, str(SRC / "piece152.py"), "--cert", a.cert,
+                 "--node-cap", str(a.node_cap), "--report", "REPORT"]
+    c = subprocess.run(ccmd, capture_output=True, text=True)
     cdoc = json.loads(c.stdout)
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
         rep = f.name
-    p = subprocess.run([sys.executable, str(SRC / "checker152.py"),
-                        "--cert", a.cert, "--node-cap", str(a.node_cap),
-                        "--report", rep], capture_output=True, text=True)
+    p = subprocess.run([x if x != "REPORT" else rep for x in pycmd],
+                       capture_output=True, text=True)
     pdoc = json.loads(Path(rep).read_text())
     Path(rep).unlink()
 
@@ -45,7 +52,7 @@ def main():
                               c_cap=x["cap"], py_cap=y["cap"]))
     nodes_differ = [k for k in crows
                     if k in prows and crows[k].get("nodes") != prows[k].get("nodes")]
-    out = dict(cert=a.cert, node_cap=a.node_cap,
+    out = dict(cert=a.cert, kind=a.kind, node_cap=a.node_cap,
                c_exit=c.returncode, python_exit=p.returncode,
                cells=len(crows), verdict_differences=diffs,
                cells_with_different_node_counts=len(nodes_differ),
