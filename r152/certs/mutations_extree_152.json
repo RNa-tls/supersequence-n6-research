@@ -1,0 +1,68 @@
+{
+ "tree": "r152/certs/extree_pilot_152.txt",
+ "results": [
+  {
+   "kind": "certificate",
+   "mutation": "A1_child_count_reduced",
+   "exit": 1,
+   "caught": true,
+   "tail": "expected 'tree' at token 9, saw 'N5'"
+  },
+  {
+   "kind": "certificate",
+   "mutation": "A2_internal_node_replaced_by_leaf",
+   "exit": 1,
+   "caught": true,
+   "tail": "expected 'tree' at token 9, saw 'N5'"
+  },
+  {
+   "kind": "certificate",
+   "mutation": "A3_token_deleted",
+   "exit": 1,
+   "caught": true,
+   "tail": "expected 'tree' at token 12, saw 'N5'"
+  },
+  {
+   "kind": "certificate",
+   "mutation": "A4_cap_lowered",
+   "exit": 1,
+   "caught": true,
+   "tail": "expected 'tree' at token 28, saw 'L'"
+  },
+  {
+   "kind": "certificate",
+   "mutation": "A5_child_count_inflated",
+   "exit": 1,
+   "caught": true,
+   "tail": "expected 'tree' at token 9, saw 'N5'"
+  },
+  {
+   "kind": "certificate",
+   "mutation": "A6_subtree_dropped_stream_still_well_formed",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "source",
+   "mutation": "B1_child_count_check_removed",
+   "exit": 0,
+   "check_is_load_bearing": true
+  },
+  {
+   "kind": "source",
+   "mutation": "B2_leaf_justification_removed",
+   "exit": 0,
+   "check_is_load_bearing": true
+  },
+  {
+   "kind": "source",
+   "mutation": "B3_reach_check_removed",
+   "exit": 0,
+   "check_is_load_bearing": true
+  }
+ ],
+ "all_certificate_mutations_caught": true,
+ "all_checks_load_bearing": true,
+ "ok": true
+}
