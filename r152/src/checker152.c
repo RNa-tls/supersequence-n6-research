@@ -163,17 +163,54 @@ static uint64_t NODES, NODECAP; static int CAPPED, FOUND;
 static unsigned char phm[NQ]; static int opened[NQ], nopened, deficit;
 static unsigned char hexu[NH]; static int hexcount;
 
-/* cells already certified IN THIS RUN, the only pruning values allowed */
-static int CERT_ARG[MAXCELL][6], CERT_VAL[MAXCELL], NCERT;
+/* Cells already certified IN THIS RUN, the only pruning values allowed.
+ * They are kept in a dense table UB[tok][d][a][bb][e][h] holding, for each
+ * budget vector, the smallest value this run has already PROVED for a cell
+ * that dominates it -- sound by (P1) -- initialised to the analytic (P2)
+ * bound 120 + a + bb + e.  The table is a memo of the linear scan it replaces;
+ * it changes no value.  Indices are never clamped DOWNWARD: an out-of-range
+ * budget aborts the run rather than silently weakening the bound. */
+#define UT 6
+#define UD 44
+#define UA 20
+#define UB2 4
+#define UE 4
+#define UH 8
+#define UBSZ ((size_t)UT * UD * UA * UB2 * UE * UH)
+#define UIX(t, d, a, b, e, h) \
+    ((((((size_t)(t) * UD + (d)) * UA + (a)) * UB2 + (b)) * UE + (e)) * UH + (h))
+static int *UBT;
+static int NCERT;
 
+static void ub_init(void) {
+    UBT = malloc(sizeof(int) * UBSZ);
+    if (!UBT) { fprintf(stderr, "ub alloc\n"); exit(3); }
+    for (int t = 0; t < UT; ++t) for (int d = 0; d < UD; ++d)
+      for (int a = 0; a < UA; ++a) for (int b = 0; b < UB2; ++b)
+        for (int e = 0; e < UE; ++e) for (int h = 0; h < UH; ++h)
+            UBT[UIX(t, d, a, b, e, h)] = 120 + a + b + e;
+}
+static void ub_add(const int *k, int val) {        /* a newly certified cell */
+    for (int t = 0; t <= k[0] && t < UT; ++t)
+      for (int d = 0; d <= k[1] && d < UD; ++d)
+        for (int a = 0; a <= k[2] && a < UA; ++a)
+          for (int b = 0; b <= k[3] && b < UB2; ++b)
+            for (int e = 0; e <= k[4] && e < UE; ++e)
+              for (int h = 0; h <= k[5] && h < UH; ++h) {
+                  size_t i = UIX(t, d, a, b, e, h);
+                  if (val < UBT[i]) UBT[i] = val;
+              }
+    ++NCERT;
+}
 static int ubound(int tok, int d, int a, int bb, int e, int h) {
-    int best = 120 + a + bb + e;                    /* (P2), analytic */
-    for (int i = 0; i < NCERT; ++i) {
-        const int *k = CERT_ARG[i];
-        if (k[0] >= tok && k[1] >= d && k[2] >= a && k[3] >= bb
-            && k[4] >= e && k[5] >= h && CERT_VAL[i] < best) best = CERT_VAL[i];
+    if (tok < 0) tok = 0; if (d < 0) d = 0; if (a < 0) a = 0;
+    if (bb < 0) bb = 0;   if (e < 0) e = 0; if (h < 0) h = 0;
+    if (tok >= UT || d >= UD || a >= UA || bb >= UB2 || e >= UE || h >= UH) {
+        fprintf(stderr, "ubound index out of range: %d %d %d %d %d %d\n",
+                tok, d, a, bb, e, h);
+        exit(3);                                    /* fail closed */
     }
-    return best;
+    return UBT[UIX(tok, d, a, bb, e, h)];
 }
 static int pc5(unsigned x) { int c = 0; while (x) { x &= x - 1; ++c; } return c; }
 static int feas(int tok, int skip) {
@@ -191,6 +228,8 @@ static int feas(int tok, int skip) {
 }
 static void rec(int cur, int corb, int ports, int tok, int au, int bu, int eu, int hu);
 
+static int TRAIL[900];                 /* the walk of the current node */
+
 static void step(int t, int corb, int ports, int tok, int au, int bu, int eu,
                  int hu, int isdirty) {
     if (CAPPED || FOUND) return;
@@ -206,6 +245,7 @@ static void step(int t, int corb, int ports, int tok, int au, int bu, int eu,
     phm[q] = (unsigned char)(old | (1u << PHASE[t]));
     if (fresh) { opened[nopened++] = q; deficit += 4; } else deficit -= 1;
     if (newhex) { hexu[HEXID[t]] = 1; ++hexcount; }
+    TRAIL[ports] = t;
     rec(t, q, ports + 1, tok - cost, au + (isdirty == 1), bu + (isdirty == 2),
         eu + spend_e, hu);
     if (newhex) { hexu[HEXID[t]] = 0; --hexcount; }
@@ -241,6 +281,7 @@ static const char *search_cell(const Cell *c, int target) {
     nopened = 0; hexcount = 1; hexu[HEXID[0]] = 1;
     phm[ORBID[0]] = (unsigned char)(1u << PHASE[0]);
     opened[nopened++] = ORBID[0]; deficit = 4;
+    TRAIL[0] = 0;
     rec(0, ORBID[0], 1, CB, 0, 0, 0, 0);
     if (FOUND) return "FOUND";
     if (CAPPED) return "CAP";
@@ -293,14 +334,12 @@ static const char *replay(const Cell *c) {
     return NULL;
 }
 
-int main(int argc, char **argv) {
-    if (argc < 2) { fprintf(stderr, "usage: %s <cert.txt> [node_cap]\n", argv[0]); return 3; }
-    NODECAP = argc > 2 ? strtoull(argv[2], NULL, 10) : 0;
+static void common_setup(void) {
     build_perms();
     int nhex, norb;
     classify(sigma, HEXID, &nhex);
     classify(tau, ORBID, &norb);
-    if (nhex != NH || norb != NQ) { fprintf(stderr, "class counts %d %d\n", nhex, norb); return 3; }
+    if (nhex != NH || norb != NQ) { fprintf(stderr, "class counts %d %d\n", nhex, norb); exit(3); }
     for (int q = 0; q < NQ; ++q) {
         int rep = -1;
         for (int i = 0; i < NP && rep < 0; ++i) if (ORBID[i] == q) rep = i;
@@ -308,6 +347,14 @@ int main(int argc, char **argv) {
         for (int k = 0; k < 5; ++k) { PHASE[x] = k; tau(PERM[x], b); x = permindex(b); }
     }
     build_catalogue();
+    ub_init();
+}
+
+#ifndef CHECKER152_NO_MAIN
+int main(int argc, char **argv) {
+    if (argc < 2) { fprintf(stderr, "usage: %s <cert.txt> [node_cap]\n", argv[0]); return 3; }
+    NODECAP = argc > 2 ? strtoull(argv[2], NULL, 10) : 0;
+    common_setup();
     read_cert(argv[1]);
 
     uint64_t total = 0; int ok = 1, ncert = 0;
@@ -326,8 +373,7 @@ int main(int argc, char **argv) {
             else if (!strcmp(r, "CAP")) status = "UNKNOWN_CAP";
             else {
                 status = "EXACT_CERTIFIED";
-                memcpy(CERT_ARG[NCERT], c->arg, sizeof c->arg);
-                CERT_VAL[NCERT++] = c->cap; ++ncert;
+                ub_add(c->arg, c->cap); ++ncert;
             }
         }
         if (strcmp(status, "EXACT_CERTIFIED")) ok = 0;
@@ -342,3 +388,4 @@ int main(int argc, char **argv) {
            ncert, (unsigned long long)total, ok ? "true" : "false");
     return ok ? 0 : 1;
 }
+#endif

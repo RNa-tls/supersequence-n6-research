@@ -152,6 +152,8 @@ class Checker:
 
     def __init__(self, certified, node_cap):
         self.cert = certified          # {(b,d,a,bb,e,h): cap}, already checked
+        self._certl = list(certified.items())
+        self._ubc = {}                 # memo only; it changes no value
         self.cap = node_cap
         self.reset()
 
@@ -163,11 +165,16 @@ class Checker:
 
     # --- the monotone bound from ALREADY CERTIFIED cells, (P1)
     def ub(self, tok, d, a, bb, e, h):
+        key = (tok, d, a, bb, e, h)
+        v = self._ubc.get(key)
+        if v is not None:
+            return v
         best = 120 + a + bb + e                      # (P2), proved analytic
-        for (kb, kd, ka, kbb, ke, kh), c in self.cert.items():
+        for (kb, kd, ka, kbb, ke, kh), c in self._certl:
             if (kb >= tok and kd >= d and ka >= a and kbb >= bb
                     and ke >= e and kh >= h and c < best):
                 best = c
+        self._ubc[key] = best
         return best
 
     # --- the feasibility theorem, implemented from its statement (round 150)
@@ -388,8 +395,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--cert", required=True)
     ap.add_argument("--report", default=None)
-    ap.add_argument("--compare", default=None,
-                    help="a production table to cross-check values against")
+    ap.add_argument("--compare", action="append", default=[],
+                    help="production tables to cross-check the values against")
     ap.add_argument("--node-cap", type=int, default=2_000_000_000)
     a = ap.parse_args()
     raw = Path(a.cert).read_bytes()
@@ -401,8 +408,10 @@ def main():
             raise SystemExit("unknown certificate format")
     compare = None
     if a.compare:
-        compare = {k: v["cc"] for k, v in json.loads(
-            Path(a.compare).read_bytes()).items()}
+        compare = {}
+        for f in a.compare:
+            for k, v in json.loads(Path(f).read_bytes()).items():
+                compare[k] = v["cc"]
     t0 = time.time()
     ok, rows, certified = certify(doc, a.node_cap, compare)
     out = dict(cert_sha256=hashlib.sha256(raw).hexdigest(),
