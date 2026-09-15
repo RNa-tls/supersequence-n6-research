@@ -32,6 +32,7 @@ COORD = ("k", "Z", "H", "Bstar", "G", "g", "c", "d", "D2", "Qs", "h")
 HEXCAP, NEG = 120, -10 ** 9
 CERT = {}
 FALLBACKS = Counter()
+USED = Counter()          # which certified cells the census actually reads
 
 
 def rows(t):
@@ -73,6 +74,7 @@ def CC(b, d, a, bb, e, h=0):
     if v is None:
         FALLBACKS[(b, d, a, bb, e, h)] += 1
         return HEXCAP + a + bb + e, True
+    USED[(b, d, a, bb, e, h)] += 1
     return v, False
 
 
@@ -158,7 +160,7 @@ def main():
     for f in a.verify:
         rep = json.loads(Path(f).read_text())
         for row in rep["rows"]:
-            if row["status"] != "EXACT_CERTIFIED":
+            if row["status"] not in ("EXACT_CERTIFIED", "UPPER_CERTIFIED"):
                 continue
             CERT[tuple(int(x) for x in row["cell"].split("|"))] = row["cap"]
     print(f"certified cells available: {len(CERT)}", flush=True)
@@ -172,6 +174,11 @@ def main():
             print("   ", json.dumps(x), flush=True)
     out["analytic_fallback_cells"] = len(FALLBACKS)
     out["analytic_fallback_uses"] = sum(FALLBACKS.values())
+    out["certified_cells_read"] = len(USED)
+    out["certified_cells_unread"] = sorted(
+        "|".join(map(str, k)) for k in CERT if k not in USED)
+    out["analytic_fallback_vectors"] = sorted(
+        "|".join(map(str, k)) for k in FALLBACKS)
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(out, indent=1) + "\n")
     print(f"fallback cells={len(FALLBACKS)} uses={sum(FALLBACKS.values())}")
