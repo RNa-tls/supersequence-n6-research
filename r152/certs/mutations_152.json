@@ -1,5 +1,5 @@
 {
- "cert": "r152/certs/cap_cert_pilot_152.txt",
+ "cert": "r152/certs/cap_cert_mut_152.txt",
  "baseline_passes": true,
  "mutations": [
   {
@@ -9,7 +9,7 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":23,\"total_nodes\":244805,\"all_certified\":false}"
+   "c_tail": "],\"certified\":133,\"total_nodes\":577368,\"all_certified\":false}"
   },
   {
    "mutation": "02_cap_deflated_with_short_witness",
@@ -18,7 +18,7 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":23,\"total_nodes\":244805,\"all_certified\":false}"
+   "c_tail": "],\"certified\":133,\"total_nodes\":577368,\"all_certified\":false}"
   },
   {
    "mutation": "03_witness_port_corrupted",
@@ -27,7 +27,7 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":23,\"total_nodes\":244805,\"all_certified\":false}"
+   "c_tail": "],\"certified\":133,\"total_nodes\":577368,\"all_certified\":false}"
   },
   {
    "mutation": "04_witness_ports_swapped",
@@ -36,7 +36,7 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":23,\"total_nodes\":244805,\"all_certified\":false}"
+   "c_tail": "],\"certified\":133,\"total_nodes\":577368,\"all_certified\":false}"
   },
   {
    "mutation": "05_witness_port_repeated",
@@ -45,16 +45,16 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":23,\"total_nodes\":244805,\"all_certified\":false}"
+   "c_tail": "],\"certified\":133,\"total_nodes\":577368,\"all_certified\":false}"
   },
   {
    "mutation": "06_budget_widened_value_kept",
    "scope": "both",
-   "python_exit": 0,
+   "python_exit": 1,
    "c_exit": 1,
-   "caught": false,
+   "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":23,\"total_nodes\":247178,\"all_certified\":false}"
+   "c_tail": "],\"certified\":133,\"total_nodes\":581138,\"all_certified\":false}"
   },
   {
    "mutation": "07_node_cap_too_small",
@@ -63,25 +63,25 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "}",
-   "c_tail": "],\"certified\":3,\"total_nodes\":11219,\"all_certified\":false}"
+   "c_tail": "],\"certified\":11,\"total_nodes\":64996,\"all_certified\":false}"
   },
   {
    "mutation": "08_phase_reuse_allowed",
    "scope": "c",
    "python_exit": null,
-   "c_exit": 0,
-   "caught": false,
+   "c_exit": 1,
+   "caught": true,
    "python_tail": "",
-   "c_tail": "],\"certified\":24,\"total_nodes\":247274,\"all_certified\":true}"
+   "c_tail": "],\"certified\":74,\"total_nodes\":754439,\"all_certified\":false}"
   },
   {
-   "mutation": "09_clean_E_may_leave_orbit",
+   "mutation": "09_deficit_understated_on_a_fresh_orbit",
    "scope": "c",
    "python_exit": null,
-   "c_exit": 0,
-   "caught": false,
+   "c_exit": 3,
+   "caught": true,
    "python_tail": "",
-   "c_tail": "],\"certified\":24,\"total_nodes\":247274,\"all_certified\":true}"
+   "c_tail": "ubound index out of range: 0 46 0 0 0 0"
   },
   {
    "mutation": "10_heavy_budget_ignored",
@@ -90,7 +90,7 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "",
-   "c_tail": "],\"certified\":0,\"total_nodes\":1445,\"all_certified\":false}"
+   "c_tail": "],\"certified\":0,\"total_nodes\":1860675,\"all_certified\":false}"
   },
   {
    "mutation": "11_token_budget_ignored",
@@ -99,7 +99,7 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "",
-   "c_tail": "],\"certified\":4,\"total_nodes\":771608,\"all_certified\":false}"
+   "c_tail": "],\"certified\":82,\"total_nodes\":639412,\"all_certified\":false}"
   },
   {
    "mutation": "12_hexagon_collision_budget_ignored",
@@ -108,9 +108,9 @@
    "c_exit": 1,
    "caught": true,
    "python_tail": "",
-   "c_tail": "],\"certified\":0,\"total_nodes\":1452,\"all_certified\":false}"
+   "c_tail": "],\"certified\":0,\"total_nodes\":5873,\"all_certified\":false}"
   }
  ],
- "all_caught": false,
- "ok": false
+ "all_caught": true,
+ "ok": true
 }
