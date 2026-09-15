@@ -22,8 +22,19 @@ N = {}
 
 
 def jload(p):
+    """Absent OR unparsable both give None, which maps to status MISSING.
+
+    A half-written report (a run still in flight) must never be read as a pass.
+    """
     p = Path(p)
-    return json.loads(p.read_text()) if p.exists() else None
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text())
+    except json.JSONDecodeError:
+        print(f"  note: {p} is not valid JSON (incomplete run?) -- treated as "
+              f"absent")
+        return None
 
 
 def node(nid, status, what, deps=(), where=""):
@@ -37,6 +48,13 @@ def main():
     agr = jload(R152 / "certs" / "agreement_152.json")
     mut = jload(R152 / "certs" / "mutations_152.json")
     cen = jload(R152 / "certs" / "census_152.json")
+    vpc = jload(R152 / "certs" / "verify_piece_c152.json")
+    vpp = jload(R152 / "certs" / "verify_piece_152.json")
+    pmut = jload(R152 / "certs" / "mutations_piece_152.json")
+    extr = jload(R152 / "certs" / "extree_pilot_152.json")
+    emut = jload(R152 / "certs" / "mutations_extree_152.json")
+    inv = jload(R152 / "certs" / "invariants_152.json")
+    cat = jload(R152 / "certs" / "catalogue_crosscheck_152.json")
     hfx = jload(R152 / "certs" / "heavyfix_152.json")
 
     node("H.monotone", "PURE_HAND_PROOF",
@@ -77,7 +95,7 @@ def main():
          "r152/src/checker152.py, r152/src/checker152.c")
 
     # -- the certified cells
-    def summarise(v):
+    def summarise(v):  # noqa: E306
         if not v:
             return None
         rows = v["rows"] if "rows" in v else []
@@ -119,6 +137,41 @@ def main():
             f" of them closed only by a wrong call)" if hfx else ""),
          [], "r152/src/heavyfix152.py")
 
+    node("V.invariants",
+         "INDEPENDENTLY_DUPLICATED" if (inv or {}).get("ok") else "MISSING",
+         "the catalogue invariants I1-I6, checked over all 720 words; they say "
+         "which guards in the searchers are load-bearing and which are vacuous",
+         [], "r152/src/invariants152.py")
+    node("V.catalogue",
+         "INDEPENDENTLY_DUPLICATED" if (cat or {}).get("agree") else "MISSING",
+         "the checker's own catalogue agrees field by field with round 147's, "
+         "including all 511,200 heavy joints (a cross-check, not a dependency)",
+         [], "r152/src/catcheck152.py")
+    node("E.extree",
+         "VERIFIED_CERTIFICATE"
+         if ((extr or {}).get("all_valid") and (emut or {}).get("ok"))
+         else "MISSING",
+         "an EXPLICIT exhaustion tree for the cells the equality rows rest on, "
+         "validated by a program that performs no search"
+         + (f" ({extr['cells']} cells, {extr['total_nodes']:,} nodes, "
+            f"{extr['tree_bytes']:,} bytes)" if extr else ""),
+         ["D.cap", "H.monotone", "H.hexcount", "H.feas"],
+         "r152/src/extree152.py")
+
+    spc = summarise(vpc) or summarise(vpp)
+    node("V.piecemutation",
+         "VERIFIED_CERTIFICATE" if (pmut or {}).get("all_caught") else "MISSING",
+         "every mutation of a piece certificate and of the piece checker source "
+         "is refused", [], "r152/src/pmutate152.py")
+    node("E.piececells",
+         "VERIFIED_CERTIFICATE" if (spc and spc["unverified"] == 0)
+         else ("UNKNOWN_CAP" if spc else "MISSING"),
+         (f"{spc['certified']}/{spc['cells']} marked piece capacities carry a "
+          f"verified bound ({spc['exact']} exact); {spc['unverified']} not "
+          f"verified" if spc else "no piece verification run"),
+         ["V.piecemutation", "V.invariants", "H.catalogue"],
+         "r152/certs/verify_piece_*.json")
+
     lay = (cen or {}).get("layers", {})
     t871 = lay.get("L871", {}).get("tally", {})
     t870 = lay.get("L870", {}).get("tally", {})
@@ -128,14 +181,15 @@ def main():
              == sum(t871.values()) and t871.get("SURVIVING", 0) == 0 and t871)
          else ("UNKNOWN_CAP" if t871 else "MISSING"),
          f"L = 871 census using certified capacities only: {json.dumps(t871)}",
-         ["E.certcells", "E.equalitycells", "E.heavyfix"],
-         "r152/src/rows152.py")
+         ["E.certcells", "E.equalitycells", "E.heavyfix", "E.piececells",
+          "E.extree", "V.catalogue"], "r152/src/rows152.py")
     node("E.census870",
          "VERIFIED_CERTIFICATE"
          if (t870 and set(t870) == {"STRICTLY_CLOSED"}) else
          ("UNKNOWN_CAP" if t870 else "MISSING"),
          f"L = 870 census using certified capacities only: {json.dumps(t870)}",
-         ["E.certcells", "E.heavyfix"], "r152/src/rows152.py")
+         ["E.certcells", "E.heavyfix", "E.piececells", "V.catalogue"],
+         "r152/src/rows152.py")
 
     # ---------------------------------------------------------------- report
     bad = {k: v for k, v in N.items() if v["status"] in FORBIDDEN}

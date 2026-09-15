@@ -1,0 +1,164 @@
+{
+ "nodes": {
+  "H.monotone": {
+   "status": "PURE_HAND_PROOF",
+   "what": "(P1) cap is monotone non-decreasing in every budget",
+   "deps": [],
+   "where": "research/RR_L6_R147_SOUND_UB.md"
+  },
+  "H.hexcount": {
+   "status": "PURE_HAND_PROOF",
+   "what": "(P2) cap(K) <= 120 + a + bb + e",
+   "deps": [],
+   "where": "research/RR_L6_R147_SOUND_UB.md"
+  },
+  "H.catalogue": {
+   "status": "PURE_HAND_PROOF",
+   "what": "the joint catalogue is complete and the charging rules are exhaustive",
+   "deps": [],
+   "where": "r149/PROOF.md sections 2.2-2.3"
+  },
+  "H.wlog": {
+   "status": "PURE_HAND_PROOF",
+   "what": "fixing the start port is WLOG (left S6 transitive, catalogue equivariant; 518,400 pairs checked)",
+   "deps": [],
+   "where": "r149/PROOF.md section 2.4"
+  },
+  "H.feas": {
+   "status": "PURE_HAND_PROOF",
+   "what": "the feasibility prune never removes a realisable continuation",
+   "deps": [],
+   "where": "round 150 feasibility audit"
+  },
+  "D.cap": {
+   "status": "PURE_HAND_PROOF",
+   "what": "cap(K) defined as a maximum over chains, every budget an upper bound",
+   "deps": [
+    "H.catalogue",
+    "H.wlog"
+   ],
+   "where": "r152/CAPACITY_CERTIFICATE.md section 1"
+  },
+  "V.mutation": {
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "every mutation of the certificate and of the checker source is refused (12/12)",
+   "deps": [],
+   "where": "r152/src/mutate152.py"
+  },
+  "V.twochecks": {
+   "status": "MISSING",
+   "what": "a Python and a C checker, sharing no code and no data file, reach the same verdict on the same certificate bytes",
+   "deps": [
+    "D.cap",
+    "H.monotone",
+    "H.hexcount",
+    "H.feas"
+   ],
+   "where": "r152/src/checker152.py, r152/src/checker152.c"
+  },
+  "E.certcells": {
+   "status": "MISSING",
+   "what": "no verification run",
+   "deps": [
+    "V.twochecks",
+    "V.mutation"
+   ],
+   "where": "r152/certs/verify_all_*.json"
+  },
+  "E.equalitycells": {
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "the two cells the L=871 equality rows rest on, 0|14|0|0|0|0 = 96 and 0|8|0|0|0|1 = 92, are certified EXACT together with their ladders",
+   "deps": [
+    "V.twochecks",
+    "V.mutation"
+   ],
+   "where": "r152/certs/verify_pilot_152.json"
+  },
+  "E.heavyfix": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the heavy-retained model is keyed on HMAX = H; the round-148 code used the joint count h.  Reproduced and repaired; the census is unchanged (106 rows called it with h != H, 0 of them closed only by a wrong call)",
+   "deps": [],
+   "where": "r152/src/heavyfix152.py"
+  },
+  "V.invariants": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the catalogue invariants I1-I6, checked over all 720 words; they say which guards in the searchers are load-bearing and which are vacuous",
+   "deps": [],
+   "where": "r152/src/invariants152.py"
+  },
+  "V.catalogue": {
+   "status": "INDEPENDENTLY_DUPLICATED",
+   "what": "the checker's own catalogue agrees field by field with round 147's, including all 511,200 heavy joints (a cross-check, not a dependency)",
+   "deps": [],
+   "where": "r152/src/catcheck152.py"
+  },
+  "E.extree": {
+   "status": "VERIFIED_CERTIFICATE",
+   "what": "an EXPLICIT exhaustion tree for the cells the equality rows rest on, validated by a program that performs no search (24 cells, 247,274 nodes, 566,277 bytes)",
+   "deps": [
+    "D.cap",
+    "H.monotone",
+    "H.hexcount",
+    "H.feas"
+   ],
+   "where": "r152/src/extree152.py"
+  },
+  "V.piecemutation": {
+   "status": "MISSING",
+   "what": "every mutation of a piece certificate and of the piece checker source is refused",
+   "deps": [],
+   "where": "r152/src/pmutate152.py"
+  },
+  "E.piececells": {
+   "status": "MISSING",
+   "what": "no piece verification run",
+   "deps": [
+    "V.piecemutation",
+    "V.invariants",
+    "H.catalogue"
+   ],
+   "where": "r152/certs/verify_piece_*.json"
+  },
+  "E.census871": {
+   "status": "MISSING",
+   "what": "L = 871 census using certified capacities only: {}",
+   "deps": [
+    "E.certcells",
+    "E.equalitycells",
+    "E.heavyfix",
+    "E.piececells",
+    "E.extree",
+    "V.catalogue"
+   ],
+   "where": "r152/src/rows152.py"
+  },
+  "E.census870": {
+   "status": "MISSING",
+   "what": "L = 870 census using certified capacities only: {}",
+   "deps": [
+    "E.certcells",
+    "E.heavyfix",
+    "E.piececells",
+    "V.catalogue"
+   ],
+   "where": "r152/src/rows152.py"
+  }
+ },
+ "forbidden_statuses": [
+  "E.census870",
+  "E.census871",
+  "E.certcells",
+  "E.piececells",
+  "V.piecemutation",
+  "V.twochecks"
+ ],
+ "top": "E.census871",
+ "forbidden_on_path_to_top": [
+  "E.census871",
+  "E.certcells",
+  "E.piececells",
+  "V.piecemutation",
+  "V.twochecks"
+ ],
+ "capacity_layer_certified": false
+}
