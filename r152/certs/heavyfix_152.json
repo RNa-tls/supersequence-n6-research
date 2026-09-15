@@ -1,0 +1,40 @@
+{
+ "bug_impact": {
+  "rows": 1609,
+  "merged_closes": 471,
+  "called_with_h_ne_H": 106,
+  "closed_only_by_merged": 25,
+  "closed_only_by_merged_and_wrong": 0
+ },
+ "repaired_census": {
+  "L867": {
+   "STRICT": 1,
+   "EQUALITY": 0,
+   "SURVIVING": 0
+  },
+  "L868": {
+   "STRICT": 14,
+   "EQUALITY": 0,
+   "SURVIVING": 0
+  },
+  "L869": {
+   "STRICT": 85,
+   "EQUALITY": 0,
+   "SURVIVING": 0
+  },
+  "L870": {
+   "STRICT": 353,
+   "EQUALITY": 0,
+   "SURVIVING": 0
+  },
+  "L871": {
+   "STRICT": 1154,
+   "EQUALITY": 2,
+   "SURVIVING": 0
+  }
+ },
+ "heavy_cells_missing_at_HMAX_equals_H": [],
+ "surviving_rows_after_repair": [],
+ "conclusion": "the bug is real and affects 106 rows, but NO row is closed only by a wrong merged call, and with HMAX = H every needed heavy cell already exists, so the census is unchanged",
+ "ok": true
+}
