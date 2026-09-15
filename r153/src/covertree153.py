@@ -8,9 +8,12 @@ token stream per witness:
     cover <name> <index> <c> <restricted> <|F|> <f0 f1 ... >
     <tokens>
 
-    N<j>   an internal node: the j children are EXACTLY the candidate orbits
-           whose hexagon set contains the LOWEST hexagon of F still uncovered,
-           listed in increasing orbit id
+    N<j> q1 .. qj
+           an internal node: q1..qj are EXACTLY the candidate orbits whose
+           hexagon set contains the LOWEST hexagon of F still uncovered, in
+           increasing orbit id.  Naming them (rather than only counting them)
+           pins the geometry: an orbit that gained or lost a hexagon changes
+           the list, and the validator refuses.
     L      a leaf, justified by one of two PROVED facts:
              (k) the budget is spent: c orbits are already chosen
              (w) what is left cannot be covered: more than 5*(c-k) hexagons of
@@ -89,6 +92,7 @@ def produce(witnesses, out_path):
                 return
             low, ch = children(cands, mask, n)
             toks.append(f"N{len(ch)}")
+            toks.extend(str(q) for q, _ in ch)
             for q, m in ch:
                 rec(mask | m, k + 1)
 
@@ -167,6 +171,16 @@ def validate(path):
             if want != len(ch):
                 state["err"] = (f"token {j} says {want} children, the state has "
                                 f"{len(ch)} orbits containing hexagon {F[low]}")
+                return
+            listed = toks[state["pos"]:state["pos"] + want]
+            state["pos"] += want
+            if len(listed) != want:
+                state["err"] = f"token {j}: child list truncated"
+                return
+            if [int(x) for x in listed] != [q for q, _ in ch]:
+                state["err"] = (f"token {j}: child orbits {listed} are not the "
+                                f"orbits containing hexagon {F[low]} "
+                                f"({[q for q, _ in ch]})")
                 return
             for q, m in ch:
                 walk(mask | m, k + 1)

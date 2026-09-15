@@ -1,0 +1,162 @@
+{
+ "results": [
+  {
+   "kind": "INVALID",
+   "mutation": "T1_child_count_reduced",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T2_subtree_replaced_by_unjustified_leaf",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T3_token_deleted",
+   "exit": 1,
+   "caught": true,
+   "tail": "ValueError: invalid literal for int() with base 10: 'N6'"
+  },
+  {
+   "kind": "VALIDITY_PRESERVING",
+   "mutation": "T4_circuit_budget_lowered",
+   "exit": 0,
+   "accepted": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T9_one_child_orbit_id_changed",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T5_circuit_budget_raised",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T6_one_hexagon_of_F_changed",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T7_one_hexagon_removed_from_F",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "T8_F_size_inconsistent",
+   "exit": 1,
+   "caught": true,
+   "tail": "|F| does not match the listed hexagons"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "G1_orbit_to_hexagon_table_corrupted",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "G2_orbit_labels_shifted",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "G4_one_hexagon_removed_from_a_branching_orbit",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "G5_one_hexagon_added_to_one_orbit",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "G6_two_orbits_merged",
+   "exit": 1,
+   "caught": true,
+   "tail": "}"
+  },
+  {
+   "kind": "VALIDITY_PRESERVING",
+   "mutation": "G3a_id_check_removed_on_the_HONEST_tree",
+   "exit": 0,
+   "accepted": true
+  },
+  {
+   "kind": "LOAD_BEARING",
+   "mutation": "G3a_id_check_is_load_bearing",
+   "exit": 0,
+   "accepts_broken_tree": true
+  },
+  {
+   "kind": "LOAD_BEARING",
+   "mutation": "G3b_leaf_justification_is_load_bearing",
+   "exit": 0,
+   "accepts_broken_tree": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "W_E1_corrupt_one_port",
+   "replay_failures": 1,
+   "caught": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "W_E1_swap_two_ports",
+   "replay_failures": 1,
+   "caught": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "W_E1_truncate",
+   "replay_failures": 1,
+   "caught": true
+  },
+  {
+   "kind": "VALIDITY_PRESERVING",
+   "mutation": "W_E1_duplicate_witness",
+   "replay_failures": 0,
+   "caught": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "W_E1_one_witness_deleted",
+   "exit": 1,
+   "caught": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "S1_left_S6_action_corrupted",
+   "equivariance_ok": false,
+   "caught": true
+  },
+  {
+   "kind": "INVALID",
+   "mutation": "H1_certificate_hash_modified",
+   "caught": true
+  }
+ ],
+ "invalid_all_caught": true,
+ "ok": true
+}
