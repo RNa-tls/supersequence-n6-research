@@ -78,21 +78,21 @@ def main(max_m=3):
                 multisets[tuple(sorted(Counter(
                     [ty[start][b], ty[b][start]]).items()))] += 1
         else:
-            # depth-first over the (m-1) free positions, exhaustive
+            # depth-first over the m-1 free positions, exhaustive.  path holds
+            # the vertices chosen so far starting with q_1; when it holds m of
+            # them the cycle is closed back to q_1.
             path = [start]
             used = {start}
 
-            def rec(k):
+            def rec():
                 nonlocal examined, cycles
                 cur = path[-1]
-                if k == m - 1:
-                    for b in tgt[cur]:
-                        examined += 1
-                        if b in used or ty[b][start] is None:
-                            continue
+                if len(path) == m:
+                    examined += 1
+                    if ty[cur][start] is not None:
                         cycles += 1
                         types = [ty[path[i]][path[i + 1]] for i in range(m - 1)]
-                        types.append(ty[b][start])
+                        types.append(ty[cur][start])
                         multisets[tuple(sorted(Counter(types).items()))] += 1
                     return
                 for b in tgt[cur]:
@@ -101,11 +101,11 @@ def main(max_m=3):
                         continue
                     used.add(b)
                     path.append(b)
-                    rec(k + 1)
+                    rec()
                     path.pop()
                     used.discard(b)
 
-            rec(0)
+            rec()
         # the size of the universe at this length, before legality is tested
         universe_size = 1
         for _ in range(m - 1):
