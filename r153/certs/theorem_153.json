@@ -1,0 +1,115 @@
+{
+ "capacity_chain": {
+  "cells": 1101,
+  "expected": 1101,
+  "not_certified": [],
+  "sha256": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85"
+ },
+ "capacity_piece": {
+  "cells": 220,
+  "expected": 220,
+  "not_certified": [],
+  "sha256": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa"
+ },
+ "census": {
+  "tallies": {
+   "L867": {
+    "STRICTLY_CLOSED": 1
+   },
+   "L868": {
+    "STRICTLY_CLOSED": 14
+   },
+   "L869": {
+    "STRICTLY_CLOSED": 85
+   },
+   "L870": {
+    "STRICTLY_CLOSED": 353
+   },
+   "L871": {
+    "STRICTLY_CLOSED": 1154,
+    "EQUALITY": 2
+   }
+  },
+  "chain_cells_read": 1101,
+  "piece_cells_read": 220,
+  "chain_cells_unread": 0,
+  "sha256": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb"
+ },
+ "equality": {
+  "equivariance": {
+   "group": 720,
+   "words": 720,
+   "pairs": 518400,
+   "violations": 0,
+   "ok": true
+  },
+  "rows": [
+   {
+    "name": "E1",
+    "cell": "0|14|0|0|0|0",
+    "target": 96,
+    "routes": 5,
+    "witnesses": 2,
+    "classes": 2,
+    "agree": true
+   },
+   {
+    "name": "E2",
+    "cell": "0|8|0|0|0|1",
+    "target": 92,
+    "routes": 5,
+    "witnesses": 1,
+    "classes": 1,
+    "agree": true
+   }
+  ],
+  "sha256": "0d14b1e4ce8455e89a7d799d4333d981d0efc8dc1d86fc5011b0350779203061"
+ },
+ "coexistence": {
+  "trees": [
+   {
+    "name": "E1",
+    "index": 0,
+    "c": 6,
+    "F": 24,
+    "status": "EXCLUDED",
+    "nodes": 295
+   },
+   {
+    "name": "E1",
+    "index": 1,
+    "c": 6,
+    "F": 24,
+    "status": "EXCLUDED",
+    "nodes": 619
+   },
+   {
+    "name": "E2",
+    "index": 0,
+    "c": 7,
+    "F": 28,
+    "status": "EXCLUDED",
+    "nodes": 385
+   }
+  ],
+  "all_excluded": true,
+  "tree_sha256": "0d84e824e05f85a4c18d19ae3dd29a3ac008916c4e47de9ef262667b72b50ae5",
+  "tree_file_sha256": "0d84e824e05f85a4c18d19ae3dd29a3ac008916c4e47de9ef262667b72b50ae5",
+  "solvers_agree": true,
+  "excluded_without_lemmaE": true,
+  "controls_ok": true
+ },
+ "every_enumerated_witness_is_excluded": true,
+ "witness872": {
+  "length": 872,
+  "covered": 720,
+  "ok": true,
+  "sha256": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef"
+ },
+ "pipeline_reads_no_retracted_artefact": true,
+ "forbidden_read_hits": {},
+ "failures": [],
+ "L6_ge_872": true,
+ "L6_le_872": true,
+ "L6_equals_872": true
+}
