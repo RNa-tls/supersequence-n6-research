@@ -30,11 +30,11 @@
    "caught": true
   },
   {
-   "mutation": "P5_unreachable_mask_claimed_reachable_without_witness",
+   "mutation": "P5_unreachable_mask_given_a_borrowed_witness",
    "scope": "both",
-   "python_exit": 0,
-   "c_exit": 0,
-   "caught": false
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
   },
   {
    "mutation": "P6_reachable_mask_claimed_unreachable",
@@ -44,11 +44,11 @@
    "caught": true
   },
   {
-   "mutation": "P7_mask_dropped_value_kept",
+   "mutation": "P7_binding_mask_dropped_value_kept",
    "scope": "both",
-   "python_exit": 0,
-   "c_exit": 0,
-   "caught": false
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
   },
   {
    "mutation": "P8_node_cap_too_small",
@@ -79,6 +79,6 @@
    "caught": true
   }
  ],
- "all_caught": false,
- "ok": false
+ "all_caught": true,
+ "ok": true
 }
