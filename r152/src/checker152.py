@@ -323,7 +323,7 @@ def read_text_cert(text):
     The C checker r152/src/checker152.c reads exactly this file, so the two
     checkers verify the same bytes without either one preparing them.
     """
-    toks, order, cells = [], [], {}
+    toks, entries = [], []
     for line in text.splitlines():
         line = line.split("#")[0].strip()
         if line and not line.startswith("L6-CAPCERT"):
@@ -337,11 +337,19 @@ def read_text_cert(text):
         wit = [int(x) for x in toks[i + 9:i + 9 + n]]
         if len(wit) != n:
             raise SystemExit("certificate: witness truncated")
-        k = _key(args)
-        order.append(k)
-        cells[k] = dict(args=args, cap=cap, witness=wit)
+        entries.append(dict(args=args, cap=cap, witness=wit))
         i += 9 + n
-    return dict(format="L6-CAPCERT-1", order=order, cells=cells)
+    # entries is a LIST, in file order: a certificate may name the same cell
+    # twice (a damaged one certainly may), and collapsing that into a dict
+    # would silently drop one of the claims.
+    return dict(format="L6-CAPCERT-1", entries=entries)
+
+
+def entries_of(doc):
+    """Certificate entries in file order, from either representation."""
+    if "entries" in doc:
+        return doc["entries"]
+    return [doc["cells"][k] for k in doc["order"]]
 
 
 def certify(doc, node_cap, compare=None, verbose=True):
@@ -355,9 +363,9 @@ def certify(doc, node_cap, compare=None, verbose=True):
     bound never rests on anything this run has not proved.
     """
     certified, rows, ok = {}, [], True
-    for k in doc["order"]:
-        rec = doc["cells"][k]
+    for rec in entries_of(doc):
         cell = tuple(rec["args"])
+        k = _key(rec["args"])
         C = rec["cap"]
         row = dict(cell=k, cap=C)
         t0 = time.time()

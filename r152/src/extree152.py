@@ -30,7 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from checker152 import (HEX, ORB, PHASE, MOVES, NHEX, Checker,          # noqa
-                        read_text_cert)
+                        read_text_cert, entries_of)
 
 KIND_ORDER = {"E": 0, "A": 1, "B": 2, "P": 3, "H": 4}
 
@@ -190,7 +190,8 @@ def main():
     wit = {}
     if a.cert:
         doc = read_text_cert(Path(a.cert).read_text())
-        wit = {k: v for k, v in doc["cells"].items()}
+        for e in entries_of(doc):
+            wit["|".join(map(str, e["args"])) + f"@{e['cap']}"] = e["witness"]
 
     certified, rows, ok, i = {}, [], True, 0
     total_nodes = 0
@@ -210,7 +211,7 @@ def main():
         else:
             row["status"] = "UPPER_CERTIFIED"
             certified[cell] = cap
-            w = wit.get(key, {}).get("witness")
+            w = wit.get(f"{key}@{cap}")
             if w:
                 g, info = Checker({}, 0).replay(cell, w)
                 if g and info["ports"] == cap:

@@ -93,7 +93,7 @@ def build_mutant(tag, edits):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cert", default="r152/certs/cap_cert_pilot_152.txt")
+    ap.add_argument("--cert", default="r152/certs/cap_cert_mut_152.txt")
     ap.add_argument("--node-cap", type=int, default=200_000_000)
     ap.add_argument("--report", default="r152/certs/mutations_152.json")
     a = ap.parse_args()
@@ -147,8 +147,14 @@ def main():
         ("08_phase_reuse_allowed",
          [("    if (phm[q] >> PHASE[t] & 1) return;",
            "    if (0) return;")]),
-        ("09_clean_E_may_leave_orbit",
-         [("    if (isdirty == -1 && q != corb) return;", "    (void)corb;")]),
+        # NOTE.  The guard "a clean E never leaves its orbit" is VACUOUS in
+        # both checkers: clean E is exactly tau, so ORB[FREE[v]] == ORB[v], and
+        # corb is always ORB of the current word.  Removing it changes nothing,
+        # which is why it is not a mutation here; the invariant is checked
+        # directly in r152/src/invariants152.py instead.
+        ("09_deficit_understated_on_a_fresh_orbit",
+         [("    if (fresh) { opened[nopened++] = q; deficit += 4; } else deficit -= 1;",
+           "    if (fresh) { opened[nopened++] = q; deficit += 3; } else deficit -= 1;")]),
         ("10_heavy_budget_ignored",
          [("        if (hu + HV_C[cur][i] <= CH)", "        if (1)")]),
         ("11_token_budget_ignored",
