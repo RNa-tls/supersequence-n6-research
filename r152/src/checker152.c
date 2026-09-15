@@ -305,7 +305,7 @@ static const char *replay(const Cell *c) {
     if (c->n < 1) return "empty witness";
     int norb = 0, def = 4, tok = 0, au = 0, bu = 0, eu = 0, hu = 0;
     int v0 = c->w[0];
-    if (v0 < 0 || v0 >= NP) return "port out of range";
+    if (v0 != 0) return "the walk must start at 123456 (see the definition)";
     ph[ORBID[v0]] = (unsigned char)(1u << PHASE[v0]); ++norb;
     hx[HEXID[v0]] = 1;
     int corb = ORBID[v0];

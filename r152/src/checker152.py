@@ -265,6 +265,10 @@ class Checker:
     def replay(self, cell, ports):
         """Verify a witness: every move legal, budgets respected, count right."""
         b, dmax, amax, bmax, emax, hmax = cell
+        if not ports or ports[0] != IDX["123456"]:
+            return False, "the walk must start at 123456 (see the definition)"
+        if any(not 0 <= p < N for p in ports):
+            return False, "port index out of range"
         if len(set(ports)) != len(ports):
             return False, "ports repeat"
         mv = {}
