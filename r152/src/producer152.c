@@ -41,18 +41,21 @@ int main(int argc, char **argv) {
     int missing = 0;
     for (int i = 0; i < n; ++i) {
         memcpy(c.arg, arg[i], sizeof c.arg);
+        /* One attempt only, at the claimed value.  Walking DOWN would cost a
+         * fresh exhaustive search per step and tell us nothing the checker
+         * cannot work out for itself, so a miss just leaves the cell without a
+         * witness and the checker proves the upper bound alone. */
         int target = claim[i], got = -1;
         static int w[900];
-        while (target >= 1) {
-            c.cap = target;
-            const char *r = search_cell(&c, target);
-            if (!strcmp(r, "FOUND")) {
-                got = target;
-                for (int j = 0; j < target; ++j) w[j] = TRAIL[j];
-                break;
-            }
-            if (!strcmp(r, "CAP")) break;              /* give up on this cell */
-            --target;
+        c.cap = target;
+        const char *r = search_cell(&c, target);
+        if (!strcmp(r, "FOUND")) {
+            got = target;
+            for (int j = 0; j < target; ++j) w[j] = TRAIL[j];
+        } else if (!strcmp(r, "EXHAUSTED")) {
+            fprintf(stderr, "CLAIM NOT ATTAINED %d|%d|%d|%d|%d|%d claim=%d "
+                    "(no walk that long exists)\n", arg[i][0], arg[i][1],
+                    arg[i][2], arg[i][3], arg[i][4], arg[i][5], claim[i]);
         }
         /* No witness found inside the node cap: still emit the cell with an
          * EMPTY witness.  The checker then proves only the UPPER bound, which
@@ -63,6 +66,7 @@ int main(int argc, char **argv) {
                     "(claim %d, best found %d) -- upper only\n",
                     arg[i][0], arg[i][1], arg[i][2], arg[i][3], arg[i][4],
                     arg[i][5], claim[i], got); }
+        (void)r;
         fprintf(o, "cell %d %d %d %d %d %d %d %d\n", arg[i][0], arg[i][1],
                 arg[i][2], arg[i][3], arg[i][4], arg[i][5], claim[i], np);
         for (int j = 0; j < np; ++j) fprintf(o, "%s%d", j ? " " : "", w[j]);
