@@ -306,6 +306,33 @@ def _key(args):
     return "|".join(str(x) for x in args)
 
 
+def read_text_cert(text):
+    """Parse the plain-text certificate (L6-CAPCERT-2).
+
+    The C checker r152/src/checker152.c reads exactly this file, so the two
+    checkers verify the same bytes without either one preparing them.
+    """
+    toks, order, cells = [], [], {}
+    for line in text.splitlines():
+        line = line.split("#")[0].strip()
+        if line and not line.startswith("L6-CAPCERT"):
+            toks.extend(line.split())
+    i = 0
+    while i < len(toks):
+        if toks[i] != "cell":
+            raise SystemExit(f"certificate: expected 'cell' at token {i}")
+        args = [int(x) for x in toks[i + 1:i + 7]]
+        cap, n = int(toks[i + 7]), int(toks[i + 8])
+        wit = [int(x) for x in toks[i + 9:i + 9 + n]]
+        if len(wit) != n:
+            raise SystemExit("certificate: witness truncated")
+        k = _key(args)
+        order.append(k)
+        cells[k] = dict(args=args, cap=cap, witness=wit)
+        i += 9 + n
+    return dict(format="L6-CAPCERT-1", order=order, cells=cells)
+
+
 def certify(doc, node_cap, compare=None, verbose=True):
     """Verify every cell of a certificate, in the certificate's own order.
 
@@ -366,9 +393,12 @@ def main():
     ap.add_argument("--node-cap", type=int, default=2_000_000_000)
     a = ap.parse_args()
     raw = Path(a.cert).read_bytes()
-    doc = json.loads(raw)
-    if doc.get("format") != "L6-CAPCERT-1":
-        raise SystemExit("unknown certificate format")
+    if raw.startswith(b"L6-CAPCERT-2"):
+        doc = read_text_cert(raw.decode())
+    else:
+        doc = json.loads(raw)
+        if doc.get("format") != "L6-CAPCERT-1":
+            raise SystemExit("unknown certificate format")
     compare = None
     if a.compare:
         compare = {k: v["cc"] for k, v in json.loads(

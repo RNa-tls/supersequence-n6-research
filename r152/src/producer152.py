@@ -71,6 +71,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cells", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--out-text", default=None)
     ap.add_argument("--claimed", action="append", default=[],
                     help="tables whose cc values are the claims to witness")
     ap.add_argument("--prune-table", action="append", default=[],
@@ -94,6 +95,33 @@ def main():
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     json.dump(doc, open(a.out, "w"), indent=1, sort_keys=True)
     print(f"wrote {a.out}: {len(order)} cells")
+    if a.out_text:
+        write_text(doc, a.out_text)
+        print(f"wrote {a.out_text}")
+
+
+def write_text(doc, path):
+    """The plain-text certificate both checkers read.
+
+    L6-CAPCERT-2
+    cell <b> <d> <a> <bb> <e> <h> <cap> <nports>
+    <nports port indices>
+
+    A port index is the position of the permutation in the LEXICOGRAPHIC list
+    of the 720 permutations of the string "123456"; both checkers rebuild that
+    list themselves, so the file carries no table of its own.
+    """
+    with open(path, "w") as f:
+        f.write("L6-CAPCERT-2\n")
+        f.write("# cell <b> <d> <a> <bb> <e> <h> <cap> <nports>, then the ports\n")
+        f.write("# port index = rank of the permutation in the lexicographic\n")
+        f.write("# list of the 720 permutations of \"123456\"\n")
+        for k in doc["order"]:
+            r = doc["cells"][k]
+            w = r["witness"]
+            f.write("cell " + " ".join(str(x) for x in r["args"]) +
+                    f" {r['cap']} {len(w)}\n")
+            f.write(" ".join(str(x) for x in w) + "\n")
 
 
 if __name__ == "__main__":
