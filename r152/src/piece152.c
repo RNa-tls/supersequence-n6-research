@@ -193,13 +193,39 @@ static void read_pcert(const char *path) {
     if (!have) { fprintf(stderr, "missing magic\n"); exit(3); }
 }
 
-static int do_check(const char *path) {
+/* Second-pass pruning, exactly as in r152/src/checker152.c: a cell that could
+ * not be exhausted with the bounds available in the ascending pass is retried
+ * with the bounds that pass PROVED, the cell itself excluded from its own
+ * table.  The list is plain text, one "<b> <d> <cap00>" per line. */
+static int EXT_B[MAXP], EXT_D[MAXP], EXT_V[MAXP], NEXT_;
+
+static void read_pprune(const char *path) {
+    FILE *f = fopen(path, "r");
+    if (!f) { fprintf(stderr, "cannot open %s\n", path); exit(3); }
+    while (NEXT_ < MAXP &&
+           fscanf(f, "%d %d %d", &EXT_B[NEXT_], &EXT_D[NEXT_], &EXT_V[NEXT_]) == 3)
+        ++NEXT_;
+    fclose(f);
+    fprintf(stderr, "prune list: %d (b,d) cells from %s\n", NEXT_, path);
+}
+
+static void pub_rebuild_excluding(int sb, int sd) {
+    pub_init();
+    for (int i = 0; i < NEXT_; ++i) {
+        if (EXT_B[i] == sb && EXT_D[i] == sd) continue;
+        pub_add(EXT_B[i], EXT_D[i], EXT_V[i]);
+    }
+}
+
+static int do_check(const char *path, const char *prune) {
     read_pcert(path);
+    if (prune) read_pprune(prune);
     uint64_t total = 0;
     int ok = 1, ncert = 0;
     printf("{\"checker\":\"P152\",\"cells\":%d,\"rows\":[\n", NPC);
     for (int i = 0; i < NPC; ++i) {
         PCell *c = &PC[i];
+        if (prune) pub_rebuild_excluding(c->b, c->d);
         clock_t t0 = clock();
         const char *status, *detail = "";
         uint64_t nodes = 0;
@@ -277,7 +303,7 @@ static int do_produce(const char *claims, const char *out) {
 
 int main(int argc, char **argv) {
     if (argc < 3) {
-        fprintf(stderr, "usage: %s check <cert.txt> [node_cap]\n"
+        fprintf(stderr, "usage: %s check <cert.txt> [node_cap] [prune.txt]\n"
                         "       %s produce <claims.txt> <out.txt> [node_cap]\n",
                 argv[0], argv[0]);
         return 3;
@@ -286,7 +312,7 @@ int main(int argc, char **argv) {
     pub_init();
     if (!strcmp(argv[1], "check")) {
         NODECAP = argc > 3 ? strtoull(argv[3], NULL, 10) : 0;
-        return do_check(argv[2]);
+        return do_check(argv[2], argc > 4 ? argv[4] : NULL);
     }
     if (!strcmp(argv[1], "produce")) {
         if (argc < 4) { fprintf(stderr, "produce needs an output path\n"); return 3; }

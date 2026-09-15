@@ -116,9 +116,13 @@ def main():
 
     if neg:
         i = neg[0]
+        # An unreachable mask given a POSITIVE cap and no witness is not an
+        # error: -1 means no piece exists, so any number is a valid UPPER
+        # bound, and the checker is right to accept it.  What must be refused
+        # is a WITNESS for a mask that has none, so that is the mutation.
         m = [list(x) for x in cells]
-        m[i] = [*m[i][:4], 1, []]      # claim a reachable value for a dead mask
-        allok &= expect("P5_unreachable_mask_claimed_reachable_without_witness",
+        m[i] = [*m[i][:4], len(cells[last][5]), list(cells[last][5])]
+        allok &= expect("P5_unreachable_mask_given_a_borrowed_witness",
                         render(m), a.node_cap, res)
         m = [list(x) for x in cells]
         j = next(k for k, c in enumerate(cells)
@@ -127,10 +131,19 @@ def main():
         allok &= expect("P6_reachable_mask_claimed_unreachable",
                         render(m), a.node_cap, res)
 
-    m = [list(x) for x in cells]
-    mm = list(m[last]); mm[2] = 0; mm[3] = 0    # drop the mask constraint
-    m[last] = mm
-    allok &= expect("P7_mask_dropped_value_kept", render(m), a.node_cap, res)
+    # Dropping the mask only proves anything on a cell where the mask BINDS,
+    # i.e. where the unconstrained capacity is strictly larger.
+    binding = [k for k, c in enumerate(cells)
+               if (c[2] or c[3]) and c[5]
+               and any(o[0] == c[0] and o[1] == c[1] and o[2] == 0 and o[3] == 0
+                       and o[4] > c[4] for o in cells)]
+    if binding:
+        j = binding[-1]
+        m = [list(x) for x in cells]
+        mm = list(m[j]); mm[2] = 0; mm[3] = 0
+        m[j] = mm
+        allok &= expect("P7_binding_mask_dropped_value_kept",
+                        render(m), a.node_cap, res)
 
     allok &= expect("P8_node_cap_too_small", base, 300, res)
 

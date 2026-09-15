@@ -1,0 +1,84 @@
+{
+ "cert": "r152/certs/pcert_mut_152.txt",
+ "results": [
+  {
+   "mutation": "P1_cap_inflated",
+   "scope": "both",
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P2_cap_deflated_with_short_witness",
+   "scope": "both",
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P3_witness_port_corrupted",
+   "scope": "both",
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P4_witness_ports_swapped",
+   "scope": "both",
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P5_unreachable_mask_claimed_reachable_without_witness",
+   "scope": "both",
+   "python_exit": 0,
+   "c_exit": 0,
+   "caught": false
+  },
+  {
+   "mutation": "P6_reachable_mask_claimed_unreachable",
+   "scope": "both",
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P7_mask_dropped_value_kept",
+   "scope": "both",
+   "python_exit": 0,
+   "c_exit": 0,
+   "caught": false
+  },
+  {
+   "mutation": "P8_node_cap_too_small",
+   "scope": "both",
+   "python_exit": 1,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P9_hex_simplicity_dropped_for_paid",
+   "scope": "c",
+   "python_exit": null,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P10_token_budget_ignored",
+   "scope": "c",
+   "python_exit": null,
+   "c_exit": 1,
+   "caught": true
+  },
+  {
+   "mutation": "P11_first_block_mask_ignored",
+   "scope": "c",
+   "python_exit": null,
+   "c_exit": 1,
+   "caught": true
+  }
+ ],
+ "all_caught": false,
+ "ok": false
+}
