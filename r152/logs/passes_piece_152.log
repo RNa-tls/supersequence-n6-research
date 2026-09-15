@@ -1,0 +1,25 @@
+== pass 1: 220 cells, node cap 30,000,000, prune list 0 (b,d)
+   certified 146/220 (+146)  145s
+== pass 2: 74 cells, node cap 300,000,000, prune list 37 (b,d)
+   certified 182/220 (+36)  966s
+== pass 3: 38 cells, node cap 3,000,000,000, prune list 46 (b,d)
+   certified 208/220 (+26)  3976s
+== pass 4: 12 cells, node cap 40,000,000,000, prune list 52 (b,d)
+   certified 220/220 (+12)  7974s
+{
+ "checker": "P152-passes",
+ "cert": "r152/certs/pcert_all_152.txt",
+ "caps": [
+  30000000,
+  300000000,
+  3000000000,
+  40000000000
+ ],
+ "cells": 220,
+ "certified": 220,
+ "exact": 203,
+ "total_nodes": 103013969273,
+ "seconds": 7974.4,
+ "all_certified": true
+}
+unverified: []

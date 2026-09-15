@@ -1,0 +1,25 @@
+== pass 1: 1101 cells, node cap 30,000,000, prune list 0 cells
+   certified so far 965/1101 (+965 this pass)  834s
+== pass 2: 136 cells, node cap 300,000,000, prune list 965 cells
+   certified so far 1059/1101 (+94 this pass)  4223s
+== pass 3: 42 cells, node cap 3,000,000,000, prune list 1059 cells
+   certified so far 1093/1101 (+34 this pass)  12464s
+== pass 4: 8 cells, node cap 40,000,000,000, prune list 1093 cells
+   certified so far 1101/1101 (+8 this pass)  19409s
+{
+ "checker": "C152-passes",
+ "cert": "r152/certs/cap_cert_all_152.txt",
+ "caps": [
+  30000000,
+  300000000,
+  3000000000,
+  40000000000
+ ],
+ "cells": 1101,
+ "certified": 1101,
+ "exact": 1044,
+ "total_nodes": 83545993443,
+ "seconds": 19409.3,
+ "all_certified": true
+}
+unverified: []

@@ -1,0 +1,769 @@
+== environment
+commit:   05ba56ec272af613b420d445e99d737409a95558
+branch:   round152-capacity-certificates
+dirty:    0 files
+compiler: cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+python:   Python 3.11.15
+os:       Linux 6.18.44-fc-v33 GNU/Linux
+cert:     r152/certs/cap_cert_pilot_152.txt  (9278febc5cf42997...)
+node cap: 200000000
+
+== deleting round-152 executables and rebuilding from source
+a14bd220b9e64b1e3c498b98c196f8823e24d3f1bdcd5adfd49a63b40fbb88c2  checker152.exe
+7c3b55a2a3febf5ff29cb2701cb0a18d6ba626a4321fbb83ad583bb61fd619a2  extree152.exe
+5d9be3d8137c8e3f9c91adbae4c4630ceae1264a0ada73d94499c9c225873cbb  piece152.exe
+096deb040a76bf11448c3fd376a4e20827eaba7dbce729d90bd453b2ae43c86c  producer152.exe
+dee3fc5a6b92304e49f31422057dfe9a8228040bdae0aa14da074d7828d32a89  checker152.c
+ff297090f3b83ca0f57806d4d530276117560e0dc7d33b51ce06076d7a3cfa04  extree152.c
+c038913b93fcf0bbe0fb777a1cbaf34bf84214ec76a0a5803f3dfe9daafe8c7b  piece152.c
+7ccc4bfbd6779454f48c959e07b4cb83008179a8381a2e4b8c2410cc9010f969  producer152.c
+a3c467321e4170a97333f426a99e4abb978b0f99b2e13664a71e648b05622870  agree152.py
+62f3ff45f00718c961ae1668d62e77349caf96ae1aaf4ad5efe2f592f61b41d2  catcheck152.py
+05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6  checker152.py
+d0cb7ba32139b408dfb6501555df3c31420351c0d462f5a1ae39c14604cd96cc  dag152.py
+bc7e6430d5ef4d6f8345853fc075b675d002abfa8b20d81d92cc701252282950  equality152.py
+390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124  extree152.py
+b0793ef84ca69cdb1011007f6e1d7d4f28a68879f5423c59a61485d8642b4db4  heavyfix152.py
+5f7e8cb74468a0b9621958eb079d3d921de463cd6256df4758269291881860e8  hygiene152.py
+fb4a2c9f3a5799bfedc691bd7eb5ef7ce5594c208f7e78de377b97d5cdfd4b92  invariants152.py
+49b5e3429708ac5b275a20caa610c4234c9655bef35bf6826ab9b68e8522f7f5  mutate152.py
+9855316bf30c5f6adf563bc4a160038c22a288760598456b75359fb784042364  mutextree152.py
+dc4b6955a28e8f3421c355631f87dd754d31df4ecd46bae8bc0b9a88c025e599  passes152.py
+de22ac53d8819ce6dfa217cd796a91640089c57a52cc4af71b4f81bc55eb233a  piece152.py
+3c0b6046d8201f9f0c09a361fb40e214890bbd9329de43bffb4a1b0645c5116d  pmutate152.py
+6dac721510cd7088b5156dc8e0396bf7b6d2ac8b33a3c57bc42170fab8c9d4fa  ppasses152.py
+58210267443a8420eb66712aeac5ff4036df5637f0742583e041bb2489633c5b  producer152.py
+75d31e48a0cbca2cec88362b2c42dc59854de5f586cadab0e53adf2aaad7223e  provenance152.py
+f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66  rows152.py
+b2eaa59cc09104557af248946458e14088a3489aa112afa28d430496f2f96209  subset152.py
+
+== catalogue invariants I1-I6
+{
+ "I1_clean_E_is_tau": true,
+ "I2_clean_E_orbit_guard_is_vacuous": true,
+ "I3_kind_counts": true,
+ "I4_dirtyA_leaves_the_orbit": true,
+ "I5_orbit_phase_identifies_the_word": true,
+ "I6_heavy_avoids_self_and_end": true,
+ "heavy_edges": 511200,
+ "ok": true
+}
+   -> exit 0
+
+== catalogue cross-check vs round 147
+{
+ "hexagon_partition": true,
+ "orbit_partition": true,
+ "phase_steps_along_tau": true,
+ "free_edges": true,
+ "dirtyA_edges": true,
+ "dirtyB_edges": true,
+ "paid_count": true,
+ "paid_edges": true,
+ "heavy_edges": true,
+ "heavy_total": 511200,
+ "agree": true
+}
+   -> exit 0
+
+== C checker on the pilot
+],"certified":24,"total_nodes":247274,"all_certified":true}
+   -> exit 0
+
+== Python checker on the pilot
+       0|0|0|0|0|0 cap=20   EXACT_CERTIFIED    nodes=128          0.17s
+       0|1|0|0|0|0 cap=20   EXACT_CERTIFIED    nodes=277          0.17s
+       0|2|0|0|0|0 cap=33   EXACT_CERTIFIED    nodes=293          0.18s
+       0|3|0|0|0|0 cap=33   EXACT_CERTIFIED    nodes=964          0.17s
+       0|4|0|0|0|0 cap=46   EXACT_CERTIFIED    nodes=446          0.16s
+       0|5|0|0|0|0 cap=46   EXACT_CERTIFIED    nodes=1,743        0.18s
+       0|6|0|0|0|0 cap=49   EXACT_CERTIFIED    nodes=4,991        0.28s
+       0|7|0|0|0|0 cap=58   EXACT_CERTIFIED    nodes=2,411        0.2s
+       0|8|0|0|0|0 cap=62   EXACT_CERTIFIED    nodes=3,731        0.23s
+       0|9|0|0|0|0 cap=66   EXACT_CERTIFIED    nodes=12,418       0.43s
+      0|10|0|0|0|0 cap=70   EXACT_CERTIFIED    nodes=32,538       0.9s
+      0|11|0|0|0|0 cap=74   EXACT_CERTIFIED    nodes=43,272       1.24s
+      0|12|0|0|0|0 cap=83   EXACT_CERTIFIED    nodes=14,052       0.49s
+      0|13|0|0|0|0 cap=83   EXACT_CERTIFIED    nodes=90,484       2.38s
+      0|14|0|0|0|0 cap=96   EXACT_CERTIFIED    nodes=2,377        0.22s
+       0|0|0|0|0|1 cap=40   EXACT_CERTIFIED    nodes=745          0.15s
+       0|1|0|0|0|1 cap=40   EXACT_CERTIFIED    nodes=1,629        0.14s
+       0|2|0|0|0|1 cap=53   EXACT_CERTIFIED    nodes=1,639        0.14s
+       0|3|0|0|0|1 cap=53   EXACT_CERTIFIED    nodes=5,376        0.17s
+       0|4|0|0|0|1 cap=66   EXACT_CERTIFIED    nodes=2,397        0.15s
+       0|5|0|0|0|1 cap=66   EXACT_CERTIFIED    nodes=9,379        0.19s
+       0|6|0|0|0|1 cap=79   EXACT_CERTIFIED    nodes=2,469        0.16s
+       0|7|0|0|0|1 cap=79   EXACT_CERTIFIED    nodes=11,046       0.21s
+       0|8|0|0|0|1 cap=92   EXACT_CERTIFIED    nodes=2,469        0.17s
+{
+ "cert_sha256": "9278febc5cf42997e8f374153cb4e2925a641561f127fa3f94b7b7e13725c44a",
+ "checker_sha256": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+ "node_cap": 200000000,
+ "cells": 24,
+ "certified": 24,
+ "upper_only": 0,
+ "total_nodes": 247274,
+ "seconds": 8.9,
+ "all_certified": true
+}
+   -> exit 0
+
+== the two chain checkers agree
+{
+ "cert": "r152/certs/cap_cert_pilot_152.txt",
+ "kind": "chain",
+ "node_cap": 200000000,
+ "c_exit": 0,
+ "python_exit": 0,
+ "cells": 24,
+ "cells_with_different_node_counts": 0,
+ "examples": [],
+ "agree": true
+}
+   -> exit 0
+
+== explicit exhaustion tree
+       0|0|0|0|0|0 cap=20   EXACT_CERTIFIED  nodes=128          0.05s
+       0|1|0|0|0|0 cap=20   EXACT_CERTIFIED  nodes=277          0.0s
+       0|2|0|0|0|0 cap=33   EXACT_CERTIFIED  nodes=293          0.01s
+       0|3|0|0|0|0 cap=33   EXACT_CERTIFIED  nodes=964          0.02s
+       0|4|0|0|0|0 cap=46   EXACT_CERTIFIED  nodes=446          0.01s
+       0|5|0|0|0|0 cap=46   EXACT_CERTIFIED  nodes=1,743        0.03s
+       0|6|0|0|0|0 cap=49   EXACT_CERTIFIED  nodes=4,991        0.11s
+       0|7|0|0|0|0 cap=58   EXACT_CERTIFIED  nodes=2,411        0.05s
+       0|8|0|0|0|0 cap=62   EXACT_CERTIFIED  nodes=3,731        0.09s
+       0|9|0|0|0|0 cap=66   EXACT_CERTIFIED  nodes=12,418       0.28s
+      0|10|0|0|0|0 cap=70   EXACT_CERTIFIED  nodes=32,538       0.72s
+      0|11|0|0|0|0 cap=74   EXACT_CERTIFIED  nodes=43,272       0.99s
+      0|12|0|0|0|0 cap=83   EXACT_CERTIFIED  nodes=14,052       0.34s
+      0|13|0|0|0|0 cap=83   EXACT_CERTIFIED  nodes=90,484       2.18s
+      0|14|0|0|0|0 cap=96   EXACT_CERTIFIED  nodes=2,377        0.06s
+       0|0|0|0|0|1 cap=40   EXACT_CERTIFIED  nodes=745          0.0s
+       0|1|0|0|0|1 cap=40   EXACT_CERTIFIED  nodes=1,629        0.01s
+       0|2|0|0|0|1 cap=53   EXACT_CERTIFIED  nodes=1,639        0.01s
+       0|3|0|0|0|1 cap=53   EXACT_CERTIFIED  nodes=5,376        0.03s
+       0|4|0|0|0|1 cap=66   EXACT_CERTIFIED  nodes=2,397        0.01s
+       0|5|0|0|0|1 cap=66   EXACT_CERTIFIED  nodes=9,379        0.06s
+       0|6|0|0|0|1 cap=79   EXACT_CERTIFIED  nodes=2,469        0.01s
+       0|7|0|0|0|1 cap=79   EXACT_CERTIFIED  nodes=11,046       0.07s
+       0|8|0|0|0|1 cap=92   EXACT_CERTIFIED  nodes=2,469        0.02s
+{
+ "tree": "r152/certs/extree_pilot_152.txt",
+ "tree_sha256": "66472da3baecadb6bb7f3a66fc65a1bf2c76f96e830269b2f0ef529e6cb6aa7d",
+ "tree_bytes": 566277,
+ "cells": 24,
+ "total_nodes": 247274,
+ "certified": 24,
+ "exact": 24,
+ "all_valid": true
+}
+   -> exit 0
+
+== the two piece checkers agree
+{
+ "cert": "r152/certs/pcert_pysubset_152.txt",
+ "kind": "piece",
+ "node_cap": 20000000,
+ "c_exit": 0,
+ "python_exit": 0,
+ "cells": 111,
+ "cells_with_different_node_counts": 0,
+ "examples": [],
+ "agree": true
+}
+   -> exit 0
+
+== chain certificate mutations
+baseline (must PASS):
+  python exit 0, c exit 0
+certificate mutations (must all be CAUGHT):
+  CAUGHT  01_cap_inflated  (py exit 1, c exit 1)
+  CAUGHT  02_cap_deflated_with_short_witness  (py exit 1, c exit 1)
+  CAUGHT  03_witness_port_corrupted  (py exit 1, c exit 1)
+  CAUGHT  04_witness_ports_swapped  (py exit 1, c exit 1)
+  CAUGHT  05_witness_port_repeated  (py exit 1, c exit 1)
+  CAUGHT  06_budget_widened_value_kept  (py exit 1, c exit 1)
+  CAUGHT  07_node_cap_too_small  (py exit 1, c exit 1)
+checker-source mutations (must all be CAUGHT):
+  CAUGHT  08_phase_reuse_allowed  (py exit None, c exit 1)
+  CAUGHT  09_deficit_understated_on_a_fresh_orbit  (py exit None, c exit 3)
+  CAUGHT  10_heavy_budget_ignored  (py exit None, c exit 1)
+  CAUGHT  11_token_budget_ignored  (py exit None, c exit 1)
+  CAUGHT  12_hexagon_collision_budget_ignored  (py exit None, c exit 1)
+{
+ "cert": "r152/certs/cap_cert_mut_152.txt",
+ "baseline_passes": true,
+ "all_caught": true,
+ "ok": true
+}
+   -> exit 0
+
+== piece certificate mutations
+baseline: py 0, c 0
+  CAUGHT  P1_cap_inflated (py 1, c 1)
+  CAUGHT  P2_cap_deflated_with_short_witness (py 1, c 1)
+  CAUGHT  P3_witness_port_corrupted (py 1, c 1)
+  CAUGHT  P4_witness_ports_swapped (py 1, c 1)
+  CAUGHT  P5_unreachable_mask_given_a_borrowed_witness (py 1, c 1)
+  CAUGHT  P6_reachable_mask_claimed_unreachable (py 1, c 1)
+  CAUGHT  P7_binding_mask_dropped_value_kept (py 1, c 1)
+  CAUGHT  P8_node_cap_too_small (py 1, c 1)
+checker-source mutations:
+  CAUGHT  P9_hex_simplicity_dropped_for_paid (py None, c 1)
+  CAUGHT  P10_token_budget_ignored (py None, c 1)
+  CAUGHT  P11_first_block_mask_ignored (py None, c 1)
+{
+ "cert": "r152/certs/pcert_mut_152.txt",
+ "all_caught": true,
+ "ok": true
+}
+   -> exit 0
+
+== exhaustion-tree mutations
+baseline exit 0
+  CAUGHT  A1_child_count_reduced (exit 1)
+  CAUGHT  A2_internal_node_replaced_by_leaf (exit 1)
+  CAUGHT  A3_token_deleted (exit 1)
+  CAUGHT  A4_cap_lowered (exit 1)
+  CAUGHT  A5_child_count_inflated (exit 1)
+  CAUGHT  A6_subtree_dropped_stream_still_well_formed (exit 1)
+  LOAD-BEARING B1_child_count_check_removed (mutant exit 0)
+  LOAD-BEARING B2_leaf_justification_removed (mutant exit 0)
+  LOAD-BEARING B3_reach_check_removed (mutant exit 0)
+{
+ "tree": "r152/certs/extree_pilot_152.txt",
+ "all_certificate_mutations_caught": true,
+ "all_checks_load_bearing": true,
+ "ok": true
+}
+   -> exit 0
+
+== pipeline hygiene
+{
+ "forbidden_reads": {
+  "r152/src/checker152.py": [],
+  "r152/src/checker152.c": [],
+  "r152/src/piece152.py": [],
+  "r152/src/piece152.c": [],
+  "r152/src/extree152.py": [],
+  "r152/src/extree152.c": [],
+  "r152/src/rows152.py": [],
+  "r152/src/passes152.py": [],
+  "r152/src/ppasses152.py": []
+ },
+ "ok": true,
+ "heavy_retained_uses_H": true,
+ "heavy_retained_block": [
+  "if r[\"H\"] == 0 or r[\"d\"] + 1 != 1 or r[\"s\"] != 0:",
+  "continue",
+  "tot = 2 * r[\"g\"]",
+  "v, _ = CC(r[\"b_sum\"], r[\"D_sum\"], min(r[\"D2\"], tot), min(r[\"Qs\"], tot),",
+  "min(max(0, r[\"Z\"] - r[\"Qs\"]), tot), r[\"H\"])",
+  "if mv is None or v > mv:",
+  "mv = v"
+ ],
+ "reports": {
+  "r152/certs/verify_all_c152.json": {
+   "cells": 1101,
+   "not_certified": []
+  },
+  "r152/certs/verify_piece_c152.json": {
+   "cells": 220,
+   "not_certified": []
+  }
+ },
+ "census_inputs": {
+  "chain": [
+   "r152/certs/verify_all_c152.json"
+  ],
+  "piece": [
+   "r152/certs/verify_piece_c152.json"
+  ]
+ },
+ "census_survivors": {
+  "L867": {
+   "STRICTLY_CLOSED": 1
+  },
+  "L868": {
+   "STRICTLY_CLOSED": 14
+  },
+  "L869": {
+   "STRICTLY_CLOSED": 85
+  },
+  "L870": {
+   "STRICTLY_CLOSED": 353
+  },
+  "L871": {
+   "STRICTLY_CLOSED": 1154,
+   "EQUALITY": 2
+  }
+ },
+ "census_has_survivors_or_unknown": []
+}
+   -> exit 0
+
+== equality row provenance
+{
+ "census_equality_rows": [
+  {
+   "k": 3,
+   "Z": 0,
+   "H": 1,
+   "Bstar": 0,
+   "G": 7,
+   "g": 0,
+   "c": 7,
+   "d": 0,
+   "D2": 0,
+   "Qs": 0,
+   "h": 1,
+   "required": 92,
+   "verdict": "EQUALITY",
+   "bounds": {
+    "piece": 92,
+    "split": 92,
+    "merged": 92
+   }
+  },
+  {
+   "k": 4,
+   "Z": 0,
+   "H": 0,
+   "Bstar": 0,
+   "G": 6,
+   "g": 0,
+   "c": 6,
+   "d": 0,
+   "D2": 0,
+   "Qs": 0,
+   "h": 0,
+   "required": 96,
+   "verdict": "EQUALITY",
+   "bounds": {
+    "piece": 96,
+    "split": 96
+   }
+  }
+ ],
+ "census_surviving_rows": [],
+ "same_rows_as_round147": true,
+ "round147_survivors": [
+  {
+   "k": 3,
+   "Z": 0,
+   "H": 1,
+   "Bstar": 0,
+   "G": 7,
+   "g": 0,
+   "c": 7,
+   "d": 0,
+   "D2": 0,
+   "Qs": 0,
+   "h": 1,
+   "required": 92
+  },
+  {
+   "k": 4,
+   "Z": 0,
+   "H": 0,
+   "Bstar": 0,
+   "G": 6,
+   "g": 0,
+   "c": 6,
+   "d": 0,
+   "D2": 0,
+   "Qs": 0,
+   "h": 0,
+   "required": 96
+  }
+ ],
+ "cells": [
+  {
+   "row": {
+    "k": 3,
+    "Z": 0,
+    "H": 1,
+    "Bstar": 0,
+    "G": 7,
+    "g": 0,
+    "c": 7,
+    "d": 0,
+    "D2": 0,
+    "Qs": 0,
+    "h": 1
+   },
+   "required": 92,
+   "cell": "0|8|0|0|0|1",
+   "bounds": {
+    "piece": 92,
+    "split": 92,
+    "merged": 92
+   },
+   "certified": "EXACT_CERTIFIED",
+   "certified_cap": 92,
+   "nodes": 2469,
+   "cap_equals_required": true,
+   "explicit_tree": "EXACT_CERTIFIED",
+   "explicit_tree_nodes": 2469
+  },
+  {
+   "row": {
+    "k": 4,
+    "Z": 0,
+    "H": 0,
+    "Bstar": 0,
+    "G": 6,
+    "g": 0,
+    "c": 6,
+    "d": 0,
+    "D2": 0,
+    "Qs": 0,
+    "h": 0
+   },
+   "required": 96,
+   "cell": "0|14|0|0|0|0",
+   "bounds": {
+    "piece": 96,
+    "split": 96
+   },
+   "certified": "EXACT_CERTIFIED",
+   "certified_cap": 96,
+   "nodes": 2377,
+   "cap_equals_required": true,
+   "explicit_tree": "EXACT_CERTIFIED",
+   "explicit_tree_nodes": 2377
+  }
+ ],
+ "all_cells_exact": true,
+ "all_cells_have_an_explicit_tree": true,
+ "round148_witness_enumeration": [
+  {
+   "name": "row96",
+   "cell": "0|14|0|0|0|0",
+   "target": 96,
+   "status": "EXHAUSTIVE",
+   "capped": false,
+   "witnesses": 2,
+   "routes_agree": true,
+   "all_excluded": true
+  },
+  {
+   "name": "row92",
+   "cell": "0|8|0|0|0|1",
+   "target": 92,
+   "status": "EXHAUSTIVE",
+   "capped": false,
+   "witnesses": 1,
+   "routes_agree": true,
+   "all_excluded": true
+  }
+ ],
+ "round148_covers_the_same_cells": true,
+ "ok": true
+}
+   -> exit 0
+
+== capacity-layer DAG
+  PURE_HAND_PROOF            H.monotone         (P1) cap is monotone non-decreasing in every budget
+  PURE_HAND_PROOF            H.hexcount         (P2) cap(K) <= 120 + a + bb + e
+  PURE_HAND_PROOF            H.catalogue        the joint catalogue is complete and the charging rules are exhaustive
+  PURE_HAND_PROOF            H.wlog             fixing the start port is WLOG (left S6 transitive, catalogue equivariant; 518,400 pairs ch
+  PURE_HAND_PROOF            H.feas             the feasibility prune never removes a realisable continuation
+  PURE_HAND_PROOF            D.cap              cap(K) defined as a maximum over chains, every budget an upper bound
+  VERIFIED_CERTIFICATE       V.mutation         every mutation of the certificate and of the checker source is refused (12/12)
+  INDEPENDENTLY_DUPLICATED   V.twochecks        a Python and a C checker, sharing no code and no data file, reach the same verdict on the 
+  VERIFIED_CERTIFICATE       E.certcells        1101/1101 cells carry a verified upper bound (1044 of them exact); 0 not verified
+  VERIFIED_CERTIFICATE       E.equalitycells    the two cells the L=871 equality rows rest on, 0|14|0|0|0|0 = 96 and 0|8|0|0|0|1 = 92, are
+  INDEPENDENTLY_DUPLICATED   E.heavyfix         the heavy-retained model is keyed on HMAX = H; the round-148 code used the joint count h. 
+  INDEPENDENTLY_DUPLICATED   V.invariants       the catalogue invariants I1-I6, checked over all 720 words; they say which guards in the s
+  INDEPENDENTLY_DUPLICATED   V.catalogue        the checker's own catalogue agrees field by field with round 147's, including all 511,200 
+  VERIFIED_CERTIFICATE       E.extree           an EXPLICIT exhaustion tree for the cells the equality rows rest on, validated by a progra
+  VERIFIED_CERTIFICATE       V.piecemutation    every mutation of a piece certificate and of the piece checker source is refused
+  VERIFIED_CERTIFICATE       E.piececells       220/220 marked piece capacities carry a verified bound (203 exact); 0 not verified
+  VERIFIED_CERTIFICATE       V.hygiene          the certified-only pipeline reads no production capacity table, no UB file and no retracte
+  INDEPENDENTLY_DUPLICATED   V.pysubset         the Python checker re-established a large subset of the chain cells (854/854 cells, 169,43
+  INDEPENDENTLY_DUPLICATED   V.piecetwochecks   the two piece checkers agree cell by cell on the same certificate (111 cells, 0 node-count
+  VERIFIED_CERTIFICATE       E.census871        L = 871 census using certified capacities only: {"STRICTLY_CLOSED": 1154, "EQUALITY": 2}
+  VERIFIED_CERTIFICATE       E.census870        L = 870 census using certified capacities only: {"STRICTLY_CLOSED": 353}
+
+forbidden statuses anywhere: none
+forbidden on the path to E.census871: none
+capacity layer certified: True
+   -> exit 0
+
+== provenance hashes
+{
+ "files": {
+  "r152/src/checker152.py": {
+   "present": true,
+   "sha256": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+   "bytes": 17071
+  },
+  "r152/src/checker152.c": {
+   "present": true,
+   "sha256": "dee3fc5a6b92304e49f31422057dfe9a8228040bdae0aa14da074d7828d32a89",
+   "bytes": 18713
+  },
+  "r152/src/producer152.py": {
+   "present": true,
+   "sha256": "58210267443a8420eb66712aeac5ff4036df5637f0742583e041bb2489633c5b",
+   "bytes": 5256
+  },
+  "r152/src/producer152.c": {
+   "present": true,
+   "sha256": "7ccc4bfbd6779454f48c959e07b4cb83008179a8381a2e4b8c2410cc9010f969",
+   "bytes": 3994
+  },
+  "r152/src/mutate152.py": {
+   "present": true,
+   "sha256": "49b5e3429708ac5b275a20caa610c4234c9655bef35bf6826ab9b68e8522f7f5",
+   "bytes": 7223
+  },
+  "r152/src/mutextree152.py": {
+   "present": true,
+   "sha256": "9855316bf30c5f6adf563bc4a160038c22a288760598456b75359fb784042364",
+   "bytes": 6079
+  },
+  "r152/src/pmutate152.py": {
+   "present": true,
+   "sha256": "3c0b6046d8201f9f0c09a361fb40e214890bbd9329de43bffb4a1b0645c5116d",
+   "bytes": 6792
+  },
+  "r152/src/extree152.c": {
+   "present": true,
+   "sha256": "ff297090f3b83ca0f57806d4d530276117560e0dc7d33b51ce06076d7a3cfa04",
+   "bytes": 6659
+  },
+  "r152/src/extree152.py": {
+   "present": true,
+   "sha256": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+   "bytes": 9677
+  },
+  "r152/src/piece152.c": {
+   "present": true,
+   "sha256": "c038913b93fcf0bbe0fb777a1cbaf34bf84214ec76a0a5803f3dfe9daafe8c7b",
+   "bytes": 14203
+  },
+  "r152/src/piece152.py": {
+   "present": true,
+   "sha256": "de22ac53d8819ce6dfa217cd796a91640089c57a52cc4af71b4f81bc55eb233a",
+   "bytes": 10322
+  },
+  "r152/src/agree152.py": {
+   "present": true,
+   "sha256": "a3c467321e4170a97333f426a99e4abb978b0f99b2e13664a71e648b05622870",
+   "bytes": 3198
+  },
+  "r152/src/subset152.py": {
+   "present": true,
+   "sha256": "b2eaa59cc09104557af248946458e14088a3489aa112afa28d430496f2f96209",
+   "bytes": 1908
+  },
+  "r152/src/invariants152.py": {
+   "present": true,
+   "sha256": "fb4a2c9f3a5799bfedc691bd7eb5ef7ce5594c208f7e78de377b97d5cdfd4b92",
+   "bytes": 2884
+  },
+  "r152/src/catcheck152.py": {
+   "present": true,
+   "sha256": "62f3ff45f00718c961ae1668d62e77349caf96ae1aaf4ad5efe2f592f61b41d2",
+   "bytes": 2860
+  },
+  "r152/src/dag152.py": {
+   "present": true,
+   "sha256": "d0cb7ba32139b408dfb6501555df3c31420351c0d462f5a1ae39c14604cd96cc",
+   "bytes": 11842
+  },
+  "r152/src/cleanroom152.sh": {
+   "present": true,
+   "sha256": "f48df498ad9f324cf604928977c6aa6db4a4e5cc6da80f886a5e50407ba94e43",
+   "bytes": 3835
+  },
+  "r152/src/rows152.py": {
+   "present": true,
+   "sha256": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+   "bytes": 12113
+  },
+  "r152/src/heavyfix152.py": {
+   "present": true,
+   "sha256": "b0793ef84ca69cdb1011007f6e1d7d4f28a68879f5423c59a61485d8642b4db4",
+   "bytes": 4663
+  },
+  "r152/CAPACITY_CERTIFICATE.md": {
+   "present": true,
+   "sha256": "7d88149563bc5d536bf27f93b8c43248b88981221deb658f516cb2619315b7fe",
+   "bytes": 6435
+  },
+  "r152/certs/claims_152.txt": {
+   "present": true,
+   "sha256": "ae50642a7764b361ff93eead9a39321d53deed165269c0be1213976d82fae409",
+   "bytes": 16717
+  },
+  "r152/certs/all_cells_152.json": {
+   "present": true,
+   "sha256": "6dbebe5ee7b2c9e44002056d87f2d57cbd5d5135fdbd4af2b80d6d5f529cfa95",
+   "bytes": 22191
+  },
+  "r152/certs/pilot_cells_152.json": {
+   "present": true,
+   "sha256": "89af080e280971682bc10fd8e2ba3d0521bd6f473ceee8294fe784ab838fe7d4",
+   "bytes": 485
+  },
+  "r152/certs/cap_cert_pilot_152.txt": {
+   "present": true,
+   "sha256": "9278febc5cf42997e8f374153cb4e2925a641561f127fa3f94b7b7e13725c44a",
+   "bytes": 6022
+  },
+  "r152/certs/cap_cert_all_152.txt": {
+   "present": true,
+   "sha256": "4b7c7f6f7126a6e33106963430cd91b65f094fde02617bb270780c1d231cfa41",
+   "bytes": 249754
+  },
+  "r152/certs/verify_pilot_152.json": {
+   "present": true,
+   "sha256": "9cf055c9d5f0a7e4873fe23b53c6e60c581220f01830dbcb4beed060b62da5c5",
+   "bytes": 3144
+  },
+  "r152/certs/verify_pilot_c152.json": {
+   "present": true,
+   "sha256": "6f9b1f42e1bbdc2ce45d6512902af3be084bd41b042930c948f67cc2e1c6a7a4",
+   "bytes": 2502
+  },
+  "r152/certs/verify_subset_152.json": {
+   "present": true,
+   "sha256": "7dbfffba25933b750620f1a0504742eb309110a75731cadf9e87c6f4beb89c93",
+   "bytes": 125836
+  },
+  "r152/certs/cap_cert_pysubset_152.txt": {
+   "present": true,
+   "sha256": "e2606df821179ff5cf02af14fd0c0c44d21344cb2d43306b5e6ac111af4d2346",
+   "bytes": 192974
+  },
+  "r152/certs/pcert_pysubset_152.txt": {
+   "present": true,
+   "sha256": "cb2b46b8e1bbcaa07dbc4bdfc4e7ac6768058039c6ca168576385f38adbcfce1",
+   "bytes": 25345
+  },
+  "r152/certs/hygiene_152.json": {
+   "present": true,
+   "sha256": "9b9aafaa86eed37d57a420f7ab315e7ccbc3ad101e7b54387f58131c42038ac8",
+   "bytes": 1278
+  },
+  "r152/certs/equality_152.json": {
+   "present": true,
+   "sha256": "47232afb418ebb7c630af5cd35f6276280b6811af357e277095293816ab33ef7",
+   "bytes": 2370
+  },
+  "r152/certs/dag_152.json": {
+   "present": true,
+   "sha256": "3f588272769da656edac4b526e326f704a19a7215044ff6a854fade6ce951a0f",
+   "bytes": 5747
+  },
+  "r152/certs/agreement_piece_152.json": {
+   "present": true,
+   "sha256": "563a059b6133110e35d1435d0ae3370e0875af3e400201c5bd109819ad000ed5",
+   "bytes": 239
+  },
+  "r152/certs/verify_all_c152.json": {
+   "present": true,
+   "sha256": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+   "bytes": 150287
+  },
+  "r152/certs/mutations_152.json": {
+   "present": true,
+   "sha256": "5c6d6380c24c8cf5cb78cc46c7eadf7d44aca314fb1175c4498ad03c72726112",
+   "bytes": 2917
+  },
+  "r152/certs/census_152.json": {
+   "present": true,
+   "sha256": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb",
+   "bytes": 3849
+  },
+  "r152/certs/heavyfix_152.json": {
+   "present": true,
+   "sha256": "af1772322a616e45ad1383dac5387a3f4afe63358f2c60091aed40cc7b4798d2",
+   "bytes": 825
+  },
+  "r152/certs/pclaims_152.txt": {
+   "present": true,
+   "sha256": "12748c277078dc58c2bb6d3f8a1f0401098022cb8c0d5a103b60d531e6675240",
+   "bytes": 2514
+  },
+  "r152/certs/pcert_all_152.txt": {
+   "present": true,
+   "sha256": "84ab379069c8d35861dd07cc70a928491a8f28c3fdff79de705e9c0d57dcaebc",
+   "bytes": 56319
+  },
+  "r152/certs/pcert_mut_152.txt": {
+   "present": true,
+   "sha256": "27743c3c702e89a7be5dd7de27b41e78ab9f5eca7590ff99328a40d4d0b129f1",
+   "bytes": 2972
+  },
+  "r152/certs/verify_piece_c152.json": {
+   "present": true,
+   "sha256": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+   "bytes": 39810
+  },
+  "r152/certs/verify_piece_152.json": {
+   "present": true,
+   "sha256": "14e0471835d6bf16566620b37085df7d6d06b261a7fecb0f7f597eae21502400",
+   "bytes": 21223
+  },
+  "r152/certs/mutations_piece_152.json": {
+   "present": true,
+   "sha256": "a2603509e08b164f3f359382b025678bc561f7fe08a5da1870434eb6b79010e4",
+   "bytes": 1548
+  },
+  "r152/certs/mutations_extree_152.json": {
+   "present": true,
+   "sha256": "c38b6ef897d66e8afd959c22f978a571a036e3dd54b13787f198ebc46ad49d43",
+   "bytes": 1460
+  },
+  "r152/certs/extree_pilot_152.txt": {
+   "present": true,
+   "sha256": "66472da3baecadb6bb7f3a66fc65a1bf2c76f96e830269b2f0ef529e6cb6aa7d",
+   "bytes": 566277
+  },
+  "r152/certs/extree_pilot_152.json": {
+   "present": true,
+   "sha256": "f81455242d7793518a2e38d13a0025eecc2d5ec2bd69c6a3d847eda7d48b38e8",
+   "bytes": 3091
+  },
+  "r152/certs/invariants_152.json": {
+   "present": true,
+   "sha256": "b68b708ac0f0e89adc37c68d43d769528f70dba63c7f2b1d6fbf6da1156abb97",
+   "bytes": 258
+  },
+  "r152/certs/catalogue_crosscheck_152.json": {
+   "present": true,
+   "sha256": "c2ec9a3c45d1a11565e55ac3b99efa498b9b87f56ae9700ba0534597455f34ac",
+   "bytes": 260
+  },
+  "r152/certs/agreement_152.json": {
+   "present": true,
+   "sha256": "12455ca85b346e26cda2d047224ad02fadde9a30287a80edfafce17a10eb9a3a",
+   "bytes": 239
+  },
+  "r152/REPRODUCE.md": {
+   "present": true,
+   "sha256": "dabce406ac1b53b62f44e81782c13f3c68ebcd6b32b90582a48e6594d8d203ac",
+   "bytes": 2006
+  },
+  "research/RR_L6_R147_SOUND_UB.md": {
+   "present": true,
+   "sha256": "f4f39ce9784df16511b29217fc42e8e047a87c42090157254e1369f00347e794",
+   "bytes": 6415
+  },
+  "r149/PROOF.md": {
+   "present": true,
+   "sha256": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+   "bytes": 27862
+  }
+ },
+ "git_head": "27d0d7df4ad7fed7463336ed69fb343da333a605",
+ "git_dirty": false
+}
+   -> exit 0
+
+==============================================
+CLEAN REPRODUCTION OK
