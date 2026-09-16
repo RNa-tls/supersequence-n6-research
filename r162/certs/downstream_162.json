@@ -1,0 +1,419 @@
+{
+ "seconds": 0.3,
+ "dag_source": "r162/certs/dag_162.json",
+ "self_references_excluded": [
+  "r162/",
+  "research/RR_L6_H_FIXEDREP_AUDIT.md"
+ ],
+ "theorem_path_files": 46,
+ "where_paths_missing": [],
+ "D1_fixedness_predicates": {
+  "gap_equals_omega": [
+   {
+    "at": "src/l6_cleanroom_146.py:90",
+    "text": "fixed = all(g == omega(sel[j], sel[j + 1]) for j, g in enumerate(gaps)) \\"
+   },
+   {
+    "at": "src/l6_splicing_145.py:148",
+    "text": "if gaps[j] != omega(sel[j][1], sel[j + 1][1], n):"
+   }
+  ],
+  "calls_fixed_representative": [
+   {
+    "at": "src/l6_fixed_representative_145.py:127",
+    "text": "def fixed_representative(W, n, max_iter=200):"
+   },
+   {
+    "at": "src/l6_fixed_representative_145.py:243",
+    "text": "Ws, lens = fixed_representative(w, n)"
+   },
+   {
+    "at": "src/l6_fixed_representative_145.py:273",
+    "text": "Ws, _ = fixed_representative(W, 5)"
+   },
+   {
+    "at": "src/l6_fixed_representative_145.py:290",
+    "text": "Ws, lens = fixed_representative(W, 6)"
+   },
+   {
+    "at": "src/l6_same_hex_145.py:104",
+    "text": "ws, _ = fixed_representative(w, n)"
+   }
+  ],
+  "phrase_not_a_fixed_representative": [
+   {
+    "at": "src/l6_splicing_145.py:149",
+    "text": "fails.append((\"not a fixed representative\", j))"
+   }
+  ]
+ },
+ "D1_distinct_predicate_forms": [
+  "calls_fixed_representative",
+  "gap_equals_omega",
+  "phrase_not_a_fixed_representative"
+ ],
+ "D1_positive_runs": [
+  {
+   "n": 6,
+   "input_len": 872,
+   "fixed_len": 872,
+   "splicing_nfail": 0,
+   "splicing_ok": true,
+   "failures_shown": [],
+   "not_a_fixed_representative": 0,
+   "MASTER_holds": true,
+   "FO_holds": true
+  },
+  {
+   "n": 6,
+   "input_len": 1861,
+   "fixed_len": 872,
+   "splicing_nfail": 0,
+   "splicing_ok": true,
+   "failures_shown": [],
+   "not_a_fixed_representative": 0,
+   "MASTER_holds": true,
+   "FO_holds": true
+  },
+  {
+   "n": 6,
+   "input_len": 1927,
+   "fixed_len": 872,
+   "splicing_nfail": 0,
+   "splicing_ok": true,
+   "failures_shown": [],
+   "not_a_fixed_representative": 0,
+   "MASTER_holds": true,
+   "FO_holds": true
+  },
+  {
+   "n": 4,
+   "input_len": 33,
+   "fixed_len": 33,
+   "splicing_nfail": 0,
+   "splicing_ok": true,
+   "failures_shown": [],
+   "not_a_fixed_representative": 0,
+   "MASTER_holds": null,
+   "FO_holds": true
+  }
+ ],
+ "D1_failures": [],
+ "D2_second_normalisation_hits": {
+  "wlog": [
+   {
+    "at": "r149/PROOF.md:145",
+    "text": "### 정리 2.4 (시작 포트 고정은 WLOG) — **전수 확인됨**"
+   },
+   {
+    "at": "r152/certs/dag_152.json:21",
+    "text": "\"H.wlog\": {"
+   },
+   {
+    "at": "r152/certs/dag_152.json:23",
+    "text": "\"what\": \"fixing the start port is WLOG (left S6 transitive, catalogue equivariant; 518,400 pairs checked)\","
+   },
+   {
+    "at": "r152/certs/dag_152.json:38",
+    "text": "\"H.wlog\""
+   },
+   {
+    "at": "r153/src/dag153.py:76",
+    "text": "(\"H.wlog\", \"fixing the start word is WLOG: left S6 is transitive and \""
+   },
+   {
+    "at": "r153/src/dag153.py:106",
+    "text": "[\"A.monotone\", \"A.hexcount\", \"H.catalogue\", \"H.wlog\", \"H.feas\"],"
+   },
+   {
+    "at": "r153/src/dag153.py:112",
+    "text": "[\"A.monotone\", \"A.hexcount\", \"H.catalogue\", \"H.wlog\", \"H.feas\"],"
+   },
+   {
+    "at": "r153/src/dag153.py:140",
+    "text": "[\"H.wlog\"], \"r153/src/eqcompare153.py\")"
+   },
+   {
+    "at": "r153/src/eqcompare153.py:25",
+    "text": "(3) fixing the start word at 123456 is without loss of generality because"
+   },
+   {
+    "at": "research/RR_L6_H_MASTER_AUDIT.md:11",
+    "text": "`H.wlog` 는 재감사하지 않고 **이미 인증된 의존**으로만 인용한다."
+   },
+   {
+    "at": "research/RR_L6_H_MASTER_AUDIT.md:522",
+    "text": "`H.wlog`, `H.catalogue` 는 **쓰이지 않는다**."
+   },
+   {
+    "at": "research/RR_L6_H_SAMEHEX_AUDIT.md:10",
+    "text": "`H.incidence`, `H.tight`, `H.feas`, `H.models`, `H.catalogue`, `H.wlog` 는"
+   },
+   {
+    "at": "research/RR_L6_H_SAMEHEX_AUDIT.md:459",
+    "text": "`H.feas`, `H.wlog` 는 **쓰이지 않는다**."
+   },
+   {
+    "at": "research/RR_L6_H_SPLICE_AUDIT.md:11",
+    "text": "`H.catalogue`, `H.wlog` 는 재감사하지 않고 이미 인증된 의존으로만 인용한다."
+   },
+   {
+    "at": "research/RR_L6_H_SPLICE_AUDIT.md:30",
+    "text": "`omega` 다) 이지 WLOG 정리가 아니다."
+   },
+   {
+    "at": "research/RR_L6_H_SPLICE_AUDIT.md:446",
+    "text": "| **H.splice 가 쓰지 **않는** H.fixedrep 정리** | WLOG 따름정리(\"모든 덮개는 길이가 늘지 않는 고정 대표원을 갖는다\") — 전역 증명이 쓰지 A–F 는 쓰지 않는다."
+   },
+   {
+    "at": "research/RR_L6_H_SPLICE_AUDIT.md:519",
+    "text": "| 고정 대표원 (`gap = omega`) | **가설** (검사 가능; `H.fixedrep` 의 WLOG 정리가 **아님**) |"
+   }
+  ],
+  "relabel": [
+   {
+    "at": "r153/src/eqwit153.py:19",
+    "text": "canonical   the least relabelling of the six letters (left S6, 720 elements),"
+   },
+   {
+    "at": "r153/src/eqwit153.py:42",
+    "text": "def relabel_map(g):"
+   },
+   {
+    "at": "r153/src/eqwit153.py:50",
+    "text": "def relabellings():"
+   },
+   {
+    "at": "r153/src/eqwit153.py:53",
+    "text": "_RL = [relabel_map(g) for g in itertools.permutations(\"123456\")]"
+   },
+   {
+    "at": "r153/src/eqwit153.py:59",
+    "text": "for r in relabellings():"
+   },
+   {
+    "at": "r153/src/eqwit153.py:69",
+    "text": "for r in relabellings():"
+   },
+   {
+    "at": "r153/src/eqwit153.py:81",
+    "text": "return dict(group=len(relabellings()), words=N,"
+   },
+   {
+    "at": "r153/src/eqwit153.py:82",
+    "text": "pairs=len(relabellings()) * N, violations=bad, ok=bad == 0)"
+   }
+  ]
+ },
+ "D3_coordinate_call_sites": [
+  {
+   "at": "src/l6_extraction_145.py:112",
+   "fn": "build",
+   "arg": "W",
+   "enclosing_def": "extract",
+   "arg_is_parameter": true,
+   "normalised_name": false,
+   "normalised_earlier_in_file": false,
+   "callee_enforces_fixedness": false,
+   "text": "b = build(W, n)"
+  },
+  {
+   "at": "src/l6_same_hex_145.py:131",
+   "fn": "analyse",
+   "arg": "w",
+   "enclosing_def": "run",
+   "arg_is_parameter": false,
+   "normalised_name": false,
+   "normalised_earlier_in_file": true,
+   "callee_enforces_fixedness": true,
+   "text": "a = SP.analyse(w, n)"
+  },
+  {
+   "at": "src/l6_splicing_145.py:356",
+   "fn": "analyse",
+   "arg": "W4",
+   "enclosing_def": "run",
+   "arg_is_parameter": false,
+   "normalised_name": false,
+   "normalised_earlier_in_file": false,
+   "callee_enforces_fixedness": true,
+   "text": "out[\"n4_optimum\"] = analyse(W4, 4)"
+  },
+  {
+   "at": "src/l6_splicing_145.py:362",
+   "fn": "analyse",
+   "arg": "w",
+   "enclosing_def": "run",
+   "arg_is_parameter": false,
+   "normalised_name": false,
+   "normalised_earlier_in_file": false,
+   "callee_enforces_fixedness": true,
+   "text": "res5 = [analyse(w, 5) for w in words]"
+  },
+  {
+   "at": "src/l6_splicing_145.py:370",
+   "fn": "analyse",
+   "arg": "W6",
+   "enclosing_def": "run",
+   "arg_is_parameter": false,
+   "normalised_name": false,
+   "normalised_earlier_in_file": false,
+   "callee_enforces_fixedness": true,
+   "text": "out[\"n6_witness_872\"] = analyse(W6, 6)"
+  }
+ ],
+ "D3_entry_points_not_enforcing": [
+  "src/l6_extraction_145.py:112"
+ ],
+ "D3_positive": [
+  {
+   "corpus": "n4_optimum",
+   "n": 4,
+   "words": 1,
+   "already_fixed": 1,
+   "all_already_fixed": true
+  },
+  {
+   "corpus": "n5_minima",
+   "n": 5,
+   "words": 8,
+   "already_fixed": 8,
+   "all_already_fixed": true
+  },
+  {
+   "corpus": "n6_witness_872",
+   "n": 6,
+   "words": 1,
+   "already_fixed": 1,
+   "all_already_fixed": true
+  }
+ ],
+ "D3_failures": [],
+ "D4_uniqueness_hits": {
+  "korean_unique": [
+   {
+    "at": "r149/PROOF.md:3",
+    "text": "라운드 148 이 `L6 = 872` 경로에 남긴 유일한 `PURE_HAND_PROOF` 의존성이"
+   },
+   {
+    "at": "r149/PROOF.md:426",
+    "text": "있다면 그것도 그 최댓값 안에 들어 있다.  예산 밖으로 나가는 유일한 길은 §2 의"
+   },
+   {
+    "at": "r149/PROOF.md:462",
+    "text": "`feas()` 는 두 구현이 **서로를 검증해 주지 못하는 유일한 자리**다: 구현 B 의"
+   },
+   {
+    "at": "research/RR_L6_H_ENVELOPE_AUDIT.md:280",
+    "text": "| 한 사건이 `a`, `bb`, `e` 중 둘에 세어지는가 | **불가능.**  분류는 반복 포트 `v` 의 **유일한** 사슬 선행 간선의 유형으로 하고, 유형은 하나다.  `a + bb + e"
+   },
+   {
+    "at": "research/RR_L6_H_ENVELOPE_AUDIT.md:350",
+    "text": "> 않는다**.  증명이 heavy 를 쓰는 유일한 곳은 \"조인트 무게 `>= 4` 이면"
+   },
+   {
+    "at": "research/RR_L6_H_ENVELOPE_AUDIT.md:475",
+    "text": "**(ii)**  사슬의 첫 포트가 아닌 각 포트 `v` 는 유일한 사슬 선행자 `u` 를 갖고"
+   },
+   {
+    "at": "research/RR_L6_H_ENVELOPE_AUDIT.md:564",
+    "text": "* 자원 중복이 처리됨 — 분류가 반복 포트의 **유일한** 선행 간선 유형으로"
+   },
+   {
+    "at": "research/RR_L6_H_INCIDENCE_AUDIT.md:24",
+    "text": "* **연결성이 유일한 비자명 가설**이고, `T` 가 한 개의 `(P+1)`-순환이라는"
+   },
+   {
+    "at": "research/RR_L6_H_INCIDENCE_AUDIT.md:186",
+    "text": "> `alpha`-순환 `{*}` 인 유일한 쌍은 `|{*} ∩ C_*| = 1` 이라 **0 을 기여**한다."
+   },
+   {
+    "at": "research/RR_L6_H_INCIDENCE_AUDIT.md:275",
+    "text": "즉 **연결성이 정확히 `+1` 을 사는 유일한 가설**이다."
+   },
+   {
+    "at": "research/RR_L6_H_MASTER_AUDIT.md:393",
+    "text": "불가능하다.  현재 era 가 `F` 라는 글자를 재사용하는 유일한 곳은"
+   },
+   {
+    "at": "research/RR_L6_H_SAMEHEX_AUDIT.md:258",
+    "text": "(`n = 4`): `D2 = 1, Qs = 0, rep = 0, R_int = 1, d = 1, 2g = 2` — 유일한 A 간선이"
+   },
+   {
+    "at": "research/RR_L6_H_SPLICE_AUDIT.md:401",
+    "text": "**존재성/가역성/유일성**: 어느 하류도 스플라이스의 **가역성이나 유일성**을"
+   },
+   {
+    "at": "research/RR_L6_PROOF_145_CLAUDE.md:174",
+    "text": "2. **지표가 진짜로 증가한다.** type A 연결자의 유일한 숨은 창은"
+   },
+   {
+    "at": "src/verify_f2_structure_126.py:78",
+    "text": "`y` 에서 나가는 **유일한** `ω = 2` joint 는"
+   }
+  ],
+  "canonical": [
+   {
+    "at": "r153/src/dag153.py:144",
+    "text": "\"and canonical sets: \" + \", \".join("
+   },
+   {
+    "at": "r153/src/eqcompare153.py:85",
+    "text": "classes = sorted({EW.canonical(w) for w in ports})"
+   },
+   {
+    "at": "r153/src/eqwit153.py:19",
+    "text": "canonical   the least relabelling of the six letters (left S6, 720 elements),"
+   },
+   {
+    "at": "r153/src/eqwit153.py:57",
+    "text": "def canonical(ports):"
+   },
+   {
+    "at": "r153/src/eqwit153.py:244",
+    "text": "cs = sorted(canonical(w[\"ports\"]) for w in witnesses)"
+   },
+   {
+    "at": "research/RR_L6_H_INCIDENCE_AUDIT.md:7",
+    "text": "가 가리키는 **정본(canonical) 진술·증명 문서**.  §2–§5 가 정리와 증명이고,"
+   },
+   {
+    "at": "src/l6_cleanroom_146.py:7",
+    "text": "canonical rotation strings, classifies joints by literal string construction,"
+   },
+   {
+    "at": "src/l6_cleanroom_146.py:112",
+    "text": "# ---- hexagons / orbits, as canonical strings"
+   }
+  ]
+ },
+ "D4_positive": {
+  "n": 3,
+  "word_length": 9,
+  "covers": 6,
+  "distinct_fixed_representatives": 6,
+  "distinct_of_that_length": 6,
+  "examples": [
+   "123121321",
+   "132131231",
+   "213212312",
+   "231232132"
+  ],
+  "uniqueness_is_false": true
+ },
+ "phi_name_collision": [
+  "STATUS.md",
+  "research/FUTURE_SHORTFALL_LOWER_BOUND.md",
+  "research/J_CAPACITY_OBSTRUCTION.md",
+  "research/J_STATE_SPACE_REDUCTION.md",
+  "research/RR_PREPARATION_PARITY_THEOREM.md",
+  "research/SHORTFALL_BUDGET_THEOREM.md",
+  "research/SUPERPERMUTATION_N6_MASTER_STATUS.md",
+  "src/analyze_j_capacity_failures.py",
+  "src/analyze_shortfall_budget.py",
+  "src/search_ra2_exact.py",
+  "src/search_rr_same_component.py",
+  "src/verify_shortfall_potential.py"
+ ],
+ "ok": true
+}

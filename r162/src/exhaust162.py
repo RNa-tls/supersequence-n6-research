@@ -49,7 +49,7 @@ def covers(n, alpha, L):
     return out
 
 
-def main(LMAX=12):
+def main(LMAX=14):
     t0 = time.time()
     n, alpha = 3, "123"
     N = factorial(n)
@@ -105,4 +105,4 @@ def main(LMAX=12):
 
 
 if __name__ == "__main__":
-    sys.exit(main(int(sys.argv[1]) if len(sys.argv) > 1 else 12))
+    sys.exit(main(int(sys.argv[1]) if len(sys.argv) > 1 else 14))
