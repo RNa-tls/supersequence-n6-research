@@ -1,0 +1,63 @@
+{
+ "node": "H.tight",
+ "verdict": "H_TIGHT_FULLY_CERTIFIED",
+ "files": {
+  "r155/src/tight155.py": {
+   "present": true,
+   "sha256": "22c0088942a4785f58b349c2028e86d747cbf128a950f80e0a4d3393e959104f"
+  },
+  "r155/src/abstract155.py": {
+   "present": true,
+   "sha256": "3084e4654c117cf8a0e268ae8b3ad1ad5111d7b01323cf46df2ee25be31dce63"
+  },
+  "r155/src/rowdomain155.py": {
+   "present": true,
+   "sha256": "44de9f051280798731f314ecc79635b679e19eee347d7f3b44cdcd6e4a2a9695"
+  },
+  "r155/certs/tight_real_covers_155.json": {
+   "present": true,
+   "sha256": "1c9f9a118b0501e2d4c728033bdb0e3eb088e933f4f4ec964feea2fa1542456a"
+  },
+  "r155/certs/abstract_slack_155.json": {
+   "present": true,
+   "sha256": "37aaa5f519e1321bc3aa247a676f02ae22fac9075b56ca84e9c58753c49ac366"
+  },
+  "r155/certs/row_domain_155.json": {
+   "present": true,
+   "sha256": "938d448fb845e094a1984956a4ad72ee2cd58e69ae22750b64fc2e80426b209a"
+  },
+  "research/RR_L6_H_TIGHT_AUDIT.md": {
+   "present": true,
+   "sha256": "8408952197c013af7cb3921e94fee8956034328f392d2a1d32a7f8a165288857"
+  },
+  "r153/certs/dag_153.json": {
+   "present": true,
+   "sha256": "7cbb7a92c70672c1ca2febb20ed7d136c197eab284ff0501986b95641b2e2626"
+  },
+  "src/l6_incidence_144.py": {
+   "present": true,
+   "sha256": "6176f05e61bc5adad68e7e2462443826c3e4017cc1c8b4d75dfa48a4f9473d9f"
+  },
+  "src/l6_splicing_145.py": {
+   "present": true,
+   "sha256": "59477b9c592c3dbd1038b934af7a94a6efc32fd112f156d1d415a756bf550157"
+  },
+  "research/RR_L6_PROOF_145_CLAUDE.md": {
+   "present": true,
+   "sha256": "6acd3c33bbd8872e3b9bdee53d8d327eef6e688b61eed788119449762e8b4665"
+  },
+  "r154/certs/lemmas_154.json": {
+   "present": true,
+   "sha256": "72f78ed79fa15f5e4efccfbbb36ba3a4c7747ff773a87666f26c686f922a5d47"
+  },
+  "r152/certs/census_152.json": {
+   "present": true,
+   "sha256": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb"
+  }
+ },
+ "provenance_defects_recorded_not_repaired": [
+  "H.incidence where field points at research/RR_INCIDENCE_FOREST_LEMMA.md which does not state K+R_int<=G+1",
+  "H.feas where field is prose not a path"
+ ],
+ "ok": true
+}
