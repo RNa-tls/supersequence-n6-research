@@ -1,9 +1,9 @@
 {
  "round": 163,
  "node": "(inventory: all 12 hand-proof nodes)",
- "git_commit": "7ec7b334bb7e1c69282444e16611e038ed18adc8",
+ "git_commit": "a1bd6fb07b57065d7c19d5e85fcdca41aaf6c6ec",
  "git_branch": "round153-equality-coexistence",
- "git_dirty": false,
+ "git_dirty": true,
  "python": "3.11.15",
  "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
  "audited_sources": {
@@ -41,25 +41,27 @@
   "data/verified_872_witness.txt": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef"
  },
  "r163_sources": {
+  "r163/src/coverage163.py": "e490b158b5197c8288741c5c97c64131741373873b105791c5e7f54ca6f502f9",
   "r163/src/dag163.py": "294bcb238eaac65f8bff30e310f2f43c4be7736de334818943c4811bc0857ee6",
   "r163/src/evidence163.py": "a9824345efc10ffda6354d39085bcb8531b94c05a5bf712c3f9cde74c9193cb6",
   "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
   "r163/src/inventory163.py": "16991a665925dc25988602943661c715c076e8366ae073f7f54426093f6f7101",
   "r163/src/provenance163.py": "f938f244c83b1a03c9177f62f489a7e88ece0100321a1e1602661482c6140ed3",
   "r163/src/recheck163.py": "7d613c7294e42768c116a5e8d8437ded059caf706e7f7c18747cee0cb1299c08",
-  "r163/src/summary163.py": "675abdb476414b24cd898c74d31185783378c762177ebe3f923d4505fae37ea4"
+  "r163/src/summary163.py": "9c9d30b6e6975cbdec0af32a32541e6c04ab6c612b999a392001f3fe9a09b4a4"
  },
  "r163_certs": {
+  "r163/certs/coverage_163.json": "1f9270ab756ca8a9dcca978f53082098e3cc0282ffb517f2967098d9b87d0514",
   "r163/certs/dag_163.json": "f0cc6bc0aef2fb19d79a0a226acc04a7dddcd820c289ced26368a4f7b290cf42",
   "r163/certs/evidence_163.json": "1b24d1c8f4f1867e3535db053cc1dfd73f8873ca3c9b8118105a2534f6a67fc8",
-  "r163/certs/hand_proof_inventory_163.json": "0c4456c49f4388d50b47c0a7ff1ee38c149930739fd38670738ef48f461f5832",
+  "r163/certs/hand_proof_inventory_163.json": "4de49610f5b70fb578ca2d830c5556d16e157416fe496552394f5c916075ffda",
   "r163/certs/hash_invariance_163.json": "592259c61eb47c8fa79be3b6acc96f6c6aba4a09f8ab97b8e0267bd7eb16554b",
   "r163/certs/hidden_163.json": "d33e9e65f014bef610fc91a19b19088094844ba9d2cb18e9cc96c3a01f03c0ca",
-  "r163/certs/inventory_163.json": "396f92268297b85e8a4b439e1855508a43a3b0afe5eee5e6c52cba5e1fbc76af",
-  "r163/certs/provenance_163.json": "fd388ed7832d602366436c828c671697ecdb1dc387dd58c31a387b71c52bd7cc",
+  "r163/certs/inventory_163.json": "6395e4a265b85f587aca5b5d8d792d4cdf46a633e5060fc78248450c09f1a8ef",
+  "r163/certs/provenance_163.json": "046f7cd5e123ba93aa1aa1dbbc7588dd88aceb057ff826d39870ee8f6485d8dd",
   "r163/certs/recheck_163.json": "4f9add85f5ac71358aa32a2ec80b57e87a027e94ec41d29953179581baf36ed5"
  },
- "audit_doc": "ee9e04d612c6be873dcdacd71a9cee2226c3952316c094eef737697b74e42244",
+ "audit_doc": "10768350d5503e6e71f024f4a3c33c684a54435af5d83e8f3f88c6ba81841cad",
  "totals": {
   "inventory": {
    "dag_path": "r163/certs/dag_163.json",
