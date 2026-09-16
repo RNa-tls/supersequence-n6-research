@@ -183,6 +183,11 @@ def structure(W, n):
         # Lemma C: the joint source is end(v_{nu(i)})
         if sel[j][1] != passes[p][0][-1] + passes[p][0][:-1]:
             raise ValueError("Lemma C endpoint identity fails")
+        # every reassigned joint must be a SHORTEST connector out of the
+        # full-pass endpoint end(v_p): that is exactly what the catalogue
+        # contains, and it is what makes a chain a walk in the catalogue.
+        if gaps[j] != omega(sel[j][1], sel[j + 1][1], n):
+            raise ValueError("a joint is not a shortest connector")
         etype[p] = jtype(passes[p][0], sel[j + 1][1], gaps[j], n)
         eweight[p] = gaps[j]
         ehidden[p] = len(hidden_windows(sel[j][1], sel[j + 1][1], gaps[j], n))
