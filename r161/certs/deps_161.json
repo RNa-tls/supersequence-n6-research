@@ -1,0 +1,249 @@
+{
+ "clause_dependencies": {
+  "A1": [
+   "cover"
+  ],
+  "A2": [
+   "window-distinctness"
+  ],
+  "A3": [
+   "A1",
+   "A2"
+  ],
+  "A4": [
+   "A1",
+   "A2"
+  ],
+  "A5": [
+   "A3",
+   "A4"
+  ],
+  "B1": [
+   "A3",
+   "A4"
+  ],
+  "B2": [
+   "B1",
+   "A1"
+  ],
+  "B3": [
+   "B2",
+   "A3"
+  ],
+  "C1": [
+   "B1"
+  ],
+  "C2": [
+   "C1"
+  ],
+  "C3": [
+   "C2",
+   "fixed-representative"
+  ],
+  "D1": [
+   "B2"
+  ],
+  "D2": [
+   "D1",
+   "B2"
+  ],
+  "D3": [
+   "B3",
+   "A4"
+  ],
+  "E1": [
+   "catalogue-cleanE"
+  ],
+  "E2": [
+   "E1",
+   "A1",
+   "tau-order"
+  ],
+  "E3": [
+   "E2"
+  ],
+  "E4": [
+   "E3",
+   "A1"
+  ],
+  "F1": [
+   "local-geometry-Q2"
+  ],
+  "F2": [
+   "F1",
+   "C1"
+  ],
+  "F3": [
+   "F2"
+  ],
+  "F4": [
+   "E2",
+   "F3",
+   "D1"
+  ],
+  "G1": [
+   "local-geometry-P1",
+   "local-geometry-P2"
+  ]
+ },
+ "external_facts": [
+  "catalogue-cleanE",
+  "cover",
+  "fixed-representative",
+  "local-geometry-P1",
+  "local-geometry-P2",
+  "local-geometry-Q2",
+  "tau-order",
+  "window-distinctness"
+ ],
+ "acyclic": true,
+ "topological_order": [
+  "A1",
+  "A2",
+  "A3",
+  "A4",
+  "A5",
+  "B1",
+  "B2",
+  "B3",
+  "C1",
+  "C2",
+  "C3",
+  "D1",
+  "D2",
+  "D3",
+  "E1",
+  "E2",
+  "E3",
+  "E4",
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "G1"
+ ],
+ "direction_consumed": {
+  "A4": "one-way: every hexagon HAS a pass.  The converse (a pass forces a hexagon) is trivial and unused.",
+  "A5": "identity, used in both directions (G <-> sum (m_h - 1))",
+  "B3": "one-way: nu-cycles ARE hexagons; used to identify c(alpha)",
+  "C2": "two-way invariance: the splice changes nothing, so a statement about the original joint and about the reassigned edge are interchangeable.  H.samehex uses the ORIGINAL -> REASSIGNED direction; the catalogue uses REASSIGNED -> ORIGINAL.",
+  "C3": "one-way: the reassigned edge LIES IN the catalogue.  No converse (not every catalogue connector occurs) is claimed or used.",
+  "D2": "identity",
+  "E2E3": "one-way: PURE all-clean-E cycle => complete tau-orbit.  The converse (a complete tau-orbit => its component is pure) is NOT claimed and NOT used: the coexistence test only needs the forward direction, because a NEGATIVE answer closes a row and a positive one decides nothing.",
+  "E4": "one-way: no pass outside a pure cycle lies in its orbit",
+  "F3": "identity blocks = S + 1 + D2",
+  "F4": "one-way invariance under deletion",
+  "G1": "one-way: a tau-orbit meets n-1 DISTINCT hexagons"
+ },
+ "H_tight_chain_ownership": [
+  {
+   "step": "pure beta cycles are complete tau-orbits of size n-1",
+   "owner": "H.splice",
+   "clause": "E2 + E3",
+   "note": "proved here from E1 (clean E = tau) + distinct pass entries"
+  },
+  {
+   "step": "no pass outside a pure cycle lies in its orbit",
+   "owner": "H.splice",
+   "clause": "E4",
+   "note": ""
+  },
+  {
+   "step": "every hexagon carries a pass, so all 120 are used",
+   "owner": "H.splice",
+   "clause": "A4",
+   "note": "section 9 of research/RR_L6_PROOF_145_CLAUDE.md justified this by 'otherwise the repeat excess exceeds G', which is circular; the round-155 audit already replaced it by Lemma A.  Ownership is H.splice, not H.tight."
+  },
+  {
+   "step": "a pure circuit has degree n-1 = 5 in the SIMPLE incidence graph",
+   "owner": "A.orbitfive",
+   "clause": "G1",
+   "note": "needs that the orbit's 5 entries lie in 5 DISTINCT hexagons.  The repository carries this as the machine-certified node A.orbitfive (all 144 orbits checked).  Round 161 supplies a one-line PROOF (tau fixes the last letter; a hexagon holds exactly one window per last letter), so the node can be upgraded from an exhaustive check to a theorem."
+  },
+  {
+   "step": "P_1 + 5c + 1 = 121 + G with G = c, hence P_1 = 120 - 4c",
+   "owner": "H.incidence",
+   "clause": "-",
+   "note": "Euler/degree count in the incidence graph"
+  },
+  {
+   "step": "|F| = 120 - P_1 = 4c and F must be covered by the c circuits",
+   "owner": "H.tight",
+   "clause": "-",
+   "note": ""
+  }
+ ],
+ "H_samehex_uses_of_H_splice": [
+  {
+   "clause": "D1/D2",
+   "why": "the A/B joints are beta edges p -> beta(p); the charging map edge -> target is injective exactly because beta is a permutation"
+  },
+  {
+   "clause": "C2",
+   "why": "the reassigned edge has the SAME source string, gap and hidden windows, so the catalogue type (A / B / clean E) is unchanged by the splice.  Without C2 the same-hex charging would be about a different object than the word's joints."
+  },
+  {
+   "clause": "A3/B3",
+   "why": "the grouping is by (hexagon, beta component), and hexagons are the nu-cycles"
+  }
+ ],
+ "H_fixedrep_split": {
+  "hypothesis_used_by_H_splice": [
+   "W is a COVER (all n! windows occur) -- used by A1 and hence A3, A4, B2, E4",
+   "every SELECTED gap equals omega -- used by C3 only"
+  ],
+  "theorem_NOT_used_by_H_splice": [
+   "H.fixedrep's WLOG corollary: min over covers of |W| is attained at a fixed point.  That is what the GLOBAL proof needs in order to restrict attention to fixed representatives; no lemma A-F uses it.",
+   "H.fixedrep Lemma 5(c): every hidden window of a selected connector is a repeat.  That is used by H.samehex step (2), NOT by A-F."
+  ],
+  "conclusion": "H.splice is CONDITIONAL on a checkable property of the given word, not on an unproved theorem.  Both hypotheses are verified directly on every word by r161/src/lemmas161.py."
+ },
+ "fixedrep_experiment": {
+  "stats": {
+   "non_fixed_covers": 92,
+   "broke_C3": 92,
+   "still_fixed": 212
+  },
+  "examples": [
+   {
+    "word": "1234123142312431221342132413214321",
+    "broke": [
+     "C3"
+    ],
+    "failures": [
+     "('C3 not a shortest connector', 11)"
+    ]
+   },
+   {
+    "word": "1234123142312431221342132413214321",
+    "broke": [
+     "C3"
+    ],
+    "failures": [
+     "('C3 not a shortest connector', 11)"
+    ]
+   },
+   {
+    "word": "1234123142312431221342132413214321",
+    "broke": [
+     "C3"
+    ],
+    "failures": [
+     "('C3 not a shortest connector', 11)"
+    ]
+   },
+   {
+    "word": "12341231423124312121342132413214321",
+    "broke": [
+     "C3"
+    ],
+    "failures": [
+     "('C3 not a shortest connector', 11)"
+    ]
+   }
+  ]
+ },
+ "seconds": 0.2,
+ "only_C3_depends_on_fixed_representative": true,
+ "ok": true
+}
