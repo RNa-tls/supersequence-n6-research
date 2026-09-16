@@ -1,0 +1,59 @@
+{
+ "target": "src/l6_extraction_145.py",
+ "sha256": "1b6d8be1b1c8258a2b17567eb7e5f1ad75f8e660e8f1057035ee1caedd226e76",
+ "short_string_literals": [
+  "",
+  "   FAIL:",
+  "1234",
+  "A",
+  "B",
+  "Claim 1",
+  "Claim 2",
+  "Claim 3",
+  "Claim 3 sum",
+  "Claim 5",
+  "E",
+  "P",
+  "__main__",
+  "_sweep",
+  "beta",
+  "chain count",
+  "chains",
+  "data",
+  "dummy",
+  "etype",
+  "eweight",
+  "failures",
+  "h",
+  "multi_chain",
+  "n",
+  "n4_optimum",
+  "n5_minima",
+  "ok",
+  "ok:",
+  "outputs",
+  "passes",
+  "retained_AB",
+  "sigma",
+  "sigma_pos",
+  "src",
+  "with_AB",
+  "with_heavy",
+  "word"
+ ],
+ "etype_comparisons": [
+  "etype.get(x) == 'E'",
+  "etype.get(x) in ('A', 'B')",
+  "etype.get(x) not in (None, 'E')"
+ ],
+ "component_level_predicates": [
+  "[c for c in comps if dummy not in c and all((etype.get(x) == 'E' for x in c))]"
+ ],
+ "forbidden_name_hits": [],
+ "edge_type_alphabet_used": [
+  "A",
+  "B",
+  "E"
+ ],
+ "component_classification_is_binary": true
+}

@@ -1,0 +1,410 @@
+{
+ "orbit_exhaustive": [
+  {
+   "m": 1,
+   "r": 2,
+   "cases": 1,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 1,
+   "r": 3,
+   "cases": 1,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 1,
+   "r": 4,
+   "cases": 1,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "r": 2,
+   "cases": 10,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "r": 3,
+   "cases": 10,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "r": 4,
+   "cases": 10,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "r": 2,
+   "cases": 111,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "r": 3,
+   "cases": 159,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "r": 4,
+   "cases": 159,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "r": 2,
+   "cases": 1972,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "r": 3,
+   "cases": 3064,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "r": 4,
+   "cases": 3612,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "r": 2,
+   "cases": 40405,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "r": 3,
+   "cases": 84970,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "r": 4,
+   "cases": 102445,
+   "violations": 0,
+   "examples": []
+  }
+ ],
+ "count_exhaustive": [
+  {
+   "m": 1,
+   "cases": 2,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "cases": 24,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "cases": 348,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "cases": 6208,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "cases": 132240,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 6,
+   "cases": 3274944,
+   "violations": 0,
+   "examples": []
+  }
+ ],
+ "hex_exhaustive": [
+  {
+   "m": 1,
+   "cases": 1,
+   "uncut_cycle": 0,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "cases": 12,
+   "uncut_cycle": 4,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "cases": 240,
+   "uncut_cycle": 120,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "cases": 7200,
+   "uncut_cycle": 4320,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "cases": 299520,
+   "uncut_cycle": 199680,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 6,
+   "cases": 16369920,
+   "uncut_cycle": 11692800,
+   "violations": 0,
+   "examples": []
+  }
+ ],
+ "sampled": [
+  {
+   "m": 6,
+   "r": 3,
+   "cases": 108663,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 7,
+   "r": 3,
+   "cases": 136561,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 8,
+   "r": 4,
+   "cases": 238030,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 9,
+   "r": 4,
+   "cases": 278491,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 10,
+   "r": 5,
+   "cases": 364564,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 12,
+   "r": 5,
+   "cases": 468342,
+   "violations": 0,
+   "examples": []
+  }
+ ],
+ "ablations": [
+  {
+   "name": "drop_LemmaE_size",
+   "m": 4,
+   "r": 2,
+   "cases": 2480,
+   "violations": 508,
+   "expect_break": true,
+   "which": {
+    "C1": 508,
+    "C2": 508
+   },
+   "example": {
+    "m": 4,
+    "r": 2,
+    "succ": {
+     "1": 1,
+     "2": 2,
+     "3": 3
+    },
+    "E": [
+     1
+    ],
+    "orb": [
+     0,
+     1,
+     2,
+     2
+    ],
+    "openings": [
+     2,
+     3
+    ],
+    "broke": [
+     "C1",
+     "C2"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "name": "drop_E_preserves_orbit",
+   "m": 4,
+   "r": 2,
+   "cases": 5632,
+   "violations": 3660,
+   "expect_break": true,
+   "which": {
+    "Ehyp": 4908,
+    "C3": 3540,
+    "C3sum": 3372,
+    "C4sigmaB": 2532
+   },
+   "example": {
+    "m": 4,
+    "r": 2,
+    "succ": {
+     "1": 1,
+     "2": 3,
+     "3": 2
+    },
+    "E": [
+     2
+    ],
+    "orb": [
+     1,
+     0,
+     0,
+     1
+    ],
+    "openings": [
+     1,
+     3
+    ],
+    "broke": [
+     "Ehyp",
+     "C3",
+     "C3sum",
+     "C4sigmaB"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "name": "open_at_a_clean_E_edge",
+   "m": 4,
+   "r": 2,
+   "cases": 2140,
+   "violations": 168,
+   "expect_break": true,
+   "which": {
+    "BL": 168,
+    "C3sum": 168
+   },
+   "example": {
+    "m": 4,
+    "r": 2,
+    "succ": {
+     "1": 1,
+     "2": 3,
+     "3": 2
+    },
+    "E": [
+     2
+    ],
+    "orb": [
+     0,
+     0,
+     1,
+     1
+    ],
+    "openings": [
+     1,
+     2
+    ],
+    "broke": [
+     "BL",
+     "C3sum"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "name": "drop_LemmaE_orbit_cap_kept",
+   "m": 4,
+   "r": 2,
+   "cases": 1972,
+   "violations": 0,
+   "expect_break": false,
+   "which": {},
+   "example": null,
+   "as_expected": true
+  },
+  {
+   "name": "drop_LemmaE_orbit_and_cap",
+   "m": 5,
+   "r": 2,
+   "cases": 106435,
+   "violations": 825,
+   "expect_break": true,
+   "which": {
+    "C4one": 825
+   },
+   "example": {
+    "m": 5,
+    "r": 2,
+    "succ": {
+     "1": 2,
+     "2": 1,
+     "3": 4,
+     "4": 3
+    },
+    "E": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "orb": [
+     0,
+     1,
+     1,
+     1,
+     1
+    ],
+    "openings": [],
+    "broke": [
+     "C4one"
+    ]
+   },
+   "as_expected": true
+  }
+ ],
+ "seconds": 200.4,
+ "ok": true
+}

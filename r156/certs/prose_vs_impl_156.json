@@ -1,0 +1,337 @@
+{
+ "seconds": 0.9,
+ "words": 397,
+ "tally": {
+  "cases": 794,
+  "proseA_cases": 754,
+  "proseA_over_bound": 523,
+  "proseB_cases": 754,
+  "proseB_bad_sumP": 754,
+  "proseB_dummy_in_chain": 754,
+  "star_all_E": 40
+ },
+ "samples": {
+  "proseA_over_bound": [
+   {
+    "tag": "n4_optimum",
+    "n": 4,
+    "keep_heavy": false,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 7,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 6,
+     "d": 0,
+     "h": 0,
+     "c": 0,
+     "K": 1,
+     "star_all_E": false
+    }
+   },
+   {
+    "tag": "n4_optimum",
+    "n": 4,
+    "keep_heavy": true,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 7,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 6,
+     "d": 0,
+     "h": 0,
+     "c": 0,
+     "K": 1,
+     "star_all_E": false
+    }
+   },
+   {
+    "tag": "n5_min_0",
+    "n": 5,
+    "keep_heavy": false,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 12,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 12,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 13,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 12,
+     "d": 0,
+     "h": 0,
+     "c": 4,
+     "K": 5,
+     "star_all_E": false
+    }
+   },
+   {
+    "tag": "n5_min_0",
+    "n": 5,
+    "keep_heavy": true,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 12,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 12,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 13,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 12,
+     "d": 0,
+     "h": 0,
+     "c": 4,
+     "K": 5,
+     "star_all_E": false
+    }
+   }
+  ],
+  "star_all_E": [
+   {
+    "tag": "n4c22",
+    "n": 4,
+    "v": {
+     "impl": {
+      "chains": 3,
+      "sumP": 8,
+      "partition": true
+     },
+     "proseA": {
+      "chains": null,
+      "note": "dummy component has no non-E edge: the written recipe cannot be carried out"
+     },
+     "proseB": {
+      "chains": null
+     },
+     "bound": 5,
+     "required_sumP": 8,
+     "d": 2,
+     "h": 2,
+     "c": 0,
+     "K": 3,
+     "star_all_E": true
+    }
+   },
+   {
+    "tag": "n4c22",
+    "n": 4,
+    "v": {
+     "impl": {
+      "chains": 3,
+      "sumP": 8,
+      "partition": true
+     },
+     "proseA": {
+      "chains": null,
+      "note": "dummy component has no non-E edge: the written recipe cannot be carried out"
+     },
+     "proseB": {
+      "chains": null
+     },
+     "bound": 3,
+     "required_sumP": 8,
+     "d": 2,
+     "h": 2,
+     "c": 0,
+     "K": 3,
+     "star_all_E": true
+    }
+   },
+   {
+    "tag": "n4c25",
+    "n": 4,
+    "v": {
+     "impl": {
+      "chains": 3,
+      "sumP": 8,
+      "partition": true
+     },
+     "proseA": {
+      "chains": null,
+      "note": "dummy component has no non-E edge: the written recipe cannot be carried out"
+     },
+     "proseB": {
+      "chains": null
+     },
+     "bound": 4,
+     "required_sumP": 8,
+     "d": 2,
+     "h": 1,
+     "c": 0,
+     "K": 3,
+     "star_all_E": true
+    }
+   },
+   {
+    "tag": "n4c25",
+    "n": 4,
+    "v": {
+     "impl": {
+      "chains": 3,
+      "sumP": 8,
+      "partition": true
+     },
+     "proseA": {
+      "chains": null,
+      "note": "dummy component has no non-E edge: the written recipe cannot be carried out"
+     },
+     "proseB": {
+      "chains": null
+     },
+     "bound": 3,
+     "required_sumP": 8,
+     "d": 2,
+     "h": 1,
+     "c": 0,
+     "K": 3,
+     "star_all_E": true
+    }
+   }
+  ],
+  "proseB_bad_sumP": [
+   {
+    "tag": "n4_optimum",
+    "n": 4,
+    "keep_heavy": false,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 7,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 6,
+     "d": 0,
+     "h": 0,
+     "c": 0,
+     "K": 1,
+     "star_all_E": false
+    }
+   },
+   {
+    "tag": "n4_optimum",
+    "n": 4,
+    "keep_heavy": true,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 6,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 7,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 6,
+     "d": 0,
+     "h": 0,
+     "c": 0,
+     "K": 1,
+     "star_all_E": false
+    }
+   },
+   {
+    "tag": "n5_min_0",
+    "n": 5,
+    "keep_heavy": false,
+    "v": {
+     "impl": {
+      "chains": 1,
+      "sumP": 12,
+      "partition": true
+     },
+     "proseA": {
+      "chains": 2,
+      "sumP": 12,
+      "partition": true
+     },
+     "proseB": {
+      "chains": 1,
+      "sumP": 13,
+      "partition": true,
+      "dummy_inside_a_chain": true
+     },
+     "bound": 1,
+     "required_sumP": 12,
+     "d": 0,
+     "h": 0,
+     "c": 4,
+     "K": 5,
+     "star_all_E": false
+    }
+   }
+  ]
+ },
+ "verdict": {
+  "implementation_sound": true,
+  "written_recipe_exceeds_the_model_chain_bound": true,
+  "written_recipe_miscounts_ports": true,
+  "written_recipe_sometimes_unexecutable": true
+ }
+}
