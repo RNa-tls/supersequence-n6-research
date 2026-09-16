@@ -147,7 +147,6 @@ def main():
         return dict(st)
 
     out = dict(
-        head=None,
         inputs={p: sha(p) for p in (
             "r152/certs/cap_cert_all_152.txt", "r152/certs/pcert_all_152.txt",
             "r152/certs/extree_pilot_152.txt",

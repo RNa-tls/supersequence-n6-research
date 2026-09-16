@@ -1,0 +1,1638 @@
+{
+ "mutations": {
+  "total": 196,
+  "graded": 192,
+  "serialisation_only_or_unjudgeable": 4,
+  "invalid_mutations": 158,
+  "invalid_rejected": 158,
+  "invalid_wrongly_accepted": [],
+  "validity_preserving": 34,
+  "validity_preserving_accepted": 34,
+  "validity_preserving_wrongly_rejected": [],
+  "rows": [
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "budget d - 1 (witness uses 12/13)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "budget a - 1 (witness uses 2/2)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 13, 2, 0, 0, 1)",
+    "mutation": "budget h - 1 (witness uses 1/1)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "budget d - 1 (witness uses 14/14)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 14, 0, 0, 0, 1)",
+    "mutation": "budget h - 1 (witness uses 1/1)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "budget d - 1 (witness uses 14/15)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 15, 0, 0, 0, 1)",
+    "mutation": "budget h - 1 (witness uses 1/1)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "budget d - 1 (witness uses 16/16)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 16, 3, 0, 0, 0)",
+    "mutation": "budget a - 1 (witness uses 2/3)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "budget d - 1 (witness uses 17/17)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 17, 2, 0, 0, 0)",
+    "mutation": "budget a - 1 (witness uses 2/2)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain witness",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain claim",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "budget d - 1 (witness uses 18/18)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "chain budget",
+    "cell": "(0, 18, 2, 0, 0, 0)",
+    "mutation": "budget a - 1 (witness uses 2/2)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece budget",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "budget d - 1 (witness uses 14/15)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "mask -> fp=1 lp=0",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 15, 1, 1)",
+    "mutation": "mask -> fp=0 lp=1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece budget",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "budget d - 1 (witness uses 16/18)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "mask -> fp=1 lp=0",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 18, 1, 1)",
+    "mutation": "mask -> fp=0 lp=1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece budget",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "budget d - 1 (witness uses 18/19)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "mask -> fp=1 lp=0",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 19, 0, 1)",
+    "mutation": "mask -> fp=1 lp=1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece budget",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "budget d - 1 (witness uses 18/19)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "mask -> fp=0 lp=1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 19, 1, 0)",
+    "mutation": "mask -> fp=1 lp=1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece budget",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "budget d - 1 (witness uses 19/19)",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "mask -> fp=1 lp=0",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 19, 1, 1)",
+    "mutation": "mask -> fp=0 lp=1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "witness: delete one port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "witness: duplicate a port",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "witness: replace one transition",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "witness: swap two steps",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "witness: append the start port again",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece witness",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "witness: start somewhere else",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece budget",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "budget d - 1 (witness uses 19/20)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "mask -> fp=1 lp=0",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "mask -> fp=0 lp=1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "piece mask",
+    "cell": "(0, 20, 0, 0)",
+    "mutation": "mask -> fp=1 lp=1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child fewer",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child more",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: turn an internal node into a leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: delete one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: duplicate one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: turn a leaf into a branch",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: remove an exhaustion subtree",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "tree: unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "cell coordinate tok + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "cell coordinate d + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "cell coordinate a + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "cell coordinate bb + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "cell coordinate e + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "cell coordinate h + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 0, 0, 0, 0, 0)",
+    "mutation": "corrupt analytic parent pointer (inject an unproved tiny bound)",
+    "expected_valid": null,
+    "accepted": true,
+    "correct": null,
+    "note": "an UNSOUND smaller bound makes leaves easier to justify, so acceptance here is expected and is NOT a detection; it shows why (p) may only cite cells proved earlier in the same file"
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child fewer",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child more",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: turn an internal node into a leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: delete one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: duplicate one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: turn a leaf into a branch",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: remove an exhaustion subtree",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "tree: unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "cell coordinate tok + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "cell coordinate d + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "cell coordinate a + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "cell coordinate bb + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "cell coordinate e + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "cell coordinate h + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 1, 0, 0, 0, 0)",
+    "mutation": "corrupt analytic parent pointer (inject an unproved tiny bound)",
+    "expected_valid": null,
+    "accepted": true,
+    "correct": null,
+    "note": "an UNSOUND smaller bound makes leaves easier to justify, so acceptance here is expected and is NOT a detection; it shows why (p) may only cite cells proved earlier in the same file"
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child fewer",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child more",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: turn an internal node into a leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: delete one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: duplicate one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: turn a leaf into a branch",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: remove an exhaustion subtree",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "tree: unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "cell coordinate tok + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "cell coordinate d + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "cell coordinate a + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "cell coordinate bb + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "cell coordinate e + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "cell coordinate h + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 2, 0, 0, 0, 0)",
+    "mutation": "corrupt analytic parent pointer (inject an unproved tiny bound)",
+    "expected_valid": null,
+    "accepted": true,
+    "correct": null,
+    "note": "an UNSOUND smaller bound makes leaves easier to justify, so acceptance here is expected and is NOT a detection; it shows why (p) may only cite cells proved earlier in the same file"
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child fewer",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: declare one child more",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: turn an internal node into a leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: delete one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: duplicate one leaf",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: turn a leaf into a branch",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: remove an exhaustion subtree",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "tree: unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "claimed capacity +1",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "claimed capacity -1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "cell coordinate tok + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "cell coordinate d + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "cell coordinate a + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "cell coordinate bb + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "cell coordinate e + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "cell coordinate h + 1",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true
+   },
+   {
+    "kind": "exhaustion tree",
+    "cell": "(0, 3, 0, 0, 0, 0)",
+    "mutation": "corrupt analytic parent pointer (inject an unproved tiny bound)",
+    "expected_valid": null,
+    "accepted": true,
+    "correct": null,
+    "note": "an UNSOUND smaller bound makes leaves easier to justify, so acceptance here is expected and is NOT a detection; it shows why (p) may only cite cells proved earlier in the same file"
+   }
+  ]
+ },
+ "state_controls": {
+  "total": 7,
+  "applied": 7,
+  "caught": 7,
+  "missed": [],
+  "rows": [
+   {
+    "control": "fail to decrement one orbit deficit",
+    "how": "on leaving a non-fresh orbit, do not remove the phase",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   },
+   {
+    "control": "decrement the wrong orbit",
+    "how": "remove the phase from a different orbit",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   },
+   {
+    "control": "fail to update the current orbit",
+    "how": "keep the parent's corb after the move",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   },
+   {
+    "control": "preserve a removed histogram entry",
+    "how": "do not delete an orbit that became empty",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   },
+   {
+    "control": "double-remove one token",
+    "how": "charge two tokens where one is due",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   },
+   {
+    "control": "fail to update the used hexagon",
+    "how": "do not add the target's hexagon",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   },
+   {
+    "control": "off-by-one token history",
+    "how": "charge a token for a clean E",
+    "patch_applied": true,
+    "caught_by_the_fresh_recomputation": true
+   }
+  ]
+ },
+ "ok": true
+}
