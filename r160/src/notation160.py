@@ -35,6 +35,17 @@ OLD_ERA = {
     "master_with_J": r"867\s*\+\s*k\s*\+\s*J",
 }
 MASTER_RE = r"867\s*\+\s*k\s*\+\s*Z\s*\+\s*H\s*\+\s*B"
+
+# This round's own artefacts DISCUSS the obsolete vocabulary on purpose (Phase
+# 9 reconciles the historical identities, Phase 10 names the patterns being
+# searched for).  A keyword scan would flag them as contamination, so they are
+# excluded and the exclusion is recorded in the certificate.
+SELF = ("r160/", "research/RR_L6_H_MASTER_AUDIT.md")
+
+
+def is_self(p):
+    rel = str(p.relative_to(ROOT))
+    return any(rel.startswith(x) or rel == x for x in SELF)
 FO_RE = r"844\s*\+\s*G\s*\+\s*S\s*\+\s*H"
 
 
@@ -106,12 +117,15 @@ def main():
                     stack.append(q)
 
     # ---- (2) era scan
-    hits_on_path, hits_off_path = {}, {}
+    hits_on_path, hits_off_path, selfhits = {}, {}, {}
     for p in files:
         txt = p.read_text(errors="ignore")
         found = {k: len(re.findall(v, txt)) for k, v in OLD_ERA.items()
                  if re.search(v, txt)}
         if not found:
+            continue
+        if is_self(p):
+            selfhits[str(p.relative_to(ROOT))] = found
             continue
         rel = str(p.relative_to(ROOT))
         (hits_on_path if p in reach else hits_off_path)[rel] = found
@@ -123,7 +137,7 @@ def main():
         has_master = bool(re.search(MASTER_RE, txt))
         has_fo = bool(re.search(FO_RE, txt))
         has_rows = bool(re.search(r"867\s*\+\s*t\b", txt))
-        if not (has_master or has_fo or has_rows):
+        if not (has_master or has_fo or has_rows) or is_self(p):
             continue
         rel = str(p.relative_to(ROOT))
         # does this file ever pass a heavy COUNT where the cost belongs?
@@ -138,6 +152,11 @@ def main():
         where_paths_missing=missing,
         old_era_hits_ON_the_theorem_path=hits_on_path,
         old_era_hits_off_path=hits_off_path,
+        self_references_excluded=selfhits,
+        self_reference_note="round-160 artefacts quote the obsolete "
+                            "vocabulary because Phase 9/10 reconcile and "
+                            "search for it; they are excluded from the era "
+                            "scan and listed here instead",
         contamination_on_path=bool(hits_on_path),
         downstream=sorted(downstream, key=lambda r: (not r["on_theorem_path"],
                                                      r["file"])),

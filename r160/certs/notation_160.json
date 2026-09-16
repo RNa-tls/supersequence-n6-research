@@ -3,14 +3,6 @@
  "where_paths_missing": [],
  "old_era_hits_ON_the_theorem_path": {},
  "old_era_hits_off_path": {
-  "r160/src/notation160.py": {
-   "f_out": 7,
-   "J_eq_G_minus_F": 3,
-   "F_plus_e": 2,
-   "abandonment": 4,
-   "master_with_f_out": 1,
-   "master_with_J": 1
-  },
   "src/g2_k4_closure_131.py": {
    "f_out": 1,
    "F_plus_e": 1
@@ -1218,6 +1210,26 @@
    "abandonment": 1
   }
  },
+ "self_references_excluded": {
+  "r160/src/notation160.py": {
+   "f_out": 7,
+   "J_eq_G_minus_F": 3,
+   "F_plus_e": 2,
+   "abandonment": 4,
+   "master_with_f_out": 1,
+   "master_with_J": 1
+  },
+  "research/RR_L6_H_MASTER_AUDIT.md": {
+   "f_out": 10,
+   "delta_slack": 2,
+   "J_eq_G_minus_F": 3,
+   "F_plus_e": 5,
+   "abandonment": 4,
+   "master_with_f_out": 2,
+   "master_with_J": 2
+  }
+ },
+ "self_reference_note": "round-160 artefacts quote the obsolete vocabulary because Phase 9/10 reconcile and search for it; they are excluded from the era scan and listed here instead",
  "contamination_on_path": false,
  "downstream": [
   {
@@ -1361,14 +1373,6 @@
    "on_theorem_path": false,
    "states_master": false,
    "states_FO": false,
-   "uses_row_constant": true,
-   "passes_h_as_a_budget": false
-  },
-  {
-   "file": "r160/src/notation160.py",
-   "on_theorem_path": false,
-   "states_master": true,
-   "states_FO": true,
    "uses_row_constant": true,
    "passes_h_as_a_budget": false
   },
