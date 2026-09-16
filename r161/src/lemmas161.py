@@ -293,6 +293,26 @@ def build(W, n, require_cover=True, require_fixed=True):
         bad.append(("F4 block count changed", P2 - cleanE2, blocks))
     if any(len(cy) != n - 1 for cy in pure):
         bad.append("F4 a pure circuit does not have n-1 clean E edges")
+    # ---- E5 : the CONVERSE of Lemma E is FALSE and is not claimed.
+    # Count the tau-orbits all of whose n-1 elements are pass entries; if that
+    # exceeds the number of pure circuits, a complete orbit exists whose
+    # component is not pure.
+    entries = {passes[i][0] for i in range(P)}
+    full_orbits = 0
+    seen_orb = set()
+    for i in range(P):
+        o = orbrep(passes[i][0], n)
+        if o in seen_orb:
+            continue
+        seen_orb.add(o)
+        y, all_in = o, True
+        for _ in range(n - 1):
+            if y not in entries:
+                all_in = False
+            y = tau(y, n)
+        if all_in:
+            full_orbits += 1
+
     # ---- G1 : a tau-orbit meets each hexagon at most once
     for i in range(P):
         v = passes[i][0]
@@ -305,6 +325,8 @@ def build(W, n, require_cover=True, require_fixed=True):
     return dict(ok=not bad, failures=bad, n=n, L=len(W), P=P, G=G, S=S,
                 D2=D2c, cleanE=cleanE, blocks=blocks, HEX=HEX,
                 fixed=fixed, pure=len(pure), K=len(comps),
+                full_orbits=full_orbits,
+                converse_E_fails=(full_orbits > len(pure)),
                 gaps_over_n=gap_gt_n,
                 types=dict(Counter(etype.values())),
                 m_h=sorted(Counter(len(v) for v in byhex.values()).items()),
@@ -337,7 +359,9 @@ def main():
                           ("heavy", r["types"].get("heavy", 0) > 0),
                           ("A_pos", r["D2"] > 0),
                           ("m_h_ge3", r["max_m_h"] >= 3),
-                          ("m_h_ge4", r["max_m_h"] >= 4)):
+                          ("m_h_ge4", r["max_m_h"] >= 4),
+                          ("converse_E_fails", r["converse_E_fails"]),
+                          ("full_orbit_pos", r["full_orbits"] > 0)):
             if cond:
                 st[key] += 1
         if tag in ("n4_optimum", "n6_witness_872"):

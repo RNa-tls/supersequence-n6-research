@@ -1,0 +1,148 @@
+{
+ "round": 161,
+ "node": "H.splice",
+ "git_commit": "561db9cfa1fb1a4928d533c347e5afed10bd5c1b",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": true,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "src/l6_envelope_146.py": "45dbce5007ca94912b94e1caaeb91cb5d414d257eaaacdcd327f5f5648e3d8fb",
+  "src/l6_coupled_144.py": "a0ecd85b922b9125316de08b8b44a131f7e937391f5ec5b9627a0fcef6df2da3",
+  "src/l6_cleanroom_146.py": "598272437844e20352c97de06e7ea2f7043f6e06d88e32e1aef1918b81067600",
+  "src/l6_same_hex_145.py": "9ff62a098ed5ab25a9bdcccb26d87830bbfa1dbda9def99de0016cd8b9c52b95",
+  "src/l6_incidence_144.py": "6176f05e61bc5adad68e7e2462443826c3e4017cc1c8b4d75dfa48a4f9473d9f",
+  "src/l6_extraction_145.py": "1b6d8be1b1c8258a2b17567eb7e5f1ad75f8e660e8f1057035ee1caedd226e76",
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r152/src/heavyfix152.py": "b0793ef84ca69cdb1011007f6e1d7d4f28a68879f5423c59a61485d8642b4db4",
+  "r149/PROOF.md": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+  "r156/THEOREM.md": "78ad658b0ca1aaa4024c1e5794d0cbd47134c3be60b85171911b3ddc0081e784",
+  "r157/certs/dag_157.json": "fa4964d827857b2366961d1d7c6d56b6bae85683e1b6ced44ee3cd5ea4634a4b",
+  "r153/certs/dag_153.json": "7cbb7a92c70672c1ca2febb20ed7d136c197eab284ff0501986b95641b2e2626"
+ },
+ "inputs": {
+  "data/verified_872_witness.txt": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef",
+  "outputs/rr_nr6_n5_minima_142.json": "4031a556ec05b9dba9807b88af2f430cbe4c30c3ba5f815d41f7d8e360cf224e",
+  "r156/src/extract156.py": "882890b204178362263ac8ddc262fb43e2242f3dbd46316f8c1212833d040fad",
+  "r156/src/abstract156.py": "0da51c4e54e76752b5915c3f4ea733f610a9dd3a1a286f34a8bfe35234284af0",
+  "r156/src/corpus156.py": "52b483534373fd63fac87efeb8423d7400a6549c532e5cc5f705afb9a44c99c5",
+  "r156/src/run156.py": "6fa451362f05d8654a5019cc89a287168d4225b7aba6b37025451f869a4d4339",
+  "r156/src/passes156.py": "a342060a8ce5f4004091eb9de43d944f3ed15643279e6745bd14fd3466d12526",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa"
+ },
+ "r161_sources": {
+  "r161/src/abstract161.py": "9c256e271eb7ea971d435b001e20099a621e302e82c03d6ac73f62dc85f111ce",
+  "r161/src/dag161.py": "197748431b967f2d95a4ba4b588c584f6073df544d1e79c6aca51bab1a878695",
+  "r161/src/deps161.py": "0eab490ca87d869603cd31612f5e76b8be35b13506d4d1bc365c99a22c4d8c84",
+  "r161/src/geom161.py": "080adb33b39b8fb87bfe6a640bf4b8b346f0b8469a927598b5d2bb674e7ba920",
+  "r161/src/lemmas161.py": "e930d10a05d84416ed779e4d50e56f55912064703acc95e67589efe211723095",
+  "r161/src/provenance161.py": "dacb2e21168d4e46c84470f828e884b1b36b147842316e132e11b03d82065b98"
+ },
+ "r161_certs": {
+  "r161/certs/abstract_161.json": "58a408b62e7f8b46bee6bd7007a9eb62d1558bf3d1cb055ca2fd6d027c186794",
+  "r161/certs/dag_161.json": "0c570f8c6c876d0af809b1debffa657d6f18184404dc4977698484c8f80d2c6f",
+  "r161/certs/deps_161.json": "b70f960cb1ae2aa4a3ea9bc605fe5919277f7567c6169947e465b13641382b7c",
+  "r161/certs/geometry_161.json": "e87621352ca79d8dd5b4f6cf6890c029fdda7b44fe07eabdaf4dd44ce164ea3b",
+  "r161/certs/hash_invariance_161.json": "14497ae95f4ea52cef42c413d62733099c08e090c607b27d484f28ab28aad04d",
+  "r161/certs/real_161.json": "d3014f52da585d745b123b4833f7051b1453f3ce7cdd42b8b134d474bc856a1e"
+ },
+ "audit_doc": "0abd79aa2c5f390486eeaef7c5e0af77d601d9a41f796b342e0170e64d4ef205",
+ "totals": {
+  "real": {
+   "stats": {
+    "words": 646,
+    "n4": 408,
+    "converse_E_fails": 324,
+    "full_orbit_pos": 348,
+    "n5": 171,
+    "pure_pos": 52,
+    "G_pos": 520,
+    "heavy": 537,
+    "n6": 1,
+    "n3": 66,
+    "A_pos": 142,
+    "m_h_ge3": 305,
+    "m_h_ge4": 94
+   },
+   "ok": true
+  },
+  "geometry": {
+   "ok": true
+  },
+  "abstract": {
+   "totals": {
+    "E_cases": 1161,
+    "E_violations": 0,
+    "E_all_E": 14,
+    "E_ablation_cases": 25108,
+    "E_ablation_counterexamples": 5,
+    "F_cases": 695482,
+    "F_violations": 0,
+    "F_ablation_cases": 4330,
+    "F_ablation_counterexamples": 1306
+   },
+   "ok": true
+  },
+  "deps": {
+   "acyclic": true,
+   "only_C3_depends_on_fixed_representative": true,
+   "fixedrep_experiment": {
+    "stats": {
+     "non_fixed_covers": 92,
+     "broke_C3": 92,
+     "still_fixed": 212
+    },
+    "examples": [
+     {
+      "word": "1234123142312431221342132413214321",
+      "broke": [
+       "C3"
+      ],
+      "failures": [
+       "('C3 not a shortest connector', 11)"
+      ]
+     },
+     {
+      "word": "1234123142312431221342132413214321",
+      "broke": [
+       "C3"
+      ],
+      "failures": [
+       "('C3 not a shortest connector', 11)"
+      ]
+     },
+     {
+      "word": "1234123142312431221342132413214321",
+      "broke": [
+       "C3"
+      ],
+      "failures": [
+       "('C3 not a shortest connector', 11)"
+      ]
+     },
+     {
+      "word": "12341231423124312121342132413214321",
+      "broke": [
+       "C3"
+      ],
+      "failures": [
+       "('C3 not a shortest connector', 11)"
+      ]
+     }
+    ]
+   },
+   "ok": true
+  },
+  "dag": {
+   "diff_is_exactly_the_repairs": true,
+   "every_derived_field_unchanged": true,
+   "statuses_unchanged": true,
+   "deps_unchanged": true
+  },
+  "hash_invariance": {
+   "files": 23,
+   "all_unchanged": true
+  }
+ }
+}

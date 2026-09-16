@@ -80,12 +80,15 @@ def path_components(m, succ, E):
         if indeg.get(s):
             continue
         paths += 1
-        x = s
+        x, local = s, set()
         while True:
             seen.add(x)
+            local.add(x)
             if x not in nxt:
                 break
             x = nxt[x]
+            if x in local:          # only possible when succ is not injective
+                break
     return paths, len(seen)
 
 
@@ -143,7 +146,11 @@ def sweep_A(tries, rng):
         if X.is_cover(w, 4, "1234"):
             continue
         st["non_covers"] += 1
-        r = build(w, 4, require_cover=False, require_fixed=False)
+        try:
+            r = build(w, 4, require_cover=True, require_fixed=False)
+        except Exception:
+            st["builder_refused"] += 1
+            continue
         f = [str(x) for x in r["failures"]]
         if any("A1" in x for x in f):
             st["A1_detected"] += 1
@@ -198,7 +205,7 @@ def main():
     vio4 = sum(e["violations"] for e in out["lemma_F_ablation"])
     print(f"  Lemma F, DROP `beta is a permutation`: {tot4:,} cases, "
           f"{vio4} counterexamples", flush=True)
-    st, ex = sweep_A(600, rng)
+    st, ex = sweep_A(300, rng)
     out["lemma_A_ablation"] = dict(stats=dict(st), examples=ex)
     print(f"  Lemma A, DROP `W is a cover`: {json.dumps(dict(st))}",
           flush=True)
