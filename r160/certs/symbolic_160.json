@@ -1,0 +1,248 @@
+{
+ "part_a": [
+  {
+   "n": 3,
+   "constant": 9,
+   "cases": 117649,
+   "mismatches": 0,
+   "example": null
+  },
+  {
+   "n": 4,
+   "constant": 33,
+   "cases": 117649,
+   "mismatches": 0,
+   "example": null
+  },
+  {
+   "n": 5,
+   "constant": 152,
+   "cases": 117649,
+   "mismatches": 0,
+   "example": null
+  },
+  {
+   "n": 6,
+   "constant": 867,
+   "cases": 117649,
+   "mismatches": 0,
+   "example": null
+  }
+ ],
+ "part_a_ablations": [
+  {
+   "name": "constant +1",
+   "cases": 117649,
+   "mismatches": 117649,
+   "example": {
+    "k": 0,
+    "Z": 0,
+    "D2": 0,
+    "c": 0,
+    "S": 0,
+    "H": 0,
+    "h": 0,
+    "G": 0,
+    "Bstar": -23,
+    "FO": 844,
+    "MASTER": 845
+   },
+   "as_expected": true
+  },
+  {
+   "name": "constant -1",
+   "cases": 117649,
+   "mismatches": 117649,
+   "example": {
+    "k": 0,
+    "Z": 0,
+    "D2": 0,
+    "c": 0,
+    "S": 0,
+    "H": 0,
+    "h": 0,
+    "G": 0,
+    "Bstar": -23,
+    "FO": 844,
+    "MASTER": 843
+   },
+   "as_expected": true
+  },
+  {
+   "name": "h in place of H",
+   "cases": 470596,
+   "mismatches": 352947,
+   "example": {
+    "k": 0,
+    "Z": 0,
+    "D2": 0,
+    "c": 0,
+    "S": 0,
+    "H": 1,
+    "h": 0,
+    "G": 0,
+    "Bstar": -23,
+    "FO": 845,
+    "MASTER": 844
+   },
+   "as_expected": true
+  },
+  {
+   "name": "B* without its +1",
+   "cases": 117649,
+   "mismatches": 117649,
+   "example": {
+    "k": 0,
+    "Z": 0,
+    "D2": 0,
+    "c": 0,
+    "S": 0,
+    "H": 0,
+    "h": 0,
+    "G": 0,
+    "Bstar": -24,
+    "FO": 844,
+    "MASTER": 843
+   },
+   "as_expected": true
+  },
+  {
+   "name": "G without its c",
+   "cases": 117649,
+   "mismatches": 100842,
+   "example": {
+    "k": 0,
+    "Z": 0,
+    "D2": 0,
+    "c": 1,
+    "S": 0,
+    "H": 0,
+    "h": 0,
+    "G": 0,
+    "Bstar": -22,
+    "FO": 844,
+    "MASTER": 845
+   },
+   "as_expected": true
+  }
+ ],
+ "part_b": [
+  {
+   "cases": 2933532,
+   "violations": 0,
+   "example": null
+  }
+ ],
+ "part_b_ablations": [
+  {
+   "dropped": "N1",
+   "cases": 14798340,
+   "violations": 633744,
+   "which": {
+    "k": 633744
+   },
+   "example": {
+    "g": 0,
+    "c": 0,
+    "d": 0,
+    "G": -5,
+    "R_int": 0,
+    "D2": 0,
+    "Qs": 0,
+    "Z": 0,
+    "Dphi": 0,
+    "k": -1,
+    "tok": 0,
+    "sigma": 0,
+    "Bstar": 0,
+    "broke": [
+     "k"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "dropped": "N2",
+   "cases": 1398528,
+   "violations": 36,
+   "which": {
+    "k": 36
+   },
+   "example": {
+    "g": 0,
+    "c": 0,
+    "d": 0,
+    "G": 0,
+    "R_int": 0,
+    "D2": 0,
+    "Qs": 0,
+    "Z": 0,
+    "Dphi": -5,
+    "k": -1,
+    "tok": 0,
+    "sigma": 0,
+    "Bstar": 0,
+    "broke": [
+     "k"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "dropped": "N4",
+   "cases": 2021760,
+   "violations": 206064,
+   "which": {
+    "Z": 206064
+   },
+   "example": {
+    "g": 0,
+    "c": 0,
+    "d": 0,
+    "G": 0,
+    "R_int": 0,
+    "D2": 1,
+    "Qs": 0,
+    "Z": -1,
+    "Dphi": 0,
+    "k": 0,
+    "tok": 0,
+    "sigma": 0,
+    "Bstar": 0,
+    "broke": [
+     "Z"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "dropped": "N5",
+   "cases": 1402104,
+   "violations": 318660,
+   "which": {
+    "Bstar": 318660
+   },
+   "example": {
+    "g": 0,
+    "c": 0,
+    "d": 0,
+    "G": 0,
+    "R_int": 0,
+    "D2": 0,
+    "Qs": 0,
+    "Z": 0,
+    "Dphi": 0,
+    "k": 0,
+    "tok": -5,
+    "sigma": 0,
+    "Bstar": -5,
+    "broke": [
+     "Bstar"
+    ]
+   },
+   "as_expected": true
+  }
+ ],
+ "seconds": 3.7,
+ "ok": true
+}
