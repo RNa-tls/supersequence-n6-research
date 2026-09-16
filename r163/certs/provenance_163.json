@@ -1,0 +1,181 @@
+{
+ "round": 163,
+ "node": "(inventory: all 12 hand-proof nodes)",
+ "git_commit": "68d5b8290d6a83df73701c9518932a674adc1357",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": false,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "r149/PROOF.md": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+  "r149/AUDIT.md": "7b5c60481688c5507a6a5e64d8b797fbe38dcf66985c18366605e1e78080a9a6",
+  "r150/PROOF.md": "5a79aadf57ccea83683fe65c20ae7eb7f27d85e773b1e4fe16638fe3d470fd6a",
+  "r150/REPORT.md": "a9cba14aab9002095beaaff385cbdbcfd4273714e00f868d6e54c4750b0519b9",
+  "r156/THEOREM.md": "78ad658b0ca1aaa4024c1e5794d0cbd47134c3be60b85171911b3ddc0081e784",
+  "research/RR_L6_H_TIGHT_AUDIT.md": "8408952197c013af7cb3921e94fee8956034328f392d2a1d32a7f8a165288857",
+  "research/RR_L6_H_EXTRACT_AUDIT.md": "899bae88014a25fa5e16b6abf1668a0eae6da4df456a561a23f36fcd5d0296b0",
+  "research/RR_L6_H_INCIDENCE_AUDIT.md": "e2d00ed4e771037256fa5d59a4a618663ceb526c041fad2c4fa2f0ef1e7dc1f6",
+  "research/RR_L6_H_ENVELOPE_AUDIT.md": "4616e0ec3e0bca9b3ac5ff2ad469b80be205ecb3a9a2180d8a1860ce4c0d7e50",
+  "research/RR_L6_H_SAMEHEX_AUDIT.md": "0a079d8574c51deddc18bc5b79fec7af5dcd29874cbd0e5d5e64acd7d1f1e5ab",
+  "research/RR_L6_H_MASTER_AUDIT.md": "ef493c4f64096349aa0175a6a30bd496a3c49c4b4588a597ddf084b0f68ab531",
+  "research/RR_L6_H_SPLICE_AUDIT.md": "0abd79aa2c5f390486eeaef7c5e0af77d601d9a41f796b342e0170e64d4ef205",
+  "research/RR_L6_H_FIXEDREP_AUDIT.md": "799703a9ef28e870d568c4fe604d7a5369cd42dc8d77855033369e77e4f49338",
+  "research/RR_L6_HAND_PROOF_NODE_INVENTORY.md": "05f75396b0725580926ba3ea5a7e960d4543154cd33a571ef319a51da049eaf2",
+  "research/RR_L6_PROOF_145_CLAUDE.md": "6acd3c33bbd8872e3b9bdee53d8d327eef6e688b61eed788119449762e8b4665",
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r153/src/theorem153.py": "9776ac1a502f57d03c04aeac88f6dcb753a558a7b37b46eb66accf4eae4400b2",
+  "r162/certs/dag_162.json": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+  "r153/certs/dag_153.json": "7cbb7a92c70672c1ca2febb20ed7d136c197eab284ff0501986b95641b2e2626"
+ },
+ "inputs": {
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r152/certs/census_152.json": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb",
+  "r153/certs/theorem_153.json": "53cf9111687fad04ce8b024c0400a0419c1d148e163b2c55a1a97bda75827717",
+  "r153/certs/witness872_153.json": "75db2635a6b8b4c22421e2db3f346f1a1ae78d0f66be7a34aa69a40b43985040",
+  "r149/certs/catalogue_complete_149.json": "8121a9a34e521c57ad0d0d484c85415b0b1ac93938b1d2628a60df995747a4ff",
+  "r149/certs/feaslemma_149.json": "2dc5b4cfb46087f0b7a1c1aa83ce39b338606a1680bf727e6b7c19e45cf1d9dd",
+  "r150/certs/final150.json": "ca5ab46df034bf40287377303486204a7645dede2bce73870890984aacba3cb1",
+  "r150/certs/coverage.json": "021966e74f72e505fdbb1cc5f9c8e42fbe7adb3f63abf12c41c8a7ca0bfdf05e",
+  "r150/certs/source_conformance.json": "2b2e259b1b95965d59b76b4ff9f8f11da15d02783f861f8762a20ca28a9d7f37",
+  "data/verified_872_witness.txt": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef"
+ },
+ "r163_sources": {
+  "r163/src/dag163.py": "294bcb238eaac65f8bff30e310f2f43c4be7736de334818943c4811bc0857ee6",
+  "r163/src/evidence163.py": "3b45cd348fe32e3810baa6c5ac5a4358965a324efec4fd202092e7601cf2a8d3",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
+  "r163/src/inventory163.py": "16991a665925dc25988602943661c715c076e8366ae073f7f54426093f6f7101",
+  "r163/src/provenance163.py": "f938f244c83b1a03c9177f62f489a7e88ece0100321a1e1602661482c6140ed3",
+  "r163/src/recheck163.py": "1c9f234a5330788f6602011d687e0b413a49af0c2fba4ff17862ae543fc450c7",
+  "r163/src/summary163.py": "675abdb476414b24cd898c74d31185783378c762177ebe3f923d4505fae37ea4"
+ },
+ "r163_certs": {
+  "r163/certs/dag_163.json": "f0cc6bc0aef2fb19d79a0a226acc04a7dddcd820c289ced26368a4f7b290cf42",
+  "r163/certs/evidence_163.json": "5903106a15a7949a501b402560b59b2b0d8455fbd004446607b6c03a6600ac89",
+  "r163/certs/hand_proof_inventory_163.json": "8dda6768cb598152b3485f62b4c2ba277104f2c21b307034ee8aad438dcd626a",
+  "r163/certs/hash_invariance_163.json": "592259c61eb47c8fa79be3b6acc96f6c6aba4a09f8ab97b8e0267bd7eb16554b",
+  "r163/certs/hidden_163.json": "d33e9e65f014bef610fc91a19b19088094844ba9d2cb18e9cc96c3a01f03c0ca",
+  "r163/certs/inventory_163.json": "89765c02a0a90b235594397d2e5d6b761362822b60897e9ee87fe582b3c424be",
+  "r163/certs/recheck_163.json": "330b85b255e998b1bcd634a795b4d57466c861ea2c001a8721e160aa1ecd31d1"
+ },
+ "audit_doc": "aa92211d6ba755f7ad23efc9c33c471a65df749a86353a5c3663dbb52a384ad0",
+ "totals": {
+  "inventory": {
+   "dag_path": "r163/certs/dag_163.json",
+   "dag_sha256": "f0cc6bc0aef2fb19d79a0a226acc04a7dddcd820c289ced26368a4f7b290cf42",
+   "node_count": 31,
+   "theorem_path_node_count": 31,
+   "status_counts": {
+    "AUDITED_HAND_PROOF": 12,
+    "CERTIFIED_MACHINE": 15,
+    "EXPLICIT_WITNESS": 2,
+    "PROVEN_ANALYTIC": 2
+   },
+   "hand_proof_nodes": [
+    "H.catalogue",
+    "H.envelope",
+    "H.extract",
+    "H.feas",
+    "H.fixedrep",
+    "H.incidence",
+    "H.master",
+    "H.models",
+    "H.samehex",
+    "H.splice",
+    "H.tight",
+    "H.wlog"
+   ],
+   "hidden_claims_still_unrepresented": [],
+   "provenance_defects": null,
+   "ok": true
+  },
+  "recheck": {
+   "ok": true
+  },
+  "hidden": {
+   "baseline": {
+    "rows": 1609,
+    "STRICTLY_CLOSED": 1607,
+    "EQUALITY": 2
+   },
+   "baseline_reproduces_stored_census": true,
+   "verdicts": {
+    "G<=5k": "LOAD_BEARING",
+    "G=2g+c+d": "LOAD_BEARING",
+    "sigma>=0": "INCONCLUSIVE_CLAMPED_RELAXATION",
+    "t=k+Z+H+B*": "LOAD_BEARING",
+    "1<=h<=H": "LOAD_BEARING",
+    "D2<=2g": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+    "D2>=0": "INCONCLUSIVE_CLAMPED_RELAXATION",
+    "Qs<=Z": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+    "Qs<=2g-D2": "NOT_LOAD_BEARING_ALONE",
+    "required=120+G-5c": "LOAD_BEARING",
+    "a<=D2": "NOT_LOAD_BEARING_ALONE",
+    "bb<=Qs": "LOAD_BEARING",
+    "e<=Z-Qs": "LOAD_BEARING",
+    "a+bb+e<=2g": "LOAD_BEARING",
+    "a>=D2-d": "LOAD_BEARING",
+    "a+bb>=D2+Qs-d": "LOAD_BEARING",
+    "sigma<=B*": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+    "model:piece": "LOAD_BEARING",
+    "model:split": "LOAD_BEARING",
+    "model:merged": "LOAD_BEARING",
+    "bundle:samehex+incidence row budget": "LOAD_BEARING",
+    "bundle:Qs caps": "LOAD_BEARING",
+    "bundle:envelope upper bounds": "LOAD_BEARING",
+    "bundle:piece lower bounds": "LOAD_BEARING"
+   },
+   "load_bearing_but_unrepresented": [
+    "G=2g+c+d",
+    "required=120+G-5c"
+   ],
+   "load_bearing_only_in_an_equivalent_form": [
+    "G<=5k"
+   ],
+   "ok": true
+  },
+  "evidence": {
+   "verdict_tokens": {
+    "research/RR_L6_H_ENVELOPE_AUDIT.md": "H_ENVELOPE_FULLY_CERTIFIED",
+    "research/RR_L6_H_EXTRACT_AUDIT.md": "H_EXTRACT_PARTIAL",
+    "research/RR_L6_H_FIXEDREP_AUDIT.md": "H_FIXEDREP_FULLY_CERTIFIED",
+    "research/RR_L6_H_INCIDENCE_AUDIT.md": "H_INCIDENCE_FULLY_CERTIFIED",
+    "research/RR_L6_H_MASTER_AUDIT.md": "H_MASTER_FULLY_CERTIFIED",
+    "research/RR_L6_H_SAMEHEX_AUDIT.md": "H_SAMEHEX_FULLY_CERTIFIED",
+    "research/RR_L6_H_SPLICE_AUDIT.md": "H_SPLICE_FULLY_CERTIFIED",
+    "research/RR_L6_H_TIGHT_AUDIT.md": "H_TIGHT_FULLY_CERTIFIED"
+   },
+   "nodes_without_a_dedicated_audit_round": [
+    "H.catalogue",
+    "H.feas",
+    "H.models",
+    "H.wlog"
+   ],
+   "unrecorded_corrections": [],
+   "missing_artefacts": [],
+   "ok": true
+  },
+  "dag": {
+   "supersedes": "r162/certs/dag_162.json",
+   "source_sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+   "diff_is_exactly_the_repairs": true,
+   "every_derived_field_unchanged": true,
+   "statuses_unchanged": true,
+   "deps_unchanged": true
+  },
+  "hash_invariance": {
+   "files": 34,
+   "all_unchanged": true
+  },
+  "summary": {
+   "category_counts": {
+    "INDEPENDENTLY_REPROVED": 10,
+    "MACHINE_ASSISTED_FULLY_AUDITED": 1,
+    "PREVIOUSLY_FULLY_AUDITED": 1
+   },
+   "ownership_rows_whose_owner_does_not_state_them": [],
+   "remaining_hand_proof_obligations": [],
+   "ok": true
+  }
+ }
+}
