@@ -186,6 +186,12 @@ def envelope(st, keep_heavy=False, policy="light_first", rng=None,
         fails.append(("L2 a+bb < D2+Qs-d", a, bb, D2, Qs, d))
     if Z - Qs < 0:
         fails.append(("Z0 Z < Qs", Z, Qs))
+    if Z - Qs < d:
+        fails.append(("Z0' Z - Qs < d", Z, Qs, d))
+    if D2 + Qs > R_int:
+        fails.append(("SAME-HEX D2+Qs > R_int", D2, Qs, R_int))
+    if R_int > 2 * g:
+        fails.append(("H.incidence R_int > 2g", R_int, 2 * g))
     return dict(n=n, P=P, G=G, K=K, c=cc, d=d, g=g, two_g=two_g, z=z, Z=Z,
                 D2=D2, Qs=Qs, R_int=R_int, h=h, H=Hh, a=a, bb=bb, e=e,
                 rep=rep, x=x, y=y, adj_AB=adj_ab, chains=len(chains),
