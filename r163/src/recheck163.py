@@ -277,12 +277,67 @@ def feas_dual(max_orbits=8, max_u=4, max_tok=5):
                 ok=not mismatch and bad_a == 0)
 
 
+def feas_operational(max_orbits=27, max_tok=6):
+    """The SAME lemma, exhaustive over the whole operational domain.
+
+    Everything the prune computes depends only on the multiset of unused-phase
+    counts u_q in 0..4 over the already-opened NON-CURRENT orbits, plus the
+    remaining token budget.  A u_q of 0 contributes nothing, so the state is
+    the histogram (n1, n2, n3, n4).  For t <= 4 the chain opens O = 24 + k <= 28
+    tau-orbits, so at most 27 of them are non-current: n1+n2+n3+n4 <= 27 covers
+    every state the production search can ever be in.
+
+    Three quantities are compared on every one of those states:
+      exact   drop the k largest deficits            (the subset optimum L)
+      dual    max over lambda of sum min(u,lambda) - k*lambda
+      greedy  the production histogram loop: for d = 4..1, erase
+              min(hist[d], left) orbits, add (hist[d]-take)*d
+    """
+    t0 = time.time()
+    checked = 0
+    bad_dual, bad_greedy = [], []
+    for n1 in range(max_orbits + 1):
+        for n2 in range(max_orbits - n1 + 1):
+            for n3 in range(max_orbits - n1 - n2 + 1):
+                for n4 in range(max_orbits - n1 - n2 - n3 + 1):
+                    hist = {1: n1, 2: n2, 3: n3, 4: n4}
+                    desc = [4] * n4 + [3] * n3 + [2] * n2 + [1] * n1
+                    tot_all = sum(desc)
+                    for k in range(max_tok + 1):
+                        checked += 1
+                        exact = sum(desc[k:])
+                        dual = max(sum(min(u, L) for u in desc) - k * L
+                                   for L in range(0, 5))
+                        left, greedy = k, 0
+                        for dd in (4, 3, 2, 1):
+                            take = min(hist[dd], left)
+                            left -= take
+                            greedy += (hist[dd] - take) * dd
+                        if dual != exact:
+                            bad_dual.append(dict(hist=[n1, n2, n3, n4], k=k,
+                                                 dual=dual, exact=exact))
+                        if greedy != exact:
+                            bad_greedy.append(dict(hist=[n1, n2, n3, n4], k=k,
+                                                   greedy=greedy, exact=exact))
+    return dict(seconds=round(time.time() - t0, 1),
+                states_checked=checked,
+                max_noncurrent_orbits=max_orbits, max_tokens=max_tok,
+                exhaustive_over_the_operational_domain=True,
+                why_27="for t <= 4 the chain opens O = 24 + k <= 28 orbits",
+                dual_mismatches=bad_dual[:4],
+                greedy_mismatches=bad_greedy[:4],
+                dual_equals_subset_optimum=not bad_dual,
+                production_greedy_equals_subset_optimum=not bad_greedy,
+                ok=not bad_dual and not bad_greedy)
+
+
 def main():
     cat = catalogue()
     wl = wlog()
     fe = feas_dual()
-    out = dict(catalogue=cat, wlog=wl, feas_dual=fe,
-               ok=cat["ok"] and wl["ok"] and fe["ok"])
+    fo = feas_operational()
+    out = dict(catalogue=cat, wlog=wl, feas_dual=fe, feas_operational=fo,
+               ok=cat["ok"] and wl["ok"] and fe["ok"] and fo["ok"])
     (ROOT / "r163" / "certs" / "recheck_163.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=1) + "\n")
     print(json.dumps(out, ensure_ascii=False, indent=1)[:2600])

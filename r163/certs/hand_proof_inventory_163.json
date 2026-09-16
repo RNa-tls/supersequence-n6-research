@@ -1,0 +1,818 @@
+{
+ "round": 163,
+ "branch": "round153-equality-coexistence",
+ "head": "7805115127758dae6779e7b8938917b54dc55f68",
+ "dag_path": "r163/certs/dag_163.json",
+ "dag_supersedes": "r162/certs/dag_162.json",
+ "dag_source_sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+ "theorem_status": {
+  "top": "T.eq872",
+  "node_count": 31,
+  "theorem_path_node_count": 31,
+  "status_counts": {
+   "AUDITED_HAND_PROOF": 12,
+   "CERTIFIED_MACHINE": 15,
+   "EXPLICIT_WITNESS": 2,
+   "PROVEN_ANALYTIC": 2
+  },
+  "forbidden_or_unresolved": [],
+  "sources_with_a_bad_label": {},
+  "final_verifier": "r153/src/theorem153.py",
+  "final_verifier_result": "L6 >= 872 and L6 <= 872 and L6 = 872"
+ },
+ "hand_proof_nodes": {
+  "H.catalogue": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "round 149 enumerated all 518,400 ordered pairs; round 163 recomputed the catalogue from the definitions and matched every number (gap distribution, per-source profile 1/1/1/5/710, C1-C4, 0 unclassified).  No dedicated audit ROUND",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps"
+   ],
+   "transitive_dependents": 12,
+   "audits": [
+    {
+     "round": 149,
+     "artefact": "r149/PROOF.md",
+     "exists": true,
+     "sha256": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+     "commit": "cc70967 2026-09-14 라운드 149: feas() 가지치기를 보조정리로 증명하고 그 한계를 명시",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "sections 2.1-2.3, all 518,400 ordered pairs",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 163,
+     "artefact": "r163/certs/recheck_163.json",
+     "exists": true,
+     "sha256": "330b85b255e998b1bcd634a795b4d57466c861ea2c001a8721e160aa1ecd31d1",
+     "commit": "eb69afd 2026-09-16 라운드 163 착수: 현행 DAG 손증명 목록화 — 계보·독립 재도출·은닉 주장 삭마",
+     "proof_type": "independent reimplementation + exhaustive finite check",
+     "statement_audited": "catalogue recomputed from the definitions",
+     "verdict": null
+    }
+   ]
+  },
+  "H.envelope": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 158; also a DERIVED_COROLLARY_OF_CERTIFIED_NODE (r156/THEOREM.md (5) and (7)) for its four upper bounds, but the two piece-model lower bounds are its own",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "audits": [
+    {
+     "round": 158,
+     "artefact": "research/RR_L6_H_ENVELOPE_AUDIT.md",
+     "exists": true,
+     "sha256": "4616e0ec3e0bca9b3ac5ff2ad469b80be205ecb3a9a2180d8a1860ce4c0d7e50",
+     "commit": "400524e 2026-09-16 H.envelope 독립 감사 완료: H_ENVELOPE_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "four upper bounds + two piece-model lower bounds",
+     "verdict": {
+      "own_verdict": "H_ENVELOPE_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_ENVELOPE_FULLY_CERTIFIED",
+       "H_EXTRACT_PARTIAL"
+      ]
+     }
+    }
+   ]
+  },
+  "H.extract": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 156.  Its verdict H_EXTRACT_PARTIAL was about PROVENANCE: the mathematics (the corrected theorem (0)-(7)) was proved and checked, while the document the node cited stated a different, unimplementable cut.  Round 163 applied the repair round 156 named -- `where` now points at r156/THEOREM.md -- so the cause of the PARTIAL is gone.  The round-156 artefact is NOT edited and still reads H_EXTRACT_PARTIAL",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "audits": [
+    {
+     "round": 156,
+     "artefact": "r156/THEOREM.md",
+     "exists": true,
+     "sha256": "78ad658b0ca1aaa4024c1e5794d0cbd47134c3be60b85171911b3ddc0081e784",
+     "commit": "324b6d6 2026-09-16 H.extract 감사: 수리된 추출 정리(r156/THEOREM.md)와 감사 보고서",
+     "proof_type": "paper",
+     "statement_audited": "the CORRECTED extraction theorem (0)-(7)",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 156,
+     "artefact": "research/RR_L6_H_EXTRACT_AUDIT.md",
+     "exists": true,
+     "sha256": "899bae88014a25fa5e16b6abf1668a0eae6da4df456a561a23f36fcd5d0296b0",
+     "commit": "90bdba6 2026-09-16 H.extract 감사 마무리: 표적 탐색 8,822,032 회(8/8 특징 794 회) 위반 0, provenance",
+     "proof_type": "independent reimplementation + exhaustive finite check",
+     "statement_audited": "the theorem on 20,327,589 exhaustive cases",
+     "verdict": {
+      "own_verdict": "H_EXTRACT_PARTIAL",
+      "all_tokens_in_file": [
+       "H_EXTRACT_PARTIAL"
+      ]
+     }
+    }
+   ]
+  },
+  "H.feas": {
+   "category": "MACHINE_ASSISTED_FULLY_AUDITED",
+   "reason": "round 150 proved the Token-Touched-Orbit theorem and its dual certificate and checked implementation conformance on 179,850 cases across five C bodies (0 disagreements) plus 104,448 arbitrary states with 0 false rejections; round 163 closed the algorithm identity EXHAUSTIVELY over the operational domain (220,255 states: production greedy = dual = subset optimum).  Residual is NOT a hand proof: state-maintenance fidelity in the search, and the absence of historical per-prune traces",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps",
+    "E.enumeration"
+   ],
+   "transitive_dependents": 12,
+   "audits": [
+    {
+     "round": 149,
+     "artefact": "r149/PROOF.md",
+     "exists": true,
+     "sha256": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+     "commit": "cc70967 2026-09-14 라운드 149: feas() 가지치기를 보조정리로 증명하고 그 한계를 명시",
+     "proof_type": "paper",
+     "statement_audited": "section 9.5 lemma; turn-it-off audit UNAVAILABLE",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 150,
+     "artefact": "r150/PROOF.md",
+     "exists": true,
+     "sha256": "5a79aadf57ccea83683fe65c20ae7eb7f27d85e773b1e4fe16638fe3d470fd6a",
+     "commit": "f410148 2026-09-15 Round 150: prove feasibility pruning and independently audit its implementation",
+     "proof_type": "paper + exhaustive finite check + independent reimplementation",
+     "statement_audited": "Token-Touched-Orbit theorem, dual certificate, clause-by-clause conformance of five C bodies",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 163,
+     "artefact": "r163/certs/recheck_163.json",
+     "exists": true,
+     "sha256": "330b85b255e998b1bcd634a795b4d57466c861ea2c001a8721e160aa1ecd31d1",
+     "commit": "eb69afd 2026-09-16 라운드 163 착수: 현행 DAG 손증명 목록화 — 계보·독립 재도출·은닉 주장 삭마",
+     "proof_type": "exhaustive finite check",
+     "statement_audited": "dual bound = subset optimum on all 7,722 multisets",
+     "verdict": null
+    }
+   ]
+  },
+  "H.fixedrep": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 162",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "audits": [
+    {
+     "round": 162,
+     "artefact": "research/RR_L6_H_FIXEDREP_AUDIT.md",
+     "exists": true,
+     "sha256": "799703a9ef28e870d568c4fe604d7a5369cd42dc8d77855033369e77e4f49338",
+     "commit": "c5814bd 2026-09-16 H.fixedrep 독립 감사 완료: H_FIXEDREP_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "L1-L5 and the WLOG corollary",
+     "verdict": {
+      "own_verdict": "H_FIXEDREP_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_FIXEDREP_FULLY_CERTIFIED"
+      ]
+     }
+    }
+   ]
+  },
+  "H.incidence": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 157",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.census",
+    "X.structure"
+   ],
+   "transitive_dependents": 9,
+   "audits": [
+    {
+     "round": 157,
+     "artefact": "research/RR_L6_H_INCIDENCE_AUDIT.md",
+     "exists": true,
+     "sha256": "e2d00ed4e771037256fa5d59a4a618663ceb526c041fad2c4fa2f0ef1e7dc1f6",
+     "commit": "6404c09 2026-09-16 H.incidence 독립 감사 완료: H_INCIDENCE_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "2g = mu(B) + R_int, K + R_int <= G+1, parity, tree",
+     "verdict": {
+      "own_verdict": "H_INCIDENCE_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_EXTRACT_PARTIAL",
+       "H_INCIDENCE_FULLY_CERTIFIED"
+      ]
+     }
+    }
+   ]
+  },
+  "H.master": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 160",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.census",
+    "T.ge872"
+   ],
+   "transitive_dependents": 9,
+   "audits": [
+    {
+     "round": 160,
+     "artefact": "research/RR_L6_H_MASTER_AUDIT.md",
+     "exists": true,
+     "sha256": "ef493c4f64096349aa0175a6a30bd496a3c49c4b4588a597ddf084b0f68ab531",
+     "commit": "d0c370b 2026-09-16 H.master 독립 감사 완료: H_MASTER_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "L = 867 + k + Z + H + B* as an identity; general n",
+     "verdict": {
+      "own_verdict": "H_MASTER_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_MASTER_FULLY_CERTIFIED"
+      ]
+     }
+    }
+   ]
+  },
+  "H.models": {
+   "category": "PREVIOUSLY_FULLY_AUDITED",
+   "reason": "dedicated round 149; its verdict OPUS_H_MODELS_PARTIAL had exactly one cause, the feas cross-validation gap, which round 150 removed.  Round 163 re-derived Lemma 1.1 and measured all three models load-bearing (split 439, piece 53, merged 3 rows re-open)",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "audits": [
+    {
+     "round": 149,
+     "artefact": "r149/PROOF.md",
+     "exists": true,
+     "sha256": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+     "commit": "cc70967 2026-09-14 라운드 149: feas() 가지치기를 보조정리로 증명하고 그 한계를 명시",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "(O1)-(O6), Claims 1-5, Lemmas 1.1-1.2, t <= 4 in range",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 149,
+     "artefact": "r149/AUDIT.md",
+     "exists": true,
+     "sha256": "7b5c60481688c5507a6a5e64d8b797fbe38dcf66985c18366605e1e78080a9a6",
+     "commit": "565e97c 2026-09-14 라운드 149: 독립 인증서 검사기 43/43, 감사 요약",
+     "proof_type": "provenance-only",
+     "statement_audited": "audit summary",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 163,
+     "artefact": "r163/certs/hidden_163.json",
+     "exists": true,
+     "sha256": "d33e9e65f014bef610fc91a19b19088094844ba9d2cb18e9cc96c3a01f03c0ca",
+     "commit": "7805115 2026-09-16 라운드 163: 은닉 적재 주장 세 개를 찾아 현행 DAG 에 비파괴 수리",
+     "proof_type": "exhaustive finite check",
+     "statement_audited": "all three models load-bearing; Lemma 1.1 load-bearing",
+     "verdict": null
+    }
+   ]
+  },
+  "H.samehex": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 159; explicitly NOT a corollary of the extraction theorem",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "audits": [
+    {
+     "round": 159,
+     "artefact": "research/RR_L6_H_SAMEHEX_AUDIT.md",
+     "exists": true,
+     "sha256": "0a079d8574c51deddc18bc5b79fec7af5dcd29874cbd0e5d5e64acd7d1f1e5ab",
+     "commit": "f5ad1ca 2026-09-16 H.samehex 독립 감사 완료: H_SAMEHEX_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "D2 + Qs <= R_int (the lower half only)",
+     "verdict": {
+      "own_verdict": "H_SAMEHEX_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_INCIDENCE_FULLY_CERTIFIED",
+       "H_SAMEHEX_FULLY_CERTIFIED"
+      ]
+     }
+    }
+   ]
+  },
+  "H.splice": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 161",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "audits": [
+    {
+     "round": 161,
+     "artefact": "research/RR_L6_H_SPLICE_AUDIT.md",
+     "exists": true,
+     "sha256": "0abd79aa2c5f390486eeaef7c5e0af77d601d9a41f796b342e0170e64d4ef205",
+     "commit": "48afd14 2026-09-16 H.splice 독립 감사 완료: H_SPLICE_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "Lemmas A-F split into 23 clauses",
+     "verdict": {
+      "own_verdict": "H_SPLICE_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_SPLICE_FULLY_CERTIFIED"
+      ]
+     }
+    }
+   ]
+  },
+  "H.tight": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "dedicated round 155",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "X.structure"
+   ],
+   "transitive_dependents": 7,
+   "audits": [
+    {
+     "round": 155,
+     "artefact": "research/RR_L6_H_TIGHT_AUDIT.md",
+     "exists": true,
+     "sha256": "8408952197c013af7cb3921e94fee8956034328f392d2a1d32a7f8a165288857",
+     "commit": "2b081f4 2026-09-16 H.tight 독립 감사 완료: H_TIGHT_FULLY_CERTIFIED",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "the four equality-row conclusions from g = d = 0",
+     "verdict": {
+      "own_verdict": "H_TIGHT_FULLY_CERTIFIED",
+      "all_tokens_in_file": [
+       "H_TIGHT_FULLY_CERTIFIED"
+      ]
+     }
+    }
+   ]
+  },
+  "H.wlog": {
+   "category": "INDEPENDENTLY_REPROVED",
+   "reason": "paper proof in r149 section 2.4 plus 518,400-pair check; round 163 re-derived it from the definitions -- transitivity with trivial stabiliser, and equivariance on all 518,400 (v,t) pairs for each of five generators of S6 (2,592,000 pairs, 0 violations), which settles the whole group by closure.  No dedicated audit ROUND, but the statement is elementary and now independently reproved",
+   "status": "AUDITED_HAND_PROOF",
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps",
+    "E.equivariance"
+   ],
+   "transitive_dependents": 13,
+   "audits": [
+    {
+     "round": 149,
+     "artefact": "r149/PROOF.md",
+     "exists": true,
+     "sha256": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+     "commit": "cc70967 2026-09-14 라운드 149: feas() 가지치기를 보조정리로 증명하고 그 한계를 명시",
+     "proof_type": "paper + exhaustive finite check",
+     "statement_audited": "section 2.4, 518,400 equivariance pairs",
+     "verdict": {
+      "own_verdict": null,
+      "all_tokens_in_file": null
+     }
+    },
+    {
+     "round": 153,
+     "artefact": "r153/src/eqwit153.py",
+     "exists": true,
+     "sha256": "338957d937b273ce8f3bfdee4da86e619c6f3ff2bae41e92d5434af0022ebc04",
+     "commit": "47cb491 2026-09-15 라운드 153 Phase 5-7: 공존 배제와 명시적 소진 트리",
+     "proof_type": "machine certificate",
+     "statement_audited": "node E.equivariance, the search-level check",
+     "verdict": null
+    },
+    {
+     "round": 163,
+     "artefact": "r163/certs/recheck_163.json",
+     "exists": true,
+     "sha256": "330b85b255e998b1bcd634a795b4d57466c861ea2c001a8721e160aa1ecd31d1",
+     "commit": "eb69afd 2026-09-16 라운드 163 착수: 현행 DAG 손증명 목록화 — 계보·독립 재도출·은닉 주장 삭마",
+     "proof_type": "independent reimplementation + exhaustive finite check",
+     "statement_audited": "transitivity + generator-exhaustive equivariance",
+     "verdict": null
+    }
+   ]
+  }
+ },
+ "category_counts": {
+  "INDEPENDENTLY_REPROVED": 10,
+  "MACHINE_ASSISTED_FULLY_AUDITED": 1,
+  "PREVIOUSLY_FULLY_AUDITED": 1
+ },
+ "ownership": [
+  {
+   "assertion": "H.tight: equality row => mu(B) = R_int = 0 => B is a tree",
+   "primary_owner": "H.incidence",
+   "owner_exists": true,
+   "pattern": "2g = mu\\(B\\) \\+ R_int",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.tight"
+   ],
+   "note": "the identity is H.incidence's; H.tight only substitutes g = 0"
+  },
+  {
+   "assertion": "H.tight: all 120 hexagons carry a pass",
+   "primary_owner": "H.splice",
+   "owner_exists": true,
+   "pattern": "every hexagon carries a pass",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.tight"
+   ],
+   "note": "round 155 showed section 9's parenthetical ground is not a derivation; Lemma A is"
+  },
+  {
+   "assertion": "H.tight: the chain is hexagon-simple",
+   "primary_owner": "H.tight",
+   "owner_exists": true,
+   "pattern": "hexagon-simple",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "immediate from R_int = 0"
+  },
+  {
+   "assertion": "H.tight: |F| = 4c",
+   "primary_owner": "H.tight",
+   "owner_exists": true,
+   "pattern": "\\|F\\| = 4c",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.extract",
+    "H.incidence"
+   ],
+   "note": "needs G = 2g + c + d with g = d = 0, hence c = G"
+  },
+  {
+   "assertion": "H.tight: the c pure circuits (complete tau-orbits) cover F",
+   "primary_owner": "H.tight",
+   "owner_exists": true,
+   "pattern": "tau-orbits",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.splice",
+    "A.orbitfive"
+   ],
+   "note": "'pure circuit = complete tau-orbit' is splice Lemma E; 'an orbit meets five distinct hexagons' is A.orbitfive"
+  },
+  {
+   "assertion": "H.samehex: LOWER bound D2 + Qs <= R_int",
+   "primary_owner": "H.samehex",
+   "owner_exists": true,
+   "pattern": "D2 \\+ Qs <= R_int",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "proved at the where and re-proved in round 159; NOT a corollary of the extraction theorem"
+  },
+  {
+   "assertion": "H.samehex: UPPER bound R_int <= 2g",
+   "primary_owner": "H.incidence",
+   "owner_exists": true,
+   "pattern": "R_int <= 2g",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.samehex",
+    "H.envelope"
+   ],
+   "note": "imported, not proved in H.samehex (round 159 correction)"
+  },
+  {
+   "assertion": "H.master: the identity L = 867 + k + Z + H + B*",
+   "primary_owner": "H.master",
+   "owner_exists": true,
+   "pattern": "867 \\+ k \\+ Z \\+ H \\+ B",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "an exact rearrangement of (FO); re-derived from the raw word in 160"
+  },
+  {
+   "assertion": "H.master: k >= 0",
+   "primary_owner": "H.splice",
+   "owner_exists": true,
+   "pattern": "sum_h \\(m_h - 1\\) = G",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.models",
+    "H.master"
+   ],
+   "note": "needs G >= 0 (splice Lemma A) and (n-1)O >= P (= G <= 5k, H.models Lemma 1.1)"
+  },
+  {
+   "assertion": "H.master: Z >= 0",
+   "primary_owner": "H.samehex",
+   "owner_exists": true,
+   "pattern": "D2 \\+ Qs <= R_int",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.incidence",
+    "H.master"
+   ],
+   "note": "needs D2 + Qs <= R_int and R_int <= 2g"
+  },
+  {
+   "assertion": "H.master: B* >= 0",
+   "primary_owner": "H.extract",
+   "owner_exists": true,
+   "pattern": "Claim 3",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.master"
+   ],
+   "note": "B* = sum tok_i + sigma_bar with both >= 0 (Claims 3 and 4)"
+  },
+  {
+   "assertion": "H.master: H >= 0",
+   "primary_owner": "H.master",
+   "owner_exists": true,
+   "pattern": "heavy COST",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "true by definition: H = sum (w-3)_+"
+  },
+  {
+   "assertion": "H.envelope: the four upper bounds a <= D2, bb <= Qs, e <= Z - Qs, a + bb + e = rep <= R_int <= 2g",
+   "primary_owner": "H.envelope",
+   "owner_exists": true,
+   "pattern": "a <= D2, bb <= Qs, e <= Z - Qs",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.extract"
+   ],
+   "note": "corollaries of r156/THEOREM.md (5) and (7), re-proved independently in round 158"
+  },
+  {
+   "assertion": "H.envelope: the piece-model LOWER bounds a >= D2 - d and a + bb >= D2 + Qs - d",
+   "primary_owner": "H.envelope",
+   "owner_exists": true,
+   "pattern": "a >= D2 - d",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "found by round 158; they are what the piece model consumes and they were in no node's what before that"
+  },
+  {
+   "assertion": "H.splice: Lemmas A-F",
+   "primary_owner": "H.splice",
+   "owner_exists": true,
+   "pattern": "Lemmas A-F",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "split into 23 clauses and re-proved in round 161"
+  },
+  {
+   "assertion": "H.splice: G1, a tau-orbit meets n-1 DISTINCT hexagons",
+   "primary_owner": "A.orbitfive",
+   "owner_exists": true,
+   "pattern": "every tau-orbit meets exactly five hexagons",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.splice"
+   ],
+   "note": "a separate CERTIFIED_MACHINE node; round 161 supplies a one-line proof"
+  },
+  {
+   "assertion": "H.fixedrep: existence of a fixed representative of no greater length",
+   "primary_owner": "H.fixedrep",
+   "owner_exists": true,
+   "pattern": "FIXED REPRESENTATIVE W\\* = Phi\\^m\\(W\\)",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "L1-L4 and the WLOG corollary; uniqueness is FALSE and is not needed"
+  },
+  {
+   "assertion": "H.fixedrep: the exact bridge to splice C3, L5(b) every selected gap equals omega",
+   "primary_owner": "H.fixedrep",
+   "owner_exists": true,
+   "pattern": "EVERY SELECTED GAP EQUALS omega",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.splice"
+   ],
+   "note": "C3 is the only splice clause needing it, and it enters as a CHECKABLE hypothesis, so the dependence is one-way and not circular"
+  },
+  {
+   "assertion": "census row space: G <= 5k",
+   "primary_owner": "H.models",
+   "owner_exists": true,
+   "pattern": "G <= 5k",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "r149 Lemma 1.1; round 163 found it owned by nobody and measured it load-bearing (332 rows re-open)"
+  },
+  {
+   "assertion": "census row space: G = 2g + c + d with g, c, d >= 0",
+   "primary_owner": "H.incidence",
+   "owner_exists": true,
+   "pattern": "2g := \\(G\\+1\\) - K",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [
+    "H.extract",
+    "H.tight"
+   ],
+   "note": "2g := (G+1) - K >= 0 and even is H.incidence; d := K - c - 1 >= 0 (the dummy's beta-cycle is never pure) is H.extract; round 163 found the decomposition in no node's text and measured it the strongest single assumption (7,848 rows re-open)"
+  },
+  {
+   "assertion": "census row space: required = 120 + G - 5c",
+   "primary_owner": "H.extract",
+   "owner_exists": true,
+   "pattern": "120 \\+ G - 5c",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "Claim 1; round 163 found it in no node's text (8 rows re-open if it is weakened by one pure circuit)"
+  },
+  {
+   "assertion": "census row space: t = k + Z + H + B*",
+   "primary_owner": "H.master",
+   "owner_exists": true,
+   "pattern": "867 \\+ k \\+ Z \\+ H \\+ B",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "the master identity in row coordinates (504 rows re-open without it)"
+  },
+  {
+   "assertion": "census row space: 1 <= h <= H when H > 0",
+   "primary_owner": "H.master",
+   "owner_exists": true,
+   "pattern": "heavy COST",
+   "pattern_found_in_owner": true,
+   "imported_by_or_from": [],
+   "note": "each heavy joint costs at least one, so the count never exceeds the cost (664 rows re-open without it)"
+  }
+ ],
+ "ownership_rows_whose_owner_does_not_state_them": [],
+ "hidden_claims": {
+  "measured_against": "r162/certs/dag_162.json (pre-repair)",
+  "load_bearing": [
+   "G<=5k",
+   "G=2g+c+d",
+   "t=k+Z+H+B*",
+   "1<=h<=H",
+   "required=120+G-5c",
+   "bb<=Qs",
+   "e<=Z-Qs",
+   "a+bb+e<=2g",
+   "a>=D2-d",
+   "a+bb>=D2+Qs-d",
+   "model:piece",
+   "model:split",
+   "model:merged",
+   "bundle:samehex+incidence row budget",
+   "bundle:Qs caps",
+   "bundle:envelope upper bounds",
+   "bundle:piece lower bounds"
+  ],
+  "unrepresented_before_repair": [
+   "G=2g+c+d",
+   "required=120+G-5c",
+   "G<=5k"
+  ],
+  "after_repair": {
+   "G<=5k": {
+    "measured_surviving_rows_if_dropped": 332,
+    "was_unrepresented_before_repair": true,
+    "owners_now": [
+     "H.models"
+    ],
+    "now_represented": true
+   },
+   "G=2g+c+d": {
+    "measured_surviving_rows_if_dropped": 7848,
+    "was_unrepresented_before_repair": true,
+    "owners_now": [
+     "H.extract",
+     "H.tight"
+    ],
+    "now_represented": true
+   },
+   "required=120+G-5c": {
+    "measured_surviving_rows_if_dropped": 8,
+    "was_unrepresented_before_repair": true,
+    "owners_now": [
+     "H.extract"
+    ],
+    "now_represented": true
+   }
+  },
+  "still_unrepresented": []
+ },
+ "provenance": {
+  "defects_now": [],
+  "historical_defects_resolved": {
+   "H.incidence wrong where (n=5 era document)": "repaired in round 157; current where exists and states the claim",
+   "H.feas prose-only where": "repaired in round 163; now r150/PROOF.md and the round-150 certificates",
+   "H.extract historical prose bug": "recorded in round 156; the DAG citation moved to r156/THEOREM.md in round 163, the defective prose is hash-pinned and left untouched",
+   "incomplete H.envelope what": "repaired in round 158 (the two piece-model lower bounds)",
+   "incomplete H.splice what": "repaired in round 161 (Lemmas A-F spelled out)",
+   "H.tight where predates its own audit": "repaired in round 163",
+   "H.extract placeholder what": "repaired in round 163",
+   "H.incidence empty derived_from": "repaired in round 163"
+  },
+  "unrecorded_corrections": [],
+  "immutable_files": 34,
+  "immutable_all_unchanged": true
+ },
+ "deps_convention": {
+  "all_hand_leaves_have_empty_deps": true,
+  "convention": "deps is the MACHINE pipeline edge set: which certificate consumes which.  Mathematical dependence between hand proofs lives in derived_from prose.  The 12 hand proofs are leaves of the machine pipeline by construction, so deps: [] is correct there and populating it would confuse the two relations.",
+  "mathematical_dependencies_recorded_in_prose": {
+   "H.fixedrep": [
+    "H.samehex",
+    "H.wlog"
+   ],
+   "H.splice": [
+    "A.orbitfive",
+    "H.fixedrep"
+   ],
+   "H.master": [
+    "H.extract",
+    "H.incidence",
+    "H.samehex",
+    "H.splice"
+   ],
+   "H.incidence": [
+    "H.envelope",
+    "H.samehex"
+   ],
+   "H.samehex": [
+    "H.incidence"
+   ],
+   "H.extract": [
+    "H.incidence",
+    "H.samehex"
+   ],
+   "H.envelope": [
+    "H.incidence",
+    "H.samehex"
+   ],
+   "H.models": [
+    "H.extract",
+    "H.feas",
+    "H.samehex"
+   ],
+   "H.catalogue": [],
+   "H.wlog": [
+    "H.fixedrep"
+   ],
+   "H.feas": [
+    "C.chaincaps",
+    "C.piececaps"
+   ],
+   "H.tight": [
+    "A.orbitfive",
+    "H.incidence",
+    "H.splice"
+   ]
+  }
+ },
+ "independent_rederivations_this_round": {
+  "catalogue": 518400,
+  "wlog_generator_pairs": 2592000,
+  "feas_multisets": 7722,
+  "feas_operational_states": 220255,
+  "census_baseline": {
+   "rows": 1609,
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  }
+ },
+ "remaining_hand_proof_obligations": [],
+ "remaining_non_hand_proof_residual": [
+  {
+   "item": "feas state-maintenance fidelity",
+   "node": "C.chaincaps / C.piececaps (machine), via H.feas",
+   "why": "the lemma and the algorithm identity are now closed (220,255 operational states), and conformance of five C bodies was checked on 179,850 cases, but that the search's masks, counts and tokens ARE the (u_q, k) the lemma is about is argued, not exhaustively verified, and no historical per-prune trace exists",
+   "source": "r150/certs/final150.json cheapest_remaining_risk"
+  }
+ ],
+ "ok": true
+}
