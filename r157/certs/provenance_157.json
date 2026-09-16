@@ -1,0 +1,90 @@
+{
+ "round": 157,
+ "node": "H.incidence",
+ "git_commit": "92a94cdc8d7fe231f8a2922552e92588c19f2cc1",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": true,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "src/l6_incidence_144.py": "6176f05e61bc5adad68e7e2462443826c3e4017cc1c8b4d75dfa48a4f9473d9f",
+  "src/l6_incidence_graph_146.py": "5b585a04109e6238132047e27511252d24de2909917f64d115678928b880d4f9",
+  "src/l6_splicing_145.py": "59477b9c592c3dbd1038b934af7a94a6efc32fd112f156d1d415a756bf550157",
+  "src/l6_cleanroom_146.py": "598272437844e20352c97de06e7ea2f7043f6e06d88e32e1aef1918b81067600",
+  "src/l6_circuit_coexist_144.py": "f4cf695b361ed6c741e36c2d026177e56694efdd642438012dcdbb6845295c38",
+  "src/l6_master_identity_144.py": "6a50574014beb4e5181dd07151c3afc4d92ffc4af25375001beea39753b6e816",
+  "src/l6_dag_146.py": "4dc615deb24045285b70103cb6467a457a52066d02046d1f1af0fb0e9a31eb04",
+  "research/RR_INCIDENCE_FOREST_LEMMA.md": "27dd21c25872193e3dbc33800f303c425d2dd86a21296d4ccdf4546ee4bfce80",
+  "research/RR_L6_PROOF_145_CLAUDE.md": "6acd3c33bbd8872e3b9bdee53d8d327eef6e688b61eed788119449762e8b4665",
+  "r148/src/dag148.py": "6f92e5c59a8180a57886ed2ad02b3ee695f17ceb044e7d7fa72e6ff4aae5998e",
+  "r150/certs/dag150.json": "1ba50debee47131650a1a9b1b71927bbd6eb515e0570bed754610fa3d2ceadb4",
+  "r153/src/dag153.py": "fe98086843ab65f987abc03a1f1d3b4c97fd66cd2121fc5d2f75c32cc3981df5",
+  "r153/certs/dag_153.json": "7cbb7a92c70672c1ca2febb20ed7d136c197eab284ff0501986b95641b2e2626"
+ },
+ "inputs": {
+  "data/verified_872_witness.txt": "76e3e5f881d4061260f04f035067b5843f9029fb8e223c0b4abcb6105391faef",
+  "outputs/rr_nr6_n5_minima_142.json": "4031a556ec05b9dba9807b88af2f430cbe4c30c3ba5f815d41f7d8e360cf224e",
+  "r156/src/extract156.py": "882890b204178362263ac8ddc262fb43e2242f3dbd46316f8c1212833d040fad",
+  "r156/src/corpus156.py": "52b483534373fd63fac87efeb8423d7400a6549c532e5cc5f705afb9a44c99c5",
+  "r156/src/run156.py": "6fa451362f05d8654a5019cc89a287168d4225b7aba6b37025451f869a4d4339",
+  "r156/src/passes156.py": "a342060a8ce5f4004091eb9de43d944f3ed15643279e6745bd14fd3466d12526"
+ },
+ "r157_sources": {
+  "r157/src/abstract157.py": "ed0192f552a809cbc231b11794cad61ebe43990bd52997b5de5ca60e6e384f5b",
+  "r157/src/boundary157.py": "e1f1004d2293fccffa820e0b37d3c44e4d7b47d2039552a9a1b27234cd30b338",
+  "r157/src/dag157.py": "175abf209705993c06ed0c73e0b7ef7fc6a16cc5bed52601af4b655e0e58403e",
+  "r157/src/provenance157.py": "8e08084c28eb4f738f89ac032ecbff8c870746cd581abc634a53b4dcd7202f7c",
+  "r157/src/real157.py": "cbf360e25a0b48465d20da4a6c1fdad59e8ead7e2679c6c0f5cb711ec904f5a3"
+ },
+ "r157_certs": {
+  "r157/certs/abstract_157.json": "1c018e0a3b959698664f307dde04ceb2f87fd1043ebe96964463540038887987",
+  "r157/certs/boundary_157.json": "114b485259ceaaa6054eb888fbdea8872cff7c1ca0b5ef5d21be42ed645dcb02",
+  "r157/certs/dag_157.json": "fa4964d827857b2366961d1d7c6d56b6bae85683e1b6ced44ee3cd5ea4634a4b",
+  "r157/certs/hash_invariance_157.json": "636ff96f10a1c636cb756ac3fdaf2ca9b8b2442b1e4c92d708c739e9964c8f98",
+  "r157/certs/provenance_157.json": "0e1479586a71d2ecd56c8e87c3033ea347453bc0b2c88976e5ddc38a1285339b",
+  "r157/certs/real_157.json": "d6deae8c5d6d021888071c37d5ad1f21ef5aa861211a8b3cb081b496e230e9e2"
+ },
+ "audit_doc": "e2d00ed4e771037256fa5d59a4a618663ceb526c041fad2c4fa2f0ef1e7dc1f6",
+ "totals": {
+  "abstract": {
+   "exhaustive_cases": 409113,
+   "any_T_cases": 533417,
+   "sampled_cases": 1100000,
+   "ok": true,
+   "seconds": 45.3
+  },
+  "real": {
+   "tally": {
+    "words": 513,
+    "n4": 306,
+    "tight": 335,
+    "tree": 335,
+    "g_zero": 221,
+    "n5": 140,
+    "K_gt_1": 316,
+    "n6": 1,
+    "n3": 66,
+    "R_int_pos": 285,
+    "mu_pos": 178,
+    "multi_edge": 285
+   },
+   "distinct_profiles": 123,
+   "ok": true
+  },
+  "boundary": {
+   "found_tight_but_not_tree": 0,
+   "found_bound_violation": 0,
+   "ok": true
+  },
+  "dag": {
+   "diff_is_exactly_the_repairs": true,
+   "every_derived_field_unchanged": true,
+   "statuses_unchanged": true,
+   "deps_unchanged": true
+  },
+  "hash_invariance": {
+   "files": 19,
+   "all_unchanged": true
+  }
+ }
+}
