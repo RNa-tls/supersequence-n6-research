@@ -1,0 +1,124 @@
+{
+ "exhaustive": [
+  {
+   "m": 1,
+   "cases": 1,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "cases": 3,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "cases": 13,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "cases": 73,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "cases": 501,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 6,
+   "cases": 4051,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 7,
+   "cases": 37633,
+   "violations": 0,
+   "examples": []
+  }
+ ],
+ "ablations": [
+  {
+   "name": "drop (h1) same group",
+   "cases": 6634,
+   "counterexamples": 3598,
+   "example": {
+    "m": 2,
+    "grp": [
+     0,
+     1
+    ],
+    "S": [
+     [
+      0,
+      1
+     ]
+    ],
+    "R": 0
+   },
+   "as_expected": true
+  },
+  {
+   "name": "drop (h2) index increases",
+   "cases": 6518,
+   "counterexamples": 2100,
+   "example": {
+    "m": 2,
+    "grp": [
+     0,
+     0
+    ],
+    "S": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      1
+     ]
+    ],
+    "R": 1
+   },
+   "as_expected": true
+  },
+  {
+   "name": "drop (h3) in-degree <= 1",
+   "cases": 1348,
+   "counterexamples": 382,
+   "example": {
+    "m": 3,
+    "grp": [
+     0,
+     0,
+     0
+    ],
+    "S": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      2
+     ]
+    ],
+    "R": 2
+   },
+   "as_expected": true
+  }
+ ],
+ "seconds": 0.1,
+ "exhaustive_cases": 42275,
+ "ok": true
+}
