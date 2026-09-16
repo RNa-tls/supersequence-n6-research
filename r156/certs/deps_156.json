@@ -1,0 +1,101 @@
+{
+ "dag_node": {
+  "status": "AUDITED_HAND_PROOF",
+  "what": "the extraction bookkeeping",
+  "deps": [],
+  "where": "src/l6_extraction_145.py"
+ },
+ "declared_deps": [],
+ "required_deps": [
+  {
+   "node": "H.fixedrep",
+   "statement": "W is a fixed representative: every selected gap equals omega, so every joint is a SHORTEST connector and the catalogue applies",
+   "used_for": "the whole pass/joint construction",
+   "where": "src/l6_fixed_representative_145.py",
+   "evidence": "r156/certs/inputs_156.json: `fixed` verified on every word"
+  },
+  {
+   "node": "H.splice / Lemma A",
+   "statement": "the arcs of a hexagon partition it; sum_h (m_h - 1) = G",
+   "used_for": "P = n!/n + G, hence `required` = n!/n + G - (n-1)c",
+   "where": "src/l6_splicing_145.py lines 16-19",
+   "evidence": "r156/certs/inputs_156.json: Lemma A re-verified"
+  },
+  {
+   "node": "H.splice / Lemma B-D",
+   "statement": "nu is a permutation whose cycles are the hexagons; beta = T alpha^{-1} is a permutation with beta(nu(i))=i+1",
+   "used_for": "the beta components the chains are cut out of",
+   "where": "src/l6_splicing_145.py lines 21-47",
+   "evidence": "r156/certs/inputs_156.json: Lemmas B-D re-verified"
+  },
+  {
+   "node": "H.splice / Lemma E",
+   "statement": "a pure clean-E beta component has exactly n-1 passes, they are all n-1 elements of ONE tau-orbit, and no other pass lies in that orbit",
+   "used_for": "Claim 1 (the deleted ports number exactly (n-1)c) and Claim 4 (sigma >= 0)",
+   "where": "src/l6_splicing_145.py lines 49-57",
+   "evidence": "abstract_156.json ablation drop_LemmaE_size breaks C1/C2 in 508 cases; drop_LemmaE_orbit_and_cap breaks C4one in 825 cases"
+  },
+  {
+   "node": "H.splice / Lemma F",
+   "statement": "blocks = P - cleanE = S + 1 + D2, unchanged by deleting a pure circuit",
+   "used_for": "the closed form B* = S + 1 + D2 - O + c that MASTER-142 substitutes; Claim 3's identity itself needs only blocks = P - cleanE",
+   "where": "src/l6_splicing_145.py lines 59-63",
+   "evidence": "r156/src/extract156.py checks LemmaF on every word"
+  },
+  {
+   "node": "H.catalogue",
+   "statement": "a clean-E joint sends the pass entry v to tau(v) (same tau-orbit); a type-A joint to sigma(v) and a type-B joint to sigma^2(v) (same hexagon)",
+   "used_for": "Claim 3 (only clean E keeps the orbit) and Claim 5 (a retained A/B edge occupies a hexagon repeat)",
+   "where": "r149/PROOF.md section 2",
+   "evidence": "abstract_156.json ablation drop_E_preserves_orbit breaks C3/C3sum in 3,660 cases; adversarial_156.json corrupts an A label and is caught in 454/454 attempts"
+  },
+  {
+   "node": "H.incidence",
+   "statement": "R_int <= 2g",
+   "used_for": "only to turn Claim 5's bound R_int into the row budget 2g; Claim 5 itself is proved against R_int",
+   "where": "src/l6_incidence_144.py + research/RR_L6_PROOF_145_CLAUDE.md section 5",
+   "evidence": "r156/src/extract156.py checks K + R_int <= G+1 on every word"
+  }
+ ],
+ "not_required": [
+  {
+   "node": "H.samehex",
+   "statement": "D2 + Qs <= R_int",
+   "why": "Claims 1-5 never use it; it is a separate statement about the whole word, consumed by the ROW ENUMERATION (Qs <= 2g - D2), not by the extraction"
+  },
+  {
+   "node": "the five-type beta-component classification",
+   "statement": "every beta component is E-clean / R2 / S / P / M",
+   "why": "no such theorem exists in this repository (research/RR_BETA_COMPONENT_FIVE_TYPE_AUDIT.md) and the extraction never branches on more than pure / non-pure -- verified mechanically in r156/certs/hidden_classification_156.json"
+  }
+ ],
+ "declared_but_missing": [
+  "H.catalogue",
+  "H.fixedrep",
+  "H.incidence",
+  "H.splice / Lemma A",
+  "H.splice / Lemma B-D",
+  "H.splice / Lemma E",
+  "H.splice / Lemma F"
+ ],
+ "dag_metadata_defect": true,
+ "convention_note": "every AUDITED_HAND_PROOF node in dag153.py is written with deps=[]; the empty list is a convention, not a claim of independence",
+ "hand_proof_nodes_with_empty_deps": [
+  "H.catalogue",
+  "H.envelope",
+  "H.extract",
+  "H.feas",
+  "H.fixedrep",
+  "H.incidence",
+  "H.master",
+  "H.models",
+  "H.samehex",
+  "H.splice",
+  "H.tight",
+  "H.wlog"
+ ],
+ "all_real_deps_on_the_theorem_path": true,
+ "real_deps_off_path": [],
+ "nodes_on_path": 31,
+ "where_exists": true
+}

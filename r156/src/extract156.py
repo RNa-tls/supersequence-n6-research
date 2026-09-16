@@ -381,7 +381,7 @@ def extract(st, keep_heavy=False, policy="light_first", rng=None,
         Oi = len({orbr[x] for x in ch})
         opened, seenh = {orbr[ch[0]]}, {hexr[ch[0]]}
         toki, blocksi, repi = 0, 1, 0
-        ai = bbi = ei = hvi = 0
+        ai = bbi = ei = hvi = hxi = 0
         newo = 0
         for x, y in zip(ch, ch[1:]):
             t = etype.get(x)
@@ -410,6 +410,7 @@ def extract(st, keep_heavy=False, policy="light_first", rng=None,
             seenh.add(hexr[y])
             if eweight.get(x, 0) >= 4:
                 hvi += 1
+                hxi += eweight[x] - 3
         if blocksi != Oi + toki:
             fails.append(("C3 per chain", blocksi, Oi, toki))
         if newo != Oi - 1:
@@ -426,7 +427,8 @@ def extract(st, keep_heavy=False, policy="light_first", rng=None,
         bb_tot += bbi
         e_tot += ei
         per.append(dict(P=len(ch), O=Oi, D=r * Oi - len(ch), tok=toki,
-                        blocks=blocksi, rep=repi, a=ai, bb=bbi, e=ei, hv=hvi))
+                        blocks=blocksi, rep=repi, a=ai, bb=bbi, e=ei,
+                        hv=hvi, hx=hxi))
     if blocktot != blocks:
         fails.append(("blocks do not add up", blocktot, blocks))
     if toktot != Bstar - sig:
@@ -474,8 +476,11 @@ def extract(st, keep_heavy=False, policy="light_first", rng=None,
         mf_fail.append(("a+bb+e>R_int", a_tot + bb_tot + e_tot, R_int))
     if not keep_heavy and sum(p["hv"] for p in per) != 0:
         mf_fail.append("a heavy edge survived the split model")
-    if keep_heavy and sum(p["hv"] for p in per) > Hh:
-        mf_fail.append("heavy joints exceed H")
+    if keep_heavy and sum(p["hx"] for p in per) > Hh:
+        mf_fail.append(("retained heavy excess exceeds HMAX=H",
+                        sum(p["hx"] for p in per), Hh))
+    if keep_heavy and max([p["hx"] for p in per] or [0]) > Hh:
+        mf_fail.append("a single chain exceeds HMAX=H")
     if Z < 0:
         mf_fail.append(("Z<0", Z))
     if D2 > 2 * g:
