@@ -165,6 +165,7 @@ def main():
     rec = json.loads((C / "recheck_163.json").read_text())
     dagf = json.loads((C / "dag_163.json").read_text())
     hashes = json.loads((C / "hash_invariance_163.json").read_text())
+    cov = json.loads((C / "coverage_163.json").read_text())
     nodes = dagf["dag"]["nodes"]
 
     own = []
@@ -266,16 +267,30 @@ def main():
             feas_operational_states=rec["feas_operational"]["states_checked"],
             census_baseline=hid["baseline"]),
         remaining_hand_proof_obligations=obligations,
-        remaining_non_hand_proof_residual=[dict(
-            item="feas state-maintenance fidelity",
-            node="C.chaincaps / C.piececaps (machine), via H.feas",
-            why="the lemma and the algorithm identity are now closed "
-                "(220,255 operational states), and conformance of five C "
-                "bodies was checked on 179,850 cases, but that the search's "
-                "masks, counts and tokens ARE the (u_q, k) the lemma is about "
-                "is argued, not exhaustively verified, and no historical "
-                "per-prune trace exists",
-            source="r150/certs/final150.json cheapest_remaining_risk")],
+        remaining_non_hand_proof_residual=[
+            dict(item="single-implementation capacity cells",
+                 node="C.chaincaps / C.piececaps (machine)",
+                 why="every capacity the census reads is certified and 0 are "
+                     "unread, but the Python checker runs under a 20M-node "
+                     "cap, so 247 of the 1,101 chain cells and 109 of the 220 "
+                     "piece cells carry ONE implementation's certification -- "
+                     "exactly the expensive ones.  The 854 + 111 "
+                     "double-implemented cells show 0 cap disagreements",
+                 measured=cov["single_implementation_cells_the_census_reads"],
+                 source="r163/certs/coverage_163.json"),
+            dict(item="feas state-maintenance fidelity",
+                 node="C.chaincaps / C.piececaps (machine), via H.feas",
+                 why="the lemma and the algorithm identity are now closed "
+                     "(220,255 operational states: production greedy = dual = "
+                     "subset optimum), and round 150 checked conformance of "
+                     "five C bodies on 179,850 cases, but that a checker's "
+                     "masks, counts and tokens ARE the (u_q, k) the lemma is "
+                     "about is argued, not exhaustively verified, and no "
+                     "historical per-prune trace exists.  Mitigated, not "
+                     "removed, by checker152 being independent of the "
+                     "production solver",
+                 source="r150/certs/final150.json cheapest_remaining_risk")],
+        capacity_certificate_coverage=cov
     )
     out["ok"] = (not bad_own and not out["hidden_claims"]
                  ["still_unrepresented"]

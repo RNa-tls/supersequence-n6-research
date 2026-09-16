@@ -808,11 +808,62 @@
  "remaining_hand_proof_obligations": [],
  "remaining_non_hand_proof_residual": [
   {
+   "item": "single-implementation capacity cells",
+   "node": "C.chaincaps / C.piececaps (machine)",
+   "why": "every capacity the census reads is certified and 0 are unread, but the Python checker runs under a 20M-node cap, so 247 of the 1,101 chain cells and 109 of the 220 piece cells carry ONE implementation's certification -- exactly the expensive ones.  The 854 + 111 double-implemented cells show 0 cap disagreements",
+   "measured": 356,
+   "source": "r163/certs/coverage_163.json"
+  },
+  {
    "item": "feas state-maintenance fidelity",
    "node": "C.chaincaps / C.piececaps (machine), via H.feas",
-   "why": "the lemma and the algorithm identity are now closed (220,255 operational states), and conformance of five C bodies was checked on 179,850 cases, but that the search's masks, counts and tokens ARE the (u_q, k) the lemma is about is argued, not exhaustively verified, and no historical per-prune trace exists",
+   "why": "the lemma and the algorithm identity are now closed (220,255 operational states: production greedy = dual = subset optimum), and round 150 checked conformance of five C bodies on 179,850 cases, but that a checker's masks, counts and tokens ARE the (u_q, k) the lemma is about is argued, not exhaustively verified, and no historical per-prune trace exists.  Mitigated, not removed, by checker152 being independent of the production solver",
    "source": "r150/certs/final150.json cheapest_remaining_risk"
   }
  ],
+ "capacity_certificate_coverage": {
+  "chain": {
+   "certified_by_C": 1101,
+   "certified_by_python": 854,
+   "python_is_a_subset_of_C": true,
+   "double_implemented": 854,
+   "single_implementation_only": 247,
+   "cap_disagreements_on_shared_cells": 0,
+   "python_node_cap": 20000000,
+   "C_node_caps": [
+    30000000,
+    300000000,
+    3000000000,
+    40000000000
+   ],
+   "C_total_nodes": 83545993443,
+   "statuses": {
+    "EXACT_CERTIFIED": 1044,
+    "UPPER_CERTIFIED": 57
+   }
+  },
+  "piece": {
+   "certified_by_C": 220,
+   "certified_by_python": 111,
+   "python_is_a_subset_of_C": true,
+   "double_implemented": 111,
+   "single_implementation_only": 109,
+   "cap_disagreements_on_shared_cells": 0,
+   "python_node_cap": 20000000,
+   "C_total_nodes": 103013969273
+  },
+  "census_reads": {
+   "chain_cells_read": 1101,
+   "chain_cells_unread": 0,
+   "piece_cells_read": 220,
+   "analytic_fallback_cells": 115,
+   "analytic_fallback_uses": 270,
+   "piece_fallback_vectors": 0
+  },
+  "checker_independence": "r152/src/checker152.py imports nothing from the production solvers: it rebuilds the joint catalogue from string algebra, implements the feasibility theorem from its statement and reads no production table.  Its only non-analytic prune is the monotone bound (P1) from cells it has itself already certified in the same run.  It is fail-closed: a search that hits the node cap is UNKNOWN_CAP, never 'verified'.",
+  "residual": "every capacity the census reads is certified, and 0 cells are unread, but 247 of the 1,101 chain cells and 109 of the 220 piece cells carry ONE implementation's certification.  Those are exactly the expensive cells, the ones the 20M-node Python cap excludes.  This is a MACHINE residual, not a hand proof.",
+  "single_implementation_cells_the_census_reads": 356,
+  "ok": true
+ },
  "ok": true
 }
