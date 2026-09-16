@@ -1,9 +1,9 @@
 {
  "branch": "round153-equality-coexistence",
- "head": "06c9ade0f83211488e523ea677dd0f6ef6e8b808",
+ "head": "eb69afdfe7b832d0b40306b89ccba24303cb1db6",
  "git_dirty": true,
- "dag_path": "r162/certs/dag_162.json",
- "dag_sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+ "dag_path": "r163/certs/dag_163.json",
+ "dag_sha256": "1bdc680bfd9d399491ae44ff42d6f1996f61b2cff9eb6cdf4564af130eadb2aa",
  "node_count": 31,
  "theorem_path_node_count": 31,
  "theorem_path_nodes": [
@@ -127,6 +127,12 @@
     "supersedes": "r161/certs/dag_161.json",
     "source_sha256": "0c570f8c6c876d0af809b1debffa657d6f18184404dc4977698484c8f80d2c6f",
     "nodes": 31
+   },
+   "r163/certs/dag_163.json": {
+    "sha256": "1bdc680bfd9d399491ae44ff42d6f1996f61b2cff9eb6cdf4564af130eadb2aa",
+    "supersedes": "r162/certs/dag_162.json",
+    "source_sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+    "nodes": 31
    }
   },
   "heads": [
@@ -134,7 +140,7 @@
    "r148/certs/dag_148.json",
    "r149/certs/dag_149.json",
    "r152/certs/dag_152.json",
-   "r162/certs/dag_162.json"
+   "r163/certs/dag_163.json"
   ],
   "predate_supersedes_convention": [
    "r147/certs/dag_147.json",
@@ -143,9 +149,10 @@
    "r152/certs/dag_152.json",
    "r153/certs/dag_153.json"
   ],
-  "authoritative": "r162/certs/dag_162.json",
+  "authoritative": "r163/certs/dag_163.json",
   "chain_root": "r153/certs/dag_153.json",
   "chain_newest_first": [
+   "r163/certs/dag_163.json",
    "r162/certs/dag_162.json",
    "r161/certs/dag_161.json",
    "r160/certs/dag_160.json",
@@ -177,8 +184,7 @@
    "r150",
    "r154",
    "r155",
-   "r156",
-   "r163"
+   "r156"
   ]
  },
  "nodes": {
@@ -223,7 +229,7 @@
    "status": "AUDITED_HAND_PROOF",
    "what": "K + R_int <= G + 1 with K = G + 1 (mod 2); equality iff the SIMPLE bipartite incidence graph B is a tree",
    "where": "research/RR_L6_H_INCIDENCE_AUDIT.md (round 157); src/l6_incidence_144.py lines 1-35; src/l6_incidence_graph_146.py lines 9-56",
-   "derived_from": null,
+   "derived_from": "the inequality is one line of Euler characteristic; the node's real content is the DECOMPOSITION IDENTITY 2g = mu(B) + R_int with mu(B) = |E(B)| - |V(B)| + comp(B) >= 0 the first Betti number of the SIMPLE bipartite incidence graph B (round 157, re-proved there from scratch and checked on 409,113 abstract cases).  The census enumerates in the coordinate 2g := (G+1) - K, so this node is what makes 2g >= 0, 2g even and R_int <= 2g true; H.samehex and H.envelope import R_int <= 2g from here.  Connectivity of B is the only non-trivial hypothesis and comes from T being a single (P+1)-cycle: dropping it produces 105,077 counterexamples (round 157)",
    "deps": [],
    "direct_dependents": [
     "C.census",
@@ -246,9 +252,9 @@
   },
   "H.extract": {
    "status": "AUDITED_HAND_PROOF",
-   "what": "the extraction bookkeeping",
-   "where": "src/l6_extraction_145.py",
-   "derived_from": null,
+   "what": "the extraction bookkeeping, in the CORRECTED form of r156/THEOREM.md (0)-(7): (0) cutting the beta-components yields well-defined chains, no clean-E edge is ever cut, and each chain lies in one beta-component; (1) Claim 1 sum_i P_i = P - 5c = 120 + G - 5c, which is the census's `required`; (2) Claim 2 sum_i D_i = 5k - G + 5*sigma_bar; (3) Claim 3 sum_i tok_i = B* - sigma_bar; (4) Claim 4 0 <= sigma_bar <= B*, and sigma_bar = 0 for a single chain; (5) Claim 5 sum_i rep_i <= R_int, so a + bb + e <= R_int <= 2g; (6) #chains = d + 1 + h - s <= d + 1 + h, and d + 1 in the merged model; (7) the budget envelope a <= D2, bb <= Qs, e <= Z - Qs.  Also d := K - c - 1 >= 0: the beta-cycle carrying the dummy is never pure, which is what makes the census coordinate decomposition G = 2g + c + d legal",
+   "where": "r156/THEOREM.md (round 156, the corrected statement and its proof); research/RR_L6_H_EXTRACT_AUDIT.md (round 156); src/l6_extraction_145.py (the IMPLEMENTATION, which is correct -- but its docstring lines 18-22 and r149/PROOF.md section 3 steps 3-5 state a cut recipe that is NOT what it implements)",
+   "derived_from": "round 156 verdict H_EXTRACT_PARTIAL was about the PROVENANCE, not the mathematics: the theorem (0)-(7) was proved and checked on 20,327,589 exhaustive cases plus 8,822,032 targeted searches with 0 counterexamples, while the document the node pointed at described a different, unimplementable cut (40/794 cases cannot execute it; taken literally it gives d+2+h chains in 523/754 cases and P+1-5c ports in 754/754).  Moving `where` to r156/THEOREM.md is the repair round 156 named.  The defective prose in src/l6_extraction_145.py and r149/PROOF.md is hash-pinned and is NOT edited.  Claim 5 imports H.samehex; R_int <= 2g imports H.incidence.  Round 163 measured Claim 1 to be load-bearing (lowering `required` by 5 re-opens 8 rows)",
    "deps": [],
    "direct_dependents": [
     "C.census"
@@ -270,9 +276,9 @@
   },
   "H.models": {
    "status": "AUDITED_HAND_PROOF",
-   "what": "the three upper-bound models and what each relaxes",
-   "where": "r149/PROOF.md",
-   "derived_from": null,
+   "what": "the three upper-bound models (split / merged / piece) and what each relaxes, i.e. obligations (O1)-(O6) of r149/PROOF.md section 0, together with the two counting lemmas the row space itself rests on: Lemma 1.1 G <= 5k, because the P passes live in O = 24 + k tau-orbits of five phases each, so P <= 5O = 120 + 5k; and Lemma 1.2 a pure circuit is a whole tau-orbit of five passes.  All three models are load-bearing for the census: removing split / piece / merged leaves 439 / 53 / 3 rows SURVIVING (round 163)",
+   "where": "r149/PROOF.md sections 0-5 and 9-10 (round 149, the dedicated audit); Lemma 1.1 and Lemma 1.2 at r149/PROOF.md lines 59-73; r150/PROOF.md (round 150, the feasibility obligation)",
+   "derived_from": "round 149 closed (O2)(O3)(O6) by exhaustive enumeration and (O5) by machine, and ended at OPUS_H_MODELS_PARTIAL for exactly ONE reason: the feas() prune could not be cross-validated by switching it off.  Round 150 removed that reason with a universal proof and a dual certificate (node H.feas).  What remains hand work is Claims 1-5 [H.extract] and Lemmas 1.1-1.2 here; Claim 5 cites H.samehex.  Round 163 re-derived Lemma 1.1 as a row-space constraint and measured it load-bearing: dropping G <= 5k leaves 332 rows SURVIVING",
    "deps": [],
    "direct_dependents": [
     "C.census"
@@ -282,9 +288,9 @@
   },
   "H.catalogue": {
    "status": "AUDITED_HAND_PROOF",
-   "what": "the joint catalogue is complete and the charging rules are exhaustive",
-   "where": "r149/PROOF.md section 2",
-   "derived_from": null,
+   "what": "the joint catalogue is complete and the charging rules are exhaustive: over all 720x720 ordered pairs the gap is 1..6 (720 / 1,440 / 4,320 / 17,280 / 86,400 / 408,240), every pair with gap >= 2 falls in exactly one of clean E, dirty A, dirty B, the five paid kinds and heavy, each source has exactly one clean E, one A, one B, five paid and 710 heavy targets, and the only two omitted targets per source are t = v and t = end(v), both impossible because t is a FIRST occurrence while v and end(v) are already written.  Charging: clean E = tau, A = sigma, B = sigma^2, A and B stay in the source hexagon, and a PAID edge never lands in the source hexagon",
+   "where": "r149/PROOF.md sections 2.1-2.3 lines 89-144 (round 149); r149/certs/catalogue_complete_149.json; r163/certs/recheck_163.json field catalogue (round 163, independent re-derivation)",
+   "derived_from": "round 163 recomputed the whole catalogue from the definitions of sigma, tau, end and maximum overlap, importing nothing from src/ or r149/: the gap distribution, the per-source profile (1,1,1,5,710 for all 720 sources), C1 720/720, C2 720/720 for A and for B, C3 720/720 for A and for B, C4 = 0 paid edges landing in the source hexagon, 1,440 heavy edges that do, 0 unclassified pairs and 0 failures -- every number equal to the round-149 certificate.  Gap >= 7 is impossible because two 6-windows overlap in 0..5 letters",
    "deps": [],
    "direct_dependents": [
     "C.chaincaps",
@@ -295,9 +301,9 @@
   },
   "H.wlog": {
    "status": "AUDITED_HAND_PROOF",
-   "what": "fixing the start word is WLOG: left S6 is transitive and the catalogue is equivariant",
-   "where": "r149/PROOF.md section 2.4",
-   "derived_from": null,
+   "what": "fixing the start word is WLOG: left S6 acts letterwise, sigma, tau, end, the overlap distance and 'is this window a permutation' are defined by positions and letter equality alone, so the whole joint catalogue is equivariant; left S6 is transitive on the 720 permutations with trivial stabiliser, so any chain maps to one starting at 123456 with identical resources",
+   "where": "r149/PROOF.md section 2.4 lines 145-157 (the structural proof and the 518,400-pair check); r149/certs/catalogue_complete_149.json field left_S6_equivariance; r163/certs/recheck_163.json field wlog (round 163, independent re-derivation)",
+   "derived_from": "round 163 re-derived this from the definitions, importing nothing from src/ or r149/: left S6 is transitive on the ports with stabiliser of size 1, and the type map is equivariant on ALL 518,400 ordered (v,t) pairs for each of the five adjacent transpositions (2,592,000 pairs, 0 violations).  Equivariance is closed under composition and those five generate S6, so the check is exhaustive for the whole group, not a sample.  This node is INDEPENDENT of H.fixedrep: H.wlog relabels letters and acts on the start port of the capacity search, H.fixedrep re-spells a word and may shorten it, and the two commute -- Phi(pi.W) = pi.Phi(W), verified on 2,952 pairs in round 162",
    "deps": [],
    "direct_dependents": [
     "C.chaincaps",
@@ -309,9 +315,9 @@
   },
   "H.feas": {
    "status": "AUDITED_HAND_PROOF",
-   "what": "the feasibility prune removes no realisable continuation",
-   "where": "round 150 feasibility audit",
-   "derived_from": null,
+   "what": "the feasibility prune removes no realisable continuation: with u_q the unused phases of each already-opened non-current orbit and k the remaining tokens, every completion has final deficit at least L = min over |T| <= k of sum_{q not in T} u_q, because each such orbit's FIRST re-entry is not clean-E and therefore spends a token.  The prune rejects exactly when L > DMAX",
+   "where": "r150/PROOF.md (round 150, the universal proof, the dual certificate and the implementation conformance); r149/PROOF.md section 9.5 (round 149, the first written proof); r150/src/audit_feas150.py; r150/certs/clauses_and_monotonicity.json; r150/certs/source_conformance.json; r149/certs/feaslemma_149.json",
+   "derived_from": "the dual form -- for every lambda >= 0, sum_q min(u_q, lambda) - k*lambda is a lower bound, and its maximum over lambda EQUALS the subset optimum -- was re-derived and checked exhaustively over all 7,722 multisets with at most 8 non-current orbits, deficits 0..4 and tokens 0..5 in round 163 (0 mismatches, 0 violations of the per-T bound).  KNOWN LIMITS, stated by the audits themselves: re-running the search with the prune OFF is UNAVAILABLE (round 149), the two implementations share the idea so A/B agreement does not test it, and the per-prune certificates are PROSPECTIVE -- historical runs did not emit them, so the route is 'universal proof + implementation conformance', never a replay of the historical prunes",
    "deps": [],
    "direct_dependents": [
     "C.chaincaps",
@@ -324,8 +330,8 @@
   "H.tight": {
    "status": "AUDITED_HAND_PROOF",
    "what": "at an equality row the incidence bound is tight, so the chain is hexagon-simple, all 120 hexagons are used, and the c pure circuits (complete tau-orbits) must cover the |F| = 4c unused ones",
-   "where": "research/RR_L6_PROOF_145_CLAUDE.md section 9",
-   "derived_from": null,
+   "where": "research/RR_L6_H_TIGHT_AUDIT.md (round 155, the dedicated audit and the repaired derivation); research/RR_L6_PROOF_145_CLAUDE.md section 9 lines 292-300 (the original statement, which is correct)",
+   "derived_from": "all four conclusions follow from the stated hypotheses g = 0 and d = 0.  Equality propagates through the identity 2g = mu(B) + R_int [H.incidence]: g = 0 forces mu(B) = R_int = 0, so B is a tree and the chain is hexagon-simple.  |F| = 4c follows from G = 2g + c + d with g = d = 0, hence c = G.  The claim that ALL 120 hexagons carry a pass is NOT justified by the parenthesis in section 9, which round 155 showed is not a valid derivation; the correct ground is splice Lemma A (the arcs of a hexagon partition it, so m_h >= 1) [H.splice].  That a pure circuit is a complete tau-orbit is splice Lemma E, and that such an orbit meets five distinct hexagons is A.orbitfive",
    "deps": [],
    "direct_dependents": [
     "X.structure"
@@ -717,7 +723,7 @@
    },
    "where_is_prose_only": false,
    "where_all_exist": true,
-   "derived_from_present": false,
+   "derived_from_present": true,
    "derived_from_paths": {},
    "derived_from_all_exist": null,
    "what_is_placeholder": false,
@@ -760,20 +766,39 @@
    }
   },
   "H.extract": {
-   "where": "src/l6_extraction_145.py",
+   "where": "r156/THEOREM.md (round 156, the corrected statement and its proof); research/RR_L6_H_EXTRACT_AUDIT.md (round 156); src/l6_extraction_145.py (the IMPLEMENTATION, which is correct -- but its docstring lines 18-22 and r149/PROOF.md section 3 steps 3-5 state a cut recipe that is NOT what it implements)",
    "where_paths": {
-    "src/l6_extraction_145.py": true
+    "r156/THEOREM.md": true,
+    "research/RR_L6_H_EXTRACT_AUDIT.md": true,
+    "src/l6_extraction_145.py": true,
+    "r149/PROOF.md": true
    },
    "where_is_prose_only": false,
    "where_all_exist": true,
-   "derived_from_present": false,
-   "derived_from_paths": {},
-   "derived_from_all_exist": null,
-   "what_is_placeholder": true,
+   "derived_from_present": true,
+   "derived_from_paths": {
+    "r156/THEOREM.md": true,
+    "src/l6_extraction_145.py": true,
+    "r149/PROOF.md": true
+   },
+   "derived_from_all_exist": true,
+   "what_is_placeholder": false,
    "cited_docs": {
+    "r156/THEOREM.md": {
+     "names_node": true,
+     "size": 249
+    },
+    "research/RR_L6_H_EXTRACT_AUDIT.md": {
+     "names_node": true,
+     "size": 454
+    },
     "src/l6_extraction_145.py": {
      "names_node": false,
      "size": 307
+    },
+    "r149/PROOF.md": {
+     "names_node": false,
+     "size": 513
     }
    }
   },
@@ -808,13 +833,14 @@
    }
   },
   "H.models": {
-   "where": "r149/PROOF.md",
+   "where": "r149/PROOF.md sections 0-5 and 9-10 (round 149, the dedicated audit); Lemma 1.1 and Lemma 1.2 at r149/PROOF.md lines 59-73; r150/PROOF.md (round 150, the feasibility obligation)",
    "where_paths": {
-    "r149/PROOF.md": true
+    "r149/PROOF.md": true,
+    "r150/PROOF.md": true
    },
    "where_is_prose_only": false,
    "where_all_exist": true,
-   "derived_from_present": false,
+   "derived_from_present": true,
    "derived_from_paths": {},
    "derived_from_all_exist": null,
    "what_is_placeholder": false,
@@ -822,17 +848,23 @@
     "r149/PROOF.md": {
      "names_node": true,
      "size": 513
+    },
+    "r150/PROOF.md": {
+     "names_node": false,
+     "size": 212
     }
    }
   },
   "H.catalogue": {
-   "where": "r149/PROOF.md section 2",
+   "where": "r149/PROOF.md sections 2.1-2.3 lines 89-144 (round 149); r149/certs/catalogue_complete_149.json; r163/certs/recheck_163.json field catalogue (round 163, independent re-derivation)",
    "where_paths": {
-    "r149/PROOF.md": true
+    "r149/PROOF.md": true,
+    "r149/certs/catalogue_complete_149.json": true,
+    "r163/certs/recheck_163.json": true
    },
    "where_is_prose_only": false,
    "where_all_exist": true,
-   "derived_from_present": false,
+   "derived_from_present": true,
    "derived_from_paths": {},
    "derived_from_all_exist": null,
    "what_is_placeholder": false,
@@ -844,13 +876,15 @@
    }
   },
   "H.wlog": {
-   "where": "r149/PROOF.md section 2.4",
+   "where": "r149/PROOF.md section 2.4 lines 145-157 (the structural proof and the 518,400-pair check); r149/certs/catalogue_complete_149.json field left_S6_equivariance; r163/certs/recheck_163.json field wlog (round 163, independent re-derivation)",
    "where_paths": {
-    "r149/PROOF.md": true
+    "r149/PROOF.md": true,
+    "r149/certs/catalogue_complete_149.json": true,
+    "r163/certs/recheck_163.json": true
    },
    "where_is_prose_only": false,
    "where_all_exist": true,
-   "derived_from_present": false,
+   "derived_from_present": true,
    "derived_from_paths": {},
    "derived_from_all_exist": null,
    "what_is_placeholder": false,
@@ -862,28 +896,53 @@
    }
   },
   "H.feas": {
-   "where": "round 150 feasibility audit",
-   "where_paths": {},
-   "where_is_prose_only": true,
-   "where_all_exist": false,
-   "derived_from_present": false,
-   "derived_from_paths": {},
-   "derived_from_all_exist": null,
-   "what_is_placeholder": false,
-   "cited_docs": {}
-  },
-  "H.tight": {
-   "where": "research/RR_L6_PROOF_145_CLAUDE.md section 9",
+   "where": "r150/PROOF.md (round 150, the universal proof, the dual certificate and the implementation conformance); r149/PROOF.md section 9.5 (round 149, the first written proof); r150/src/audit_feas150.py; r150/certs/clauses_and_monotonicity.json; r150/certs/source_conformance.json; r149/certs/feaslemma_149.json",
    "where_paths": {
-    "research/RR_L6_PROOF_145_CLAUDE.md": true
+    "r150/PROOF.md": true,
+    "r149/PROOF.md": true,
+    "r150/src/audit_feas150.py": true,
+    "r150/certs/clauses_and_monotonicity.json": true,
+    "r150/certs/source_conformance.json": true,
+    "r149/certs/feaslemma_149.json": true
    },
    "where_is_prose_only": false,
    "where_all_exist": true,
-   "derived_from_present": false,
+   "derived_from_present": true,
    "derived_from_paths": {},
    "derived_from_all_exist": null,
    "what_is_placeholder": false,
    "cited_docs": {
+    "r150/PROOF.md": {
+     "names_node": false,
+     "size": 212
+    },
+    "r149/PROOF.md": {
+     "names_node": false,
+     "size": 513
+    },
+    "r150/src/audit_feas150.py": {
+     "names_node": false,
+     "size": 183
+    }
+   }
+  },
+  "H.tight": {
+   "where": "research/RR_L6_H_TIGHT_AUDIT.md (round 155, the dedicated audit and the repaired derivation); research/RR_L6_PROOF_145_CLAUDE.md section 9 lines 292-300 (the original statement, which is correct)",
+   "where_paths": {
+    "research/RR_L6_H_TIGHT_AUDIT.md": true,
+    "research/RR_L6_PROOF_145_CLAUDE.md": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": true,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_TIGHT_AUDIT.md": {
+     "names_node": true,
+     "size": 397
+    },
     "research/RR_L6_PROOF_145_CLAUDE.md": {
      "names_node": false,
      "size": 345
@@ -923,27 +982,48 @@
     "H.samehex",
     "H.splice"
    ],
-   "H.incidence": [],
+   "H.incidence": [
+    "H.envelope",
+    "H.samehex"
+   ],
    "H.samehex": [
     "H.incidence"
    ],
-   "H.extract": [],
+   "H.extract": [
+    "H.incidence",
+    "H.samehex"
+   ],
    "H.envelope": [
     "H.incidence",
     "H.samehex"
    ],
-   "H.models": [],
+   "H.models": [
+    "H.extract",
+    "H.feas",
+    "H.samehex"
+   ],
    "H.catalogue": [],
-   "H.wlog": [],
+   "H.wlog": [
+    "H.fixedrep"
+   ],
    "H.feas": [],
-   "H.tight": []
+   "H.tight": [
+    "A.orbitfive",
+    "H.incidence",
+    "H.splice"
+   ]
   },
   "nodes_whose_prose_names_a_dependency": [
    "H.envelope",
+   "H.extract",
    "H.fixedrep",
+   "H.incidence",
    "H.master",
+   "H.models",
    "H.samehex",
-   "H.splice"
+   "H.splice",
+   "H.tight",
+   "H.wlog"
   ]
  },
  "walk": {
@@ -1024,5 +1104,33 @@
   "top": "T.eq872",
   "dag_claims_theorem_path_clean": true
  },
+ "hidden_claim_recheck": {
+  "G<=5k": {
+   "measured_surviving_rows_if_dropped": 332,
+   "was_unrepresented_before_repair": true,
+   "owners_now": [
+    "H.models"
+   ],
+   "now_represented": true
+  },
+  "G=2g+c+d": {
+   "measured_surviving_rows_if_dropped": 7848,
+   "was_unrepresented_before_repair": true,
+   "owners_now": [
+    "H.extract",
+    "H.tight"
+   ],
+   "now_represented": true
+  },
+  "required=120+G-5c": {
+   "measured_surviving_rows_if_dropped": 8,
+   "was_unrepresented_before_repair": true,
+   "owners_now": [
+    "H.extract"
+   ],
+   "now_represented": true
+  }
+ },
+ "hidden_claims_still_unrepresented": [],
  "ok": true
 }

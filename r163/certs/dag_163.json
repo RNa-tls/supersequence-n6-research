@@ -1,0 +1,554 @@
+{
+ "supersedes": "r162/certs/dag_162.json",
+ "source_sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+ "earlier_repairs": [
+  {
+   "node": "H.fixedrep",
+   "field": "what",
+   "old": "every cover has a fixed representative of no greater length",
+   "new": "the fixed-representative reduction: Phi(W) re-spells a cover at maximum overlap over its first-occurrence sequence and trims it; (L1) Phi(W) is a cover, (L2) |Phi(W)| <= |W_trim| <= |W|, (L3) equality forces W = Phi(W), (L4) hence every cover has a FIXED REPRESENTATIVE W* = Phi^m(W) with |W*| <= |W| within |W| - (n! + n - 1) non-fixed steps, and (L5) at a fixed point (a) W* is its own maximum-overlap spelling, (b) EVERY SELECTED GAP EQUALS omega, (c) every non-selected permutation window is a repeat strictly inside a connector interval, and W* is trimmed.  Corollary: a lower bound for all fixed representatives is a lower bound for all covers"
+  },
+  {
+   "node": "H.fixedrep",
+   "field": "where",
+   "old": "src/l6_fixed_representative_145.py",
+   "new": "research/RR_L6_H_FIXEDREP_AUDIT.md (round 162); src/l6_fixed_representative_145.py lines 10-78"
+  },
+  {
+   "node": "H.fixedrep",
+   "field": "derived_from",
+   "old": null,
+   "new": "Phi is a REWRITING operator, not a group action: no relabelling, no rotation, no conjugation, and it may strictly shorten the word.  Nothing structural is preserved -- beta, nu, the pass decomposition and even the selected sequence may change -- because the only thing transferred is the LENGTH.  Clause L5(b) is the hypothesis of splice clause C3, the sole splice clause that needs it (round 161); L5(c) is used by H.samehex.  The proof uses NO splice lemma, so the dependence H.fixedrep -> C3 is one-way and not circular.  The left-S_n normalisation H.wlog acts on a different object and commutes with Phi: Phi(pi.W) = pi.Phi(W)"
+  }
+ ],
+ "repairs": [
+  {
+   "node": "H.extract",
+   "field": "what",
+   "old": "the extraction bookkeeping",
+   "new": "the extraction bookkeeping, in the CORRECTED form of r156/THEOREM.md (0)-(7): (0) cutting the beta-components yields well-defined chains, no clean-E edge is ever cut, and each chain lies in one beta-component; (1) Claim 1 sum_i P_i = P - 5c = 120 + G - 5c, which is the census's `required`; (2) Claim 2 sum_i D_i = 5k - G + 5*sigma_bar; (3) Claim 3 sum_i tok_i = B* - sigma_bar; (4) Claim 4 0 <= sigma_bar <= B*, and sigma_bar = 0 for a single chain; (5) Claim 5 sum_i rep_i <= R_int, so a + bb + e <= R_int <= 2g; (6) #chains = d + 1 + h - s <= d + 1 + h, and d + 1 in the merged model; (7) the budget envelope a <= D2, bb <= Qs, e <= Z - Qs.  Also d := K - c - 1 >= 0: the beta-cycle carrying the dummy is never pure, which is what makes the census coordinate decomposition G = 2g + c + d legal"
+  },
+  {
+   "node": "H.extract",
+   "field": "where",
+   "old": "src/l6_extraction_145.py",
+   "new": "r156/THEOREM.md (round 156, the corrected statement and its proof); research/RR_L6_H_EXTRACT_AUDIT.md (round 156); src/l6_extraction_145.py (the IMPLEMENTATION, which is correct -- but its docstring lines 18-22 and r149/PROOF.md section 3 steps 3-5 state a cut recipe that is NOT what it implements)"
+  },
+  {
+   "node": "H.extract",
+   "field": "derived_from",
+   "old": null,
+   "new": "round 156 verdict H_EXTRACT_PARTIAL was about the PROVENANCE, not the mathematics: the theorem (0)-(7) was proved and checked on 20,327,589 exhaustive cases plus 8,822,032 targeted searches with 0 counterexamples, while the document the node pointed at described a different, unimplementable cut (40/794 cases cannot execute it; taken literally it gives d+2+h chains in 523/754 cases and P+1-5c ports in 754/754).  Moving `where` to r156/THEOREM.md is the repair round 156 named.  The defective prose in src/l6_extraction_145.py and r149/PROOF.md is hash-pinned and is NOT edited.  Claim 5 imports H.samehex; R_int <= 2g imports H.incidence.  Round 163 measured Claim 1 to be load-bearing (lowering `required` by 5 re-opens 8 rows)"
+  },
+  {
+   "node": "H.incidence",
+   "field": "derived_from",
+   "old": null,
+   "new": "the inequality is one line of Euler characteristic; the node's real content is the DECOMPOSITION IDENTITY 2g = mu(B) + R_int with mu(B) = |E(B)| - |V(B)| + comp(B) >= 0 the first Betti number of the SIMPLE bipartite incidence graph B (round 157, re-proved there from scratch and checked on 409,113 abstract cases).  The census enumerates in the coordinate 2g := (G+1) - K, so this node is what makes 2g >= 0, 2g even and R_int <= 2g true; H.samehex and H.envelope import R_int <= 2g from here.  Connectivity of B is the only non-trivial hypothesis and comes from T being a single (P+1)-cycle: dropping it produces 105,077 counterexamples (round 157)"
+  },
+  {
+   "node": "H.models",
+   "field": "what",
+   "old": "the three upper-bound models and what each relaxes",
+   "new": "the three upper-bound models (split / merged / piece) and what each relaxes, i.e. obligations (O1)-(O6) of r149/PROOF.md section 0, together with the two counting lemmas the row space itself rests on: Lemma 1.1 G <= 5k, because the P passes live in O = 24 + k tau-orbits of five phases each, so P <= 5O = 120 + 5k; and Lemma 1.2 a pure circuit is a whole tau-orbit of five passes.  All three models are load-bearing for the census: removing split / piece / merged leaves 439 / 53 / 3 rows SURVIVING (round 163)"
+  },
+  {
+   "node": "H.models",
+   "field": "where",
+   "old": "r149/PROOF.md",
+   "new": "r149/PROOF.md sections 0-5 and 9-10 (round 149, the dedicated audit); Lemma 1.1 and Lemma 1.2 at r149/PROOF.md lines 59-73; r150/PROOF.md (round 150, the feasibility obligation)"
+  },
+  {
+   "node": "H.models",
+   "field": "derived_from",
+   "old": null,
+   "new": "round 149 closed (O2)(O3)(O6) by exhaustive enumeration and (O5) by machine, and ended at OPUS_H_MODELS_PARTIAL for exactly ONE reason: the feas() prune could not be cross-validated by switching it off.  Round 150 removed that reason with a universal proof and a dual certificate (node H.feas).  What remains hand work is Claims 1-5 [H.extract] and Lemmas 1.1-1.2 here; Claim 5 cites H.samehex.  Round 163 re-derived Lemma 1.1 as a row-space constraint and measured it load-bearing: dropping G <= 5k leaves 332 rows SURVIVING"
+  },
+  {
+   "node": "H.feas",
+   "field": "what",
+   "old": "the feasibility prune removes no realisable continuation",
+   "new": "the feasibility prune removes no realisable continuation: with u_q the unused phases of each already-opened non-current orbit and k the remaining tokens, every completion has final deficit at least L = min over |T| <= k of sum_{q not in T} u_q, because each such orbit's FIRST re-entry is not clean-E and therefore spends a token.  The prune rejects exactly when L > DMAX"
+  },
+  {
+   "node": "H.feas",
+   "field": "where",
+   "old": "round 150 feasibility audit",
+   "new": "r150/PROOF.md (round 150, the universal proof, the dual certificate and the implementation conformance); r149/PROOF.md section 9.5 (round 149, the first written proof); r150/src/audit_feas150.py; r150/certs/clauses_and_monotonicity.json; r150/certs/source_conformance.json; r149/certs/feaslemma_149.json"
+  },
+  {
+   "node": "H.feas",
+   "field": "derived_from",
+   "old": null,
+   "new": "the dual form -- for every lambda >= 0, sum_q min(u_q, lambda) - k*lambda is a lower bound, and its maximum over lambda EQUALS the subset optimum -- was re-derived and checked exhaustively over all 7,722 multisets with at most 8 non-current orbits, deficits 0..4 and tokens 0..5 in round 163 (0 mismatches, 0 violations of the per-T bound).  KNOWN LIMITS, stated by the audits themselves: re-running the search with the prune OFF is UNAVAILABLE (round 149), the two implementations share the idea so A/B agreement does not test it, and the per-prune certificates are PROSPECTIVE -- historical runs did not emit them, so the route is 'universal proof + implementation conformance', never a replay of the historical prunes"
+  },
+  {
+   "node": "H.tight",
+   "field": "where",
+   "old": "research/RR_L6_PROOF_145_CLAUDE.md section 9",
+   "new": "research/RR_L6_H_TIGHT_AUDIT.md (round 155, the dedicated audit and the repaired derivation); research/RR_L6_PROOF_145_CLAUDE.md section 9 lines 292-300 (the original statement, which is correct)"
+  },
+  {
+   "node": "H.tight",
+   "field": "derived_from",
+   "old": null,
+   "new": "all four conclusions follow from the stated hypotheses g = 0 and d = 0.  Equality propagates through the identity 2g = mu(B) + R_int [H.incidence]: g = 0 forces mu(B) = R_int = 0, so B is a tree and the chain is hexagon-simple.  |F| = 4c follows from G = 2g + c + d with g = d = 0, hence c = G.  The claim that ALL 120 hexagons carry a pass is NOT justified by the parenthesis in section 9, which round 155 showed is not a valid derivation; the correct ground is splice Lemma A (the arcs of a hexagon partition it, so m_h >= 1) [H.splice].  That a pure circuit is a complete tau-orbit is splice Lemma E, and that such an orbit meets five distinct hexagons is A.orbitfive"
+  },
+  {
+   "node": "H.wlog",
+   "field": "what",
+   "old": "fixing the start word is WLOG: left S6 is transitive and the catalogue is equivariant",
+   "new": "fixing the start word is WLOG: left S6 acts letterwise, sigma, tau, end, the overlap distance and 'is this window a permutation' are defined by positions and letter equality alone, so the whole joint catalogue is equivariant; left S6 is transitive on the 720 permutations with trivial stabiliser, so any chain maps to one starting at 123456 with identical resources"
+  },
+  {
+   "node": "H.wlog",
+   "field": "where",
+   "old": "r149/PROOF.md section 2.4",
+   "new": "r149/PROOF.md section 2.4 lines 145-157 (the structural proof and the 518,400-pair check); r149/certs/catalogue_complete_149.json field left_S6_equivariance; r163/certs/recheck_163.json field wlog (round 163, independent re-derivation)"
+  },
+  {
+   "node": "H.wlog",
+   "field": "derived_from",
+   "old": null,
+   "new": "round 163 re-derived this from the definitions, importing nothing from src/ or r149/: left S6 is transitive on the ports with stabiliser of size 1, and the type map is equivariant on ALL 518,400 ordered (v,t) pairs for each of the five adjacent transpositions (2,592,000 pairs, 0 violations).  Equivariance is closed under composition and those five generate S6, so the check is exhaustive for the whole group, not a sample.  This node is INDEPENDENT of H.fixedrep: H.wlog relabels letters and acts on the start port of the capacity search, H.fixedrep re-spells a word and may shorten it, and the two commute -- Phi(pi.W) = pi.Phi(W), verified on 2,952 pairs in round 162"
+  },
+  {
+   "node": "H.catalogue",
+   "field": "what",
+   "old": "the joint catalogue is complete and the charging rules are exhaustive",
+   "new": "the joint catalogue is complete and the charging rules are exhaustive: over all 720x720 ordered pairs the gap is 1..6 (720 / 1,440 / 4,320 / 17,280 / 86,400 / 408,240), every pair with gap >= 2 falls in exactly one of clean E, dirty A, dirty B, the five paid kinds and heavy, each source has exactly one clean E, one A, one B, five paid and 710 heavy targets, and the only two omitted targets per source are t = v and t = end(v), both impossible because t is a FIRST occurrence while v and end(v) are already written.  Charging: clean E = tau, A = sigma, B = sigma^2, A and B stay in the source hexagon, and a PAID edge never lands in the source hexagon"
+  },
+  {
+   "node": "H.catalogue",
+   "field": "where",
+   "old": "r149/PROOF.md section 2",
+   "new": "r149/PROOF.md sections 2.1-2.3 lines 89-144 (round 149); r149/certs/catalogue_complete_149.json; r163/certs/recheck_163.json field catalogue (round 163, independent re-derivation)"
+  },
+  {
+   "node": "H.catalogue",
+   "field": "derived_from",
+   "old": null,
+   "new": "round 163 recomputed the whole catalogue from the definitions of sigma, tau, end and maximum overlap, importing nothing from src/ or r149/: the gap distribution, the per-source profile (1,1,1,5,710 for all 720 sources), C1 720/720, C2 720/720 for A and for B, C3 720/720 for A and for B, C4 = 0 paid edges landing in the source hexagon, 1,440 heavy edges that do, 0 unclassified pairs and 0 failures -- every number equal to the round-149 certificate.  Gap >= 7 is impossible because two 6-windows overlap in 0..5 letters"
+  }
+ ],
+ "diff_against_source": [
+  [
+   "H.catalogue",
+   "derived_from"
+  ],
+  [
+   "H.catalogue",
+   "what"
+  ],
+  [
+   "H.catalogue",
+   "where"
+  ],
+  [
+   "H.extract",
+   "derived_from"
+  ],
+  [
+   "H.extract",
+   "what"
+  ],
+  [
+   "H.extract",
+   "where"
+  ],
+  [
+   "H.feas",
+   "derived_from"
+  ],
+  [
+   "H.feas",
+   "what"
+  ],
+  [
+   "H.feas",
+   "where"
+  ],
+  [
+   "H.incidence",
+   "derived_from"
+  ],
+  [
+   "H.models",
+   "derived_from"
+  ],
+  [
+   "H.models",
+   "what"
+  ],
+  [
+   "H.models",
+   "where"
+  ],
+  [
+   "H.tight",
+   "derived_from"
+  ],
+  [
+   "H.tight",
+   "where"
+  ],
+  [
+   "H.wlog",
+   "derived_from"
+  ],
+  [
+   "H.wlog",
+   "what"
+  ],
+  [
+   "H.wlog",
+   "where"
+  ]
+ ],
+ "diff_is_exactly_the_repairs": true,
+ "every_derived_field_unchanged": true,
+ "statuses_unchanged": true,
+ "deps_unchanged": true,
+ "nodes_unchanged": [
+  "A.hexcount",
+  "A.monotone",
+  "A.orbitfive",
+  "C.census",
+  "C.chaincaps",
+  "C.dag152",
+  "C.piececaps",
+  "E.enumeration",
+  "E.equivariance",
+  "H.envelope",
+  "H.fixedrep",
+  "H.master",
+  "H.samehex",
+  "H.splice",
+  "T.eq872",
+  "T.ge872",
+  "T.le872",
+  "W.872",
+  "X.adversarial",
+  "X.controls",
+  "X.exclusion",
+  "X.mutation",
+  "X.nolemmaE",
+  "X.structure"
+ ],
+ "carried_defects_not_repaired_here": [
+  "src/l6_extraction_145.py docstring lines 18-22 and r149/PROOF.md section 3 steps 3-5 still state the defective cut recipe.  They are hash-pinned in several rounds' provenance and are NOT edited; the DAG no longer cites them as the canonical statement (round 163 repair).",
+  "r152/src/rows152.py lines 16-19 still say 'the piece model is not used at all'.  It is: bounds() records res['piece'] unconditionally and the piece model is the sole closer of rows the other two leave open (removing it leaves 53 rows SURVIVING).  Self-description only; the piece capacities are certified and the file is hash-pinned.",
+  "deps is [] on all 12 hand-proof nodes by convention: deps is the MACHINE pipeline edge set (which certificate consumes which), while mathematical dependence between hand proofs is recorded in prose in derived_from.  Round 163 checked the prose dependence graph is acyclic."
+ ],
+ "dag": {
+  "nodes": {
+   "H.fixedrep": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "the fixed-representative reduction: Phi(W) re-spells a cover at maximum overlap over its first-occurrence sequence and trims it; (L1) Phi(W) is a cover, (L2) |Phi(W)| <= |W_trim| <= |W|, (L3) equality forces W = Phi(W), (L4) hence every cover has a FIXED REPRESENTATIVE W* = Phi^m(W) with |W*| <= |W| within |W| - (n! + n - 1) non-fixed steps, and (L5) at a fixed point (a) W* is its own maximum-overlap spelling, (b) EVERY SELECTED GAP EQUALS omega, (c) every non-selected permutation window is a repeat strictly inside a connector interval, and W* is trimmed.  Corollary: a lower bound for all fixed representatives is a lower bound for all covers",
+    "deps": [],
+    "where": "research/RR_L6_H_FIXEDREP_AUDIT.md (round 162); src/l6_fixed_representative_145.py lines 10-78",
+    "derived_from": "Phi is a REWRITING operator, not a group action: no relabelling, no rotation, no conjugation, and it may strictly shorten the word.  Nothing structural is preserved -- beta, nu, the pass decomposition and even the selected sequence may change -- because the only thing transferred is the LENGTH.  Clause L5(b) is the hypothesis of splice clause C3, the sole splice clause that needs it (round 161); L5(c) is used by H.samehex.  The proof uses NO splice lemma, so the dependence H.fixedrep -> C3 is one-way and not circular.  The left-S_n normalisation H.wlog acts on a different object and commutes with Phi: Phi(pi.W) = pi.Phi(W)"
+   },
+   "H.splice": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "successor splicing and the beta permutation, i.e. Lemmas A-F of src/l6_splicing_145.py: (A) the arcs of a hexagon partition it, every hexagon carries a pass, sum_h (m_h - 1) = G; (B) nu is a permutation whose cycles are the hexagons, c(nu) = n!/n; (C) the joint source is end(v_nu(i)) and the reassignment changes source, target, gap, spelling and hidden windows not at all, the reassigned edge being a shortest connector; (D) beta = T alpha^{-1} is a permutation with beta(nu(i)) = i+1 and c(alpha) = n!/n + 1; (E) a pure clean-E beta-cycle is exactly a complete tau-orbit of n-1 passes and no other pass lies in that orbit; (F) blocks = P - cleanE = S + 1 + D2, unchanged by deleting a pure circuit",
+    "deps": [],
+    "where": "research/RR_L6_H_SPLICE_AUDIT.md (round 161); src/l6_splicing_145.py lines 16-66",
+    "derived_from": "A-F are proved at the `where` and re-proved clause by clause in round 161.  Hypotheses: A, B, D, E, F need only that W is a COVER; only clause C3 (shortest connector) uses the fixed-representative hypothesis gap = omega, which is a checkable property of the given word and not H.fixedrep's WLOG theorem.  Lemma F's count cleanE = P-1-S-D2 rests on the local fact that the only gap-2 targets out of end(v) are tau(v) and sigma(v), exhausted for n = 3..6.  The CONVERSE of Lemma E is false and is not used.  That a tau-orbit meets n-1 DISTINCT hexagons is the separate node A.orbitfive; round 161 supplies a one-line proof of it"
+   },
+   "H.master": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "MASTER-142 (this node): the IDENTITY L = 867 + k + Z + H + B*, an exact rearrangement of (FO) L = 844 + G + S + H via G = Z + D2 + c, O = 24 + k and B* = S + 1 + D2 - O + c.  General n: CONST(n) = n! + (n-1)! + (n-2)! + n - 3 (9, 33, 152, 867 for n = 3, 4, 5, 6).  The NONNEGATIVITY of the four terms is imported, not proved here",
+    "deps": [],
+    "where": "research/RR_L6_H_MASTER_AUDIT.md (round 160); src/l6_master_identity_144.py; src/l6_cleanroom_146.py lines 255-270 (independent general-n derivation of the constant)",
+    "derived_from": "the identity is proved at the `where` and re-derived from the raw word in round 160.  k >= 0 needs G >= 0 [H.splice Lemma A] and (n-1)O >= P; Z >= 0 needs D2 + Qs <= R_int [H.samehex] and R_int <= 2g [H.incidence]; B* >= 0 needs B* = sum tok_i + sigma with both >= 0 [H.extract Claims 3, 4]; H >= 0 holds by definition.  H is the heavy COST sum (w-3)_+, never the heavy COUNT h"
+   },
+   "H.incidence": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "K + R_int <= G + 1 with K = G + 1 (mod 2); equality iff the SIMPLE bipartite incidence graph B is a tree",
+    "deps": [],
+    "where": "research/RR_L6_H_INCIDENCE_AUDIT.md (round 157); src/l6_incidence_144.py lines 1-35; src/l6_incidence_graph_146.py lines 9-56",
+    "derived_from": "the inequality is one line of Euler characteristic; the node's real content is the DECOMPOSITION IDENTITY 2g = mu(B) + R_int with mu(B) = |E(B)| - |V(B)| + comp(B) >= 0 the first Betti number of the SIMPLE bipartite incidence graph B (round 157, re-proved there from scratch and checked on 409,113 abstract cases).  The census enumerates in the coordinate 2g := (G+1) - K, so this node is what makes 2g >= 0, 2g even and R_int <= 2g true; H.samehex and H.envelope import R_int <= 2g from here.  Connectivity of B is the only non-trivial hypothesis and comes from T being a single (P+1)-cycle: dropping it produces 105,077 counterexamples (round 157)"
+   },
+   "H.samehex": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "SAME-HEX (this node): D2 + Qs <= R_int.  Combined with H.incidence's R_int <= 2g this gives the corollary the row enumeration consumes, D2 + Qs <= 2g, hence D2 <= 2g, Qs <= min(Z, 2g - D2) and Z >= Qs >= 0",
+    "deps": [],
+    "where": "research/RR_L6_H_SAMEHEX_AUDIT.md (round 159); src/l6_same_hex_145.py lines 7-47",
+    "derived_from": "the lower half D2 + Qs <= R_int is proved at the `where` and re-proved independently in round 159; the upper half R_int <= 2g is H.incidence (round 157) and is imported, not proved here.  It is NOT a corollary of the corrected Extraction Theorem: that theorem bounds the POST-CUT repeat count rep, and D2 + Qs > rep occurs on real covers"
+   },
+   "H.extract": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "the extraction bookkeeping, in the CORRECTED form of r156/THEOREM.md (0)-(7): (0) cutting the beta-components yields well-defined chains, no clean-E edge is ever cut, and each chain lies in one beta-component; (1) Claim 1 sum_i P_i = P - 5c = 120 + G - 5c, which is the census's `required`; (2) Claim 2 sum_i D_i = 5k - G + 5*sigma_bar; (3) Claim 3 sum_i tok_i = B* - sigma_bar; (4) Claim 4 0 <= sigma_bar <= B*, and sigma_bar = 0 for a single chain; (5) Claim 5 sum_i rep_i <= R_int, so a + bb + e <= R_int <= 2g; (6) #chains = d + 1 + h - s <= d + 1 + h, and d + 1 in the merged model; (7) the budget envelope a <= D2, bb <= Qs, e <= Z - Qs.  Also d := K - c - 1 >= 0: the beta-cycle carrying the dummy is never pure, which is what makes the census coordinate decomposition G = 2g + c + d legal",
+    "deps": [],
+    "where": "r156/THEOREM.md (round 156, the corrected statement and its proof); research/RR_L6_H_EXTRACT_AUDIT.md (round 156); src/l6_extraction_145.py (the IMPLEMENTATION, which is correct -- but its docstring lines 18-22 and r149/PROOF.md section 3 steps 3-5 state a cut recipe that is NOT what it implements)",
+    "derived_from": "round 156 verdict H_EXTRACT_PARTIAL was about the PROVENANCE, not the mathematics: the theorem (0)-(7) was proved and checked on 20,327,589 exhaustive cases plus 8,822,032 targeted searches with 0 counterexamples, while the document the node pointed at described a different, unimplementable cut (40/794 cases cannot execute it; taken literally it gives d+2+h chains in 523/754 cases and P+1-5c ports in 754/754).  Moving `where` to r156/THEOREM.md is the repair round 156 named.  The defective prose in src/l6_extraction_145.py and r149/PROOF.md is hash-pinned and is NOT edited.  Claim 5 imports H.samehex; R_int <= 2g imports H.incidence.  Round 163 measured Claim 1 to be load-bearing (lowering `required` by 5 re-opens 8 rows)"
+   },
+   "H.envelope": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "a <= D2, bb <= Qs, e <= Z - Qs, and a + bb + e = rep <= R_int <= 2g; plus the two LOWER bounds the piece model consumes, a >= D2 - d and a + bb >= D2 + Qs - d",
+    "deps": [],
+    "where": "research/RR_L6_H_ENVELOPE_AUDIT.md (round 158); src/l6_envelope_146.py lines 6-33; r156/THEOREM.md clauses (5) and (7)",
+    "derived_from": "a corollary of r156/THEOREM.md (5) and (7); re-proved independently in round 158 from a = D2 - x, bb = Qs - y, x + y <= d together with rep <= R_int (r156 Claim 5), R_int <= 2g (H.incidence), D2 + Qs <= R_int (H.samehex) and z = 2g + d, Z = z - D2"
+   },
+   "H.models": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "the three upper-bound models (split / merged / piece) and what each relaxes, i.e. obligations (O1)-(O6) of r149/PROOF.md section 0, together with the two counting lemmas the row space itself rests on: Lemma 1.1 G <= 5k, because the P passes live in O = 24 + k tau-orbits of five phases each, so P <= 5O = 120 + 5k; and Lemma 1.2 a pure circuit is a whole tau-orbit of five passes.  All three models are load-bearing for the census: removing split / piece / merged leaves 439 / 53 / 3 rows SURVIVING (round 163)",
+    "deps": [],
+    "where": "r149/PROOF.md sections 0-5 and 9-10 (round 149, the dedicated audit); Lemma 1.1 and Lemma 1.2 at r149/PROOF.md lines 59-73; r150/PROOF.md (round 150, the feasibility obligation)",
+    "derived_from": "round 149 closed (O2)(O3)(O6) by exhaustive enumeration and (O5) by machine, and ended at OPUS_H_MODELS_PARTIAL for exactly ONE reason: the feas() prune could not be cross-validated by switching it off.  Round 150 removed that reason with a universal proof and a dual certificate (node H.feas).  What remains hand work is Claims 1-5 [H.extract] and Lemmas 1.1-1.2 here; Claim 5 cites H.samehex.  Round 163 re-derived Lemma 1.1 as a row-space constraint and measured it load-bearing: dropping G <= 5k leaves 332 rows SURVIVING"
+   },
+   "H.catalogue": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "the joint catalogue is complete and the charging rules are exhaustive: over all 720x720 ordered pairs the gap is 1..6 (720 / 1,440 / 4,320 / 17,280 / 86,400 / 408,240), every pair with gap >= 2 falls in exactly one of clean E, dirty A, dirty B, the five paid kinds and heavy, each source has exactly one clean E, one A, one B, five paid and 710 heavy targets, and the only two omitted targets per source are t = v and t = end(v), both impossible because t is a FIRST occurrence while v and end(v) are already written.  Charging: clean E = tau, A = sigma, B = sigma^2, A and B stay in the source hexagon, and a PAID edge never lands in the source hexagon",
+    "deps": [],
+    "where": "r149/PROOF.md sections 2.1-2.3 lines 89-144 (round 149); r149/certs/catalogue_complete_149.json; r163/certs/recheck_163.json field catalogue (round 163, independent re-derivation)",
+    "derived_from": "round 163 recomputed the whole catalogue from the definitions of sigma, tau, end and maximum overlap, importing nothing from src/ or r149/: the gap distribution, the per-source profile (1,1,1,5,710 for all 720 sources), C1 720/720, C2 720/720 for A and for B, C3 720/720 for A and for B, C4 = 0 paid edges landing in the source hexagon, 1,440 heavy edges that do, 0 unclassified pairs and 0 failures -- every number equal to the round-149 certificate.  Gap >= 7 is impossible because two 6-windows overlap in 0..5 letters"
+   },
+   "H.wlog": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "fixing the start word is WLOG: left S6 acts letterwise, sigma, tau, end, the overlap distance and 'is this window a permutation' are defined by positions and letter equality alone, so the whole joint catalogue is equivariant; left S6 is transitive on the 720 permutations with trivial stabiliser, so any chain maps to one starting at 123456 with identical resources",
+    "deps": [],
+    "where": "r149/PROOF.md section 2.4 lines 145-157 (the structural proof and the 518,400-pair check); r149/certs/catalogue_complete_149.json field left_S6_equivariance; r163/certs/recheck_163.json field wlog (round 163, independent re-derivation)",
+    "derived_from": "round 163 re-derived this from the definitions, importing nothing from src/ or r149/: left S6 is transitive on the ports with stabiliser of size 1, and the type map is equivariant on ALL 518,400 ordered (v,t) pairs for each of the five adjacent transpositions (2,592,000 pairs, 0 violations).  Equivariance is closed under composition and those five generate S6, so the check is exhaustive for the whole group, not a sample.  This node is INDEPENDENT of H.fixedrep: H.wlog relabels letters and acts on the start port of the capacity search, H.fixedrep re-spells a word and may shorten it, and the two commute -- Phi(pi.W) = pi.Phi(W), verified on 2,952 pairs in round 162"
+   },
+   "H.feas": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "the feasibility prune removes no realisable continuation: with u_q the unused phases of each already-opened non-current orbit and k the remaining tokens, every completion has final deficit at least L = min over |T| <= k of sum_{q not in T} u_q, because each such orbit's FIRST re-entry is not clean-E and therefore spends a token.  The prune rejects exactly when L > DMAX",
+    "deps": [],
+    "where": "r150/PROOF.md (round 150, the universal proof, the dual certificate and the implementation conformance); r149/PROOF.md section 9.5 (round 149, the first written proof); r150/src/audit_feas150.py; r150/certs/clauses_and_monotonicity.json; r150/certs/source_conformance.json; r149/certs/feaslemma_149.json",
+    "derived_from": "the dual form -- for every lambda >= 0, sum_q min(u_q, lambda) - k*lambda is a lower bound, and its maximum over lambda EQUALS the subset optimum -- was re-derived and checked exhaustively over all 7,722 multisets with at most 8 non-current orbits, deficits 0..4 and tokens 0..5 in round 163 (0 mismatches, 0 violations of the per-T bound).  KNOWN LIMITS, stated by the audits themselves: re-running the search with the prune OFF is UNAVAILABLE (round 149), the two implementations share the idea so A/B agreement does not test it, and the per-prune certificates are PROSPECTIVE -- historical runs did not emit them, so the route is 'universal proof + implementation conformance', never a replay of the historical prunes"
+   },
+   "H.tight": {
+    "status": "AUDITED_HAND_PROOF",
+    "what": "at an equality row the incidence bound is tight, so the chain is hexagon-simple, all 120 hexagons are used, and the c pure circuits (complete tau-orbits) must cover the |F| = 4c unused ones",
+    "deps": [],
+    "where": "research/RR_L6_H_TIGHT_AUDIT.md (round 155, the dedicated audit and the repaired derivation); research/RR_L6_PROOF_145_CLAUDE.md section 9 lines 292-300 (the original statement, which is correct)",
+    "derived_from": "all four conclusions follow from the stated hypotheses g = 0 and d = 0.  Equality propagates through the identity 2g = mu(B) + R_int [H.incidence]: g = 0 forces mu(B) = R_int = 0, so B is a tree and the chain is hexagon-simple.  |F| = 4c follows from G = 2g + c + d with g = d = 0, hence c = G.  The claim that ALL 120 hexagons carry a pass is NOT justified by the parenthesis in section 9, which round 155 showed is not a valid derivation; the correct ground is splice Lemma A (the arcs of a hexagon partition it, so m_h >= 1) [H.splice].  That a pure circuit is a complete tau-orbit is splice Lemma E, and that such an orbit meets five distinct hexagons is A.orbitfive"
+   },
+   "A.monotone": {
+    "status": "PROVEN_ANALYTIC",
+    "what": "(P1) capacity is monotone non-decreasing in every budget",
+    "deps": [],
+    "where": "research/RR_L6_R147_SOUND_UB.md"
+   },
+   "A.hexcount": {
+    "status": "PROVEN_ANALYTIC",
+    "what": "(P2) cap(K) <= 120 + a + bb + e; a piece is hexagon-simple so it has at most 120 ports",
+    "deps": [],
+    "where": "research/RR_L6_R147_SOUND_UB.md"
+   },
+   "A.orbitfive": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "every tau-orbit meets exactly five hexagons (all 144 checked)",
+    "deps": [],
+    "where": "r153/src/coexist153.py"
+   },
+   "C.chaincaps": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "1101 chain capacities independently certified, 0 not",
+    "deps": [
+     "A.monotone",
+     "A.hexcount",
+     "H.catalogue",
+     "H.wlog",
+     "H.feas"
+    ],
+    "where": "r152/certs/verify_all_c152.json"
+   },
+   "C.piececaps": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "220 marked piece capacities independently certified, 0 not",
+    "deps": [
+     "A.monotone",
+     "A.hexcount",
+     "H.catalogue",
+     "H.wlog",
+     "H.feas"
+    ],
+    "where": "r152/certs/verify_piece_c152.json"
+   },
+   "C.dag152": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "the round-152 capacity DAG has no forbidden ancestor",
+    "deps": [
+     "C.chaincaps",
+     "C.piececaps"
+    ],
+    "where": "r152/certs/dag_152.json"
+   },
+   "C.census": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "the certified-only census: {\"L867\": {\"STRICTLY_CLOSED\": 1}, \"L868\": {\"STRICTLY_CLOSED\": 14}, \"L869\": {\"STRICTLY_CLOSED\": 85}, \"L870\": {\"STRICTLY_CLOSED\": 353}, \"L871\": {\"STRICTLY_CLOSED\": 1154, \"EQUALITY\": 2}}",
+    "deps": [
+     "C.chaincaps",
+     "C.piececaps",
+     "C.dag152",
+     "H.master",
+     "H.incidence",
+     "H.samehex",
+     "H.extract",
+     "H.envelope",
+     "H.models"
+    ],
+    "where": "r152/certs/census_152.json"
+   },
+   "E.equivariance": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "left S6 commutes with the whole catalogue: 518400 pairs, 0 violations",
+    "deps": [
+     "H.wlog"
+    ],
+    "where": "r153/src/eqcompare153.py"
+   },
+   "E.enumeration": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "every capacity-attaining walk enumerated five ways with identical raw and canonical sets: E1 2 witnesses / 2 classes, E2 1 witnesses / 1 classes",
+    "deps": [
+     "C.chaincaps",
+     "C.census",
+     "E.equivariance",
+     "A.hexcount",
+     "H.feas"
+    ],
+    "where": "r153/certs/eqcompare_153.json"
+   },
+   "X.structure": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "each witness is hexagon-simple and leaves |F| = 4c hexagons unused",
+    "deps": [
+     "E.enumeration",
+     "H.tight",
+     "H.incidence"
+    ],
+    "where": "r153/certs/adversarial_153.json"
+   },
+   "X.exclusion": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "an explicit exhaustion tree, validated without search, shows no c tau-orbits cover F for any witness (E1#0 295 nodes, E1#1 619 nodes, E2#0 385 nodes)",
+    "deps": [
+     "X.structure",
+     "A.orbitfive"
+    ],
+    "where": "r153/certs/covertree_153.txt"
+   },
+   "X.nolemmaE": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "the exclusion holds with every tau-orbit allowed as a circuit, so it does not rest on the round-148 restriction to orbits the chain avoids",
+    "deps": [
+     "X.exclusion"
+    ],
+    "where": "r153/certs/coexist_153.json"
+   },
+   "X.controls": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "each decision procedure answers YES on constructed instances that do have a cover, and reports the true minimum cover size on the very instances it rejects",
+    "deps": [
+     "X.exclusion"
+    ],
+    "where": "r153/certs/coexist_153.json"
+   },
+   "X.mutation": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "every invalid mutation of the equality/coexistence chain is refused, and the two checks that do the refusing are shown load-bearing",
+    "deps": [],
+    "where": "r153/certs/mutations_153.json"
+   },
+   "X.adversarial": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "the attempt to construct an escaping family fails; the smallest family of orbits covering F has 8 members against budgets 6 and 7",
+    "deps": [
+     "X.exclusion"
+    ],
+    "where": "r153/certs/adversarial_153.json"
+   },
+   "W.872": {
+    "status": "EXPLICIT_WITNESS",
+    "what": "data/verified_872_witness.txt is a word of length 872 over {1..6} containing all 720 permutations as windows",
+    "deps": [],
+    "where": "r153/src/witness872_153.py"
+   },
+   "T.ge872": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "L6 >= 872",
+    "deps": [
+     "C.census",
+     "E.enumeration",
+     "X.exclusion",
+     "X.nolemmaE",
+     "X.controls",
+     "X.mutation",
+     "X.adversarial",
+     "H.fixedrep",
+     "H.splice",
+     "H.master"
+    ],
+    "where": ""
+   },
+   "T.le872": {
+    "status": "EXPLICIT_WITNESS",
+    "what": "L6 <= 872",
+    "deps": [
+     "W.872"
+    ],
+    "where": ""
+   },
+   "T.eq872": {
+    "status": "CERTIFIED_MACHINE",
+    "what": "L6 = 872",
+    "deps": [
+     "T.ge872",
+     "T.le872"
+    ],
+    "where": ""
+   }
+  },
+  "top": "T.eq872",
+  "ancestors_on_path": 31,
+  "by_status": {
+   "AUDITED_HAND_PROOF": [
+    "H.catalogue",
+    "H.envelope",
+    "H.extract",
+    "H.feas",
+    "H.fixedrep",
+    "H.incidence",
+    "H.master",
+    "H.models",
+    "H.samehex",
+    "H.splice",
+    "H.tight",
+    "H.wlog"
+   ],
+   "CERTIFIED_MACHINE": [
+    "A.orbitfive",
+    "C.census",
+    "C.chaincaps",
+    "C.dag152",
+    "C.piececaps",
+    "E.enumeration",
+    "E.equivariance",
+    "T.eq872",
+    "T.ge872",
+    "X.adversarial",
+    "X.controls",
+    "X.exclusion",
+    "X.mutation",
+    "X.nolemmaE",
+    "X.structure"
+   ],
+   "EXPLICIT_WITNESS": [
+    "T.le872",
+    "W.872"
+   ],
+   "PROVEN_ANALYTIC": [
+    "A.hexcount",
+    "A.monotone"
+   ]
+  },
+  "forbidden_on_path": [],
+  "retracted_on_path": [],
+  "unresolved_on_path": [],
+  "theorem_path_clean": true
+ }
+}

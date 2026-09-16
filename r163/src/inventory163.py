@@ -214,6 +214,32 @@ def walk(dag, table):
                 dag_claims_theorem_path_clean=dag.get("theorem_path_clean"))
 
 
+def recheck_hidden(dag):
+    """Are the round-163 hidden-claim findings now stated in the current DAG?
+
+    hidden163.py measured them against r162/certs/dag_162.json, the state
+    BEFORE this round's repair.  Here the same patterns are re-tested against
+    whatever DAG is now authoritative.
+    """
+    cert = ROOT / "r163" / "certs" / "hidden_163.json"
+    if not cert.exists():
+        return None
+    h = json.loads(cert.read_text())
+    PAT = {"G<=5k": r"G\s*<=\s*5\s*k",
+           "G=2g+c+d": r"G\s*=\s*2\s*g\s*\+\s*c\s*\+\s*d",
+           "required=120+G-5c": r"120\s*\+\s*G\s*-\s*5\s*c|P\s*-\s*5c"}
+    blob = {k: f"{v.get('what')} {v.get('derived_from')}"
+            for k, v in dag["nodes"].items()}
+    out = {}
+    for name, rx in PAT.items():
+        owners = sorted(k for k, s in blob.items() if re.search(rx, s))
+        out[name] = dict(measured_surviving_rows_if_dropped=
+                         h["claims"][name].get("surviving"),
+                         was_unrepresented_before_repair=True,
+                         owners_now=owners, now_represented=bool(owners))
+    return out
+
+
 def main():
     lin = lineage()
     auth = lin["authoritative"]
@@ -239,8 +265,13 @@ def main():
         lineage=lin, nodes=table,
         provenance=provenance(table),
         deps_semantics=deps_semantics(table),
-        walk=walk(dag, table))
+        walk=walk(dag, table),
+        hidden_claim_recheck=recheck_hidden(dag))
+    hr = out["hidden_claim_recheck"] or {}
+    out["hidden_claims_still_unrepresented"] = sorted(
+        k for k, v in hr.items() if not v["now_represented"])
     out["ok"] = (out["node_count"] == out["theorem_path_node_count"]
+                 and not out["hidden_claims_still_unrepresented"]
                  and not out["walk"]["sources_with_a_bad_label"]
                  and not out["walk"]["forbidden_or_unresolved_nodes"]
                  and not lin["chain_breaks"])
@@ -253,6 +284,11 @@ def main():
     brief["chain"] = lin["chain_newest_first"]
     brief["chain_breaks"] = lin["chain_breaks"]
     brief["rounds_without_a_dag_revision"] = lin["rounds_without_a_dag_revision"]
+    brief["hidden_claim_recheck"] = out["hidden_claim_recheck"]
+    brief["provenance_defects"] = sorted(
+        k for k, v in out["provenance"].items()
+        if v["where_is_prose_only"] or not v["where_all_exist"]
+        or v["what_is_placeholder"] or not v["derived_from_present"])
     print(json.dumps(brief, ensure_ascii=False, indent=1))
     return 0
 

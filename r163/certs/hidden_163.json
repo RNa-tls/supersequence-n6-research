@@ -1,0 +1,505 @@
+{
+ "seconds": 177.9,
+ "certified_chain_cells": 1101,
+ "certified_piece_cells": 220,
+ "baseline": {
+  "rows": 1609,
+  "STRICTLY_CLOSED": 1607,
+  "EQUALITY": 2
+ },
+ "baseline_per_layer": {
+  "L867": {
+   "rows": 1,
+   "tally": {
+    "STRICTLY_CLOSED": 1
+   },
+   "closed_by": {
+    "piece": 1
+   }
+  },
+  "L868": {
+   "rows": 14,
+   "tally": {
+    "STRICTLY_CLOSED": 14
+   },
+   "closed_by": {
+    "split": 4,
+    "piece": 10
+   }
+  },
+  "L869": {
+   "rows": 85,
+   "tally": {
+    "STRICTLY_CLOSED": 85
+   },
+   "closed_by": {
+    "split": 42,
+    "merged": 1,
+    "piece": 42
+   }
+  },
+  "L870": {
+   "rows": 353,
+   "tally": {
+    "STRICTLY_CLOSED": 353
+   },
+   "closed_by": {
+    "split": 202,
+    "merged": 19,
+    "piece": 132
+   }
+  },
+  "L871": {
+   "rows": 1156,
+   "tally": {
+    "STRICTLY_CLOSED": 1154,
+    "EQUALITY": 2
+   },
+   "closed_by": {
+    "piece": 381,
+    "merged": 122,
+    "split": 651
+   }
+  }
+ },
+ "baseline_reproduces_stored_census": true,
+ "claims": {
+  "G<=5k": {
+   "enforced_at": "r152/src/rows152.py:47-49",
+   "expected_owner": "H.models (r149 Lemma 1.1)",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [
+    "H.master"
+   ],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": false,
+   "rows": 3748,
+   "strictly_closed": 3368,
+   "equality": 48,
+   "surviving": 332,
+   "rows_reopened": 378,
+   "load_bearing": true
+  },
+  "G=2g+c+d": {
+   "enforced_at": "r152/src/rows152.py:50-52",
+   "expected_owner": "H.extract / H.incidence",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": false,
+   "rows": 50335,
+   "strictly_closed": 42403,
+   "equality": 84,
+   "surviving": 7848,
+   "rows_reopened": 7930,
+   "load_bearing": true
+  },
+  "sigma>=0": {
+   "enforced_at": "r152/src/rows152.py:61-63",
+   "expected_owner": "H.extract Claim 4",
+   "verdict": "INCONCLUSIVE_CLAMPED_RELAXATION",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.master"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1607,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "t=k+Z+H+B*": {
+   "enforced_at": "r152/src/rows152.py:55-59",
+   "expected_owner": "H.master",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.master"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 950,
+   "equality": 155,
+   "surviving": 504,
+   "rows_reopened": 657,
+   "load_bearing": true
+  },
+  "1<=h<=H": {
+   "enforced_at": "r152/src/rows152.py:58",
+   "expected_owner": "H.master (H is the COST)",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.master"
+   ],
+   "represented_in_dag": true,
+   "rows": 5034,
+   "strictly_closed": 4271,
+   "equality": 99,
+   "surviving": 664,
+   "rows_reopened": 761,
+   "load_bearing": true
+  },
+  "D2<=2g": {
+   "enforced_at": "r152/src/rows152.py:56",
+   "expected_owner": "H.samehex + H.incidence",
+   "verdict": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.samehex"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1607,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "D2>=0": {
+   "enforced_at": "r152/src/rows152.py:56",
+   "expected_owner": "H.envelope (Z = z - D2)",
+   "verdict": "INCONCLUSIVE_CLAMPED_RELAXATION",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope"
+   ],
+   "represented_in_dag": true,
+   "rows": 1806,
+   "strictly_closed": 1804,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "Qs<=Z": {
+   "enforced_at": "r152/src/rows152.py:60",
+   "expected_owner": "H.samehex",
+   "verdict": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.samehex"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1607,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "Qs<=2g-D2": {
+   "enforced_at": "r152/src/rows152.py:60",
+   "expected_owner": "H.samehex + H.incidence",
+   "verdict": "NOT_LOAD_BEARING_ALONE",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.samehex"
+   ],
+   "represented_in_dag": true,
+   "rows": 1964,
+   "strictly_closed": 1962,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "required=120+G-5c": {
+   "enforced_at": "r152/src/rows152.py:69",
+   "expected_owner": "H.extract Claim 1",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": false,
+   "rows": 1609,
+   "strictly_closed": 1572,
+   "equality": 29,
+   "surviving": 8,
+   "rows_reopened": 35,
+   "load_bearing": true
+  },
+  "a<=D2": {
+   "enforced_at": "r152/src/rows152.py:212",
+   "expected_owner": "H.envelope",
+   "verdict": "NOT_LOAD_BEARING_ALONE",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1607,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "bb<=Qs": {
+   "enforced_at": "r152/src/rows152.py:212",
+   "expected_owner": "H.envelope",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1079,
+   "equality": 95,
+   "surviving": 435,
+   "rows_reopened": 528,
+   "load_bearing": true
+  },
+  "e<=Z-Qs": {
+   "enforced_at": "r152/src/rows152.py:213",
+   "expected_owner": "H.envelope",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1079,
+   "equality": 95,
+   "surviving": 435,
+   "rows_reopened": 528,
+   "load_bearing": true
+  },
+  "a+bb+e<=2g": {
+   "enforced_at": "r152/src/rows152.py:210",
+   "expected_owner": "H.extract (5) + H.incidence",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope",
+    "H.master",
+    "H.samehex"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1589,
+   "equality": 2,
+   "surviving": 18,
+   "rows_reopened": 18,
+   "load_bearing": true
+  },
+  "a>=D2-d": {
+   "enforced_at": "r152/src/rows152.py:176",
+   "expected_owner": "H.envelope (piece LOWER)",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1560,
+   "equality": 17,
+   "surviving": 32,
+   "rows_reopened": 47,
+   "load_bearing": true
+  },
+  "a+bb>=D2+Qs-d": {
+   "enforced_at": "r152/src/rows152.py:179",
+   "expected_owner": "H.envelope (piece LOWER)",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.envelope"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1603,
+   "equality": 4,
+   "surviving": 2,
+   "rows_reopened": 4,
+   "load_bearing": true
+  },
+  "sigma<=B*": {
+   "enforced_at": "r152/src/rows152.py:60",
+   "expected_owner": "H.extract Claim 4",
+   "verdict": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": false,
+   "rows": 1609,
+   "strictly_closed": 1607,
+   "equality": 2,
+   "surviving": 0,
+   "rows_reopened": 0,
+   "load_bearing": false
+  },
+  "model:piece": {
+   "enforced_at": "r152/src/rows152.py:204",
+   "expected_owner": "H.models + C.piececaps",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "A.hexcount",
+    "C.piececaps",
+    "H.envelope",
+    "H.models"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1524,
+   "equality": 32,
+   "surviving": 53,
+   "rows_reopened": 83,
+   "load_bearing": true
+  },
+  "model:split": {
+   "enforced_at": "r152/src/rows152.py:205",
+   "expected_owner": "H.models + C.chaincaps",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.models"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1138,
+   "equality": 32,
+   "surviving": 439,
+   "rows_reopened": 469,
+   "load_bearing": true
+  },
+  "model:merged": {
+   "enforced_at": "r152/src/rows152.py:217",
+   "expected_owner": "H.models + C.chaincaps",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [
+    "H.models"
+   ],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1582,
+   "equality": 24,
+   "surviving": 3,
+   "rows_reopened": 25,
+   "load_bearing": true
+  },
+  "bundle:samehex+incidence row budget": {
+   "enforced_at": "r152/src/rows152.py:56+r152/src/rows152.py:60+r152/src/rows152.py:60",
+   "expected_owner": "H.samehex+H.samehex + H.incidence",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": true,
+   "rows": 100424,
+   "strictly_closed": 83780,
+   "equality": 269,
+   "surviving": 16375,
+   "rows_reopened": 16642,
+   "load_bearing": true
+  },
+  "bundle:Qs caps": {
+   "enforced_at": "r152/src/rows152.py:60+r152/src/rows152.py:60",
+   "expected_owner": "H.samehex+H.samehex + H.incidence",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": true,
+   "rows": 24822,
+   "strictly_closed": 24743,
+   "equality": 11,
+   "surviving": 68,
+   "rows_reopened": 77,
+   "load_bearing": true
+  },
+  "bundle:envelope upper bounds": {
+   "enforced_at": "r152/src/rows152.py:212+r152/src/rows152.py:212+r152/src/rows152.py:213",
+   "expected_owner": "H.envelope",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1079,
+   "equality": 95,
+   "surviving": 435,
+   "rows_reopened": 528,
+   "load_bearing": true
+  },
+  "bundle:piece lower bounds": {
+   "enforced_at": "r152/src/rows152.py:176+r152/src/rows152.py:179",
+   "expected_owner": "H.envelope (piece LOWER)",
+   "verdict": "LOAD_BEARING",
+   "dag_nodes_stating_an_equivalent_form": [],
+   "dag_nodes_whose_text_states_it": [],
+   "represented_in_dag": true,
+   "rows": 1609,
+   "strictly_closed": 1560,
+   "equality": 17,
+   "surviving": 32,
+   "rows_reopened": 47,
+   "load_bearing": true
+  }
+ },
+ "load_bearing_claims": [
+  "1<=h<=H",
+  "G<=5k",
+  "G=2g+c+d",
+  "a+bb+e<=2g",
+  "a+bb>=D2+Qs-d",
+  "a>=D2-d",
+  "bb<=Qs",
+  "bundle:Qs caps",
+  "bundle:envelope upper bounds",
+  "bundle:piece lower bounds",
+  "bundle:samehex+incidence row budget",
+  "e<=Z-Qs",
+  "model:merged",
+  "model:piece",
+  "model:split",
+  "required=120+G-5c",
+  "t=k+Z+H+B*"
+ ],
+ "not_load_bearing_here": [
+  "D2<=2g",
+  "D2>=0",
+  "Qs<=2g-D2",
+  "Qs<=Z",
+  "a<=D2",
+  "sigma<=B*",
+  "sigma>=0"
+ ],
+ "load_bearing_but_unrepresented": [
+  "G=2g+c+d",
+  "required=120+G-5c"
+ ],
+ "load_bearing_only_in_an_equivalent_form": [
+  "G<=5k"
+ ],
+ "verdicts": {
+  "G<=5k": "LOAD_BEARING",
+  "G=2g+c+d": "LOAD_BEARING",
+  "sigma>=0": "INCONCLUSIVE_CLAMPED_RELAXATION",
+  "t=k+Z+H+B*": "LOAD_BEARING",
+  "1<=h<=H": "LOAD_BEARING",
+  "D2<=2g": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+  "D2>=0": "INCONCLUSIVE_CLAMPED_RELAXATION",
+  "Qs<=Z": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+  "Qs<=2g-D2": "NOT_LOAD_BEARING_ALONE",
+  "required=120+G-5c": "LOAD_BEARING",
+  "a<=D2": "NOT_LOAD_BEARING_ALONE",
+  "bb<=Qs": "LOAD_BEARING",
+  "e<=Z-Qs": "LOAD_BEARING",
+  "a+bb+e<=2g": "LOAD_BEARING",
+  "a>=D2-d": "LOAD_BEARING",
+  "a+bb>=D2+Qs-d": "LOAD_BEARING",
+  "sigma<=B*": "MASKED_BY_A_NEIGHBOURING_CONSTRAINT",
+  "model:piece": "LOAD_BEARING",
+  "model:split": "LOAD_BEARING",
+  "model:merged": "LOAD_BEARING",
+  "bundle:samehex+incidence row budget": "LOAD_BEARING",
+  "bundle:Qs caps": "LOAD_BEARING",
+  "bundle:envelope upper bounds": "LOAD_BEARING",
+  "bundle:piece lower bounds": "LOAD_BEARING"
+ },
+ "ok": true
+}
