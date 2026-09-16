@@ -338,8 +338,14 @@ def main():
     fo = feas_operational()
     out = dict(catalogue=cat, wlog=wl, feas_dual=fe, feas_operational=fo,
                ok=cat["ok"] and wl["ok"] and fe["ok"] and fo["ok"])
+    # Wall-clock timings make the certificate -- and every certificate that
+    # hashes it -- non-reproducible byte for byte.  They are reported on
+    # stdout and kept OUT of the stored file.
+    timings = {k: out[k].pop("seconds") for k in
+               ("catalogue", "wlog", "feas_dual", "feas_operational")}
     (ROOT / "r163" / "certs" / "recheck_163.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=1) + "\n")
+    print("seconds:", json.dumps(timings))
     print(json.dumps(out, ensure_ascii=False, indent=1)[:2600])
     return 0 if out["ok"] else 1
 

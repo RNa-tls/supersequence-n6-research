@@ -138,6 +138,11 @@ def sha(p):
 
 
 def commit_of(rel):
+    # This round's own artefacts are not yet committed when this runs, so
+    # their "last commit" is a moving target that would make the certificate
+    # non-reproducible.  They are labelled instead of dated.
+    if rel.startswith("r163/"):
+        return "(this round, round 163)"
     try:
         out = subprocess.run(["git", "log", "--format=%h %ad %s",
                               "--date=short", "-1", "--", rel],
