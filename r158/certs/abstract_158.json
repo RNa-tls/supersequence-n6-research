@@ -1,0 +1,219 @@
+{
+ "structural": [
+  {
+   "m": 1,
+   "cases": 2,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "cases": 40,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "cases": 996,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "cases": 30656,
+   "violations": 0,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "cases": 1125040,
+   "violations": 0,
+   "examples": []
+  }
+ ],
+ "arithmetic": [
+  {
+   "box": 4,
+   "cases": 3977,
+   "violations": 0,
+   "example": null
+  },
+  {
+   "box": 6,
+   "cases": 36079,
+   "violations": 0,
+   "example": null
+  },
+  {
+   "box": 8,
+   "cases": 201888,
+   "violations": 0,
+   "example": null
+  }
+ ],
+ "disjointness": [
+  {
+   "m": 1,
+   "cases": 1,
+   "violations": 0,
+   "with_adjacent_AB": 0,
+   "examples": []
+  },
+  {
+   "m": 2,
+   "cases": 4,
+   "violations": 0,
+   "with_adjacent_AB": 0,
+   "examples": []
+  },
+  {
+   "m": 3,
+   "cases": 17,
+   "violations": 0,
+   "with_adjacent_AB": 4,
+   "examples": []
+  },
+  {
+   "m": 4,
+   "cases": 77,
+   "violations": 0,
+   "with_adjacent_AB": 24,
+   "examples": []
+  },
+  {
+   "m": 5,
+   "cases": 372,
+   "violations": 0,
+   "with_adjacent_AB": 140,
+   "examples": []
+  },
+  {
+   "m": 6,
+   "cases": 1915,
+   "violations": 0,
+   "with_adjacent_AB": 792,
+   "examples": []
+  },
+  {
+   "m": 7,
+   "cases": 10481,
+   "violations": 0,
+   "with_adjacent_AB": 4608,
+   "examples": []
+  }
+ ],
+ "ablations": [
+  {
+   "dropped": "H1",
+   "cases": 23892,
+   "violations": 3224,
+   "which": {
+    "E3": 1168,
+    "E4": 3224
+   },
+   "example": {
+    "g": 0,
+    "d": 0,
+    "D2": 0,
+    "Qs": 0,
+    "Z": 0,
+    "R_int": 0,
+    "x": 0,
+    "y": 0,
+    "a": 0,
+    "bb": 0,
+    "e": 1,
+    "broke": [
+     "E3",
+     "E4"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "dropped": "H2",
+   "cases": 20561,
+   "violations": 6711,
+   "which": {
+    "E3": 2876,
+    "E4": 5523,
+    "Z0": 5845
+   },
+   "example": {
+    "g": 0,
+    "d": 0,
+    "D2": 0,
+    "Qs": 0,
+    "Z": 0,
+    "R_int": 1,
+    "x": 0,
+    "y": 0,
+    "a": 0,
+    "bb": 0,
+    "e": 1,
+    "broke": [
+     "E3",
+     "E4"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "dropped": "H3",
+   "cases": 18402,
+   "violations": 6060,
+   "which": {
+    "L2": 6060,
+    "E3": 544,
+    "L1": 3030
+   },
+   "example": {
+    "g": 1,
+    "d": 0,
+    "D2": 0,
+    "Qs": 1,
+    "Z": 2,
+    "R_int": 1,
+    "x": 0,
+    "y": 1,
+    "a": 0,
+    "bb": 0,
+    "e": 0,
+    "broke": [
+     "L2"
+    ]
+   },
+   "as_expected": true
+  },
+  {
+   "dropped": "H5",
+   "cases": 23748,
+   "violations": 2756,
+   "which": {
+    "Z0": 2756
+   },
+   "example": {
+    "g": 0,
+    "d": 1,
+    "D2": 0,
+    "Qs": 1,
+    "Z": 1,
+    "R_int": 0,
+    "x": 0,
+    "y": 1,
+    "a": 0,
+    "bb": 0,
+    "e": 0,
+    "broke": [
+     "Z0"
+    ]
+   },
+   "as_expected": true
+  }
+ ],
+ "seconds": 4.2,
+ "structural_cases": 1156734,
+ "disjointness_cases": 12867,
+ "arithmetic_cases": 241944,
+ "ok": true
+}

@@ -1,0 +1,143 @@
+{
+ "seconds": 22.0,
+ "baseline": {
+  "rows": 1609,
+  "closed": 1607,
+  "equality": 2
+ },
+ "sensitivity": {
+  "a_budget_minus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1607,
+    "equality": 2
+   },
+   "extra_rows_closed": 0,
+   "rows_no_longer_closed": 0
+  },
+  "bb_budget_minus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1607,
+    "equality": 2
+   },
+   "extra_rows_closed": 0,
+   "rows_no_longer_closed": 0
+  },
+  "e_budget_minus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1607,
+    "equality": 2
+   },
+   "extra_rows_closed": 0,
+   "rows_no_longer_closed": 0
+  },
+  "total_2g_minus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1607,
+    "equality": 2
+   },
+   "extra_rows_closed": 0,
+   "rows_no_longer_closed": 0
+  },
+  "piece_nA_plus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1608,
+    "equality": 1
+   },
+   "extra_rows_closed": 1,
+   "rows_no_longer_closed": 0
+  },
+  "piece_m_lo_plus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1608,
+    "equality": 1
+   },
+   "extra_rows_closed": 1,
+   "rows_no_longer_closed": 0
+  },
+  "a_budget_plus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1607,
+    "equality": 2
+   },
+   "extra_rows_closed": 0,
+   "rows_no_longer_closed": 0
+  },
+  "bb_budget_plus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1323,
+    "equality": 69,
+    "surviving": 217
+   },
+   "extra_rows_closed": -284,
+   "rows_no_longer_closed": 284
+  },
+  "e_budget_plus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1307,
+    "equality": 64,
+    "surviving": 238
+   },
+   "extra_rows_closed": -300,
+   "rows_no_longer_closed": 300
+  },
+  "total_2g_plus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1589,
+    "surviving": 18,
+    "equality": 2
+   },
+   "extra_rows_closed": -18,
+   "rows_no_longer_closed": 18
+  },
+  "piece_nA_minus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1606,
+    "equality": 3
+   },
+   "extra_rows_closed": -1,
+   "rows_no_longer_closed": 1
+  },
+  "piece_m_lo_minus_1": {
+   "census": {
+    "rows": 1609,
+    "closed": 1607,
+    "equality": 2
+   },
+   "extra_rows_closed": 0,
+   "rows_no_longer_closed": 0
+  }
+ },
+ "monotonicity": {
+  "upper_comparisons": {
+   "a": 150,
+   "e": 150,
+   "tot": 150
+  },
+  "upper_violations": [],
+  "upper_ok": true,
+  "piece_comparisons": {
+   "nmark": 270
+  },
+  "piece_violations": [],
+  "piece_ok": true
+ },
+ "heavy_h_vs_H": {
+  "merged_sixth_argument": "r[\"H\"]  (heavy COST sum(w-3))",
+  "r148_bug": "r148/src/rows148.py passed r[\"h\"] (heavy COUNT); 1 <= h <= H so the budget was too SMALL, the capacity too small and the bound too small -- it closed rows it should not have",
+  "repaired_in": "r152/src/heavyfix152.py, r152/src/rows152.py",
+  "envelope_mentions_h_or_H": false,
+  "note": "a <= D2, bb <= Qs, e <= Z-Qs and a+bb+e <= 2g contain neither h nor H; the only heaviness the envelope proof uses is the per-joint predicate weight >= 4, which is what decides whether a joint is CUT, and A/B joints have weights 2 and 3 so they are never heavy.  No h/H quantity enters."
+ },
+ "ok": true
+}

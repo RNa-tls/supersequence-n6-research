@@ -1,0 +1,56 @@
+{
+ "r156_theorem_sha256": "78ad658b0ca1aaa4024c1e5794d0cbd47134c3be60b85171911b3ddc0081e784",
+ "r156_verdict": "H_EXTRACT_PARTIAL",
+ "r156_verdict_scope": "the PARTIAL verdict concerns the cut recipe as WRITTEN in src/l6_extraction_145.py and r149/PROOF.md, not clauses (5) and (7) of r156/THEOREM.md, which are proved and exhaustively verified there",
+ "envelope_inequalities": [
+  {
+   "ineq": "(1)  a <= D2",
+   "r156_clause": "(7)",
+   "quote": "`a := sum a_i <= D2`",
+   "classification": "IDENTICAL_TO_R156",
+   "note": "verbatim clause of r156/THEOREM.md (7)",
+   "quote_present_in_r156_THEOREM": true
+  },
+  {
+   "ineq": "(2)  bb <= Qs",
+   "r156_clause": "(7)",
+   "quote": "`bb := sum bb_i <= Qs`",
+   "classification": "IDENTICAL_TO_R156",
+   "note": "verbatim clause of r156/THEOREM.md (7)",
+   "quote_present_in_r156_THEOREM": true
+  },
+  {
+   "ineq": "(3)  e <= Z - Qs",
+   "r156_clause": "(7)",
+   "quote": "`e := sum e_i <= Z - Qs`",
+   "classification": "IDENTICAL_TO_R156",
+   "note": "verbatim clause of r156/THEOREM.md (7); the corrected derivation (cut A/B are openings only, openings number d) is given there and re-proved independently in round 158",
+   "quote_present_in_r156_THEOREM": true
+  },
+  {
+   "ineq": "(4)  a + bb + e <= 2g",
+   "r156_clause": "(5)",
+   "quote": "`sum (a+bb+e) <= R_int <= 2g`",
+   "classification": "STRICTLY_WEAKER_THAN_R156",
+   "note": "r156 (5) proves the exact form a+bb+e = rep <= R_int and then R_int <= 2g, so the node's (4) is the weaker consequence",
+   "quote_present_in_r156_THEOREM": true
+  }
+ ],
+ "additional_inequalities_consumed_by_the_census": [
+  {
+   "ineq": "(L1) a >= D2 - d",
+   "consumer": "piece model, nA = max(0, D2 - d) in r152/src/rows152.py::piece_bound and src/l6_coupled_144.py::evaluate_row",
+   "classification": "DIFFERENT_STATEMENT",
+   "note": "a LOWER bound; not stated in H.envelope's `what` nor in r156/THEOREM.md (7), but an immediate consequence of the identity a = D2 - x with x <= d that the proof of (7) establishes en route"
+  },
+  {
+   "ineq": "(L2) a + bb >= D2 + Qs - d",
+   "consumer": "piece model, m_lo = max(1, D2 + Qs - d + 1)",
+   "classification": "DIFFERENT_STATEMENT",
+   "note": "same source: a + bb = D2 + Qs - (x + y) and x + y <= d"
+  }
+ ],
+ "all_four_are_r156_corollaries": true,
+ "all_quotes_found": true,
+ "ok": true
+}
