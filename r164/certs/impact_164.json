@@ -1,0 +1,102 @@
+{
+ "geometry_diagnostic": {
+  "hexagon_classes_identical": true,
+  "orbit_classes_identical": true,
+  "clean_E_identical": 720,
+  "dirty_A_identical": 720,
+  "dirty_B_identical": 720,
+  "paid_sets_identical": 720,
+  "heavy_sets_identical": 720,
+  "move_sets_identical": 720,
+  "sources": 720,
+  "phase_is_a_bijection_per_orbit": true,
+  "all_identical": true
+ },
+ "route_comparison": {
+  "cells": 356,
+  "disagreements": [],
+  "tally": {
+   "AGREE (lower half only)": 282,
+   "ROUTE B SILENT (no witness stored)": 74
+  },
+  "capacity_value_disagreements": 0,
+  "note": "Route B established only the LOWER direction, so an 'AGREE' here is agreement on cap(K) >= C, not on the bound the census consumes"
+ },
+ "census_exposure": {
+  "baseline": {
+   "rows": 1609,
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "baseline_per_layer": {
+   "L867": {
+    "rows": 1,
+    "tally": {
+     "STRICTLY_CLOSED": 1
+    },
+    "closed_by": {
+     "piece": 1
+    }
+   },
+   "L868": {
+    "rows": 14,
+    "tally": {
+     "STRICTLY_CLOSED": 14
+    },
+    "closed_by": {
+     "split": 4,
+     "piece": 10
+    }
+   },
+   "L869": {
+    "rows": 85,
+    "tally": {
+     "STRICTLY_CLOSED": 85
+    },
+    "closed_by": {
+     "split": 42,
+     "merged": 1,
+     "piece": 42
+    }
+   },
+   "L870": {
+    "rows": 353,
+    "tally": {
+     "STRICTLY_CLOSED": 353
+    },
+    "closed_by": {
+     "split": 202,
+     "merged": 19,
+     "piece": 132
+    }
+   },
+   "L871": {
+    "rows": 1156,
+    "tally": {
+     "STRICTLY_CLOSED": 1154,
+     "EQUALITY": 2
+    },
+    "closed_by": {
+     "piece": 381,
+     "merged": 122,
+     "split": 651
+    }
+   }
+  },
+  "with_the_356_withdrawn": {
+   "rows": 1609,
+   "STRICTLY_CLOSED": 1426,
+   "EQUALITY": 51,
+   "SURVIVING": 132
+  },
+  "restored": {
+   "rows": 1609,
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "restore_is_clean": true,
+  "rows_reopened": 181,
+  "reading": "every row that re-opens when the 356 cells are withdrawn is a row whose closure rests on a capacity value that only one implementation has ever checked"
+ },
+ "ok": true
+}
