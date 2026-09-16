@@ -1,0 +1,1028 @@
+{
+ "branch": "round153-equality-coexistence",
+ "head": "06c9ade0f83211488e523ea677dd0f6ef6e8b808",
+ "git_dirty": true,
+ "dag_path": "r162/certs/dag_162.json",
+ "dag_sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+ "node_count": 31,
+ "theorem_path_node_count": 31,
+ "theorem_path_nodes": [
+  "A.hexcount",
+  "A.monotone",
+  "A.orbitfive",
+  "C.census",
+  "C.chaincaps",
+  "C.dag152",
+  "C.piececaps",
+  "E.enumeration",
+  "E.equivariance",
+  "H.catalogue",
+  "H.envelope",
+  "H.extract",
+  "H.feas",
+  "H.fixedrep",
+  "H.incidence",
+  "H.master",
+  "H.models",
+  "H.samehex",
+  "H.splice",
+  "H.tight",
+  "H.wlog",
+  "T.eq872",
+  "T.ge872",
+  "T.le872",
+  "W.872",
+  "X.adversarial",
+  "X.controls",
+  "X.exclusion",
+  "X.mutation",
+  "X.nolemmaE",
+  "X.structure"
+ ],
+ "off_path_nodes": [],
+ "status_counts": {
+  "AUDITED_HAND_PROOF": 12,
+  "CERTIFIED_MACHINE": 15,
+  "EXPLICIT_WITNESS": 2,
+  "PROVEN_ANALYTIC": 2
+ },
+ "hand_proof_nodes": [
+  "H.catalogue",
+  "H.envelope",
+  "H.extract",
+  "H.feas",
+  "H.fixedrep",
+  "H.incidence",
+  "H.master",
+  "H.models",
+  "H.samehex",
+  "H.splice",
+  "H.tight",
+  "H.wlog"
+ ],
+ "lineage": {
+  "all_dag_files": {
+   "r147/certs/dag_147.json": {
+    "sha256": "69339b12fbd2b31c274a698acfb561e5b301d6a6acc56367689327aaa1c61334",
+    "supersedes": null,
+    "source_sha256": null,
+    "nodes": 0
+   },
+   "r148/certs/dag_148.json": {
+    "sha256": "cc3627ff0b65a730da661aa59eeaee6d30b0fdab0560463757ab438896153e19",
+    "supersedes": null,
+    "source_sha256": null,
+    "nodes": 0
+   },
+   "r149/certs/dag_149.json": {
+    "sha256": "074dcadf8c6d10db8313964b631044423bd27ec9d8114e1569fddd26d8b77945",
+    "supersedes": null,
+    "source_sha256": null,
+    "nodes": 0
+   },
+   "r152/certs/dag_152.json": {
+    "sha256": "3f588272769da656edac4b526e326f704a19a7215044ff6a854fade6ce951a0f",
+    "supersedes": null,
+    "source_sha256": null,
+    "nodes": 0
+   },
+   "r153/certs/dag_153.json": {
+    "sha256": "7cbb7a92c70672c1ca2febb20ed7d136c197eab284ff0501986b95641b2e2626",
+    "supersedes": null,
+    "source_sha256": null,
+    "nodes": 0
+   },
+   "r157/certs/dag_157.json": {
+    "sha256": "fa4964d827857b2366961d1d7c6d56b6bae85683e1b6ced44ee3cd5ea4634a4b",
+    "supersedes": "r153/certs/dag_153.json",
+    "source_sha256": "7cbb7a92c70672c1ca2febb20ed7d136c197eab284ff0501986b95641b2e2626",
+    "nodes": 31
+   },
+   "r158/certs/dag_158.json": {
+    "sha256": "03472d487d370c7b24e3fbe9b4355a693ca8f9f07053b98338fc8eeedef71404",
+    "supersedes": "r157/certs/dag_157.json",
+    "source_sha256": "fa4964d827857b2366961d1d7c6d56b6bae85683e1b6ced44ee3cd5ea4634a4b",
+    "nodes": 31
+   },
+   "r159/certs/dag_159.json": {
+    "sha256": "ffe721dffa880b625cef4c1e21311a90ba9fb04e8ec202960e73fe7b72f84153",
+    "supersedes": "r158/certs/dag_158.json",
+    "source_sha256": "03472d487d370c7b24e3fbe9b4355a693ca8f9f07053b98338fc8eeedef71404",
+    "nodes": 31
+   },
+   "r160/certs/dag_160.json": {
+    "sha256": "4660a319d0de371e8d3ebae5dd809d012fe5a95cd9f5cb0fa925bfcb2b393f84",
+    "supersedes": "r159/certs/dag_159.json",
+    "source_sha256": "ffe721dffa880b625cef4c1e21311a90ba9fb04e8ec202960e73fe7b72f84153",
+    "nodes": 31
+   },
+   "r161/certs/dag_161.json": {
+    "sha256": "0c570f8c6c876d0af809b1debffa657d6f18184404dc4977698484c8f80d2c6f",
+    "supersedes": "r160/certs/dag_160.json",
+    "source_sha256": "4660a319d0de371e8d3ebae5dd809d012fe5a95cd9f5cb0fa925bfcb2b393f84",
+    "nodes": 31
+   },
+   "r162/certs/dag_162.json": {
+    "sha256": "4c41bebfd346ac5073d1e371c9d10ac4210a3c98e42051e9c4a5f3b2500f7e29",
+    "supersedes": "r161/certs/dag_161.json",
+    "source_sha256": "0c570f8c6c876d0af809b1debffa657d6f18184404dc4977698484c8f80d2c6f",
+    "nodes": 31
+   }
+  },
+  "heads": [
+   "r147/certs/dag_147.json",
+   "r148/certs/dag_148.json",
+   "r149/certs/dag_149.json",
+   "r152/certs/dag_152.json",
+   "r162/certs/dag_162.json"
+  ],
+  "predate_supersedes_convention": [
+   "r147/certs/dag_147.json",
+   "r148/certs/dag_148.json",
+   "r149/certs/dag_149.json",
+   "r152/certs/dag_152.json",
+   "r153/certs/dag_153.json"
+  ],
+  "authoritative": "r162/certs/dag_162.json",
+  "chain_root": "r153/certs/dag_153.json",
+  "chain_newest_first": [
+   "r162/certs/dag_162.json",
+   "r161/certs/dag_161.json",
+   "r160/certs/dag_160.json",
+   "r159/certs/dag_159.json",
+   "r158/certs/dag_158.json",
+   "r157/certs/dag_157.json",
+   "r153/certs/dag_153.json"
+  ],
+  "chain_breaks": [],
+  "rounds_with_artefacts": [
+   "r147",
+   "r148",
+   "r149",
+   "r150",
+   "r152",
+   "r153",
+   "r154",
+   "r155",
+   "r156",
+   "r157",
+   "r158",
+   "r159",
+   "r160",
+   "r161",
+   "r162",
+   "r163"
+  ],
+  "rounds_without_a_dag_revision": [
+   "r150",
+   "r154",
+   "r155",
+   "r156",
+   "r163"
+  ]
+ },
+ "nodes": {
+  "H.fixedrep": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "the fixed-representative reduction: Phi(W) re-spells a cover at maximum overlap over its first-occurrence sequence and trims it; (L1) Phi(W) is a cover, (L2) |Phi(W)| <= |W_trim| <= |W|, (L3) equality forces W = Phi(W), (L4) hence every cover has a FIXED REPRESENTATIVE W* = Phi^m(W) with |W*| <= |W| within |W| - (n! + n - 1) non-fixed steps, and (L5) at a fixed point (a) W* is its own maximum-overlap spelling, (b) EVERY SELECTED GAP EQUALS omega, (c) every non-selected permutation window is a repeat strictly inside a connector interval, and W* is trimmed.  Corollary: a lower bound for all fixed representatives is a lower bound for all covers",
+   "where": "research/RR_L6_H_FIXEDREP_AUDIT.md (round 162); src/l6_fixed_representative_145.py lines 10-78",
+   "derived_from": "Phi is a REWRITING operator, not a group action: no relabelling, no rotation, no conjugation, and it may strictly shorten the word.  Nothing structural is preserved -- beta, nu, the pass decomposition and even the selected sequence may change -- because the only thing transferred is the LENGTH.  Clause L5(b) is the hypothesis of splice clause C3, the sole splice clause that needs it (round 161); L5(c) is used by H.samehex.  The proof uses NO splice lemma, so the dependence H.fixedrep -> C3 is one-way and not circular.  The left-S_n normalisation H.wlog acts on a different object and commutes with Phi: Phi(pi.W) = pi.Phi(W)",
+   "deps": [],
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "H.splice": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "successor splicing and the beta permutation, i.e. Lemmas A-F of src/l6_splicing_145.py: (A) the arcs of a hexagon partition it, every hexagon carries a pass, sum_h (m_h - 1) = G; (B) nu is a permutation whose cycles are the hexagons, c(nu) = n!/n; (C) the joint source is end(v_nu(i)) and the reassignment changes source, target, gap, spelling and hidden windows not at all, the reassigned edge being a shortest connector; (D) beta = T alpha^{-1} is a permutation with beta(nu(i)) = i+1 and c(alpha) = n!/n + 1; (E) a pure clean-E beta-cycle is exactly a complete tau-orbit of n-1 passes and no other pass lies in that orbit; (F) blocks = P - cleanE = S + 1 + D2, unchanged by deleting a pure circuit",
+   "where": "research/RR_L6_H_SPLICE_AUDIT.md (round 161); src/l6_splicing_145.py lines 16-66",
+   "derived_from": "A-F are proved at the `where` and re-proved clause by clause in round 161.  Hypotheses: A, B, D, E, F need only that W is a COVER; only clause C3 (shortest connector) uses the fixed-representative hypothesis gap = omega, which is a checkable property of the given word and not H.fixedrep's WLOG theorem.  Lemma F's count cleanE = P-1-S-D2 rests on the local fact that the only gap-2 targets out of end(v) are tau(v) and sigma(v), exhausted for n = 3..6.  The CONVERSE of Lemma E is false and is not used.  That a tau-orbit meets n-1 DISTINCT hexagons is the separate node A.orbitfive; round 161 supplies a one-line proof of it",
+   "deps": [],
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "H.master": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "MASTER-142 (this node): the IDENTITY L = 867 + k + Z + H + B*, an exact rearrangement of (FO) L = 844 + G + S + H via G = Z + D2 + c, O = 24 + k and B* = S + 1 + D2 - O + c.  General n: CONST(n) = n! + (n-1)! + (n-2)! + n - 3 (9, 33, 152, 867 for n = 3, 4, 5, 6).  The NONNEGATIVITY of the four terms is imported, not proved here",
+   "where": "research/RR_L6_H_MASTER_AUDIT.md (round 160); src/l6_master_identity_144.py; src/l6_cleanroom_146.py lines 255-270 (independent general-n derivation of the constant)",
+   "derived_from": "the identity is proved at the `where` and re-derived from the raw word in round 160.  k >= 0 needs G >= 0 [H.splice Lemma A] and (n-1)O >= P; Z >= 0 needs D2 + Qs <= R_int [H.samehex] and R_int <= 2g [H.incidence]; B* >= 0 needs B* = sum tok_i + sigma with both >= 0 [H.extract Claims 3, 4]; H >= 0 holds by definition.  H is the heavy COST sum (w-3)_+, never the heavy COUNT h",
+   "deps": [],
+   "direct_dependents": [
+    "C.census",
+    "T.ge872"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "H.incidence": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "K + R_int <= G + 1 with K = G + 1 (mod 2); equality iff the SIMPLE bipartite incidence graph B is a tree",
+   "where": "research/RR_L6_H_INCIDENCE_AUDIT.md (round 157); src/l6_incidence_144.py lines 1-35; src/l6_incidence_graph_146.py lines 9-56",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.census",
+    "X.structure"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "H.samehex": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "SAME-HEX (this node): D2 + Qs <= R_int.  Combined with H.incidence's R_int <= 2g this gives the corollary the row enumeration consumes, D2 + Qs <= 2g, hence D2 <= 2g, Qs <= min(Z, 2g - D2) and Z >= Qs >= 0",
+   "where": "research/RR_L6_H_SAMEHEX_AUDIT.md (round 159); src/l6_same_hex_145.py lines 7-47",
+   "derived_from": "the lower half D2 + Qs <= R_int is proved at the `where` and re-proved independently in round 159; the upper half R_int <= 2g is H.incidence (round 157) and is imported, not proved here.  It is NOT a corollary of the corrected Extraction Theorem: that theorem bounds the POST-CUT repeat count rep, and D2 + Qs > rep occurs on real covers",
+   "deps": [],
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "H.extract": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "the extraction bookkeeping",
+   "where": "src/l6_extraction_145.py",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "H.envelope": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "a <= D2, bb <= Qs, e <= Z - Qs, and a + bb + e = rep <= R_int <= 2g; plus the two LOWER bounds the piece model consumes, a >= D2 - d and a + bb >= D2 + Qs - d",
+   "where": "research/RR_L6_H_ENVELOPE_AUDIT.md (round 158); src/l6_envelope_146.py lines 6-33; r156/THEOREM.md clauses (5) and (7)",
+   "derived_from": "a corollary of r156/THEOREM.md (5) and (7); re-proved independently in round 158 from a = D2 - x, bb = Qs - y, x + y <= d together with rep <= R_int (r156 Claim 5), R_int <= 2g (H.incidence), D2 + Qs <= R_int (H.samehex) and z = 2g + d, Z = z - D2",
+   "deps": [],
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "H.models": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "the three upper-bound models and what each relaxes",
+   "where": "r149/PROOF.md",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "H.catalogue": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "the joint catalogue is complete and the charging rules are exhaustive",
+   "where": "r149/PROOF.md section 2",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps"
+   ],
+   "transitive_dependents": 12,
+   "on_theorem_path": true
+  },
+  "H.wlog": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "fixing the start word is WLOG: left S6 is transitive and the catalogue is equivariant",
+   "where": "r149/PROOF.md section 2.4",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps",
+    "E.equivariance"
+   ],
+   "transitive_dependents": 13,
+   "on_theorem_path": true
+  },
+  "H.feas": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "the feasibility prune removes no realisable continuation",
+   "where": "round 150 feasibility audit",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps",
+    "E.enumeration"
+   ],
+   "transitive_dependents": 12,
+   "on_theorem_path": true
+  },
+  "H.tight": {
+   "status": "AUDITED_HAND_PROOF",
+   "what": "at an equality row the incidence bound is tight, so the chain is hexagon-simple, all 120 hexagons are used, and the c pure circuits (complete tau-orbits) must cover the |F| = 4c unused ones",
+   "where": "research/RR_L6_PROOF_145_CLAUDE.md section 9",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "X.structure"
+   ],
+   "transitive_dependents": 7,
+   "on_theorem_path": true
+  },
+  "A.monotone": {
+   "status": "PROVEN_ANALYTIC",
+   "what": "(P1) capacity is monotone non-decreasing in every budget",
+   "where": "research/RR_L6_R147_SOUND_UB.md",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps"
+   ],
+   "transitive_dependents": 12,
+   "on_theorem_path": true
+  },
+  "A.hexcount": {
+   "status": "PROVEN_ANALYTIC",
+   "what": "(P2) cap(K) <= 120 + a + bb + e; a piece is hexagon-simple so it has at most 120 ports",
+   "where": "research/RR_L6_R147_SOUND_UB.md",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "C.chaincaps",
+    "C.piececaps",
+    "E.enumeration"
+   ],
+   "transitive_dependents": 12,
+   "on_theorem_path": true
+  },
+  "A.orbitfive": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "every tau-orbit meets exactly five hexagons (all 144 checked)",
+   "where": "r153/src/coexist153.py",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "X.exclusion"
+   ],
+   "transitive_dependents": 6,
+   "on_theorem_path": true
+  },
+  "C.chaincaps": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "1101 chain capacities independently certified, 0 not",
+   "where": "r152/certs/verify_all_c152.json",
+   "derived_from": null,
+   "deps": [
+    "A.monotone",
+    "A.hexcount",
+    "H.catalogue",
+    "H.wlog",
+    "H.feas"
+   ],
+   "direct_dependents": [
+    "C.census",
+    "C.dag152",
+    "E.enumeration"
+   ],
+   "transitive_dependents": 10,
+   "on_theorem_path": true
+  },
+  "C.piececaps": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "220 marked piece capacities independently certified, 0 not",
+   "where": "r152/certs/verify_piece_c152.json",
+   "derived_from": null,
+   "deps": [
+    "A.monotone",
+    "A.hexcount",
+    "H.catalogue",
+    "H.wlog",
+    "H.feas"
+   ],
+   "direct_dependents": [
+    "C.census",
+    "C.dag152"
+   ],
+   "transitive_dependents": 10,
+   "on_theorem_path": true
+  },
+  "C.dag152": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "the round-152 capacity DAG has no forbidden ancestor",
+   "where": "r152/certs/dag_152.json",
+   "derived_from": null,
+   "deps": [
+    "C.chaincaps",
+    "C.piececaps"
+   ],
+   "direct_dependents": [
+    "C.census"
+   ],
+   "transitive_dependents": 9,
+   "on_theorem_path": true
+  },
+  "C.census": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "the certified-only census: {\"L867\": {\"STRICTLY_CLOSED\": 1}, \"L868\": {\"STRICTLY_CLOSED\": 14}, \"L869\": {\"STRICTLY_CLOSED\": 85}, \"L870\": {\"STRICTLY_CLOSED\": 353}, \"L871\": {\"STRICTLY_CLOSED\": 1154, \"EQUALITY\": 2}}",
+   "where": "r152/certs/census_152.json",
+   "derived_from": null,
+   "deps": [
+    "C.chaincaps",
+    "C.piececaps",
+    "C.dag152",
+    "H.master",
+    "H.incidence",
+    "H.samehex",
+    "H.extract",
+    "H.envelope",
+    "H.models"
+   ],
+   "direct_dependents": [
+    "E.enumeration",
+    "T.ge872"
+   ],
+   "transitive_dependents": 8,
+   "on_theorem_path": true
+  },
+  "E.equivariance": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "left S6 commutes with the whole catalogue: 518400 pairs, 0 violations",
+   "where": "r153/src/eqcompare153.py",
+   "derived_from": null,
+   "deps": [
+    "H.wlog"
+   ],
+   "direct_dependents": [
+    "E.enumeration"
+   ],
+   "transitive_dependents": 8,
+   "on_theorem_path": true
+  },
+  "E.enumeration": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "every capacity-attaining walk enumerated five ways with identical raw and canonical sets: E1 2 witnesses / 2 classes, E2 1 witnesses / 1 classes",
+   "where": "r153/certs/eqcompare_153.json",
+   "derived_from": null,
+   "deps": [
+    "C.chaincaps",
+    "C.census",
+    "E.equivariance",
+    "A.hexcount",
+    "H.feas"
+   ],
+   "direct_dependents": [
+    "T.ge872",
+    "X.structure"
+   ],
+   "transitive_dependents": 7,
+   "on_theorem_path": true
+  },
+  "X.structure": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "each witness is hexagon-simple and leaves |F| = 4c hexagons unused",
+   "where": "r153/certs/adversarial_153.json",
+   "derived_from": null,
+   "deps": [
+    "E.enumeration",
+    "H.tight",
+    "H.incidence"
+   ],
+   "direct_dependents": [
+    "X.exclusion"
+   ],
+   "transitive_dependents": 6,
+   "on_theorem_path": true
+  },
+  "X.exclusion": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "an explicit exhaustion tree, validated without search, shows no c tau-orbits cover F for any witness (E1#0 295 nodes, E1#1 619 nodes, E2#0 385 nodes)",
+   "where": "r153/certs/covertree_153.txt",
+   "derived_from": null,
+   "deps": [
+    "X.structure",
+    "A.orbitfive"
+   ],
+   "direct_dependents": [
+    "T.ge872",
+    "X.adversarial",
+    "X.controls",
+    "X.nolemmaE"
+   ],
+   "transitive_dependents": 5,
+   "on_theorem_path": true
+  },
+  "X.nolemmaE": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "the exclusion holds with every tau-orbit allowed as a circuit, so it does not rest on the round-148 restriction to orbits the chain avoids",
+   "where": "r153/certs/coexist_153.json",
+   "derived_from": null,
+   "deps": [
+    "X.exclusion"
+   ],
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "X.controls": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "each decision procedure answers YES on constructed instances that do have a cover, and reports the true minimum cover size on the very instances it rejects",
+   "where": "r153/certs/coexist_153.json",
+   "derived_from": null,
+   "deps": [
+    "X.exclusion"
+   ],
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "X.mutation": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "every invalid mutation of the equality/coexistence chain is refused, and the two checks that do the refusing are shown load-bearing",
+   "where": "r153/certs/mutations_153.json",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "X.adversarial": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "the attempt to construct an escaping family fails; the smallest family of orbits covering F has 8 members against budgets 6 and 7",
+   "where": "r153/certs/adversarial_153.json",
+   "derived_from": null,
+   "deps": [
+    "X.exclusion"
+   ],
+   "direct_dependents": [
+    "T.ge872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "W.872": {
+   "status": "EXPLICIT_WITNESS",
+   "what": "data/verified_872_witness.txt is a word of length 872 over {1..6} containing all 720 permutations as windows",
+   "where": "r153/src/witness872_153.py",
+   "derived_from": null,
+   "deps": [],
+   "direct_dependents": [
+    "T.le872"
+   ],
+   "transitive_dependents": 2,
+   "on_theorem_path": true
+  },
+  "T.ge872": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "L6 >= 872",
+   "where": "",
+   "derived_from": null,
+   "deps": [
+    "C.census",
+    "E.enumeration",
+    "X.exclusion",
+    "X.nolemmaE",
+    "X.controls",
+    "X.mutation",
+    "X.adversarial",
+    "H.fixedrep",
+    "H.splice",
+    "H.master"
+   ],
+   "direct_dependents": [
+    "T.eq872"
+   ],
+   "transitive_dependents": 1,
+   "on_theorem_path": true
+  },
+  "T.le872": {
+   "status": "EXPLICIT_WITNESS",
+   "what": "L6 <= 872",
+   "where": "",
+   "derived_from": null,
+   "deps": [
+    "W.872"
+   ],
+   "direct_dependents": [
+    "T.eq872"
+   ],
+   "transitive_dependents": 1,
+   "on_theorem_path": true
+  },
+  "T.eq872": {
+   "status": "CERTIFIED_MACHINE",
+   "what": "L6 = 872",
+   "where": "",
+   "derived_from": null,
+   "deps": [
+    "T.ge872",
+    "T.le872"
+   ],
+   "direct_dependents": [],
+   "transitive_dependents": 0,
+   "on_theorem_path": true
+  }
+ },
+ "provenance": {
+  "H.fixedrep": {
+   "where": "research/RR_L6_H_FIXEDREP_AUDIT.md (round 162); src/l6_fixed_representative_145.py lines 10-78",
+   "where_paths": {
+    "research/RR_L6_H_FIXEDREP_AUDIT.md": true,
+    "src/l6_fixed_representative_145.py": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": true,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_FIXEDREP_AUDIT.md": {
+     "names_node": true,
+     "size": 688
+    },
+    "src/l6_fixed_representative_145.py": {
+     "names_node": false,
+     "size": 325
+    }
+   }
+  },
+  "H.splice": {
+   "where": "research/RR_L6_H_SPLICE_AUDIT.md (round 161); src/l6_splicing_145.py lines 16-66",
+   "where_paths": {
+    "research/RR_L6_H_SPLICE_AUDIT.md": true,
+    "src/l6_splicing_145.py": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": true,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_SPLICE_AUDIT.md": {
+     "names_node": true,
+     "size": 603
+    },
+    "src/l6_splicing_145.py": {
+     "names_node": false,
+     "size": 388
+    }
+   }
+  },
+  "H.master": {
+   "where": "research/RR_L6_H_MASTER_AUDIT.md (round 160); src/l6_master_identity_144.py; src/l6_cleanroom_146.py lines 255-270 (independent general-n derivation of the constant)",
+   "where_paths": {
+    "research/RR_L6_H_MASTER_AUDIT.md": true,
+    "src/l6_master_identity_144.py": true,
+    "src/l6_cleanroom_146.py": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": true,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_MASTER_AUDIT.md": {
+     "names_node": true,
+     "size": 584
+    },
+    "src/l6_master_identity_144.py": {
+     "names_node": false,
+     "size": 107
+    },
+    "src/l6_cleanroom_146.py": {
+     "names_node": false,
+     "size": 330
+    }
+   }
+  },
+  "H.incidence": {
+   "where": "research/RR_L6_H_INCIDENCE_AUDIT.md (round 157); src/l6_incidence_144.py lines 1-35; src/l6_incidence_graph_146.py lines 9-56",
+   "where_paths": {
+    "research/RR_L6_H_INCIDENCE_AUDIT.md": true,
+    "src/l6_incidence_144.py": true,
+    "src/l6_incidence_graph_146.py": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_INCIDENCE_AUDIT.md": {
+     "names_node": true,
+     "size": 588
+    },
+    "src/l6_incidence_144.py": {
+     "names_node": false,
+     "size": 128
+    },
+    "src/l6_incidence_graph_146.py": {
+     "names_node": false,
+     "size": 259
+    }
+   }
+  },
+  "H.samehex": {
+   "where": "research/RR_L6_H_SAMEHEX_AUDIT.md (round 159); src/l6_same_hex_145.py lines 7-47",
+   "where_paths": {
+    "research/RR_L6_H_SAMEHEX_AUDIT.md": true,
+    "src/l6_same_hex_145.py": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": true,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_SAMEHEX_AUDIT.md": {
+     "names_node": true,
+     "size": 516
+    },
+    "src/l6_same_hex_145.py": {
+     "names_node": false,
+     "size": 168
+    }
+   }
+  },
+  "H.extract": {
+   "where": "src/l6_extraction_145.py",
+   "where_paths": {
+    "src/l6_extraction_145.py": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": true,
+   "cited_docs": {
+    "src/l6_extraction_145.py": {
+     "names_node": false,
+     "size": 307
+    }
+   }
+  },
+  "H.envelope": {
+   "where": "research/RR_L6_H_ENVELOPE_AUDIT.md (round 158); src/l6_envelope_146.py lines 6-33; r156/THEOREM.md clauses (5) and (7)",
+   "where_paths": {
+    "research/RR_L6_H_ENVELOPE_AUDIT.md": true,
+    "src/l6_envelope_146.py": true,
+    "r156/THEOREM.md": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": true,
+   "derived_from_paths": {
+    "r156/THEOREM.md": true
+   },
+   "derived_from_all_exist": true,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_H_ENVELOPE_AUDIT.md": {
+     "names_node": true,
+     "size": 576
+    },
+    "src/l6_envelope_146.py": {
+     "names_node": false,
+     "size": 321
+    },
+    "r156/THEOREM.md": {
+     "names_node": false,
+     "size": 249
+    }
+   }
+  },
+  "H.models": {
+   "where": "r149/PROOF.md",
+   "where_paths": {
+    "r149/PROOF.md": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "r149/PROOF.md": {
+     "names_node": true,
+     "size": 513
+    }
+   }
+  },
+  "H.catalogue": {
+   "where": "r149/PROOF.md section 2",
+   "where_paths": {
+    "r149/PROOF.md": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "r149/PROOF.md": {
+     "names_node": false,
+     "size": 513
+    }
+   }
+  },
+  "H.wlog": {
+   "where": "r149/PROOF.md section 2.4",
+   "where_paths": {
+    "r149/PROOF.md": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "r149/PROOF.md": {
+     "names_node": false,
+     "size": 513
+    }
+   }
+  },
+  "H.feas": {
+   "where": "round 150 feasibility audit",
+   "where_paths": {},
+   "where_is_prose_only": true,
+   "where_all_exist": false,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {}
+  },
+  "H.tight": {
+   "where": "research/RR_L6_PROOF_145_CLAUDE.md section 9",
+   "where_paths": {
+    "research/RR_L6_PROOF_145_CLAUDE.md": true
+   },
+   "where_is_prose_only": false,
+   "where_all_exist": true,
+   "derived_from_present": false,
+   "derived_from_paths": {},
+   "derived_from_all_exist": null,
+   "what_is_placeholder": false,
+   "cited_docs": {
+    "research/RR_L6_PROOF_145_CLAUDE.md": {
+     "names_node": false,
+     "size": 345
+    }
+   }
+  }
+ },
+ "deps_semantics": {
+  "hand_nodes": 12,
+  "hand_with_empty_deps": [
+   "H.catalogue",
+   "H.envelope",
+   "H.extract",
+   "H.feas",
+   "H.fixedrep",
+   "H.incidence",
+   "H.master",
+   "H.models",
+   "H.samehex",
+   "H.splice",
+   "H.tight",
+   "H.wlog"
+  ],
+  "all_hand_leaves_are_empty": true,
+  "prose_dependencies": {
+   "H.fixedrep": [
+    "H.samehex",
+    "H.wlog"
+   ],
+   "H.splice": [
+    "A.orbitfive",
+    "H.fixedrep"
+   ],
+   "H.master": [
+    "H.extract",
+    "H.incidence",
+    "H.samehex",
+    "H.splice"
+   ],
+   "H.incidence": [],
+   "H.samehex": [
+    "H.incidence"
+   ],
+   "H.extract": [],
+   "H.envelope": [
+    "H.incidence",
+    "H.samehex"
+   ],
+   "H.models": [],
+   "H.catalogue": [],
+   "H.wlog": [],
+   "H.feas": [],
+   "H.tight": []
+  },
+  "nodes_whose_prose_names_a_dependency": [
+   "H.envelope",
+   "H.fixedrep",
+   "H.master",
+   "H.samehex",
+   "H.splice"
+  ]
+ },
+ "walk": {
+  "topological_order": [
+   "A.monotone",
+   "A.hexcount",
+   "H.catalogue",
+   "H.wlog",
+   "H.feas",
+   "C.chaincaps",
+   "C.piececaps",
+   "C.dag152",
+   "H.master",
+   "H.incidence",
+   "H.samehex",
+   "H.extract",
+   "H.envelope",
+   "H.models",
+   "C.census",
+   "E.equivariance",
+   "E.enumeration",
+   "H.tight",
+   "X.structure",
+   "A.orbitfive",
+   "X.exclusion",
+   "X.nolemmaE",
+   "X.controls",
+   "X.mutation",
+   "X.adversarial",
+   "H.fixedrep",
+   "H.splice",
+   "T.ge872",
+   "W.872",
+   "T.le872",
+   "T.eq872"
+  ],
+  "edge_count": 48,
+  "sources": [
+   "A.monotone",
+   "A.hexcount",
+   "H.catalogue",
+   "H.wlog",
+   "H.feas",
+   "H.master",
+   "H.incidence",
+   "H.samehex",
+   "H.extract",
+   "H.envelope",
+   "H.models",
+   "H.tight",
+   "A.orbitfive",
+   "X.mutation",
+   "H.fixedrep",
+   "H.splice",
+   "W.872"
+  ],
+  "source_labels": {
+   "A.monotone": "PROVEN_ANALYTIC",
+   "A.hexcount": "PROVEN_ANALYTIC",
+   "H.catalogue": "AUDITED_HAND_PROOF",
+   "H.wlog": "AUDITED_HAND_PROOF",
+   "H.feas": "AUDITED_HAND_PROOF",
+   "H.master": "AUDITED_HAND_PROOF",
+   "H.incidence": "AUDITED_HAND_PROOF",
+   "H.samehex": "AUDITED_HAND_PROOF",
+   "H.extract": "AUDITED_HAND_PROOF",
+   "H.envelope": "AUDITED_HAND_PROOF",
+   "H.models": "AUDITED_HAND_PROOF",
+   "H.tight": "AUDITED_HAND_PROOF",
+   "A.orbitfive": "CERTIFIED_MACHINE",
+   "X.mutation": "CERTIFIED_MACHINE",
+   "H.fixedrep": "AUDITED_HAND_PROOF",
+   "H.splice": "AUDITED_HAND_PROOF",
+   "W.872": "EXPLICIT_WITNESS"
+  },
+  "sources_with_a_bad_label": {},
+  "forbidden_or_unresolved_nodes": [],
+  "top": "T.eq872",
+  "dag_claims_theorem_path_clean": true
+ },
+ "ok": true
+}

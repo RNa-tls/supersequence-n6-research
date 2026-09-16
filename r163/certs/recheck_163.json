@@ -1,0 +1,83 @@
+{
+ "catalogue": {
+  "seconds": 1.5,
+  "ordered_pairs": 518400,
+  "exhaustive": true,
+  "gap_distribution": {
+   "1": 720,
+   "2": 1440,
+   "3": 4320,
+   "4": 17280,
+   "5": 86400,
+   "6": 408240
+  },
+  "max_gap": 6,
+  "gap_cannot_exceed_n": true,
+  "kinds": {
+   "heavy": 511200,
+   "cleanE": 720,
+   "dirtyA": 720,
+   "paid": 3600,
+   "dirtyB": 720
+  },
+  "excluded_pairs": {
+   "t == v": 720,
+   "t == end(v)": 720
+  },
+  "per_source_profile": {
+   "free=1": 720,
+   "dirtyA=1": 720,
+   "dirtyB=1": 720,
+   "paid=5": 720,
+   "heavy=710": 720
+  },
+  "C1_cleanE_is_tau": 720,
+  "C2_A_is_sigma": 720,
+  "C2_B_is_sigma2": 720,
+  "C3_A_same_hexagon": 720,
+  "C3_B_same_hexagon": 720,
+  "C4_paid_landing_in_source_hexagon": 0,
+  "heavy_landing_in_source_hexagon": 1440,
+  "unclassified": [],
+  "unclassified_count": 0,
+  "failures": [],
+  "failure_count": 0,
+  "ok": true
+ },
+ "wlog": {
+  "seconds": 15.3,
+  "group_elements": 720,
+  "ports": 720,
+  "left_S6_transitive_on_ports": true,
+  "generators": [
+   "213456",
+   "132456",
+   "124356",
+   "123546",
+   "123465"
+  ],
+  "generator_equivariance_pairs": 2592000,
+  "generator_equivariance_exhaustive_in_v_and_t": true,
+  "generator_violations": 0,
+  "generators_generate_S6": true,
+  "orbit_of_123456": 720,
+  "stabiliser_size": 1,
+  "equivariance_pairs": 2070720,
+  "violations": 0,
+  "examples": [],
+  "ok": true
+ },
+ "feas_dual": {
+  "seconds": 1.7,
+  "multisets_checked": 7722,
+  "max_noncurrent_orbits": 8,
+  "max_deficit": 4,
+  "max_tokens": 5,
+  "exhaustive": true,
+  "dual_equals_subset_optimum": true,
+  "mismatches": [],
+  "claim_a_violations": 0,
+  "ok": true
+ },
+ "ok": true
+}
