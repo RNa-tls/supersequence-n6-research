@@ -1,6 +1,6 @@
 # `L6 = 872` 현행 DAG 손증명 목록 — 라운드 163
 
-**브랜치** `round153-equality-coexistence`  **기반 커밋** `7c5d4ca`
+**브랜치** `round153-equality-coexistence`  **기반 커밋** `93098fa`
 **정본 DAG** `r163/certs/dag_163.json`
 (`r162/certs/dag_162.json` 를 비파괴 수리하여 승계)
 **산출물** `r163/src/*.py`, `r163/certs/*.json`, 그리고 이 문서
@@ -433,16 +433,38 @@ H.incidence, H.samehex, H.splice}`, `H.samehex`→`{H.incidence}`,
 
 ## §14. 깨끗한 재현
 
-현행 커밋에서 **새 클론**을 만들어 실행했다 (`git clone --no-hardlinks`,
-`git checkout 7805115`).
+현행 커밋에서 **새 클론**을 만들어 실행했다.
+
+```
+git clone --no-hardlinks <repo> clean && cd clean && git checkout 93098fa
+python3 r153/src/theorem153.py
+python3 r152/src/rows152.py --verify r152/certs/verify_all_c152.json         --verify-piece r152/certs/verify_piece_c152.json --layers 0 1 2 3 4
+python3 r163/src/recheck163.py
+python3 r163/src/dag163.py
+python3 r163/src/inventory163.py
+python3 r163/src/evidence163.py
+python3 r163/src/summary163.py
+```
 
 | 명령 | 결과 |
 |---|---|
-| `python3 r153/src/theorem153.py` | `FAILURES: none`; `L6 >= 872 True`, `L6 <= 872 True`, `L6 = 872 True`; `r153/certs/theorem_153.json` **바이트 동일** |
-| `python3 r152/src/rows152.py --verify r152/certs/verify_all_c152.json --verify-piece r152/certs/verify_piece_c152.json --layers 0 1 2 3 4` | L867 1 / L868 14 / L869 85 / L870 353 / L871 1,154+2 — `r152/certs/census_152.json` 의 `layers` 와 **완전 일치** |
-| `python3 r163/src/recheck163.py` | 시간 필드를 빼면 로컬 인증서와 **완전 일치** |
-| `python3 r163/src/dag163.py` | `dag_163.json`·`hash_invariance_163.json` **바이트 동일** |
-| `python3 r163/src/inventory163.py` | `branch`·`head` 를 빼면 일치 (클론은 detached HEAD) |
+| `theorem153.py` (최종 검증기) | `FAILURES: none`; `L6 >= 872 True`, `L6 <= 872 True`, `L6 = 872 True`; `r153/certs/theorem_153.json` **바이트 동일** |
+| `rows152.py` (인증서만 읽는 인구조사) | L867 1 / L868 14 / L869 85 / L870 353 / L871 1,154 + 2 — `r152/certs/census_152.json` 의 `layers` 와 **완전 일치** |
+| `recheck163.py` | `recheck_163.json` **바이트 동일** (`sha256 = 4f9add85…36ed5`) |
+| `dag163.py` | `dag_163.json`, `hash_invariance_163.json` **바이트 동일** |
+| `evidence163.py` | `evidence_163.json` **바이트 동일** |
+| `inventory163.py`, `summary163.py` | `branch`·`head`·`git_dirty` 세 필드만 다름 (클론은 detached HEAD) — 그 밖은 전부 동일 |
+
+**첫 시도에서는 재현되지 않았다.** `evidence_163.json` 과
+`hand_proof_inventory_163.json` 이 매 실행 달라졌고, 원인은 두 가지
+자기참조였다: (i) `recheck_163.json` 이 벽시계 `seconds` 를 담고 있어
+그 파일의 `sha256` 이 실행마다 바뀌고 그것을 해시하는 인증서가 전부 따라
+바뀌었다; (ii) `evidence163` 이 아직 커밋되지 않은 r163 자신의 산출물에
+`git log` 를 걸었다.  시간은 표준출력으로 빼고, r163 경로는
+`"(this round, round 163)"` 로 표기해 둘 다 제거했다 (커밋 `93098fa`).
+남은 `branch`·`head`·`git_dirty` 차이는 **인증서가 자신이 생성된 git 상태를
+기록하기 때문**이며, 다른 git 상태에서 바이트 동일할 수 없다 — 제거 대상이
+아니라 기록 대상이다.
 
 전수 탐색은 재실행하지 않았다.  프로젝트가 의도적으로 인증서를 저장하므로
 (`verify_all_c152.json` 1,101 셀, `verify_piece_c152.json` 220 셀)
