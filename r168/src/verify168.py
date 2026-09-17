@@ -98,6 +98,24 @@ def parse3(text):
     return refs, deps, trees
 
 
+def scan_headers(text):
+    """refs and (cell, cap) pairs only -- never materialises a token list."""
+    refs, deps, cells = [], [], []
+    for line in text.splitlines():
+        if not line or line[0] == "#":
+            continue
+        if line.startswith("tree "):
+            f = line.split()
+            cells.append((tuple(int(x) for x in f[1:7]), int(f[7])))
+        elif line.startswith("ref "):
+            f = line.split()
+            refs.append(f[1:])
+        elif line.startswith("dep "):
+            f = line.split()
+            deps.append((tuple(int(x) for x in f[1:7]), int(f[7]), f[8], f[9]))
+    return refs, deps, cells
+
+
 def verify_any(rel, _seen=None, _stack=None):
     """Verify a certificate of any EXTREE format.  Returns the closure."""
     _seen = {} if _seen is None else _seen
@@ -113,17 +131,13 @@ def verify_any(rel, _seen=None, _stack=None):
                     certified={})
     text, csha, psha = read_text(rel)
     if USE_TRUST and csha in TRUST:
+        hrefs, hdeps, hcells = scan_headers(text)
         cells = {}
-        if text.startswith(MAGIC3):
-            sub_refs, deps, trees = parse3(text)
-            for r in (r for _c, _p, r in sub_refs):
-                cells.update(verify_any(r, _seen, _stack)["certified"])
-            for cell, cap, _d, _r in deps:
-                cells[cell] = cap
-        else:
-            for _h, r in V166.parse_batch(text)[0]:
-                cells.update(verify_any(r, _seen, _stack)["certified"])
-            trees = V166.parse_batch(text)[1]
+        for f in hrefs:
+            cells.update(verify_any(f[-1], _seen, _stack)["certified"])
+        for cell, cap, _d, _r in hdeps:
+            cells[cell] = cap
+        trees = [(c, v, None) for c, v in hcells]
         for cell, cap, _toks in trees:
             cells[tuple(cell)] = cap
         _seen[rel] = dict(ok=True, path=rel, sha256=csha, plain_sha256=psha,
