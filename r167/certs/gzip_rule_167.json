@@ -1,0 +1,32 @@
+{
+ "rule_G1": "the pinned proof object is the canonical uncompressed text; manifests carry plain_sha256 and the verifier reads the plain text, so the container hash is provenance only",
+ "rule_G2": "compressed artifacts are written with filename='' so the container is a pure function of the text; applies from round 168 on, existing artifacts are re-pinned not rewritten",
+ "demonstration": {
+  "two_paths_same_bytes": true,
+  "new_container_fname": "",
+  "old_container_fname": "gzrule_old",
+  "old_rule_leaks_the_path": true,
+  "cause": "GzipFile falls back to fileobj.name when filename is None"
+ },
+ "existing_artifacts": {
+  "r164/certs/extree_prefix_164.txt.gz": {
+   "sha256": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+   "plain_sha256": "81bb6dfa1e427e37fc5598fd5bd1067d20da5414acf934a53c9fa31e196feca0",
+   "container_fname": "extree_prefix_164.txt",
+   "bytes": 825068
+  },
+  "r166/certs/extree_batch2_166.txt.gz": {
+   "sha256": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+   "plain_sha256": "34f6dd23bbe74178e8c4a2908bc083e7bcf9ef1bd17ab7f91f620d5f1947b454",
+   "container_fname": "extree_batch2_166.txt",
+   "bytes": 2556680
+  },
+  "r166/certs/extree_batch3_166.txt.gz": {
+   "sha256": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6",
+   "plain_sha256": "d4ec791a81c65c676d72d66dbcf73b58ff6293fef0c6cece88dfaaa8d65b8632",
+   "container_fname": "extree_batch3_166.txt",
+   "bytes": 18348699
+  }
+ },
+ "ok": true
+}
