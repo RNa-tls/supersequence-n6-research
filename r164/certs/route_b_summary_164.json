@@ -1,0 +1,103 @@
+{
+ "round": 164,
+ "targets": {
+  "chain": 247,
+  "piece": 109,
+  "total": 356,
+  "recovered_independently": true,
+  "matches_round_163": {
+   "chain_expected": 247,
+   "chain_recovered": 247,
+   "piece_expected": 109,
+   "piece_recovered": 109,
+   "total_expected": 356,
+   "total_recovered": 356,
+   "agree": true
+  }
+ },
+ "route_b_per_target": {
+  "ROUTE_B_LOWER_ONLY": 281,
+  "ROUTE_B_FULLY_CERTIFIED": 1,
+  "ROUTE_B_NOT_CERTIFIED": 74
+ },
+ "fully_certified": 1,
+ "coverage_of_the_356": "1/356",
+ "what_route_b_could_and_could_not_do": {
+  "lower_bounds_replayed": 282,
+  "targets_with_no_stored_witness": 74,
+  "upper_bound_proof_objects_present_at_the_start": 0,
+  "upper_bound_proof_objects_manufactured_this_round": 1,
+  "reason": "the repository stores no exhaustion tree for any target cell; the only serialised upper-bound proof object is a 24-cell pilot, and the census consumes the UPPER direction, which a witness does not establish"
+ },
+ "proof_nodes_replayed": {
+  "pilot_trees": 247274,
+  "manufactured_trees": 7254695
+ },
+ "feas_state_assertions": {
+  "pilot": 247274,
+  "manufactured": 7254695,
+  "discrepancies": 0
+ },
+ "mutations": {
+  "invalid": 158,
+  "invalid_rejected": 158,
+  "validity_preserving": 34,
+  "validity_preserving_accepted": 34,
+  "state_controls": 7,
+  "state_controls_caught": 7
+ },
+ "route_a_vs_route_b": {
+  "cells": 356,
+  "disagreements": [],
+  "tally": {
+   "AGREE (lower half only)": 282,
+   "ROUTE B SILENT (no witness stored)": 74
+  },
+  "capacity_value_disagreements": 0,
+  "note": "Route B established only the LOWER direction, so an 'AGREE' here is agreement on cap(K) >= C, not on the bound the census consumes"
+ },
+ "census": {
+  "baseline": {
+   "rows": 1609,
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "with_the_356_withdrawn": {
+   "rows": 1609,
+   "STRICTLY_CLOSED": 1426,
+   "EQUALITY": 51,
+   "SURVIVING": 132
+  },
+  "rows_resting_on_a_single_implementation": 181,
+  "restore_is_clean": true
+ },
+ "geometry_diagnostic": {
+  "hexagon_classes_identical": true,
+  "orbit_classes_identical": true,
+  "clean_E_identical": 720,
+  "dirty_A_identical": 720,
+  "dirty_B_identical": 720,
+  "paid_sets_identical": 720,
+  "heavy_sets_identical": 720,
+  "move_sets_identical": 720,
+  "sources": 720,
+  "phase_is_a_bijection_per_orbit": true,
+  "all_identical": true
+ },
+ "cost_of_closing_the_gap": {
+  "chain_targets_without_a_tree": 247,
+  "piece_targets_without_a_tree": 109,
+  "route_a_nodes_for_those_chain_cells": 83376558397,
+  "route_a_nodes_for_those_piece_cells": 102962936739,
+  "largest_single_chain_cell_nodes": 9999311039,
+  "largest_single_piece_cell_nodes": 10418943606,
+  "pilot_tree_nodes": 247274,
+  "pilot_tree_bytes": 566277,
+  "bytes_per_proof_node": 2.29,
+  "projected_bytes_if_serialised": 426732168716,
+  "note": "the projection uses the pilot's bytes-per-node; it is an order-of-magnitude statement, not a measurement"
+ },
+ "end_to_end": "PROJECT-INTERNAL statement only.  With the round-163 hand-proof layer, the dual-implementation capacity cells, the single-implementation cells AS THEY STAND, the certified equality/coexistence exclusion and the explicit 872 witness, the final verifier r153/src/theorem153.py reports L6 >= 872 and L6 <= 872, hence L6 = 872.  Round 164 did NOT change that standing: it re-certified the lower direction of 282 target cells and manufactured and double-validated the upper direction of 1 of them, leaving the rest as they were.  No external, public or formal acceptance is claimed.",
+ "remaining_single_route_capacity_cells": 355,
+ "ok": true
+}

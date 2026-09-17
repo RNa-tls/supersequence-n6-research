@@ -183,8 +183,11 @@ def main():
     outp = ROOT / a.out
     outp.parent.mkdir(parents=True, exist_ok=True)
     if str(outp).endswith(".gz"):
-        with gzip.open(outp, "wt", compresslevel=9, mtime=0) as fh:
-            fh.write(text)
+        # mtime=0 so the gzip container is byte-deterministic across runs
+        with open(outp, "wb") as raw:
+            with gzip.GzipFile(fileobj=raw, mode="wb", compresslevel=9,
+                               mtime=0) as fh:
+                fh.write(text.encode())
     else:
         outp.write_text(text)
     rep = dict(prefix=a.prefix, node_cap=a.node_cap,
