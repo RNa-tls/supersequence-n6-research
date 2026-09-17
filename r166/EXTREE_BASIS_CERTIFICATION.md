@@ -331,3 +331,51 @@ SAT 이 사슬 모형을 자연스럽게 덮지 못함)이 유효하므로 SAT �
 
 **격차는 닫히지 않았다.**  288 / 288 이 아니므로 잔여 기계 독립성 격차는
 열려 있다.
+
+---
+
+## 17. 결정성과 깨끗한 체크아웃 재생
+
+**생성의 결정성.**  깨끗한 클론에서 배치 2 를 **같은 출력 경로로** 다시
+생성하면 `sha256` 이 정확히 같다 (`5d5c5c3b…eccaa`).
+
+**다른 경로로 생성하면 컨테이너가 다르다.**  `gzip` 헤더가 출력 파일의
+이름(`FNAME`)을 담기 때문이다 (`mtime` 은 0 으로 고정되어 있다).  압축을
+푼 **정본 증명 객체는 바이트 동일**하고 검증기는 정본만 검사하므로 수학적
+영향은 없다.  기록해 둔다: `.gz` 컨테이너는 **같은 경로에 대해** 결정적이고,
+정본 평문은 경로와 무관하게 결정적이다.
+
+**깨끗한 체크아웃 재생.**
+
+```
+git clone --no-hardlinks <repo> clean && cd clean && git checkout <HEAD>
+python3 r166/src/extree_basis_verify.py r166/certs/extree_batch2_166.txt.gz
+python3 r166/src/controls166.py
+python3 r166/src/manifest166.py
+python3 r166/src/census166.py
+python3 r166/src/mutate166.py
+```
+
+| 산출물 | 깨끗한 클론 대 커밋본 |
+|---|---|
+| `basis_order_166.json` | 동일 |
+| `cross_model_bridge_166.json` | 동일 |
+| `verification_166.json` | 동일 |
+| `extree_manifest_166.json` | 동일 |
+| `independent_census_166.json` | 동일 |
+| `mutations_166.json` | 동일 |
+| `generator_controls_166.json` | 동일 |
+
+배치 1·2 는 깨끗한 클론에서 **검증기 A·B 양쪽**으로 다시 검증했다
+(68 셀, 증명 노드 20,309,922, 히스토그램 불일치 0).
+
+**처음엔 두 개가 달랐고 둘 다 내 결함이었다.**
+
+1. `generator_controls_166.json` 이 **낡은 `generator_sha256`** 을 담고
+   있었다 — 대조를 돌린 뒤에 생성기에 `--cells` 를 추가했기 때문이다.
+2. `independent_census_166.json` 의 비싼 꼬리 순서가 실행마다 달랐다 —
+   **집합을 순회**하고 노드 수만으로 정렬해 동점이 집합 순서로 갈렸다.
+   `sorted(ess)` 로 순회하고 `(-nodes, cell)` 로 정렬해 고쳤다.
+
+둘 다 고친 뒤 일곱 개 전부 바이트 동일하다.  해시 고정 산출물에 벽시계,
+타임스탬프, PID, 임시 경로는 들어 있지 않다 — 런타임은 측정 로그로만 간다.

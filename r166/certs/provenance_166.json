@@ -1,0 +1,439 @@
+{
+ "round": 166,
+ "node": "extree basis certification",
+ "git_commit": "c1f6be1b765495d900fff15b134f82177b63ceaa",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": true,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "r152/src/checker152.py": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+  "r152/src/piece152.py": "de22ac53d8819ce6dfa217cd796a91640089c57a52cc4af71b4f81bc55eb233a",
+  "r152/src/extree152.py": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r163/HAND_PROOF_INVENTORY.md": "10768350d5503e6e71f024f4a3c33c684a54435af5d83e8f3f88c6ba81841cad",
+  "r164/ROUTE_B_CERTIFICATE_REPLAY.md": "b8d3c75ea7919cdb1b17a99f9985b7f5bcb0bdd2c53060e47434ef7208f72d69",
+  "r165/MACHINE_PROOF_BASIS.md": "5f389e230312bc224f31ac3f365d06a4a20afc893df0cb7ceaf810888af855e5",
+  "r165/certs/row_closure_graph_165.json": "5f486cfc20a50640390a23daaa7f980821a3c1444cf06dacc632d7811e6a32a9",
+  "r165/certs/basis_summary_165.json": "4ea2e8b804dc986b57dcbbc3f530323bb4aa91ee1750a98c79070d04aaee2cec",
+  "r164/certs/extree_prefix_164.txt.gz": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742"
+ },
+ "inputs": {
+  "r152/certs/cap_cert_all_152.txt": "4b7c7f6f7126a6e33106963430cd91b65f094fde02617bb270780c1d231cfa41",
+  "r152/certs/pcert_all_152.txt": "84ab379069c8d35861dd07cc70a928491a8f28c3fdff79de705e9c0d57dcaebc",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_subset_152.json": "7dbfffba25933b750620f1a0504742eb309110a75731cadf9e87c6f4beb89c93",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r152/certs/verify_piece_152.json": "14e0471835d6bf16566620b37085df7d6d06b261a7fecb0f7f597eae21502400",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99",
+  "r165/src/closure165.py": "cac5ead0985e0f25ae6dfc401917e39f074508612db671582a26f951145c2927"
+ },
+ "r166_sources": {
+  "r166/src/basis166.py": "3b70bf6714ea82feb4e0076fe335b7da5acb3aeb55c96a7e5bfffbc823bb9835",
+  "r166/src/bridge166.py": "bc806c2c4e1383bc6fe9539821b459b62c1cf0a373e4d84a39dc41ba58c68ed7",
+  "r166/src/census166.py": "7d22dcf5d33bcce05f90c0d1d40b93a1db3eba19afec5224b0cea8171d97f11d",
+  "r166/src/controls166.py": "106e4a2d692ddae3cbe760323b1ce3ee7034ff5a48e07784d6d926da742a1b83",
+  "r166/src/extree_basis_generator.py": "8aa004d5d48b36359f6df92219c4eba4b8ffe762b705a91b24838d4342e3911e",
+  "r166/src/extree_basis_verify.py": "e7d134eb6dcde9101e00a228ce3de745f3bbd65367722f87bb2720f228d39894",
+  "r166/src/manifest166.py": "1be3e84f83782f9cc4dfe65cb2434a22c328233dedd3facf9cb5fd72b1e5ebd4",
+  "r166/src/mutate166.py": "2dbf3aa7b975599a5e8ff457f7fb35940c8090c39ccdcb5687693762b6415c59",
+  "r166/src/provenance166.py": "e34b247a3001c8e6942bd2c62e95aa97162631dec97b5013462cbe78718bb9b3"
+ },
+ "r166_certs": {
+  "r166/certs/basis_order_166.json": "09a35b51ca3d6bfd8b06c39db90c1f4fe50dfa72ddf76107102ef95cdbdf5db1",
+  "r166/certs/cross_model_bridge_166.json": "d7748731f04341740c2bf65d8ed8248b411d77fc4411c3118cd0fa563c0e7f00",
+  "r166/certs/extree_batch2_166.txt.gz": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+  "r166/certs/extree_batch3_166.txt.gz": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6",
+  "r166/certs/extree_manifest_166.json": "759835986019758866a55338ccacb7d04d2c849841715d5d4f971ed1519ce86f",
+  "r166/certs/gen_batch2_166.json": "21289586c3065da89f50433fe63ade36d771ea635eea49df74e8e07e2aebfe7f",
+  "r166/certs/gen_batch3_166.json": "1d3d7eb1e3df7df8f9fb9c2ccc3e4cb2380ebf73fcf0fb078108c1c489b1ac8e",
+  "r166/certs/generator_controls_166.json": "e865abe7dcf3eea9630f9e9f78fb0d1f26a18e8e639f691408e69dd230af27b9",
+  "r166/certs/independent_census_166.json": "7634dd7ec22420a26bab90dc9365059fb2252f9b39ced1feefa95f053936c441",
+  "r166/certs/mut_batch_a.txt.gz": "a6440cf14488a3ab73acfc861b9ddbf1d4b1ff989dead5d373a01570498e3cbb",
+  "r166/certs/mut_batch_b.txt.gz": "ee62ab12e6270a030f8d663e7cf827b349839bb67fa5c4cfd6d1901efc62c758",
+  "r166/certs/mutations_166.json": "08760c50175c1978af8e32643fe63984af4be1a445891a57039100bc51cffdc0",
+  "r166/certs/verification_166.json": "e46066d95d2297d78a0889b40ffdf570b33945c237aa195013f4268da3217f4a"
+ },
+ "audit_doc": "77d1a95e32f31aa62577a6f0166963c566b89ad7e2c2afab963f67742aee26f2",
+ "totals": {
+  "basis_order": {
+   "basis": {
+    "chain": 179,
+    "piece": 109,
+    "total": 288
+   },
+   "counts_match_round_165": true,
+   "BASIS_REMAINING": 288,
+   "census_under_the_basis": {
+    "per_layer": {
+     "L867": {
+      "STRICTLY_CLOSED": 1
+     },
+     "L868": {
+      "STRICTLY_CLOSED": 14
+     },
+     "L869": {
+      "STRICTLY_CLOSED": 85
+     },
+     "L870": {
+      "STRICTLY_CLOSED": 353
+     },
+     "L871": {
+      "STRICTLY_CLOSED": 1154,
+      "EQUALITY": 2
+     }
+    },
+    "L871_strict": 1154,
+    "L871_equality": 2,
+    "equality_rows": [
+     [
+      4,
+      0,
+      0,
+      0,
+      6,
+      0,
+      6,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      3,
+      0,
+      1,
+      0,
+      7,
+      0,
+      7,
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "matches": true
+   },
+   "ok": true
+  },
+  "bridge": {
+   "lemma": "cap_piece(b,d,fp,lp) <= cap_chain(b,d,0,0,0,0)",
+   "move_set_identity": {
+    "sources": 720,
+    "move_sets_identical": 720,
+    "differing": 0,
+    "ok": true
+   },
+   "witness_replay": {
+    "witnesses": 200,
+    "both_legal": 200,
+    "failures": 0,
+    "examples": [],
+    "ok": true
+   },
+   "certified_value_consistency": {
+    "pairs_compared": 181,
+    "violations": 0,
+    "no_chain_counterpart": 36,
+    "equal_when_mask_is_trivial": 46,
+    "ok": true
+   },
+   "coverage": {
+    "piece_basis_cells": 109,
+    "covered_by_an_already_dual_certified_chain_cell": 2,
+    "covered_cells": [
+     "0|15|1|1",
+     "0|18|1|1"
+    ],
+    "chain_cells_that_would_cover_the_rest": 18,
+    "piece_cells_those_would_cover": 72,
+    "leverage": 4.0,
+    "chain_cells_needed": [
+     "1|10|0|0|0|0",
+     "1|11|0|0|0|0",
+     "1|12|0|0|0|0",
+     "1|13|0|0|0|0",
+     "1|6|0|0|0|0",
+     "1|7|0|0|0|0",
+     "1|8|0|0|0|0",
+     "1|9|0|0|0|0",
+     "2|3|0|0|0|0",
+     "2|4|0|0|0|0",
+     "2|5|0|0|0|0",
+     "2|6|0|0|0|0",
+     "2|7|0|0|0|0",
+     "2|8|0|0|0|0",
+     "3|0|0|0|0|0",
+     "3|1|0|0|0|0",
+     "3|2|0|0|0|0",
+     "3|3|0|0|0|0"
+    ],
+    "piece_basis_cells_with_no_chain_counterpart": 35,
+    "no_counterpart_cells": [
+     "0|19|0|1",
+     "0|19|1|0",
+     "0|19|1|1",
+     "0|20|0|0",
+     "0|20|0|1",
+     "0|20|1|0",
+     "0|20|1|1",
+     "1|14|0|0",
+     "1|14|0|1",
+     "1|14|1|0",
+     "1|14|1|1",
+     "1|15|0|0",
+     "1|15|0|1",
+     "1|15|1|0",
+     "1|15|1|1",
+     "2|10|0|0",
+     "2|10|0|1",
+     "2|10|1|0",
+     "2|10|1|1",
+     "2|9|0|0",
+     "2|9|0|1",
+     "2|9|1|0",
+     "2|9|1|1",
+     "3|4|0|0",
+     "3|4|0|1",
+     "3|4|1|0",
+     "3|4|1|1",
+     "3|5|0|0",
+     "3|5|0|1",
+     "3|5|1|0",
+     "3|5|1|1",
+     "4|0|0|0",
+     "4|0|0|1",
+     "4|0|1|0",
+     "4|0|1|1"
+    ]
+   },
+   "ok": true
+  },
+  "verification": {
+   "all_ok": true
+  },
+  "manifest": {
+   "totals": {
+    "batches": 3,
+    "cells": 75,
+    "proof_nodes": 164006780,
+    "raw_bytes": 368834215,
+    "compressed_bytes": 21730447,
+    "raw_bytes_per_node": 2.249,
+    "compressed_bytes_per_node": 0.1325,
+    "compression_ratio": 17.0
+   },
+   "basis_coverage": {
+    "chain_certified": [
+     "1|6|0|0|0|0",
+     "1|7|0|0|0|0",
+     "1|8|0|0|0|0",
+     "1|9|0|0|0|0",
+     "2|3|0|0|0|0",
+     "2|4|0|0|0|0",
+     "3|0|0|0|0|0",
+     "3|1|0|0|0|0"
+    ],
+    "chain_certified_count": 8,
+    "piece_certified_via_bridge": [
+     "1|6|0|0",
+     "1|6|0|1",
+     "1|6|1|0",
+     "1|6|1|1",
+     "1|7|0|0",
+     "1|7|0|1",
+     "1|7|1|0",
+     "1|7|1|1",
+     "1|8|0|0",
+     "1|8|0|1",
+     "1|8|1|0",
+     "1|8|1|1",
+     "1|9|0|0",
+     "1|9|0|1",
+     "1|9|1|0",
+     "1|9|1|1",
+     "2|3|0|0",
+     "2|3|0|1",
+     "2|3|1|0",
+     "2|3|1|1",
+     "2|4|0|0",
+     "2|4|0|1",
+     "2|4|1|0",
+     "2|4|1|1",
+     "3|0|0|0",
+     "3|0|0|1",
+     "3|0|1|0",
+     "3|0|1|1",
+     "3|1|0|0",
+     "3|1|0|1",
+     "3|1|1|0",
+     "3|1|1|1"
+    ],
+    "piece_certified_count": 32,
+    "total": 40,
+    "basis_total": 288,
+    "remaining": 248
+   },
+   "ok": true
+  },
+  "census": {
+   "certificate_dag": {
+    "nodes": {
+     "r164/certs/extree_prefix_164.txt.gz": {
+      "sha256": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+      "trees": 51,
+      "proof_nodes": 7254695,
+      "histogram_assertions": 7254695,
+      "histogram_mismatches": 0,
+      "bytes": 825068,
+      "named_directly_in_the_report": false,
+      "verified_transitively_as_a_reference": true
+     },
+     "r166/certs/extree_batch2_166.txt.gz": {
+      "sha256": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+      "trees": 17,
+      "proof_nodes": 20309922,
+      "histogram_assertions": 20309922,
+      "histogram_mismatches": 0,
+      "bytes": 2556680,
+      "named_directly_in_the_report": false,
+      "verified_transitively_as_a_reference": true
+     },
+     "r166/certs/extree_batch3_166.txt.gz": {
+      "sha256": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6",
+      "trees": 7,
+      "proof_nodes": 136442163,
+      "histogram_assertions": 136442163,
+      "histogram_mismatches": 0,
+      "bytes": 18348699,
+      "named_directly_in_the_report": true,
+      "verified_transitively_as_a_reference": false
+     }
+    },
+    "edges": [
+     {
+      "frm": "r164/certs/extree_prefix_164.txt.gz",
+      "to": "r166/certs/extree_batch2_166.txt.gz",
+      "sha256": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742"
+     },
+     {
+      "frm": "r166/certs/extree_batch2_166.txt.gz",
+      "to": "r166/certs/extree_batch3_166.txt.gz",
+      "sha256": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa"
+     }
+    ],
+    "acyclic": true,
+    "all_references_resolved": true,
+    "cells_certified_by_proof": 75,
+    "total_proof_nodes": 164006780,
+    "total_histogram_assertions": 164006780,
+    "total_histogram_mismatches": 0,
+    "total_compressed_bytes": 21730447
+   },
+   "capacity_agreement": {
+    "compared": 75,
+    "disagreements": []
+   },
+   "basis_progress": {
+    "basis_total": 288,
+    "chain_basis_total": 179,
+    "piece_basis_total": 109,
+    "chain_certified": [
+     "1|6|0|0|0|0",
+     "1|7|0|0|0|0",
+     "1|8|0|0|0|0",
+     "1|9|0|0|0|0",
+     "2|3|0|0|0|0",
+     "2|4|0|0|0|0",
+     "3|0|0|0|0|0",
+     "3|1|0|0|0|0"
+    ],
+    "piece_certified_via_bridge": [
+     "1|6|0|0",
+     "1|6|0|1",
+     "1|6|1|0",
+     "1|6|1|1",
+     "1|7|0|0",
+     "1|7|0|1",
+     "1|7|1|0",
+     "1|7|1|1",
+     "1|8|0|0",
+     "1|8|0|1",
+     "1|8|1|0",
+     "1|8|1|1",
+     "1|9|0|0",
+     "1|9|0|1",
+     "1|9|1|0",
+     "1|9|1|1",
+     "2|3|0|0",
+     "2|3|0|1",
+     "2|3|1|0",
+     "2|3|1|1",
+     "2|4|0|0",
+     "2|4|0|1",
+     "2|4|1|0",
+     "2|4|1|1",
+     "3|0|0|0",
+     "3|0|0|1",
+     "3|0|1|0",
+     "3|0|1|1",
+     "3|1|0|0",
+     "3|1|0|1",
+     "3|1|1|0",
+     "3|1|1|1"
+    ],
+    "chain_certified_count": 8,
+    "piece_certified_count": 32,
+    "basis_certified_total": 40,
+    "remaining": 248
+   },
+   "independence_census": {
+    "exposed_rows": 181,
+    "before_this_round": {
+     "bridged_piece_cells": 2,
+     "exposed_rows_reclosed": 0,
+     "tally": {
+      "STRICTLY_CLOSED": 1426,
+      "EQUALITY": 51,
+      "SURVIVING": 132
+     }
+    },
+    "after_this_round": {
+     "bridged_piece_cells": 34,
+     "exposed_rows_reclosed": 24,
+     "tally": {
+      "STRICTLY_CLOSED": 1450,
+      "EQUALITY": 58,
+      "SURVIVING": 101
+     }
+    },
+    "newly_reclosed": 24
+   },
+   "ok": true
+  },
+  "mutations": {
+   "invalid": 14,
+   "invalid_rejected": 14,
+   "valid": 2,
+   "valid_accepted": 2,
+   "not_expressible_in_this_format": [
+    "corrupt token state",
+    "corrupt used-hexagon state",
+    "corrupt feas histogram",
+    "alter prune reason"
+   ],
+   "ok": true
+  },
+  "generator_controls": {
+   "controls": 6,
+   "applied": 6,
+   "caught": 6,
+   "caught_by_the_verifier": 3,
+   "caught_by_divergence": 3,
+   "missed": [],
+   "ok": true
+  }
+ }
+}
