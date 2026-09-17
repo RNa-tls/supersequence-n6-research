@@ -132,10 +132,14 @@ def verify(rel, seen=None, stack=None, log=print):
         if not ok:
             break
     stack.discard(rel)
+    # the returned table is the TRANSITIVE closure -- a batch that references
+    # another inherits everything that batch could use for its own (p)
+    # justifications, not just the cells it wrote itself.
     seen[rel] = dict(ok=ok, path=rel, sha256=digest, tokens=ntok,
                      cells=len(rows), nodes=sum(r["nodes"] for r in rows),
-                     certified={r["cell"]: r["cap"] for r in rows if
-                                r["status"] == "UPPER_CERTIFIED"},
+                     own_cells=[r["cell"] for r in rows],
+                     certified={"|".join(map(str, k)): v
+                                for k, v in certified.items()},
                      rows=rows)
     return seen[rel]
 
