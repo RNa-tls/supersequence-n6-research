@@ -1,0 +1,119 @@
+{
+ "model": "piece",
+ "state": "(ports, orbits, blocks, current orbit's phase count)",
+ "kept": [
+  "per-orbit phase cap 5",
+  "tokens = blocks - orbits <= b",
+  "deficit = 5*orbits - ports <= d",
+  "ports <= 120"
+ ],
+ "dropped": [
+  "which hexagon each port lies in",
+  "which orbit each block enters",
+  "the transition relation itself"
+ ],
+ "cells": [
+  {
+   "cell": "0|15|1|1",
+   "certified_cap": 81,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 39,
+   "tight": false
+  },
+  {
+   "cell": "0|18|1|1",
+   "certified_cap": 94,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 26,
+   "tight": false
+  },
+  {
+   "cell": "0|19|0|1",
+   "certified_cap": 102,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 18,
+   "tight": false
+  },
+  {
+   "cell": "0|19|1|0",
+   "certified_cap": 102,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 18,
+   "tight": false
+  },
+  {
+   "cell": "0|19|1|1",
+   "certified_cap": 101,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 19,
+   "tight": false
+  },
+  {
+   "cell": "0|20|0|0",
+   "certified_cap": 106,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 14,
+   "tight": false
+  },
+  {
+   "cell": "0|20|0|1",
+   "certified_cap": 105,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 15,
+   "tight": false
+  },
+  {
+   "cell": "0|20|1|0",
+   "certified_cap": 105,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 15,
+   "tight": false
+  },
+  {
+   "cell": "0|20|1|1",
+   "certified_cap": 101,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 19,
+   "tight": false
+  },
+  {
+   "cell": "1|10|0|0",
+   "certified_cap": 85,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 35,
+   "tight": false
+  },
+  {
+   "cell": "1|10|0|1",
+   "certified_cap": 85,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 35,
+   "tight": false
+  },
+  {
+   "cell": "1|10|1|0",
+   "certified_cap": 85,
+   "relaxed_dp_bound": 120,
+   "sound": true,
+   "gap": 35,
+   "tight": false
+  }
+ ],
+ "all_bounds_sound": true,
+ "any_tight": false,
+ "median_gap": 19,
+ "analytic_bound_for_comparison": 120,
+ "conclusion": "the relaxed recurrence reproduces the analytic bound and nothing better: every certified capacity is far below it. The certified values come from the GEOMETRY of the transition relation, which is exactly what a DP has to drop to stay polynomial, so a substantially different EXACT state representation is not available for this model.  Recorded as a negative pilot result.",
+ "ok": true
+}

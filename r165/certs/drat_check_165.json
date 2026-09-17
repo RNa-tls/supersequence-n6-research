@@ -1,0 +1,167 @@
+{
+ "solver": "Lingeling",
+ "solver_note": "pysat's CaDiCaL proof binding returns an empty proof on instances it settles in preprocessing (verified on a four-clause contradiction), so Lingeling is used for proof logging",
+ "checker": "drat-trim (upstream marijnheule/drat-trim, built here)",
+ "checker_source_sha256": "d834b649f437e091597f5347f259b9f681087f89ca0844d0cee250a1a1a0c2ee",
+ "checker_binary_sha256": "fcc6f026604615b98830dc70e62dcea2518a0437c6df3673ffa0d41e473cd9d7",
+ "note": "the binary is built at run time and lives outside the repository; only its hashes are pinned",
+ "cells": [
+  {
+   "cell": "0|0|0|0",
+   "cap": 20,
+   "ports_tested": 21,
+   "sub_instances": 4,
+   "all_unsat_and_verified": true,
+   "subs": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 206691,
+     "variables": 45526,
+     "cnf_bytes": 4208285,
+     "proof_lines": 15966,
+     "proof_bytes": 136748,
+     "solve_seconds": 0.2,
+     "check_seconds": 0.2,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 207434,
+     "variables": 45970,
+     "cnf_bytes": 4221401,
+     "proof_lines": 13027,
+     "proof_bytes": 119411,
+     "solve_seconds": 0.2,
+     "check_seconds": 0.2,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 208022,
+     "variables": 46265,
+     "cnf_bytes": 4232152,
+     "proof_lines": 16250,
+     "proof_bytes": 15517431,
+     "solve_seconds": 6.6,
+     "check_seconds": 4.5,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 208598,
+     "variables": 46554,
+     "cnf_bytes": 4242683,
+     "proof_lines": 62379,
+     "proof_bytes": 241246052,
+     "solve_seconds": 50.9,
+     "check_seconds": 27.4,
+     "drat_trim_verified": true
+    }
+   ]
+  },
+  {
+   "cell": "0|2|0|0",
+   "cap": 33,
+   "ports_tested": 34,
+   "sub_instances": 7,
+   "all_unsat_and_verified": true,
+   "subs": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 337705,
+     "variables": 73606,
+     "cnf_bytes": 6987555,
+     "proof_lines": 25404,
+     "proof_bytes": 221534,
+     "solve_seconds": 0.3,
+     "check_seconds": 0.3,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 338474,
+     "variables": 74063,
+     "cnf_bytes": 7001152,
+     "proof_lines": 24220,
+     "proof_bytes": 621465,
+     "solve_seconds": 0.8,
+     "check_seconds": 0.5,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 339088,
+     "variables": 74371,
+     "cnf_bytes": 7012384,
+     "proof_lines": 36134,
+     "proof_bytes": 47053934,
+     "solve_seconds": 12.6,
+     "check_seconds": 11.0,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 339690,
+     "variables": 74673,
+     "cnf_bytes": 7023396,
+     "proof_lines": 97841,
+     "proof_bytes": 377934453,
+     "solve_seconds": 72.2,
+     "check_seconds": 41.3,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 5,
+     "result": "UNSAT",
+     "clauses": 340280,
+     "variables": 74969,
+     "cnf_bytes": 7034188,
+     "proof_lines": 214291,
+     "proof_bytes": 1225025088,
+     "solve_seconds": 155.1,
+     "check_seconds": 106.9,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 6,
+     "result": "UNSAT",
+     "clauses": 340858,
+     "variables": 75259,
+     "cnf_bytes": 7044760,
+     "proof_lines": 221809,
+     "proof_bytes": 1272710106,
+     "solve_seconds": 157.2,
+     "check_seconds": 110.0,
+     "drat_trim_verified": true
+    },
+    {
+     "orbits": 7,
+     "result": "UNSAT",
+     "clauses": 341424,
+     "variables": 75543,
+     "cnf_bytes": 7055112,
+     "proof_lines": 383311,
+     "proof_bytes": 2048808383,
+     "solve_seconds": 256.3,
+     "check_seconds": 197.0,
+     "drat_trim_verified": true
+    }
+   ]
+  }
+ ],
+ "all_verified": true,
+ "totals": {
+  "proof_bytes": 5229394605,
+  "solve_seconds": 712.4,
+  "check_seconds": 499.3
+ },
+ "ok": true
+}

@@ -1,0 +1,232 @@
+{
+ "round": 165,
+ "inputs": {
+  "r164/certs/targets_164.json": "fcbbbbafabdda377cc0bee6c1d8665005e2e2de619002902ddfb071c97378402",
+  "r164/certs/verifygen_164.json": "7dff2fe40b33cd40646b403fcfb5ee2205313f598b2c7bc2c8b3653bac91fdf3",
+  "r165/certs/row_closure_graph_165.json": "5f486cfc20a50640390a23daaa7f980821a3c1444cf06dacc632d7811e6a32a9",
+  "r165/certs/minimum_basis_165.json": "3425bcbf45fb949df60a89eddfd8b53136d144b5f766801b32d1187e10c80707",
+  "r165/certs/weighted_basis_165.json": "f34f8e2f90409ad77316fa55014a47819d3e9af847d7e62eb3a25a08fa0f57f9"
+ },
+ "three_sets": {
+  "SINGLE_ROUTE_STORED": 355,
+  "SINGLE_ROUTE_LOAD_BEARING": 288,
+  "MINIMUM_SECOND_ROUTE_BASIS": 288,
+  "note": "the second and third coincide here: every individually essential cell must be in every sufficient basis, and the essential set is itself sufficient, so the minimum basis IS the load-bearing set and its optimality is proved"
+ },
+ "exposed_rows": {
+  "without_any_single_route_cell": 181,
+  "after_analytic_domination": 180,
+  "rescued_by_domination": 1
+ },
+ "minimum_basis": {
+  "lower_bound": 288,
+  "lower_bound_reason": "every individually essential cell lies in every sufficient basis: withdrawing it while keeping all others already opens a row, and bounds are monotone, so no smaller set can do better",
+  "upper_bound": 288,
+  "proved_optimal": true,
+  "size": 288
+ },
+ "weighted": {
+  "minimum_cost_basis": {
+   "size": 288,
+   "same_set_as_minimum_cardinality": true,
+   "reason": "every individually essential cell is in EVERY sufficient basis, so there is no cheaper alternative set to choose"
+  },
+  "route_a_nodes_for_the_basis": 162375361296,
+  "route_a_nodes_for_all_355": 186332890231,
+  "saving": 23957528935
+ },
+ "prerequisite_structure": {
+  "file": "r164/certs/extree_prefix_164.txt.gz",
+  "trees": 51,
+  "all_valid": true,
+  "trees_citing_nothing": 17,
+  "max_distinct_cells_cited": 9,
+  "most_cited_cells": [
+   {
+    "cell": "0|0|0|0|0|0",
+    "cited_by_trees": 19
+   },
+   {
+    "cell": "0|1|0|0|0|0",
+    "cited_by_trees": 16
+   },
+   {
+    "cell": "0|0|0|1|0|0",
+    "cited_by_trees": 7
+   },
+   {
+    "cell": "0|0|0|0|1|0",
+    "cited_by_trees": 6
+   },
+   {
+    "cell": "0|2|0|0|0|0",
+    "cited_by_trees": 6
+   },
+   {
+    "cell": "0|0|0|0|0|1",
+    "cited_by_trees": 5
+   },
+   {
+    "cell": "0|1|0|0|0|1",
+    "cited_by_trees": 4
+   },
+   {
+    "cell": "0|1|0|1|0|0",
+    "cited_by_trees": 4
+   },
+   {
+    "cell": "0|0|1|0|0|0",
+    "cited_by_trees": 4
+   },
+   {
+    "cell": "0|0|1|1|0|0",
+    "cited_by_trees": 4
+   }
+  ],
+  "reading": "a tree's (p) leaves may only cite cells proved earlier in the same file, so certifying a set costs its prerequisite closure, not just the set"
+ },
+ "failure_sensitivity": {
+  "tested": "smallest upward error in the claimed upper bound that reopens at least one census row, found by binary search (bounds are monotone in the value)",
+  "cells": 288,
+  "cells_where_plus_one_opens_a_row": 0,
+  "cells_no_error_up_to_the_analytic_bound_can_break": 0,
+  "smallest_damaging_error_min": 10,
+  "smallest_damaging_error_median": 37,
+  "reading": "a single-route capacity value would have to be wrong by this much BEFORE any census row reopens; +1 opens nothing anywhere"
+ },
+ "equality_rows": {
+  "census_under_the_basis": {
+   "L867": {
+    "STRICTLY_CLOSED": 1
+   },
+   "L868": {
+    "STRICTLY_CLOSED": 14
+   },
+   "L869": {
+    "STRICTLY_CLOSED": 85
+   },
+   "L870": {
+    "STRICTLY_CLOSED": 353
+   },
+   "L871": {
+    "STRICTLY_CLOSED": 1154,
+    "EQUALITY": 2
+   }
+  },
+  "L871_strict": 1154,
+  "L871_equality": 2,
+  "equality_rows_are_exactly_two": true,
+  "equality_row_keys": [
+   [
+    4,
+    0,
+    0,
+    0,
+    6,
+    0,
+    6,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    3,
+    0,
+    1,
+    0,
+    7,
+    0,
+    7,
+    0,
+    0,
+    0,
+    1
+   ]
+  ],
+  "matches_the_known_census": true
+ },
+ "algorithm_diversity": {
+  "A_independent_clean_room_DFS": {
+   "feasible": "yes, but it is Route A again",
+   "evidence": "round 164 wrote one and reproduced Route A's node counts exactly on 51 cells; it re-does the search, so it buys a second implementation but no proof object"
+  },
+  "B_memoized_dynamic_programming": {
+   "feasible": "no",
+   "evidence": "r165/certs/dp_pilot_165.json -- a recurrence that keeps the per-orbit phase cap and the token/deficit arithmetic but drops the hexagon identity returns 120 for every cell, the analytic bound, with a median gap of 19 against the certified capacities.  The certified values come from the transition geometry, which is what a DP must drop"
+  },
+  "C_SAT_encoding_with_UNSAT_proof": {
+   "feasible": "yes for the PIECE model, demonstrated",
+   "evidence": "r165/certs/sat_pilot_165.json and drat_check_165.json -- the encoding agrees with Route A on four validation instances, the cheapest basis piece cell is UNSAT in 1,096 s, and two cells are DRAT-verified end to end by drat-trim.  Proofs are large: 5.23 GB for the two validation cells"
+  },
+  "D_exact_cover_or_graph_formulation": {
+   "feasible": "not attempted",
+   "evidence": "no pilot, so no claim"
+  },
+  "E_analytic_domination": {
+   "feasible": "no",
+   "evidence": "r165/certs/minimum_basis_165.json -- only 6 of the 355 cells have a dominating dual-certified cell at all, and none of those bounds is as tight as the cell's own; the exposure falls from 181 rows to 180"
+  },
+  "F_exhaustion_tree_plus_small_verifier": {
+   "feasible": "yes, demonstrated, and the most compact",
+   "evidence": "round 164 manufactured and double-validated one basis cell's tree; at 2.29 bytes per proof node the cheapest basis piece cell would need about 12 MB, against 5.75 GB for the same cell's DRAT proof"
+  }
+ },
+ "sat_pilot": {
+  "model": "piece",
+  "correctness_checks_agree": true,
+  "cheapest_basis_piece_cell": "1|6|1|1",
+  "scaling": {
+   "cell": "1|6|1|1",
+   "cap": 60,
+   "result": "UNSAT",
+   "clauses": 7980089,
+   "proof_bytes": 5748546160
+  },
+  "drat_verified": true,
+  "drat_cells": [
+   "0|0|0|0",
+   "0|2|0|0"
+  ],
+  "drat_total_proof_bytes": 5229394605,
+  "solver": "Lingeling",
+  "pysat_cadical_proof_defect": "pysat's CaDiCaL proof binding returns an empty proof on instances it settles in preprocessing (verified on a four-clause contradiction), so Lingeling is used for proof logging"
+ },
+ "dp_pilot": {
+  "sound": true,
+  "any_tight": false,
+  "median_gap": 19,
+  "conclusion": "the relaxed recurrence reproduces the analytic bound and nothing better: every certified capacity is far below it. The certified values come from the GEOMETRY of the transition relation, which is exactly what a DP has to drop to stay polynomial, so a substantially different EXACT state representation is not available for this model.  Recorded as a negative pilot result."
+ },
+ "artifacts": {
+  "deterministic": [
+   "r165/certs/row_closure_graph_165.json",
+   "r165/certs/minimum_basis_165.json",
+   "r165/certs/weighted_basis_165.json",
+   "r165/certs/dp_pilot_165.json",
+   "r165/certs/basis_summary_165.json"
+  ],
+  "measurements": [
+   "r165/certs/sat_pilot_165.json",
+   "r165/certs/drat_check_165.json"
+  ],
+  "note": "the pilots record solver and checker RUNTIMES, which are the point of a pilot and vary between runs; they are labelled measurements and are excluded from the byte-identical reproduction requirement.  The minimisation artefacts carry no clock at all"
+ },
+ "round_166_recommendation": {
+  "strategy": "EXTREE_BASIS_CERTIFICATION",
+  "why": [
+   "the basis is 288 cells, proved minimal, not 355",
+   "of the six diversity options only two are demonstrated: exhaustion trees and SAT on the piece model",
+   "for the same cell an exhaustion tree is about 12 MB against 5.75 GB of DRAT, roughly 460x smaller, and round 164 already has a generator and two independent validators",
+   "SAT covers only the piece model; the chain model's (source, target) resource rules need ~32M clauses per instance, so it cannot carry the 179 chain basis cells",
+   "the certificate order gives shared prerequisites: 17 of 51 trees cite nothing and the most cited cell is the cheapest one, so a prefix pays for many cells at once"
+  ],
+  "scope": "start with the cheapest basis cells in certificate order and report how far a fixed node budget reaches, rather than committing to all 288",
+  "not_recommended": {
+   "SAT_UNSAT_BASIS_CERTIFICATION": "proof sizes are 460x the tree format and the chain model is out of reach",
+   "INDEPENDENT_DP_BASIS_CERTIFICATION": "the pilot returns the analytic bound and nothing better",
+   "certify_all_355": "67 of them are provably unnecessary"
+  }
+ },
+ "ok": true
+}

@@ -1,0 +1,564 @@
+{
+ "model": "piece",
+ "encoding": "derived from the block/orbit arithmetic, not from the production DFS: tokens = 1 + paid - orbits and deficit = 5*orbits - ports, so both budgets are cardinality constraints",
+ "solver": "Cadical153 via python-sat 1.9.dev15",
+ "correctness_checks": [
+  {
+   "cell": "0|0|0|0",
+   "cap": 20,
+   "ports_tested": 20,
+   "expected": "SAT",
+   "result": "SAT",
+   "agrees": true,
+   "orbit_cases": 4,
+   "orbit_range": [
+    1,
+    4
+   ],
+   "max_variables": 44391,
+   "total_clauses": 790421,
+   "build_seconds": 1.1,
+   "solve_seconds": 10.0,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 196613
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 197354
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 197940
+    },
+    {
+     "orbits": 4,
+     "result": "SAT",
+     "clauses": 198514
+    }
+   ]
+  },
+  {
+   "cell": "0|0|0|0",
+   "cap": 20,
+   "ports_tested": 21,
+   "expected": "UNSAT",
+   "result": "UNSAT",
+   "agrees": true,
+   "orbit_cases": 4,
+   "orbit_range": [
+    1,
+    4
+   ],
+   "max_variables": 46554,
+   "total_clauses": 830745,
+   "build_seconds": 1.1,
+   "solve_seconds": 9.6,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 206691
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 207434
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 208022
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 208598
+    }
+   ],
+   "proof_lines": 1396682,
+   "proof_bytes": 52780216
+  },
+  {
+   "cell": "0|2|0|0",
+   "cap": 33,
+   "ports_tested": 33,
+   "expected": "SAT",
+   "result": "SAT",
+   "agrees": true,
+   "orbit_cases": 7,
+   "orbit_range": [
+    1,
+    7
+   ],
+   "max_variables": 73377,
+   "total_clauses": 2306931,
+   "build_seconds": 3.3,
+   "solve_seconds": 91.6,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 327627
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 328394
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 329006
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 329606
+    },
+    {
+     "orbits": 5,
+     "result": "UNSAT",
+     "clauses": 330194
+    },
+    {
+     "orbits": 6,
+     "result": "UNSAT",
+     "clauses": 330770
+    },
+    {
+     "orbits": 7,
+     "result": "SAT",
+     "clauses": 331334
+    }
+   ]
+  },
+  {
+   "cell": "0|2|0|0",
+   "cap": 33,
+   "ports_tested": 34,
+   "expected": "UNSAT",
+   "result": "UNSAT",
+   "agrees": true,
+   "orbit_cases": 7,
+   "orbit_range": [
+    1,
+    7
+   ],
+   "max_variables": 75543,
+   "total_clauses": 2377519,
+   "build_seconds": 4.2,
+   "solve_seconds": 144.3,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 337705
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 338474
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 339088
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 339690
+    },
+    {
+     "orbits": 5,
+     "result": "UNSAT",
+     "clauses": 340280
+    },
+    {
+     "orbits": 6,
+     "result": "UNSAT",
+     "clauses": 340858
+    },
+    {
+     "orbits": 7,
+     "result": "UNSAT",
+     "clauses": 341424
+    }
+   ],
+   "proof_lines": 14381693,
+   "proof_bytes": 877446204
+  }
+ ],
+ "all_correctness_checks_agree": true,
+ "scaling_probe": {
+  "cell": "1|6|1|1",
+  "cap": 60,
+  "ports_tested": 61,
+  "expected": "UNSAT",
+  "result": "UNSAT",
+  "agrees": true,
+  "orbit_cases": 13,
+  "orbit_range": [
+   1,
+   13
+  ],
+  "max_variables": 135800,
+  "total_clauses": 7980089,
+  "build_seconds": 17.4,
+  "solve_seconds": 1096.1,
+  "subproblems": [
+   {
+    "orbits": 1,
+    "result": "UNSAT",
+    "clauses": 609929
+   },
+   {
+    "orbits": 2,
+    "result": "UNSAT",
+    "clauses": 610748
+   },
+   {
+    "orbits": 3,
+    "result": "UNSAT",
+    "clauses": 611412
+   },
+   {
+    "orbits": 4,
+    "result": "UNSAT",
+    "clauses": 612064
+   },
+   {
+    "orbits": 5,
+    "result": "UNSAT",
+    "clauses": 612704
+   },
+   {
+    "orbits": 6,
+    "result": "UNSAT",
+    "clauses": 613332
+   },
+   {
+    "orbits": 7,
+    "result": "UNSAT",
+    "clauses": 613948
+   },
+   {
+    "orbits": 8,
+    "result": "UNSAT",
+    "clauses": 614552
+   },
+   {
+    "orbits": 9,
+    "result": "UNSAT",
+    "clauses": 615144
+   },
+   {
+    "orbits": 10,
+    "result": "UNSAT",
+    "clauses": 615724
+   },
+   {
+    "orbits": 11,
+    "result": "UNSAT",
+    "clauses": 616292
+   },
+   {
+    "orbits": 12,
+    "result": "UNSAT",
+    "clauses": 616848
+   },
+   {
+    "orbits": 13,
+    "result": "UNSAT",
+    "clauses": 617392
+   }
+  ],
+  "proof_lines": 77444509,
+  "proof_bytes": 5748546160
+ },
+ "cheapest_basis_piece_cell": "1|6|1|1",
+ "rows": [
+  {
+   "cell": "0|0|0|0",
+   "cap": 20,
+   "ports_tested": 20,
+   "expected": "SAT",
+   "result": "SAT",
+   "agrees": true,
+   "orbit_cases": 4,
+   "orbit_range": [
+    1,
+    4
+   ],
+   "max_variables": 44391,
+   "total_clauses": 790421,
+   "build_seconds": 1.1,
+   "solve_seconds": 10.0,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 196613
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 197354
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 197940
+    },
+    {
+     "orbits": 4,
+     "result": "SAT",
+     "clauses": 198514
+    }
+   ]
+  },
+  {
+   "cell": "0|0|0|0",
+   "cap": 20,
+   "ports_tested": 21,
+   "expected": "UNSAT",
+   "result": "UNSAT",
+   "agrees": true,
+   "orbit_cases": 4,
+   "orbit_range": [
+    1,
+    4
+   ],
+   "max_variables": 46554,
+   "total_clauses": 830745,
+   "build_seconds": 1.1,
+   "solve_seconds": 9.6,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 206691
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 207434
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 208022
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 208598
+    }
+   ],
+   "proof_lines": 1396682,
+   "proof_bytes": 52780216
+  },
+  {
+   "cell": "0|2|0|0",
+   "cap": 33,
+   "ports_tested": 33,
+   "expected": "SAT",
+   "result": "SAT",
+   "agrees": true,
+   "orbit_cases": 7,
+   "orbit_range": [
+    1,
+    7
+   ],
+   "max_variables": 73377,
+   "total_clauses": 2306931,
+   "build_seconds": 3.3,
+   "solve_seconds": 91.6,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 327627
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 328394
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 329006
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 329606
+    },
+    {
+     "orbits": 5,
+     "result": "UNSAT",
+     "clauses": 330194
+    },
+    {
+     "orbits": 6,
+     "result": "UNSAT",
+     "clauses": 330770
+    },
+    {
+     "orbits": 7,
+     "result": "SAT",
+     "clauses": 331334
+    }
+   ]
+  },
+  {
+   "cell": "0|2|0|0",
+   "cap": 33,
+   "ports_tested": 34,
+   "expected": "UNSAT",
+   "result": "UNSAT",
+   "agrees": true,
+   "orbit_cases": 7,
+   "orbit_range": [
+    1,
+    7
+   ],
+   "max_variables": 75543,
+   "total_clauses": 2377519,
+   "build_seconds": 4.2,
+   "solve_seconds": 144.3,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 337705
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 338474
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 339088
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 339690
+    },
+    {
+     "orbits": 5,
+     "result": "UNSAT",
+     "clauses": 340280
+    },
+    {
+     "orbits": 6,
+     "result": "UNSAT",
+     "clauses": 340858
+    },
+    {
+     "orbits": 7,
+     "result": "UNSAT",
+     "clauses": 341424
+    }
+   ],
+   "proof_lines": 14381693,
+   "proof_bytes": 877446204
+  },
+  {
+   "cell": "1|6|1|1",
+   "cap": 60,
+   "ports_tested": 61,
+   "expected": "UNSAT",
+   "result": "UNSAT",
+   "agrees": true,
+   "orbit_cases": 13,
+   "orbit_range": [
+    1,
+    13
+   ],
+   "max_variables": 135800,
+   "total_clauses": 7980089,
+   "build_seconds": 17.4,
+   "solve_seconds": 1096.1,
+   "subproblems": [
+    {
+     "orbits": 1,
+     "result": "UNSAT",
+     "clauses": 609929
+    },
+    {
+     "orbits": 2,
+     "result": "UNSAT",
+     "clauses": 610748
+    },
+    {
+     "orbits": 3,
+     "result": "UNSAT",
+     "clauses": 611412
+    },
+    {
+     "orbits": 4,
+     "result": "UNSAT",
+     "clauses": 612064
+    },
+    {
+     "orbits": 5,
+     "result": "UNSAT",
+     "clauses": 612704
+    },
+    {
+     "orbits": 6,
+     "result": "UNSAT",
+     "clauses": 613332
+    },
+    {
+     "orbits": 7,
+     "result": "UNSAT",
+     "clauses": 613948
+    },
+    {
+     "orbits": 8,
+     "result": "UNSAT",
+     "clauses": 614552
+    },
+    {
+     "orbits": 9,
+     "result": "UNSAT",
+     "clauses": 615144
+    },
+    {
+     "orbits": 10,
+     "result": "UNSAT",
+     "clauses": 615724
+    },
+    {
+     "orbits": 11,
+     "result": "UNSAT",
+     "clauses": 616292
+    },
+    {
+     "orbits": 12,
+     "result": "UNSAT",
+     "clauses": 616848
+    },
+    {
+     "orbits": 13,
+     "result": "UNSAT",
+     "clauses": 617392
+    }
+   ],
+   "proof_lines": 77444509,
+   "proof_bytes": 5748546160
+  }
+ ],
+ "ok": true
+}
