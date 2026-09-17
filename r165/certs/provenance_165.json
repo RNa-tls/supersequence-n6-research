@@ -1,0 +1,373 @@
+{
+ "round": 165,
+ "node": "minimal machine-proof basis",
+ "git_commit": "262c7180bbf3aa302d57af57e941314a67b232ea",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": true,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r152/src/checker152.py": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+  "r152/src/piece152.py": "de22ac53d8819ce6dfa217cd796a91640089c57a52cc4af71b4f81bc55eb233a",
+  "r163/HAND_PROOF_INVENTORY.md": "10768350d5503e6e71f024f4a3c33c684a54435af5d83e8f3f88c6ba81841cad",
+  "r163/certs/dag_163.json": "f0cc6bc0aef2fb19d79a0a226acc04a7dddcd820c289ced26368a4f7b290cf42",
+  "r164/ROUTE_B_CERTIFICATE_REPLAY.md": "b8d3c75ea7919cdb1b17a99f9985b7f5bcb0bdd2c53060e47434ef7208f72d69",
+  "r164/certs/route_b_summary_164.json": "981085e27ed15c486bded412ca36ff247671e117577d83c8ac6539ba4b495f51",
+  "r164/certs/verifygen_164.json": "7dff2fe40b33cd40646b403fcfb5ee2205313f598b2c7bc2c8b3653bac91fdf3",
+  "r164/certs/targets_164.json": "fcbbbbafabdda377cc0bee6c1d8665005e2e2de619002902ddfb071c97378402"
+ },
+ "inputs": {
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_subset_152.json": "7dbfffba25933b750620f1a0504742eb309110a75731cadf9e87c6f4beb89c93",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r152/certs/verify_piece_152.json": "14e0471835d6bf16566620b37085df7d6d06b261a7fecb0f7f597eae21502400",
+  "r152/certs/census_152.json": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb",
+  "r152/certs/pcert_all_152.txt": "84ab379069c8d35861dd07cc70a928491a8f28c3fdff79de705e9c0d57dcaebc",
+  "r164/certs/extree_prefix_164.txt.gz": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99"
+ },
+ "r165_sources": {
+  "r165/src/closure165.py": "cac5ead0985e0f25ae6dfc401917e39f074508612db671582a26f951145c2927",
+  "r165/src/dominate165.py": "04a4c34040240570610dbd80e60c696c11394ba30dfc363861dc216578e73540",
+  "r165/src/dp165.py": "457f7393f1c3a97fba3817f616ac5d06c570fd2bd6f8817130c157049fa2d07a",
+  "r165/src/dratcheck165.py": "adec3d9d7ade561910e2186d5cbf220ab53d22c33419bb87be99956074ec755c",
+  "r165/src/provenance165.py": "bc2e84c59cdd8a4c3319e6ed3407db85c518288ced4caf718f9e609f478623cb",
+  "r165/src/sat165.py": "66dff6d999a7e3851c1a14ef460fc474ab6f583a87e4a2d6fc95f8fd88469df7",
+  "r165/src/summary165.py": "9b3157a167fe276cda326b6e8c637ed7cc672fb027a684ce5dfa4f648716e4ab",
+  "r165/src/weight165.py": "fed612385ae7fc3f42a106a1ce9971f12687aeee7c75ac99da056c48b604e0c4"
+ },
+ "r165_certs": {
+  "r165/certs/basis_summary_165.json": "4ea2e8b804dc986b57dcbbc3f530323bb4aa91ee1750a98c79070d04aaee2cec",
+  "r165/certs/dp_pilot_165.json": "d9bdae28ef000d24986217d9d825854734d74d1fde6350b34e09617f72bf513a",
+  "r165/certs/drat_check_165.json": "2a3e2ca454b0b68fd12436578b7eed569aa1b99bdf41695d67591f7685cf30ab",
+  "r165/certs/minimum_basis_165.json": "3425bcbf45fb949df60a89eddfd8b53136d144b5f766801b32d1187e10c80707",
+  "r165/certs/row_closure_graph_165.json": "5f486cfc20a50640390a23daaa7f980821a3c1444cf06dacc632d7811e6a32a9",
+  "r165/certs/sat_pilot_165.json": "cf07197ebed25858baec5323b5f3034acf9dde345e8d34833f70d8114ba625c9",
+  "r165/certs/weighted_basis_165.json": "f34f8e2f90409ad77316fa55014a47819d3e9af847d7e62eb3a25a08fa0f57f9"
+ },
+ "audit_doc": "efeaf5a9cd2c1ec8a6e71ba34bdaaf4aca6606ef5f0b39e0f5a9a8edffff5d72",
+ "totals": {
+  "row_closure": {
+   "remaining_single_route": {
+    "chain": 246,
+    "piece": 109,
+    "total": 355,
+    "already_route_b_certified": [
+     "1|0|0|0|0|2"
+    ]
+   },
+   "baseline": {
+    "tally": {
+     "STRICTLY_CLOSED": 1607,
+     "EQUALITY": 2
+    },
+    "rows": 1609
+   },
+   "all_withdrawn": {
+    "tally": {
+     "STRICTLY_CLOSED": 1426,
+     "EQUALITY": 51,
+     "SURVIVING": 132
+    }
+   },
+   "exposed_rows": 181,
+   "monotone": true,
+   "individually_essential": 288,
+   "redundant_given_current_others": 67,
+   "ok": true
+  },
+  "minimum_basis": {
+   "domination": {
+    "chain_cells_with_a_dominating_dual_cell": 1,
+    "chain_of_those_at_least_as_tight": 0,
+    "piece_cells_with_a_dominating_dual_cell": 5,
+    "piece_of_those_at_least_as_tight": 0,
+    "reading": "'at least as tight' means the dominating bound is <= the single-route cell's own claimed capacity, i.e. the single-route value buys nothing"
+   },
+   "exposure": {
+    "without_domination": 181,
+    "with_domination": 180,
+    "rows_rescued_by_domination": 1
+   },
+   "essential_basis": {
+    "size": 288,
+    "withdrawing_only_the_redundant_opens": 0,
+    "sufficient": true,
+    "census_tally": {
+     "STRICTLY_CLOSED": 1607,
+     "EQUALITY": 2
+    },
+    "with_domination_also_allowed_opens": 0
+   },
+   "minimum_basis": {
+    "lower_bound": 288,
+    "lower_bound_reason": "every individually essential cell lies in every sufficient basis: withdrawing it while keeping all others already opens a row, and bounds are monotone, so no smaller set can do better",
+    "upper_bound": 288,
+    "proved_optimal": true,
+    "size": 288
+   },
+   "order_consistency": {
+    "chain_violations": [],
+    "piece_violations": [],
+    "chain_ok": true,
+    "piece_ok": true,
+    "note": "a dominating cell must never carry a SMALLER certified capacity than the cell it dominates; checked over every certified pair"
+   },
+   "ok": true
+  },
+  "weighted": {
+   "basis": {
+    "size": 288,
+    "chain": 179,
+    "piece": 109
+   },
+   "cost": {
+    "route_a_nodes_for_the_basis": 162375361296,
+    "route_a_nodes_for_all_355": 186332890231,
+    "saving": 23957528935,
+    "most_expensive_basis_cells": [
+     {
+      "cell": "2|10|0|0",
+      "nodes": 10418943606
+     },
+     {
+      "cell": "2|10|0|1",
+      "nodes": 10418943606
+     },
+     {
+      "cell": "2|10|1|0",
+      "nodes": 10418943606
+     },
+     {
+      "cell": "2|10|1|1",
+      "nodes": 10418943606
+     },
+     {
+      "cell": "2|8|2|0|0|0",
+      "nodes": 9999311039
+     },
+     {
+      "cell": "2|7|2|0|0|0",
+      "nodes": 7086042665
+     },
+     {
+      "cell": "2|5|0|0|0|1",
+      "nodes": 5053307118
+     },
+     {
+      "cell": "2|9|0|0",
+      "nodes": 4785997116
+     }
+    ],
+    "cheapest_basis_cells": [
+     {
+      "cell": "2|1|4|0|0|0",
+      "nodes": 3429344
+     },
+     {
+      "cell": "2|1|3|0|0|0",
+      "nodes": 3280199
+     },
+     {
+      "cell": "0|14|0|0|0|1",
+      "nodes": 3226186
+     },
+     {
+      "cell": "2|0|2|0|1|0",
+      "nodes": 3120369
+     },
+     {
+      "cell": "1|3|1|1|0|0",
+      "nodes": 3086605
+     }
+    ],
+    "median_nodes": 56963838
+   },
+   "failure_sensitivity": {
+    "tested": "smallest upward error in the claimed upper bound that reopens at least one census row, found by binary search (bounds are monotone in the value)",
+    "cells": 288,
+    "cells_where_plus_one_opens_a_row": 0,
+    "cells_no_error_up_to_the_analytic_bound_can_break": 0,
+    "smallest_damaging_error_min": 10,
+    "smallest_damaging_error_median": 37,
+    "most_fragile_cells": [
+     {
+      "cell": "0|14|0|0|0|1",
+      "model": "chain",
+      "cap": 106,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.094,
+      "rows_opened_at_that_error": 1
+     },
+     {
+      "cell": "1|14|0|0",
+      "model": "piece",
+      "cap": 106,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.094,
+      "rows_opened_at_that_error": 3
+     },
+     {
+      "cell": "1|14|0|1",
+      "model": "piece",
+      "cap": 106,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.094,
+      "rows_opened_at_that_error": 3
+     },
+     {
+      "cell": "1|14|1|0",
+      "model": "piece",
+      "cap": 106,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.094,
+      "rows_opened_at_that_error": 3
+     },
+     {
+      "cell": "1|6|0|0|0|1",
+      "model": "chain",
+      "cap": 94,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.106,
+      "rows_opened_at_that_error": 1
+     },
+     {
+      "cell": "1|8|0|0|0|1",
+      "model": "chain",
+      "cap": 102,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.098,
+      "rows_opened_at_that_error": 1
+     },
+     {
+      "cell": "1|9|0|0|0|1",
+      "model": "chain",
+      "cap": 106,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 10,
+      "relative_margin": 0.094,
+      "rows_opened_at_that_error": 1
+     },
+     {
+      "cell": "0|15|0|0|0|1",
+      "model": "chain",
+      "cap": 106,
+      "plus_one_opens": 0,
+      "smallest_damaging_error": 14,
+      "relative_margin": 0.132,
+      "rows_opened_at_that_error": 1
+     }
+    ],
+    "reading": "a single-route capacity value would have to be wrong by this much BEFORE any census row reopens; +1 opens nothing anywhere"
+   },
+   "ok": true
+  },
+  "sat_pilot": {
+   "all_correctness_checks_agree": true,
+   "ok": true
+  },
+  "drat": {
+   "solver": "Lingeling",
+   "all_verified": true,
+   "ok": true
+  },
+  "dp_pilot": {
+   "all_bounds_sound": true,
+   "any_tight": false,
+   "median_gap": 19,
+   "ok": true
+  },
+  "summary": {
+   "three_sets": {
+    "SINGLE_ROUTE_STORED": 355,
+    "SINGLE_ROUTE_LOAD_BEARING": 288,
+    "MINIMUM_SECOND_ROUTE_BASIS": 288,
+    "note": "the second and third coincide here: every individually essential cell must be in every sufficient basis, and the essential set is itself sufficient, so the minimum basis IS the load-bearing set and its optimality is proved"
+   },
+   "minimum_basis": {
+    "lower_bound": 288,
+    "lower_bound_reason": "every individually essential cell lies in every sufficient basis: withdrawing it while keeping all others already opens a row, and bounds are monotone, so no smaller set can do better",
+    "upper_bound": 288,
+    "proved_optimal": true,
+    "size": 288
+   },
+   "equality_rows": {
+    "census_under_the_basis": {
+     "L867": {
+      "STRICTLY_CLOSED": 1
+     },
+     "L868": {
+      "STRICTLY_CLOSED": 14
+     },
+     "L869": {
+      "STRICTLY_CLOSED": 85
+     },
+     "L870": {
+      "STRICTLY_CLOSED": 353
+     },
+     "L871": {
+      "STRICTLY_CLOSED": 1154,
+      "EQUALITY": 2
+     }
+    },
+    "L871_strict": 1154,
+    "L871_equality": 2,
+    "equality_rows_are_exactly_two": true,
+    "equality_row_keys": [
+     [
+      4,
+      0,
+      0,
+      0,
+      6,
+      0,
+      6,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      3,
+      0,
+      1,
+      0,
+      7,
+      0,
+      7,
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "matches_the_known_census": true
+   },
+   "round_166_recommendation": {
+    "strategy": "EXTREE_BASIS_CERTIFICATION",
+    "why": [
+     "the basis is 288 cells, proved minimal, not 355",
+     "of the six diversity options only two are demonstrated: exhaustion trees and SAT on the piece model",
+     "for the same cell an exhaustion tree is about 12 MB against 5.75 GB of DRAT, roughly 460x smaller, and round 164 already has a generator and two independent validators",
+     "SAT covers only the piece model; the chain model's (source, target) resource rules need ~32M clauses per instance, so it cannot carry the 179 chain basis cells",
+     "the certificate order gives shared prerequisites: 17 of 51 trees cite nothing and the most cited cell is the cheapest one, so a prefix pays for many cells at once"
+    ],
+    "scope": "start with the cheapest basis cells in certificate order and report how far a fixed node budget reaches, rather than committing to all 288",
+    "not_recommended": {
+     "SAT_UNSAT_BASIS_CERTIFICATION": "proof sizes are 460x the tree format and the chain model is out of reach",
+     "INDEPENDENT_DP_BASIS_CERTIFICATION": "the pilot returns the analytic bound and nothing better",
+     "certify_all_355": "67 of them are provably unnecessary"
+    }
+   },
+   "ok": true
+  }
+ }
+}
