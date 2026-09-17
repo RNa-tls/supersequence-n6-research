@@ -1,0 +1,109 @@
+{
+ "head": "7f83187c43d076559d93891e1724b55455af3439",
+ "working_tree_dirty": false,
+ "runs": {
+  "run1": {
+   "rebasis": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/bridge_rebasis_167.json": "03e88b04e74e6f0168b56553f6daa0f4d343e4d4067994acf6a89ca71721cfb7"
+    },
+    "stderr_tail": ""
+   },
+   "rowopt": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/row_optimum_167.json": "f155fc5f1a772f72acd54de354556ef8deb2aa0083f3ef34fdef55d6e14287a7"
+    },
+    "stderr_tail": ""
+   },
+   "optcert": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/optimality_certificate_167.json": "3ced994aaa3beecaf12e01c41937e5aa39c38ab19967376db6a0ff87f782fcce"
+    },
+    "stderr_tail": ""
+   },
+   "plan": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/round168_plan_167.json": "ce89b0791901326d4a2af075dda591e2e8eb2ca8e96c160667ea0bc15ee32ebf"
+    },
+    "stderr_tail": ""
+   },
+   "gzrule": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/gzip_rule_167.json": "b0f9e0b4debae3de94e82a1b9dbe296a877237d3bb671f43fe05248196417c0f"
+    },
+    "stderr_tail": ""
+   },
+   "verifier_a_batch1": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/verifier_a_batch1_167.json": "c5e01273359f1f624c4393548cf0a3b78ad296792ece52f15fabccf5d8db6e1a"
+    },
+    "stderr_tail": ""
+   }
+  },
+  "run2": {
+   "rebasis": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/bridge_rebasis_167.json": "03e88b04e74e6f0168b56553f6daa0f4d343e4d4067994acf6a89ca71721cfb7"
+    },
+    "stderr_tail": ""
+   },
+   "rowopt": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/row_optimum_167.json": "f155fc5f1a772f72acd54de354556ef8deb2aa0083f3ef34fdef55d6e14287a7"
+    },
+    "stderr_tail": ""
+   },
+   "optcert": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/optimality_certificate_167.json": "3ced994aaa3beecaf12e01c41937e5aa39c38ab19967376db6a0ff87f782fcce"
+    },
+    "stderr_tail": ""
+   },
+   "plan": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/round168_plan_167.json": "ce89b0791901326d4a2af075dda591e2e8eb2ca8e96c160667ea0bc15ee32ebf"
+    },
+    "stderr_tail": ""
+   },
+   "gzrule": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/gzip_rule_167.json": "b0f9e0b4debae3de94e82a1b9dbe296a877237d3bb671f43fe05248196417c0f"
+    },
+    "stderr_tail": ""
+   },
+   "verifier_a_batch1": {
+    "returncode": 0,
+    "artifacts": {
+     "r167/certs/verifier_a_batch1_167.json": "c5e01273359f1f624c4393548cf0a3b78ad296792ece52f15fabccf5d8db6e1a"
+    },
+    "stderr_tail": ""
+   }
+  }
+ },
+ "committed": {
+  "r167/certs/bridge_rebasis_167.json": "03e88b04e74e6f0168b56553f6daa0f4d343e4d4067994acf6a89ca71721cfb7",
+  "r167/certs/row_optimum_167.json": "f155fc5f1a772f72acd54de354556ef8deb2aa0083f3ef34fdef55d6e14287a7",
+  "r167/certs/optimality_certificate_167.json": "3ced994aaa3beecaf12e01c41937e5aa39c38ab19967376db6a0ff87f782fcce",
+  "r167/certs/round168_plan_167.json": "ce89b0791901326d4a2af075dda591e2e8eb2ca8e96c160667ea0bc15ee32ebf",
+  "r167/certs/gzip_rule_167.json": "b0f9e0b4debae3de94e82a1b9dbe296a877237d3bb671f43fe05248196417c0f",
+  "r167/certs/verifier_a_batch1_167.json": null
+ },
+ "identical": true,
+ "differences": [],
+ "ok": true,
+ "excluded": {
+  "artifact": "r167/certs/verifier_a_167.json",
+  "reason": "the full three-batch verifier-A rerun costs about fifty minutes per run; batch 1 is reproduced here and the driver stores no timing, so the exclusion is a cost decision, not a determinism gap"
+ }
+}

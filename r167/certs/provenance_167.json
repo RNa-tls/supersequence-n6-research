@@ -1,0 +1,302 @@
+{
+ "round": 167,
+ "node": "bridge-aware second-route basis re-optimisation",
+ "git_commit": "7f83187c43d076559d93891e1724b55455af3439",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": true,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "r152/src/checker152.py": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+  "r152/src/piece152.py": "de22ac53d8819ce6dfa217cd796a91640089c57a52cc4af71b4f81bc55eb233a",
+  "r152/src/extree152.py": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r163/HAND_PROOF_INVENTORY.md": "10768350d5503e6e71f024f4a3c33c684a54435af5d83e8f3f88c6ba81841cad",
+  "r164/ROUTE_B_CERTIFICATE_REPLAY.md": "b8d3c75ea7919cdb1b17a99f9985b7f5bcb0bdd2c53060e47434ef7208f72d69",
+  "r165/MACHINE_PROOF_BASIS.md": "5f389e230312bc224f31ac3f365d06a4a20afc893df0cb7ceaf810888af855e5",
+  "r166/EXTREE_BASIS_CERTIFICATION.md": "77d1a95e32f31aa62577a6f0166963c566b89ad7e2c2afab963f67742aee26f2",
+  "r165/certs/row_closure_graph_165.json": "5f486cfc20a50640390a23daaa7f980821a3c1444cf06dacc632d7811e6a32a9",
+  "r166/certs/verification_166.json": "e46066d95d2297d78a0889b40ffdf570b33945c237aa195013f4268da3217f4a",
+  "r164/certs/extree_prefix_164.txt.gz": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+  "r166/certs/extree_batch2_166.txt.gz": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+  "r166/certs/extree_batch3_166.txt.gz": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6"
+ },
+ "audited_plain_sha256": {
+  "r164/certs/extree_prefix_164.txt.gz": "81bb6dfa1e427e37fc5598fd5bd1067d20da5414acf934a53c9fa31e196feca0",
+  "r166/certs/extree_batch2_166.txt.gz": "34f6dd23bbe74178e8c4a2908bc083e7bcf9ef1bd17ab7f91f620d5f1947b454",
+  "r166/certs/extree_batch3_166.txt.gz": "d4ec791a81c65c676d72d66dbcf73b58ff6293fef0c6cece88dfaaa8d65b8632"
+ },
+ "inputs": {
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r152/certs/cap_cert_all_152.txt": "4b7c7f6f7126a6e33106963430cd91b65f094fde02617bb270780c1d231cfa41",
+  "r152/certs/pcert_all_152.txt": "84ab379069c8d35861dd07cc70a928491a8f28c3fdff79de705e9c0d57dcaebc",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99",
+  "r164/certs/targets_164.json": "fcbbbbafabdda377cc0bee6c1d8665005e2e2de619002902ddfb071c97378402",
+  "r164/certs/verifygen_164.json": "7dff2fe40b33cd40646b403fcfb5ee2205313f598b2c7bc2c8b3653bac91fdf3",
+  "r165/src/closure165.py": "cac5ead0985e0f25ae6dfc401917e39f074508612db671582a26f951145c2927",
+  "r166/src/bridge166.py": "bc806c2c4e1383bc6fe9539821b459b62c1cf0a373e4d84a39dc41ba58c68ed7",
+  "r166/src/extree_basis_verify.py": "e7d134eb6dcde9101e00a228ce3de745f3bbd65367722f87bb2720f228d39894"
+ },
+ "r167_sources": {
+  "r167/src/gzrule167.py": "c67c41e24282d5bc03df55adc0f642aa87c779150118d4742a10b9afb6e45271",
+  "r167/src/optcert167.py": "2e4116f69b5e723c5102d704f806bfa8acc52a2f50601414cb138327ab8ef5db",
+  "r167/src/plan167.py": "dd90fc8c13c92be47a93371e0ba1a9eabdd6a8a56008fbff5c5330c7400cfdcc",
+  "r167/src/provenance167.py": "a0bacb1437575023f67f315bf01bfbfad5bb10e3656fa2b775236337ae21792f",
+  "r167/src/rebasis167.py": "92f66465c6d67fd0f78302dee0fb721bb028bae1c6ad6343bef5aaa565ae319b",
+  "r167/src/repro167.py": "b6e7fd5b69adf7dfea7bba8c4e5c50d2d7b4a0ad97a31df247888630678587fa",
+  "r167/src/rowopt167.py": "688d66480b1fbcc777c7a64f26d36d59f7b93e2ddb875d8b231ea507a8835cc9",
+  "r167/src/verifyA167.py": "bc3272d183fb2245563cededec78d2b2d634508f1edc63d96c9f764216ac9d7a"
+ },
+ "r167_certs": {
+  "r167/certs/bridge_rebasis_167.json": "03e88b04e74e6f0168b56553f6daa0f4d343e4d4067994acf6a89ca71721cfb7",
+  "r167/certs/gzip_rule_167.json": "b0f9e0b4debae3de94e82a1b9dbe296a877237d3bb671f43fe05248196417c0f",
+  "r167/certs/optimality_certificate_167.json": "3ced994aaa3beecaf12e01c41937e5aa39c38ab19967376db6a0ff87f782fcce",
+  "r167/certs/reproduction_167.json": "787c6aca96eb4a37c261dbcb90b4195e2a4bcd373bcbb7c23c3baa6a69ef813d",
+  "r167/certs/round168_plan_167.json": "ce89b0791901326d4a2af075dda591e2e8eb2ca8e96c160667ea0bc15ee32ebf",
+  "r167/certs/row_optimum_167.json": "f155fc5f1a772f72acd54de354556ef8deb2aa0083f3ef34fdef55d6e14287a7",
+  "r167/certs/verifier_a_167.json": "fb380d321798ce4ba9e3cddee81adddd3c6d21c1fe547f5ffe4f15b15aaa6108"
+ },
+ "audit_doc": "47a7f88462c1d250135d55ea8591097c4a0725c7475832e03cfcf704c67aa4d6",
+ "totals": {
+  "rebasis": {
+   "facts": {
+    "chain": 179,
+    "piece": 109,
+    "total": 288,
+    "matches_round_165": true
+   },
+   "bridge_enumeration": {
+    "distinct_bd_groups": 29,
+    "piece_facts_covered": 109,
+    "covers_every_piece_fact": true,
+    "completeness_argument": "a piece fact (b,d,fp,lp) is bridged by the chain cell (b,d,0,0,0,0) and by no other cell more tightly: any other chain cell K' that bounds it must dominate (b,d,0,0,0,0) componentwise, and monotonicity then gives cap_chain(b,d,0,0,0,0) <= cap_chain(K'), so the (b,d) cell is the strongest bridge.  Grouping the 109 piece facts by (b,d) therefore enumerates every useful bridge, and there are exactly as many as there are distinct (b,d)",
+    "round_166_found": 18,
+    "round_166_missed": 11,
+    "why_round_166_missed_them": "round 166 only accepted chain cells already present in the round-152 capacity table; the rest are absent from that table but are ordinary cells whose certificate can be generated directly"
+   },
+   "fact_level_objective": {
+    "chain_facts_to_certify": 179,
+    "bridge_chain_cells": 29,
+    "already_in_the_chain_basis": 15,
+    "extra_chain_cells": 14,
+    "extra_cells": [
+     "0|15|0|0|0|0",
+     "0|18|0|0|0|0",
+     "0|19|0|0|0|0",
+     "0|20|0|0|0|0",
+     "1|13|0|0|0|0",
+     "1|14|0|0|0|0",
+     "1|15|0|0|0|0",
+     "2|10|0|0|0|0",
+     "2|8|0|0|0|0",
+     "2|9|0|0|0|0",
+     "3|3|0|0|0|0",
+     "3|4|0|0|0|0",
+     "3|5|0|0|0|0",
+     "4|0|0|0|0|0"
+    ],
+    "total_direct_certificates": 193,
+    "piece_certificates_avoided": 109,
+    "reduction_from_288": 95
+   },
+   "ok": true
+  },
+  "row_optimum": {
+   "baseline": {
+    "rows": 1609,
+    "tally": {
+     "STRICTLY_CLOSED": 1607,
+     "EQUALITY": 2
+    },
+    "reproduces_round_152": true
+   },
+   "exposed_rows": 180,
+   "round_165_exposed_rows": 181,
+   "consulted": {
+    "chain_cells": 571,
+    "piece_cells": 220,
+    "chain_cells_in_the_152_table": 562,
+    "chain_cells_only_predicted": [
+     "0|19|0|0|0|0",
+     "0|20|0|0|0|0",
+     "1|14|0|0|0|0",
+     "1|15|0|0|0|0",
+     "2|10|0|0|0|0",
+     "2|9|0|0|0|0",
+     "3|4|0|0|0|0",
+     "3|5|0|0|0|0",
+     "4|0|0|0|0|0"
+    ],
+    "chain_cells_with_no_value": [],
+    "argument": "a certificate for a cell the census never consults cannot change any bound, so the universe below is complete"
+   },
+   "universe": {
+    "size": 222,
+    "feasible": true,
+    "rows_left_open": 0
+   },
+   "optimum": {
+    "necessary": 190,
+    "redundant": 32,
+    "necessary_set_is_feasible": true,
+    "rows_left_open_for_the_necessary_set": 0,
+    "proof": "every granted certificate only lowers bounds, so closure is monotone; a cell K with open_rows(U - {K}) nonempty is in every feasible subset of U, because any such subset is contained in U - {K}.  The necessary cells therefore give a lower bound, and the necessary set is itself feasible, so it is THE minimum and it is unique.",
+    "minimum_is_proved": true
+   },
+   "fact_level_plan": {
+    "certificates": 190,
+    "before_dropping_free_and_valueless_cells": 193,
+    "dropped_because_already_free": [
+     "0|15|0|0|0|0",
+     "0|18|0|0|0|0",
+     "0|19|0|0|0|0"
+    ],
+    "equals_the_row_level_optimum": true,
+    "extra_over_the_optimum": [],
+    "missing_from_the_optimum": [],
+    "closes_every_exposed_row": true,
+    "rows_left_open": 0,
+    "note": "objective A of phase 13: support all 288 round-165 facts. It is NOT automatically sufficient for row closure because a masked piece fact is supported only by the weaker bridged value, so this is checked."
+   },
+   "already_certified": {
+    "in_the_optimum": [
+     "1|6|0|0|0|0",
+     "1|7|0|0|0|0",
+     "1|8|0|0|0|0",
+     "1|9|0|0|0|0",
+     "2|3|0|0|0|0",
+     "2|4|0|0|0|0",
+     "3|0|0|0|0|0",
+     "3|1|0|0|0|0"
+    ],
+    "count_in_the_optimum": 8,
+    "remaining": 182,
+    "remaining_nodes": 82880902926
+   },
+   "cost": {
+    "old_plan_all_288_facts": 162375361296,
+    "old_plan_note": "the piece half of this figure is hypothetical: no piece-model exhaustion generator exists, and the round-152 piece search reuses one tree for several masks, so the piece contribution is an upper estimate",
+    "universe": 103327617417,
+    "fact_level_plan": 83002865399,
+    "row_level_optimum": 83002865399,
+    "savings_vs_old": 79372495897
+   },
+   "ok": true
+  },
+  "optimality": {
+   "claim": "the minimum set of direct chain EXTREE certificates that restores strict closure of every exposed census row has exactly 190 members, and it is unique",
+   "exposed_rows": {
+    "count": 180,
+    "matches_the_solver": true
+   },
+   "upper_bound": {
+    "granted": 190,
+    "rows_left_open": 0,
+    "ok": true
+   },
+   "lower_bound": {
+    "checked": 190,
+    "failures": [],
+    "ok": true,
+    "single_row_evaluations": 190,
+    "cheaper_than_the_solver_by": 210.3
+   },
+   "weighted_variants": {
+    "minimum_cardinality": 190,
+    "minimum_node_cost": 190,
+    "minimum_storage_cost": 190,
+    "argument": "the optimum is contained in every feasible set, so it minimises every monotone cost function at once"
+   },
+   "progress": {
+    "DIRECT_SECOND_ROUTE": [
+     "1|6|0|0|0|0",
+     "1|7|0|0|0|0",
+     "1|8|0|0|0|0",
+     "1|9|0|0|0|0",
+     "2|3|0|0|0|0",
+     "2|4|0|0|0|0",
+     "3|0|0|0|0|0",
+     "3|1|0|0|0|0"
+    ],
+    "DIRECT_SECOND_ROUTE_count": 8,
+    "BRIDGE_DERIVED_piece_facts": 32,
+    "OTHER_DERIVED_piece_facts_free_from_retained_cells": 5,
+    "exposed_rows_closed_by_current_certificates": 24,
+    "exposed_rows_still_open": 156,
+    "exposed_rows_open_with_nothing_granted": 180,
+    "remaining_certificates": 182
+   },
+   "ok": true
+  },
+  "plan": {
+   "calibration": {
+    "cells": 75,
+    "extree_nodes": 164006780,
+    "search_nodes": 144764240,
+    "ratio_min": 1.0,
+    "ratio_median": 1.0,
+    "ratio_max": 1.4018,
+    "ratio_aggregate": 1.1329,
+    "rule": "planned EXTREE nodes = round-152 search nodes x the aggregate ratio; the maximum observed ratio is used for the pessimistic column"
+   },
+   "margins": {
+    "cells": 190,
+    "zero_margin": [],
+    "zero_margin_count": 0,
+    "meaning": "largest_still_safe is the biggest capacity value this cell could turn out to have with every exposed row still strictly closed.  A generated certificate reporting more than that refutes the plan for this cell and the row optimisation has to be redone with the true value."
+   },
+   "generation_plan": {
+    "remaining": 182,
+    "already_certified": 8,
+    "total_search_nodes": 82880902926,
+    "total_planned_extree_nodes": 93895774924,
+    "total_pessimistic_extree_nodes": 116182449721,
+    "rule": "cheapest first, so that a wrong planned value shows up early; each checkpoint states in advance how many of the 180 exposed rows must be closed by then"
+   },
+   "ok": true
+  },
+  "verifier_a": {
+   "batches": {},
+   "all_ok": true,
+   "total_cells": 75,
+   "total_nodes": 164006780
+  },
+  "gzip_rule": {
+   "demonstration": {
+    "two_paths_same_bytes": true,
+    "new_container_fname": "",
+    "old_container_fname": "gzrule_old",
+    "old_rule_leaks_the_path": true,
+    "cause": "GzipFile falls back to fileobj.name when filename is None"
+   },
+   "existing_artifacts": {
+    "r164/certs/extree_prefix_164.txt.gz": {
+     "sha256": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+     "plain_sha256": "81bb6dfa1e427e37fc5598fd5bd1067d20da5414acf934a53c9fa31e196feca0",
+     "container_fname": "extree_prefix_164.txt",
+     "bytes": 825068
+    },
+    "r166/certs/extree_batch2_166.txt.gz": {
+     "sha256": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+     "plain_sha256": "34f6dd23bbe74178e8c4a2908bc083e7bcf9ef1bd17ab7f91f620d5f1947b454",
+     "container_fname": "extree_batch2_166.txt",
+     "bytes": 2556680
+    },
+    "r166/certs/extree_batch3_166.txt.gz": {
+     "sha256": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6",
+     "plain_sha256": "d4ec791a81c65c676d72d66dbcf73b58ff6293fef0c6cece88dfaaa8d65b8632",
+     "container_fname": "extree_batch3_166.txt",
+     "bytes": 18348699
+    }
+   },
+   "ok": true
+  },
+  "reproduction": {
+   "runs": {},
+   "identical": true,
+   "ok": true
+  }
+ }
+}
