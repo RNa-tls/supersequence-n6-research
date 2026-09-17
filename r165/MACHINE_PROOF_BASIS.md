@@ -286,3 +286,49 @@ E1/E2 를 거짓 엄격 행으로 바꾸지 않는다.**
 **권고하지 않는 것**: `SAT_UNSAT_BASIS_CERTIFICATION` (증명이 460 배이고
 사슬 모형 불가), `INDEPENDENT_DP_BASIS_CERTIFICATION` (파일럿이 해석적
 상한만 낸다), 355 개 전부 인증 (67 개는 증명 가능하게 불필요).
+
+---
+
+## 깨끗한 체크아웃 결정적 재현
+
+커밋 `d2158d3` 에서 새 클론을 만들고 최소화 모듈을 **두 번** 돌렸다.
+
+```
+git clone --no-hardlinks <repo> clean && cd clean && git checkout d2158d3
+for pass in 1 2; do
+  python3 r165/src/closure165.py
+  python3 r165/src/dominate165.py
+  python3 r165/src/weight165.py
+  python3 r165/src/dp165.py
+  python3 r165/src/summary165.py
+done
+```
+
+| 산출물 | 1 회차 대 2 회차 | 깨끗한 클론 대 커밋본 |
+|---|---|---|
+| `row_closure_graph_165.json` | 동일 | 동일 |
+| `minimum_basis_165.json` | 동일 | 동일 |
+| `weighted_basis_165.json` | 동일 | 동일 |
+| `dp_pilot_165.json` | 동일 | 동일 |
+| `basis_summary_165.json` | 동일 | 동일 |
+
+**다섯 개 전부 바이트 단위로 동일하다.**  파일럿 두 개는 §17 대로 측정
+산출물로 분류되어 이 요구에서 제외된다.
+
+---
+
+## 최종 수치
+
+| 항목 | 값 |
+|---|---:|
+| 남은 단일 경로 저장 셀 | **355** (사슬 246 + 조각 109) |
+| 개별 필수 셀 | **288** (사슬 179 + 조각 109) |
+| 해석적 대안 적용 후 노출 행 | **180** (지배 적용 전 181) |
+| 최소 개수 기저 | **288 — 최적성 증명됨** |
+| 최소 비용 기저 | 288, 같은 집합 / Route-A 노드 **1,623.8 억** |
+| 전체 355 대비 절감 | 239.6 억 노드 (13%) |
+| SAT 파일럿 | 조각 모형 성공, 검증 4/4 일치, `1|6|1|1` UNSAT 1,096 초 / DRAT 5.75 GB, drat-trim 11/11 `s VERIFIED` |
+| DP 파일럿 | 건전하나 항상 120(해석적 상한), 빡빡한 셀 0, 중앙값 격차 19 |
+| 등호 행 보존 | L871 = **1,154 엄격 + 2 등호** (E1·E2 그대로) |
+| 결정적 재현 | 최소화 산출물 5 개 전부 바이트 동일 |
+| 라운드 166 권고 | **`EXTREE_BASIS_CERTIFICATION`** |
