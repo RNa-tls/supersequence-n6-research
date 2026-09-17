@@ -339,6 +339,46 @@ Route B 가 재생할 것이 아예 존재하지 않는다.
 
 ---
 
+## 22. 깨끗한 체크아웃 결정적 재현
+
+커밋 `ebbf5da` 에서 새 클론을 만들고 Route-B 모듈을 **두 번** 돌렸다.
+
+```
+git clone --no-hardlinks <repo> clean && cd clean && git checkout ebbf5da
+for pass in 1 2; do
+  python3 r164/src/targets164.py
+  python3 r164/src/run164.py
+  python3 r164/src/mutate164.py
+  python3 r164/src/impact164.py
+  python3 r164/src/summary164.py
+done
+python3 r164/src/verifygen164.py      # 7,254,695 노드, 350 초
+```
+
+| 인증서 | 1 회차 대 2 회차 | 깨끗한 클론 대 커밋본 |
+|---|---|---|
+| `targets_164.json` | 동일 | 동일 |
+| `route_b_replay_164.json` | 동일 | 동일 |
+| `mutations_164.json` | 동일 | 동일 |
+| `impact_164.json` | 동일 | 동일 |
+| `gentree_164.json` | 동일 | 동일 |
+| `verifygen_164.json` | 동일 | 동일 |
+| `chain_single_impl_164.json` · `piece_single_impl_164.json` | 동일 | 동일 |
+| `route_b_summary_164.json` | 동일 | 동일 |
+
+**아홉 개 전부 바이트 단위로 동일하다.**  인증서에는 벽시계 `seconds`,
+타임스탬프, 임시 경로, PID 가 **하나도 들어 있지 않다** (검사로 확인);
+실행 시간은 표준출력으로만 나간다.  라운드 163 이 고쳐야 했던 `seconds`
+결함을 반복하지 않았다.  생성한 트리는 `gzip(mtime=0)` 으로 저장해 컨테이너
+까지 결정적이다 (`sha256 = d5dac08a…af742`).
+
+**첫 시도에서는 한 개가 달랐다.**  `route_b_replay_164.json` 이 기록한
+`targets_164.json` 의 `sha256` 이 낡아 있었다 — 그 파일에서 군더더기
+필드를 지운 뒤 `run164` 를 다시 돌리지 않았기 때문이다.  재생성해서
+맞췄다.  숨기지 않고 적는다: 이런 종류가 바로 provenance 결함이다.
+
+---
+
 ## 최종 수치
 
 | 항목 | 값 |
