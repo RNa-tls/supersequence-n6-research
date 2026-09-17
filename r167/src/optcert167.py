@@ -283,7 +283,6 @@ def main():
             chain_side_nodes=sum(v["chain_certificate_nodes"] or 0
                                  for v in econ.values()),
             most_expensive=[dict(cell=k, **v) for k, v in tail]),
-        seconds=round(time.time() - t0, 1),
     )
     out["ok"] = (out["exposed_rows"]["matches_the_solver"]
                  and out["upper_bound"]["ok"] and out["lower_bound"]["ok"])
@@ -294,6 +293,7 @@ def main():
         k: v for k, v in show["bridge_group_economics"].items()
         if k != "detail"}
     print(json.dumps(show, ensure_ascii=False, indent=1))
+    print("seconds:", round(time.time() - t0, 1))
     return 0 if out["ok"] else 1
 
 

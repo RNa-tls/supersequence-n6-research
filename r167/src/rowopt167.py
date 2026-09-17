@@ -385,7 +385,6 @@ def main():
                   per_cell_of_the_optimum={
                       "|".join(map(str, K)): nodes(K)[0] for K in
                       sorted(E, key=lambda K: (-(nodes(K)[0] or 0), K))}),
-        seconds=round(time.time() - t0, 1),
     )
     out["ok"] = (out["baseline"]["reproduces_round_152"]
                  and out["round_165_count_reproduced"]
@@ -406,6 +405,7 @@ def main():
     show["fact_level_plan"] = {k: v for k, v in show["fact_level_plan"].items()
                                if k != "note"}
     print(json.dumps(show, ensure_ascii=False, indent=1))
+    print("seconds:", round(time.time() - t0, 1))
     return 0 if out["ok"] else 1
 
 

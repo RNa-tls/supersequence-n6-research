@@ -162,10 +162,11 @@ def main():
         all_ok=all(v["ok"] for v in out.values()),
         total_cells=sum(v["cells"] for v in seen.values()),
         total_nodes=sum(v["nodes"] for v in seen.values()),
-        seconds=round(time.time() - t0, 1))
+        )
     (ROOT / a.report).write_text(json.dumps(res, indent=1) + "\n")
     print(json.dumps({k: v for k, v in res.items() if k != "per_cell"},
                      indent=1)[:2000])
+    print("seconds:", round(time.time() - t0, 1))
     return 0 if res["all_ok"] else 1
 
 

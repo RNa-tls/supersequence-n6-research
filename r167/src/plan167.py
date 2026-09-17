@@ -179,7 +179,6 @@ def main():
             rule="cheapest first, so that a wrong planned value shows up "
                  "early; each checkpoint states in advance how many of the "
                  f"{len(EX)} exposed rows must be closed by then"),
-        seconds=round(time.time() - t0, 1),
     )
     out["ok"] = (len(batches) == 4
                  and batches[-1]["exposed_rows_still_open"] == 0
@@ -191,6 +190,7 @@ def main():
     show["margins"].pop("detail")
     show["generation_plan"].pop("order")
     print(json.dumps(show, ensure_ascii=False, indent=1))
+    print("seconds:", round(time.time() - t0, 1))
     return 0 if out["ok"] else 1
 
 
