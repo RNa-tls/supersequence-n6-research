@@ -1,0 +1,17824 @@
+{
+ "head_inputs": {
+  "r164/certs/targets_164.json": "fcbbbbafabdda377cc0bee6c1d8665005e2e2de619002902ddfb071c97378402",
+  "r164/certs/verifygen_164.json": "7dff2fe40b33cd40646b403fcfb5ee2205313f598b2c7bc2c8b3653bac91fdf3",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa"
+ },
+ "remaining_single_route": {
+  "chain": 246,
+  "piece": 109,
+  "total": 355,
+  "already_route_b_certified": [
+   "1|0|0|0|0|2"
+  ]
+ },
+ "baseline": {
+  "tally": {
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "rows": 1609
+ },
+ "all_withdrawn": {
+  "tally": {
+   "STRICTLY_CLOSED": 1426,
+   "EQUALITY": 51,
+   "SURVIVING": 132
+  }
+ },
+ "exposed_rows": 181,
+ "equality_rows": [
+  [
+   3,
+   0,
+   1,
+   0,
+   7,
+   0,
+   7,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   4,
+   0,
+   0,
+   0,
+   6,
+   0,
+   6,
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "equality_rows_still_equality_after_withdrawal": [
+  [
+   3,
+   0,
+   1,
+   0,
+   7,
+   0,
+   7,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   4,
+   0,
+   0,
+   0,
+   6,
+   0,
+   6,
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "monotonicity_violations": [],
+ "monotone": true,
+ "ablation": {
+  "0|13|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "0|14|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|15|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|16|3|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "0|17|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     4,
+     0,
+     0,
+     0,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|18|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     4,
+     0,
+     0,
+     0,
+     2,
+     1,
+     0,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|0|0|0|0|3": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|0|2|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|0|4|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|0|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|1|0|1|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|1|1|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|2|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|3|0|1|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|3|1|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|1|4|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|0|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|1|0|1|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|1|1|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|2|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|6|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|2|8|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|3|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     7,
+     0,
+     7,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|0|0|0|2": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     2,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0,
+     0,
+     2
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|1|0|1|0": {
+   "model": "chain",
+   "opens": 16,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     1,
+     3,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     1,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     1,
+     4,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     1,
+     5,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     2,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     3,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     0,
+     1,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|1|0|1|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|3|1|1|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|1|1|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|3|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|3|2|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|3|2|0|1|0": {
+   "model": "chain",
+   "opens": 7,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     1,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     2,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     3,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     0,
+     1,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|2|1|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|3|0|1|0": {
+   "model": "chain",
+   "opens": 7,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     1,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     2,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     3,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     0,
+     1,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|3|1|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|3|4|0|1|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     0,
+     1,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|4|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|5|0|1|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     0,
+     1,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|5|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     5,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|3|6|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|0|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|0|0|0|2": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|1|0|1|0": {
+   "model": "chain",
+   "opens": 12,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     1,
+     3,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     1,
+     4,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     1,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|1|1|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     1,
+     4,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|2|0|1|0": {
+   "model": "chain",
+   "opens": 4,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     1,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|2|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|3|0|1|0": {
+   "model": "chain",
+   "opens": 4,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     1,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|3|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|4|0|1|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|4|1|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|4|5|0|1|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     3,
+     0,
+     0,
+     5,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|5|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     6,
+     3,
+     0,
+     0,
+     5,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|4|6|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|5|0|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|5|0|0|0|2": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     2,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|0|0|1|0": {
+   "model": "chain",
+   "opens": 10,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|0|1|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|1|0|0|0": {
+   "model": "chain",
+   "opens": 18,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     1,
+     8,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     2,
+     6,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     3,
+     4,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|1|0|1|0": {
+   "model": "chain",
+   "opens": 10,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|1|1|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|2|0|0|0": {
+   "model": "chain",
+   "opens": 16,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     1,
+     8,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     2,
+     6,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     3,
+     4,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|5|2|0|1|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|2|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|3|0|0|0": {
+   "model": "chain",
+   "opens": 8,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     2,
+     6,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     3,
+     4,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|3|0|1|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|3|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|4|0|0|0": {
+   "model": "chain",
+   "opens": 6,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     2,
+     6,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     3,
+     4,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|5|5|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     3,
+     4,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|6|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     3,
+     4,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|7|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|8|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     4,
+     2,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|5|9|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|5|10|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     10,
+     5,
+     0,
+     0,
+     10,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|0|0|0|0": {
+   "model": "chain",
+   "opens": 9,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     1,
+     7,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     4,
+     0,
+     4,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|0|0|1|0": {
+   "model": "chain",
+   "opens": 5,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|0|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|1|0|0|0": {
+   "model": "chain",
+   "opens": 9,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     1,
+     7,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|1|0|1|0": {
+   "model": "chain",
+   "opens": 5,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|1|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|2|0|0|0": {
+   "model": "chain",
+   "opens": 7,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     1,
+     7,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|6|2|0|1|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|6|2|1|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|6|3|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|3|0|1|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     2,
+     0,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|3|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     4,
+     2,
+     0,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|4|0|0|0": {
+   "model": "chain",
+   "opens": 4,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     4,
+     2,
+     0,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|6|5|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|6|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|7|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|8|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|0|0|0|0": {
+   "model": "chain",
+   "opens": 8,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     1,
+     6,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     3,
+     0,
+     3,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|0|0|1|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|0|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|1|0|0|0": {
+   "model": "chain",
+   "opens": 8,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     1,
+     6,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|1|0|1|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|1|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|2|0|0|0": {
+   "model": "chain",
+   "opens": 6,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0,
+     1,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     1,
+     6,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|2|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|3|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|4|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|5|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|6|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|7|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|7|8|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     8,
+     4,
+     0,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|0|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     1,
+     5,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|0|0|1|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|8|0|1|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|8|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     1,
+     5,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|1|0|1|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     2,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|1|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     1,
+     0,
+     1,
+     2,
+     1,
+     0,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|2|0|0|0": {
+   "model": "chain",
+   "opens": 4,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     1,
+     2,
+     1,
+     0,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     1,
+     5,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|8|3|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|4|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|5|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|6|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|0|0|0|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     0,
+     6,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     1,
+     4,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     1,
+     4,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|2|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     1,
+     4,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|3|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|5|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|9|6|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     6,
+     3,
+     0,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|0|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|2|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|3|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|0|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|1|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|3|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|11|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     4,
+     2,
+     0,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|0|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|1|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|13|0|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|13|1|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "1|13|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     3,
+     0,
+     0,
+     1,
+     2,
+     1,
+     0,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|0|0|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|0|0|0|0|2": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     0,
+     0,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|0|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|0|2|0|1|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|0|2|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|0|3|0|1|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     0,
+     1,
+     4,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|0|3|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|0|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|1|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     1,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|0|0|1|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|0|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|1|0|1|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     1,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|1|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|1|2|0|1|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|1|2|1|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|1|3|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|3|0|1|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     2,
+     0,
+     0,
+     3,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|3|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     4,
+     2,
+     0,
+     0,
+     3,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|4|0|0|0": {
+   "model": "chain",
+   "opens": 4,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     2,
+     4,
+     2,
+     0,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     2,
+     5,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|4|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|1|5|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|6|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     3,
+     3,
+     0,
+     6,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|7|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|1|8|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     9,
+     4,
+     1,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     1,
+     2,
+     3,
+     0,
+     3,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|0|0|1|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|0|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|1|0|0|0": {
+   "model": "chain",
+   "opens": 7,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     1,
+     6,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|1|0|1|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|1|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|2|0|0|0": {
+   "model": "chain",
+   "opens": 5,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     1,
+     6,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|2|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     1,
+     2,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|3|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|4|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     2,
+     4,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|5|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|6|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     3,
+     2,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|2|7|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|2|8|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     8,
+     4,
+     0,
+     0,
+     8,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|0|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     1,
+     5,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     1,
+     2,
+     2,
+     0,
+     2,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|0|0|1|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|3|0|1|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|3|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     1,
+     5,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|1|0|1|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     2,
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|1|1|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     1,
+     0,
+     2,
+     2,
+     1,
+     0,
+     0,
+     1,
+     1,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|2|0|0|0": {
+   "model": "chain",
+   "opens": 4,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     2,
+     2,
+     1,
+     0,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     1,
+     5,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|2|0|0|1": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|3|3|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|4|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     2,
+     3,
+     0,
+     4,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|5|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|6|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     7,
+     3,
+     1,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|0|0|0|0": {
+   "model": "chain",
+   "opens": 3,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     0,
+     6,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     1,
+     4,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     1,
+     4,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|2|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     1,
+     4,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|3|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     2,
+     2,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|5|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|4|6|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     6,
+     3,
+     0,
+     0,
+     6,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|0|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     1,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|2|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|3|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|0|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|1|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|3|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|6|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     4,
+     2,
+     0,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|0|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|1|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|8|0|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|8|1|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "2|8|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     2,
+     0,
+     0,
+     2,
+     2,
+     1,
+     0,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|0|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|0|0|0|1": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     0,
+     0,
+     1,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|1|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|2|0|0|0": {
+   "model": "chain",
+   "opens": 2,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     1,
+     3,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|3|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     5,
+     2,
+     1,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|0|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|1|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     4,
+     1,
+     2,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|3|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "3|1|4|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     4,
+     2,
+     0,
+     0,
+     4,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|0|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|1|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     3,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|3|0|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "3|3|1|0|0|0": {
+   "model": "chain",
+   "opens": 0,
+   "rows": [],
+   "classification": "REDUNDANT_GIVEN_CURRENT_OTHERS"
+  },
+  "3|3|2|0|0|0": {
+   "model": "chain",
+   "opens": 1,
+   "rows": [
+    [
+     1,
+     0,
+     0,
+     3,
+     2,
+     1,
+     0,
+     0,
+     2,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|15|1|1": {
+   "model": "piece",
+   "opens": 9,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|18|1|1": {
+   "model": "piece",
+   "opens": 9,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|19|0|1": {
+   "model": "piece",
+   "opens": 9,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|19|1|0": {
+   "model": "piece",
+   "opens": 9,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|19|1|1": {
+   "model": "piece",
+   "opens": 9,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|20|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|20|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|20|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "0|20|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|6|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|7|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|8|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|9|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|10|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|11|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|12|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|13|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|13|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|13|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|13|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|14|0|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|14|0|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|14|1|0": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|14|1|1": {
+   "model": "piece",
+   "opens": 7,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|15|0|0": {
+   "model": "piece",
+   "opens": 4,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|15|0|1": {
+   "model": "piece",
+   "opens": 4,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|15|1|0": {
+   "model": "piece",
+   "opens": 4,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "1|15|1|1": {
+   "model": "piece",
+   "opens": 4,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|3|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|4|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|5|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|6|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|7|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|8|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|8|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|8|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|8|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|9|0|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|9|0|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|9|1|0": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|9|1|1": {
+   "model": "piece",
+   "opens": 5,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|10|0|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|10|0|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|10|1|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "2|10|1|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0,
+     0,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|0|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|0|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|1|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|0|1|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|0|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|0|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|1|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|1|1|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|0|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|0|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|1|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|2|1|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|3|0|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|3|0|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|3|1|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|3|1|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|4|0|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|4|0|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|4|1|0": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|4|1|1": {
+   "model": "piece",
+   "opens": 3,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|5|0|0": {
+   "model": "piece",
+   "opens": 2,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|5|0|1": {
+   "model": "piece",
+   "opens": 2,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|5|1|0": {
+   "model": "piece",
+   "opens": 2,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "3|5|1|1": {
+   "model": "piece",
+   "opens": 2,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "4|0|0|0": {
+   "model": "piece",
+   "opens": 1,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "4|0|0|1": {
+   "model": "piece",
+   "opens": 1,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "4|0|1|0": {
+   "model": "piece",
+   "opens": 1,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  },
+  "4|0|1|1": {
+   "model": "piece",
+   "opens": 1,
+   "rows": [
+    [
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "classification": "INDIVIDUALLY_ESSENTIAL"
+  }
+ },
+ "individually_essential": 288,
+ "redundant_given_current_others": 67,
+ "essential_cells": [
+  "0|14|0|0|0|1",
+  "0|15|0|0|0|1",
+  "0|15|1|1",
+  "0|17|2|0|0|0",
+  "0|18|1|1",
+  "0|18|2|0|0|0",
+  "0|19|0|1",
+  "0|19|1|0",
+  "0|19|1|1",
+  "0|20|0|0",
+  "0|20|0|1",
+  "0|20|1|0",
+  "0|20|1|1",
+  "1|10|0|0",
+  "1|10|0|0|0|0",
+  "1|10|0|0|0|1",
+  "1|10|0|1",
+  "1|10|1|0",
+  "1|10|1|0|0|0",
+  "1|10|1|1",
+  "1|10|2|0|0|0",
+  "1|10|3|0|0|0",
+  "1|10|4|0|0|0",
+  "1|11|0|0",
+  "1|11|0|0|0|0",
+  "1|11|0|1",
+  "1|11|1|0",
+  "1|11|1|0|0|0",
+  "1|11|1|1",
+  "1|11|2|0|0|0",
+  "1|11|4|0|0|0",
+  "1|12|0|0",
+  "1|12|0|0|0|0",
+  "1|12|0|1",
+  "1|12|1|0",
+  "1|12|1|0|0|0",
+  "1|12|1|1",
+  "1|12|2|0|0|0",
+  "1|13|0|0",
+  "1|13|0|1",
+  "1|13|1|0",
+  "1|13|1|1",
+  "1|13|2|0|0|0",
+  "1|14|0|0",
+  "1|14|0|1",
+  "1|14|1|0",
+  "1|14|1|1",
+  "1|15|0|0",
+  "1|15|0|1",
+  "1|15|1|0",
+  "1|15|1|1",
+  "1|3|0|0|0|1",
+  "1|3|0|0|0|2",
+  "1|3|1|0|1|0",
+  "1|3|1|1|0|0",
+  "1|3|2|0|1|0",
+  "1|3|2|1|0|0",
+  "1|3|3|0|1|0",
+  "1|3|3|1|0|0",
+  "1|3|4|0|1|0",
+  "1|3|4|1|0|0",
+  "1|3|5|0|1|0",
+  "1|3|5|1|0|0",
+  "1|4|1|0|1|0",
+  "1|4|1|1|0|0",
+  "1|4|2|0|1|0",
+  "1|4|2|1|0|0",
+  "1|4|3|0|1|0",
+  "1|4|3|1|0|0",
+  "1|4|5|0|1|0",
+  "1|4|5|1|0|0",
+  "1|5|0|0|0|2",
+  "1|5|0|0|1|0",
+  "1|5|0|1|0|0",
+  "1|5|10|0|0|0",
+  "1|5|1|0|0|0",
+  "1|5|1|0|1|0",
+  "1|5|1|1|0|0",
+  "1|5|2|0|0|0",
+  "1|5|2|0|1|0",
+  "1|5|2|1|0|0",
+  "1|5|3|0|0|0",
+  "1|5|3|0|1|0",
+  "1|5|3|1|0|0",
+  "1|5|4|0|0|0",
+  "1|5|5|0|0|0",
+  "1|5|6|0|0|0",
+  "1|5|7|0|0|0",
+  "1|5|8|0|0|0",
+  "1|6|0|0",
+  "1|6|0|0|0|0",
+  "1|6|0|0|0|1",
+  "1|6|0|0|1|0",
+  "1|6|0|1",
+  "1|6|0|1|0|0",
+  "1|6|1|0",
+  "1|6|1|0|0|0",
+  "1|6|1|0|1|0",
+  "1|6|1|1",
+  "1|6|1|1|0|0",
+  "1|6|2|0|0|0",
+  "1|6|3|0|0|0",
+  "1|6|3|0|1|0",
+  "1|6|3|1|0|0",
+  "1|6|4|0|0|0",
+  "1|6|5|0|0|0",
+  "1|6|6|0|0|0",
+  "1|6|7|0|0|0",
+  "1|6|8|0|0|0",
+  "1|7|0|0",
+  "1|7|0|0|0|0",
+  "1|7|0|0|0|1",
+  "1|7|0|0|1|0",
+  "1|7|0|1",
+  "1|7|0|1|0|0",
+  "1|7|1|0",
+  "1|7|1|0|0|0",
+  "1|7|1|0|1|0",
+  "1|7|1|1",
+  "1|7|1|1|0|0",
+  "1|7|2|0|0|0",
+  "1|7|2|0|0|1",
+  "1|7|3|0|0|0",
+  "1|7|4|0|0|0",
+  "1|7|5|0|0|0",
+  "1|7|6|0|0|0",
+  "1|7|8|0|0|0",
+  "1|8|0|0",
+  "1|8|0|0|0|0",
+  "1|8|0|0|0|1",
+  "1|8|0|1",
+  "1|8|1|0",
+  "1|8|1|0|0|0",
+  "1|8|1|0|1|0",
+  "1|8|1|1",
+  "1|8|1|1|0|0",
+  "1|8|2|0|0|0",
+  "1|8|3|0|0|0",
+  "1|8|4|0|0|0",
+  "1|8|5|0|0|0",
+  "1|8|6|0|0|0",
+  "1|9|0|0",
+  "1|9|0|0|0|0",
+  "1|9|0|0|0|1",
+  "1|9|0|1",
+  "1|9|1|0",
+  "1|9|1|0|0|0",
+  "1|9|1|1",
+  "1|9|2|0|0|0",
+  "1|9|3|0|0|0",
+  "1|9|4|0|0|0",
+  "1|9|6|0|0|0",
+  "2|0|0|0|0|2",
+  "2|0|2|0|1|0",
+  "2|0|2|1|0|0",
+  "2|0|3|0|1|0",
+  "2|0|3|1|0|0",
+  "2|10|0|0",
+  "2|10|0|1",
+  "2|10|1|0",
+  "2|10|1|1",
+  "2|1|0|0|0|1",
+  "2|1|0|0|1|0",
+  "2|1|0|1|0|0",
+  "2|1|1|0|1|0",
+  "2|1|1|1|0|0",
+  "2|1|3|0|0|0",
+  "2|1|3|0|1|0",
+  "2|1|3|1|0|0",
+  "2|1|4|0|0|0",
+  "2|1|5|0|0|0",
+  "2|1|6|0|0|0",
+  "2|1|7|0|0|0",
+  "2|1|8|0|0|0",
+  "2|2|0|0|0|1",
+  "2|2|0|0|1|0",
+  "2|2|0|1|0|0",
+  "2|2|1|0|0|0",
+  "2|2|1|0|1|0",
+  "2|2|1|1|0|0",
+  "2|2|2|0|0|0",
+  "2|2|2|0|0|1",
+  "2|2|3|0|0|0",
+  "2|2|4|0|0|0",
+  "2|2|5|0|0|0",
+  "2|2|6|0|0|0",
+  "2|2|8|0|0|0",
+  "2|3|0|0",
+  "2|3|0|0|0|0",
+  "2|3|0|0|0|1",
+  "2|3|0|1",
+  "2|3|1|0",
+  "2|3|1|0|0|0",
+  "2|3|1|0|1|0",
+  "2|3|1|1",
+  "2|3|1|1|0|0",
+  "2|3|2|0|0|0",
+  "2|3|3|0|0|0",
+  "2|3|4|0|0|0",
+  "2|3|5|0|0|0",
+  "2|3|6|0|0|0",
+  "2|4|0|0",
+  "2|4|0|0|0|0",
+  "2|4|0|0|0|1",
+  "2|4|0|1",
+  "2|4|1|0",
+  "2|4|1|0|0|0",
+  "2|4|1|1",
+  "2|4|2|0|0|0",
+  "2|4|3|0|0|0",
+  "2|4|4|0|0|0",
+  "2|4|6|0|0|0",
+  "2|5|0|0",
+  "2|5|0|0|0|0",
+  "2|5|0|0|0|1",
+  "2|5|0|1",
+  "2|5|1|0",
+  "2|5|1|0|0|0",
+  "2|5|1|1",
+  "2|5|2|0|0|0",
+  "2|5|3|0|0|0",
+  "2|5|4|0|0|0",
+  "2|6|0|0",
+  "2|6|0|0|0|0",
+  "2|6|0|1",
+  "2|6|1|0",
+  "2|6|1|0|0|0",
+  "2|6|1|1",
+  "2|6|2|0|0|0",
+  "2|6|4|0|0|0",
+  "2|7|0|0",
+  "2|7|0|0|0|0",
+  "2|7|0|1",
+  "2|7|1|0",
+  "2|7|1|0|0|0",
+  "2|7|1|1",
+  "2|7|2|0|0|0",
+  "2|8|0|0",
+  "2|8|0|1",
+  "2|8|1|0",
+  "2|8|1|1",
+  "2|8|2|0|0|0",
+  "2|9|0|0",
+  "2|9|0|1",
+  "2|9|1|0",
+  "2|9|1|1",
+  "3|0|0|0",
+  "3|0|0|0|0|0",
+  "3|0|0|0|0|1",
+  "3|0|0|1",
+  "3|0|1|0",
+  "3|0|1|0|0|0",
+  "3|0|1|1",
+  "3|0|2|0|0|0",
+  "3|0|3|0|0|0",
+  "3|0|4|0|0|0",
+  "3|1|0|0",
+  "3|1|0|0|0|0",
+  "3|1|0|1",
+  "3|1|1|0",
+  "3|1|1|0|0|0",
+  "3|1|1|1",
+  "3|1|2|0|0|0",
+  "3|1|4|0|0|0",
+  "3|2|0|0",
+  "3|2|0|0|0|0",
+  "3|2|0|1",
+  "3|2|1|0",
+  "3|2|1|0|0|0",
+  "3|2|1|1",
+  "3|2|2|0|0|0",
+  "3|3|0|0",
+  "3|3|0|1",
+  "3|3|1|0",
+  "3|3|1|1",
+  "3|3|2|0|0|0",
+  "3|4|0|0",
+  "3|4|0|1",
+  "3|4|1|0",
+  "3|4|1|1",
+  "3|5|0|0",
+  "3|5|0|1",
+  "3|5|1|0",
+  "3|5|1|1",
+  "4|0|0|0",
+  "4|0|0|1",
+  "4|0|1|0",
+  "4|0|1|1"
+ ],
+ "exposed_row_keys": [
+  [
+   0,
+   0,
+   0,
+   3,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   2,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   2,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   2,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   2,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   2,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   3,
+   0,
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   4,
+   0,
+   4,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   4,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   5,
+   1,
+   3,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   1,
+   5,
+   2,
+   1,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   0,
+   0,
+   0,
+   4,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   0,
+   1,
+   3,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   0,
+   0,
+   2,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   3,
+   0,
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   4,
+   0,
+   4,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   4,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   5,
+   0,
+   5,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   5,
+   1,
+   3,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0,
+   3,
+   5,
+   2,
+   1,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   3,
+   0,
+   3,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   4,
+   0,
+   4,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   4,
+   1,
+   2,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   5,
+   1,
+   3,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   1,
+   2,
+   5,
+   2,
+   1,
+   0,
+   4,
+   0,
+   1
+  ],
+  [
+   1,
+   0,
+   2,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   2
+  ],
+  [
+   1,
+   0,
+   2,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   2
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   1,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   2,
+   0,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   2,
+   1,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   2,
+   1,
+   0,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   3,
+   0,
+   2,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   3,
+   1,
+   0,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   3,
+   1,
+   1,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   3,
+   1,
+   1,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   4,
+   0,
+   3,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   4,
+   1,
+   1,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   4,
+   1,
+   2,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   4,
+   1,
+   2,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   4,
+   2,
+   0,
+   0,
+   3,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   4,
+   2,
+   0,
+   0,
+   3,
+   1,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   5,
+   1,
+   2,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   5,
+   2,
+   0,
+   1,
+   4,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   5,
+   2,
+   1,
+   0,
+   3,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   0,
+   2,
+   5,
+   2,
+   1,
+   0,
+   3,
+   1,
+   0
+  ],
+  [
+   1,
+   1,
+   1,
+   1,
+   2,
+   1,
+   0,
+   0,
+   1,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   3,
+   0,
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   4,
+   0,
+   4,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   4,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   5,
+   0,
+   5,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   5,
+   1,
+   3,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   5,
+   2,
+   1,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   6,
+   0,
+   6,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   6,
+   1,
+   4,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   6,
+   2,
+   2,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   6,
+   3,
+   0,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   7,
+   0,
+   7,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   7,
+   1,
+   5,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   7,
+   2,
+   3,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   7,
+   3,
+   1,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   8,
+   1,
+   6,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   8,
+   2,
+   4,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   8,
+   3,
+   2,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   8,
+   4,
+   0,
+   0,
+   8,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   9,
+   2,
+   5,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   9,
+   3,
+   3,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   0,
+   2,
+   9,
+   4,
+   1,
+   0,
+   8,
+   0,
+   0
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   3,
+   0,
+   3,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   4,
+   0,
+   4,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   4,
+   1,
+   2,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   5,
+   1,
+   3,
+   0,
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   5,
+   2,
+   1,
+   0,
+   4,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   1,
+   1,
+   7,
+   0,
+   7,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   1,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   2,
+   0,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   2,
+   1,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   2,
+   1,
+   0,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   3,
+   0,
+   2,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   3,
+   1,
+   0,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   3,
+   1,
+   1,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   3,
+   1,
+   1,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   4,
+   0,
+   3,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   4,
+   1,
+   1,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   4,
+   1,
+   2,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   4,
+   1,
+   2,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   4,
+   2,
+   0,
+   0,
+   3,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   4,
+   2,
+   0,
+   0,
+   3,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   5,
+   1,
+   2,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   5,
+   1,
+   3,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   5,
+   1,
+   3,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   5,
+   2,
+   0,
+   1,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   5,
+   2,
+   1,
+   0,
+   3,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   5,
+   2,
+   1,
+   0,
+   3,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   1,
+   3,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   1,
+   4,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   1,
+   4,
+   0,
+   1,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   2,
+   1,
+   1,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   2,
+   2,
+   0,
+   3,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   2,
+   2,
+   0,
+   3,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   3,
+   0,
+   0,
+   5,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   6,
+   3,
+   0,
+   0,
+   5,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   1,
+   4,
+   1,
+   2,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   1,
+   5,
+   0,
+   1,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   2,
+   2,
+   1,
+   4,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   2,
+   3,
+   0,
+   3,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   2,
+   3,
+   0,
+   3,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   3,
+   0,
+   1,
+   6,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   3,
+   1,
+   0,
+   5,
+   0,
+   0
+  ],
+  [
+   2,
+   1,
+   0,
+   1,
+   7,
+   3,
+   1,
+   0,
+   5,
+   1,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   3,
+   0,
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   4,
+   0,
+   4,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   4,
+   1,
+   2,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   4,
+   2,
+   0,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   5,
+   0,
+   5,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   5,
+   1,
+   3,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   5,
+   2,
+   1,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   6,
+   0,
+   6,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   6,
+   1,
+   4,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   6,
+   2,
+   2,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   6,
+   3,
+   0,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   7,
+   0,
+   7,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   7,
+   1,
+   5,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   7,
+   2,
+   3,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   7,
+   3,
+   1,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   8,
+   0,
+   8,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   8,
+   1,
+   6,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   8,
+   2,
+   4,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   8,
+   3,
+   2,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   8,
+   4,
+   0,
+   0,
+   8,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   9,
+   0,
+   9,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   9,
+   1,
+   7,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   9,
+   2,
+   5,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   9,
+   3,
+   3,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   9,
+   4,
+   1,
+   0,
+   8,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   10,
+   1,
+   8,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   10,
+   2,
+   6,
+   0,
+   4,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   10,
+   3,
+   4,
+   0,
+   6,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   10,
+   4,
+   2,
+   0,
+   8,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   0,
+   1,
+   10,
+   5,
+   0,
+   0,
+   10,
+   0,
+   0
+  ],
+  [
+   3,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   3,
+   0,
+   1,
+   0,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   1
+  ],
+  [
+   4,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   4,
+   0,
+   0,
+   0,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   4,
+   0,
+   0,
+   0,
+   2,
+   1,
+   0,
+   0,
+   2,
+   0,
+   0
+  ],
+  [
+   4,
+   0,
+   0,
+   0,
+   3,
+   1,
+   1,
+   0,
+   2,
+   0,
+   0
+  ]
+ ],
+ "exposed_row_layers": {
+  "L870": 18,
+  "L871": 163
+ },
+ "ok": true
+}
