@@ -193,7 +193,7 @@ def main():
     sens = w165["per_cell_sensitivity"]
     done_cells = {"|".join(map(str, k)) for k in certified_by_proof}
     tail = []
-    for c in ess:
+    for c in sorted(ess):      # a set's order is not stable across runs
         if c in done_cells:
             continue
         model = g165["ablation"][c]["model"]
@@ -203,7 +203,8 @@ def main():
                          smallest_damaging_error=sens.get(c, {}).get(
                              "smallest_damaging_error"),
                          projected_extree_bytes=int(n * 2.29)))
-    tail.sort(key=lambda r: -r["route_a_nodes"])
+    # ties must break deterministically, or the top-10 shuffles
+    tail.sort(key=lambda r: (-r["route_a_nodes"], r["cell"]))
     total_tail = sum(r["route_a_nodes"] for r in tail)
     top10 = sum(r["route_a_nodes"] for r in tail[:10])
 
