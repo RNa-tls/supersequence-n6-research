@@ -1,0 +1,1945 @@
+{
+ "inputs": {
+  "r165/certs/row_closure_graph_165.json": "5f486cfc20a50640390a23daaa7f980821a3c1444cf06dacc632d7811e6a32a9",
+  "r166/certs/cross_model_bridge_166.json": "d7748731f04341740c2bf65d8ed8248b411d77fc4411c3118cd0fa563c0e7f00",
+  "r166/certs/verification_166.json": "e46066d95d2297d78a0889b40ffdf570b33945c237aa195013f4268da3217f4a",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa"
+ },
+ "facts": {
+  "chain": 179,
+  "piece": 109,
+  "total": 288,
+  "matches_round_165": true
+ },
+ "bridge_enumeration": {
+  "distinct_bd_groups": 29,
+  "piece_facts_covered": 109,
+  "covers_every_piece_fact": true,
+  "completeness_argument": "a piece fact (b,d,fp,lp) is bridged by the chain cell (b,d,0,0,0,0) and by no other cell more tightly: any other chain cell K' that bounds it must dominate (b,d,0,0,0,0) componentwise, and monotonicity then gives cap_chain(b,d,0,0,0,0) <= cap_chain(K'), so the (b,d) cell is the strongest bridge.  Grouping the 109 piece facts by (b,d) therefore enumerates every useful bridge, and there are exactly as many as there are distinct (b,d)",
+  "round_166_found": 18,
+  "round_166_missed": 11,
+  "why_round_166_missed_them": "round 166 only accepted chain cells already present in the round-152 capacity table; the rest are absent from that table but are ordinary cells whose certificate can be generated directly",
+  "bridges": {
+   "0|15|0|0|0|0": {
+    "chain_cell": "0|15|0|0|0|0",
+    "bd": [
+     0,
+     15
+    ],
+    "piece_facts": [
+     "0|15|1|1"
+    ],
+    "piece_fact_count": 1,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": false,
+    "historical_cap": 96,
+    "historical_nodes": 35077,
+    "piece_caps": {
+     "0|15|1|1": 81
+    },
+    "noticed_by_round_166": false
+   },
+   "0|18|0|0|0|0": {
+    "chain_cell": "0|18|0|0|0|0",
+    "bd": [
+     0,
+     18
+    ],
+    "piece_facts": [
+     "0|18|1|1"
+    ],
+    "piece_fact_count": 1,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": false,
+    "historical_cap": 103,
+    "historical_nodes": 827789,
+    "piece_caps": {
+     "0|18|1|1": 94
+    },
+    "noticed_by_round_166": false
+   },
+   "0|19|0|0|0|0": {
+    "chain_cell": "0|19|0|0|0|0",
+    "bd": [
+     0,
+     19
+    ],
+    "piece_facts": [
+     "0|19|0|1",
+     "0|19|1|0",
+     "0|19|1|1"
+    ],
+    "piece_fact_count": 3,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "0|19|0|1": 102,
+     "0|19|1|0": 102,
+     "0|19|1|1": 101
+    },
+    "noticed_by_round_166": false
+   },
+   "0|20|0|0|0|0": {
+    "chain_cell": "0|20|0|0|0|0",
+    "bd": [
+     0,
+     20
+    ],
+    "piece_facts": [
+     "0|20|0|0",
+     "0|20|0|1",
+     "0|20|1|0",
+     "0|20|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "0|20|0|0": 106,
+     "0|20|0|1": 105,
+     "0|20|1|0": 105,
+     "0|20|1|1": 101
+    },
+    "noticed_by_round_166": false
+   },
+   "1|6|0|0|0|0": {
+    "chain_cell": "1|6|0|0|0|0",
+    "bd": [
+     1,
+     6
+    ],
+    "piece_facts": [
+     "1|6|0|0",
+     "1|6|0|1",
+     "1|6|1|0",
+     "1|6|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 64,
+    "historical_nodes": 4658241,
+    "piece_caps": {
+     "1|6|0|0": 64,
+     "1|6|0|1": 64,
+     "1|6|1|0": 64,
+     "1|6|1|1": 60
+    },
+    "noticed_by_round_166": true
+   },
+   "1|7|0|0|0|0": {
+    "chain_cell": "1|7|0|0|0|0",
+    "bd": [
+     1,
+     7
+    ],
+    "piece_facts": [
+     "1|7|0|0",
+     "1|7|0|1",
+     "1|7|1|0",
+     "1|7|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 73,
+    "historical_nodes": 6428374,
+    "piece_caps": {
+     "1|7|0|0": 73,
+     "1|7|0|1": 73,
+     "1|7|1|0": 73,
+     "1|7|1|1": 63
+    },
+    "noticed_by_round_166": true
+   },
+   "1|8|0|0|0|0": {
+    "chain_cell": "1|8|0|0|0|0",
+    "bd": [
+     1,
+     8
+    ],
+    "piece_facts": [
+     "1|8|0|0",
+     "1|8|0|1",
+     "1|8|1|0",
+     "1|8|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 77,
+    "historical_nodes": 14229334,
+    "piece_caps": {
+     "1|8|0|0": 77,
+     "1|8|0|1": 77,
+     "1|8|1|0": 77,
+     "1|8|1|1": 72
+    },
+    "noticed_by_round_166": true
+   },
+   "1|9|0|0|0|0": {
+    "chain_cell": "1|9|0|0|0|0",
+    "bd": [
+     1,
+     9
+    ],
+    "piece_facts": [
+     "1|9|0|0",
+     "1|9|0|1",
+     "1|9|1|0",
+     "1|9|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 81,
+    "historical_nodes": 29149082,
+    "piece_caps": {
+     "1|9|0|0": 81,
+     "1|9|0|1": 81,
+     "1|9|1|0": 81,
+     "1|9|1|1": 76
+    },
+    "noticed_by_round_166": true
+   },
+   "1|10|0|0|0|0": {
+    "chain_cell": "1|10|0|0|0|0",
+    "bd": [
+     1,
+     10
+    ],
+    "piece_facts": [
+     "1|10|0|0",
+     "1|10|0|1",
+     "1|10|1|0",
+     "1|10|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 85,
+    "historical_nodes": 56666229,
+    "piece_caps": {
+     "1|10|0|0": 85,
+     "1|10|0|1": 85,
+     "1|10|1|0": 85,
+     "1|10|1|1": 80
+    },
+    "noticed_by_round_166": true
+   },
+   "1|11|0|0|0|0": {
+    "chain_cell": "1|11|0|0|0|0",
+    "bd": [
+     1,
+     11
+    ],
+    "piece_facts": [
+     "1|11|0|0",
+     "1|11|0|1",
+     "1|11|1|0",
+     "1|11|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 89,
+    "historical_nodes": 104396866,
+    "piece_caps": {
+     "1|11|0|0": 89,
+     "1|11|0|1": 89,
+     "1|11|1|0": 89,
+     "1|11|1|1": 84
+    },
+    "noticed_by_round_166": true
+   },
+   "1|12|0|0|0|0": {
+    "chain_cell": "1|12|0|0|0|0",
+    "bd": [
+     1,
+     12
+    ],
+    "piece_facts": [
+     "1|12|0|0",
+     "1|12|0|1",
+     "1|12|1|0",
+     "1|12|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 98,
+    "historical_nodes": 65408882,
+    "piece_caps": {
+     "1|12|0|0": 98,
+     "1|12|0|1": 98,
+     "1|12|1|0": 98,
+     "1|12|1|1": 88
+    },
+    "noticed_by_round_166": true
+   },
+   "1|13|0|0|0|0": {
+    "chain_cell": "1|13|0|0|0|0",
+    "bd": [
+     1,
+     13
+    ],
+    "piece_facts": [
+     "1|13|0|0",
+     "1|13|0|1",
+     "1|13|1|0",
+     "1|13|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": false,
+    "historical_cap": 98,
+    "historical_nodes": 202804767,
+    "piece_caps": {
+     "1|13|0|0": 98,
+     "1|13|0|1": 98,
+     "1|13|1|0": 98,
+     "1|13|1|1": 97
+    },
+    "noticed_by_round_166": true
+   },
+   "1|14|0|0|0|0": {
+    "chain_cell": "1|14|0|0|0|0",
+    "bd": [
+     1,
+     14
+    ],
+    "piece_facts": [
+     "1|14|0|0",
+     "1|14|0|1",
+     "1|14|1|0",
+     "1|14|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "1|14|0|0": 106,
+     "1|14|0|1": 106,
+     "1|14|1|0": 106,
+     "1|14|1|1": 97
+    },
+    "noticed_by_round_166": false
+   },
+   "1|15|0|0|0|0": {
+    "chain_cell": "1|15|0|0|0|0",
+    "bd": [
+     1,
+     15
+    ],
+    "piece_facts": [
+     "1|15|0|0",
+     "1|15|0|1",
+     "1|15|1|0",
+     "1|15|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "1|15|0|0": 106,
+     "1|15|0|1": 106,
+     "1|15|1|0": 106,
+     "1|15|1|1": 105
+    },
+    "noticed_by_round_166": false
+   },
+   "2|3|0|0|0|0": {
+    "chain_cell": "2|3|0|0|0|0",
+    "bd": [
+     2,
+     3
+    ],
+    "piece_facts": [
+     "2|3|0|0",
+     "2|3|0|1",
+     "2|3|1|0",
+     "2|3|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 63,
+    "historical_nodes": 10615505,
+    "piece_caps": {
+     "2|3|0|0": 63,
+     "2|3|0|1": 63,
+     "2|3|1|0": 63,
+     "2|3|1|1": 63
+    },
+    "noticed_by_round_166": true
+   },
+   "2|4|0|0|0|0": {
+    "chain_cell": "2|4|0|0|0|0",
+    "bd": [
+     2,
+     4
+    ],
+    "piece_facts": [
+     "2|4|0|0",
+     "2|4|0|1",
+     "2|4|1|0",
+     "2|4|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 76,
+    "historical_nodes": 32951292,
+    "piece_caps": {
+     "2|4|0|0": 76,
+     "2|4|0|1": 76,
+     "2|4|1|0": 76,
+     "2|4|1|1": 76
+    },
+    "noticed_by_round_166": true
+   },
+   "2|5|0|0|0|0": {
+    "chain_cell": "2|5|0|0|0|0",
+    "bd": [
+     2,
+     5
+    ],
+    "piece_facts": [
+     "2|5|0|0",
+     "2|5|0|1",
+     "2|5|1|0",
+     "2|5|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 76,
+    "historical_nodes": 112191071,
+    "piece_caps": {
+     "2|5|0|0": 76,
+     "2|5|0|1": 76,
+     "2|5|1|0": 76,
+     "2|5|1|1": 76
+    },
+    "noticed_by_round_166": true
+   },
+   "2|6|0|0|0|0": {
+    "chain_cell": "2|6|0|0|0|0",
+    "bd": [
+     2,
+     6
+    ],
+    "piece_facts": [
+     "2|6|0|0",
+     "2|6|0|1",
+     "2|6|1|0",
+     "2|6|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 79,
+    "historical_nodes": 358573971,
+    "piece_caps": {
+     "2|6|0|0": 79,
+     "2|6|0|1": 79,
+     "2|6|1|0": 79,
+     "2|6|1|1": 79
+    },
+    "noticed_by_round_166": true
+   },
+   "2|7|0|0|0|0": {
+    "chain_cell": "2|7|0|0|0|0",
+    "bd": [
+     2,
+     7
+    ],
+    "piece_facts": [
+     "2|7|0|0",
+     "2|7|0|1",
+     "2|7|1|0",
+     "2|7|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 88,
+    "historical_nodes": 815439540,
+    "piece_caps": {
+     "2|7|0|0": 88,
+     "2|7|0|1": 88,
+     "2|7|1|0": 88,
+     "2|7|1|1": 88
+    },
+    "noticed_by_round_166": true
+   },
+   "2|8|0|0|0|0": {
+    "chain_cell": "2|8|0|0|0|0",
+    "bd": [
+     2,
+     8
+    ],
+    "piece_facts": [
+     "2|8|0|0",
+     "2|8|0|1",
+     "2|8|1|0",
+     "2|8|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": false,
+    "historical_cap": 92,
+    "historical_nodes": 2071773569,
+    "piece_caps": {
+     "2|8|0|0": 92,
+     "2|8|0|1": 92,
+     "2|8|1|0": 92,
+     "2|8|1|1": 92
+    },
+    "noticed_by_round_166": true
+   },
+   "2|9|0|0|0|0": {
+    "chain_cell": "2|9|0|0|0|0",
+    "bd": [
+     2,
+     9
+    ],
+    "piece_facts": [
+     "2|9|0|0",
+     "2|9|0|1",
+     "2|9|1|0",
+     "2|9|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "2|9|0|0": 96,
+     "2|9|0|1": 96,
+     "2|9|1|0": 96,
+     "2|9|1|1": 96
+    },
+    "noticed_by_round_166": false
+   },
+   "2|10|0|0|0|0": {
+    "chain_cell": "2|10|0|0|0|0",
+    "bd": [
+     2,
+     10
+    ],
+    "piece_facts": [
+     "2|10|0|0",
+     "2|10|0|1",
+     "2|10|1|0",
+     "2|10|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "2|10|0|0": 100,
+     "2|10|0|1": 100,
+     "2|10|1|0": 100,
+     "2|10|1|1": 100
+    },
+    "noticed_by_round_166": false
+   },
+   "3|0|0|0|0|0": {
+    "chain_cell": "3|0|0|0|0|0",
+    "bd": [
+     3,
+     0
+    ],
+    "piece_facts": [
+     "3|0|0|0",
+     "3|0|0|1",
+     "3|0|1|0",
+     "3|0|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 65,
+    "historical_nodes": 4762850,
+    "piece_caps": {
+     "3|0|0|0": 65,
+     "3|0|0|1": 65,
+     "3|0|1|0": 65,
+     "3|0|1|1": 65
+    },
+    "noticed_by_round_166": true
+   },
+   "3|1|0|0|0|0": {
+    "chain_cell": "3|1|0|0|0|0",
+    "bd": [
+     3,
+     1
+    ],
+    "piece_facts": [
+     "3|1|0|0",
+     "3|1|0|1",
+     "3|1|1|0",
+     "3|1|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 65,
+    "historical_nodes": 19167795,
+    "piece_caps": {
+     "3|1|0|0": 65,
+     "3|1|0|1": 65,
+     "3|1|1|0": 65,
+     "3|1|1|1": 65
+    },
+    "noticed_by_round_166": true
+   },
+   "3|2|0|0|0|0": {
+    "chain_cell": "3|2|0|0|0|0",
+    "bd": [
+     3,
+     2
+    ],
+    "piece_facts": [
+     "3|2|0|0",
+     "3|2|0|1",
+     "3|2|1|0",
+     "3|2|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": true,
+    "historical_cap": 78,
+    "historical_nodes": 93914418,
+    "piece_caps": {
+     "3|2|0|0": 78,
+     "3|2|0|1": 78,
+     "3|2|1|0": 78,
+     "3|2|1|1": 78
+    },
+    "noticed_by_round_166": true
+   },
+   "3|3|0|0|0|0": {
+    "chain_cell": "3|3|0|0|0|0",
+    "bd": [
+     3,
+     3
+    ],
+    "piece_facts": [
+     "3|3|0|0",
+     "3|3|0|1",
+     "3|3|1|0",
+     "3|3|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": true,
+    "in_the_chain_basis": false,
+    "historical_cap": 78,
+    "historical_nodes": 345035010,
+    "piece_caps": {
+     "3|3|0|0": 78,
+     "3|3|0|1": 78,
+     "3|3|1|0": 78,
+     "3|3|1|1": 78
+    },
+    "noticed_by_round_166": true
+   },
+   "3|4|0|0|0|0": {
+    "chain_cell": "3|4|0|0|0|0",
+    "bd": [
+     3,
+     4
+    ],
+    "piece_facts": [
+     "3|4|0|0",
+     "3|4|0|1",
+     "3|4|1|0",
+     "3|4|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "3|4|0|0": 91,
+     "3|4|0|1": 91,
+     "3|4|1|0": 91,
+     "3|4|1|1": 91
+    },
+    "noticed_by_round_166": false
+   },
+   "3|5|0|0|0|0": {
+    "chain_cell": "3|5|0|0|0|0",
+    "bd": [
+     3,
+     5
+    ],
+    "piece_facts": [
+     "3|5|0|0",
+     "3|5|0|1",
+     "3|5|1|0",
+     "3|5|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "3|5|0|0": 91,
+     "3|5|0|1": 91,
+     "3|5|1|0": 91,
+     "3|5|1|1": 91
+    },
+    "noticed_by_round_166": false
+   },
+   "4|0|0|0|0|0": {
+    "chain_cell": "4|0|0|0|0|0",
+    "bd": [
+     4,
+     0
+    ],
+    "piece_facts": [
+     "4|0|0|0",
+     "4|0|0|1",
+     "4|0|1|0",
+     "4|0|1|1"
+    ],
+    "piece_fact_count": 4,
+    "in_the_round_152_table": false,
+    "in_the_chain_basis": false,
+    "historical_cap": null,
+    "historical_nodes": null,
+    "piece_caps": {
+     "4|0|0|0": 80,
+     "4|0|0|1": 80,
+     "4|0|1|0": 80,
+     "4|0|1|1": 80
+    },
+    "noticed_by_round_166": false
+   }
+  }
+ },
+ "fact_level_objective": {
+  "chain_facts_to_certify": 179,
+  "bridge_chain_cells": 29,
+  "already_in_the_chain_basis": 15,
+  "extra_chain_cells": 14,
+  "extra_cells": [
+   "0|15|0|0|0|0",
+   "0|18|0|0|0|0",
+   "0|19|0|0|0|0",
+   "0|20|0|0|0|0",
+   "1|13|0|0|0|0",
+   "1|14|0|0|0|0",
+   "1|15|0|0|0|0",
+   "2|10|0|0|0|0",
+   "2|8|0|0|0|0",
+   "2|9|0|0|0|0",
+   "3|3|0|0|0|0",
+   "3|4|0|0|0|0",
+   "3|5|0|0|0|0",
+   "4|0|0|0|0|0"
+  ],
+  "total_direct_certificates": 193,
+  "piece_certificates_avoided": 109,
+  "reduction_from_288": 95
+ },
+ "current_progress": {
+  "DIRECT_SECOND_ROUTE": [
+   "1|6|0|0|0|0",
+   "1|7|0|0|0|0",
+   "1|8|0|0|0|0",
+   "1|9|0|0|0|0",
+   "2|3|0|0|0|0",
+   "2|4|0|0|0|0",
+   "3|0|0|0|0|0",
+   "3|1|0|0|0|0"
+  ],
+  "DIRECT_SECOND_ROUTE_count": 8,
+  "BRIDGE_DERIVED_SECOND_ROUTE_count": 32,
+  "OTHER_DERIVED_SECOND_ROUTE_count": 0,
+  "supported_facts": 40,
+  "note": "a bridge-derived piece fact is NOT a directly certified EXTREE cell and is counted separately"
+ },
+ "cost": {
+  "old_plan_certify_all_288_facts": 162375361296,
+  "new_plan_remaining_direct_certificates": 61910938296,
+  "savings": 100464423000,
+  "per_cell": {
+   "0|14|0|0|0|1": {
+    "nodes": 3226186,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "0|15|0|0|0|0": {
+    "nodes": 35077,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "0|15|0|0|0|1": {
+    "nodes": 13225778,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "0|17|2|0|0|0": {
+    "nodes": 3916526,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "0|18|0|0|0|0": {
+    "nodes": 827789,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "0|18|2|0|0|0": {
+    "nodes": 5330747,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "0|19|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "0|20|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "1|10|0|0|0|0": {
+    "nodes": 56666229,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|10|0|0|0|1": {
+    "nodes": 384570643,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|10|1|0|0|0": {
+    "nodes": 192815208,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|10|2|0|0|0": {
+    "nodes": 271483881,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|10|3|0|0|0": {
+    "nodes": 440768320,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|10|4|0|0|0": {
+    "nodes": 561012012,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|11|0|0|0|0": {
+    "nodes": 104396866,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|11|1|0|0|0": {
+    "nodes": 207579069,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|11|2|0|0|0": {
+    "nodes": 189597437,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|11|4|0|0|0": {
+    "nodes": 431009941,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|12|0|0|0|0": {
+    "nodes": 65408882,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|12|1|0|0|0": {
+    "nodes": 356432926,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|12|2|0|0|0": {
+    "nodes": 652157534,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|13|0|0|0|0": {
+    "nodes": 202804767,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|13|2|0|0|0": {
+    "nodes": 1646929206,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|14|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "1|15|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "1|3|0|0|0|1": {
+    "nodes": 6713775,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|0|0|0|2": {
+    "nodes": 61383776,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|1|0|1|0": {
+    "nodes": 3443060,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|1|1|0|0": {
+    "nodes": 3086605,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|2|0|1|0": {
+    "nodes": 5313033,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|2|1|0|0": {
+    "nodes": 4599501,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|3|0|1|0": {
+    "nodes": 6144858,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|3|1|0|0": {
+    "nodes": 5216569,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|4|0|1|0": {
+    "nodes": 6358255,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|4|1|0|0": {
+    "nodes": 5363520,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|5|0|1|0": {
+    "nodes": 6388872,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|3|5|1|0|0": {
+    "nodes": 5383780,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|1|0|1|0": {
+    "nodes": 9134356,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|1|1|0|0": {
+    "nodes": 7199705,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|2|0|1|0": {
+    "nodes": 15734670,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|2|1|0|0": {
+    "nodes": 11685024,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|3|0|1|0": {
+    "nodes": 19464767,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|3|1|0|0": {
+    "nodes": 13919642,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|5|0|1|0": {
+    "nodes": 20967170,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|4|5|1|0|0": {
+    "nodes": 14685632,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|0|0|0|2": {
+    "nodes": 194409612,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|0|0|1|0": {
+    "nodes": 7991139,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|0|1|0|0": {
+    "nodes": 8003129,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|10|0|0|0": {
+    "nodes": 11243704,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|1|0|0|0": {
+    "nodes": 4725940,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|1|0|1|0": {
+    "nodes": 29717333,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|1|1|0|0": {
+    "nodes": 27351419,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|2|0|0|0": {
+    "nodes": 8216369,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|2|0|1|0": {
+    "nodes": 54985727,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|2|1|0|0": {
+    "nodes": 47492504,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|3|0|0|0": {
+    "nodes": 10269856,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|3|0|1|0": {
+    "nodes": 71552964,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|3|1|0|0": {
+    "nodes": 59205882,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|4|0|0|0": {
+    "nodes": 11029925,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|5|0|0|0": {
+    "nodes": 11212729,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|6|0|0|0": {
+    "nodes": 11241052,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|7|0|0|0": {
+    "nodes": 11243608,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|5|8|0|0|0": {
+    "nodes": 11243704,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|0|0|0|0": {
+    "nodes": 4658241,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "1|6|0|0|0|1": {
+    "nodes": 16142627,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|0|0|1|0": {
+    "nodes": 29042628,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|0|1|0|0": {
+    "nodes": 27844761,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|1|0|0|0": {
+    "nodes": 10118329,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|1|0|1|0": {
+    "nodes": 86838555,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|1|1|0|0": {
+    "nodes": 60793310,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|2|0|0|0": {
+    "nodes": 9779268,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|3|0|0|0": {
+    "nodes": 12941222,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|3|0|1|0": {
+    "nodes": 126580458,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|3|1|0|0": {
+    "nodes": 76649449,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|4|0|0|0": {
+    "nodes": 14311060,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|5|0|0|0": {
+    "nodes": 14715317,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|6|0|0|0": {
+    "nodes": 14799359,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|7|0|0|0": {
+    "nodes": 14811393,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|6|8|0|0|0": {
+    "nodes": 14812434,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|0|0|0|0": {
+    "nodes": 6428374,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "1|7|0|0|0|1": {
+    "nodes": 56361578,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|0|0|1|0": {
+    "nodes": 55711124,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|0|1|0|0": {
+    "nodes": 39408405,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|1|0|0|0": {
+    "nodes": 25761521,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|1|0|1|0": {
+    "nodes": 117865992,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|1|1|0|0": {
+    "nodes": 158124032,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|2|0|0|0": {
+    "nodes": 37632536,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|2|0|0|1": {
+    "nodes": 441501006,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|3|0|0|0": {
+    "nodes": 51957573,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|4|0|0|0": {
+    "nodes": 59154232,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|5|0|0|0": {
+    "nodes": 61625189,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|6|0|0|0": {
+    "nodes": 62217031,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|7|8|0|0|0": {
+    "nodes": 62327725,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|0|0|0|0": {
+    "nodes": 14229334,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "1|8|0|0|0|1": {
+    "nodes": 62041405,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|1|0|0|0": {
+    "nodes": 27522722,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|1|0|1|0": {
+    "nodes": 283948956,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|1|1|0|0": {
+    "nodes": 170256613,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|2|0|0|0": {
+    "nodes": 23608908,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|3|0|0|0": {
+    "nodes": 34931588,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|4|0|0|0": {
+    "nodes": 41280712,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|5|0|0|0": {
+    "nodes": 43672606,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|8|6|0|0|0": {
+    "nodes": 44304650,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|9|0|0|0|0": {
+    "nodes": 29149082,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "1|9|0|0|0|1": {
+    "nodes": 116749021,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|9|1|0|0|0": {
+    "nodes": 56963838,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|9|2|0|0|0": {
+    "nodes": 90896411,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|9|3|0|0|0": {
+    "nodes": 140102914,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|9|4|0|0|0": {
+    "nodes": 170756637,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "1|9|6|0|0|0": {
+    "nodes": 187847168,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|0|0|0|0|2": {
+    "nodes": 308591232,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|0|2|0|1|0": {
+    "nodes": 3120369,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|0|2|1|0|0": {
+    "nodes": 3595803,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|0|3|0|1|0": {
+    "nodes": 3574494,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|0|3|1|0|0": {
+    "nodes": 4093416,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|10|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "2|1|0|0|0|1": {
+    "nodes": 48401192,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|0|0|1|0": {
+    "nodes": 3491730,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|0|1|0|0": {
+    "nodes": 3640474,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|1|0|1|0": {
+    "nodes": 10388588,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|1|1|0|0": {
+    "nodes": 10600899,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|3|0|0|0": {
+    "nodes": 3280199,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|3|0|1|0": {
+    "nodes": 19649448,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|3|1|0|0": {
+    "nodes": 19424644,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|4|0|0|0": {
+    "nodes": 3429344,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|5|0|0|0": {
+    "nodes": 3456140,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|6|0|0|0": {
+    "nodes": 3458679,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|7|0|0|0": {
+    "nodes": 3458779,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|1|8|0|0|0": {
+    "nodes": 3458779,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|0|0|0|1": {
+    "nodes": 196300374,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|0|0|1|0": {
+    "nodes": 17135522,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|0|1|0|0": {
+    "nodes": 18329533,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|1|0|0|0": {
+    "nodes": 9489832,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|1|0|1|0": {
+    "nodes": 57264014,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|1|1|0|0": {
+    "nodes": 57601738,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|2|0|0|0": {
+    "nodes": 15749009,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|2|0|0|1": {
+    "nodes": 1014021838,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|3|0|0|0": {
+    "nodes": 19337533,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|4|0|0|0": {
+    "nodes": 20661948,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|5|0|0|0": {
+    "nodes": 20969319,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|6|0|0|0": {
+    "nodes": 21011194,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|2|8|0|0|0": {
+    "nodes": 21013902,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|0|0|0|0": {
+    "nodes": 10615505,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "2|3|0|0|0|1": {
+    "nodes": 734865467,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|1|0|0|0": {
+    "nodes": 35837106,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|1|0|1|0": {
+    "nodes": 245585722,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|1|1|0|0": {
+    "nodes": 234182107,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|2|0|0|0": {
+    "nodes": 63292665,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|3|0|0|0": {
+    "nodes": 81065158,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|4|0|0|0": {
+    "nodes": 88513438,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|5|0|0|0": {
+    "nodes": 90594537,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|3|6|0|0|0": {
+    "nodes": 90982665,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|4|0|0|0|0": {
+    "nodes": 32951292,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "2|4|0|0|0|1": {
+    "nodes": 1558638128,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|4|1|0|0|0": {
+    "nodes": 122826195,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|4|2|0|0|0": {
+    "nodes": 231863572,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|4|3|0|0|0": {
+    "nodes": 307069397,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|4|4|0|0|0": {
+    "nodes": 342070670,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|4|6|0|0|0": {
+    "nodes": 355043802,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|5|0|0|0|0": {
+    "nodes": 112191071,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|5|0|0|0|1": {
+    "nodes": 5053307118,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|5|1|0|0|0": {
+    "nodes": 442870185,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|5|2|0|0|0": {
+    "nodes": 880355760,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|5|3|0|0|0": {
+    "nodes": 1224443540,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|5|4|0|0|0": {
+    "nodes": 1403075560,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|6|0|0|0|0": {
+    "nodes": 358573971,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|6|1|0|0|0": {
+    "nodes": 1278906796,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|6|2|0|0|0": {
+    "nodes": 2123318167,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|6|4|0|0|0": {
+    "nodes": 3731145019,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|7|0|0|0|0": {
+    "nodes": 815439540,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|7|1|0|0|0": {
+    "nodes": 3694659466,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|7|2|0|0|0": {
+    "nodes": 7086042665,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|8|0|0|0|0": {
+    "nodes": 2071773569,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|8|2|0|0|0": {
+    "nodes": 9999311039,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "2|9|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "3|0|0|0|0|0": {
+    "nodes": 4762850,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "3|0|0|0|0|1": {
+    "nodes": 358198629,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|0|1|0|0|0": {
+    "nodes": 14827083,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|0|2|0|0|0": {
+    "nodes": 25222790,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|0|3|0|0|0": {
+    "nodes": 32028108,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|0|4|0|0|0": {
+    "nodes": 35075875,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|1|0|0|0|0": {
+    "nodes": 19167795,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": true
+   },
+   "3|1|1|0|0|0": {
+    "nodes": 67792065,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|1|2|0|0|0": {
+    "nodes": 125139968,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|1|4|0|0|0": {
+    "nodes": 186591575,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|2|0|0|0|0": {
+    "nodes": 93914418,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|2|1|0|0|0": {
+    "nodes": 353336813,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|2|2|0|0|0": {
+    "nodes": 689821716,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|3|0|0|0|0": {
+    "nodes": 345035010,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|3|2|0|0|0": {
+    "nodes": 2909879733,
+    "basis": "measured",
+    "in_table": true,
+    "already_certified": false
+   },
+   "3|4|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "3|5|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   },
+   "4|0|0|0|0|0": {
+    "nodes": null,
+    "basis": "estimated from the cheapest measured dominating cell",
+    "in_table": false,
+    "already_certified": false
+   }
+  }
+ },
+ "ok": true
+}
