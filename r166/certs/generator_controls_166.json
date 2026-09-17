@@ -1,0 +1,101 @@
+{
+ "generator": "r166/src/extree_basis_generator.py",
+ "generator_sha256": "082952864f437fc40dd1fa21a479b3785326ac7d0dae3047df73ead19aeb5690",
+ "cells_per_control": 12,
+ "controls": 6,
+ "applied": 6,
+ "caught": 6,
+ "caught_by_the_verifier": 3,
+ "caught_by_divergence": 3,
+ "missed": [],
+ "control_case_passes": true,
+ "rows": [
+  {
+   "control": "unpatched generator (control)",
+   "patch_applied": true,
+   "rejected": false,
+   "expected_rejected": false,
+   "correct": true,
+   "detail": null
+  },
+  {
+   "control": "wrong current orbit",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "unjustified leaf at token 5: ports=6 deficit=4 r1=120 r2=125"
+   }
+  },
+  {
+   "control": "stale histogram (phase not removed on backtrack)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "generate",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "generator diverged past the node cap",
+    "detail": "node cap 2000000 reached"
+   }
+  },
+  {
+   "control": "incorrect token update (never charge a token)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "generate",
+    "cell": "1|0|0|0|0|0",
+    "rejected_by": "generator diverged past the node cap",
+    "detail": "FOUND a walk with 36 ports"
+   }
+  },
+  {
+   "control": "missing used-hexagon update",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "token 54 declares 3 children but the state has 5 legal moves"
+   }
+  },
+  {
+   "control": "incorrect deficit update (+3 instead of +4)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "generate",
+    "cell": "0|0|0|0|1|0",
+    "rejected_by": "generator diverged past the node cap",
+    "detail": "FOUND a walk with 21 ports"
+   }
+  },
+  {
+   "control": "skipped legal branch (drop the last legal move)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "token 0 declares 4 children but the state has 5 legal moves"
+   }
+  }
+ ],
+ "ok": true
+}

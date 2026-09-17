@@ -1,0 +1,132 @@
+{
+ "small_dag_batch": "r166/certs/mut_batch_b.txt.gz",
+ "real_batch": "r166/certs/extree_batch2_166.txt.gz",
+ "real_batch_sha256": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+ "not_expressible_in_this_format": [
+  "corrupt token state",
+  "corrupt used-hexagon state",
+  "corrupt feas histogram",
+  "alter prune reason"
+ ],
+ "why": "the certificate stores only the branching shape (N<k> and L); no solver state and no prune label is serialised, so the verifier recomputes every state and re-derives every leaf justification. There is nothing to corrupt, which is the point of phase 5's 'prefer structural proof data over snapshots of solver memory'",
+ "rows": [
+  {
+   "mutation": "unchanged (control)",
+   "expected_valid": true,
+   "accepted": true,
+   "correct": true,
+   "rejection": null
+  },
+  {
+   "mutation": "corrupt predecessor hash",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "reference hash mismatch for r166/certs/mut_batch_a.txt.gz: declared 000000004488a3ab, actual a6440cf14488a3ab"
+  },
+  {
+   "mutation": "redirect predecessor reference to another file",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "missing referenced certificate r166/certs/extree_batch2_166.txt.gz"
+  },
+  {
+   "mutation": "introduce a certificate dependency cycle",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "reference hash mismatch for r166/certs/mut_batch_b.txt.gz: declared ee62ab12e6270a03, actual 3741c15fc028f7e0"
+  },
+  {
+   "mutation": "delete the predecessor reference",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|0|0|2: unjustified leaf at token 20: ports=21 deficit=4 r1=120 r2=140"
+  },
+  {
+   "mutation": "declare one child fewer",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 0 declares 5 children but the state has 6 legal moves"
+  },
+  {
+   "mutation": "declare one child more",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 0 declares 7 children but the state has 6 legal moves"
+  },
+  {
+   "mutation": "duplicate one leaf",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: unjustified leaf at token 6: ports=6 deficit=4 r1=122 r2=127"
+  },
+  {
+   "mutation": "remove one child (delete a leaf)",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 5 declares 6 children but the state has 5 legal moves"
+  },
+  {
+   "mutation": "replace a transition (leaf becomes a branch)",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 5 declares 2 children but the state has 5 legal moves"
+  },
+  {
+   "mutation": "delete a subtree",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token stream ended early"
+  },
+  {
+   "mutation": "lower the claimed capacity",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: unjustified leaf at token 5: ports=6 deficit=4 r1=122 r2=25"
+  },
+  {
+   "mutation": "raise the claimed capacity (a weaker, still true claim)",
+   "expected_valid": true,
+   "accepted": true,
+   "correct": true,
+   "rejection": null
+  },
+  {
+   "mutation": "modify the root cell",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 1|0|0|1|1|0: token 0 declares 6 children but the state has 7 legal moves"
+  },
+  {
+   "mutation": "real batch: corrupt predecessor hash",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "reference hash mismatch for r164/certs/extree_prefix_164.txt.gz: declared 00000000fe88231e, actual d5dac08afe8"
+  },
+  {
+   "mutation": "real batch: delete the predecessor reference",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 1|0|0|0|2|0: unjustified leaf at token 11843: ports=12 deficit=3 r1=122 r2=133"
+  }
+ ],
+ "invalid": 14,
+ "invalid_rejected": 14,
+ "valid": 2,
+ "valid_accepted": 2,
+ "wrong": [],
+ "ok": true
+}
