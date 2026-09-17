@@ -1,0 +1,32 @@
+{
+ "measured_on": "cell 1|3|1|1|0|0, the cheapest remaining target",
+ "generator": {
+  "discovery_nodes": 3301247,
+  "tree_nodes": 3208263,
+  "total_search_nodes": 6509510,
+  "seconds": 170.2,
+  "nodes_per_second": 38246,
+  "cost_of_independence": "the discovery pass that replaces the round-152 table lookup costs about as much as the tree itself, so a cell costs about 2.11x its round-167 projection in search nodes"
+ },
+ "verifier_b": {
+  "proof_nodes": 3208263,
+  "seconds": 112.7,
+  "nodes_per_second": 28467,
+  "histogram_checks": 3208263,
+  "histogram_mismatches": 0
+ },
+ "verifier_a": {
+  "proof_nodes": 164006780,
+  "seconds": 3654.1,
+  "nodes_per_second": 44880,
+  "source": "r167/certs/verifier_a_167.json, the three historical batches"
+ },
+ "storage": {
+  "plain_bytes_per_proof_node": 2.216,
+  "gzip_bytes_per_proof_node": 0.131
+ },
+ "combined": {
+  "seconds_per_round_167_projected_node": 0.0001149,
+  "note": "generation + verifier B + verifier A, single core"
+ }
+}
