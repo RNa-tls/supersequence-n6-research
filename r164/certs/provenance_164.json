@@ -1,0 +1,460 @@
+{
+ "round": 164,
+ "node": "Route B certificate replay",
+ "git_commit": "26a4ecf9125a30a3044b78302d6ba7fd73c9c1bd",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": false,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "audited_sources": {
+  "r152/src/checker152.py": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+  "r152/src/piece152.py": "de22ac53d8819ce6dfa217cd796a91640089c57a52cc4af71b4f81bc55eb233a",
+  "r152/src/extree152.py": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r150/PROOF.md": "5a79aadf57ccea83683fe65c20ae7eb7f27d85e773b1e4fe16638fe3d470fd6a",
+  "r149/PROOF.md": "062841d404412da01a3994b6280144066c47e61ab8e24ea8360ab9c680a26a26",
+  "r163/HAND_PROOF_INVENTORY.md": "10768350d5503e6e71f024f4a3c33c684a54435af5d83e8f3f88c6ba81841cad",
+  "r163/certs/dag_163.json": "f0cc6bc0aef2fb19d79a0a226acc04a7dddcd820c289ced26368a4f7b290cf42",
+  "r163/certs/coverage_163.json": "1f9270ab756ca8a9dcca978f53082098e3cc0282ffb517f2967098d9b87d0514"
+ },
+ "inputs": {
+  "r152/certs/cap_cert_all_152.txt": "4b7c7f6f7126a6e33106963430cd91b65f094fde02617bb270780c1d231cfa41",
+  "r152/certs/pcert_all_152.txt": "84ab379069c8d35861dd07cc70a928491a8f28c3fdff79de705e9c0d57dcaebc",
+  "r152/certs/extree_pilot_152.txt": "66472da3baecadb6bb7f3a66fc65a1bf2c76f96e830269b2f0ef529e6cb6aa7d",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_subset_152.json": "7dbfffba25933b750620f1a0504742eb309110a75731cadf9e87c6f4beb89c93",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r152/certs/verify_piece_152.json": "14e0471835d6bf16566620b37085df7d6d06b261a7fecb0f7f597eae21502400",
+  "r152/certs/census_152.json": "a852247057e3a83c1a4a50a425821e32503493fab840dbb3177f74635ee14adb",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa"
+ },
+ "r164_sources": {
+  "r164/src/gentree164.py": "bc32a7d43c1343b85c5147fe6bc9de28e5e091bbc8bfdad85d0c3b69841f347f",
+  "r164/src/impact164.py": "86a3cc20660cc6eaf4215cb8a724ba60b01413aec73bef0215f501d6b1f4dbb7",
+  "r164/src/mutate164.py": "4eaf119d8391782d3df789e3788f8e896b4dd2e95fbe3ec4b75359a069d3db48",
+  "r164/src/provenance164.py": "a9b35f95a4e6ea7493cdef4073ca0cd46d36c4ccb0f74cb3ae295075c9c92bae",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99",
+  "r164/src/run164.py": "503fe235beeda78caa2c3c76f523ca974bc8d6243fd7a4ac283ec30921a72a67",
+  "r164/src/summary164.py": "e41369794144fc3e8e1886209cd6858cdbacd540dd9cf363d8b86a3a6b3f35cc",
+  "r164/src/targets164.py": "1998eec53c19ff01f3bfac36124b6ce1b3c3b30a1e0380acfc55cdf6cc9c6231",
+  "r164/src/verifygen164.py": "828e9368074ed3ccc40371817d79e637d2ac7cd64573582799a59d803322ce34"
+ },
+ "r164_certs": {
+  "r164/certs/chain_single_impl_164.json": "755a4cd8beaec5984222158dbe5e525fff114fd436a8e72730fd76d25abdec15",
+  "r164/certs/extree_prefix_164.txt.gz": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+  "r164/certs/gentree_164.json": "b49ca48dc7f8614fc9aad7425f8d28b08339209486359c8a9fc5327af7f31422",
+  "r164/certs/impact_164.json": "927c3d9828ee48497c731567836af1fe84186e1f1e41c8fd0b394be80da8ef7b",
+  "r164/certs/mutations_164.json": "9832bb99628e85b1daab2524690b114f908fd0852fe5f0f05a5ca8aef3716d89",
+  "r164/certs/piece_single_impl_164.json": "b7c116bb288a7dc9ff83b8f4c82d3295716f83e76425b0c0ef9b16af0e22eb52",
+  "r164/certs/route_b_replay_164.json": "66ade8677d5efd37ec4a0da234306a653e3ff16a44c4dd9410bacbe5a44ba350",
+  "r164/certs/route_b_summary_164.json": "981085e27ed15c486bded412ca36ff247671e117577d83c8ac6539ba4b495f51",
+  "r164/certs/targets_164.json": "fcbbbbafabdda377cc0bee6c1d8665005e2e2de619002902ddfb071c97378402",
+  "r164/certs/verifygen_164.json": "7dff2fe40b33cd40646b403fcfb5ee2205313f598b2c7bc2c8b3653bac91fdf3"
+ },
+ "audit_doc": "b8d3c75ea7919cdb1b17a99f9985b7f5bcb0bdd2c53060e47434ef7208f72d69",
+ "totals": {
+  "targets": {
+   "chain": {
+    "certificate_records": 1101,
+    "parse_errors": [],
+    "certified_by_C": 1101,
+    "certified_by_python": 854,
+    "python_subset_of_C": true,
+    "census_reads": 1216,
+    "census_reads_certified": 1101,
+    "census_reads_analytic_fallback": 115,
+    "single_implementation": 247,
+    "status_profile_of_targets": {
+     "EXACT_CERTIFIED": 190,
+     "UPPER_CERTIFIED": 57
+    }
+   },
+   "piece": {
+    "certificate_records": 220,
+    "parse_errors": [],
+    "certified_by_C": 220,
+    "certified_by_python": 111,
+    "python_subset_of_C": true,
+    "census_reads": 220,
+    "census_reads_certified": 220,
+    "census_reads_no_certificate": 0,
+    "single_implementation": 109,
+    "status_profile_of_targets": {
+     "EXACT_CERTIFIED": 92,
+     "UPPER_CERTIFIED": 17
+    }
+   },
+   "total_targets": 356,
+   "exhaustion_trees": {
+    "file": "r152/certs/extree_pilot_152.txt",
+    "trees": 24,
+    "cells": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      3,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      4,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      5,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      6,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      7,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      8,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      9,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      10,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      11,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      12,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      13,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      14,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      2,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      3,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      4,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      5,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      6,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      7,
+      0,
+      0,
+      0,
+      1
+     ],
+     [
+      0,
+      8,
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "targets_with_a_serialised_exhaustion_tree": 0,
+    "note": "L6-EXTREE-1 is the only serialised upper-bound proof object in the repository and it is a PILOT: 24 cheap cells"
+   },
+   "matches_round_163_expectation": {
+    "chain_expected": 247,
+    "chain_recovered": 247,
+    "piece_expected": 109,
+    "piece_recovered": 109,
+    "total_expected": 356,
+    "total_recovered": 356,
+    "agree": true
+   },
+   "ok": true
+  },
+  "replay": {
+   "targets": {
+    "chain": 247,
+    "piece": 109,
+    "total": 356
+   },
+   "lower_bounds": {
+    "chain_with_a_witness": 190,
+    "chain_replayed": 190,
+    "chain_failed": [],
+    "chain_no_witness": 57,
+    "piece_with_a_witness": 92,
+    "piece_replayed": 92,
+    "piece_failed": [],
+    "piece_no_witness": 17
+   },
+   "upper_bounds": {
+    "targets_with_a_proof_object": 0,
+    "targets_replay_certified": 0,
+    "note": "no target cell has a serialised exhaustion tree, so Route B cannot establish the direction the census consumes for any of them"
+   },
+   "gap": {
+    "chain_targets_without_a_tree": 247,
+    "piece_targets_without_a_tree": 109,
+    "route_a_nodes_for_those_chain_cells": 83376558397,
+    "route_a_nodes_for_those_piece_cells": 102962936739,
+    "largest_single_chain_cell_nodes": 9999311039,
+    "largest_single_piece_cell_nodes": 10418943606,
+    "pilot_tree_nodes": 247274,
+    "pilot_tree_bytes": 566277,
+    "bytes_per_proof_node": 2.29,
+    "projected_bytes_if_serialised": 426732168716,
+    "note": "the projection uses the pilot's bytes-per-node; it is an order-of-magnitude statement, not a measurement"
+   },
+   "ok": true
+  },
+  "mutations": {
+   "ok": true
+  },
+  "impact": {
+   "route_comparison": {
+    "cells": 356,
+    "disagreements": [],
+    "tally": {
+     "AGREE (lower half only)": 282,
+     "ROUTE B SILENT (no witness stored)": 74
+    },
+    "capacity_value_disagreements": 0,
+    "note": "Route B established only the LOWER direction, so an 'AGREE' here is agreement on cap(K) >= C, not on the bound the census consumes"
+   },
+   "census_exposure": {
+    "baseline": {
+     "rows": 1609,
+     "STRICTLY_CLOSED": 1607,
+     "EQUALITY": 2
+    },
+    "baseline_per_layer": {
+     "L867": {
+      "rows": 1,
+      "tally": {
+       "STRICTLY_CLOSED": 1
+      },
+      "closed_by": {
+       "piece": 1
+      }
+     },
+     "L868": {
+      "rows": 14,
+      "tally": {
+       "STRICTLY_CLOSED": 14
+      },
+      "closed_by": {
+       "split": 4,
+       "piece": 10
+      }
+     },
+     "L869": {
+      "rows": 85,
+      "tally": {
+       "STRICTLY_CLOSED": 85
+      },
+      "closed_by": {
+       "split": 42,
+       "merged": 1,
+       "piece": 42
+      }
+     },
+     "L870": {
+      "rows": 353,
+      "tally": {
+       "STRICTLY_CLOSED": 353
+      },
+      "closed_by": {
+       "split": 202,
+       "merged": 19,
+       "piece": 132
+      }
+     },
+     "L871": {
+      "rows": 1156,
+      "tally": {
+       "STRICTLY_CLOSED": 1154,
+       "EQUALITY": 2
+      },
+      "closed_by": {
+       "piece": 381,
+       "merged": 122,
+       "split": 651
+      }
+     }
+    },
+    "with_the_356_withdrawn": {
+     "rows": 1609,
+     "STRICTLY_CLOSED": 1426,
+     "EQUALITY": 51,
+     "SURVIVING": 132
+    },
+    "restored": {
+     "rows": 1609,
+     "STRICTLY_CLOSED": 1607,
+     "EQUALITY": 2
+    },
+    "restore_is_clean": true,
+    "rows_reopened": 181,
+    "reading": "every row that re-opens when the 356 cells are withdrawn is a row whose closure rests on a capacity value that only one implementation has ever checked"
+   },
+   "ok": true
+  },
+  "gentree": {
+   "prefix": 51,
+   "cells_built": 51,
+   "targets_built": 1,
+   "total_search_nodes": 7254695,
+   "stored_bytes": 825068,
+   "ok": true
+  },
+  "verifygen": {
+   "cells": 51,
+   "targets_in_the_file": 1,
+   "r164_validator": {
+    "all_valid": true,
+    "proof_nodes": 7254695,
+    "histogram_assertions": 7254695,
+    "histogram_discrepancies": 0,
+    "feas_form_checks": 7254695,
+    "feas_subset_checks": 14475
+   },
+   "r152_validator": {
+    "cells": 51,
+    "certified": 51,
+    "all_valid": true,
+    "total_nodes": 7254695,
+    "exit_code": 0
+   },
+   "caps_match_route_a": true,
+   "targets_upper_certified_by_two_validators": [
+    "1|0|0|0|0|2"
+   ],
+   "ok": true
+  }
+ }
+}
