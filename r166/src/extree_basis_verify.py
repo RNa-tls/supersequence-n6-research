@@ -148,13 +148,19 @@ def verify_chain(rel, verifier_a=True, _seen=None, _stack=None):
 
 
 def main():
-    if len(sys.argv) < 2:
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    want_a = "--no-verifier-a" not in sys.argv
+    report = None
+    for a in sys.argv[1:]:
+        if a.startswith("--report="):
+            report = a.split("=", 1)[1]
+    if not args:
         print("usage: extree_basis_verify.py <batch.gz> [...]",
               file=sys.stderr)
         return 2
     results = []
-    for rel in sys.argv[1:]:
-        res = verify_chain(rel, verifier_a=True)
+    for rel in args:
+        res = verify_chain(rel, verifier_a=want_a)
         results.append(dict(
             path=rel, ok=res["ok"], sha256=res.get("sha256"),
             trees=res.get("trees"), proof_nodes=res.get("proof_nodes"),
@@ -163,7 +169,23 @@ def main():
             refs=res.get("refs"), verifier_a=res.get("verifier_a"),
             cells_certified=len(res.get("certified", {})),
             error=res.get("error")))
-        print(json.dumps(results[-1], ensure_ascii=False, indent=1))
+        if res["ok"]:
+            results[-1]["certified_cells"] = sorted(
+                "|".join(map(str, k)) for k in res["certified"])
+        print(json.dumps({k: v for k, v in results[-1].items()
+                          if k != "certified_cells"},
+                         ensure_ascii=False, indent=1))
+    if report:
+        out = dict(batches=results,
+                   all_ok=all(r["ok"] for r in results),
+                   verifier_b="r164/src/routeb164.py TreeVerifier "
+                              "(geometry rebuilt from string algebra; at every "
+                              "node the incremental feasibility histogram is "
+                              "compared with a from-scratch recomputation)",
+                   verifier_a=("r152/src/extree152.py" if want_a
+                               else "not run for these batches"))
+        (ROOT / report).write_text(json.dumps(out, ensure_ascii=False,
+                                              indent=1) + "\n")
     return 0 if all(r["ok"] for r in results) else 1
 
 

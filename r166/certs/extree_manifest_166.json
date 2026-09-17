@@ -1,0 +1,126 @@
+{
+ "batches": [
+  {
+   "path": "r164/certs/extree_prefix_164.txt.gz",
+   "sha256": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+   "refs": [],
+   "trees": 51,
+   "proof_nodes": 7254695,
+   "raw_bytes": 16018025,
+   "compressed_bytes": 825068,
+   "raw_bytes_per_node": 2.208,
+   "compressed_bytes_per_node": 0.1137,
+   "compression_ratio": 19.4,
+   "chain_basis_cells": []
+  },
+  {
+   "path": "r166/certs/extree_batch2_166.txt.gz",
+   "sha256": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+   "refs": [
+    "r164/certs/extree_prefix_164.txt.gz"
+   ],
+   "trees": 17,
+   "proof_nodes": 20309922,
+   "raw_bytes": 45380430,
+   "compressed_bytes": 2556680,
+   "raw_bytes_per_node": 2.234,
+   "compressed_bytes_per_node": 0.1259,
+   "compression_ratio": 17.7,
+   "chain_basis_cells": [
+    "3|0|0|0|0|0"
+   ]
+  },
+  {
+   "path": "r166/certs/extree_batch3_166.txt.gz",
+   "sha256": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6",
+   "refs": [
+    "r166/certs/extree_batch2_166.txt.gz"
+   ],
+   "trees": 7,
+   "proof_nodes": 136442163,
+   "raw_bytes": 307435760,
+   "compressed_bytes": 18348699,
+   "raw_bytes_per_node": 2.253,
+   "compressed_bytes_per_node": 0.1345,
+   "compression_ratio": 16.8,
+   "chain_basis_cells": [
+    "1|6|0|0|0|0",
+    "1|7|0|0|0|0",
+    "1|8|0|0|0|0",
+    "1|9|0|0|0|0",
+    "2|3|0|0|0|0",
+    "2|4|0|0|0|0",
+    "3|1|0|0|0|0"
+   ]
+  }
+ ],
+ "totals": {
+  "batches": 3,
+  "cells": 75,
+  "proof_nodes": 164006780,
+  "raw_bytes": 368834215,
+  "compressed_bytes": 21730447,
+  "raw_bytes_per_node": 2.249,
+  "compressed_bytes_per_node": 0.1325,
+  "compression_ratio": 17.0
+ },
+ "basis_coverage": {
+  "chain_certified": [
+   "1|6|0|0|0|0",
+   "1|7|0|0|0|0",
+   "1|8|0|0|0|0",
+   "1|9|0|0|0|0",
+   "2|3|0|0|0|0",
+   "2|4|0|0|0|0",
+   "3|0|0|0|0|0",
+   "3|1|0|0|0|0"
+  ],
+  "chain_certified_count": 8,
+  "piece_certified_via_bridge": [
+   "1|6|0|0",
+   "1|6|0|1",
+   "1|6|1|0",
+   "1|6|1|1",
+   "1|7|0|0",
+   "1|7|0|1",
+   "1|7|1|0",
+   "1|7|1|1",
+   "1|8|0|0",
+   "1|8|0|1",
+   "1|8|1|0",
+   "1|8|1|1",
+   "1|9|0|0",
+   "1|9|0|1",
+   "1|9|1|0",
+   "1|9|1|1",
+   "2|3|0|0",
+   "2|3|0|1",
+   "2|3|1|0",
+   "2|3|1|1",
+   "2|4|0|0",
+   "2|4|0|1",
+   "2|4|1|0",
+   "2|4|1|1",
+   "3|0|0|0",
+   "3|0|0|1",
+   "3|0|1|0",
+   "3|0|1|1",
+   "3|1|0|0",
+   "3|1|0|1",
+   "3|1|1|0",
+   "3|1|1|1"
+  ],
+  "piece_certified_count": 32,
+  "total": 40,
+  "basis_total": 288,
+  "remaining": 248
+ },
+ "compression_note": "gzip with mtime = 0, so the container is byte-deterministic; the verifier decompresses to the canonical text and checks that, so compression is outside the trust base",
+ "reference_safety": {
+  "cycles": "rejected (the verifier keeps a DFS stack)",
+  "hash_confusion": "a reference carries the predecessor's exact sha256 and is rejected on any mismatch",
+  "missing_dependency": "a reference to a missing file is rejected",
+  "substitution": "redirecting a reference to another existing file fails the hash check"
+ },
+ "ok": true
+}

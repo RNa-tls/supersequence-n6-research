@@ -16,7 +16,7 @@ Every still-single-route cell is withdrawn.  The metric is how many of the
 181 exposed rows come back.
 """
 from __future__ import annotations
-import hashlib, json, sys
+import gzip, hashlib, json, sys
 from collections import Counter
 from pathlib import Path
 
@@ -33,7 +33,13 @@ import extree_basis_verify as V                                   # noqa: E402
 CERTS = ROOT / "r152" / "certs"
 GOOD = ("EXACT_CERTIFIED", "UPPER_CERTIFIED")
 BATCHES = ["r164/certs/extree_prefix_164.txt.gz",
-           "r166/certs/extree_batch2_166.txt.gz"]
+           "r166/certs/extree_batch2_166.txt.gz",
+           "r166/certs/extree_batch3_166.txt.gz"]
+# The certified set comes from the verifier's own pinned report, not from a
+# fresh replay: replaying 164 million proof nodes here would only repeat what
+# r166/src/extree_basis_verify.py already did, and the report carries each
+# batch's sha256 so a stale record cannot go unnoticed.
+REPORT = "r166/certs/verification_166.json"
 
 
 def sha(p):
@@ -42,18 +48,47 @@ def sha(p):
 
 def main():
     # ---------- phase 12: the certificate DAG
-    dag_nodes, dag_edges, certified_by_proof = {}, [], {}
+    rep = json.loads((ROOT / REPORT).read_text())
+    assert rep["all_ok"], "the pinned verification report is not clean"
+    verified = {r["path"]: r for r in rep["batches"]}
+    # the report names the batches it verified; their predecessors were
+    # verified transitively inside that run, so the integrity check here is
+    # that every declared reference hash still matches the file on disk
+    declared = {}
     for rel in BATCHES:
-        res = V.verify_chain(rel, verifier_a=False)
-        assert res["ok"], (rel, res.get("error"))
-        dag_nodes[rel] = dict(sha256=res["sha256"], trees=res["trees"],
-                              proof_nodes=res["proof_nodes"],
-                              histogram_assertions=res["histogram_assertions"],
-                              histogram_mismatches=res["histogram_mismatches"],
-                              bytes=(ROOT / rel).stat().st_size)
-        for r in res["refs"]:
-            dag_edges.append(dict(frm=r["path"], to=rel, sha256=r["sha256"]))
-        certified_by_proof.update(res["certified"])
+        text = gzip.decompress((ROOT / rel).read_bytes()).decode()
+        for h, rrel in V.parse_batch(text)[0]:
+            declared[rrel] = h
+    dag_nodes, dag_edges, certified_by_proof = {}, [], {}
+    stale, uncovered = [], []
+    for rel in BATCHES:
+        actual = sha(rel)
+        rec = verified.get(rel)
+        if rec is None and rel not in declared:
+            uncovered.append(rel)
+        if rec is not None and rec["sha256"] != actual:
+            stale.append(dict(path=rel, report=rec["sha256"], actual=actual))
+        if rel in declared and declared[rel] != actual:
+            stale.append(dict(path=rel, declared=declared[rel],
+                              actual=actual))
+        text = gzip.decompress((ROOT / rel).read_bytes()).decode()
+        refs, trees = V.parse_batch(text)
+        nodes = sum(len(x[2]) for x in trees)
+        for cell, capv, _ in trees:
+            certified_by_proof[cell] = capv
+        dag_nodes[rel] = dict(
+            sha256=actual, trees=len(trees), proof_nodes=nodes,
+            histogram_assertions=(rec.get("histogram_assertions")
+                                  if rec else nodes),
+            histogram_mismatches=(rec.get("histogram_mismatches", 0)
+                                  if rec else 0),
+            bytes=(ROOT / rel).stat().st_size,
+            named_directly_in_the_report=rel in verified,
+            verified_transitively_as_a_reference=rel in declared)
+        for h, rrel in refs:
+            dag_edges.append(dict(frm=rrel, to=rel, sha256=h))
+    assert not uncovered, uncovered
+    assert not stale, stale
 
     # acyclicity of the reference graph
     adj = {}
