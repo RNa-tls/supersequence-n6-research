@@ -158,8 +158,14 @@ def write_batch(path, refs, trees):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--from-index", type=int, required=True)
-    ap.add_argument("--to-index", type=int, required=True)
+    ap.add_argument("--from-index", type=int, default=None)
+    ap.add_argument("--to-index", type=int, default=None)
+    ap.add_argument("--cells", default=None,
+                    help="comma-separated cells to certify directly; round "
+                         "166 measured that the certificate-order PREFIX is "
+                         "not needed -- a cell costs essentially its own "
+                         "search with only the already-certified cells as "
+                         "predecessors -- so targets may be picked freely")
     ap.add_argument("--ref", action="append", default=[],
                     help="repo-relative path of a predecessor batch")
     ap.add_argument("--out", required=True)
@@ -180,11 +186,18 @@ def main():
             certified[k] = c
         refs.append((res["sha256"], rel))
 
+    if a.cells:
+        want = [tuple(int(x) for x in c.split("|"))
+                for c in a.cells.split(",")]
+        idx = {c: i for i, c in enumerate(order)}
+        targets = [(idx.get(c, -1), c) for c in want]
+    else:
+        targets = [(i, order[i]) for i in range(a.from_index, a.to_index + 1)]
+
     trees, rows = [], []
     t0 = time.time()
     total = 0
-    for i in range(a.from_index, a.to_index + 1):
-        cell = order[i]
+    for i, cell in targets:
         C = cap[cell]["cap"]
         if cell in certified:
             rows.append(dict(index=i, cell="|".join(map(str, cell)), cap=C,
@@ -207,6 +220,7 @@ def main():
     outp = ROOT / a.out
     text = write_batch(outp, refs, trees)
     rep = dict(from_index=a.from_index, to_index=a.to_index,
+               explicit_cells=a.cells,
                refs=[dict(sha256=h, path=p) for h, p in refs],
                cells_built=sum(1 for r in rows if r["status"] == "TREE_BUILT"),
                failures=[r for r in rows if r["status"] == "FAILED"],
