@@ -215,12 +215,13 @@ def main():
 
     # ---------- necessity of each member (the matching lower bound)
     nec, red = [], []
-    per_cell, witness = {}, {}
+    per_cell, witness, guard = {}, {}, {}
     for K in univ:
         o, det = S.open_rows(U - {K}, EX, detail=True)
         per_cell["|".join(map(str, K))] = len(o)
         if o:
             w = o[0]
+            guard["|".join(map(str, K))] = [[k[0], list(k[1])] for k in o]
             witness["|".join(map(str, K))] = dict(
                 layer=867 + w[0], row=dict(zip(H.COORD, w[1])),
                 required=det[w]["required"],
@@ -339,7 +340,8 @@ def main():
                    "so it is THE minimum and it is unique."),
             minimum_is_proved=(not open_U) and (not open_E),
             per_cell_rows_opened_when_dropped=per_cell,
-            witness_rows=witness),
+            witness_rows=witness,
+            guarded_rows=guard),
         fact_level_plan=dict(
             certificates=len(factset),
             before_dropping_free_and_valueless_cells=len(factset_raw),
@@ -373,6 +375,11 @@ def main():
                  "input, not a proof step: the generated certificate reports "
                  "the true value and must be re-checked against it."),
         cost=dict(old_plan_all_288_facts=old,
+                  old_plan_note="the piece half of this figure is hypothetical: "
+                                "no piece-model exhaustion generator exists, "
+                                "and the round-152 piece search reuses one tree "
+                                "for several masks, so the piece contribution "
+                                "is an upper estimate",
                   universe=cU, fact_level_plan=cA, row_level_optimum=cE,
                   savings_vs_old=old - cE,
                   per_cell_of_the_optimum={

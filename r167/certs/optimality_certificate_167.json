@@ -1,0 +1,633 @@
+{
+ "inputs": {
+  "r167/certs/row_optimum_167.json": "c91de77b7a8c96e48a3ccddf8d9931a30497093669dd355746ce61fcdc6e3cfe",
+  "r166/certs/verification_166.json": "e46066d95d2297d78a0889b40ffdf570b33945c237aa195013f4268da3217f4a",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r165/certs/row_closure_graph_165.json": "5f486cfc20a50640390a23daaa7f980821a3c1444cf06dacc632d7811e6a32a9",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
+  "r164/certs/extree_prefix_164.txt.gz": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+  "r166/certs/extree_batch2_166.txt.gz": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+  "r166/certs/extree_batch3_166.txt.gz": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6"
+ },
+ "claim": "the minimum set of direct chain EXTREE certificates that restores strict closure of every exposed census row has exactly 190 members, and it is unique",
+ "rules": {
+  "BRIDGE_LE": "cap_piece(b,d,fp,lp) <= cap_chain(b,d,0,0,0,0)",
+  "BRIDGE_EQ": "cap_piece(b,d,0,0) = cap_chain(b,d,0,0,0,0)",
+  "source": "round 166 walk-set argument, not numerical agreement",
+  "fallback_chain": "120 + a + bb + e",
+  "fallback_piece": "120"
+ },
+ "exposed_rows": {
+  "count": 180,
+  "matches_the_solver": true
+ },
+ "upper_bound": {
+  "granted": 190,
+  "rows_left_open": 0,
+  "ok": true
+ },
+ "lower_bound": {
+  "checked": 190,
+  "failures": [],
+  "ok": true,
+  "single_row_evaluations": 190,
+  "cheaper_than_the_solver_by": 210.3
+ },
+ "weighted_variants": {
+  "minimum_cardinality": 190,
+  "minimum_node_cost": 190,
+  "minimum_storage_cost": 190,
+  "argument": "the optimum is contained in every feasible set, so it minimises every monotone cost function at once"
+ },
+ "progress": {
+  "DIRECT_SECOND_ROUTE": [
+   "1|6|0|0|0|0",
+   "1|7|0|0|0|0",
+   "1|8|0|0|0|0",
+   "1|9|0|0|0|0",
+   "2|3|0|0|0|0",
+   "2|4|0|0|0|0",
+   "3|0|0|0|0|0",
+   "3|1|0|0|0|0"
+  ],
+  "DIRECT_SECOND_ROUTE_count": 8,
+  "certified_cells_outside_the_optimum": [
+   "0|0|0|0|0|0",
+   "0|0|0|0|0|1",
+   "0|0|0|0|0|2",
+   "0|0|0|0|0|3",
+   "0|0|0|0|1|0",
+   "0|0|0|0|2|0",
+   "0|0|0|0|2|1",
+   "0|0|0|1|0|0",
+   "0|0|0|1|1|0",
+   "0|0|0|1|1|1",
+   "0|0|0|2|0|0",
+   "0|0|0|2|0|1",
+   "0|0|1|0|0|0",
+   "0|0|1|0|1|0",
+   "0|0|1|0|1|1",
+   "0|0|1|0|2|0",
+   "0|0|1|1|0|0",
+   "0|0|1|1|0|1",
+   "0|0|1|1|1|0",
+   "0|0|1|2|0|0",
+   "0|0|2|0|0|0",
+   "0|0|2|0|0|1",
+   "0|0|2|0|1|0",
+   "0|0|2|1|0|0",
+   "0|0|3|0|0|0",
+   "0|1|0|0|0|0",
+   "0|1|0|0|0|1",
+   "0|1|0|0|0|2",
+   "0|1|0|0|1|0",
+   "0|1|0|0|2|0",
+   "0|1|0|1|0|0",
+   "0|1|0|1|1|0",
+   "0|1|0|2|0|0",
+   "0|1|1|0|0|0",
+   "0|1|1|0|1|0",
+   "0|1|1|1|0|0",
+   "0|1|2|0|0|0",
+   "0|2|0|0|0|0",
+   "0|2|0|0|0|1",
+   "0|2|0|0|1|0",
+   "0|2|0|1|0|0",
+   "0|2|1|0|0|0",
+   "0|3|0|0|0|0",
+   "1|0|0|0|0|0",
+   "1|0|0|0|0|1",
+   "1|0|0|0|0|2",
+   "1|0|0|0|1|0",
+   "1|0|0|0|2|0",
+   "1|0|0|1|0|0",
+   "1|0|0|1|1|0",
+   "1|0|0|2|0|0",
+   "1|0|1|0|0|0",
+   "1|0|1|0|1|0",
+   "1|0|1|1|0|0",
+   "1|0|2|0|0|0",
+   "1|1|0|0|0|0",
+   "1|1|0|0|0|1",
+   "1|1|0|0|1|0",
+   "1|1|0|1|0|0",
+   "1|1|1|0|0|0",
+   "1|2|0|0|0|0",
+   "2|0|0|0|0|0",
+   "2|0|0|0|0|1",
+   "2|0|0|0|1|0",
+   "2|0|0|1|0|0",
+   "2|0|1|0|0|0",
+   "2|1|0|0|0|0"
+  ],
+  "BRIDGE_DERIVED_piece_facts": 32,
+  "OTHER_DERIVED_piece_facts_free_from_retained_cells": 5,
+  "exposed_rows_closed_by_current_certificates": 24,
+  "exposed_rows_still_open": 156,
+  "exposed_rows_open_with_nothing_granted": 180,
+  "remaining_certificates": 182
+ },
+ "bridge_group_economics": {
+  "groups": 29,
+  "detail": {
+   "0|15|0|0|0|0": {
+    "piece_facts": [
+     "0|15|1|1"
+    ],
+    "covered": 1,
+    "chain_certificate_nodes": 35077,
+    "piece_facts_nodes": 4963697,
+    "piece_facts_nodes_shared_tree": 4963697,
+    "in_the_optimum": false,
+    "already_free_no_certificate_needed": true
+   },
+   "0|18|0|0|0|0": {
+    "piece_facts": [
+     "0|18|1|1"
+    ],
+    "covered": 1,
+    "chain_certificate_nodes": 827789,
+    "piece_facts_nodes": 17035246,
+    "piece_facts_nodes_shared_tree": 17035246,
+    "in_the_optimum": false,
+    "already_free_no_certificate_needed": true
+   },
+   "0|19|0|0|0|0": {
+    "piece_facts": [
+     "0|19|0|1",
+     "0|19|1|0",
+     "0|19|1|1"
+    ],
+    "covered": 3,
+    "chain_certificate_nodes": 1558107,
+    "piece_facts_nodes": 18998466,
+    "piece_facts_nodes_shared_tree": 7846744,
+    "in_the_optimum": false,
+    "already_free_no_certificate_needed": true
+   },
+   "0|20|0|0|0|0": {
+    "piece_facts": [
+     "0|20|0|0",
+     "0|20|0|1",
+     "0|20|1|0",
+     "0|20|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 7285561,
+    "piece_facts_nodes": 59189138,
+    "piece_facts_nodes_shared_tree": 31844317,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|6|0|0|0|0": {
+    "piece_facts": [
+     "1|6|0|0",
+     "1|6|0|1",
+     "1|6|1|0",
+     "1|6|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 4658241,
+    "piece_facts_nodes": 19406976,
+    "piece_facts_nodes_shared_tree": 5432253,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|7|0|0|0|0": {
+    "piece_facts": [
+     "1|7|0|0",
+     "1|7|0|1",
+     "1|7|1|0",
+     "1|7|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 6428374,
+    "piece_facts_nodes": 37324014,
+    "piece_facts_nodes_shared_tree": 18038892,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|8|0|0|0|0": {
+    "piece_facts": [
+     "1|8|0|0",
+     "1|8|0|1",
+     "1|8|1|0",
+     "1|8|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 14229334,
+    "piece_facts_nodes": 69919313,
+    "piece_facts_nodes_shared_tree": 27231311,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|9|0|0|0|0": {
+    "piece_facts": [
+     "1|9|0|0",
+     "1|9|0|1",
+     "1|9|1|0",
+     "1|9|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 29149082,
+    "piece_facts_nodes": 146915503,
+    "piece_facts_nodes_shared_tree": 59468257,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|10|0|0|0|0": {
+    "piece_facts": [
+     "1|10|0|0",
+     "1|10|0|1",
+     "1|10|1|0",
+     "1|10|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 56666229,
+    "piece_facts_nodes": 293028454,
+    "piece_facts_nodes_shared_tree": 123029767,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|11|0|0|0|0": {
+    "piece_facts": [
+     "1|11|0|0",
+     "1|11|0|1",
+     "1|11|1|0",
+     "1|11|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 104396866,
+    "piece_facts_nodes": 552843381,
+    "piece_facts_nodes_shared_tree": 239652783,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|12|0|0|0|0": {
+    "piece_facts": [
+     "1|12|0|0",
+     "1|12|0|1",
+     "1|12|1|0",
+     "1|12|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 65408882,
+    "piece_facts_nodes": 634065092,
+    "piece_facts_nodes_shared_tree": 437838446,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|13|0|0|0|0": {
+    "piece_facts": [
+     "1|13|0|0",
+     "1|13|0|1",
+     "1|13|1|0",
+     "1|13|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 202804767,
+    "piece_facts_nodes": 902249837,
+    "piece_facts_nodes_shared_tree": 293835536,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|14|0|0|0|0": {
+    "piece_facts": [
+     "1|14|0|0",
+     "1|14|0|1",
+     "1|14|1|0",
+     "1|14|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 150510290,
+    "piece_facts_nodes": 1302500607,
+    "piece_facts_nodes_shared_tree": 850969737,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "1|15|0|0|0|0": {
+    "piece_facts": [
+     "1|15|0|0",
+     "1|15|0|1",
+     "1|15|1|0",
+     "1|15|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 449878468,
+    "piece_facts_nodes": 1994184223,
+    "piece_facts_nodes_shared_tree": 644548819,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|3|0|0|0|0": {
+    "piece_facts": [
+     "2|3|0|0",
+     "2|3|0|1",
+     "2|3|1|0",
+     "2|3|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 10615505,
+    "piece_facts_nodes": 42462020,
+    "piece_facts_nodes_shared_tree": 10615505,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|4|0|0|0|0": {
+    "piece_facts": [
+     "2|4|0|0",
+     "2|4|0|1",
+     "2|4|1|0",
+     "2|4|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 32951292,
+    "piece_facts_nodes": 131805168,
+    "piece_facts_nodes_shared_tree": 32951292,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|5|0|0|0|0": {
+    "piece_facts": [
+     "2|5|0|0",
+     "2|5|0|1",
+     "2|5|1|0",
+     "2|5|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 112191071,
+    "piece_facts_nodes": 448764284,
+    "piece_facts_nodes_shared_tree": 112191071,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|6|0|0|0|0": {
+    "piece_facts": [
+     "2|6|0|0",
+     "2|6|0|1",
+     "2|6|1|0",
+     "2|6|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 358573971,
+    "piece_facts_nodes": 1434295884,
+    "piece_facts_nodes_shared_tree": 358573971,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|7|0|0|0|0": {
+    "piece_facts": [
+     "2|7|0|0",
+     "2|7|0|1",
+     "2|7|1|0",
+     "2|7|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 815439540,
+    "piece_facts_nodes": 3261758160,
+    "piece_facts_nodes_shared_tree": 815439540,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|8|0|0|0|0": {
+    "piece_facts": [
+     "2|8|0|0",
+     "2|8|0|1",
+     "2|8|1|0",
+     "2|8|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 2071773569,
+    "piece_facts_nodes": 8287094276,
+    "piece_facts_nodes_shared_tree": 2071773569,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|9|0|0|0|0": {
+    "piece_facts": [
+     "2|9|0|0",
+     "2|9|0|1",
+     "2|9|1|0",
+     "2|9|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 4785997116,
+    "piece_facts_nodes": 19143988464,
+    "piece_facts_nodes_shared_tree": 4785997116,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "2|10|0|0|0|0": {
+    "piece_facts": [
+     "2|10|0|0",
+     "2|10|0|1",
+     "2|10|1|0",
+     "2|10|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 10418943606,
+    "piece_facts_nodes": 41675774424,
+    "piece_facts_nodes_shared_tree": 10418943606,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "3|0|0|0|0|0": {
+    "piece_facts": [
+     "3|0|0|0",
+     "3|0|0|1",
+     "3|0|1|0",
+     "3|0|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 4762850,
+    "piece_facts_nodes": 19051400,
+    "piece_facts_nodes_shared_tree": 4762850,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "3|1|0|0|0|0": {
+    "piece_facts": [
+     "3|1|0|0",
+     "3|1|0|1",
+     "3|1|1|0",
+     "3|1|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 19167795,
+    "piece_facts_nodes": 76671180,
+    "piece_facts_nodes_shared_tree": 19167795,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "3|2|0|0|0|0": {
+    "piece_facts": [
+     "3|2|0|0",
+     "3|2|0|1",
+     "3|2|1|0",
+     "3|2|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 93914418,
+    "piece_facts_nodes": 375657672,
+    "piece_facts_nodes_shared_tree": 93914418,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "3|3|0|0|0|0": {
+    "piece_facts": [
+     "3|3|0|0",
+     "3|3|0|1",
+     "3|3|1|0",
+     "3|3|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 345035010,
+    "piece_facts_nodes": 1380140040,
+    "piece_facts_nodes_shared_tree": 345035010,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "3|4|0|0|0|0": {
+    "piece_facts": [
+     "3|4|0|0",
+     "3|4|0|1",
+     "3|4|1|0",
+     "3|4|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 1161137520,
+    "piece_facts_nodes": 4644550080,
+    "piece_facts_nodes_shared_tree": 1161137520,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "3|5|0|0|0|0": {
+    "piece_facts": [
+     "3|5|0|0",
+     "3|5|0|1",
+     "3|5|1|0",
+     "3|5|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 3889299148,
+    "piece_facts_nodes": 15557196592,
+    "piece_facts_nodes_shared_tree": 3889299148,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   "4|0|0|0|0|0": {
+    "piece_facts": [
+     "4|0|0|0",
+     "4|0|0|1",
+     "4|0|1|0",
+     "4|0|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 107775787,
+    "piece_facts_nodes": 431103148,
+    "piece_facts_nodes_shared_tree": 107775787,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   }
+  },
+  "caveat": "the round-152 piece search reports one node count per (b,d,fp,lp) row, but for 20 of the 55 (b,d) groups the four masks share an identical count because the mask only changes ACCEPTANCE, not the search tree.  So the naive sum over masks overstates what a mask-aware implementation would pay; both figures are given.",
+  "piece_side_nodes_naive_sum": 102962936739,
+  "piece_side_nodes_shared_tree": 26989314003,
+  "chain_side_nodes": 25321415265,
+  "most_expensive": [
+   {
+    "cell": "2|10|0|0|0|0",
+    "piece_facts": [
+     "2|10|0|0",
+     "2|10|0|1",
+     "2|10|1|0",
+     "2|10|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 10418943606,
+    "piece_facts_nodes": 41675774424,
+    "piece_facts_nodes_shared_tree": 10418943606,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   {
+    "cell": "2|9|0|0|0|0",
+    "piece_facts": [
+     "2|9|0|0",
+     "2|9|0|1",
+     "2|9|1|0",
+     "2|9|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 4785997116,
+    "piece_facts_nodes": 19143988464,
+    "piece_facts_nodes_shared_tree": 4785997116,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   {
+    "cell": "3|5|0|0|0|0",
+    "piece_facts": [
+     "3|5|0|0",
+     "3|5|0|1",
+     "3|5|1|0",
+     "3|5|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 3889299148,
+    "piece_facts_nodes": 15557196592,
+    "piece_facts_nodes_shared_tree": 3889299148,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   {
+    "cell": "2|8|0|0|0|0",
+    "piece_facts": [
+     "2|8|0|0",
+     "2|8|0|1",
+     "2|8|1|0",
+     "2|8|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 2071773569,
+    "piece_facts_nodes": 8287094276,
+    "piece_facts_nodes_shared_tree": 2071773569,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   {
+    "cell": "3|4|0|0|0|0",
+    "piece_facts": [
+     "3|4|0|0",
+     "3|4|0|1",
+     "3|4|1|0",
+     "3|4|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 1161137520,
+    "piece_facts_nodes": 4644550080,
+    "piece_facts_nodes_shared_tree": 1161137520,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   },
+   {
+    "cell": "2|7|0|0|0|0",
+    "piece_facts": [
+     "2|7|0|0",
+     "2|7|0|1",
+     "2|7|1|0",
+     "2|7|1|1"
+    ],
+    "covered": 4,
+    "chain_certificate_nodes": 815439540,
+    "piece_facts_nodes": 3261758160,
+    "piece_facts_nodes_shared_tree": 815439540,
+    "in_the_optimum": true,
+    "already_free_no_certificate_needed": false
+   }
+  ]
+ },
+ "seconds": 10.1,
+ "ok": true
+}
