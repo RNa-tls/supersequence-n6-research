@@ -73,6 +73,32 @@ def load_trust():
                                      "verifier A (round 168)"],
                         reports=["r168/certs/verification_b_168.json",
                                  "r168/certs/verification_a_168.json"]))
+    # round 170 ladder batches, on the same footing: a batch is trusted only
+    # when BOTH round-170 verifiers accepted it, the batch it replayed is the
+    # one being trusted, and the two reports agree on the total proof-node
+    # count.  Disagreement on that count means the two replays did not see
+    # the same tree, so the entry is refused.
+    for tag in ("h", "a2"):
+        a7 = ROOT / "r170" / "certs" / f"verification_a_{tag}_170.json"
+        b7 = ROOT / "r170" / "certs" / f"verification_b_{tag}_170.json"
+        if not (a7.exists() and b7.exists()):
+            continue
+        ra, rb = json.loads(a7.read_text()), json.loads(b7.read_text())
+        if not (ra.get("all_ok") and rb.get("all_ok")):
+            continue
+        if ra.get("total_nodes") != rb.get("total_proof_nodes"):
+            continue
+        if rb.get("histogram_mismatches") != 0:
+            continue
+        for rel in rb.get("replayed_here", []):
+            row = rb["batches"].get(rel) or {}
+            if row.get("ok") and row.get("sha256"):
+                TRUST.setdefault(row["sha256"], dict(
+                    path=rel,
+                    verified_by=["verifier B (round 170)",
+                                 "verifier A (round 170)"],
+                    reports=[f"r170/certs/verification_b_{tag}_170.json",
+                             f"r170/certs/verification_a_{tag}_170.json"]))
 
 
 def cellstr(K):
