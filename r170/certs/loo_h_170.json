@@ -1,0 +1,145 @@
+{
+ "cell": "0|15|0|0|0|1",
+ "census_safe_bound_S": 115,
+ "baseline_proof_nodes": 8099282,
+ "node_cap": 40000000,
+ "rungs_tested": 12,
+ "rows": [
+  {
+   "dropped": "0|3|0|0|0|1",
+   "search_nodes": 8562284,
+   "proof_nodes": 8562284,
+   "completed": true,
+   "detail": null,
+   "seconds": 320.2,
+   "verdict": "HELPFUL",
+   "delta_vs_baseline": 463002
+  },
+  {
+   "dropped": "0|4|0|0|0|1",
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 312.3,
+   "verdict": "IDLE",
+   "delta_vs_baseline": 0
+  },
+  {
+   "dropped": "0|5|0|0|0|1",
+   "search_nodes": 8840890,
+   "proof_nodes": 8840890,
+   "completed": true,
+   "detail": null,
+   "seconds": 329.8,
+   "verdict": "HELPFUL",
+   "delta_vs_baseline": 741608
+  },
+  {
+   "dropped": "0|6|0|0|0|1",
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 317.3,
+   "verdict": "IDLE",
+   "delta_vs_baseline": 0
+  },
+  {
+   "dropped": "0|7|0|0|0|1",
+   "search_nodes": 8330538,
+   "proof_nodes": 8330538,
+   "completed": true,
+   "detail": null,
+   "seconds": 315.5,
+   "verdict": "HELPFUL",
+   "delta_vs_baseline": 231256
+  },
+  {
+   "dropped": "0|8|0|0|0|1",
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 309.1,
+   "verdict": "IDLE",
+   "delta_vs_baseline": 0
+  },
+  {
+   "dropped": "0|9|0|0|0|1",
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 304.3,
+   "verdict": "IDLE",
+   "delta_vs_baseline": 0
+  },
+  {
+   "dropped": "0|10|0|0|0|1",
+   "search_nodes": 8521157,
+   "proof_nodes": 8521157,
+   "completed": true,
+   "detail": null,
+   "seconds": 320.4,
+   "verdict": "HELPFUL",
+   "delta_vs_baseline": 421875
+  },
+  {
+   "dropped": "0|11|0|0|0|1",
+   "search_nodes": 8421414,
+   "proof_nodes": 8421414,
+   "completed": true,
+   "detail": null,
+   "seconds": 318.6,
+   "verdict": "HELPFUL",
+   "delta_vs_baseline": 322132
+  },
+  {
+   "dropped": "0|12|0|0|0|1",
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 304.5,
+   "verdict": "IDLE",
+   "delta_vs_baseline": 0
+  },
+  {
+   "dropped": "0|13|0|0|0|1",
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 305.7,
+   "verdict": "IDLE",
+   "delta_vs_baseline": 0
+  },
+  {
+   "dropped": "0|14|0|0|0|1",
+   "search_nodes": 9301426,
+   "proof_nodes": 9301426,
+   "completed": true,
+   "detail": null,
+   "seconds": 348.4,
+   "verdict": "HELPFUL",
+   "delta_vs_baseline": 1202144
+  }
+ ],
+ "tally": {
+  "HELPFUL": 6,
+  "IDLE": 6
+ },
+ "droppable_rungs": [
+  "0|4|0|0|0|1",
+  "0|6|0|0|0|1",
+  "0|8|0|0|0|1",
+  "0|9|0|0|0|1",
+  "0|12|0|0|0|1",
+  "0|13|0|0|0|1"
+ ],
+ "minimal_useful_subset_size": 6,
+ "reading": "IDLE means the certificate never needed that rung; HELPFUL means it is a saving but not a prerequisite; ESSENTIAL means the build does not finish without it.  Only IDLE rungs can be removed from the investment without changing the result",
+ "seconds_noncanonical": 1306.0,
+ "ok": true
+}
