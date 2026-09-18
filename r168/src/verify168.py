@@ -58,6 +58,21 @@ def load_trust():
                                    "verifier A (round 167 streaming driver)"],
             reports=["r166/certs/verification_166.json",
                      "r167/certs/verifier_a_167.json"])
+    # round 168 batch 1 was accepted by BOTH verifiers, with identical
+    # per-cell node counts, and both reports are committed and hash pinned.
+    a8 = ROOT / "r168" / "certs" / "verification_a_168.json"
+    b8 = ROOT / "r168" / "certs" / "verification_b_168.json"
+    if a8.exists() and b8.exists():
+        ra, rb = json.loads(a8.read_text()), json.loads(b8.read_text())
+        if ra.get("all_ok") and rb.get("all_ok"):
+            for rel, row in rb["batches"].items():
+                if row.get("ok") and row.get("sha256"):
+                    TRUST.setdefault(row["sha256"], dict(
+                        path=rel,
+                        verified_by=["verifier B (round 168)",
+                                     "verifier A (round 168)"],
+                        reports=["r168/certs/verification_b_168.json",
+                                 "r168/certs/verification_a_168.json"]))
 
 
 def cellstr(K):
