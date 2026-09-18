@@ -120,20 +120,41 @@ def main():
           f"{'SAFE' if joint_ok_raw else 'NOT SAFE -- tightening'}",
           flush=True)
 
-    tightened, rounds = dict(joint), 0
-    if not joint_ok_raw:
-        # walk every relaxed cell back toward its exact value until the joint
-        # assignment closes.  Largest slack first, since that is where the
-        # shared margin is being spent.
-        while not closes(tightened) and rounds < 400:
+    # Relaxing a bound can only lose rows, so feasibility is MONOTONE in how
+    # much slack is granted.  That makes a scalar search valid: hand every
+    # cell the same FRACTION t of its individual slack and binary-search the
+    # largest feasible t.  Decrementing one cell at a time, as the first draft
+    # did, is not just slower -- it ran out of steps at 400 with the
+    # assignment still infeasible, which would have been reported as a
+    # failure of joint safety rather than of the search.
+    def assign(t):
+        return {K: exact_of(K) + int(t * (v - exact_of(K)))
+                for K, v in joint.items()}
+
+    rounds = 0
+    if joint_ok_raw:
+        tightened = dict(joint)
+    else:
+        lo, hi = 0.0, 1.0            # t = 0 is the exact values, always safe
+        for _ in range(18):
+            mid = (lo + hi) / 2
             rounds += 1
-            worst = max((K for K in tightened
-                         if tightened[K] > exact_of(K)),
-                        key=lambda K: tightened[K] - exact_of(K),
-                        default=None)
-            if worst is None:
-                break
-            tightened[worst] -= 1
+            if closes(assign(mid)):
+                lo = mid
+            else:
+                hi = mid
+        tightened = assign(lo)
+        # then push individual cells up from there while the joint assignment
+        # still holds, largest remaining headroom first
+        for K in sorted(joint, key=lambda K: joint[K] - tightened[K],
+                        reverse=True):
+            while tightened[K] < joint[K]:
+                trial = dict(tightened)
+                trial[K] += 1
+                rounds += 1
+                if not closes(trial):
+                    break
+                tightened = trial
     joint_ok = closes(tightened)
     total_slack_indiv = sum(v - exact_of(K) for K, v in joint.items())
     total_slack_joint = sum(v - exact_of(K) for K, v in tightened.items())
@@ -193,7 +214,10 @@ def main():
             individually_safe_bounds=len(joint),
             individually_derived_total_slack=total_slack_indiv,
             all_at_once_is_safe=joint_ok_raw,
-            tightening_steps=rounds,
+            closure_evaluations=rounds,
+            search="binary search on a uniform slack fraction, monotone "
+                   "because relaxing a bound can only lose rows, then a "
+                   "per-cell push upward from that point",
             joint_total_slack=total_slack_joint,
             joint_assignment_holds=joint_ok,
             why_it_matters="a plan relaxes every cell at once; each row's "
