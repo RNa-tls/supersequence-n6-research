@@ -1,0 +1,110 @@
+{
+ "head": "fde3c1a297099507534d8041e8ec0c5800c8056f",
+ "runs": {
+  "run1": {
+   "state": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/state_168.json": "5ecb93f17f76ba06e62e552adf9f0983c03933e26c80896b20a96a25ef3593f1"
+    },
+    "stderr_tail": ""
+   },
+   "census": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/census_168.json": "93c797c2751c868b4510462826003e5ea887fdcd9199302fa8924e9e600ba479"
+    },
+    "stderr_tail": ""
+   },
+   "agreement": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/agreement_168.json": "068918fa10bb50fa13838855114d17e37f4a255b21b8efea58c0dd7ad82c6298"
+    },
+    "stderr_tail": ""
+   },
+   "mutations": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/mutations_168.json": "2f77c0f9398a4a22dd1be409a1f565850f77c1da17f693edb6d96500c0acee9f",
+     "r168/certs/mut_a_168.txt.gz": "74dae6a26fb58ae5be3f20c88c33b5a7c733b709b7b886f34fb6395e2dec0fa9",
+     "r168/certs/mut_b_168.txt.gz": "e240b1a890b7615c1d50942b5625b99a3ce36d8cb7e86d84385f00fc2cc8e10c"
+    },
+    "stderr_tail": ""
+   },
+   "generator_controls": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/generator_controls_168.json": "6351e14391de916081ec17d06b1ad3051260c0087a9f412c33732fc5f1fb72fd"
+    },
+    "stderr_tail": ""
+   }
+  },
+  "run2": {
+   "state": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/state_168.json": "5ecb93f17f76ba06e62e552adf9f0983c03933e26c80896b20a96a25ef3593f1"
+    },
+    "stderr_tail": ""
+   },
+   "census": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/census_168.json": "93c797c2751c868b4510462826003e5ea887fdcd9199302fa8924e9e600ba479"
+    },
+    "stderr_tail": ""
+   },
+   "agreement": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/agreement_168.json": "068918fa10bb50fa13838855114d17e37f4a255b21b8efea58c0dd7ad82c6298"
+    },
+    "stderr_tail": ""
+   },
+   "mutations": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/mutations_168.json": "2f77c0f9398a4a22dd1be409a1f565850f77c1da17f693edb6d96500c0acee9f",
+     "r168/certs/mut_a_168.txt.gz": "74dae6a26fb58ae5be3f20c88c33b5a7c733b709b7b886f34fb6395e2dec0fa9",
+     "r168/certs/mut_b_168.txt.gz": "e240b1a890b7615c1d50942b5625b99a3ce36d8cb7e86d84385f00fc2cc8e10c"
+    },
+    "stderr_tail": ""
+   },
+   "generator_controls": {
+    "returncode": 0,
+    "artifacts": {
+     "r168/certs/generator_controls_168.json": "6351e14391de916081ec17d06b1ad3051260c0087a9f412c33732fc5f1fb72fd"
+    },
+    "stderr_tail": ""
+   }
+  }
+ },
+ "committed": {
+  "r168/certs/state_168.json": "5ecb93f17f76ba06e62e552adf9f0983c03933e26c80896b20a96a25ef3593f1",
+  "r168/certs/census_168.json": "93c797c2751c868b4510462826003e5ea887fdcd9199302fa8924e9e600ba479",
+  "r168/certs/agreement_168.json": "18ace7eba2b0e018d0fb4aaf71b821b635d2238a08f6bafc1648b62608a12ec6",
+  "r168/certs/mutations_168.json": "2f77c0f9398a4a22dd1be409a1f565850f77c1da17f693edb6d96500c0acee9f",
+  "r168/certs/mut_a_168.txt.gz": "74dae6a26fb58ae5be3f20c88c33b5a7c733b709b7b886f34fb6395e2dec0fa9",
+  "r168/certs/mut_b_168.txt.gz": "e240b1a890b7615c1d50942b5625b99a3ce36d8cb7e86d84385f00fc2cc8e10c",
+  "r168/certs/generator_controls_168.json": "6351e14391de916081ec17d06b1ad3051260c0087a9f412c33732fc5f1fb72fd"
+ },
+ "identical": false,
+ "differences": [
+  {
+   "artifact": "r168/certs/agreement_168.json",
+   "clean": "068918fa10bb50fa13838855114d17e37f4a255b21b8efea58c0dd7ad82c6298",
+   "working_tree": "18ace7eba2b0e018d0fb4aaf71b821b635d2238a08f6bafc1648b62608a12ec6",
+   "reason": "clean run differs from the committed artifact"
+  }
+ ],
+ "ok": false,
+ "excluded": {
+  "artifacts": [
+   "r168/certs/verification_a_168.json",
+   "r168/certs/verification_b_168.json",
+   "r168/certs/extree_batch1_168.txt.gz"
+  ],
+  "reason": "replaying the committed proof trees costs hours per pass and regenerating the batch costs more; no artefact stores a wall clock and the container is written with filename='' and mtime=0, so this is a cost exclusion, not a determinism gap"
+ }
+}

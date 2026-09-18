@@ -30,6 +30,7 @@ STEPS = [
      ["r168/certs/census_168.json"]),
     ("agreement", ["python3", "r168/src/agree168.py",
                    "--verification", "r168/certs/verification_b_168.json",
+                   "--verification", "r168/certs/verification_a_168.json",
                    "--generation", "r168/certs/generation_batch1_168.json"],
      ["r168/certs/agreement_168.json"]),
     ("mutations", ["python3", "r168/src/mutate168.py"],
