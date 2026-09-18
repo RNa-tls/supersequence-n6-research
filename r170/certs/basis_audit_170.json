@@ -1,0 +1,30 @@
+{
+ "audited": "r170/certs/basis_170.json",
+ "audited_sha256": "6907c113336766196c73e5457cf4f04157c69ded89803911da3e6d9855bf30ea",
+ "monotonicity": {
+  "nested_pairs_tested": 40,
+  "violations": [],
+  "holds": true,
+  "means": "adding a cell never reopens a closed row, so a feasible set can never omit a necessary cell"
+ },
+ "necessity": {
+  "checked": 33,
+  "not_necessary": [],
+  "all_necessary": true
+ },
+ "basis": {
+  "size": 35,
+  "rows_closed": 180,
+  "sufficient": true,
+  "droppable_members": [],
+  "minimal": true
+ },
+ "size_1_rescan": {
+  "residual_rows": 4,
+  "best_covered": 2,
+  "thirty_four_possible": false
+ },
+ "verdict": "EXACT_MINIMUM_35_CONFIRMED",
+ "seconds_noncanonical": 81.4,
+ "ok": true
+}

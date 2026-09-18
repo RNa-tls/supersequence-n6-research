@@ -1,0 +1,42 @@
+{
+ "inputs": {
+  "r169/certs/p1_closure_169.json": "9e0269a080597cdad72b044b7eb149fcc18df0fa52a8ef69e8c0639503ab375f",
+  "r168/certs/state_168.json": "5ecb93f17f76ba06e62e552adf9f0983c03933e26c80896b20a96a25ef3593f1",
+  "r169/certs/cover_169.json": "c1b82964360e4098c259a79ebe6f31d01bc9b71c0b667cf152fa37c8a03f2494"
+ },
+ "universe": 254,
+ "exposed_rows": 180,
+ "necessary_cells": 33,
+ "rows_closed_by_necessary": 176,
+ "residual_rows": 4,
+ "argument": "every feasible selection contains all individually necessary cells, because row closure is monotone in the selection; hence OPT = |E| + min|X| over completions X, and ruling out |X| in {1,2} leaves |X| = 3 exactly",
+ "completion_size_1": {
+  "scanned": 221,
+  "best_residual_rows_covered": 2,
+  "feasible": false
+ },
+ "completion_size_2": {
+  "pairs_tested": 4014,
+  "feasible": true,
+  "witness": [
+   "1|7|2|0|0|1",
+   "2|3|2|0|0|1"
+  ]
+ },
+ "minimum": {
+  "cells": 35,
+  "witness_completion": [
+   "1|7|2|0|0|1",
+   "2|3|2|0|0|1"
+  ],
+  "verified_on_all_exposed_rows": true,
+  "proved_exact": true
+ },
+ "round_169_bracket": {
+  "lower": 33,
+  "upper": 36,
+  "note": "this module replaces the bracket with an exact value over the same universe"
+ },
+ "seconds_noncanonical": 77.4,
+ "ok": true
+}
