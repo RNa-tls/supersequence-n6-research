@@ -1,0 +1,84 @@
+{
+ "inputs": {
+  "r168/certs/state_168.json": "5ecb93f17f76ba06e62e552adf9f0983c03933e26c80896b20a96a25ef3593f1",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85",
+  "r152/certs/verify_piece_c152.json": "d4f865d220930dfefb7b74e94ea622fa061d206b9fb8d7a902da6b7bf74f60aa",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa"
+ },
+ "p1": {
+  "chain_pairs": 45289,
+  "chain_violations": 0,
+  "piece_pairs": 6890,
+  "piece_violations": 0,
+  "holds": true
+ },
+ "baseline": {
+  "rows": 1609,
+  "tally": {
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "reproduces_round_152": true
+ },
+ "exposed_rows": 180,
+ "round_167_exposed": 180,
+ "universe": {
+  "size": 254,
+  "feasible": true,
+  "rows_left_open": 0
+ },
+ "minimum": {
+  "necessary": 33,
+  "redundant": 221,
+  "feasible": false,
+  "rows_left_open": 4,
+  "cells": [
+   "0|15|0|0|0|1",
+   "0|18|2|0|0|0",
+   "0|20|0|0|0|0",
+   "1|10|0|0|0|1",
+   "1|11|4|0|0|0",
+   "1|13|2|0|0|0",
+   "1|15|0|0|0|0",
+   "1|4|5|0|1|0",
+   "1|4|5|1|0|0",
+   "1|5|0|0|0|2",
+   "1|5|10|0|0|0",
+   "1|6|3|0|1|0",
+   "1|6|3|1|0|0",
+   "1|7|8|0|0|0",
+   "1|8|1|0|1|0",
+   "1|8|1|1|0|0",
+   "1|9|6|0|0|0",
+   "2|0|0|0|0|2",
+   "2|10|0|0|0|0",
+   "2|1|3|0|1|0",
+   "2|1|3|1|0|0",
+   "2|2|8|0|0|0",
+   "2|3|1|0|1|0",
+   "2|3|1|1|0|0",
+   "2|4|6|0|0|0",
+   "2|5|0|0|0|1",
+   "2|6|4|0|0|0",
+   "2|8|2|0|0|0",
+   "3|0|0|0|0|1",
+   "3|1|4|0|0|0",
+   "3|3|2|0|0|0",
+   "3|5|0|0|0|0",
+   "4|0|0|0|0|0"
+  ]
+ },
+ "round_167_minimum": 190,
+ "progress": {
+  "certified_in_the_new_minimum": 0,
+  "still_needed": 33,
+  "rows_closed_now": 34,
+  "exposed_rows": 180
+ },
+ "domination_structure": {
+  "round_167_basis": 190,
+  "basis_cells_dominated_by_another_basis_cell": 155,
+  "with_equal_capacity": 110
+ },
+ "ok": false
+}
