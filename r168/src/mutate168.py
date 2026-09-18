@@ -90,6 +90,9 @@ def verify_text(text, extra=()):
 
 def main():
     import gzip
+    # the historical batches are accepted on their pinned hashes here too,
+    # otherwise every mutation case would re-replay 164 million nodes
+    V.load_trust()
     ac, ap_, deps = build_small_dag()
     text = gzip.decompress((ROOT / B_REL).read_bytes()).decode()
     lines = text.splitlines()

@@ -28,8 +28,10 @@ sys.path.insert(0, str(ROOT / "r168" / "src"))
 import hidden163 as H                                             # noqa: E402
 from recheck168 import System, parse, cellstr                     # noqa: E402
 
-EQ_ROWS = [(3, (0, 1, 0, 7, 0, 7, 0, 0, 0, 1)),
-           (4, (0, 0, 0, 6, 0, 6, 0, 0, 0, 0))]
+# round 165 stored the two equality rows as their COORD vectors only, so the
+# layer is recovered by locating them in the row space rather than assumed.
+EQ_ROWS = [(3, 0, 1, 0, 7, 0, 7, 0, 0, 0, 1),
+           (4, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0)]
 
 
 def sha(p):
@@ -65,9 +67,17 @@ def main():
     tally = Counter(all_v.values())
     closed = [k for k in EX if all_v[k] == "STRICTLY_CLOSED"]
     still = [k for k in EX if all_v[k] != "STRICTLY_CLOSED"]
-    eq = {f"E{i + 1}": dict(layer=867 + t, row=dict(zip(H.COORD, r)),
-                            verdict=all_v.get((t, r)))
-          for i, (t, r) in enumerate(EQ_ROWS)}
+    # The two audited equality rows are located by their COORD vector.  Under
+    # the restricted system many OTHER rows also fall back to equality or to
+    # surviving -- that is the expected consequence of a weaker bound set.
+    # What must not happen is either audited equality row becoming STRICTLY
+    # CLOSED, which would mean the restricted system claims MORE than the
+    # audited one.
+    want = [tuple(r) for r in EQ_ROWS]
+    found = sorted(k for k in all_v if tuple(k[1]) in want)
+    eq = {f"E{i + 1}": dict(layer=867 + k[0], row=dict(zip(H.COORD, k[1])),
+                            verdict=all_v[k])
+          for i, k in enumerate(found)}
 
     # the remaining tail, recosted from the round-167 order
     plan = json.loads((ROOT / "r167" / "certs"
@@ -101,8 +111,17 @@ def main():
             independently_closed=len(closed),
             still_open=len(still),
             equality=eq,
-            equality_rows_intact=all(v["verdict"] == "EQUALITY"
-                                     for v in eq.values())),
+            equality_rows_found=len(found),
+            equality_rows_intact=(len(found) == 2
+                                  and all(v["verdict"] == "EQUALITY"
+                                          for v in eq.values())),
+            equality_rows_total_under_the_restricted_system=sum(
+                1 for v in all_v.values() if v == "EQUALITY"),
+            note="a strictly closed row can fall back to EQUALITY or "
+                 "SURVIVING when the single-route facts are withdrawn; only "
+                 "the 180 exposed rows are the ones round 168 has to win "
+                 "back, and the two audited equality rows must stay "
+                 "equality rows"),
         tail=dict(
             remaining_cells=len(left),
             remaining_projected_search_nodes=rem,
