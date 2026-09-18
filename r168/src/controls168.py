@@ -7,10 +7,24 @@ patched generator over twelve cheap cells -- discovering the value and then
 building the tree, exactly as the real run does -- and requires that the
 result is rejected.
 
-Two rejection mechanisms count, and the report distinguishes them:
+THREE mechanisms count, and the report distinguishes them.  The third one is
+new in round 168 and it is a direct consequence of dropping the table lookup.
 
   * the independent verifier rejects the tree;
-  * the broken generator diverges and hits the node cap.
+  * the broken generator diverges and hits the node cap;
+  * the discovered CAPACITY disagrees with the honest generator's.
+
+The third mechanism is not a weakness of the verifier, it is the shape of the
+failure.  Round 166 handed the generator the capacity to prove, so a buggy
+generator had to produce a tree for the CORRECT value and could not, and the
+verifier rejected it.  Round 168's generator discovers the value itself, so a
+bug that loosens the state update makes it discover a value that is too LARGE
+and then honestly prove that weaker bound.  The tree really is a complete case
+analysis, so the verifier is right to accept it; what is wrong is the number.
+A buggy generator therefore cannot manufacture a FALSE bound -- validity of
+the tree is the proof -- it can only manufacture a WEAKER one, and that is
+caught by capacity agreement (phase 19) and, downstream, by rows failing to
+close.
 
 The cap is far above the honest cost of these cells and low enough that
 divergence is caught in seconds, so no control is allowed to burn 10^8 nodes
@@ -57,13 +71,15 @@ def load_engine(src):
     return ns["Engine"]
 
 
-def try_generate(Engine, order):
-    certified = {}
+def try_generate(Engine, order, honest=None):
+    certified, caps = {}, []
     for i in range(CELLS):
         cell = order[i]
         try:
             g = Engine(certified, NODE_CAP)
             cap, err = g.discover(cell)
+            if cap is not None:
+                caps.append(cap)
             if cap is None:
                 return dict(stage="discover", cell="|".join(map(str, cell)),
                             rejected_by="generator diverged past the node cap",
@@ -85,7 +101,19 @@ def try_generate(Engine, order):
                         rejected_by="independent verifier",
                         detail=str(info)[:130])
         certified[cell] = cap
-    return None
+    if honest is not None and caps != honest:
+        bad = [dict(cell="|".join(map(str, order[j])), honest=honest[j],
+                    buggy=caps[j])
+               for j in range(min(len(caps), len(honest)))
+               if caps[j] != honest[j]]
+        return dict(stage="capacity", cell=bad[0]["cell"],
+                    rejected_by="capacity disagreement with the honest "
+                                "generator",
+                    detail=f"{len(bad)} of {len(honest)} cells differ, "
+                           f"first: {bad[0]}"[:160],
+                    weaker_not_false=all(b["buggy"] > b["honest"]
+                                         for b in bad))
+    return caps if honest is None else None
 
 
 def main():
@@ -94,15 +122,19 @@ def main():
                                   / "cap_cert_all_152.txt")
     rows = []
     t0 = time.time()
-    clean = try_generate(load_engine(src), order)
+    honest = try_generate(load_engine(src), order)
+    clean = None if isinstance(honest, list) else honest
+    if not isinstance(honest, list):
+        honest = None
     rows.append(dict(control="unpatched generator (control)",
                      patch_applied=True, rejected=clean is not None,
                      expected_rejected=False, correct=clean is None,
-                     detail=clean))
+                     discovered_capacities=honest, detail=clean))
     for name, (old, new) in BUGS.items():
         mutated = src.replace(old, new)
         applied = mutated != src
-        res = try_generate(load_engine(mutated), order) if applied else None
+        res = try_generate(load_engine(mutated), order, honest) \
+            if applied else None
         rows.append(dict(control=name, patch_applied=applied,
                          rejected=res is not None, expected_rejected=True,
                          correct=(applied and res is not None), detail=res))
@@ -122,7 +154,14 @@ def main():
             and r["detail"]["rejected_by"] == "independent verifier"),
         caught_by_divergence=sum(
             1 for r in rows[1:] if r["correct"] and r["detail"]
-            and r["detail"]["rejected_by"] != "independent verifier"),
+            and "diverged" in r["detail"]["rejected_by"]),
+        caught_by_capacity_disagreement=sum(
+            1 for r in rows[1:] if r["correct"] and r["detail"]
+            and r["detail"]["rejected_by"].startswith("capacity")),
+        every_capacity_failure_was_weaker_not_false=all(
+            r["detail"].get("weaker_not_false", True)
+            for r in rows[1:] if r["correct"] and r["detail"]
+            and r["detail"]["rejected_by"].startswith("capacity")),
         missed=[r["control"] for r in rows[1:] if not r["correct"]],
         control_case_passes=rows[0]["correct"],
         rows=rows)

@@ -1,0 +1,186 @@
+{
+ "small_dag": {
+  "a": "r168/certs/mut_a_168.txt.gz",
+  "b": "r168/certs/mut_b_168.txt.gz",
+  "a_sha256": "74dae6a26fb58ae5be3f20c88c33b5a7c733b709b7b886f34fb6395e2dec0fa9",
+  "a_plain_sha256": "3587304a2e3310199edba9cccd01b7d67c3c8d41badfc0dbf47f8544a5e85f34",
+  "declared_dependencies": 5
+ },
+ "rows": [
+  {
+   "mutation": "unchanged (control)",
+   "expected_valid": true,
+   "accepted": true,
+   "correct": true,
+   "rejection": null
+  },
+  {
+   "mutation": "corrupt predecessor container hash",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "reference hash mismatch for r168/certs/mut_a_168.txt.gz"
+  },
+  {
+   "mutation": "corrupt predecessor plain-text hash",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "reference hash mismatch for r168/certs/mut_a_168.txt.gz"
+  },
+  {
+   "mutation": "redirect the predecessor reference to another file",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "referenced certificate failed: r168/certs/other_168.txt.gz"
+  },
+  {
+   "mutation": "delete the predecessor reference",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 0|0|0|0|0|0 cites r168/certs/mut_a_168.txt.gz, which is not a declared reference"
+  },
+  {
+   "mutation": "introduce a certificate dependency cycle",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "referenced certificate failed: r168/certs/mut_b_168.txt.gz"
+  },
+  {
+   "mutation": "dep claims a capacity the predecessor does not certify",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 0|0|0|0|0|0 claims cap 19, the certificate r168/certs/mut_a_168.txt.gz gives 20"
+  },
+  {
+   "mutation": "dep carries the wrong plain-text hash",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 0|0|0|0|0|0 carries plain hash 000000002e331019, the reference hashes to 3587304a2e331019"
+  },
+  {
+   "mutation": "dep cites a file that is not a declared reference",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 0|0|0|0|0|0 cites r168/certs/not_a_reference.txt.gz, which is not a declared reference"
+  },
+  {
+   "mutation": "dep names a cell the predecessor does not carry",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 9|0|0|0|0|0 claims cap 20, the certificate r168/certs/mut_a_168.txt.gz gives None"
+  },
+  {
+   "mutation": "invent an extra dependency with a very strong bound",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 5|0|0|0|0|0 claims cap 1, the certificate r168/certs/mut_a_168.txt.gz gives None"
+  },
+  {
+   "mutation": "declare one child fewer",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 0 declares 5 children but the state has 6 legal moves"
+  },
+  {
+   "mutation": "declare one child more",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 0 declares 7 children but the state has 6 legal moves"
+  },
+  {
+   "mutation": "duplicate one child",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: unjustified leaf at token 6: ports=6 deficit=4 r1=122 r2=127"
+  },
+  {
+   "mutation": "remove one child",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 5 declares 6 children but the state has 5 legal moves"
+  },
+  {
+   "mutation": "illegal transition (leaf becomes a branch)",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 5 declares 2 children but the state has 5 legal moves"
+  },
+  {
+   "mutation": "delete a subtree",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token stream ended early"
+  },
+  {
+   "mutation": "corrupt the root node",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: token 0 declares 9 children but the state has 6 legal moves"
+  },
+  {
+   "mutation": "malformed proof syntax",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: bad token 'Z' at 3"
+  },
+  {
+   "mutation": "corrupt the claimed capacity downwards",
+   "expected_valid": false,
+   "accepted": false,
+   "correct": true,
+   "rejection": "tree invalid for 0|0|0|1|1|0: unjustified leaf at token 5: ports=6 deficit=4 r1=122 r2=25"
+  },
+  {
+   "mutation": "raise the claimed capacity (weaker but still true)",
+   "expected_valid": true,
+   "accepted": true,
+   "correct": true,
+   "rejection": null
+  }
+ ],
+ "real_batch_rows": [
+  {
+   "mutation": "real batch: corrupt a reference container hash",
+   "accepted": false,
+   "correct": true,
+   "rejection": "reference hash mismatch for r164/certs/extree_prefix_164.txt.gz"
+  },
+  {
+   "mutation": "real batch: dep claims a capacity the predecessor denies",
+   "accepted": false,
+   "correct": true,
+   "rejection": "dep 0|0|0|0|0|0 claims cap 19, the certificate r164/certs/extree_prefix_164.txt.gz gives 20"
+  }
+ ],
+ "invalid": 19,
+ "invalid_rejected": 19,
+ "valid": 2,
+ "valid_accepted": 2,
+ "real_batch_invalid": 2,
+ "real_batch_rejected": 2,
+ "not_expressible_in_this_format": [
+  "corrupt token state",
+  "corrupt used-hexagon state",
+  "corrupt feasibility histogram",
+  "alter prune reason"
+ ],
+ "why_not_expressible": "the certificate stores only N<k> and L; no solver state and no prune label appear in it, and the verifier recomputes every one of them from the state it rebuilt",
+ "ok": true
+}

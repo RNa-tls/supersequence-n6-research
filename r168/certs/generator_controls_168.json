@@ -1,0 +1,120 @@
+{
+ "generator": "r168/src/gen168.py",
+ "generator_sha256": "d847d18a8423ab3cbdd36812bdd22f7250a535f453e900eb64f1a35dd5018adf",
+ "cells_per_control": 12,
+ "node_cap": 2000000,
+ "controls": 6,
+ "applied": 6,
+ "caught": 6,
+ "caught_by_the_verifier": 4,
+ "caught_by_divergence": 0,
+ "caught_by_capacity_disagreement": 2,
+ "every_capacity_failure_was_weaker_not_false": true,
+ "missed": [],
+ "control_case_passes": true,
+ "rows": [
+  {
+   "control": "unpatched generator (control)",
+   "patch_applied": true,
+   "rejected": false,
+   "expected_rejected": false,
+   "correct": true,
+   "discovered_capacities": [
+    20,
+    40,
+    20,
+    20,
+    20,
+    20,
+    35,
+    60,
+    20,
+    25,
+    30,
+    20
+   ],
+   "detail": null
+  },
+  {
+   "control": "missing orbit-phase update",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "unjustified leaf at token 5: ports=6 deficit=4 r1=120 r2=125"
+   }
+  },
+  {
+   "control": "incorrect token update (never charge a token)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "capacity",
+    "cell": "1|0|0|0|0|0",
+    "rejected_by": "capacity disagreement with the honest generator",
+    "detail": "1 of 12 cells differ, first: {'cell': '1|0|0|0|0|0', 'honest': 35, 'buggy': 120}",
+    "weaker_not_false": true
+   }
+  },
+  {
+   "control": "missing used-hexagon update",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "token 54 declares 3 children but the state has 5 legal moves"
+   }
+  },
+  {
+   "control": "incorrect deficit update (+3 instead of +4)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "capacity",
+    "cell": "0|0|0|0|1|0",
+    "rejected_by": "capacity disagreement with the honest generator",
+    "detail": "7 of 12 cells differ, first: {'cell': '0|0|0|0|1|0', 'honest': 20, 'buggy': 23}",
+    "weaker_not_false": true
+   }
+  },
+  {
+   "control": "skipped legal branch (drop the last legal move)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "token 0 declares 4 children but the state has 5 legal moves"
+   }
+  },
+  {
+   "control": "unsound predecessor bound (pretend every cell caps at 0)",
+   "patch_applied": true,
+   "rejected": true,
+   "expected_rejected": true,
+   "correct": true,
+   "detail": {
+    "stage": "verify",
+    "cell": "0|0|0|0|0|0",
+    "rejected_by": "independent verifier",
+    "detail": "unjustified leaf at token 0: ports=1 deficit=4 r1=120 r2=120"
+   }
+  }
+ ],
+ "ok": true
+}
