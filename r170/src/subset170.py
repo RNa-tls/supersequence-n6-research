@@ -114,26 +114,42 @@ def main():
     print(f"self-paying rungs (saving > own build cost): "
           + ", ".join(G.cellstr(K) for K in pays), flush=True)
 
+    # Results are written as each variant lands, not once at the end.  The
+    # control build runs to a cap an order of magnitude above the others, and
+    # an earlier attempt lost all three variants when the machine restarted
+    # mid-run.  Partial evidence beats none.
     t0 = time.time()
+    rows = []
+    rungcost_of = lambda keep: sum(rung_cost[K] for K in keep)
+
+    def flush():
+        (ROOT / a.report).write_text(json.dumps(dict(
+            cell=G.cellstr(T), census_safe_bound_S=a.safe,
+            baseline_target_proof_nodes=a.baseline,
+            full_ladder_investment=sum(rung_cost.values()),
+            full_ladder_total=sum(rung_cost.values()) + a.baseline,
+            variants=rows, complete=len(rows) == len(jobs),
+            seconds_noncanonical=round(time.time() - t0, 1),
+            ok=True), ensure_ascii=False, indent=1) + "\n")
+
     with Pool(a.jobs, initializer=_init,
               initargs=(cert, T, a.safe)) as pool:
-        rows = pool.map(_one, jobs)
+        for r in pool.imap_unordered(_one, jobs):
+            keep = {parse(c) for c in r["rungs_kept"]}
+            r["ladder_investment"] = rungcost_of(keep)
+            r["total_nodes"] = (r["ladder_investment"] + r["proof_nodes"]
+                                if r["completed"] else None)
+            r["delta_vs_baseline"] = (r["proof_nodes"] - a.baseline
+                                      if r["completed"] else None)
+            rows.append(r)
+            print(f"  {r['variant']:<18} rungs={r['rungs_kept_n']:<3} "
+                  f"invest={r['ladder_investment']:>11,} "
+                  f"target={r['proof_nodes']:>12,} "
+                  f"{r['seconds']}s"
+                  + ("" if r["completed"] else "  DEFERRED"), flush=True)
+            flush()
 
-    inv = {}
-    for r in rows:
-        keep = {parse(c) for c in r["rungs_kept"]}
-        r["ladder_investment"] = sum(rung_cost[K] for K in keep)
-        r["total_nodes"] = (r["ladder_investment"] + r["proof_nodes"]
-                            if r["completed"] else None)
-        r["delta_vs_baseline"] = (r["proof_nodes"] - a.baseline
-                                  if r["completed"] else None)
-        inv[r["variant"]] = r
-        print(f"  {r['variant']:<18} rungs={r['rungs_kept_n']:<3} "
-              f"invest={r['ladder_investment']:>11,} "
-              f"target={r['proof_nodes']:>12,} "
-              f"total={r['total_nodes'] if r['total_nodes'] else 'n/a':>12} "
-              f"{r['seconds']}s" + ("" if r["completed"] else "  DEFERRED"),
-              flush=True)
+    inv = {r["variant"]: r for r in rows}
 
     full_total = sum(rung_cost.values()) + a.baseline
     best = min((r for r in rows if r["completed"]),
