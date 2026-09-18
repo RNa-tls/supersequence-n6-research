@@ -1,0 +1,185 @@
+{
+ "round": 168,
+ "node": "progressive EXTREE certification of the 190-cell basis",
+ "git_commit": "7fa9e5c6b7c61395cff2c41e84f7ee99071d5bf2",
+ "git_branch": "round153-equality-coexistence",
+ "git_dirty": true,
+ "python": "3.11.15",
+ "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+ "generator_sha256": "d847d18a8423ab3cbdd36812bdd22f7250a535f453e900eb64f1a35dd5018adf",
+ "verifier_b_sha256": "b0e6b81ba1c5ef90aa0b403c06c0bd06c8b2a26b6b1a05edf6ff090fdd66783a",
+ "verifier_b_engine_sha256": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99",
+ "verifier_a_driver_sha256": "5bd136d218a1907a8a847d382f781785ca180458fc7c3f76de8395c240772878",
+ "verifier_a_logic_sha256": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+ "bridge_theorem_sha256": "bc806c2c4e1383bc6fe9539821b459b62c1cf0a373e4d84a39dc41ba58c68ed7",
+ "audited_sources": {
+  "r152/src/checker152.py": "05af8dcf5bb1b39f9bb410b2723a7306c8f9558552186b51a954ce2f2adabbf6",
+  "r152/src/extree152.py": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+  "r152/src/rows152.py": "f26a358d0ccf54994e2fab0c7ab816389c2f180300828330fb931b9969695c66",
+  "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99",
+  "r166/src/bridge166.py": "bc806c2c4e1383bc6fe9539821b459b62c1cf0a373e4d84a39dc41ba58c68ed7",
+  "r166/src/extree_basis_verify.py": "e7d134eb6dcde9101e00a228ce3de745f3bbd65367722f87bb2720f228d39894",
+  "r167/BRIDGE_AWARE_BASIS.md": "47a7f88462c1d250135d55ea8591097c4a0725c7475832e03cfcf704c67aa4d6",
+  "r167/certs/row_optimum_167.json": "f155fc5f1a772f72acd54de354556ef8deb2aa0083f3ef34fdef55d6e14287a7",
+  "r167/certs/optimality_certificate_167.json": "3ced994aaa3beecaf12e01c41937e5aa39c38ab19967376db6a0ff87f782fcce",
+  "r167/certs/round168_plan_167.json": "ce89b0791901326d4a2af075dda591e2e8eb2ca8e96c160667ea0bc15ee32ebf",
+  "r164/certs/extree_prefix_164.txt.gz": "d5dac08afe88231e9517f7d6fc51b1477c91498d637d3b411096b5cbb77af742",
+  "r166/certs/extree_batch2_166.txt.gz": "5d5c5c3b20dee8abfb3286f2ef867cbbf8eef0e940f801d9fef5e7412dfeccaa",
+  "r166/certs/extree_batch3_166.txt.gz": "e95ab7fcada2aad02c27969d38be996439df4f44f1ac549a75189ccc765a62a6"
+ },
+ "audited_plain_sha256": {
+  "r164/certs/extree_prefix_164.txt.gz": "81bb6dfa1e427e37fc5598fd5bd1067d20da5414acf934a53c9fa31e196feca0",
+  "r166/certs/extree_batch2_166.txt.gz": "34f6dd23bbe74178e8c4a2908bc083e7bcf9ef1bd17ab7f91f620d5f1947b454",
+  "r166/certs/extree_batch3_166.txt.gz": "d4ec791a81c65c676d72d66dbcf73b58ff6293fef0c6cece88dfaaa8d65b8632"
+ },
+ "r168_sources": {
+  "r168/src/agree168.py": "1b7dc460a330f9972efa95d9cbf50cec084ed4e0dba5c1617e6cfc7419e1fcae",
+  "r168/src/census168.py": "fb1fd35dd08086312f18a100e7842cb5f19762a80cc98967605b7ccc9c92127a",
+  "r168/src/controls168.py": "7dbffc0754dedc8346d6d8b062c8bcf8f3e6ba5b33480ac3d6d46f3ce87ff579",
+  "r168/src/gen168.py": "d847d18a8423ab3cbdd36812bdd22f7250a535f453e900eb64f1a35dd5018adf",
+  "r168/src/mutate168.py": "830a562885d9ccf9727276958a29be041db1673df7580f771b6845cc2e11b264",
+  "r168/src/provenance168.py": "809a4740f497596d1814f5b453c751dd2eef35b5fd229b81807c8395828927fb",
+  "r168/src/recheck168.py": "c53d90fe8031124f40623bfc95d6aaaa5bebf525bf03d5282361f999944978cd",
+  "r168/src/repro168.py": "b8dd7d23b780e70c2c9b9c3228230e0ce35ea3f70ea66400830699ac4dbcd16c",
+  "r168/src/verify168.py": "b0e6b81ba1c5ef90aa0b403c06c0bd06c8b2a26b6b1a05edf6ff090fdd66783a",
+  "r168/src/verifyA168.py": "5bd136d218a1907a8a847d382f781785ca180458fc7c3f76de8395c240772878"
+ },
+ "r168_certs": {
+  "r168/certs/agreement_168.json": "18ace7eba2b0e018d0fb4aaf71b821b635d2238a08f6bafc1648b62608a12ec6",
+  "r168/certs/batch1_cells_168.txt": "3710e874f70439a39407a0c8dc9a042249dead48dbe43c924d45442cd9d9f85a",
+  "r168/certs/census_168.json": "93c797c2751c868b4510462826003e5ea887fdcd9199302fa8924e9e600ba479",
+  "r168/certs/extree_batch1_168.txt.gz": "4350eb36ffe3857c2471a9cca0690138f6eda6f1bc7624a63e99c9d3237d7fd7",
+  "r168/certs/generation_batch1_168.json": "29e44960f0b493b7c079955a69d7a8f67b476aca0dc37f8cf97f03f1284c384d",
+  "r168/certs/generator_controls_168.json": "6351e14391de916081ec17d06b1ad3051260c0087a9f412c33732fc5f1fb72fd",
+  "r168/certs/mut_a_168.txt.gz": "74dae6a26fb58ae5be3f20c88c33b5a7c733b709b7b886f34fb6395e2dec0fa9",
+  "r168/certs/mut_b_168.txt.gz": "e240b1a890b7615c1d50942b5625b99a3ce36d8cb7e86d84385f00fc2cc8e10c",
+  "r168/certs/mutations_168.json": "2f77c0f9398a4a22dd1be409a1f565850f77c1da17f693edb6d96500c0acee9f",
+  "r168/certs/prefix_tax_168.json": "b3f819c50d7ead6046f3c0fe67a862ae6e41e3ed428f18630f04f4e5d5927493",
+  "r168/certs/rates_168.json": "96d032933a897b0fc02295b1a4928bfd6e014a2967c48cdab19fcc6731476da6",
+  "r168/certs/reproduction_168.json": "93dc06c97a058350a2898b5669c904c8fae96daab98d29ce711ec6b999add9f0",
+  "r168/certs/state_168.json": "5ecb93f17f76ba06e62e552adf9f0983c03933e26c80896b20a96a25ef3593f1",
+  "r168/certs/verification_a_168.json": "4fd1486aa7b6dc20fec983714ede9578323ac5fe39ae630f9cff2a7e5ebc32c0",
+  "r168/certs/verification_b_168.json": "bd2824cf85280bd67501ec7cbe17d355c0273d4a12325ad4bec788d37e5f1c15"
+ },
+ "r168_certificate_plain_sha256": {
+  "r168/certs/extree_batch1_168.txt.gz": "a6445ea2e31fa81629169daa7bee739de73d60c89dfed2008fe47b527528692e",
+  "r168/certs/mut_a_168.txt.gz": "3587304a2e3310199edba9cccd01b7d67c3c8d41badfc0dbf47f8544a5e85f34",
+  "r168/certs/mut_b_168.txt.gz": "8bcbae2e9e986f439b8e225228abe6044aef4471e28ca5a8819b6651257c196d"
+ },
+ "audit_doc": "9f5dbff654aa59e0db32ba7ee2140f81bdfaf5cd67121769c8c4400e53ab9b0a",
+ "totals": {
+  "state": {
+   "baseline": {
+    "rows": 1609,
+    "tally": {
+     "STRICTLY_CLOSED": 1607,
+     "EQUALITY": 2
+    },
+    "reproduces_round_152": true
+   },
+   "target": {
+    "direct_certificates_required": 190,
+    "is_190": true,
+    "exposed_rows": 180,
+    "is_180": true,
+    "universe": 222
+   },
+   "claim_sufficient": {
+    "rows_left_open": 0,
+    "ok": true
+   },
+   "claim_necessary": {
+    "checked": 190,
+    "failures": [],
+    "ok": true
+   },
+   "free_layer": {
+    "extree_certified_cells": 75,
+    "extree_cells_inside_the_target": 8,
+    "extree_cells_outside_the_target": 67,
+    "dual_route_chain_cells": 855,
+    "dual_route_piece_cells": 111,
+    "bridge_derived_piece_cells": 32,
+    "other_derived_piece_cells": 5,
+    "bridge_derived_chain_cells": 1,
+    "exposed_rows_closed_for_free": 24,
+    "exposed_rows_still_open": 156
+   },
+   "ok": true
+  },
+  "generation": {
+   "format": "L6-EXTREE-3",
+   "cells_built": 18,
+   "failures": [],
+   "total_search_nodes": 147867536,
+   "total_proof_nodes": 73634455,
+   "plain_bytes": 162319718,
+   "plain_sha256": "a6445ea2e31fa81629169daa7bee739de73d60c89dfed2008fe47b527528692e",
+   "stored_bytes": 8151401,
+   "stored_sha256": "4350eb36ffe3857c2471a9cca0690138f6eda6f1bc7624a63e99c9d3237d7fd7",
+   "ok": true
+  },
+  "verifier_b": {
+   "all_ok": true,
+   "total_cells": 93,
+   "total_proof_nodes": 73634455,
+   "histogram_mismatches": 0,
+   "trusted_on_hash": [
+    "r164/certs/extree_prefix_164.txt.gz",
+    "r166/certs/extree_batch2_166.txt.gz",
+    "r166/certs/extree_batch3_166.txt.gz"
+   ],
+   "replayed_here": [
+    "r168/certs/extree_batch1_168.txt.gz"
+   ]
+  },
+  "verifier_a": {
+   "all_ok": true,
+   "total_cells": 18,
+   "total_nodes": 73634455,
+   "extree152_sha256": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124"
+  },
+  "agreement": {
+   "compared": 18,
+   "agrees": 18,
+   "plan_value_refuted": [],
+   "historical_disagreements": [],
+   "ok": true
+  },
+  "census": {
+   "certificates": {
+    "required": 190,
+    "certified": 26,
+    "remaining": 164,
+    "certified_outside_the_target": 67
+   },
+   "rows": "<11 entries>",
+   "tail": "<8 entries>",
+   "ok": true,
+   "complete": false
+  },
+  "mutations": {
+   "invalid": 19,
+   "invalid_rejected": 19,
+   "valid": 2,
+   "valid_accepted": 2,
+   "real_batch_invalid": 2,
+   "real_batch_rejected": 2,
+   "ok": true
+  },
+  "generator_controls": {
+   "controls": 6,
+   "applied": 6,
+   "caught": 6,
+   "caught_by_the_verifier": 4,
+   "caught_by_divergence": 0,
+   "missed": [],
+   "ok": true
+  },
+  "reproduction": {
+   "identical": true,
+   "ok": true
+  }
+ }
+}

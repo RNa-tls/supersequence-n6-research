@@ -1,5 +1,5 @@
 {
- "head": "fde3c1a297099507534d8041e8ec0c5800c8056f",
+ "head": "7fa9e5c6b7c61395cff2c41e84f7ee99071d5bf2",
  "runs": {
   "run1": {
    "state": {
@@ -19,7 +19,7 @@
    "agreement": {
     "returncode": 0,
     "artifacts": {
-     "r168/certs/agreement_168.json": "068918fa10bb50fa13838855114d17e37f4a255b21b8efea58c0dd7ad82c6298"
+     "r168/certs/agreement_168.json": "18ace7eba2b0e018d0fb4aaf71b821b635d2238a08f6bafc1648b62608a12ec6"
     },
     "stderr_tail": ""
    },
@@ -58,7 +58,7 @@
    "agreement": {
     "returncode": 0,
     "artifacts": {
-     "r168/certs/agreement_168.json": "068918fa10bb50fa13838855114d17e37f4a255b21b8efea58c0dd7ad82c6298"
+     "r168/certs/agreement_168.json": "18ace7eba2b0e018d0fb4aaf71b821b635d2238a08f6bafc1648b62608a12ec6"
     },
     "stderr_tail": ""
    },
@@ -89,16 +89,9 @@
   "r168/certs/mut_b_168.txt.gz": "e240b1a890b7615c1d50942b5625b99a3ce36d8cb7e86d84385f00fc2cc8e10c",
   "r168/certs/generator_controls_168.json": "6351e14391de916081ec17d06b1ad3051260c0087a9f412c33732fc5f1fb72fd"
  },
- "identical": false,
- "differences": [
-  {
-   "artifact": "r168/certs/agreement_168.json",
-   "clean": "068918fa10bb50fa13838855114d17e37f4a255b21b8efea58c0dd7ad82c6298",
-   "working_tree": "18ace7eba2b0e018d0fb4aaf71b821b635d2238a08f6bafc1648b62608a12ec6",
-   "reason": "clean run differs from the committed artifact"
-  }
- ],
- "ok": false,
+ "identical": true,
+ "differences": [],
+ "ok": true,
  "excluded": {
   "artifacts": [
    "r168/certs/verification_a_168.json",
