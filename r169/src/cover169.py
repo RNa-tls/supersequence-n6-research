@@ -59,8 +59,27 @@ def main():
         v = S.verdicts(EXS)
         return [k for k in EX if v[k] == "STRICTLY_CLOSED"]
 
+    prows = json.loads((ROOT / "r152" / "certs"
+                        / "verify_piece_c152.json").read_text())["rows"]
+    PN = {(r["b"], r["d"], r["fp"], r["lp"]): r["nodes"] for r in prows
+          if r["status"] in GOOD}
+
     def cost(K):
-        return N.get(K) or max(N.values())
+        """projected search nodes, on the round-167 basis.  Five members of
+        the selection are absent from the chain table; their cost comes from
+        the piece search of the SAME cell, which (BRIDGE-EQ) says counts the
+        same walks.  Using max(table) as a placeholder, as the first draft of
+        this module did, overstated the plan by 35 billion nodes."""
+        if N.get(K):
+            return N[K]
+        p = (K[0], K[1], 0, 0)
+        if K[2:] == (0, 0, 0, 0) and PN.get(p):
+            return PN[p]
+        best = None
+        for k, v in N.items():
+            if v and all(x <= y for x, y in zip(K, k)):
+                best = v if best is None else min(best, v)
+        return best or max(N.values())
 
     t0 = time.time()
     sel = set(E)
