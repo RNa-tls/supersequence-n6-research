@@ -1,0 +1,22 @@
+{
+ "finding": "the round-167 cost model underestimates GENERATION cost for cells whose dominating predecessors are not yet certified",
+ "measured": {
+  "cell": "0|14|0|0|0|1",
+  "round_167_projected_search_nodes": 3226186,
+  "actual_discovery_nodes": 260567769,
+  "actual_tree_nodes": 255658530,
+  "tree_nodes_over_projection": 79.24,
+  "seconds": 7181.0
+ },
+ "cause": "the (p) justification bound ub() is the minimum capacity over CERTIFIED cells that dominate the state componentwise.  The round-152 search had all 1,101 tabulated cells available; round 168 has only the 75 cells carried by verified exhaustion certificates, and none of them has d >= 14, so ub() falls back to the analytic 120 and the pruning collapses.",
+ "second_observation": {
+  "cell": "0|17|2|0|0|0",
+  "round_167_projected_search_nodes": 3916526,
+  "status": "stopped after about 4.6 hours and 4.6 GB of resident memory without finishing the maximisation",
+  "action": "deferred, not refuted -- a node cap is not an UNSAT"
+ },
+ "cells_of_this_shape_in_the_first_20": ["0|14|0|0|0|1", "0|17|2|0|0|0"],
+ "consequence_for_round_166_167": "round 166 concluded that the certificate-order PREFIX is not required, and round 167 built the generation order on the round-152 node counts.  Both conclusions were measured on cells whose dominators happened to be certified already.  For a cell with no certified dominator the prefix is NOT free: it is the difference between 3.2 million and 256 million proof nodes.",
+ "not_a_soundness_problem": "a missing predecessor only weakens pruning.  Every tree that IS produced is still a complete case analysis and is still independently replayed; the cost model is what was wrong, not the certificates.",
+ "round_169_implication": "the generation order has to be chosen on the cost of generation under the CURRENT certified set, not on historical search nodes, and it has to account for a cell becoming cheap once a dominating cell is certified.  That is a scheduling problem round 167 did not solve because it did not know this effect existed."
+}

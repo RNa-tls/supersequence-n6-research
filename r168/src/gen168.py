@@ -220,7 +220,7 @@ def write_batch(path, refs, deps, trees):
     for cell, cap, toks in trees:
         lines.append("")
         lines.append("tree " + " ".join(map(str, cell)) + f" {cap}")
-        lines.append(" ".join(toks))
+        lines.append(toks if isinstance(toks, str) else " ".join(toks))
     text = "\n".join(lines) + "\n"
     write_gz(path, text)
     return text
@@ -291,13 +291,26 @@ def main():
         cap, err = g.discover(cell)
         n_disc = g.nodes
         if cap is None:
-            rows.append(dict(cell=cellstr(cell), status="DISCOVERY_FAILED",
-                             detail=err, search_nodes=n_disc))
+            rows.append(dict(cell=cellstr(cell),
+                             status="DEFERRED_NODE_CAP", stage="discover",
+                             detail=err, search_nodes=n_disc,
+                             seconds=round(time.time() - t1, 1)))
             total += n_disc
-            break
+            print(f"  {cellstr(cell):>16} DEFERRED at the node cap while "
+                  f"maximising ({n_disc:,} nodes)", flush=True)
+            continue
         g2 = Engine(certified, a.node_cap)
         toks, err = g2.build(cell, cap)
         total += n_disc + g2.nodes
+        if toks is None and "node cap" in (err or ""):
+            rows.append(dict(cell=cellstr(cell), cap=cap,
+                             status="DEFERRED_NODE_CAP", stage="build",
+                             detail=err, discovery_nodes=n_disc,
+                             search_nodes=n_disc + g2.nodes,
+                             seconds=round(time.time() - t1, 1)))
+            print(f"  {cellstr(cell):>16} DEFERRED at the node cap while "
+                  f"building ({g2.nodes:,} nodes)", flush=True)
+            continue
         row = dict(cell=cellstr(cell), cap=cap,
                    discovery_nodes=n_disc, tree_nodes=g2.nodes,
                    search_nodes=n_disc + g2.nodes,
@@ -309,9 +322,11 @@ def main():
               f"tree={g2.nodes:>12,} proof={row['proof_nodes']:>12,} "
               f"{row['seconds']}s", flush=True)
         if toks is None:
+            print(f"  {cellstr(cell):>16} BUILD_FAILED: {err}", flush=True)
             break
         certified[cell] = cap
-        trees.append((cell, cap, toks))
+        trees.append((cell, cap, " ".join(toks)))
+        del toks
 
     outp = ROOT / a.out
     text = write_batch(outp, refs, deps, trees)
@@ -324,6 +339,10 @@ def main():
                failures=[r for r in rows
                          if r["status"] in ("BUILD_FAILED",
                                             "DISCOVERY_FAILED")],
+               deferred=[dict(cell=r["cell"], stage=r.get("stage"),
+                              search_nodes=r["search_nodes"])
+                         for r in rows
+                         if r["status"] == "DEFERRED_NODE_CAP"],
                not_started=[r["cell"] for r in rows
                             if r["status"] == "NOT_STARTED_BUDGET"],
                total_search_nodes=total,
