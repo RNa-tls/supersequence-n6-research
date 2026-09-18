@@ -1,0 +1,7207 @@
+{
+ "inputs": {
+  "r169/certs/state_169.json": "19a624e5e8b8211b8827c8de6d69ed0c2e17a437ef13557d5dc774e69b842335",
+  "r168/certs/generation_batch1_168.json": "29e44960f0b493b7c079955a69d7a8f67b476aca0dc37f8cf97f03f1284c384d",
+  "r167/certs/round168_plan_167.json": "ce89b0791901326d4a2af075dda591e2e8eb2ca8e96c160667ea0bc15ee32ebf",
+  "r152/certs/verify_all_c152.json": "c0c63c57feaa40e6a4e58820f4b43fabd343b6b7c49a238213aa82bb7d889e85"
+ },
+ "definitions": {
+  "s_root": "(b, d + 5b, a, bb, e, h) -- the root budget vector, because deficit starts at 4 and d* = d - deficit + 4 + 5*tok",
+  "s_level": "(j, d + 5j, a, bb, e, h) -- the hardest vector the search can present at token level j",
+  "why_counting_is_useless": "every certified cell dominates the all-zero vector, so every certified cell prunes SOMEWHERE; what matters is whether one dominates near the root"
+ },
+ "targets": 164,
+ "targets_without_a_certified_root_bound": 164,
+ "targets_with_no_possible_root_bound": 148,
+ "highest_leverage_missing_dominators": [
+  {
+   "cell": "1|11|4|0|0|0",
+   "targets_it_would_give_a_root_bound": 7,
+   "capacity": 99
+  },
+  {
+   "cell": "1|13|2|0|0|0",
+   "targets_it_would_give_a_root_bound": 7,
+   "capacity": 102
+  },
+  {
+   "cell": "1|11|3|0|0|0",
+   "targets_it_would_give_a_root_bound": 5,
+   "capacity": 99
+  },
+  {
+   "cell": "1|12|2|0|0|0",
+   "targets_it_would_give_a_root_bound": 5,
+   "capacity": 99
+  },
+  {
+   "cell": "1|10|4|0|0|0",
+   "targets_it_would_give_a_root_bound": 3,
+   "capacity": 90
+  },
+  {
+   "cell": "1|11|2|0|0|0",
+   "targets_it_would_give_a_root_bound": 3,
+   "capacity": 99
+  },
+  {
+   "cell": "1|13|1|0|0|0",
+   "targets_it_would_give_a_root_bound": 3,
+   "capacity": 98
+  },
+  {
+   "cell": "0|15|0|0|0|1",
+   "targets_it_would_give_a_root_bound": 2,
+   "capacity": 106
+  },
+  {
+   "cell": "0|18|2|0|0|0",
+   "targets_it_would_give_a_root_bound": 2,
+   "capacity": 107
+  },
+  {
+   "cell": "1|10|3|0|0|0",
+   "targets_it_would_give_a_root_bound": 2,
+   "capacity": 90
+  },
+  {
+   "cell": "1|12|1|0|0|0",
+   "targets_it_would_give_a_root_bound": 2,
+   "capacity": 98
+  },
+  {
+   "cell": "0|14|0|0|0|1",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 106
+  },
+  {
+   "cell": "0|17|2|0|0|0",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 103
+  },
+  {
+   "cell": "1|10|0|0|0|1",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 106
+  },
+  {
+   "cell": "1|10|2|0|0|0",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 90
+  },
+  {
+   "cell": "1|11|1|0|0|0",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 94
+  },
+  {
+   "cell": "1|8|0|0|0|1",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 102
+  },
+  {
+   "cell": "1|8|2|0|0|1",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 102
+  },
+  {
+   "cell": "1|9|0|0|0|1",
+   "targets_it_would_give_a_root_bound": 1,
+   "capacity": 106
+  }
+ ],
+ "round_168_observations": [
+  {
+   "cell": "0|14|0|0|0|1",
+   "proof_nodes": 255658530,
+   "historical": 3226186,
+   "inflation": 79.245,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 120,
+   "levels_without_a_certified_bound": 1,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "1|3|3|1|0|0",
+   "proof_nodes": 6565688,
+   "historical": 5216569,
+   "inflation": 1.259,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 124,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "1|5|1|0|0|0",
+   "proof_nodes": 5478863,
+   "historical": 4725940,
+   "inflation": 1.159,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 121,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "1|3|2|1|0|0",
+   "proof_nodes": 5268864,
+   "historical": 4599501,
+   "inflation": 1.146,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 123,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "1|3|2|0|1|0",
+   "proof_nodes": 5992810,
+   "historical": 5313033,
+   "inflation": 1.128,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 123,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|1|8|0|0|0",
+   "proof_nodes": 3782196,
+   "historical": 3458779,
+   "inflation": 1.094,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 128,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|1|7|0|0|0",
+   "proof_nodes": 3762147,
+   "historical": 3458779,
+   "inflation": 1.088,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 127,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|1|6|0|0|0",
+   "proof_nodes": 3723261,
+   "historical": 3458679,
+   "inflation": 1.076,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 126,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|1|5|0|0|0",
+   "proof_nodes": 3687772,
+   "historical": 3456140,
+   "inflation": 1.067,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 125,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "1|3|1|0|1|0",
+   "proof_nodes": 3658183,
+   "historical": 3443060,
+   "inflation": 1.062,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 122,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|1|4|0|0|0",
+   "proof_nodes": 3592776,
+   "historical": 3429344,
+   "inflation": 1.048,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 124,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "1|3|1|1|0|0",
+   "proof_nodes": 3208263,
+   "historical": 3086605,
+   "inflation": 1.039,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 122,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|1|3|0|0|0",
+   "proof_nodes": 3366582,
+   "historical": 3280199,
+   "inflation": 1.026,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 123,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|0|3|0|1|0",
+   "proof_nodes": 3590273,
+   "historical": 3574494,
+   "inflation": 1.004,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 124,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|0|3|1|0|0",
+   "proof_nodes": 4106696,
+   "historical": 4093416,
+   "inflation": 1.003,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 124,
+   "levels_without_a_certified_bound": 3,
+   "deepest_level_with_a_certified_bound": null
+  },
+  {
+   "cell": "2|0|2|0|1|0",
+   "proof_nodes": 3121114,
+   "historical": 3120369,
+   "inflation": 1.0,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 123,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": 0
+  },
+  {
+   "cell": "2|1|0|0|1|0",
+   "proof_nodes": 3491806,
+   "historical": 3491730,
+   "inflation": 1.0,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 121,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": 0
+  },
+  {
+   "cell": "2|0|2|1|0|0",
+   "proof_nodes": 3596347,
+   "historical": 3595803,
+   "inflation": 1.0,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 123,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": 0
+  },
+  {
+   "cell": "2|1|0|1|0|0",
+   "proof_nodes": 3640814,
+   "historical": 3640474,
+   "inflation": 1.0,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 121,
+   "levels_without_a_certified_bound": 2,
+   "deepest_level_with_a_certified_bound": 0
+  },
+  {
+   "cell": "0|17|2|0|0|0",
+   "proof_nodes": null,
+   "historical": 3916526,
+   "inflation": null,
+   "certified_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "root_fallback": 122,
+   "levels_without_a_certified_bound": 1,
+   "deepest_level_with_a_certified_bound": null
+  }
+ ],
+ "graph": {
+  "0|14|0|0|0|1": {
+   "cell": "0|14|0|0|0|1",
+   "b": 0,
+   "d": 14,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    0,
+    14,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 2,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 106,
+   "root_bound_gap": 14,
+   "levels": [
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 1
+  },
+  "0|15|0|0|0|1": {
+   "cell": "0|15|0|0|0|1",
+   "b": 0,
+   "d": 15,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    0,
+    15,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 1,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 106,
+   "root_bound_gap": 14,
+   "levels": [
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 1
+  },
+  "0|17|2|0|0|0": {
+   "cell": "0|17|2|0|0|0",
+   "b": 0,
+   "d": 17,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    0,
+    17,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 2,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 103,
+   "root_bound_gap": 19,
+   "levels": [
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 1
+  },
+  "0|18|2|0|0|0": {
+   "cell": "0|18|2|0|0|0",
+   "b": 0,
+   "d": 18,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    0,
+    18,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 1,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 107,
+   "root_bound_gap": 15,
+   "levels": [
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 1
+  },
+  "0|20|0|0|0|0": {
+   "cell": "0|20|0|0|0|0",
+   "b": 0,
+   "d": 20,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    0,
+    20,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 1
+  },
+  "1|3|0|0|0|1": {
+   "cell": "1|3|0|0|0|1",
+   "b": 1,
+   "d": 3,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    8,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 4,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 102,
+   "root_bound_gap": 18,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|3|0|0|0|2": {
+   "cell": "1|3|0|0|0|2",
+   "b": 1,
+   "d": 3,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 2,
+   "s_root": [
+    1,
+    8,
+    0,
+    0,
+    0,
+    2
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|3|3|0|1|0": {
+   "cell": "1|3|3|0|1|0",
+   "b": 1,
+   "d": 3,
+   "a": 3,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    8,
+    3,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|3|4|0|1|0": {
+   "cell": "1|3|4|0|1|0",
+   "b": 1,
+   "d": 3,
+   "a": 4,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    8,
+    4,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|3|4|1|0|0": {
+   "cell": "1|3|4|1|0|0",
+   "b": 1,
+   "d": 3,
+   "a": 4,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    8,
+    4,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|3|5|0|1|0": {
+   "cell": "1|3|5|0|1|0",
+   "b": 1,
+   "d": 3,
+   "a": 5,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    8,
+    5,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|3|5|1|0|0": {
+   "cell": "1|3|5|1|0|0",
+   "b": 1,
+   "d": 3,
+   "a": 5,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    8,
+    5,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|1|0|1|0": {
+   "cell": "1|4|1|0|1|0",
+   "b": 1,
+   "d": 4,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|1|1|0|0": {
+   "cell": "1|4|1|1|0|0",
+   "b": 1,
+   "d": 4,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|2|0|1|0": {
+   "cell": "1|4|2|0|1|0",
+   "b": 1,
+   "d": 4,
+   "a": 2,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    2,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|2|1|0|0": {
+   "cell": "1|4|2|1|0|0",
+   "b": 1,
+   "d": 4,
+   "a": 2,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    2,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|3|0|1|0": {
+   "cell": "1|4|3|0|1|0",
+   "b": 1,
+   "d": 4,
+   "a": 3,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    3,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|3|1|0|0": {
+   "cell": "1|4|3|1|0|0",
+   "b": 1,
+   "d": 4,
+   "a": 3,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    3,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|5|0|1|0": {
+   "cell": "1|4|5|0|1|0",
+   "b": 1,
+   "d": 4,
+   "a": 5,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    5,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|4|5|1|0|0": {
+   "cell": "1|4|5|1|0|0",
+   "b": 1,
+   "d": 4,
+   "a": 5,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    9,
+    5,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|0|0|0|2": {
+   "cell": "1|5|0|0|0|2",
+   "b": 1,
+   "d": 5,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 2,
+   "s_root": [
+    1,
+    10,
+    0,
+    0,
+    0,
+    2
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|0|0|1|0": {
+   "cell": "1|5|0|0|1|0",
+   "b": 1,
+   "d": 5,
+   "a": 0,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    0,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|0|1|0|0": {
+   "cell": "1|5|0|1|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 0,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    0,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|1|0|1|0": {
+   "cell": "1|5|1|0|1|0",
+   "b": 1,
+   "d": 5,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|1|1|0|0": {
+   "cell": "1|5|1|1|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|2|0|0|0": {
+   "cell": "1|5|2|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 8,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 90,
+   "root_bound_gap": 32,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|2|0|1|0": {
+   "cell": "1|5|2|0|1|0",
+   "b": 1,
+   "d": 5,
+   "a": 2,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    2,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|2|1|0|0": {
+   "cell": "1|5|2|1|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 2,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    2,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|3|0|0|0": {
+   "cell": "1|5|3|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 4,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 90,
+   "root_bound_gap": 33,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|3|0|1|0": {
+   "cell": "1|5|3|0|1|0",
+   "b": 1,
+   "d": 5,
+   "a": 3,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    3,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|3|1|0|0": {
+   "cell": "1|5|3|1|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 3,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    3,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|4|0|0|0": {
+   "cell": "1|5|4|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 2,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 90,
+   "root_bound_gap": 34,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|5|0|0|0": {
+   "cell": "1|5|5|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 5,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    5,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|6|0|0|0": {
+   "cell": "1|5|6|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|7|0|0|0": {
+   "cell": "1|5|7|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 7,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    7,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 127,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 127,
+     "fallback": 127,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 127,
+     "fallback": 127,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|8|0|0|0": {
+   "cell": "1|5|8|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 8,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    8,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 128,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|5|10|0|0|0": {
+   "cell": "1|5|10|0|0|0",
+   "b": 1,
+   "d": 5,
+   "a": 10,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    10,
+    10,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 130,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 130,
+     "fallback": 130,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 130,
+     "fallback": 130,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|0|0|0|1": {
+   "cell": "1|6|0|0|0|1",
+   "b": 1,
+   "d": 6,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    11,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|0|0|1|0": {
+   "cell": "1|6|0|0|1|0",
+   "b": 1,
+   "d": 6,
+   "a": 0,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    0,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|0|1|0|0": {
+   "cell": "1|6|0|1|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 0,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    0,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|1|0|0|0": {
+   "cell": "1|6|1|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 8,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 94,
+   "root_bound_gap": 27,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|1|0|1|0": {
+   "cell": "1|6|1|0|1|0",
+   "b": 1,
+   "d": 6,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|1|1|0|0": {
+   "cell": "1|6|1|1|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|2|0|0|0": {
+   "cell": "1|6|2|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 5,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 99,
+   "root_bound_gap": 23,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|3|0|0|0": {
+   "cell": "1|6|3|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 2,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 99,
+   "root_bound_gap": 24,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|3|0|1|0": {
+   "cell": "1|6|3|0|1|0",
+   "b": 1,
+   "d": 6,
+   "a": 3,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    3,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|3|1|0|0": {
+   "cell": "1|6|3|1|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 3,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    3,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|4|0|0|0": {
+   "cell": "1|6|4|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 1,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 99,
+   "root_bound_gap": 25,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|5|0|0|0": {
+   "cell": "1|6|5|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 5,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    5,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|6|0|0|0": {
+   "cell": "1|6|6|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|7|0|0|0": {
+   "cell": "1|6|7|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 7,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    7,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 127,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 127,
+     "fallback": 127,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 127,
+     "fallback": 127,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|6|8|0|0|0": {
+   "cell": "1|6|8|0|0|0",
+   "b": 1,
+   "d": 6,
+   "a": 8,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    11,
+    8,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 128,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|0|0|0|1": {
+   "cell": "1|7|0|0|0|1",
+   "b": 1,
+   "d": 7,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    12,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|0|0|1|0": {
+   "cell": "1|7|0|0|1|0",
+   "b": 1,
+   "d": 7,
+   "a": 0,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    0,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|0|1|0|0": {
+   "cell": "1|7|0|1|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 0,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    0,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|1|0|0|0": {
+   "cell": "1|7|1|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 4,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 98,
+   "root_bound_gap": 23,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|1|0|1|0": {
+   "cell": "1|7|1|0|1|0",
+   "b": 1,
+   "d": 7,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|1|1|0|0": {
+   "cell": "1|7|1|1|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|2|0|0|0": {
+   "cell": "1|7|2|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 2,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 99,
+   "root_bound_gap": 23,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|2|0|0|1": {
+   "cell": "1|7|2|0|0|1",
+   "b": 1,
+   "d": 7,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    12,
+    2,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|3|0|0|0": {
+   "cell": "1|7|3|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|4|0|0|0": {
+   "cell": "1|7|4|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|5|0|0|0": {
+   "cell": "1|7|5|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 5,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    5,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|6|0|0|0": {
+   "cell": "1|7|6|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|7|8|0|0|0": {
+   "cell": "1|7|8|0|0|0",
+   "b": 1,
+   "d": 7,
+   "a": 8,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    12,
+    8,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 128,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|0|0|0|1": {
+   "cell": "1|8|0|0|0|1",
+   "b": 1,
+   "d": 8,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    13,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|1|0|0|0": {
+   "cell": "1|8|1|0|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 2,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 98,
+   "root_bound_gap": 23,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|1|0|1|0": {
+   "cell": "1|8|1|0|1|0",
+   "b": 1,
+   "d": 8,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|1|1|0|0": {
+   "cell": "1|8|1|1|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|2|0|0|0": {
+   "cell": "1|8|2|0|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 1,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": 102,
+   "root_bound_gap": 20,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|3|0|0|0": {
+   "cell": "1|8|3|0|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|4|0|0|0": {
+   "cell": "1|8|4|0|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|5|0|0|0": {
+   "cell": "1|8|5|0|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 5,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    5,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|8|6|0|0|0": {
+   "cell": "1|8|6|0|0|0",
+   "b": 1,
+   "d": 8,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    13,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|9|0|0|0|1": {
+   "cell": "1|9|0|0|0|1",
+   "b": 1,
+   "d": 9,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    14,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|9|1|0|0|0": {
+   "cell": "1|9|1|0|0|0",
+   "b": 1,
+   "d": 9,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    14,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|9|2|0|0|0": {
+   "cell": "1|9|2|0|0|0",
+   "b": 1,
+   "d": 9,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    14,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|9|3|0|0|0": {
+   "cell": "1|9|3|0|0|0",
+   "b": 1,
+   "d": 9,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    14,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|9|4|0|0|0": {
+   "cell": "1|9|4|0|0|0",
+   "b": 1,
+   "d": 9,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    14,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|9|6|0|0|0": {
+   "cell": "1|9|6|0|0|0",
+   "b": 1,
+   "d": 9,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    14,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|10|0|0|0|0": {
+   "cell": "1|10|0|0|0|0",
+   "b": 1,
+   "d": 10,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    15,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|10|0|0|0|1": {
+   "cell": "1|10|0|0|0|1",
+   "b": 1,
+   "d": 10,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    1,
+    15,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|10|1|0|0|0": {
+   "cell": "1|10|1|0|0|0",
+   "b": 1,
+   "d": 10,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    15,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|10|2|0|0|0": {
+   "cell": "1|10|2|0|0|0",
+   "b": 1,
+   "d": 10,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    15,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|10|3|0|0|0": {
+   "cell": "1|10|3|0|0|0",
+   "b": 1,
+   "d": 10,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    15,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|10|4|0|0|0": {
+   "cell": "1|10|4|0|0|0",
+   "b": 1,
+   "d": 10,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    15,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|11|0|0|0|0": {
+   "cell": "1|11|0|0|0|0",
+   "b": 1,
+   "d": 11,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    16,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|11|1|0|0|0": {
+   "cell": "1|11|1|0|0|0",
+   "b": 1,
+   "d": 11,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    16,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|11|2|0|0|0": {
+   "cell": "1|11|2|0|0|0",
+   "b": 1,
+   "d": 11,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    16,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|11|4|0|0|0": {
+   "cell": "1|11|4|0|0|0",
+   "b": 1,
+   "d": 11,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    16,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|12|0|0|0|0": {
+   "cell": "1|12|0|0|0|0",
+   "b": 1,
+   "d": 12,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    17,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|12|1|0|0|0": {
+   "cell": "1|12|1|0|0|0",
+   "b": 1,
+   "d": 12,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    17,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|12|2|0|0|0": {
+   "cell": "1|12|2|0|0|0",
+   "b": 1,
+   "d": 12,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    17,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|13|0|0|0|0": {
+   "cell": "1|13|0|0|0|0",
+   "b": 1,
+   "d": 13,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    18,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|13|2|0|0|0": {
+   "cell": "1|13|2|0|0|0",
+   "b": 1,
+   "d": 13,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    18,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|14|0|0|0|0": {
+   "cell": "1|14|0|0|0|0",
+   "b": 1,
+   "d": 14,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    19,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "1|15|0|0|0|0": {
+   "cell": "1|15|0|0|0|0",
+   "b": 1,
+   "d": 15,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    1,
+    20,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|0|0|0|0|2": {
+   "cell": "2|0|0|0|0|2",
+   "b": 2,
+   "d": 0,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 2,
+   "s_root": [
+    2,
+    10,
+    0,
+    0,
+    0,
+    2
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 60,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|1|0|0|0|1": {
+   "cell": "2|1|0|0|0|1",
+   "b": 2,
+   "d": 1,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    2,
+    11,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 40,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|1|1|0|1|0": {
+   "cell": "2|1|1|0|1|0",
+   "b": 2,
+   "d": 1,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    2,
+    11,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 24,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|1|1|1|0|0": {
+   "cell": "2|1|1|1|0|0",
+   "b": 2,
+   "d": 1,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    11,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 24,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|1|3|0|1|0": {
+   "cell": "2|1|3|0|1|0",
+   "b": 2,
+   "d": 1,
+   "a": 3,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    2,
+    11,
+    3,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|1|3|1|0|0": {
+   "cell": "2|1|3|1|0|0",
+   "b": 2,
+   "d": 1,
+   "a": 3,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    11,
+    3,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 53,
+     "fallback": 124,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|0|0|0|1": {
+   "cell": "2|2|0|0|0|1",
+   "b": 2,
+   "d": 2,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    2,
+    12,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 53,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|0|0|1|0": {
+   "cell": "2|2|0|0|1|0",
+   "b": 2,
+   "d": 2,
+   "a": 0,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    0,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 33,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|0|1|0|0": {
+   "cell": "2|2|0|1|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 0,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    0,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 38,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|1|0|0|0": {
+   "cell": "2|2|1|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 33,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|1|0|1|0": {
+   "cell": "2|2|1|0|1|0",
+   "b": 2,
+   "d": 2,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|1|1|0|0": {
+   "cell": "2|2|1|1|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 53,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|2|0|0|0": {
+   "cell": "2|2|2|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|2|0|0|1": {
+   "cell": "2|2|2|0|0|1",
+   "b": 2,
+   "d": 2,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    2,
+    12,
+    2,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|2|3|0|0|0": {
+   "cell": "2|2|3|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 53,
+     "fallback": 123,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|2|4|0|0|0": {
+   "cell": "2|2|4|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|2|5|0|0|0": {
+   "cell": "2|2|5|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 5,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    5,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|2|6|0|0|0": {
+   "cell": "2|2|6|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|2|8|0|0|0": {
+   "cell": "2|2|8|0|0|0",
+   "b": 2,
+   "d": 2,
+   "a": 8,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    12,
+    8,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 128,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 128,
+     "fallback": 128,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|3|0|0|0|1": {
+   "cell": "2|3|0|0|0|1",
+   "b": 2,
+   "d": 3,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    2,
+    13,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|3|1|0|0|0": {
+   "cell": "2|3|1|0|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|3|1|0|1|0": {
+   "cell": "2|3|1|0|1|0",
+   "b": 2,
+   "d": 3,
+   "a": 1,
+   "bb": 0,
+   "e": 1,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    1,
+    0,
+    1,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|3|1|1|0|0": {
+   "cell": "2|3|1|1|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 1,
+   "bb": 1,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    1,
+    1,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 53,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|3|2|0|0|0": {
+   "cell": "2|3|2|0|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|3|3|0|0|0": {
+   "cell": "2|3|3|0|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 53,
+     "fallback": 123,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|3|4|0|0|0": {
+   "cell": "2|3|4|0|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|3|5|0|0|0": {
+   "cell": "2|3|5|0|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 5,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    5,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 125,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 125,
+     "fallback": 125,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|3|6|0|0|0": {
+   "cell": "2|3|6|0|0|0",
+   "b": 2,
+   "d": 3,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    13,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|4|0|0|0|1": {
+   "cell": "2|4|0|0|0|1",
+   "b": 2,
+   "d": 4,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    2,
+    14,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|4|1|0|0|0": {
+   "cell": "2|4|1|0|0|0",
+   "b": 2,
+   "d": 4,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    14,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 61,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|4|2|0|0|0": {
+   "cell": "2|4|2|0|0|0",
+   "b": 2,
+   "d": 4,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    14,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|4|3|0|0|0": {
+   "cell": "2|4|3|0|0|0",
+   "b": 2,
+   "d": 4,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    14,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|4|4|0|0|0": {
+   "cell": "2|4|4|0|0|0",
+   "b": 2,
+   "d": 4,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    14,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|4|6|0|0|0": {
+   "cell": "2|4|6|0|0|0",
+   "b": 2,
+   "d": 4,
+   "a": 6,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    14,
+    6,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 126,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 126,
+     "fallback": 126,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|5|0|0|0|0": {
+   "cell": "2|5|0|0|0|0",
+   "b": 2,
+   "d": 5,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    15,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 61,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|5|0|0|0|1": {
+   "cell": "2|5|0|0|0|1",
+   "b": 2,
+   "d": 5,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    2,
+    15,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|5|1|0|0|0": {
+   "cell": "2|5|1|0|0|0",
+   "b": 2,
+   "d": 5,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    15,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 61,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|5|2|0|0|0": {
+   "cell": "2|5|2|0|0|0",
+   "b": 2,
+   "d": 5,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    15,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|5|3|0|0|0": {
+   "cell": "2|5|3|0|0|0",
+   "b": 2,
+   "d": 5,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    15,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|5|4|0|0|0": {
+   "cell": "2|5|4|0|0|0",
+   "b": 2,
+   "d": 5,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    15,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|6|0|0|0|0": {
+   "cell": "2|6|0|0|0|0",
+   "b": 2,
+   "d": 6,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    16,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 64,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|6|1|0|0|0": {
+   "cell": "2|6|1|0|0|0",
+   "b": 2,
+   "d": 6,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    16,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|6|2|0|0|0": {
+   "cell": "2|6|2|0|0|0",
+   "b": 2,
+   "d": 6,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    16,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|6|4|0|0|0": {
+   "cell": "2|6|4|0|0|0",
+   "b": 2,
+   "d": 6,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    16,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|7|0|0|0|0": {
+   "cell": "2|7|0|0|0|0",
+   "b": 2,
+   "d": 7,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    17,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 73,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|7|1|0|0|0": {
+   "cell": "2|7|1|0|0|0",
+   "b": 2,
+   "d": 7,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    17,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|7|2|0|0|0": {
+   "cell": "2|7|2|0|0|0",
+   "b": 2,
+   "d": 7,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    17,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|8|0|0|0|0": {
+   "cell": "2|8|0|0|0|0",
+   "b": 2,
+   "d": 8,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    18,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 77,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|8|2|0|0|0": {
+   "cell": "2|8|2|0|0|0",
+   "b": 2,
+   "d": 8,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    18,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "2|9|0|0|0|0": {
+   "cell": "2|9|0|0|0|0",
+   "b": 2,
+   "d": 9,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    19,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 81,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 2
+  },
+  "2|10|0|0|0|0": {
+   "cell": "2|10|0|0|0|0",
+   "b": 2,
+   "d": 10,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    2,
+    20,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    }
+   ],
+   "deepest_level_with_a_certified_bound": null,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|0|0|0|0|1": {
+   "cell": "3|0|0|0|0|1",
+   "b": 3,
+   "d": 0,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 1,
+   "s_root": [
+    3,
+    15,
+    0,
+    0,
+    0,
+    1
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 40,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|0|1|0|0|0": {
+   "cell": "3|0|1|0|0|0",
+   "b": 3,
+   "d": 0,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    15,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 61,
+     "fallback": 121,
+     "binding": true
+    },
+    {
+     "j": 0,
+     "certified_ub": 20,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 1,
+   "levels_without_a_certified_bound": 2
+  },
+  "3|0|2|0|0|0": {
+   "cell": "3|0|2|0|0|0",
+   "b": 3,
+   "d": 0,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    15,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 20,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|0|3|0|0|0": {
+   "cell": "3|0|3|0|0|0",
+   "b": 3,
+   "d": 0,
+   "a": 3,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    15,
+    3,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 123,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 123,
+     "fallback": 123,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 20,
+     "fallback": 123,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|0|4|0|0|0": {
+   "cell": "3|0|4|0|0|0",
+   "b": 3,
+   "d": 0,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    15,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 50,
+     "fallback": 124,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|1|1|0|0|0": {
+   "cell": "3|1|1|0|0|0",
+   "b": 3,
+   "d": 1,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    16,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 20,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|1|2|0|0|0": {
+   "cell": "3|1|2|0|0|0",
+   "b": 3,
+   "d": 1,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    16,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 20,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|1|4|0|0|0": {
+   "cell": "3|1|4|0|0|0",
+   "b": 3,
+   "d": 1,
+   "a": 4,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    16,
+    4,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 124,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 124,
+     "fallback": 124,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 50,
+     "fallback": 124,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|2|0|0|0|0": {
+   "cell": "3|2|0|0|0|0",
+   "b": 3,
+   "d": 2,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    17,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 73,
+     "fallback": 120,
+     "binding": true
+    },
+    {
+     "j": 0,
+     "certified_ub": 33,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 1,
+   "levels_without_a_certified_bound": 2
+  },
+  "3|2|1|0|0|0": {
+   "cell": "3|2|1|0|0|0",
+   "b": 3,
+   "d": 2,
+   "a": 1,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    17,
+    1,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 121,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 121,
+     "fallback": 121,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 33,
+     "fallback": 121,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|2|2|0|0|0": {
+   "cell": "3|2|2|0|0|0",
+   "b": 3,
+   "d": 2,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    17,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|3|0|0|0|0": {
+   "cell": "3|3|0|0|0|0",
+   "b": 3,
+   "d": 3,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    18,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 77,
+     "fallback": 120,
+     "binding": true
+    },
+    {
+     "j": 0,
+     "certified_ub": 33,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 1,
+   "levels_without_a_certified_bound": 2
+  },
+  "3|3|2|0|0|0": {
+   "cell": "3|3|2|0|0|0",
+   "b": 3,
+   "d": 3,
+   "a": 2,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    18,
+    2,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 122,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 122,
+     "fallback": 122,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 52,
+     "fallback": 122,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "3|4|0|0|0|0": {
+   "cell": "3|4|0|0|0|0",
+   "b": 3,
+   "d": 4,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    19,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 81,
+     "fallback": 120,
+     "binding": true
+    },
+    {
+     "j": 0,
+     "certified_ub": 61,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 1,
+   "levels_without_a_certified_bound": 2
+  },
+  "3|5|0|0|0|0": {
+   "cell": "3|5|0|0|0|0",
+   "b": 3,
+   "d": 5,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    3,
+    20,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 3,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 0,
+     "certified_ub": 61,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 0,
+   "levels_without_a_certified_bound": 3
+  },
+  "4|0|0|0|0|0": {
+   "cell": "4|0|0|0|0|0",
+   "b": 4,
+   "d": 0,
+   "a": 0,
+   "bb": 0,
+   "e": 0,
+   "h": 0,
+   "s_root": [
+    4,
+    20,
+    0,
+    0,
+    0,
+    0
+   ],
+   "root_fallback": 120,
+   "certified_root_dominators": 0,
+   "universe_root_dominators": 0,
+   "best_certified_root_bound": null,
+   "best_possible_root_bound": null,
+   "root_bound_gap": null,
+   "levels": [
+    {
+     "j": 4,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 3,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 2,
+     "certified_ub": 120,
+     "fallback": 120,
+     "binding": false
+    },
+    {
+     "j": 1,
+     "certified_ub": 61,
+     "fallback": 120,
+     "binding": true
+    },
+    {
+     "j": 0,
+     "certified_ub": 20,
+     "fallback": 120,
+     "binding": true
+    }
+   ],
+   "deepest_level_with_a_certified_bound": 1,
+   "levels_without_a_certified_bound": 3
+  }
+ }
+}
