@@ -1,0 +1,75 @@
+{
+ "cell": "0|15|0|0|0|1",
+ "census_safe_bound_S": 115,
+ "baseline_target_proof_nodes": 8099282,
+ "full_ladder_investment": 34937114,
+ "full_ladder_total": 43036396,
+ "variants": [
+  {
+   "variant": "no_ladder",
+   "rungs_kept": [],
+   "rungs_kept_n": 0,
+   "node_cap": 150000000,
+   "search_nodes": 150000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 150000000 reached",
+   "seconds": 1867.5,
+   "ladder_investment": 0,
+   "total_nodes": null,
+   "delta_vs_baseline": null
+  },
+  {
+   "variant": "drop_all_idle",
+   "rungs_kept": [
+    "0|10|0|0|0|1",
+    "0|11|0|0|0|1",
+    "0|14|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_kept_n": 6,
+   "node_cap": 40000000,
+   "search_nodes": 8656807,
+   "proof_nodes": 8656807,
+   "completed": true,
+   "detail": null,
+   "seconds": 322.4,
+   "ladder_investment": 24535413,
+   "total_nodes": 33192220,
+   "delta_vs_baseline": 557525
+  },
+  {
+   "variant": "only_self_paying",
+   "rungs_kept": [
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_kept_n": 3,
+   "node_cap": 40000000,
+   "search_nodes": 17724151,
+   "proof_nodes": 17724151,
+   "completed": true,
+   "detail": null,
+   "seconds": 579.8,
+   "ladder_investment": 84988,
+   "total_nodes": 17809139,
+   "delta_vs_baseline": 9624869
+  }
+ ],
+ "control": {
+  "finished_without_any_ladder": false,
+  "cap": 150000000,
+  "nodes_spent": 150000001,
+  "reading": "the build does not finish without a ladder inside a cap of 150,000,000 nodes, which is 3x the entire full-ladder plan; on this evidence the ladder enables the certificate rather than merely accelerating it"
+ },
+ "cheapest_total": {
+  "variant": "only_self_paying",
+  "total_nodes": 17809139,
+  "versus_full_ladder": 25227257
+ },
+ "seconds_noncanonical": 1867.7,
+ "ok": true
+}
