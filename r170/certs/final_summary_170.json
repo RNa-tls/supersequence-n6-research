@@ -173,10 +173,10 @@
   "all_invalid_rejected": true
  },
  "reproduction": {
-  "canonical_byte_identical": null,
-  "certificate_hashes_match": null,
-  "reverified_in_clean_tree": null,
-  "scope": null
+  "canonical_byte_identical": false,
+  "certificate_hashes_match": true,
+  "reverified_in_clean_tree": true,
+  "scope": "regenerating all four certificates costs over three hours of search per clone; hash-checking plus dual re-verification in the clean tree proves the committed bytes are a valid proof from that tree's own source, which is a weaker claim than generator determinism and is not presented as one"
  },
  "ok": true
 }
