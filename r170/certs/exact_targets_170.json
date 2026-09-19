@@ -1,0 +1,58 @@
+{
+ "purpose": "the exact-target row of the two-factor 2x2: discovery finds cap(T) itself, rather than proving cap(T) <= S",
+ "node_cap": 30000000,
+ "runs": [
+  {
+   "family": "H",
+   "with_ladder": false,
+   "cell": "0|15|0|0|0|1",
+   "stage": "discovery",
+   "discovered_cap": null,
+   "completed": false,
+   "search_nodes": 30000001,
+   "node_cap": 30000000,
+   "detail": "node cap 30000000 reached while maximising",
+   "seconds": 872.1
+  },
+  {
+   "family": "H",
+   "with_ladder": true,
+   "cell": "0|15|0|0|0|1",
+   "stage": "discovery",
+   "discovered_cap": null,
+   "completed": false,
+   "search_nodes": 30000001,
+   "node_cap": 30000000,
+   "detail": "node cap 30000000 reached while maximising",
+   "seconds": 937.0
+  },
+  {
+   "family": "A2",
+   "with_ladder": true,
+   "cell": "0|18|2|0|0|0",
+   "stage": "discovery",
+   "discovered_cap": 107,
+   "completed": true,
+   "search_nodes": 23675618,
+   "node_cap": 30000000,
+   "detail": null,
+   "seconds": 730.3
+  },
+  {
+   "family": "A2",
+   "with_ladder": false,
+   "cell": "0|18|2|0|0|0",
+   "stage": "discovery",
+   "discovered_cap": null,
+   "completed": false,
+   "search_nodes": 30000001,
+   "node_cap": 30000000,
+   "detail": "node cap 30000000 reached while maximising",
+   "seconds": 875.4
+  }
+ ],
+ "complete": true,
+ "reporting_rule": "a deferral is a strict lower bound, not a cost; it is recorded as 'did not finish inside the cap' and never converted into a number",
+ "seconds_noncanonical": 1747.5,
+ "ok": true
+}
