@@ -1,0 +1,262 @@
+{
+ "inputs": {
+  "r170/certs/basis_170.json": "6907c113336766196c73e5457cf4f04157c69ded89803911da3e6d9855bf30ea",
+  "r170/certs/cost_170.json": "e57a03b5356e4cbff1081e4ed81244e8ba945aa3b89171361d87451f7c2201be",
+  "r169/certs/p1_closure_169.json": "9e0269a080597cdad72b044b7eb149fcc18df0fa52a8ef69e8c0639503ab375f"
+ },
+ "baseline": {
+  "rows": 1609,
+  "tally": {
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "reproduces_round_152": true
+ },
+ "basis_size": 35,
+ "census_at_joint_safe_bounds": {
+  "exposed_rows": 180,
+  "closed": 180,
+  "still_open": [],
+  "all_closed": true,
+  "note": "run with every basis cell at its joint-safe bound and no cell at an exact historical capacity; this is the assignment a production plan can actually certify"
+ },
+ "equality_rows": {
+  "count": 2,
+  "verdicts_after": {
+   "(3, 0, 1, 0, 7, 0, 7, 0, 0, 0, 1)": "EQUALITY",
+   "(4, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0)": "EQUALITY"
+  },
+  "both_held": true,
+  "why": "a promotion to strictly closed or a loss would both mean the capacity model moved, not that the basis improved"
+ },
+ "value_backing": {
+  "tally": {
+   "GENUINE_CERTIFICATE": 2,
+   "HISTORICAL_TABLE_ONLY": 33
+  },
+  "per_cell": [
+   {
+    "cell": "0|15|0|0|0|1",
+    "value_used": 115,
+    "backing": "GENUINE_CERTIFICATE",
+    "certificate": "r170/certs/extree_target_h_170.txt.gz"
+   },
+   {
+    "cell": "0|18|2|0|0|0",
+    "value_used": 117,
+    "backing": "GENUINE_CERTIFICATE",
+    "certificate": "r170/certs/extree_target_a2_170.txt.gz"
+   },
+   {
+    "cell": "0|20|0|0|0|0",
+    "value_used": 119,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|4|5|0|1|0",
+    "value_used": 76,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|4|5|1|0|0",
+    "value_used": 121,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|5|0|0|0|2",
+    "value_used": 111,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|5|10|0|0|0",
+    "value_used": 129,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|6|3|0|1|0",
+    "value_used": 83,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|6|3|1|0|0",
+    "value_used": 111,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|7|2|0|0|1",
+    "value_used": 103,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|7|8|0|0|0",
+    "value_used": 119,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|8|1|0|1|0",
+    "value_used": 87,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|8|1|1|0|0",
+    "value_used": 105,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|9|6|0|0|0",
+    "value_used": 95,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|10|0|0|0|1",
+    "value_used": 111,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|11|4|0|0|0",
+    "value_used": 99,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|13|2|0|0|0",
+    "value_used": 107,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "1|15|0|0|0|0",
+    "value_used": 115,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|0|0|0|0|2",
+    "value_used": 119,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|1|3|0|1|0",
+    "value_used": 104,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|1|3|1|0|0",
+    "value_used": 119,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|2|8|0|0|0",
+    "value_used": 123,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|3|1|0|1|0",
+    "value_used": 98,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|3|1|1|0|0",
+    "value_used": 113,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|3|2|0|0|1",
+    "value_used": 91,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|4|6|0|0|0",
+    "value_used": 95,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|5|0|0|0|1",
+    "value_used": 115,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|6|4|0|0|0",
+    "value_used": 99,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|8|2|0|0|0",
+    "value_used": 107,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "2|10|0|0|0|0",
+    "value_used": 115,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "3|0|0|0|0|1",
+    "value_used": 99,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "3|1|4|0|0|0",
+    "value_used": 119,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "3|3|2|0|0|0",
+    "value_used": 103,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "3|5|0|0|0|0",
+    "value_used": 115,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   },
+   {
+    "cell": "4|0|0|0|0|0",
+    "value_used": 119,
+    "backing": "HISTORICAL_TABLE_ONLY",
+    "certificate": null
+   }
+  ],
+  "genuinely_backed": 2,
+  "historical_table_only": 33
+ },
+ "lower_bound_recheck": {
+  "residual_rows": 4,
+  "best_single_covers": 2,
+  "best_single_cell": "1|7|2|0|0|1",
+  "thirty_four_possible": false,
+  "independent": "re-derived from the coordinates in this process, not read from basis_170.json"
+ },
+ "seconds_noncanonical": 4.9,
+ "verdict": "CENSUS_INDEPENDENTLY_CONFIRMED",
+ "ok": true
+}
