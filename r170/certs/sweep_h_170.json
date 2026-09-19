@@ -1,0 +1,96 @@
+{
+ "cell": "0|15|0|0|0|1",
+ "census_safe_bound_S": 115,
+ "baseline_target_proof_nodes": 8099282,
+ "full_ladder_rungs": 12,
+ "full_ladder_investment": 34937114,
+ "full_ladder_total": 43036396,
+ "subsets_tested": 4,
+ "subsets_planned": 33,
+ "complete": false,
+ "rung_costs": {
+  "0|3|0|0|0|1": 5376,
+  "0|4|0|0|0|1": 5170,
+  "0|5|0|0|0|1": 21906,
+  "0|6|0|0|0|1": 9029,
+  "0|7|0|0|0|1": 57706,
+  "0|8|0|0|0|1": 13101,
+  "0|9|0|0|0|1": 97699,
+  "0|10|0|0|0|1": 907993,
+  "0|11|0|0|0|1": 771942,
+  "0|12|0|0|0|1": 1600674,
+  "0|13|0|0|0|1": 8676028,
+  "0|14|0|0|0|1": 22770490
+ },
+ "variants": [
+  {
+   "variant": "prefix_0",
+   "rungs_kept": [],
+   "rungs_kept_n": 0,
+   "node_cap": 20000000,
+   "search_nodes": 20000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 20000000 reached",
+   "seconds": 374.0,
+   "ladder_investment": 0,
+   "total_nodes": null,
+   "delta_vs_baseline": null
+  },
+  {
+   "variant": "prefix_1",
+   "rungs_kept": [
+    "0|3|0|0|0|1"
+   ],
+   "rungs_kept_n": 1,
+   "node_cap": 20000000,
+   "search_nodes": 20000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 20000000 reached",
+   "seconds": 407.8,
+   "ladder_investment": 5376,
+   "total_nodes": null,
+   "delta_vs_baseline": null
+  },
+  {
+   "variant": "prefix_2",
+   "rungs_kept": [
+    "0|3|0|0|0|1",
+    "0|4|0|0|0|1"
+   ],
+   "rungs_kept_n": 2,
+   "node_cap": 20000000,
+   "search_nodes": 20000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 20000000 reached",
+   "seconds": 423.8,
+   "ladder_investment": 10546,
+   "total_nodes": null,
+   "delta_vs_baseline": null
+  },
+  {
+   "variant": "prefix_3",
+   "rungs_kept": [
+    "0|3|0|0|0|1",
+    "0|4|0|0|0|1",
+    "0|5|0|0|0|1"
+   ],
+   "rungs_kept_n": 3,
+   "node_cap": 20000000,
+   "search_nodes": 20000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 20000000 reached",
+   "seconds": 479.6,
+   "ladder_investment": 32452,
+   "total_nodes": null,
+   "delta_vs_baseline": null
+  }
+ ],
+ "cheapest": null,
+ "optimised": "total proof nodes (ladder certification + target), not rung count",
+ "seconds_noncanonical": 887.4,
+ "ok": true
+}

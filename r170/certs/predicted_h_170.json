@@ -1,0 +1,104 @@
+{
+ "cell": "0|15|0|0|0|1",
+ "census_safe_bound_S": 115,
+ "baseline_target_proof_nodes": 8099282,
+ "full_ladder_investment": 34937114,
+ "full_ladder_total": 43036396,
+ "capacity_groups": {
+  "53": [
+   3
+  ],
+  "66": [
+   4,
+   5
+  ],
+  "79": [
+   6,
+   7
+  ],
+  "92": [
+   8,
+   9,
+   10
+  ],
+  "99": [
+   11
+  ],
+  "103": [
+   12,
+   13
+  ],
+  "106": [
+   14
+  ]
+ },
+ "structural_rule": "a rung bounds every state with d* <= d, so within an equal-capacity group the largest d subsumes the smaller ones: same bound, strictly more states",
+ "variants": [
+  {
+   "variant": "capgroup_cheap103_7rung",
+   "rungs": [
+    "0|10|0|0|0|1",
+    "0|11|0|0|0|1",
+    "0|12|0|0|0|1",
+    "0|14|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_n": 7,
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 306.6,
+   "ladder_investment": 26136087,
+   "total_nodes": 34235369,
+   "delta_vs_baseline": 0
+  },
+  {
+   "variant": "capgroup_maxd_7rung",
+   "rungs": [
+    "0|10|0|0|0|1",
+    "0|11|0|0|0|1",
+    "0|13|0|0|0|1",
+    "0|14|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_n": 7,
+   "search_nodes": 8099282,
+   "proof_nodes": 8099282,
+   "completed": true,
+   "detail": null,
+   "seconds": 309.7,
+   "ladder_investment": 33211441,
+   "total_nodes": 41310723,
+   "delta_vs_baseline": 0
+  }
+ ],
+ "cheapest": {
+  "variant": "capgroup_cheap103_7rung",
+  "rungs": [
+   "0|10|0|0|0|1",
+   "0|11|0|0|0|1",
+   "0|12|0|0|0|1",
+   "0|14|0|0|0|1",
+   "0|3|0|0|0|1",
+   "0|5|0|0|0|1",
+   "0|7|0|0|0|1"
+  ],
+  "rungs_n": 7,
+  "search_nodes": 8099282,
+  "proof_nodes": 8099282,
+  "completed": true,
+  "detail": null,
+  "seconds": 306.6,
+  "ladder_investment": 26136087,
+  "total_nodes": 34235369,
+  "delta_vs_baseline": 0
+ },
+ "complete": false,
+ "seconds_noncanonical": 309.7,
+ "ok": true
+}
