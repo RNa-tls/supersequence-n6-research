@@ -78,7 +78,10 @@ def load_trust():
     # one being trusted, and the two reports agree on the total proof-node
     # count.  Disagreement on that count means the two replays did not see
     # the same tree, so the entry is refused.
-    for tag in ("h", "a2"):
+    # the two round-170 TARGET certificates are on the same footing as the
+    # ladders: both verifiers accepted each, the reports are committed and
+    # hash-pinned, and the same three conditions below are enforced.
+    for tag in ("h", "a2", "targeth", "targeta2"):
         a7 = ROOT / "r170" / "certs" / f"verification_a_{tag}_170.json"
         b7 = ROOT / "r170" / "certs" / f"verification_b_{tag}_170.json"
         if not (a7.exists() and b7.exists()):
