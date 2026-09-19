@@ -1,0 +1,182 @@
+{
+ "family_H": {
+  "ladder_rungs_shipped": 12,
+  "ladder_investment_shipped": 34937114,
+  "target_proof_nodes": 8099282,
+  "total_shipped": 43036396,
+  "dual_verified": true,
+  "counterfactual_prediction": 8099282,
+  "prediction_absolute_error": 0,
+  "prediction_percent_error": 0.0,
+  "best_measured_subset": {
+   "variant": "prefix_9",
+   "rungs": 9,
+   "investment": 1889922,
+   "target": 11341683,
+   "total": 13231605
+  },
+  "basin_within_10_percent": [
+   {
+    "variant": "prefix_9",
+    "rungs": 9,
+    "investment": 1889922,
+    "target": 11341683,
+    "total": 13231605
+   },
+   {
+    "variant": "capgroup_minus11_5rung",
+    "rungs": 5,
+    "investment": 2593655,
+    "target": 10859708,
+    "total": 13453363
+   },
+   {
+    "variant": "capgroup_drop14_6rung",
+    "rungs": 6,
+    "investment": 3365597,
+    "target": 10100101,
+    "total": 13465698
+   },
+   {
+    "variant": "prefix_10",
+    "rungs": 10,
+    "investment": 3490596,
+    "target": 10100101,
+    "total": 13590697
+   },
+   {
+    "variant": "lowcaps_only_4rung",
+    "rungs": 4,
+    "investment": 992981,
+    "target": 12875889,
+    "total": 13868870
+   },
+   {
+    "variant": "prefix_8",
+    "rungs": 8,
+    "investment": 1117980,
+    "target": 12875889,
+    "total": 13993869
+   }
+  ],
+  "leave_one_out": {
+   "essential": 0,
+   "helpful": 6,
+   "idle": 6
+  },
+  "no_ladder_lower_bound": 150000001,
+  "economic_gain": "PROVED: the no-ladder route exceeds the full with-ladder total of 43,036,396 without finishing",
+  "two_by_two": {
+   "exact target / no ladder": "DEFERRED, > 30,000,001 nodes",
+   "exact target / genuine ladder": "DEFERRED, > 30,000,001 nodes",
+   "safe target S=115 / no ladder": "DEFERRED, > 150,000,001 nodes",
+   "safe target S=115 / genuine ladder": "TREE_BUILT, 8,099,282 proof nodes (+34,937,114 ladder investment)"
+  }
+ },
+ "family_A2": {
+  "ladder_rungs_shipped": 16,
+  "ladder_investment_shipped": 13997263,
+  "target_proof_nodes": 218,
+  "total_shipped": 13997481,
+  "dual_verified": true,
+  "counterfactual_prediction": 218,
+  "prediction_absolute_error": 0,
+  "prediction_percent_error": 0.0,
+  "best_measured_subset": {
+   "variant": "prefix_11",
+   "rungs": 11,
+   "investment": 309313,
+   "target": 798962,
+   "total": 1108275
+  },
+  "basin_within_10_percent": [
+   {
+    "variant": "prefix_11",
+    "rungs": 11,
+    "investment": 309313,
+    "target": 798962,
+    "total": 1108275
+   }
+  ],
+  "no_ladder_lower_bound": 20000001,
+  "economic_gain": "PROVED: the no-ladder route exceeds the full with-ladder total of 13,997,481 without finishing",
+  "two_by_two": {
+   "exact target / no ladder": "DEFERRED, > 30,000,001 nodes",
+   "exact target / genuine ladder": "discovery finished, cap=107, 23,675,618 nodes",
+   "safe target S=117 / no ladder": "DEFERRED, > 20,000,001 nodes",
+   "safe target S=117 / genuine ladder": "TREE_BUILT, 218 proof nodes (+13,997,263 ladder investment)"
+  }
+ },
+ "load_bearing_basis": {
+  "frozen_at": 35,
+  "witness_completion": [
+   "1|7|2|0|0|1",
+   "2|3|2|0|0|1"
+  ],
+  "lower_bound_status": "COMPLETE: the size-1 scan is exhaustive over all 221 candidates and a size-2 witness exists, so OPT = 33 + 2",
+  "independent_audit": "EXACT_MINIMUM_35_CONFIRMED",
+  "census_independence": "CENSUS_INDEPENDENTLY_CONFIRMED",
+  "not_sharpened": "no basis smaller than 35 is claimed; the exact value follows from the exhaustive size-1 scan and the size-2 witness, and nothing here goes beyond what those two establish"
+ },
+ "production_architecture": {
+  "helper_certificates": 121,
+  "load_bearing_certificates": 2,
+  "basis_cells_still_to_certify": 33,
+  "measured_proof_nodes": 57033877,
+  "measured_generation_search_nodes": 134708480,
+  "dual_verification_nodes": 114067754,
+  "measured_stored_bytes": 9017588,
+  "one_core_hours": 1.36,
+  "best_subset_total_if_rebuilt": {
+   "H": 13231605,
+   "A2": 1108275,
+   "combined": 14339880,
+   "versus_shipped": 42693997
+  },
+  "critical_path": {
+   "proof_nodes": 30869772,
+   "cells": [
+    "0|14|0|0|0|1",
+    "0|15|0|0|0|1"
+   ],
+   "seconds_at_measured_rate": 1122.2,
+   "hours": 0.31
+  },
+  "idealised_schedule": {
+   "1": {
+    "seconds": 2073.3,
+    "hours": 0.58
+   },
+   "2": {
+    "seconds": 1183.8,
+    "hours": 0.33
+   },
+   "4": {
+    "seconds": 1122.2,
+    "hours": 0.31
+   },
+   "8": {
+    "seconds": 1122.2,
+    "hours": 0.31
+   }
+  },
+  "joint_safety": true
+ },
+ "historical_table_dependency": {
+  "genuinely_backed": 2,
+  "historical_table_only": 33,
+  "meaning": "the basis SIZE is closed; the basis VALUES are not.  Thirty-three of the thirty-five cells still take their capacity from round 152's tables rather than from a certificate"
+ },
+ "mutations": {
+  "cases": 14,
+  "missed": 0,
+  "all_invalid_rejected": true
+ },
+ "reproduction": {
+  "canonical_byte_identical": null,
+  "certificate_hashes_match": null,
+  "reverified_in_clean_tree": null,
+  "scope": null
+ },
+ "ok": true
+}

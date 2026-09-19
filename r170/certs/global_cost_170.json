@@ -46,33 +46,31 @@
  "cheapest_measured_route": {
   "per_family": {
    "H": {
-    "variant": "capgroup_cheap103_7rung",
-    "rungs": [
-     "0|10|0|0|0|1",
-     "0|11|0|0|0|1",
-     "0|12|0|0|0|1",
-     "0|14|0|0|0|1",
-     "0|3|0|0|0|1",
-     "0|5|0|0|0|1",
-     "0|7|0|0|0|1"
-    ],
-    "rungs_n": 7,
-    "search_nodes": 8099282,
-    "proof_nodes": 8099282,
-    "completed": true,
-    "detail": null,
-    "seconds": 306.6,
-    "ladder_investment": 26136087,
-    "total_nodes": 34235369,
-    "delta_vs_baseline": 0
+    "source": "sweep_h_170.json",
+    "variant": "prefix_9",
+    "rungs": 9,
+    "investment": 1889922,
+    "target": 11341683,
+    "total": 13231605,
+    "basin_within_10_percent": [
+     "prefix_9",
+     "capgroup_minus11_5rung",
+     "capgroup_drop14_6rung",
+     "prefix_10",
+     "lowcaps_only_4rung",
+     "prefix_8"
+    ]
    },
    "A2": {
+    "source": "sweep_a2_170.json",
     "variant": "prefix_11",
     "rungs": 11,
     "investment": 309313,
     "target": 798962,
     "total": 1108275,
-    "saving_vs_full_ladder": 12889206
+    "basin_within_10_percent": [
+     "prefix_11"
+    ]
    }
   },
   "note": "the shipped ladders were over-provisioned; these are the cheapest subsets actually built and measured, not projections"

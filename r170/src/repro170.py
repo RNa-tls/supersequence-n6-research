@@ -51,6 +51,34 @@ def sha(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
+def strip_noncanonical(obj):
+    """Drop wall-clock fields before comparing.
+
+    These reports carry timings under keys ending `_noncanonical`, a name this
+    project already uses to mean "not part of the claim".  Wall clock cannot
+    reproduce, so raw byte-identity would fail on every report that measures
+    its own runtime and would say nothing about whether the RESULT reproduced.
+    Both comparisons are therefore reported: the raw one, and the one over
+    canonical content.  A difference that survives the strip is a real
+    divergence.
+    """
+    if isinstance(obj, dict):
+        return {k: strip_noncanonical(v) for k, v in obj.items()
+                if not k.endswith("_noncanonical")}
+    if isinstance(obj, list):
+        return [strip_noncanonical(v) for v in obj]
+    return obj
+
+
+def canon_sha(p):
+    try:
+        return hashlib.sha256(json.dumps(
+            strip_noncanonical(json.loads(Path(p).read_text())),
+            sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    except Exception:
+        return None
+
+
 def run(cmd, cwd, log):
     with open(log, "w") as fh:
         return subprocess.run(cmd, cwd=cwd, stdout=fh, stderr=subprocess.STDOUT,
@@ -70,6 +98,7 @@ def main():
     head = subprocess.run("git rev-parse HEAD", cwd=ROOT, shell=True,
                           capture_output=True, text=True).stdout.strip()
     pinned = {rel: sha(ROOT / rel) for rel, _s, _x in CANONICAL}
+    pinned_canon = {rel: canon_sha(ROOT / rel) for rel, _s, _x in CANONICAL}
     pinned_certs = {rel: sha(ROOT / rel) for rel in CERTS}
     print(f"branch {branch} at {head[:12]}", flush=True)
 
@@ -96,12 +125,19 @@ def main():
                      SCRATCH / f"repro{i}_{Path(rel).stem}.log")
             ok = (w / rel).exists()
             digest = sha(w / rel) if ok else None
+            cdig = canon_sha(w / rel) if ok else None
+            same_raw = digest == pinned[rel]
+            same_canon = cdig is not None and cdig == pinned_canon[rel]
             canon.append(dict(artifact=rel, regenerated=ok, exit_code=rc,
-                              sha256=digest,
-                              byte_identical=(digest == pinned[rel])))
-            print(f"    {rel:<44} "
-                  f"{'identical' if digest == pinned[rel] else 'DIFFERS'}",
-                  flush=True)
+                              sha256=digest, byte_identical=same_raw,
+                              canonical_sha256=cdig,
+                              canonical_identical=same_canon,
+                              differs_only_in_timing=(same_canon
+                                                      and not same_raw)))
+            verdict = ("identical" if same_raw else
+                       "canonical-identical (timing only)" if same_canon
+                       else "DIVERGES")
+            print(f"    {rel:<44} {verdict}", flush=True)
 
         certs = []
         for rel in CERTS:
@@ -134,7 +170,10 @@ def main():
                            canonical=canon, certificates=certs,
                            reverification=vr))
 
-    all_canon_ok = all(c["byte_identical"]
+    all_raw_ok = all(c["byte_identical"]
+                     for cl in clones if cl.get("cloned")
+                     for c in cl["canonical"])
+    all_canon_ok = all(c["canonical_identical"]
                        for cl in clones if cl.get("cloned")
                        for c in cl["canonical"])
     all_hash_ok = all(c["hash_matches"]
@@ -146,7 +185,12 @@ def main():
     out = dict(
         source=dict(branch=branch, head=head),
         clones=clones,
-        canonical_artifacts_byte_identical=all_canon_ok,
+        canonical_artifacts_byte_identical=all_raw_ok,
+        canonical_content_identical=all_canon_ok,
+        comparison_note="raw byte-identity fails wherever a report records its "
+                        "own wall clock under a `_noncanonical` key; the "
+                        "canonical comparison strips those and is the real "
+                        "test of whether the RESULT reproduced",
         certificate_hashes_match=all_hash_ok,
         certificates_reverified_in_clean_tree=all_ver_ok,
         scope=dict(

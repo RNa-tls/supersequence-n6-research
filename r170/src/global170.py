@@ -96,18 +96,39 @@ def main():
                    for v in measured.values())
     meas_bytes = sum(v["stored_bytes"] or 0 for v in measured.values())
 
-    # ---- the cheapest measured route, from the subset work
+    # ---- the cheapest measured route, over EVERY report that built one.
+    # Reading a single report was wrong: the H minimum came from the sweep's
+    # prefix family, not from the structurally-predicted subsets, and quoting
+    # only the latter understated the saving.  Both are scanned and the
+    # schemas normalised, since the two modules name their fields differently.
+    def scan_best(*rels):
+        cands = []
+        for rel in rels:
+            p = ROOT / "r170" / "certs" / rel
+            if not p.exists():
+                continue
+            r = json.loads(p.read_text())
+            for v in r.get("variants", []):
+                if v.get("completed") and v.get("total_nodes"):
+                    cands.append(dict(
+                        source=rel, variant=v["variant"],
+                        rungs=v.get("rungs_n", v.get("rungs_kept_n")),
+                        investment=v["ladder_investment"],
+                        target=v["proof_nodes"], total=v["total_nodes"]))
+        cands.sort(key=lambda c: c["total"])
+        return cands
+
+    hcand = scan_best("sweep_h_170.json", "predicted_h_170.json")
+    acand = scan_best("sweep_a2_170.json")
     cheapest = {}
-    pred = ROOT / "r170" / "certs" / "predicted_h_170.json"
-    if pred.exists():
-        p = json.loads(pred.read_text())
-        if p.get("cheapest"):
-            cheapest["H"] = p["cheapest"]
-    swa = ROOT / "r170" / "certs" / "sweep_a2_170.json"
-    if swa.exists():
-        s = json.loads(swa.read_text())
-        if s.get("cheapest"):
-            cheapest["A2"] = s["cheapest"]
+    if hcand:
+        cheapest["H"] = hcand[0]
+        cheapest["H"]["basin_within_10_percent"] = [
+            c["variant"] for c in hcand if c["total"] <= hcand[0]["total"] * 1.1]
+    if acand:
+        cheapest["A2"] = acand[0]
+        cheapest["A2"]["basin_within_10_percent"] = [
+            c["variant"] for c in acand if c["total"] <= acand[0]["total"] * 1.1]
 
     # ---- lower bounds from capped runs
     sub = json.loads((ROOT / "r170" / "certs"
