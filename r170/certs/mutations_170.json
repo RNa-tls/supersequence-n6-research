@@ -1,0 +1,114 @@
+{
+ "extree_layer": {
+  "subject": "r170/certs/extree_target_a2_170.txt.gz",
+  "cases": [
+   {
+    "attack": "unchanged (control)",
+    "expected_valid": true,
+    "accepted": true,
+    "correct": true,
+    "rejection": null
+   },
+   {
+    "attack": "fake ladder certificate substituted",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true,
+    "rejection": "referenced certificate failed: r170/certs/extree_ladder_a2_170.txt.gz"
+   },
+   {
+    "attack": "altered rung/ladder reference hash",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true,
+    "rejection": "reference hash mismatch for r170/certs/extree_ladder_a2_170.txt.gz"
+   },
+   {
+    "attack": "missing predecessor reference",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true,
+    "rejection": "tree invalid for 0|18|2|0|0|0: unjustified leaf at token 9: ports=10 deficit=5 r1=122 r2=129"
+   },
+   {
+    "attack": "counterfactual predecessor admitted as genuine",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true,
+    "rejection": "dep 0|0|0|0|0|0 claims cap 8, the certificate r164/certs/extree_prefix_164.txt.gz gives 20"
+   },
+   {
+    "attack": "declared bound stronger than the tree proves",
+    "expected_valid": false,
+    "accepted": false,
+    "correct": true,
+    "rejection": "tree invalid for 0|18|2|0|0|0: unjustified leaf at token 56: ports=18 deficit=7 r1=122 r2=113"
+   }
+  ],
+  "note": "the A2 target carries 218 proof nodes while citing 109 dependencies over five batches, so the reference and dependency machinery is fully exercised at negligible replay cost"
+ },
+ "census_layer": {
+  "basis_size": 35,
+  "exposed_rows": 180,
+  "cases": [
+   {
+    "attack": "basis at exact values (control)",
+    "expected_closes": true,
+    "closes": true,
+    "correct": true
+   },
+   {
+    "attack": "safe bound +1 on 0|15|0|0|0|1 (S=115->116)",
+    "expected_closes": false,
+    "closes": false,
+    "correct": true
+   },
+   {
+    "attack": "safe bound +1 on 0|18|2|0|0|0 (S=117->118)",
+    "expected_closes": false,
+    "closes": false,
+    "correct": true
+   },
+   {
+    "attack": "residual completion cell 1|7|2|0|0|1 removed",
+    "expected_closes": false,
+    "closes": false,
+    "correct": true
+   },
+   {
+    "attack": "residual completion cell 2|3|2|0|0|1 removed",
+    "expected_closes": false,
+    "closes": false,
+    "correct": true
+   },
+   {
+    "attack": "(P1) direction: correct orientation",
+    "expected_violations": 0,
+    "violations": 0,
+    "correct": true
+   },
+   {
+    "attack": "(P1) direction: reversed orientation must break",
+    "expected_violations": ">0",
+    "violations": 4,
+    "correct": true
+   },
+   {
+    "attack": "corrupted lower bound: some single cell completes the 33",
+    "expected_closes": false,
+    "closes": false,
+    "correct": true,
+    "detail": "no single cell completes: the 34-impossible claim survives an independent exhaustive rescan"
+   }
+  ]
+ },
+ "not_expressible": [
+  "corrupt token state, used-hexagon state or feasibility histogram: the certificate stores only N<k> and L, with no solver state, and the verifier recomputes all of it",
+  "alter prune reason: no prune label is stored"
+ ],
+ "total_cases": 14,
+ "missed": [],
+ "all_invalid_paths_rejected": true,
+ "seconds_noncanonical": 48.1,
+ "ok": true
+}
