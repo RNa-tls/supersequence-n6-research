@@ -35,6 +35,83 @@
  "structural_rule": "a rung bounds every state with d* <= d, so within an equal-capacity group the largest d subsumes the smaller ones: same bound, strictly more states",
  "variants": [
   {
+   "variant": "capgroup_minus11_5rung",
+   "rungs": [
+    "0|10|0|0|0|1",
+    "0|12|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_n": 5,
+   "search_nodes": 10859708,
+   "proof_nodes": 10859708,
+   "completed": true,
+   "detail": null,
+   "seconds": 465.0,
+   "ladder_investment": 2593655,
+   "total_nodes": 13453363,
+   "delta_vs_baseline": 2760426
+  },
+  {
+   "variant": "capgroup_drop14_6rung",
+   "rungs": [
+    "0|10|0|0|0|1",
+    "0|11|0|0|0|1",
+    "0|12|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_n": 6,
+   "search_nodes": 10100101,
+   "proof_nodes": 10100101,
+   "completed": true,
+   "detail": null,
+   "seconds": 408.2,
+   "ladder_investment": 3365597,
+   "total_nodes": 13465698,
+   "delta_vs_baseline": 2000819
+  },
+  {
+   "variant": "lowcaps_only_4rung",
+   "rungs": [
+    "0|10|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_n": 4,
+   "search_nodes": 12875889,
+   "proof_nodes": 12875889,
+   "completed": true,
+   "detail": null,
+   "seconds": 512.6,
+   "ladder_investment": 992981,
+   "total_nodes": 13868870,
+   "delta_vs_baseline": 4776607
+  },
+  {
+   "variant": "capgroup_drop14_13_6rung",
+   "rungs": [
+    "0|10|0|0|0|1",
+    "0|11|0|0|0|1",
+    "0|13|0|0|0|1",
+    "0|3|0|0|0|1",
+    "0|5|0|0|0|1",
+    "0|7|0|0|0|1"
+   ],
+   "rungs_n": 6,
+   "search_nodes": 9301426,
+   "proof_nodes": 9301426,
+   "completed": true,
+   "detail": null,
+   "seconds": 371.6,
+   "ladder_investment": 10440951,
+   "total_nodes": 19742377,
+   "delta_vs_baseline": 1202144
+  },
+  {
    "variant": "capgroup_cheap103_7rung",
    "rungs": [
     "0|10|0|0|0|1",
@@ -78,27 +155,25 @@
   }
  ],
  "cheapest": {
-  "variant": "capgroup_cheap103_7rung",
+  "variant": "capgroup_minus11_5rung",
   "rungs": [
    "0|10|0|0|0|1",
-   "0|11|0|0|0|1",
    "0|12|0|0|0|1",
-   "0|14|0|0|0|1",
    "0|3|0|0|0|1",
    "0|5|0|0|0|1",
    "0|7|0|0|0|1"
   ],
-  "rungs_n": 7,
-  "search_nodes": 8099282,
-  "proof_nodes": 8099282,
+  "rungs_n": 5,
+  "search_nodes": 10859708,
+  "proof_nodes": 10859708,
   "completed": true,
   "detail": null,
-  "seconds": 306.6,
-  "ladder_investment": 26136087,
-  "total_nodes": 34235369,
-  "delta_vs_baseline": 0
+  "seconds": 465.0,
+  "ladder_investment": 2593655,
+  "total_nodes": 13453363,
+  "delta_vs_baseline": 2760426
  },
- "complete": false,
- "seconds_noncanonical": 309.7,
+ "complete": true,
+ "seconds_noncanonical": 1227.6,
  "ok": true
 }
