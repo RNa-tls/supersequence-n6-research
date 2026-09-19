@@ -1,0 +1,472 @@
+{
+ "remaining_cells": 32,
+ "already_provable": [
+  "0|20|0|0|0|0"
+ ],
+ "families": 11,
+ "why_not_one_ladder_per_target": "all 32 remaining cells carry distinct (a,bb,e,h) shapes, so a same-shape ladder serves exactly one target",
+ "grouping_rule": "within a b level, group by which of bb/e/h are nonzero; those flags are restrictions that change the domination relation, while a and d vary inside a group",
+ "groups": [
+  {
+   "family": "b1_a10",
+   "b_level": 1,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": false
+   },
+   "members": [
+    "1|5|10|0|0|0",
+    "1|7|8|0|0|0",
+    "1|9|6|0|0|0",
+    "1|11|4|0|0|0",
+    "1|13|2|0|0|0",
+    "1|15|0|0|0|0"
+   ],
+   "member_count": 6,
+   "safe_bounds": {
+    "1|5|10|0|0|0": 129,
+    "1|7|8|0|0|0": 123,
+    "1|9|6|0|0|0": 95,
+    "1|11|4|0|0|0": 99,
+    "1|13|2|0|0|0": 117,
+    "1|15|0|0|0|0": 115
+   },
+   "classifications": {
+    "1|5|10|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "1|7|8|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "1|9|6|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "1|11|4|0|0|0": "EXPENSIVE_UNRESOLVED",
+    "1|13|2|0|0|0": "EXPENSIVE_UNRESOLVED",
+    "1|15|0|0|0|0": "EXPENSIVE_UNRESOLVED"
+   },
+   "worst_fallback_fraction": 0.8211,
+   "dominating_rung_shape": {
+    "b": 1,
+    "a": 10,
+    "bb": 0,
+    "e": 0,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    14
+   ],
+   "deepest_member_d": 15,
+   "shallowest_member_d": 5,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b1_h_a2",
+   "b_level": 1,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": true
+   },
+   "members": [
+    "1|5|0|0|0|2",
+    "1|7|2|0|0|1",
+    "1|10|0|0|0|1"
+   ],
+   "member_count": 3,
+   "safe_bounds": {
+    "1|5|0|0|0|2": 111,
+    "1|7|2|0|0|1": 103,
+    "1|10|0|0|0|1": 111
+   },
+   "classifications": {
+    "1|5|0|0|0|2": "EXPENSIVE_UNRESOLVED",
+    "1|7|2|0|0|1": "EXPENSIVE_UNRESOLVED",
+    "1|10|0|0|0|1": "EXPENSIVE_UNRESOLVED"
+   },
+   "worst_fallback_fraction": 0.4737,
+   "dominating_rung_shape": {
+    "b": 1,
+    "a": 2,
+    "bb": 0,
+    "e": 0,
+    "h": 2,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    9
+   ],
+   "deepest_member_d": 10,
+   "shallowest_member_d": 5,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b1_e_a5",
+   "b_level": 1,
+   "mask": {
+    "bb": false,
+    "e": true,
+    "h": false
+   },
+   "members": [
+    "1|4|5|0|1|0",
+    "1|6|3|0|1|0",
+    "1|8|1|0|1|0"
+   ],
+   "member_count": 3,
+   "safe_bounds": {
+    "1|4|5|0|1|0": 106,
+    "1|6|3|0|1|0": 104,
+    "1|8|1|0|1|0": 102
+   },
+   "classifications": {
+    "1|4|5|0|1|0": "NEEDS_NEW_INVESTMENT",
+    "1|6|3|0|1|0": "NEEDS_NEW_INVESTMENT",
+    "1|8|1|0|1|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.6573,
+   "dominating_rung_shape": {
+    "b": 1,
+    "a": 5,
+    "bb": 0,
+    "e": 1,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    7
+   ],
+   "deepest_member_d": 8,
+   "shallowest_member_d": 4,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b1_bb_a5",
+   "b_level": 1,
+   "mask": {
+    "bb": true,
+    "e": false,
+    "h": false
+   },
+   "members": [
+    "1|4|5|1|0|0",
+    "1|6|3|1|0|0",
+    "1|8|1|1|0|0"
+   ],
+   "member_count": 3,
+   "safe_bounds": {
+    "1|4|5|1|0|0": 121,
+    "1|6|3|1|0|0": 119,
+    "1|8|1|1|0|0": 117
+   },
+   "classifications": {
+    "1|4|5|1|0|0": "NEEDS_NEW_INVESTMENT",
+    "1|6|3|1|0|0": "NEEDS_NEW_INVESTMENT",
+    "1|8|1|1|0|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.6321,
+   "dominating_rung_shape": {
+    "b": 1,
+    "a": 5,
+    "bb": 1,
+    "e": 0,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    7
+   ],
+   "deepest_member_d": 8,
+   "shallowest_member_d": 4,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b2_a8",
+   "b_level": 2,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": false
+   },
+   "members": [
+    "2|2|8|0|0|0",
+    "2|4|6|0|0|0",
+    "2|6|4|0|0|0",
+    "2|8|2|0|0|0",
+    "2|10|0|0|0|0"
+   ],
+   "member_count": 5,
+   "safe_bounds": {
+    "2|2|8|0|0|0": 123,
+    "2|4|6|0|0|0": 121,
+    "2|6|4|0|0|0": 119,
+    "2|8|2|0|0|0": 117,
+    "2|10|0|0|0|0": 115
+   },
+   "classifications": {
+    "2|2|8|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "2|4|6|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "2|6|4|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "2|8|2|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "2|10|0|0|0|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.8037,
+   "dominating_rung_shape": {
+    "b": 2,
+    "a": 8,
+    "bb": 0,
+    "e": 0,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    9
+   ],
+   "deepest_member_d": 10,
+   "shallowest_member_d": 2,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b2_h_a2",
+   "b_level": 2,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": true
+   },
+   "members": [
+    "2|0|0|0|0|2",
+    "2|3|2|0|0|1",
+    "2|5|0|0|0|1"
+   ],
+   "member_count": 3,
+   "safe_bounds": {
+    "2|0|0|0|0|2": 119,
+    "2|3|2|0|0|1": 91,
+    "2|5|0|0|0|1": 115
+   },
+   "classifications": {
+    "2|0|0|0|0|2": "NEEDS_NEW_INVESTMENT",
+    "2|3|2|0|0|1": "NEEDS_NEW_INVESTMENT",
+    "2|5|0|0|0|1": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.6562,
+   "dominating_rung_shape": {
+    "b": 2,
+    "a": 2,
+    "bb": 0,
+    "e": 0,
+    "h": 2,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    4
+   ],
+   "deepest_member_d": 5,
+   "shallowest_member_d": 0,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b2_e_a3",
+   "b_level": 2,
+   "mask": {
+    "bb": false,
+    "e": true,
+    "h": false
+   },
+   "members": [
+    "2|1|3|0|1|0",
+    "2|3|1|0|1|0"
+   ],
+   "member_count": 2,
+   "safe_bounds": {
+    "2|1|3|0|1|0": 104,
+    "2|3|1|0|1|0": 102
+   },
+   "classifications": {
+    "2|1|3|0|1|0": "NEEDS_NEW_INVESTMENT",
+    "2|3|1|0|1|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.6545,
+   "dominating_rung_shape": {
+    "b": 2,
+    "a": 3,
+    "bb": 0,
+    "e": 1,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    2
+   ],
+   "deepest_member_d": 3,
+   "shallowest_member_d": 1,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b2_bb_a3",
+   "b_level": 2,
+   "mask": {
+    "bb": true,
+    "e": false,
+    "h": false
+   },
+   "members": [
+    "2|1|3|1|0|0",
+    "2|3|1|1|0|0"
+   ],
+   "member_count": 2,
+   "safe_bounds": {
+    "2|1|3|1|0|0": 119,
+    "2|3|1|1|0|0": 117
+   },
+   "classifications": {
+    "2|1|3|1|0|0": "NEEDS_NEW_INVESTMENT",
+    "2|3|1|1|0|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.6791,
+   "dominating_rung_shape": {
+    "b": 2,
+    "a": 3,
+    "bb": 1,
+    "e": 0,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    2
+   ],
+   "deepest_member_d": 3,
+   "shallowest_member_d": 1,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b3_a4",
+   "b_level": 3,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": false
+   },
+   "members": [
+    "3|1|4|0|0|0",
+    "3|3|2|0|0|0",
+    "3|5|0|0|0|0"
+   ],
+   "member_count": 3,
+   "safe_bounds": {
+    "3|1|4|0|0|0": 119,
+    "3|3|2|0|0|0": 117,
+    "3|5|0|0|0|0": 115
+   },
+   "classifications": {
+    "3|1|4|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "3|3|2|0|0|0": "NEEDS_NEW_INVESTMENT",
+    "3|5|0|0|0|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.8189,
+   "dominating_rung_shape": {
+    "b": 3,
+    "a": 4,
+    "bb": 0,
+    "e": 0,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    4
+   ],
+   "deepest_member_d": 5,
+   "shallowest_member_d": 1,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b3_h_a0",
+   "b_level": 3,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": true
+   },
+   "members": [
+    "3|0|0|0|0|1"
+   ],
+   "member_count": 1,
+   "safe_bounds": {
+    "3|0|0|0|0|1": 119
+   },
+   "classifications": {
+    "3|0|0|0|0|1": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.6667,
+   "dominating_rung_shape": {
+    "b": 3,
+    "a": 0,
+    "bb": 0,
+    "e": 0,
+    "h": 1,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    -1
+   ],
+   "deepest_member_d": 0,
+   "shallowest_member_d": 0,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  },
+  {
+   "family": "b4_a0",
+   "b_level": 4,
+   "mask": {
+    "bb": false,
+    "e": false,
+    "h": false
+   },
+   "members": [
+    "4|0|0|0|0|0"
+   ],
+   "member_count": 1,
+   "safe_bounds": {
+    "4|0|0|0|0|0": 119
+   },
+   "classifications": {
+    "4|0|0|0|0|0": "NEEDS_NEW_INVESTMENT"
+   },
+   "worst_fallback_fraction": 0.8302,
+   "dominating_rung_shape": {
+    "b": 4,
+    "a": 0,
+    "bb": 0,
+    "e": 0,
+    "h": 0,
+    "d": "varies: the ladder rungs"
+   },
+   "rung_d_range": [
+    2,
+    -1
+   ],
+   "deepest_member_d": 0,
+   "shallowest_member_d": 0,
+   "serves": "one rung at this shape dominates the states of every member, because each member's states are bounded componentwise by the member and the shape is the componentwise max over members",
+   "caveat": "a larger shape carries a larger capacity and therefore a weaker bound; whether the shared ladder prunes enough is measured, not assumed"
+  }
+ ],
+ "next_step": "validate the shared-ladder idea on the largest family before building any of them: a weaker shared bound may prune too little to pay for itself",
+ "ok": true
+}
