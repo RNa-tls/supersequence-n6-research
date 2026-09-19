@@ -1,0 +1,246 @@
+{
+ "family": "b1_a10",
+ "shallow_investment_proof_nodes": 6423292,
+ "helper_rungs": {
+  "1|2|10|0|0|0": 48,
+  "1|3|10|0|0|0": 48,
+  "1|4|10|0|0|0": 61
+ },
+ "node_cap": 20000000,
+ "targets_tested": 1,
+ "unlocked_by_shallow_investment": [],
+ "unlocked_count": 0,
+ "rows": [
+  {
+   "variant": "A_no_investment",
+   "cell": "1|5|10|0|0|0",
+   "safe_bound_S": 129,
+   "extree_target": 130,
+   "completed": true,
+   "proof_nodes": 19668805,
+   "search_nodes": 19668805,
+   "node_cap": 20000000,
+   "detail": null,
+   "seconds": 398.4,
+   "trace_reproduces_plain": true,
+   "p_leaves": 321233,
+   "states_on_analytic_fallback": 3918265,
+   "states_with_a_dominator": 321233,
+   "fallback_fraction": 0.9242,
+   "per_rung": [],
+   "seconds_traced": 419.2
+  },
+  {
+   "variant": "B_shallow_rungs",
+   "cell": "1|5|10|0|0|0",
+   "safe_bound_S": 129,
+   "extree_target": 130,
+   "completed": true,
+   "proof_nodes": 250368,
+   "search_nodes": 250368,
+   "node_cap": 20000000,
+   "detail": null,
+   "seconds": 5.0,
+   "trace_reproduces_plain": true,
+   "p_leaves": 200780,
+   "states_on_analytic_fallback": 49006,
+   "states_with_a_dominator": 200780,
+   "fallback_fraction": 0.1962,
+   "per_rung": [
+    {
+     "rung": "1|2|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 131108,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 131108,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 22,
+     "d_star_range": [
+      1,
+      2
+     ],
+     "examples": [
+      {
+       "depth": 22,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        4,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 124,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 22,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        5,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 125,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 22,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        5,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 125,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|3|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 47481,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 47481,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 23,
+     "d_star_range": [
+      3,
+      3
+     ],
+     "examples": [
+      {
+       "depth": 23,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 61,
+       "analytic_fallback": 124,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 23,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        5,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 61,
+       "analytic_fallback": 125,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 23,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        5,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 61,
+       "analytic_fallback": 125,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|4|10|0|0|0",
+     "cap": 61,
+     "useful_prunes": 22191,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 22191,
+     "first_useful_depth": 24,
+     "d_star_range": [
+      4,
+      4
+     ],
+     "examples": [
+      {
+       "depth": 24,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        4,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 124,
+       "analytic_fallback": 124,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 24,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        5,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 125,
+       "analytic_fallback": 125,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 24,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        5,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 125,
+       "analytic_fallback": 125,
+       "another_rung_would_prune": false
+      }
+     ]
+    }
+   ],
+   "seconds_traced": 5.3
+  }
+ ],
+ "complete": true,
+ "seconds_noncanonical": 827.9,
+ "ok": true
+}
