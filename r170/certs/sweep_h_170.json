@@ -5,7 +5,7 @@
  "full_ladder_rungs": 12,
  "full_ladder_investment": 34937114,
  "full_ladder_total": 43036396,
- "subsets_tested": 14,
+ "subsets_tested": 16,
  "subsets_planned": 33,
  "complete": false,
  "rung_costs": {
@@ -310,6 +310,41 @@
    "ladder_investment": 22770490,
    "total_nodes": null,
    "delta_vs_baseline": null
+  },
+  {
+   "variant": "suffix_2",
+   "rungs_kept": [
+    "0|13|0|0|0|1",
+    "0|14|0|0|0|1"
+   ],
+   "rungs_kept_n": 2,
+   "node_cap": 20000000,
+   "search_nodes": 20000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 20000000 reached",
+   "seconds": 279.1,
+   "ladder_investment": 31446518,
+   "total_nodes": null,
+   "delta_vs_baseline": null
+  },
+  {
+   "variant": "suffix_3",
+   "rungs_kept": [
+    "0|12|0|0|0|1",
+    "0|13|0|0|0|1",
+    "0|14|0|0|0|1"
+   ],
+   "rungs_kept_n": 3,
+   "node_cap": 20000000,
+   "search_nodes": 20000001,
+   "proof_nodes": 0,
+   "completed": false,
+   "detail": "node cap 20000000 reached",
+   "seconds": 284.5,
+   "ladder_investment": 33047192,
+   "total_nodes": null,
+   "delta_vs_baseline": null
   }
  ],
  "cheapest": {
@@ -321,6 +356,6 @@
   "saving_vs_full_ladder": 29804791
  },
  "optimised": "total proof nodes (ladder certification + target), not rung count",
- "seconds_noncanonical": 3008.1,
+ "seconds_noncanonical": 3292.6,
  "ok": true
 }
