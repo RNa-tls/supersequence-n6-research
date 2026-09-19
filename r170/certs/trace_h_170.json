@@ -1,0 +1,858 @@
+{
+ "cell": "0|15|0|0|0|1",
+ "census_safe_bound_S": 115,
+ "instrumented_proof_nodes": 8099282,
+ "genuine_proof_nodes": 8099282,
+ "trace_is_faithful": true,
+ "faithfulness_note": "the instrumented build reimplements the engine's recursion so the prune test can see `ports`; if it does not reproduce the genuine proof-node count exactly the trace describes a different search and is void",
+ "total_p_prunes": 5434159,
+ "prunes_the_fallback_would_also_make": 0,
+ "per_rung": [
+  {
+   "rung": "0|3|0|0|0|1",
+   "cap": 53,
+   "p_argmin_wins": 26043,
+   "useful_prunes": 23361,
+   "redundant_prunes": 0,
+   "wins_without_prune": 2682,
+   "depth_range": [
+    38,
+    58
+   ],
+   "d_star_range": [
+    3,
+    3
+   ],
+   "examples": [
+    {
+     "depth": 43,
+     "state": [
+      0,
+      3,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 3,
+     "ports": 44,
+     "deficit": 16,
+     "supplied_bound": 53,
+     "analytic_fallback": 120,
+     "margin_to_target": 20
+    },
+    {
+     "depth": 43,
+     "state": [
+      0,
+      3,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 3,
+     "ports": 44,
+     "deficit": 16,
+     "supplied_bound": 53,
+     "analytic_fallback": 120,
+     "margin_to_target": 20
+    },
+    {
+     "depth": 43,
+     "state": [
+      0,
+      3,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 3,
+     "ports": 44,
+     "deficit": 16,
+     "supplied_bound": 53,
+     "analytic_fallback": 120,
+     "margin_to_target": 20
+    }
+   ]
+  },
+  {
+   "rung": "0|4|0|0|0|1",
+   "cap": 66,
+   "p_argmin_wins": 23961,
+   "useful_prunes": 18348,
+   "redundant_prunes": 0,
+   "wins_without_prune": 5613,
+   "depth_range": [
+    29,
+    49
+   ],
+   "d_star_range": [
+    4,
+    4
+   ],
+   "examples": [
+    {
+     "depth": 34,
+     "state": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 4,
+     "ports": 35,
+     "deficit": 15,
+     "supplied_bound": 66,
+     "analytic_fallback": 120,
+     "margin_to_target": 16
+    },
+    {
+     "depth": 34,
+     "state": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 4,
+     "ports": 35,
+     "deficit": 15,
+     "supplied_bound": 66,
+     "analytic_fallback": 120,
+     "margin_to_target": 16
+    },
+    {
+     "depth": 39,
+     "state": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 4,
+     "ports": 40,
+     "deficit": 15,
+     "supplied_bound": 66,
+     "analytic_fallback": 120,
+     "margin_to_target": 11
+    }
+   ]
+  },
+  {
+   "rung": "0|5|0|0|0|1",
+   "cap": 66,
+   "p_argmin_wins": 19237,
+   "useful_prunes": 12427,
+   "redundant_prunes": 0,
+   "wins_without_prune": 6810,
+   "depth_range": [
+    25,
+    45
+   ],
+   "d_star_range": [
+    5,
+    5
+   ],
+   "examples": [
+    {
+     "depth": 35,
+     "state": [
+      0,
+      5,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 5,
+     "ports": 36,
+     "deficit": 14,
+     "supplied_bound": 66,
+     "analytic_fallback": 120,
+     "margin_to_target": 15
+    },
+    {
+     "depth": 35,
+     "state": [
+      0,
+      5,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 5,
+     "ports": 36,
+     "deficit": 14,
+     "supplied_bound": 66,
+     "analytic_fallback": 120,
+     "margin_to_target": 15
+    },
+    {
+     "depth": 45,
+     "state": [
+      0,
+      5,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 5,
+     "ports": 46,
+     "deficit": 14,
+     "supplied_bound": 66,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    }
+   ]
+  },
+  {
+   "rung": "0|6|0|0|0|1",
+   "cap": 79,
+   "p_argmin_wins": 14275,
+   "useful_prunes": 4832,
+   "redundant_prunes": 0,
+   "wins_without_prune": 9443,
+   "depth_range": [
+    26,
+    36
+   ],
+   "d_star_range": [
+    6,
+    6
+   ],
+   "examples": [
+    {
+     "depth": 36,
+     "state": [
+      0,
+      6,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 6,
+     "ports": 37,
+     "deficit": 13,
+     "supplied_bound": 79,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 36,
+     "state": [
+      0,
+      6,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 6,
+     "ports": 37,
+     "deficit": 13,
+     "supplied_bound": 79,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 36,
+     "state": [
+      0,
+      6,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 6,
+     "ports": 37,
+     "deficit": 13,
+     "supplied_bound": 79,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    }
+   ]
+  },
+  {
+   "rung": "0|7|0|0|0|1",
+   "cap": 79,
+   "p_argmin_wins": 11554,
+   "useful_prunes": 2080,
+   "redundant_prunes": 0,
+   "wins_without_prune": 9474,
+   "depth_range": [
+    22,
+    32
+   ],
+   "d_star_range": [
+    7,
+    7
+   ],
+   "examples": [
+    {
+     "depth": 32,
+     "state": [
+      0,
+      7,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 7,
+     "ports": 33,
+     "deficit": 12,
+     "supplied_bound": 79,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    },
+    {
+     "depth": 32,
+     "state": [
+      0,
+      7,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 7,
+     "ports": 33,
+     "deficit": 12,
+     "supplied_bound": 79,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    },
+    {
+     "depth": 32,
+     "state": [
+      0,
+      7,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 7,
+     "ports": 33,
+     "deficit": 12,
+     "supplied_bound": 79,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    }
+   ]
+  },
+  {
+   "rung": "0|8|0|0|0|1",
+   "cap": 92,
+   "p_argmin_wins": 8746,
+   "useful_prunes": 176,
+   "redundant_prunes": 0,
+   "wins_without_prune": 8570,
+   "depth_range": [
+    18,
+    23
+   ],
+   "d_star_range": [
+    8,
+    8
+   ],
+   "examples": [
+    {
+     "depth": 23,
+     "state": [
+      0,
+      8,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 8,
+     "ports": 24,
+     "deficit": 11,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 23,
+     "state": [
+      0,
+      8,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 8,
+     "ports": 24,
+     "deficit": 11,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 23,
+     "state": [
+      0,
+      8,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 8,
+     "ports": 24,
+     "deficit": 11,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    }
+   ]
+  },
+  {
+   "rung": "0|9|0|0|0|1",
+   "cap": 92,
+   "p_argmin_wins": 6448,
+   "useful_prunes": 85,
+   "redundant_prunes": 0,
+   "wins_without_prune": 6363,
+   "depth_range": [
+    14,
+    19
+   ],
+   "d_star_range": [
+    9,
+    9
+   ],
+   "examples": [
+    {
+     "depth": 19,
+     "state": [
+      0,
+      9,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 9,
+     "ports": 20,
+     "deficit": 10,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    },
+    {
+     "depth": 19,
+     "state": [
+      0,
+      9,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 9,
+     "ports": 20,
+     "deficit": 10,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    },
+    {
+     "depth": 19,
+     "state": [
+      0,
+      9,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 9,
+     "ports": 20,
+     "deficit": 10,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    }
+   ]
+  },
+  {
+   "rung": "0|10|0|0|0|1",
+   "cap": 92,
+   "p_argmin_wins": 152814,
+   "useful_prunes": 5607,
+   "redundant_prunes": 0,
+   "wins_without_prune": 147207,
+   "depth_range": [
+    15,
+    20
+   ],
+   "d_star_range": [
+    10,
+    10
+   ],
+   "examples": [
+    {
+     "depth": 20,
+     "state": [
+      0,
+      10,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 10,
+     "ports": 21,
+     "deficit": 9,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 4
+    },
+    {
+     "depth": 20,
+     "state": [
+      0,
+      10,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 10,
+     "ports": 21,
+     "deficit": 9,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 4
+    },
+    {
+     "depth": 20,
+     "state": [
+      0,
+      10,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 10,
+     "ports": 21,
+     "deficit": 9,
+     "supplied_bound": 92,
+     "analytic_fallback": 120,
+     "margin_to_target": 4
+    }
+   ]
+  },
+  {
+   "rung": "0|11|0|0|0|1",
+   "cap": 99,
+   "p_argmin_wins": 109347,
+   "useful_prunes": 1710,
+   "redundant_prunes": 0,
+   "wins_without_prune": 107637,
+   "depth_range": [
+    1,
+    16
+   ],
+   "d_star_range": [
+    11,
+    11
+   ],
+   "examples": [
+    {
+     "depth": 16,
+     "state": [
+      0,
+      11,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 11,
+     "ports": 17,
+     "deficit": 8,
+     "supplied_bound": 99,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 16,
+     "state": [
+      0,
+      11,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 11,
+     "ports": 17,
+     "deficit": 8,
+     "supplied_bound": 99,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 16,
+     "state": [
+      0,
+      11,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 11,
+     "ports": 17,
+     "deficit": 8,
+     "supplied_bound": 99,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    }
+   ]
+  },
+  {
+   "rung": "0|12|0|0|0|1",
+   "cap": 103,
+   "p_argmin_wins": 65400,
+   "useful_prunes": 447,
+   "redundant_prunes": 0,
+   "wins_without_prune": 64953,
+   "depth_range": [
+    2,
+    12
+   ],
+   "d_star_range": [
+    12,
+    12
+   ],
+   "examples": [
+    {
+     "depth": 12,
+     "state": [
+      0,
+      12,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 12,
+     "ports": 13,
+     "deficit": 7,
+     "supplied_bound": 103,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 12,
+     "state": [
+      0,
+      12,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 12,
+     "ports": 13,
+     "deficit": 7,
+     "supplied_bound": 103,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 12,
+     "state": [
+      0,
+      12,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 12,
+     "ports": 13,
+     "deficit": 7,
+     "supplied_bound": 103,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    }
+   ]
+  },
+  {
+   "rung": "0|13|0|0|0|1",
+   "cap": 103,
+   "p_argmin_wins": 36602,
+   "useful_prunes": 146,
+   "redundant_prunes": 0,
+   "wins_without_prune": 36456,
+   "depth_range": [
+    3,
+    8
+   ],
+   "d_star_range": [
+    13,
+    13
+   ],
+   "examples": [
+    {
+     "depth": 8,
+     "state": [
+      0,
+      13,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 13,
+     "ports": 9,
+     "deficit": 6,
+     "supplied_bound": 103,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    },
+    {
+     "depth": 8,
+     "state": [
+      0,
+      13,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 13,
+     "ports": 9,
+     "deficit": 6,
+     "supplied_bound": 103,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    },
+    {
+     "depth": 8,
+     "state": [
+      0,
+      13,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 13,
+     "ports": 9,
+     "deficit": 6,
+     "supplied_bound": 103,
+     "analytic_fallback": 120,
+     "margin_to_target": 5
+    }
+   ]
+  },
+  {
+   "rung": "0|14|0|0|0|1",
+   "cap": 106,
+   "p_argmin_wins": 21296,
+   "useful_prunes": 96,
+   "redundant_prunes": 0,
+   "wins_without_prune": 21200,
+   "depth_range": [
+    4,
+    9
+   ],
+   "d_star_range": [
+    14,
+    14
+   ],
+   "examples": [
+    {
+     "depth": 9,
+     "state": [
+      0,
+      14,
+      0,
+      0,
+      0,
+      1
+     ],
+     "d_star": 14,
+     "ports": 10,
+     "deficit": 5,
+     "supplied_bound": 106,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 9,
+     "state": [
+      0,
+      14,
+      0,
+      0,
+      0,
+      0
+     ],
+     "d_star": 14,
+     "ports": 10,
+     "deficit": 5,
+     "supplied_bound": 106,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    },
+    {
+     "depth": 9,
+     "state": [
+      0,
+      14,
+      0,
+      0,
+      0,
+      0
+     ],
+     "d_star": 14,
+     "ports": 10,
+     "deficit": 5,
+     "supplied_bound": 106,
+     "analytic_fallback": 120,
+     "margin_to_target": 1
+    }
+   ]
+  }
+ ],
+ "rung_to_useful_prunes": {
+  "0|3|0|0|0|1": 23361,
+  "0|4|0|0|0|1": 18348,
+  "0|5|0|0|0|1": 12427,
+  "0|6|0|0|0|1": 4832,
+  "0|7|0|0|0|1": 2080,
+  "0|8|0|0|0|1": 176,
+  "0|9|0|0|0|1": 85,
+  "0|10|0|0|0|1": 5607,
+  "0|11|0|0|0|1": 1710,
+  "0|12|0|0|0|1": 447,
+  "0|13|0|0|0|1": 146,
+  "0|14|0|0|0|1": 96
+ },
+ "rungs_with_zero_useful_prunes": [],
+ "reading": "a rung matters only where it won the (p) argmin AND the prune fired AND the analytic fallback would not have pruned; argmin wins alone overcount, which is why six H rungs won yet proved removable",
+ "seconds_noncanonical": 261.5,
+ "ok": true
+}
