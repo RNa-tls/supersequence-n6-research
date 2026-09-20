@@ -1,0 +1,116 @@
+{
+ "gate": "per-batch four-way identity, not aggregate totals",
+ "why": "verifier B walks the whole DAG and sums every batch it replays, so its total exceeds the batch under test whenever a dependency is outside the trust table; comparing that total against one batch's count wrongly reports a failure",
+ "cases": [
+  {
+   "tag": "d5",
+   "batch": "r171/certs/extree_lb_b1a10_d5_171.txt.gz",
+   "cells": [
+    {
+     "cell": "1|5|10|0|0|0",
+     "cap": 129,
+     "status": "UPPER_CERTIFIED",
+     "nodes": 250368
+    }
+   ],
+   "verifier_a_nodes": 250368,
+   "verifier_b_nodes_for_this_batch": 250368,
+   "generator_proof_nodes": 250368,
+   "verifier_b_histogram_checks": 250368,
+   "four_way_identical": true,
+   "verifier_a_all_ok": true,
+   "verifier_b_all_ok": true,
+   "histogram_mismatches": 0,
+   "verifier_b_extra_replay_nodes": 6423292,
+   "verifier_b_also_replayed": [
+    "r171/certs/extree_probe_b1a10_171.txt.gz"
+   ],
+   "status": "GENUINELY_CERTIFIED"
+  },
+  {
+   "tag": "d7",
+   "batch": "r171/certs/extree_lb_b1a10_d7_171.txt.gz",
+   "cells": [
+    {
+     "cell": "1|7|8|0|0|0",
+     "cap": 123,
+     "status": "UPPER_CERTIFIED",
+     "nodes": 3771054
+    }
+   ],
+   "verifier_a_nodes": 3771054,
+   "verifier_b_nodes_for_this_batch": 3771054,
+   "generator_proof_nodes": 3771054,
+   "verifier_b_histogram_checks": 3771054,
+   "four_way_identical": true,
+   "verifier_a_all_ok": true,
+   "verifier_b_all_ok": true,
+   "histogram_mismatches": 0,
+   "verifier_b_extra_replay_nodes": 6423292,
+   "verifier_b_also_replayed": [
+    "r171/certs/extree_probe_b1a10_171.txt.gz"
+   ],
+   "status": "GENUINELY_CERTIFIED"
+  },
+  {
+   "tag": "lb1",
+   "batch": "r171/certs/extree_lb_batch1_171.txt.gz",
+   "cells": [
+    {
+     "cell": "0|20|0|0|0|0",
+     "cap": 119,
+     "status": "UPPER_CERTIFIED",
+     "nodes": 1191870
+    }
+   ],
+   "verifier_a_nodes": 1191870,
+   "verifier_b_nodes_for_this_batch": 1191870,
+   "generator_proof_nodes": 1191870,
+   "verifier_b_histogram_checks": 1191870,
+   "four_way_identical": true,
+   "verifier_a_all_ok": true,
+   "verifier_b_all_ok": true,
+   "histogram_mismatches": 0,
+   "verifier_b_extra_replay_nodes": 0,
+   "verifier_b_also_replayed": [],
+   "status": "GENUINELY_CERTIFIED"
+  },
+  {
+   "tag": "rungs",
+   "batch": "r171/certs/extree_probe_b1a10_171.txt.gz",
+   "cells": [
+    {
+     "cell": "1|2|10|0|0|0",
+     "cap": 48,
+     "status": "UPPER_CERTIFIED",
+     "nodes": 356170
+    },
+    {
+     "cell": "1|3|10|0|0|0",
+     "cap": 48,
+     "status": "UPPER_CERTIFIED",
+     "nodes": 1510308
+    },
+    {
+     "cell": "1|4|10|0|0|0",
+     "cap": 61,
+     "status": "UPPER_CERTIFIED",
+     "nodes": 4556814
+    }
+   ],
+   "verifier_a_nodes": 6423292,
+   "verifier_b_nodes_for_this_batch": 6423292,
+   "generator_proof_nodes": 6423292,
+   "verifier_b_histogram_checks": 6423292,
+   "four_way_identical": true,
+   "verifier_a_all_ok": true,
+   "verifier_b_all_ok": true,
+   "histogram_mismatches": 0,
+   "verifier_b_extra_replay_nodes": 0,
+   "verifier_b_also_replayed": [],
+   "status": "GENUINELY_CERTIFIED"
+  }
+ ],
+ "all_genuinely_certified": true,
+ "ok": true
+}
