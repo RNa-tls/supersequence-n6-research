@@ -58,6 +58,38 @@ trust entries require A/B accepted per-batch reports, equal proof/histogram
 counts and matching validator hashes. New target proofs get fresh A/B replay.
 No generated but unverified object is made a predecessor.
 
+## Measured outcome of the first investment
+
+The three direct 2,000,000-node trials all reached their caps. Exact discovery
+of `1|2|5|1|0|0` also reached its 1,000,000-node cap; no exact value was inferred.
+A bounded upper-bound trial at d=2, bound 80, reached 200,000 nodes. A shallower
+helper `1|1|5|1|0|0 <= 64` then completed with 122,892 proof nodes. Both independent
+validators accepted it, with 122,892 histogram checks and no mismatch. This is
+an upper bound, not a discovered exact maximum, and is not one of the 35 targets.
+
+Using that accepted helper, all three selected targets again reached a smaller
+200,000-node measurement cap (200,001 attempted visits each). The helper was
+actually used 2,448 times on the first target, and zero times in the measured
+prefixes of the other two. No family-wide speedup or amortization is established;
+the unequal direct/invested caps cannot establish a total-cost comparison.
+The investment files are completed measurements, not completed target proofs.
+
+The regenerated progress ledger therefore remains **5/35 jointly usable**, with
+30 targets remaining, one new auxiliary helper, and zero new load-bearing
+certificates. Direct evaluation of J still closes 180 exposed rows, with 1,607
+strict rows and two equality rows in the full census, without historical basis
+fallback. This conditional sufficiency does not certify the missing bounds.
+
+All seven production regression tests passed, including a synthetic genuinely
+three-way forbidden interaction which cannot be certified by a pair graph.
+No search remains active in this checkpoint. The next bounded investment, if
+continued, should test whether the accepted shallow helper makes the d=2 upper
+bound affordable before building any further helper ladder; none is launched
+here. Node caps do not establish impossibility or helper necessity.
+
+Checkpoint verdict: **ROUND171_J_PRODUCTION_BLOCKED** (production incomplete
+at the measured budgets, not a mathematical obstruction).
+
 Regression checks reject both singleton-only and pair-only projections of the
 real endpoint evidence. A valid production vector still needs all thirty new
 upper bounds proved: feasibility of J alone is not theorem completion.
