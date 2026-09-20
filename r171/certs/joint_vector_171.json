@@ -1,0 +1,677 @@
+{
+ "frozen_inputs": {
+  "r170/certs/basis_170.json": "6907c113336766196c73e5457cf4f04157c69ded89803911da3e6d9855bf30ea",
+  "r169/certs/p1_closure_169.json": "9e0269a080597cdad72b044b7eb149fcc18df0fa52a8ef69e8c0639503ab375f",
+  "r171/certs/remaining_171.json": "4c8793e35623575e2a4d3ea73aa015fd04bc4036d06afc5032d69b5f9357745f"
+ },
+ "basis_size": 35,
+ "exposed_rows": 180,
+ "monotonicity": {
+  "nested_pairs": 30,
+  "violations": [],
+  "downward_closed": true,
+  "means": "raising a bound only ever opens rows, so the feasible set is downward closed and a monotone search is sound"
+ },
+ "derivation_inputs": "each coordinate's floor is its own analytic fallback and the descent runs downward from there; no historical capacity is used to derive the vector",
+ "rows_constraining_the_basis": 73,
+ "coupled_rows": 4,
+ "single_cell_rows": 69,
+ "interaction_components": [
+  {
+   "size": 3,
+   "cells": [
+    "1|15|0|0|0|0",
+    "2|10|0|0|0|0",
+    "3|5|0|0|0|0"
+   ]
+  },
+  {
+   "size": 2,
+   "cells": [
+    "1|6|3|0|1|0",
+    "2|1|3|0|1|0"
+   ]
+  },
+  {
+   "size": 2,
+   "cells": [
+    "1|8|1|0|1|0",
+    "2|3|1|0|1|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "0|15|0|0|0|1"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "0|18|2|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "0|20|0|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|10|0|0|0|1"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|11|4|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|13|2|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|4|5|0|1|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|4|5|1|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|5|0|0|0|2"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|5|10|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|6|3|1|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|7|2|0|0|1"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|7|8|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|8|1|1|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "1|9|6|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|0|0|0|0|2"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|1|3|1|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|2|8|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|3|1|1|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|3|2|0|0|1"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|4|6|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|5|0|0|0|1"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|6|4|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "2|8|2|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "3|0|0|0|0|1"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "3|1|4|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "3|3|2|0|0|0"
+   ]
+  },
+  {
+   "size": 1,
+   "cells": [
+    "4|0|0|0|0|0"
+   ]
+  }
+ ],
+ "component_count": 31,
+ "largest_component": 3,
+ "coupled_cell_count": 7,
+ "singleton_cells": [
+  "0|15|0|0|0|1",
+  "0|18|2|0|0|0",
+  "0|20|0|0|0|0",
+  "1|10|0|0|0|1",
+  "1|11|4|0|0|0",
+  "1|13|2|0|0|0",
+  "1|4|5|0|1|0",
+  "1|4|5|1|0|0",
+  "1|5|0|0|0|2",
+  "1|5|10|0|0|0",
+  "1|6|3|1|0|0",
+  "1|7|2|0|0|1",
+  "1|7|8|0|0|0",
+  "1|8|1|1|0|0",
+  "1|9|6|0|0|0",
+  "2|0|0|0|0|2",
+  "2|1|3|1|0|0",
+  "2|2|8|0|0|0",
+  "2|3|1|1|0|0",
+  "2|3|2|0|0|1",
+  "2|4|6|0|0|0",
+  "2|5|0|0|0|1",
+  "2|6|4|0|0|0",
+  "2|8|2|0|0|0",
+  "3|0|0|0|0|1",
+  "3|1|4|0|0|0",
+  "3|3|2|0|0|0",
+  "4|0|0|0|0|0"
+ ],
+ "observed_pair_same_component": false,
+ "joint_safe_vector": {
+  "0|15|0|0|0|1": 115,
+  "0|18|2|0|0|0": 117,
+  "0|20|0|0|0|0": 119,
+  "1|4|5|0|1|0": 106,
+  "1|4|5|1|0|0": 121,
+  "1|5|0|0|0|2": 111,
+  "1|5|10|0|0|0": 129,
+  "1|6|3|0|1|0": 76,
+  "1|6|3|1|0|0": 111,
+  "1|7|2|0|0|1": 103,
+  "1|7|8|0|0|0": 119,
+  "1|8|1|0|1|0": 87,
+  "1|8|1|1|0|0": 105,
+  "1|9|6|0|0|0": 95,
+  "1|10|0|0|0|1": 111,
+  "1|11|4|0|0|0": 99,
+  "1|13|2|0|0|0": 117,
+  "1|15|0|0|0|0": 107,
+  "2|0|0|0|0|2": 119,
+  "2|1|3|0|1|0": 104,
+  "2|1|3|1|0|0": 119,
+  "2|2|8|0|0|0": 123,
+  "2|3|1|0|1|0": 98,
+  "2|3|1|1|0|0": 113,
+  "2|3|2|0|0|1": 91,
+  "2|4|6|0|0|0": 113,
+  "2|5|0|0|0|1": 115,
+  "2|6|4|0|0|0": 95,
+  "2|8|2|0|0|0": 117,
+  "2|10|0|0|0|0": 107,
+  "3|0|0|0|0|1": 99,
+  "3|1|4|0|0|0": 119,
+  "3|3|2|0|0|0": 103,
+  "3|5|0|0|0|0": 115,
+  "4|0|0|0|0|0": 119
+ },
+ "joint_vector_feasible": true,
+ "coordinate_ceilings_with_others_fixed": {
+  "0|15|0|0|0|1": 115,
+  "0|18|2|0|0|0": 117,
+  "0|20|0|0|0|0": 119,
+  "1|4|5|0|1|0": 106,
+  "1|4|5|1|0|0": 121,
+  "1|5|0|0|0|2": 111,
+  "1|5|10|0|0|0": 129,
+  "1|6|3|0|1|0": 76,
+  "1|6|3|1|0|0": 111,
+  "1|7|2|0|0|1": 103,
+  "1|7|8|0|0|0": 119,
+  "1|8|1|0|1|0": 87,
+  "1|8|1|1|0|0": 105,
+  "1|9|6|0|0|0": 95,
+  "1|10|0|0|0|1": 111,
+  "1|11|4|0|0|0": 99,
+  "1|13|2|0|0|0": 117,
+  "1|15|0|0|0|0": 107,
+  "2|0|0|0|0|2": 119,
+  "2|1|3|0|1|0": 104,
+  "2|1|3|1|0|0": 119,
+  "2|2|8|0|0|0": 123,
+  "2|3|1|0|1|0": 98,
+  "2|3|1|1|0|0": 113,
+  "2|3|2|0|0|1": 91,
+  "2|4|6|0|0|0": 113,
+  "2|5|0|0|0|1": 115,
+  "2|6|4|0|0|0": 95,
+  "2|8|2|0|0|0": 117,
+  "2|10|0|0|0|0": 107,
+  "3|0|0|0|0|1": 99,
+  "3|1|4|0|0|0": 119,
+  "3|3|2|0|0|0": 103,
+  "3|5|0|0|0|0": 115,
+  "4|0|0|0|0|0": 119
+ },
+ "at_its_ceiling": [
+  "0|15|0|0|0|1",
+  "0|18|2|0|0|0",
+  "0|20|0|0|0|0",
+  "1|4|5|0|1|0",
+  "1|4|5|1|0|0",
+  "1|5|0|0|0|2",
+  "1|5|10|0|0|0",
+  "1|6|3|0|1|0",
+  "1|6|3|1|0|0",
+  "1|7|2|0|0|1",
+  "1|7|8|0|0|0",
+  "1|8|1|0|1|0",
+  "1|8|1|1|0|0",
+  "1|9|6|0|0|0",
+  "1|10|0|0|0|1",
+  "1|11|4|0|0|0",
+  "1|13|2|0|0|0",
+  "1|15|0|0|0|0",
+  "2|0|0|0|0|2",
+  "2|1|3|0|1|0",
+  "2|1|3|1|0|0",
+  "2|2|8|0|0|0",
+  "2|3|1|0|1|0",
+  "2|3|1|1|0|0",
+  "2|3|2|0|0|1",
+  "2|4|6|0|0|0",
+  "2|5|0|0|0|1",
+  "2|6|4|0|0|0",
+  "2|8|2|0|0|0",
+  "2|10|0|0|0|0",
+  "3|0|0|0|0|1",
+  "3|1|4|0|0|0",
+  "3|3|2|0|0|0",
+  "3|5|0|0|0|0",
+  "4|0|0|0|0|0"
+ ],
+ "comparison": [
+  {
+   "cell": "0|15|0|0|0|1",
+   "individual_safe_bound": null,
+   "joint_safe_bound": 115,
+   "ceiling_with_others_fixed": 115,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "0|18|2|0|0|0",
+   "individual_safe_bound": null,
+   "joint_safe_bound": 117,
+   "ceiling_with_others_fixed": 117,
+   "historical_capacity_DIAGNOSTIC_ONLY": 107,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "0|20|0|0|0|0",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 119,
+   "ceiling_with_others_fixed": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|4|5|0|1|0",
+   "individual_safe_bound": 106,
+   "joint_safe_bound": 106,
+   "ceiling_with_others_fixed": 106,
+   "historical_capacity_DIAGNOSTIC_ONLY": 61,
+   "analytic_fallback": 126,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|4|5|1|0|0",
+   "individual_safe_bound": 121,
+   "joint_safe_bound": 121,
+   "ceiling_with_others_fixed": 121,
+   "historical_capacity_DIAGNOSTIC_ONLY": 66,
+   "analytic_fallback": 126,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|5|0|0|0|2",
+   "individual_safe_bound": 111,
+   "joint_safe_bound": 111,
+   "ceiling_with_others_fixed": 111,
+   "historical_capacity_DIAGNOSTIC_ONLY": 101,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|5|10|0|0|0",
+   "individual_safe_bound": 129,
+   "joint_safe_bound": 129,
+   "ceiling_with_others_fixed": 129,
+   "historical_capacity_DIAGNOSTIC_ONLY": 61,
+   "analytic_fallback": 130,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|6|3|0|1|0",
+   "individual_safe_bound": 104,
+   "joint_safe_bound": 76,
+   "ceiling_with_others_fixed": 76,
+   "historical_capacity_DIAGNOSTIC_ONLY": 74,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "1|6|3|1|0|0",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 111,
+   "ceiling_with_others_fixed": 111,
+   "historical_capacity_DIAGNOSTIC_ONLY": 79,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "1|7|2|0|0|1",
+   "individual_safe_bound": 103,
+   "joint_safe_bound": 103,
+   "ceiling_with_others_fixed": 103,
+   "historical_capacity_DIAGNOSTIC_ONLY": 94,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|7|8|0|0|0",
+   "individual_safe_bound": 123,
+   "joint_safe_bound": 119,
+   "ceiling_with_others_fixed": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 74,
+   "analytic_fallback": 128,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "1|8|1|0|1|0",
+   "individual_safe_bound": 102,
+   "joint_safe_bound": 87,
+   "ceiling_with_others_fixed": 87,
+   "historical_capacity_DIAGNOSTIC_ONLY": 82,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "1|8|1|1|0|0",
+   "individual_safe_bound": 117,
+   "joint_safe_bound": 105,
+   "ceiling_with_others_fixed": 105,
+   "historical_capacity_DIAGNOSTIC_ONLY": 87,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "1|9|6|0|0|0",
+   "individual_safe_bound": 95,
+   "joint_safe_bound": 95,
+   "ceiling_with_others_fixed": 95,
+   "historical_capacity_DIAGNOSTIC_ONLY": 87,
+   "analytic_fallback": 126,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|10|0|0|0|1",
+   "individual_safe_bound": 111,
+   "joint_safe_bound": 111,
+   "ceiling_with_others_fixed": 111,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|11|4|0|0|0",
+   "individual_safe_bound": 99,
+   "joint_safe_bound": 99,
+   "ceiling_with_others_fixed": 99,
+   "historical_capacity_DIAGNOSTIC_ONLY": 99,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|13|2|0|0|0",
+   "individual_safe_bound": 117,
+   "joint_safe_bound": 117,
+   "ceiling_with_others_fixed": 117,
+   "historical_capacity_DIAGNOSTIC_ONLY": 102,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "1|15|0|0|0|0",
+   "individual_safe_bound": 115,
+   "joint_safe_bound": 107,
+   "ceiling_with_others_fixed": 107,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "2|0|0|0|0|2",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 119,
+   "ceiling_with_others_fixed": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 90,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|1|3|0|1|0",
+   "individual_safe_bound": 104,
+   "joint_safe_bound": 104,
+   "ceiling_with_others_fixed": 104,
+   "historical_capacity_DIAGNOSTIC_ONLY": 54,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|1|3|1|0|0",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 119,
+   "ceiling_with_others_fixed": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 54,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|2|8|0|0|0",
+   "individual_safe_bound": 123,
+   "joint_safe_bound": 123,
+   "ceiling_with_others_fixed": 123,
+   "historical_capacity_DIAGNOSTIC_ONLY": 63,
+   "analytic_fallback": 128,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|3|1|0|1|0",
+   "individual_safe_bound": 102,
+   "joint_safe_bound": 98,
+   "ceiling_with_others_fixed": 98,
+   "historical_capacity_DIAGNOSTIC_ONLY": 67,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "2|3|1|1|0|0",
+   "individual_safe_bound": 117,
+   "joint_safe_bound": 113,
+   "ceiling_with_others_fixed": 113,
+   "historical_capacity_DIAGNOSTIC_ONLY": 68,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "2|3|2|0|0|1",
+   "individual_safe_bound": 91,
+   "joint_safe_bound": 91,
+   "ceiling_with_others_fixed": 91,
+   "historical_capacity_DIAGNOSTIC_ONLY": 83,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|4|6|0|0|0",
+   "individual_safe_bound": 121,
+   "joint_safe_bound": 113,
+   "ceiling_with_others_fixed": 113,
+   "historical_capacity_DIAGNOSTIC_ONLY": 76,
+   "analytic_fallback": 126,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "2|5|0|0|0|1",
+   "individual_safe_bound": 115,
+   "joint_safe_bound": 115,
+   "ceiling_with_others_fixed": 115,
+   "historical_capacity_DIAGNOSTIC_ONLY": 96,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|6|4|0|0|0",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 95,
+   "ceiling_with_others_fixed": 95,
+   "historical_capacity_DIAGNOSTIC_ONLY": 89,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "2|8|2|0|0|0",
+   "individual_safe_bound": 117,
+   "joint_safe_bound": 117,
+   "ceiling_with_others_fixed": 117,
+   "historical_capacity_DIAGNOSTIC_ONLY": 102,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "2|10|0|0|0|0",
+   "individual_safe_bound": 115,
+   "joint_safe_bound": 107,
+   "ceiling_with_others_fixed": 107,
+   "historical_capacity_DIAGNOSTIC_ONLY": 100,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "3|0|0|0|0|1",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 99,
+   "ceiling_with_others_fixed": 99,
+   "historical_capacity_DIAGNOSTIC_ONLY": 85,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "3|1|4|0|0|0",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 119,
+   "ceiling_with_others_fixed": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 65,
+   "analytic_fallback": 124,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "3|3|2|0|0|0",
+   "individual_safe_bound": 117,
+   "joint_safe_bound": 103,
+   "ceiling_with_others_fixed": 103,
+   "historical_capacity_DIAGNOSTIC_ONLY": 78,
+   "analytic_fallback": 122,
+   "individual_exceeds_joint": true
+  },
+  {
+   "cell": "3|5|0|0|0|0",
+   "individual_safe_bound": 115,
+   "joint_safe_bound": 115,
+   "ceiling_with_others_fixed": 115,
+   "historical_capacity_DIAGNOSTIC_ONLY": 91,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  },
+  {
+   "cell": "4|0|0|0|0|0",
+   "individual_safe_bound": 119,
+   "joint_safe_bound": 119,
+   "ceiling_with_others_fixed": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 80,
+   "analytic_fallback": 120,
+   "individual_exceeds_joint": false
+  }
+ ],
+ "maximality_claim": "this vector is coordinatewise maximal given the others: no single coordinate can rise by one. That is weaker than a global optimum and is not claimed to be one",
+ "seconds_noncanonical": 456.6,
+ "ok": true
+}
