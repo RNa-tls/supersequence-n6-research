@@ -1,0 +1,1056 @@
+{
+ "family": "b1_a10",
+ "shallow_investment_proof_nodes": 6423292,
+ "helper_rungs": {
+  "1|2|10|0|0|0": 48,
+  "1|3|10|0|0|0": 48,
+  "1|4|10|0|0|0": 61
+ },
+ "node_cap": 40000000,
+ "targets_tested": 5,
+ "unlocked_by_shallow_investment": [
+  "1|7|8|0|0|0"
+ ],
+ "unlocked_count": 1,
+ "rows": [
+  {
+   "variant": "A_no_investment",
+   "cell": "1|7|8|0|0|0",
+   "safe_bound_S": 123,
+   "extree_target": 124,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 847.6,
+   "trace_reproduces_plain": true,
+   "p_leaves": 1924568,
+   "states_on_analytic_fallback": 8129188,
+   "states_with_a_dominator": 1924571,
+   "fallback_fraction": 0.8086,
+   "per_rung": [],
+   "seconds_traced": 865.4
+  },
+  {
+   "variant": "B_shallow_rungs",
+   "cell": "1|7|8|0|0|0",
+   "safe_bound_S": 123,
+   "extree_target": 124,
+   "completed": true,
+   "proof_nodes": 3771054,
+   "search_nodes": 3771054,
+   "node_cap": 40000000,
+   "detail": null,
+   "seconds": 78.6,
+   "trace_reproduces_plain": true,
+   "p_leaves": 3008131,
+   "states_on_analytic_fallback": 751272,
+   "states_with_a_dominator": 3008131,
+   "fallback_fraction": 0.1998,
+   "per_rung": [
+    {
+     "rung": "1|2|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 1938193,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 1938193,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 30,
+     "d_star_range": [
+      1,
+      2
+     ],
+     "examples": [
+      {
+       "depth": 30,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 30,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 30,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|3|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 720242,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 720242,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 31,
+     "d_star_range": [
+      3,
+      3
+     ],
+     "examples": [
+      {
+       "depth": 31,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 31,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 31,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|4|10|0|0|0",
+     "cap": 61,
+     "useful_prunes": 348478,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 348478,
+     "first_useful_depth": 27,
+     "d_star_range": [
+      4,
+      4
+     ],
+     "examples": [
+      {
+       "depth": 27,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 27,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 27,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      }
+     ]
+    }
+   ],
+   "seconds_traced": 83.1
+  },
+  {
+   "variant": "A_no_investment",
+   "cell": "1|9|6|0|0|0",
+   "safe_bound_S": 95,
+   "extree_target": 96,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 854.3,
+   "trace_reproduces_plain": true,
+   "p_leaves": 4977770,
+   "states_on_analytic_fallback": 7513078,
+   "states_with_a_dominator": 5581525,
+   "fallback_fraction": 0.5738,
+   "per_rung": [],
+   "seconds_traced": 880.5
+  },
+  {
+   "variant": "B_shallow_rungs",
+   "cell": "1|9|6|0|0|0",
+   "safe_bound_S": 95,
+   "extree_target": 96,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 910.5,
+   "trace_reproduces_plain": true,
+   "p_leaves": 9748758,
+   "states_on_analytic_fallback": 3909046,
+   "states_with_a_dominator": 14607897,
+   "fallback_fraction": 0.2111,
+   "per_rung": [
+    {
+     "rung": "1|2|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 6112297,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 6112297,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 28,
+     "d_star_range": [
+      0,
+      2
+     ],
+     "examples": [
+      {
+       "depth": 28,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 28,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 28,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|3|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 2295705,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 1815451,
+     "exclusively_this_rung": 480254,
+     "first_useful_depth": 29,
+     "d_star_range": [
+      3,
+      3
+     ],
+     "examples": [
+      {
+       "depth": 29,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 29,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 29,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|4|10|0|0|0",
+     "cap": 61,
+     "useful_prunes": 631137,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 631137,
+     "first_useful_depth": 25,
+     "d_star_range": [
+      4,
+      4
+     ],
+     "examples": [
+      {
+       "depth": 25,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 25,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 25,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      }
+     ]
+    }
+   ],
+   "seconds_traced": 955.8
+  },
+  {
+   "variant": "A_no_investment",
+   "cell": "1|11|4|0|0|0",
+   "safe_bound_S": 99,
+   "extree_target": 100,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 892.0,
+   "trace_reproduces_plain": true,
+   "p_leaves": 16259712,
+   "states_on_analytic_fallback": 6209061,
+   "states_with_a_dominator": 18435840,
+   "fallback_fraction": 0.2519,
+   "per_rung": [],
+   "seconds_traced": 914.9
+  },
+  {
+   "variant": "B_shallow_rungs",
+   "cell": "1|11|4|0|0|0",
+   "safe_bound_S": 99,
+   "extree_target": 100,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 911.7,
+   "trace_reproduces_plain": true,
+   "p_leaves": 19515538,
+   "states_on_analytic_fallback": 5078057,
+   "states_with_a_dominator": 23230321,
+   "fallback_fraction": 0.1794,
+   "per_rung": [
+    {
+     "rung": "1|2|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 7730868,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 7730868,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 26,
+     "d_star_range": [
+      1,
+      2
+     ],
+     "examples": [
+      {
+       "depth": 26,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 26,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 26,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|3|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 4345987,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 4318998,
+     "exclusively_this_rung": 26989,
+     "first_useful_depth": 47,
+     "d_star_range": [
+      3,
+      3
+     ],
+     "examples": [
+      {
+       "depth": 47,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 42,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 42,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|4|10|0|0|0",
+     "cap": 61,
+     "useful_prunes": 1085641,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 1085641,
+     "first_useful_depth": 23,
+     "d_star_range": [
+      4,
+      4
+     ],
+     "examples": [
+      {
+       "depth": 23,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 23,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 23,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      }
+     ]
+    }
+   ],
+   "seconds_traced": 960.4
+  },
+  {
+   "variant": "A_no_investment",
+   "cell": "1|13|2|0|0|0",
+   "safe_bound_S": 117,
+   "extree_target": 118,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 896.5,
+   "trace_reproduces_plain": true,
+   "p_leaves": 30821082,
+   "states_on_analytic_fallback": 7558317,
+   "states_with_a_dominator": 31502265,
+   "fallback_fraction": 0.1935,
+   "per_rung": [],
+   "seconds_traced": 906.5
+  },
+  {
+   "variant": "B_shallow_rungs",
+   "cell": "1|13|2|0|0|0",
+   "safe_bound_S": 117,
+   "extree_target": 118,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 879.8,
+   "trace_reproduces_plain": true,
+   "p_leaves": 30958528,
+   "states_on_analytic_fallback": 7582732,
+   "states_with_a_dominator": 31608084,
+   "fallback_fraction": 0.1935,
+   "per_rung": [
+    {
+     "rung": "1|2|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 5273548,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 5273548,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 24,
+     "d_star_range": [
+      1,
+      2
+     ],
+     "examples": [
+      {
+       "depth": 24,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 24,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 24,
+       "d_star": 2,
+       "state": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 48,
+       "analytic_fallback": 121,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|3|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 7957183,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 7957183,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 50,
+     "d_star_range": [
+      3,
+      3
+     ],
+     "examples": [
+      {
+       "depth": 50,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 50,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 50,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|4|10|0|0|0",
+     "cap": 61,
+     "useful_prunes": 10584,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 10584,
+     "first_useful_depth": 31,
+     "d_star_range": [
+      4,
+      4
+     ],
+     "examples": [
+      {
+       "depth": 31,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 31,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      },
+      {
+       "depth": 31,
+       "d_star": 4,
+       "state": [
+        1,
+        4,
+        2,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 61,
+       "second_best_bound": 122,
+       "analytic_fallback": 122,
+       "another_rung_would_prune": false
+      }
+     ]
+    }
+   ],
+   "seconds_traced": 912.1
+  },
+  {
+   "variant": "A_no_investment",
+   "cell": "1|15|0|0|0|0",
+   "safe_bound_S": 115,
+   "extree_target": 116,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 1241.6,
+   "trace_reproduces_plain": true,
+   "p_leaves": 18539196,
+   "states_on_analytic_fallback": 2157341,
+   "states_with_a_dominator": 28647767,
+   "fallback_fraction": 0.07,
+   "per_rung": [],
+   "seconds_traced": 1282.7
+  },
+  {
+   "variant": "B_shallow_rungs",
+   "cell": "1|15|0|0|0|0",
+   "safe_bound_S": 115,
+   "extree_target": 116,
+   "completed": false,
+   "proof_nodes": 0,
+   "search_nodes": 40000001,
+   "node_cap": 40000000,
+   "detail": "node cap 40000000 reached",
+   "seconds": 1254.6,
+   "trace_reproduces_plain": true,
+   "p_leaves": 18539196,
+   "states_on_analytic_fallback": 2157341,
+   "states_with_a_dominator": 28647767,
+   "fallback_fraction": 0.07,
+   "per_rung": [
+    {
+     "rung": "1|2|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 0,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": null,
+     "d_star_range": null,
+     "examples": []
+    },
+    {
+     "rung": "1|3|10|0|0|0",
+     "cap": 48,
+     "useful_prunes": 2540928,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 2540928,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": 53,
+     "d_star_range": [
+      3,
+      3
+     ],
+     "examples": [
+      {
+       "depth": 53,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 53,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      },
+      {
+       "depth": 48,
+       "d_star": 3,
+       "state": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+       ],
+       "supplied_bound": 48,
+       "second_best_bound": 52,
+       "analytic_fallback": 120,
+       "another_rung_would_prune": true
+      }
+     ]
+    },
+    {
+     "rung": "1|4|10|0|0|0",
+     "cap": 61,
+     "useful_prunes": 0,
+     "redundant_vs_analytic_fallback": 0,
+     "another_rung_could_substitute": 0,
+     "exclusively_this_rung": 0,
+     "first_useful_depth": null,
+     "d_star_range": null,
+     "examples": []
+    }
+   ],
+   "seconds_traced": 1284.2
+  }
+ ],
+ "complete": true,
+ "seconds_noncanonical": 17812.8,
+ "ok": true
+}
