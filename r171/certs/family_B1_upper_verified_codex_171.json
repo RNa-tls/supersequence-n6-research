@@ -1,0 +1,82 @@
+{
+ "A": {
+  "ok": true,
+  "path": "r171/certs/extree_J_B1_upper_d1_codex_171.txt.gz",
+  "sha256": "59a300e3a173d8e6b7301c5f02e6bcc853abd2adaced4c9251143db549c05a26",
+  "plain_sha256": "0a85e9bb1ddcf7f12a7bfdfd0f7e2185dab0f31c605dbcad8f30fd52a5ae622f",
+  "declared_dependencies": 129,
+  "tokens": 122900,
+  "cells": 1,
+  "nodes": 122892,
+  "rows": [
+   {
+    "cell": "1|1|5|1|0|0",
+    "cap": 64,
+    "nodes": 122892,
+    "status": "UPPER_CERTIFIED",
+    "detail": null
+   }
+  ]
+ },
+ "B": {
+  "ok": true,
+  "path": "r171/certs/extree_J_B1_upper_d1_codex_171.txt.gz",
+  "format": "L6-EXTREE-3",
+  "sha256": "59a300e3a173d8e6b7301c5f02e6bcc853abd2adaced4c9251143db549c05a26",
+  "plain_sha256": "0a85e9bb1ddcf7f12a7bfdfd0f7e2185dab0f31c605dbcad8f30fd52a5ae622f",
+  "rows": [
+   {
+    "cell": "1|1|5|1|0|0",
+    "cap": 64,
+    "nodes": 122892,
+    "hist_checks": 122892,
+    "verified": true,
+    "detail": null
+   }
+  ],
+  "own_cells": [
+   "1|1|5|1|0|0"
+  ],
+  "refs": [
+   "r164/certs/extree_prefix_164.txt.gz",
+   "r166/certs/extree_batch2_166.txt.gz",
+   "r166/certs/extree_batch3_166.txt.gz",
+   "r168/certs/extree_batch1_168.txt.gz",
+   "r170/certs/extree_ladder_h_170.txt.gz",
+   "r170/certs/extree_ladder_a2_170.txt.gz",
+   "r170/certs/extree_target_h_170.txt.gz",
+   "r170/certs/extree_target_a2_170.txt.gz",
+   "r171/certs/extree_probe_b1a10_171.txt.gz",
+   "r171/certs/extree_lb_batch1_171.txt.gz",
+   "r171/certs/extree_lb_b1a10_d5_171.txt.gz",
+   "r171/certs/extree_lb_b1a10_d7_171.txt.gz",
+   "r171/certs/extree_lb_b1a10_d7_joint119_171.txt.gz"
+  ],
+  "declared_dependencies": 129,
+  "nodes": 122892,
+  "hist_checks": 122892
+ },
+ "source_versions": {
+  "r152/src/extree152.py": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99",
+  "r168/src/verify168.py": "80161f8b3d42bd367fa22e94f6a4c8f12fb3d3c3f9b06a56cc4554f500f75e73",
+  "r168/src/verifyA168.py": "5bd136d218a1907a8a847d382f781785ca180458fc7c3f76de8395c240772878",
+  "r168/src/gen168.py": "d847d18a8423ab3cbdd36812bdd22f7250a535f453e900eb64f1a35dd5018adf",
+  "r171/src/production_j171.py": "5a696d70e99316dcc663e3c4abf241109e284fa3c061ea8859ed38856d9f92ab"
+ },
+ "certificate_sha256": "59a300e3a173d8e6b7301c5f02e6bcc853abd2adaced4c9251143db549c05a26",
+ "status": "DUAL_ACCEPTED",
+ "histogram_mismatches": 0,
+ "J_census": {
+  "exposed_closed": 180,
+  "equality": {
+   "(4, (3, 0, 1, 0, 7, 0, 7, 0, 0, 0, 1))": "EQUALITY",
+   "(4, (4, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0))": "EQUALITY"
+  },
+  "tally": {
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "historical_basis_fallback": false
+ }
+}

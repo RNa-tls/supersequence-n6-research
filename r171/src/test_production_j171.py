@@ -22,6 +22,13 @@ class ProductionRegression(unittest.TestCase):
     def test_pairwise_mutation_rejected(self):
         with self.assertRaises(ValueError):
             verify_projection(self.e,[e for e in self.e['minimal_row_hyperedges'] if len(e['cells'])<=2])
+    def test_three_way_only_system_cannot_be_certified_by_pair_graph(self):
+        synthetic={'minimal_row_hyperedges':[{'row_index':0,'mask':7,'cells':['a','b','c']}],
+                   'assignments':[{'mask':i,'open_rows':[0] if i==7 else []} for i in range(8)]}
+        verify_projection(synthetic,synthetic['minimal_row_hyperedges'])
+        # All singleton and pair probes return safe, yet the all-three vector
+        # is unsafe. Empty projected graph must fail full evidence validation.
+        with self.assertRaises(ValueError):verify_projection(synthetic,[])
     def test_J_is_frozen_not_optimized(self):
         self.assertEqual(self.f['J'],self.e['J'])
         self.assertEqual(self.f['PRODUCTION_VECTOR_J'],'SOUND')
