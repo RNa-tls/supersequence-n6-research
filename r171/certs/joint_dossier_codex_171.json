@@ -1,0 +1,800 @@
+{
+ "status": "JOINT_SAFE_VECTOR_PARTIAL",
+ "endpoint_assignments": 8192,
+ "feasible_assignments": 1,
+ "highest_interaction_order": 3,
+ "minimal_hyperedges": 62,
+ "scalar_assignments_rechecked": 19,
+ "full_J_census": {
+  "STRICTLY_CLOSED": 1607,
+  "EQUALITY": 2
+ },
+ "exposed_closed": 180,
+ "equality_preserved": true,
+ "direct_production_basis_values": "COMPLETE J OVERRIDE; HISTORICAL FALLBACK DISABLED",
+ "certificates": [
+  {
+   "cell": "0|15|0|0|0|1",
+   "cap": 115,
+   "batch": "r170/certs/extree_target_h_170.txt.gz",
+   "sha256": "4bb484b9281bc5ebc411dd5526479aaccd9302274de7c3dc3c97c0a69dd716db",
+   "proof_nodes": 8099282,
+   "reports": {
+    "r170/certs/verification_a_targeth_170.json": "81077a3efb633fe6a02fa3895a5b15534ae59659051cb75016427a2492eecdcc",
+    "r170/certs/verification_b_targeth_170.json": "70df0801b35ba9360cf49af78753286ace05a1c2a7d21f4864507873bdc3aba3"
+   },
+   "status": "PRESERVED_DUAL_VERIFIED_BOUND",
+   "verification_here": "report/source/container/plain/dependency hashes and four-way node agreement; NOT a fresh EXTREE replay",
+   "joint_usability": "JOINTLY_USABLE"
+  },
+  {
+   "cell": "0|18|2|0|0|0",
+   "cap": 117,
+   "batch": "r170/certs/extree_target_a2_170.txt.gz",
+   "sha256": "04eb340a91bc53656b69e8b21bd396f46307537c11fe7f64a5c1da19b5d205e8",
+   "proof_nodes": 218,
+   "reports": {
+    "r170/certs/verification_a_targeta2_170.json": "dca2fa81339cde3dac14227b1306c3cf42206de741cfbb1181d9eb5e8882d0b6",
+    "r170/certs/verification_b_targeta2_170.json": "6f92be724b2223c70fe43c11c9022c68bd7d44c1f6f055ed0771b03c501a4ae7"
+   },
+   "status": "PRESERVED_DUAL_VERIFIED_BOUND",
+   "verification_here": "report/source/container/plain/dependency hashes and four-way node agreement; NOT a fresh EXTREE replay",
+   "joint_usability": "JOINTLY_USABLE"
+  },
+  {
+   "cell": "0|20|0|0|0|0",
+   "cap": 119,
+   "batch": "r171/certs/extree_lb_batch1_171.txt.gz",
+   "sha256": "a4a0cd1134ce7e7188da60872ca54946462b04a1446c6c8b16dfa278df7a4c28",
+   "proof_nodes": 1191870,
+   "reports": {
+    "r171/certs/verification_a_lb1_171.json": "c08f9ca87c98122dd7cee4d7f1d0c918e2873e2c43b40850d4bdbc7a7bd69c4d",
+    "r171/certs/verification_b_lb1_171.json": "e000a856d2257309557c1a88d47d03e24ec27d0432cc9dbd499eca3a71601323"
+   },
+   "status": "PRESERVED_DUAL_VERIFIED_BOUND",
+   "verification_here": "report/source/container/plain/dependency hashes and four-way node agreement; NOT a fresh EXTREE replay",
+   "joint_usability": "JOINTLY_USABLE"
+  },
+  {
+   "cell": "1|5|10|0|0|0",
+   "cap": 129,
+   "batch": "r171/certs/extree_lb_b1a10_d5_171.txt.gz",
+   "sha256": "fdef0c17b3eb9206f6f9871c4f64dc9ca21a34b13a95e3a175aabde3b0209dbb",
+   "proof_nodes": 250368,
+   "reports": {
+    "r171/certs/verification_a_lb_d5_171.json": "e9ef29f0fb2b9ddd4dddf89bcffaa5e47d0fbedcf558e330f93ef99b281eaf77",
+    "r171/certs/verification_b_lb_d5_171.json": "c028d018d55eec563a264848a6310f208d95494d72663dc47e7b8faaa2565cfa"
+   },
+   "status": "PRESERVED_DUAL_VERIFIED_BOUND",
+   "verification_here": "report/source/container/plain/dependency hashes and four-way node agreement; NOT a fresh EXTREE replay",
+   "joint_usability": "JOINTLY_USABLE"
+  },
+  {
+   "cell": "1|7|8|0|0|0",
+   "cap": 123,
+   "batch": "r171/certs/extree_lb_b1a10_d7_171.txt.gz",
+   "sha256": "c0b55c9abfe08dc27bbac6b814826178d6097f500b1b71f9d18e95bd66e71f0f",
+   "proof_nodes": 3771054,
+   "reports": {
+    "r171/certs/verification_a_lb_d7_171.json": "98d19d1db22bde7540f3fba133e34e6292ddc3b4571ea9f4cb9aea46b204abba",
+    "r171/certs/verification_b_lb_d7_171.json": "c7c543a261f54378675edc0fb747e44f7bfbe0340e4f6c8cfc3d198616ab27e4"
+   },
+   "status": "PRESERVED_DUAL_VERIFIED_BOUND",
+   "verification_here": "report/source/container/plain/dependency hashes and four-way node agreement; NOT a fresh EXTREE replay",
+   "joint_usability": "VALID_BUT_NOT_JOINTLY_SUFFICIENT"
+  },
+  {
+   "cell": "1|7|8|0|0|0",
+   "cap": 119,
+   "batch": "r171/certs/extree_lb_b1a10_d7_joint119_171.txt.gz",
+   "sha256": "e1af8ea08c4ac88f529eb551ca747e5f31b7d01d38806b95bfde3af7176bd0cf",
+   "proof_nodes": 3771054,
+   "reports": {
+    "r171/certs/verification_a_d7j_171.json": "71b15d4f9f3562a7cfcf90ff4d0c521f2e8887e5ea0a0318798f966815ed13f1",
+    "r171/certs/verification_b_d7j_171.json": "699f678a543ddcce8fbb0c20229d026115294e11cf4a559efc9011306c7272fa"
+   },
+   "status": "PRESERVED_DUAL_VERIFIED_BOUND",
+   "verification_here": "report/source/container/plain/dependency hashes and four-way node agreement; NOT a fresh EXTREE replay",
+   "joint_usability": "JOINTLY_USABLE"
+  }
+ ],
+ "genuine_distinct_basis_cells": 5,
+ "jointly_usable": 5,
+ "remaining_joint_safe_bounds": 30,
+ "actual_historical_basis_reads_in_J_census": 0,
+ "basis_OPT35": {
+  "status": "FROZEN_IN_EXISTING_UNIVERSE_AND_RULE_SYSTEM",
+  "dependency_sources": {
+   "r170/src/basis170.py": "b00c28151790b6206712d12bf10a0aaeb208101aa7fa01883ccbf0d0df355d47",
+   "r170/src/checkbasis170.py": "d87976f8e3b7e153b5042034c403db071bdbf0961acad48e73c3180e9237e19b",
+   "r169/src/closure169.py": "776e6a5a3d48bbcfbd8f43ba664ff8879a236bf6b138a30ab081f7c2eb54e48a",
+   "r168/src/recheck168.py": "c53d90fe8031124f40623bfc95d6aaaa5bebf525bf03d5282361f999944978cd",
+   "r163/src/hidden163.py": "4e195edfd1db91142610b9851f44e81d116d0a74d3ed8e452a9f99d13fcdfafa"
+  },
+  "depends_on_individual_safe_derivation": false,
+  "not_reoptimized": true
+ },
+ "dossier": [
+  {
+   "cell": "0|15|0|0|0|1",
+   "individual_safe_bound": null,
+   "selected_joint_safe_bound": 115,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "currently_certified_bound": 115,
+   "status": "JOINTLY_USABLE",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "0|18|2|0|0|0",
+   "individual_safe_bound": null,
+   "selected_joint_safe_bound": 117,
+   "historical_capacity_DIAGNOSTIC_ONLY": 107,
+   "currently_certified_bound": 117,
+   "status": "JOINTLY_USABLE",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "0|20|0|0|0|0",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "currently_certified_bound": 119,
+   "status": "JOINTLY_USABLE",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|4|5|0|1|0",
+   "individual_safe_bound": 106,
+   "selected_joint_safe_bound": 106,
+   "historical_capacity_DIAGNOSTIC_ONLY": 61,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|4|5|1|0|0",
+   "individual_safe_bound": 121,
+   "selected_joint_safe_bound": 121,
+   "historical_capacity_DIAGNOSTIC_ONLY": 66,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|5|0|0|0|2",
+   "individual_safe_bound": 111,
+   "selected_joint_safe_bound": 111,
+   "historical_capacity_DIAGNOSTIC_ONLY": 101,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|5|10|0|0|0",
+   "individual_safe_bound": 129,
+   "selected_joint_safe_bound": 129,
+   "historical_capacity_DIAGNOSTIC_ONLY": 61,
+   "currently_certified_bound": 129,
+   "status": "JOINTLY_USABLE",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|6|3|0|1|0",
+   "individual_safe_bound": 104,
+   "selected_joint_safe_bound": 76,
+   "historical_capacity_DIAGNOSTIC_ONLY": 74,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "1|6|3|0|1|0",
+    "safe_at": 76,
+    "first_unsafe": 77,
+    "open_rows": [
+     51,
+     109
+    ]
+   },
+   "endpoint_component": 0,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|6|3|1|0|0",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 111,
+   "historical_capacity_DIAGNOSTIC_ONLY": 79,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "1|6|3|1|0|0",
+    "safe_at": 111,
+    "first_unsafe": 112,
+    "open_rows": [
+     136
+    ]
+   },
+   "endpoint_component": 1,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|7|2|0|0|1",
+   "individual_safe_bound": 103,
+   "selected_joint_safe_bound": 103,
+   "historical_capacity_DIAGNOSTIC_ONLY": 94,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|7|8|0|0|0",
+   "individual_safe_bound": 123,
+   "selected_joint_safe_bound": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 74,
+   "currently_certified_bound": 119,
+   "status": "JOINTLY_USABLE",
+   "ray_breakpoints": {
+    "cell": "1|7|8|0|0|0",
+    "safe_at": 119,
+    "first_unsafe": 120,
+    "open_rows": [
+     173
+    ]
+   },
+   "endpoint_component": 2,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|8|1|0|1|0",
+   "individual_safe_bound": 102,
+   "selected_joint_safe_bound": 87,
+   "historical_capacity_DIAGNOSTIC_ONLY": 82,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "1|8|1|0|1|0",
+    "safe_at": 87,
+    "first_unsafe": 88,
+    "open_rows": [
+     46,
+     104,
+     160
+    ]
+   },
+   "endpoint_component": 0,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|8|1|1|0|0",
+   "individual_safe_bound": 117,
+   "selected_joint_safe_bound": 105,
+   "historical_capacity_DIAGNOSTIC_ONLY": 87,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "1|8|1|1|0|0",
+    "safe_at": 105,
+    "first_unsafe": 106,
+    "open_rows": [
+     126
+    ]
+   },
+   "endpoint_component": 1,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|9|6|0|0|0",
+   "individual_safe_bound": 95,
+   "selected_joint_safe_bound": 95,
+   "historical_capacity_DIAGNOSTIC_ONLY": 87,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|10|0|0|0|1",
+   "individual_safe_bound": 111,
+   "selected_joint_safe_bound": 111,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|11|4|0|0|0",
+   "individual_safe_bound": 99,
+   "selected_joint_safe_bound": 99,
+   "historical_capacity_DIAGNOSTIC_ONLY": 99,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|13|2|0|0|0",
+   "individual_safe_bound": 117,
+   "selected_joint_safe_bound": 117,
+   "historical_capacity_DIAGNOSTIC_ONLY": 102,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "1|15|0|0|0|0",
+   "individual_safe_bound": 115,
+   "selected_joint_safe_bound": 107,
+   "historical_capacity_DIAGNOSTIC_ONLY": 106,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "1|15|0|0|0|0",
+    "safe_at": 107,
+    "first_unsafe": 108,
+    "open_rows": [
+     69,
+     144
+    ]
+   },
+   "endpoint_component": 3,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|0|0|0|0|2",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 90,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|1|3|0|1|0",
+   "individual_safe_bound": 104,
+   "selected_joint_safe_bound": 104,
+   "historical_capacity_DIAGNOSTIC_ONLY": 54,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|1|3|1|0|0",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 54,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|2|8|0|0|0",
+   "individual_safe_bound": 123,
+   "selected_joint_safe_bound": 123,
+   "historical_capacity_DIAGNOSTIC_ONLY": 63,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|3|1|0|1|0",
+   "individual_safe_bound": 102,
+   "selected_joint_safe_bound": 98,
+   "historical_capacity_DIAGNOSTIC_ONLY": 67,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "2|3|1|0|1|0",
+    "safe_at": 98,
+    "first_unsafe": 99,
+    "open_rows": [
+     55
+    ]
+   },
+   "endpoint_component": 0,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|3|1|1|0|0",
+   "individual_safe_bound": 117,
+   "selected_joint_safe_bound": 113,
+   "historical_capacity_DIAGNOSTIC_ONLY": 68,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "2|3|1|1|0|0",
+    "safe_at": 113,
+    "first_unsafe": 114,
+    "open_rows": [
+     57
+    ]
+   },
+   "endpoint_component": 4,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|3|2|0|0|1",
+   "individual_safe_bound": 91,
+   "selected_joint_safe_bound": 91,
+   "historical_capacity_DIAGNOSTIC_ONLY": 83,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|4|6|0|0|0",
+   "individual_safe_bound": 121,
+   "selected_joint_safe_bound": 113,
+   "historical_capacity_DIAGNOSTIC_ONLY": 76,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "2|4|6|0|0|0",
+    "safe_at": 113,
+    "first_unsafe": 114,
+    "open_rows": [
+     90
+    ]
+   },
+   "endpoint_component": 5,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|5|0|0|0|1",
+   "individual_safe_bound": 115,
+   "selected_joint_safe_bound": 115,
+   "historical_capacity_DIAGNOSTIC_ONLY": 96,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|6|4|0|0|0",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 95,
+   "historical_capacity_DIAGNOSTIC_ONLY": 89,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "2|6|4|0|0|0",
+    "safe_at": 95,
+    "first_unsafe": 96,
+    "open_rows": [
+     77
+    ]
+   },
+   "endpoint_component": 5,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|8|2|0|0|0",
+   "individual_safe_bound": 117,
+   "selected_joint_safe_bound": 117,
+   "historical_capacity_DIAGNOSTIC_ONLY": 102,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "2|10|0|0|0|0",
+   "individual_safe_bound": 115,
+   "selected_joint_safe_bound": 107,
+   "historical_capacity_DIAGNOSTIC_ONLY": 100,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "2|10|0|0|0|0",
+    "safe_at": 107,
+    "first_unsafe": 108,
+    "open_rows": [
+     69
+    ]
+   },
+   "endpoint_component": 6,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "3|0|0|0|0|1",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 99,
+   "historical_capacity_DIAGNOSTIC_ONLY": 85,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "3|0|0|0|0|1",
+    "safe_at": 99,
+    "first_unsafe": 100,
+    "open_rows": [
+     30
+    ]
+   },
+   "endpoint_component": 7,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "3|1|4|0|0|0",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 65,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "3|3|2|0|0|0",
+   "individual_safe_bound": 117,
+   "selected_joint_safe_bound": 103,
+   "historical_capacity_DIAGNOSTIC_ONLY": 78,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": {
+    "cell": "3|3|2|0|0|0",
+    "safe_at": 103,
+    "first_unsafe": 104,
+    "open_rows": [
+     27
+    ]
+   },
+   "endpoint_component": 8,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "3|5|0|0|0|0",
+   "individual_safe_bound": 115,
+   "selected_joint_safe_bound": 115,
+   "historical_capacity_DIAGNOSTIC_ONLY": 91,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  },
+  {
+   "cell": "4|0|0|0|0|0",
+   "individual_safe_bound": 119,
+   "selected_joint_safe_bound": 119,
+   "historical_capacity_DIAGNOSTIC_ONLY": 80,
+   "currently_certified_bound": null,
+   "status": "NEEDS_GENUINE_BOUND",
+   "ray_breakpoints": null,
+   "endpoint_component": null,
+   "component_scope": "I/J endpoint slice only; fixed-background coordinates are NOT proved independent"
+  }
+ ],
+ "ray_breakpoints": [
+  {
+   "cell": "1|6|3|0|1|0",
+   "safe_at": 76,
+   "first_unsafe": 77,
+   "open_rows": [
+    51,
+    109
+   ]
+  },
+  {
+   "cell": "1|6|3|1|0|0",
+   "safe_at": 111,
+   "first_unsafe": 112,
+   "open_rows": [
+    136
+   ]
+  },
+  {
+   "cell": "1|7|8|0|0|0",
+   "safe_at": 119,
+   "first_unsafe": 120,
+   "open_rows": [
+    173
+   ]
+  },
+  {
+   "cell": "1|8|1|0|1|0",
+   "safe_at": 87,
+   "first_unsafe": 88,
+   "open_rows": [
+    46,
+    104,
+    160
+   ]
+  },
+  {
+   "cell": "1|8|1|1|0|0",
+   "safe_at": 105,
+   "first_unsafe": 106,
+   "open_rows": [
+    126
+   ]
+  },
+  {
+   "cell": "1|15|0|0|0|0",
+   "safe_at": 107,
+   "first_unsafe": 108,
+   "open_rows": [
+    69,
+    144
+   ]
+  },
+  {
+   "cell": "2|3|1|0|1|0",
+   "safe_at": 98,
+   "first_unsafe": 99,
+   "open_rows": [
+    55
+   ]
+  },
+  {
+   "cell": "2|3|1|1|0|0",
+   "safe_at": 113,
+   "first_unsafe": 114,
+   "open_rows": [
+    57
+   ]
+  },
+  {
+   "cell": "2|4|6|0|0|0",
+   "safe_at": 113,
+   "first_unsafe": 114,
+   "open_rows": [
+    90
+   ]
+  },
+  {
+   "cell": "2|6|4|0|0|0",
+   "safe_at": 95,
+   "first_unsafe": 96,
+   "open_rows": [
+    77
+   ]
+  },
+  {
+   "cell": "2|10|0|0|0|0",
+   "safe_at": 107,
+   "first_unsafe": 108,
+   "open_rows": [
+    69
+   ]
+  },
+  {
+   "cell": "3|0|0|0|0|1",
+   "safe_at": 99,
+   "first_unsafe": 100,
+   "open_rows": [
+    30
+   ]
+  },
+  {
+   "cell": "3|3|2|0|0|0",
+   "safe_at": 103,
+   "first_unsafe": 104,
+   "open_rows": [
+    27
+   ]
+  }
+ ],
+ "diagnostic_pair_regression": [
+  {
+   "mask": 0,
+   "open_rows": []
+  },
+  {
+   "mask": 1,
+   "open_rows": []
+  },
+  {
+   "mask": 2,
+   "open_rows": []
+  },
+  {
+   "mask": 3,
+   "open_rows": [
+    173
+   ]
+  }
+ ],
+ "synthetic_three_way": {
+  "universe": 8,
+  "infeasible_masks": [
+   7
+  ],
+  "minimal_hyperedges": [
+   7
+  ],
+  "singletons_and_pairs_safe": true
+ },
+ "box_frontier": {
+  "domain": "integer box J<=v<=I with other coordinates fixed at J",
+  "pareto_vectors": [
+   {
+    "0|15|0|0|0|1": 115,
+    "0|18|2|0|0|0": 117,
+    "0|20|0|0|0|0": 119,
+    "1|4|5|0|1|0": 106,
+    "1|4|5|1|0|0": 121,
+    "1|5|0|0|0|2": 111,
+    "1|5|10|0|0|0": 129,
+    "1|6|3|0|1|0": 76,
+    "1|6|3|1|0|0": 111,
+    "1|7|2|0|0|1": 103,
+    "1|7|8|0|0|0": 119,
+    "1|8|1|0|1|0": 87,
+    "1|8|1|1|0|0": 105,
+    "1|9|6|0|0|0": 95,
+    "1|10|0|0|0|1": 111,
+    "1|11|4|0|0|0": 99,
+    "1|13|2|0|0|0": 117,
+    "1|15|0|0|0|0": 107,
+    "2|0|0|0|0|2": 119,
+    "2|1|3|0|1|0": 104,
+    "2|1|3|1|0|0": 119,
+    "2|2|8|0|0|0": 123,
+    "2|3|1|0|1|0": 98,
+    "2|3|1|1|0|0": 113,
+    "2|3|2|0|0|1": 91,
+    "2|4|6|0|0|0": 113,
+    "2|5|0|0|0|1": 115,
+    "2|6|4|0|0|0": 95,
+    "2|8|2|0|0|0": 117,
+    "2|10|0|0|0|0": 107,
+    "3|0|0|0|0|1": 99,
+    "3|1|4|0|0|0": 119,
+    "3|3|2|0|0|0": 103,
+    "3|5|0|0|0|0": 115,
+    "4|0|0|0|0|0": 119
+   }
+  ],
+  "proof": "Every active coordinate increment by one opens a row at J. Coordinatewise monotonicity makes every other point in this box infeasible.",
+  "NOT_claimed": "Global Pareto frontier permitting decreases below J or varying fixed coordinates."
+ },
+ "halt_reason": {
+  "a": "1|5|10|0|0|0",
+  "b": "1|7|8|0|0|0",
+  "a_in_active": false,
+  "b_in_active": true,
+  "a_J": 129,
+  "a_I": 129,
+  "b_J": 119,
+  "b_I": 123,
+  "expected_pair_can_appear": false,
+  "action": "STOP_FULL_FRONTIER_DECOMPOSITION_AND_DIAGNOSE_FIXED_BACKGROUND"
+ },
+ "production_started": false,
+ "old_dossier_status": [
+  "INDIVIDUAL_ONLY",
+  "SUPERSEDED_FOR_PRODUCTION_TARGETS"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "base_commit": "0029fe2905d01db805d162230b54e9a1e2d2b161",
+ "base_parent": "0333d1e5f74e4e6af6a49fdce09232e808d574eb",
+ "recovered_remote_branch": "round153-equality-coexistence",
+ "audit_branch": "codex/round171-joint-audit",
+ "existing_tracked_artifacts_modified": false,
+ "proof_generation_started": false,
+ "local_live_jobs_at_recovery": "No Python/EXTREE/r171 worker observed; no assertion about remote hosts.",
+ "endpoint_canonical_content_sha256": "d5a944bf5247fa36f3120b109344021cba632a482ad853dd3d7087ee4d5639f2",
+ "files_sha256": {
+  "r171/JOINT_ENDPOINT_AUDIT_CODEX.md": "4ec4fb29423e90f9c89d724f2f0cbc808e0ca60d8de96b19ac58b909f0e180f0",
+  "r171/certs/joint_dossier_codex_171.json": "0eaf89ddeadaf4f107670a4df6e8d4621eba37358ca877222c36d8e4b430f65e",
+  "r171/certs/joint_endpoint_codex_171.json": "5355faf447bfcb9b8506faa2ac2f8a26851965edc6e388db5b7594a46195cf85",
+  "r171/certs/joint_endpoint_execution_codex_171.json": "f2cb4d916fcd0c833472b4132817b48817b9b3e733cacb8f5420a86ebd7258e3",
+  "r171/src/check_joint_endpoint_codex.py": "bbdb71706bcac2de0e1cf0a0104e891001fb1c90b350cdb2c03e9fece27a3f5a",
+  "r171/src/freeze_joint_codex.py": "b9e78965a6e89b058d444ed6d8364f997eeca6294c33a8f4591c9e35e0868d3e",
+  "r171/src/joint_endpoint_codex.py": "207aa07ec0743535cbc727b78ddfcbb6af8a8e048051ce12bb0320a2b2e19fb4",
+  "r171/src/test_joint_endpoint_codex.py": "312a26eca91d0204e6b54e6266393bf14b486c3f6c862a7582c1b03ebebc0e2e"
+ },
+ "regression": {
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_complete_universe (test_joint_endpoint_codex.EndpointRegression.test_complete_universe) ... ok\ntest_dont_invent_missing_active_coordinate (test_joint_endpoint_codex.EndpointRegression.test_dont_invent_missing_active_coordinate) ... ok\ntest_downward_box_not_global_quotient (test_joint_endpoint_codex.EndpointRegression.test_downward_box_not_global_quotient) ... ok\ntest_no_promotion_of_weak_bound (test_joint_endpoint_codex.EndpointRegression.test_no_promotion_of_weak_bound) ... ok\ntest_real_pair_defeats_singleton_probe (test_joint_endpoint_codex.EndpointRegression.test_real_pair_defeats_singleton_probe) ... ok\ntest_real_three_way_defeats_pair_probe_on_its_rows (test_joint_endpoint_codex.EndpointRegression.test_real_three_way_defeats_pair_probe_on_its_rows) ... ok\ntest_synthetic_three_way (test_joint_endpoint_codex.EndpointRegression.test_synthetic_three_way) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.039s\n\nOK\n"
+ },
+ "py_compile": true,
+ "verdict": "JOINT_SAFE_VECTOR_PARTIAL"
+}
