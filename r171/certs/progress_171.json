@@ -1,0 +1,124 @@
+{
+ "primary_metric": {
+  "genuine_load_bearing_bounds": 5,
+  "basis_size": 35,
+  "reads_as": "5/35",
+  "historical_load_bearing_dependencies_remaining": 30
+ },
+ "helper_certificates_this_round": {
+  "count": 3,
+  "cells": [
+   "1|2|10|0|0|0",
+   "1|3|10|0|0|0",
+   "1|4|10|0|0|0"
+  ],
+  "not_theorem_progress": "a ladder rung closes no census row; helper count is reported separately and never as progress on the 35"
+ },
+ "census_with_certified_bounds": {
+  "exposed_rows": 180,
+  "closed": 179,
+  "all_closed": false,
+  "still_open": [
+   [
+    3,
+    0,
+    0,
+    1,
+    10,
+    4,
+    2,
+    0,
+    8,
+    0,
+    0
+   ]
+  ],
+  "baseline_tally": {
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "equality_rows": {
+   "(3, 0, 1, 0, 7, 0, 7, 0, 0, 0, 1)": "EQUALITY",
+   "(4, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0)": "EQUALITY"
+  },
+  "equality_preserved": true,
+  "method": "each certified cell is held at the bound its certificate proves and its round-152 table entry is not read; uncertified cells still read the table"
+ },
+ "certified_cells": [
+  {
+   "cell": "0|15|0|0|0|1",
+   "certified_bound": 115,
+   "census_safe_bound_S": null,
+   "certificate": "r170/certs/extree_target_h_170.txt.gz",
+   "bound_is_at_or_below_S": true,
+   "historical_table_entry": "DISABLED"
+  },
+  {
+   "cell": "0|18|2|0|0|0",
+   "certified_bound": 117,
+   "census_safe_bound_S": null,
+   "certificate": "r170/certs/extree_target_a2_170.txt.gz",
+   "bound_is_at_or_below_S": true,
+   "historical_table_entry": "DISABLED"
+  },
+  {
+   "cell": "0|20|0|0|0|0",
+   "certified_bound": 119,
+   "census_safe_bound_S": 119,
+   "certificate": "r171/certs/extree_lb_batch1_171.txt.gz",
+   "bound_is_at_or_below_S": true,
+   "historical_table_entry": "DISABLED"
+  },
+  {
+   "cell": "1|5|10|0|0|0",
+   "certified_bound": 129,
+   "census_safe_bound_S": 129,
+   "certificate": "r171/certs/extree_lb_b1a10_d5_171.txt.gz",
+   "bound_is_at_or_below_S": true,
+   "historical_table_entry": "DISABLED"
+  },
+  {
+   "cell": "1|7|8|0|0|0",
+   "certified_bound": 123,
+   "census_safe_bound_S": 123,
+   "certificate": "r171/certs/extree_lb_b1a10_d7_171.txt.gz",
+   "bound_is_at_or_below_S": true,
+   "historical_table_entry": "DISABLED"
+  }
+ ],
+ "still_table_dependent": [
+  "1|4|5|0|1|0",
+  "1|4|5|1|0|0",
+  "1|5|0|0|0|2",
+  "1|6|3|0|1|0",
+  "1|6|3|1|0|0",
+  "1|7|2|0|0|1",
+  "1|8|1|0|1|0",
+  "1|8|1|1|0|0",
+  "1|9|6|0|0|0",
+  "1|10|0|0|0|1",
+  "1|11|4|0|0|0",
+  "1|13|2|0|0|0",
+  "1|15|0|0|0|0",
+  "2|0|0|0|0|2",
+  "2|1|3|0|1|0",
+  "2|1|3|1|0|0",
+  "2|2|8|0|0|0",
+  "2|3|1|0|1|0",
+  "2|3|1|1|0|0",
+  "2|3|2|0|0|1",
+  "2|4|6|0|0|0",
+  "2|5|0|0|0|1",
+  "2|6|4|0|0|0",
+  "2|8|2|0|0|0",
+  "2|10|0|0|0|0",
+  "3|0|0|0|0|1",
+  "3|1|4|0|0|0",
+  "3|3|2|0|0|0",
+  "3|5|0|0|0|0",
+  "4|0|0|0|0|0"
+ ],
+ "sequence_target": "33 -> 0",
+ "seconds_noncanonical": 1.1,
+ "ok": false
+}
