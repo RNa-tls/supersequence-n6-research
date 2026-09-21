@@ -1,0 +1,69 @@
+{
+ "applicable_calls": 1560,
+ "bound": 95,
+ "candidate": "2|2|4|0|0|0",
+ "candidate_inserted": false,
+ "concurrency": "one diagnostic process alongside up to three production workers; no shared output paths",
+ "control_nodes": 100001,
+ "counterfactual_upper_benefit": {
+  "100": 0,
+  "50": 419,
+  "60": 0,
+  "70": 0,
+  "80": 0,
+  "90": 0
+ },
+ "exact_bound_or_cost_inferred": false,
+ "failed_prune_applicable_calls": 562,
+ "failed_query_rows": [
+  {
+   "count": 215,
+   "current_upper": 63,
+   "query": "2|2|0|0|0|0",
+   "required_upper": 54
+  },
+  {
+   "count": 204,
+   "current_upper": 63,
+   "query": "2|2|0|0|0|0",
+   "required_upper": 59
+  },
+  {
+   "count": 80,
+   "current_upper": 63,
+   "query": "2|2|0|0|0|0",
+   "required_upper": 49
+  },
+  {
+   "count": 30,
+   "current_upper": 63,
+   "query": "2|2|0|0|0|0",
+   "required_upper": 44
+  },
+  {
+   "count": 23,
+   "current_upper": 48,
+   "query": "1|2|0|0|0|0",
+   "required_upper": 44
+  },
+  {
+   "count": 6,
+   "current_upper": 48,
+   "query": "1|2|0|0|0|0",
+   "required_upper": 39
+  },
+  {
+   "count": 4,
+   "current_upper": 63,
+   "query": "2|2|0|0|0|0",
+   "required_upper": 39
+  }
+ ],
+ "probe_nodes": 100001,
+ "source_sha256": "6db183a4d05f6c192e564458b8d6c4b6f484296b1ff9f454b32346445369ece8",
+ "status": "BOUNDED_DIAGNOSTIC",
+ "target": "2|6|4|0|0|0",
+ "target_ports": 96,
+ "ub_calls": 28725,
+ "unchanged_generator_sha256": "d847d18a8423ab3cbdd36812bdd22f7250a535f453e900eb64f1a35dd5018adf"
+}
