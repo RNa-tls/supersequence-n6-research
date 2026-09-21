@@ -92,7 +92,7 @@
   ]
  ],
  "remaining": 29,
- "status": "RUNNING",
+ "status": "RECOVERED_PUSH_INTERRUPTION",
  "targets": [
   {
    "attempts": [
@@ -838,7 +838,15 @@
    }
   },
   {
-   "attempts": [],
+   "attempts": [
+    {
+     "cap": 1000000,
+     "environment_count": 0,
+     "id": "2_3_1_1_0_0_c1000000_e0",
+     "nodes": 1000001,
+     "status": "DEFERRED"
+    }
+   ],
    "bound": 113,
    "bridge_policy": "No new bridge rule; only consequences already encoded in accepted predecessors.",
    "cell": "2|3|1|1|0|0",
@@ -850,7 +858,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.6440393768931199,
    "prior_nodes": 100001,
-   "status": "GENERATING",
+   "status": "DEFERRED",
    "target": 114,
    "useful_P1_dominators": {
     "0|2|0|0|0|0": 5,
@@ -974,7 +982,15 @@
    }
   },
   {
-   "attempts": [],
+   "attempts": [
+    {
+     "cap": 1000000,
+     "environment_count": 0,
+     "id": "2_6_4_0_0_0_c1000000_e0",
+     "nodes": 1000001,
+     "status": "DEFERRED"
+    }
+   ],
    "bound": 95,
    "bridge_policy": "No new bridge rule; only consequences already encoded in accepted predecessors.",
    "cell": "2|6|4|0|0|0",
@@ -986,7 +1002,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.6156657963446475,
    "prior_nodes": 100001,
-   "status": "GENERATING",
+   "status": "DEFERRED",
    "target": 96,
    "useful_P1_dominators": {
     "0|0|0|0|0|0": 4,
