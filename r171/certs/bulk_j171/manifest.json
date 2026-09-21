@@ -717,7 +717,15 @@
    }
   },
   {
-   "attempts": [],
+   "attempts": [
+    {
+     "cap": 1000000,
+     "environment_count": 0,
+     "id": "2_1_3_0_1_0_c1000000_e0",
+     "nodes": 1000001,
+     "status": "DEFERRED"
+    }
+   ],
    "bound": 104,
    "bridge_policy": "No new bridge rule; only consequences already encoded in accepted predecessors.",
    "cell": "2|1|3|0|1|0",
@@ -729,7 +737,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.893525113735582,
    "prior_nodes": 100001,
-   "status": "GENERATING",
+   "status": "DEFERRED",
    "target": 105,
    "useful_P1_dominators": {
     "0|1|1|0|0|0": 1,
@@ -753,7 +761,15 @@
    }
   },
   {
-   "attempts": [],
+   "attempts": [
+    {
+     "cap": 1000000,
+     "environment_count": 0,
+     "id": "2_1_3_1_0_0_c1000000_e0",
+     "nodes": 1000001,
+     "status": "DEFERRED"
+    }
+   ],
    "bound": 119,
    "bridge_policy": "No new bridge rule; only consequences already encoded in accepted predecessors.",
    "cell": "2|1|3|1|0|0",
@@ -765,7 +781,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.9157949790794979,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "DEFERRED",
    "target": 120,
    "useful_P1_dominators": {
     "0|2|0|1|0|0": 3,
@@ -797,7 +813,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.9262181889919117,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 124,
    "useful_P1_dominators": {
     "0|1|2|0|0|0": 3,
@@ -926,7 +942,15 @@
    }
   },
   {
-   "attempts": [],
+   "attempts": [
+    {
+     "cap": 1000000,
+     "environment_count": 0,
+     "id": "2_4_6_0_0_0_c1000000_e0",
+     "nodes": 1000001,
+     "status": "DEFERRED"
+    }
+   ],
    "bound": 113,
    "bridge_policy": "No new bridge rule; only consequences already encoded in accepted predecessors.",
    "cell": "2|4|6|0|0|0",
@@ -938,7 +962,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.8958018587190404,
    "prior_nodes": 100001,
-   "status": "GENERATING",
+   "status": "DEFERRED",
    "target": 114,
    "useful_P1_dominators": {
     "0|1|1|0|0|0": 1,
@@ -1205,7 +1229,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.9178850731043863,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 116,
    "useful_P1_dominators": {
     "0|3|0|0|0|0": 4,
