@@ -1,0 +1,6669 @@
+{
+ "base_commit": "424953a3b86f3361baf4e059e2f784dd1feba6c5",
+ "environment_sha256": "067f42c82932151de705c4cb1dc69a1ea754a89bb7d1c9b0c083ab895f70ff20",
+ "driver_sha256": "4eace91a24e5752712f9bc48223d580d26ba1b2170d941479448905588f46e8d",
+ "helper_investment": 122892,
+ "probe": [
+  {
+   "cell": "1|4|5|1|0|0",
+   "direct": {
+    "cell": "1|4|5|1|0|0",
+    "J": 121,
+    "target": 122,
+    "with_helper": false,
+    "cap": 200000,
+    "nodes": 200001,
+    "status": "DEFERRED",
+    "detail": "node cap 200000 reached",
+    "ub_calls": 63797,
+    "fallback_calls": 30294,
+    "fallback_fraction": 0.4748499145727856,
+    "useful_p_leaf_count": 30612,
+    "useful_genuine_helper_prunes": 30612,
+    "new_helper_essential_p_leaves": 0,
+    "first_new_helper_prune_depth": null,
+    "helpers_used": {
+     "1|3|10|0|0|0": 4509,
+     "1|3|1|1|0|0": 687,
+     "1|2|0|0|0|0": 4,
+     "1|1|0|0|0|0": 1,
+     "1|1|0|1|0|0": 18,
+     "0|1|0|1|0|0": 19,
+     "1|5|1|0|0|0": 25,
+     "1|2|10|0|0|0": 13682,
+     "1|1|1|0|0|0": 207,
+     "0|1|1|1|0|0": 59,
+     "1|4|10|0|0|0": 1936,
+     "0|2|1|0|0|0": 7,
+     "0|4|2|0|0|0": 86,
+     "0|3|2|0|0|0": 94,
+     "0|2|2|0|0|0": 87,
+     "0|1|2|0|0|0": 214,
+     "1|3|2|1|0|0": 2172,
+     "0|1|0|0|0|0": 4,
+     "0|0|0|1|0|0": 37,
+     "0|0|1|0|0|0": 35,
+     "0|0|1|1|0|0": 115,
+     "0|0|0|0|0|0": 5,
+     "0|0|2|0|0|0": 35,
+     "0|0|2|1|0|0": 152,
+     "0|5|2|0|0|0": 39,
+     "1|3|3|1|0|0": 5888,
+     "0|0|3|0|0|0": 68,
+     "2|0|3|1|0|0": 405,
+     "0|2|0|1|0|0": 3,
+     "0|1|1|0|0|0": 10,
+     "0|6|2|0|0|0": 9
+    },
+    "unpruned_query_diagnostics": [
+     {
+      "query": "1|3|4|1|0|0",
+      "d_star": 3,
+      "ports": 20,
+      "current_upper": 125,
+      "sufficient_upper": 102,
+      "count": 2031,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|2|4|1|0|0",
+      "d_star": 2,
+      "ports": 19,
+      "current_upper": 125,
+      "sufficient_upper": 103,
+      "count": 1803,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|4|1|0|0",
+      "d_star": 4,
+      "ports": 21,
+      "current_upper": 125,
+      "sufficient_upper": 101,
+      "count": 1617,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 657,
+       "current_orbit": 129,
+       "opened_orbits": 6,
+       "covered_hexagons": 20,
+       "deficit": 9,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|2|4|1|0|0",
+      "d_star": 2,
+      "ports": 24,
+      "current_upper": 125,
+      "sufficient_upper": 98,
+      "count": 1608,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 587,
+       "current_orbit": 126,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|3|4|1|0|0",
+      "d_star": 3,
+      "ports": 25,
+      "current_upper": 125,
+      "sufficient_upper": 97,
+      "count": 1394,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 639,
+       "current_orbit": 126,
+       "opened_orbits": 7,
+       "covered_hexagons": 24,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|4|1|0|0",
+      "d_star": 4,
+      "ports": 16,
+      "current_upper": 125,
+      "sufficient_upper": 106,
+      "count": 1005,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 579,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 15,
+       "deficit": 9,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|4|1|0|0",
+      "d_star": 4,
+      "ports": 26,
+      "current_upper": 125,
+      "sufficient_upper": 96,
+      "count": 943,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 181,
+       "current_orbit": 99,
+       "opened_orbits": 7,
+       "covered_hexagons": 25,
+       "deficit": 9,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|3|4|1|0|0",
+      "d_star": 3,
+      "ports": 15,
+      "current_upper": 125,
+      "sufficient_upper": 107,
+      "count": 890,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 451,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 14,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|4|1|0|0",
+      "d_star": 5,
+      "ports": 17,
+      "current_upper": 125,
+      "sufficient_upper": 105,
+      "count": 875,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 609,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 16,
+       "deficit": 8,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        3,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        3,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|2|4|1|0|0",
+      "d_star": 2,
+      "ports": 29,
+      "current_upper": 125,
+      "sufficient_upper": 93,
+      "count": 849,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 647,
+       "current_orbit": 134,
+       "opened_orbits": 8,
+       "covered_hexagons": 28,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|4|1|0|0",
+      "d_star": 5,
+      "ports": 22,
+      "current_upper": 125,
+      "sufficient_upper": 100,
+      "count": 844,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 171,
+       "current_orbit": 91,
+       "opened_orbits": 6,
+       "covered_hexagons": 21,
+       "deficit": 8,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        3,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        3,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|1|4|1|0|0",
+      "d_star": 1,
+      "ports": 23,
+      "current_upper": 125,
+      "sufficient_upper": 99,
+      "count": 843,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 552,
+       "current_orbit": 2,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        50,
+        "2|1|4|0|0|0"
+       ],
+       [
+        1,
+        50,
+        "2|1|5|0|0|0"
+       ],
+       [
+        1,
+        50,
+        "2|1|6|0|0|0"
+       ]
+      ]
+     }
+    ]
+   },
+   "helper": {
+    "cell": "1|4|5|1|0|0",
+    "J": 121,
+    "target": 122,
+    "with_helper": true,
+    "cap": 200000,
+    "nodes": 200001,
+    "status": "DEFERRED",
+    "detail": "node cap 200000 reached",
+    "ub_calls": 97976,
+    "fallback_calls": 26065,
+    "fallback_fraction": 0.26603453907079283,
+    "useful_p_leaf_count": 63649,
+    "useful_genuine_helper_prunes": 63649,
+    "new_helper_essential_p_leaves": 2448,
+    "first_new_helper_prune_depth": 17,
+    "helpers_used": {
+     "1|3|10|0|0|0": 11585,
+     "1|3|1|1|0|0": 770,
+     "1|2|0|0|0|0": 4,
+     "1|1|0|0|0|0": 1,
+     "1|1|0|1|0|0": 19,
+     "0|1|0|1|0|0": 21,
+     "1|5|1|0|0|0": 31,
+     "1|2|10|0|0|0": 32176,
+     "1|1|1|0|0|0": 314,
+     "0|1|1|1|0|0": 68,
+     "1|4|10|0|0|0": 5209,
+     "0|2|1|0|0|0": 7,
+     "0|4|2|0|0|0": 127,
+     "0|3|2|0|0|0": 129,
+     "0|2|2|0|0|0": 144,
+     "0|1|2|0|0|0": 354,
+     "1|3|2|1|0|0": 2593,
+     "0|1|0|0|0|0": 4,
+     "0|0|0|1|0|0": 43,
+     "0|0|1|0|0|0": 40,
+     "0|0|1|1|0|0": 134,
+     "0|0|0|0|0|0": 7,
+     "0|0|2|0|0|0": 42,
+     "0|0|2|1|0|0": 178,
+     "0|5|2|0|0|0": 90,
+     "1|3|3|1|0|0": 6670,
+     "0|0|3|0|0|0": 77,
+     "2|0|3|1|0|0": 329,
+     "0|2|0|1|0|0": 3,
+     "0|1|1|0|0|0": 12,
+     "0|6|2|0|0|0": 19,
+     "1|1|5|1|0|0": 2448,
+     "0|7|2|0|0|0": 1
+    },
+    "unpruned_query_diagnostics": [
+     {
+      "query": "1|3|4|1|0|0",
+      "d_star": 3,
+      "ports": 20,
+      "current_upper": 125,
+      "sufficient_upper": 102,
+      "count": 1525,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|4|1|0|0",
+      "d_star": 4,
+      "ports": 21,
+      "current_upper": 125,
+      "sufficient_upper": 101,
+      "count": 1362,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 657,
+       "current_orbit": 129,
+       "opened_orbits": 6,
+       "covered_hexagons": 20,
+       "deficit": 9,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|2|4|1|0|0",
+      "d_star": 2,
+      "ports": 19,
+      "current_upper": 125,
+      "sufficient_upper": 103,
+      "count": 1211,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|1|5|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|3|4|1|0|0",
+      "d_star": 3,
+      "ports": 25,
+      "current_upper": 125,
+      "sufficient_upper": 97,
+      "count": 1113,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 639,
+       "current_orbit": 126,
+       "opened_orbits": 7,
+       "covered_hexagons": 24,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|2|4|1|0|0",
+      "d_star": 2,
+      "ports": 24,
+      "current_upper": 125,
+      "sufficient_upper": 98,
+      "count": 1021,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 587,
+       "current_orbit": 126,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|1|5|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|4|1|0|0",
+      "d_star": 4,
+      "ports": 16,
+      "current_upper": 125,
+      "sufficient_upper": 106,
+      "count": 956,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 579,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 15,
+       "deficit": 9,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|4|1|0|0",
+      "d_star": 5,
+      "ports": 17,
+      "current_upper": 125,
+      "sufficient_upper": 105,
+      "count": 856,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 609,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 16,
+       "deficit": 8,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        3,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        3,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|3|4|1|0|0",
+      "d_star": 3,
+      "ports": 15,
+      "current_upper": 125,
+      "sufficient_upper": 107,
+      "count": 825,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 451,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 14,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|4|1|0|0",
+      "d_star": 4,
+      "ports": 26,
+      "current_upper": 125,
+      "sufficient_upper": 96,
+      "count": 806,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 181,
+       "current_orbit": 99,
+       "opened_orbits": 7,
+       "covered_hexagons": 25,
+       "deficit": 9,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|4|1|0|0",
+      "d_star": 5,
+      "ports": 22,
+      "current_upper": 125,
+      "sufficient_upper": 100,
+      "count": 704,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 171,
+       "current_orbit": 91,
+       "opened_orbits": 6,
+       "covered_hexagons": 21,
+       "deficit": 8,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        3,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        3,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|2|4|1|0|0",
+      "d_star": 2,
+      "ports": 29,
+      "current_upper": 125,
+      "sufficient_upper": 93,
+      "count": 613,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 647,
+       "current_orbit": 134,
+       "opened_orbits": 8,
+       "covered_hexagons": 28,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        48,
+        "1|2|10|0|0|0"
+       ],
+       [
+        1,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|1|5|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|4|1|0|0",
+      "d_star": 6,
+      "ports": 18,
+      "current_upper": 125,
+      "sufficient_upper": 104,
+      "count": 589,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 33,
+       "current_orbit": 33,
+       "opened_orbits": 5,
+       "covered_hexagons": 17,
+       "deficit": 7,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        3,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        4,
+        48,
+        "1|3|10|0|0|0"
+       ],
+       [
+        4,
+        53,
+        "1|3|3|1|0|0"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "cell": "1|6|3|1|0|0",
+   "direct": {
+    "cell": "1|6|3|1|0|0",
+    "J": 111,
+    "target": 112,
+    "with_helper": false,
+    "cap": 200000,
+    "nodes": 200001,
+    "status": "DEFERRED",
+    "detail": "node cap 200000 reached",
+    "ub_calls": 141579,
+    "fallback_calls": 29152,
+    "fallback_fraction": 0.20590624315753042,
+    "useful_p_leaf_count": 105184,
+    "useful_genuine_helper_prunes": 105184,
+    "new_helper_essential_p_leaves": 0,
+    "first_new_helper_prune_depth": null,
+    "helpers_used": {
+     "1|8|0|0|0|0": 16,
+     "1|6|0|0|0|0": 349,
+     "1|3|10|0|0|0": 13658,
+     "1|3|1|1|0|0": 29852,
+     "1|2|0|0|0|0": 2901,
+     "1|4|10|0|0|0": 8515,
+     "0|2|0|1|0|0": 669,
+     "1|5|1|0|0|0": 2685,
+     "1|1|0|0|0|0": 1044,
+     "0|1|0|1|0|0": 1235,
+     "1|1|0|1|0|0": 4783,
+     "0|0|0|0|0|0": 301,
+     "0|0|0|1|0|0": 1074,
+     "0|3|0|0|0|0": 276,
+     "0|1|0|0|0|0": 272,
+     "0|2|0|0|0|0": 88,
+     "1|7|0|0|0|0": 82,
+     "0|4|2|0|0|0": 1314,
+     "0|5|2|0|0|0": 560,
+     "1|9|0|0|0|0": 3,
+     "1|2|10|0|0|0": 20526,
+     "0|2|1|0|0|0": 732,
+     "0|3|2|0|0|0": 1874,
+     "0|7|2|0|0|0": 34,
+     "0|6|2|0|0|0": 200,
+     "1|1|1|0|0|0": 2872,
+     "0|1|1|1|0|0": 935,
+     "0|0|1|0|0|0": 308,
+     "0|0|1|1|0|0": 785,
+     "0|1|1|0|0|0": 169,
+     "0|2|2|0|0|0": 1004,
+     "0|1|2|0|0|0": 1186,
+     "0|8|2|0|0|0": 12,
+     "1|3|2|1|0|0": 4644,
+     "0|0|2|0|0|0": 68,
+     "0|0|2|1|0|0": 158
+    },
+    "unpruned_query_diagnostics": [
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 25,
+      "current_upper": 121,
+      "sufficient_upper": 87,
+      "count": 1154,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 434,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 10,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 24,
+      "current_upper": 121,
+      "sufficient_upper": 88,
+      "count": 1084,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 180,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 21,
+       "deficit": 11,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 26,
+      "current_upper": 121,
+      "sufficient_upper": 86,
+      "count": 1013,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 486,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 9,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|1|1|0|0",
+      "d_star": 6,
+      "ports": 21,
+      "current_upper": 122,
+      "sufficient_upper": 91,
+      "count": 912,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 9,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|6|2|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ],
+       [
+        2,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        2,
+        64,
+        "1|6|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|1|1|0|0",
+      "d_star": 5,
+      "ports": 20,
+      "current_upper": 122,
+      "sufficient_upper": 92,
+      "count": 893,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 10,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        46,
+        "0|5|2|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|1|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|1|1|0|0",
+      "d_star": 5,
+      "ports": 25,
+      "current_upper": 122,
+      "sufficient_upper": 87,
+      "count": 798,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 482,
+       "current_orbit": 6,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 10,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        46,
+        "0|5|2|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|1|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 21,
+      "current_upper": 121,
+      "sufficient_upper": 91,
+      "count": 769,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 9,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 29,
+      "current_upper": 121,
+      "sufficient_upper": 83,
+      "count": 759,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 314,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 26,
+       "deficit": 11,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 20,
+      "current_upper": 121,
+      "sufficient_upper": 92,
+      "count": 727,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 302,
+       "current_orbit": 32,
+       "opened_orbits": 6,
+       "covered_hexagons": 17,
+       "deficit": 10,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 30,
+      "current_upper": 121,
+      "sufficient_upper": 82,
+      "count": 711,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 492,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 27,
+       "deficit": 10,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|7|0|1|0|0",
+      "d_star": 7,
+      "ports": 22,
+      "current_upper": 121,
+      "sufficient_upper": 90,
+      "count": 705,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 8,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|1|1|0|0",
+      "d_star": 4,
+      "ports": 24,
+      "current_upper": 122,
+      "sufficient_upper": 88,
+      "count": 696,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 312,
+       "current_orbit": 6,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 11,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     }
+    ]
+   },
+   "helper": {
+    "cell": "1|6|3|1|0|0",
+    "J": 111,
+    "target": 112,
+    "with_helper": true,
+    "cap": 200000,
+    "nodes": 200001,
+    "status": "DEFERRED",
+    "detail": "node cap 200000 reached",
+    "ub_calls": 141579,
+    "fallback_calls": 29152,
+    "fallback_fraction": 0.20590624315753042,
+    "useful_p_leaf_count": 105184,
+    "useful_genuine_helper_prunes": 105184,
+    "new_helper_essential_p_leaves": 0,
+    "first_new_helper_prune_depth": null,
+    "helpers_used": {
+     "1|8|0|0|0|0": 16,
+     "1|6|0|0|0|0": 349,
+     "1|3|10|0|0|0": 13658,
+     "1|3|1|1|0|0": 29852,
+     "1|2|0|0|0|0": 2901,
+     "1|4|10|0|0|0": 8515,
+     "0|2|0|1|0|0": 669,
+     "1|5|1|0|0|0": 2685,
+     "1|1|0|0|0|0": 1044,
+     "0|1|0|1|0|0": 1235,
+     "1|1|0|1|0|0": 4783,
+     "0|0|0|0|0|0": 301,
+     "0|0|0|1|0|0": 1074,
+     "0|3|0|0|0|0": 276,
+     "0|1|0|0|0|0": 272,
+     "0|2|0|0|0|0": 88,
+     "1|7|0|0|0|0": 82,
+     "0|4|2|0|0|0": 1314,
+     "0|5|2|0|0|0": 560,
+     "1|9|0|0|0|0": 3,
+     "1|2|10|0|0|0": 20526,
+     "0|2|1|0|0|0": 732,
+     "0|3|2|0|0|0": 1874,
+     "0|7|2|0|0|0": 34,
+     "0|6|2|0|0|0": 200,
+     "1|1|1|0|0|0": 2872,
+     "0|1|1|1|0|0": 935,
+     "0|0|1|0|0|0": 308,
+     "0|0|1|1|0|0": 785,
+     "0|1|1|0|0|0": 169,
+     "0|2|2|0|0|0": 1004,
+     "0|1|2|0|0|0": 1186,
+     "0|8|2|0|0|0": 12,
+     "1|3|2|1|0|0": 4644,
+     "0|0|2|0|0|0": 68,
+     "0|0|2|1|0|0": 158
+    },
+    "unpruned_query_diagnostics": [
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 25,
+      "current_upper": 121,
+      "sufficient_upper": 87,
+      "count": 1154,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 434,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 10,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 24,
+      "current_upper": 121,
+      "sufficient_upper": 88,
+      "count": 1084,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 180,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 21,
+       "deficit": 11,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 26,
+      "current_upper": 121,
+      "sufficient_upper": 86,
+      "count": 1013,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 486,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 9,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|1|1|0|0",
+      "d_star": 6,
+      "ports": 21,
+      "current_upper": 122,
+      "sufficient_upper": 91,
+      "count": 912,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 9,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|6|2|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ],
+       [
+        2,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        2,
+        64,
+        "1|6|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|1|1|0|0",
+      "d_star": 5,
+      "ports": 20,
+      "current_upper": 122,
+      "sufficient_upper": 92,
+      "count": 893,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 10,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        46,
+        "0|5|2|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|1|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|1|1|0|0",
+      "d_star": 5,
+      "ports": 25,
+      "current_upper": 122,
+      "sufficient_upper": 87,
+      "count": 798,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 482,
+       "current_orbit": 6,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 10,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        1,
+        129,
+        "1|5|10|0|0|0"
+       ],
+       [
+        2,
+        46,
+        "0|5|2|0|0|0"
+       ],
+       [
+        2,
+        53,
+        "1|3|1|1|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 21,
+      "current_upper": 121,
+      "sufficient_upper": 91,
+      "count": 769,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 9,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 29,
+      "current_upper": 121,
+      "sufficient_upper": 83,
+      "count": 759,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 314,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 26,
+       "deficit": 11,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 20,
+      "current_upper": 121,
+      "sufficient_upper": 92,
+      "count": 727,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 302,
+       "current_orbit": 32,
+       "opened_orbits": 6,
+       "covered_hexagons": 17,
+       "deficit": 10,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 30,
+      "current_upper": 121,
+      "sufficient_upper": 82,
+      "count": 711,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 492,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 27,
+       "deficit": 10,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|7|0|1|0|0",
+      "d_star": 7,
+      "ports": 22,
+      "current_upper": 121,
+      "sufficient_upper": 90,
+      "count": 705,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 8,
+       "used_A": 3,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|1|1|0|0",
+      "d_star": 4,
+      "ports": 24,
+      "current_upper": 122,
+      "sufficient_upper": 88,
+      "count": 696,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 312,
+       "current_orbit": 6,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 11,
+       "used_A": 2,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "cell": "1|8|1|1|0|0",
+   "direct": {
+    "cell": "1|8|1|1|0|0",
+    "J": 105,
+    "target": 106,
+    "with_helper": false,
+    "cap": 200000,
+    "nodes": 200001,
+    "status": "DEFERRED",
+    "detail": "node cap 200000 reached",
+    "ub_calls": 128939,
+    "fallback_calls": 38900,
+    "fallback_fraction": 0.30169304865091245,
+    "useful_p_leaf_count": 89469,
+    "useful_genuine_helper_prunes": 89469,
+    "new_helper_essential_p_leaves": 0,
+    "first_new_helper_prune_depth": null,
+    "helpers_used": {
+     "1|7|0|0|0|0": 312,
+     "0|10|2|0|0|0": 3,
+     "1|6|0|0|0|0": 704,
+     "0|6|2|0|0|0": 83,
+     "1|5|1|0|0|0": 1168,
+     "0|3|0|0|0|0": 950,
+     "1|3|10|0|0|0": 4721,
+     "0|5|2|0|0|0": 130,
+     "1|4|10|0|0|0": 3604,
+     "0|4|2|0|0|0": 385,
+     "0|7|2|0|0|0": 46,
+     "1|2|0|0|0|0": 7577,
+     "0|2|0|0|0|0": 437,
+     "0|1|0|0|0|0": 692,
+     "1|1|0|0|0|0": 4712,
+     "0|8|2|0|0|0": 32,
+     "0|9|2|0|0|0": 12,
+     "1|8|0|0|0|0": 173,
+     "1|9|0|0|0|0": 65,
+     "1|3|1|1|0|0": 38019,
+     "0|2|0|1|0|0": 2559,
+     "0|1|0|1|0|0": 3231,
+     "1|1|0|1|0|0": 16319,
+     "0|0|0|0|0|0": 979,
+     "0|0|0|1|0|0": 2556
+    },
+    "unpruned_query_diagnostics": [
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 23,
+      "current_upper": 121,
+      "sufficient_upper": 83,
+      "count": 3177,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 434,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 24,
+      "current_upper": 121,
+      "sufficient_upper": 82,
+      "count": 3008,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 486,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 22,
+      "current_upper": 121,
+      "sufficient_upper": 84,
+      "count": 2692,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 180,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 21,
+       "deficit": 13,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 28,
+      "current_upper": 121,
+      "sufficient_upper": 78,
+      "count": 2428,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 492,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 27,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 27,
+      "current_upper": 121,
+      "sufficient_upper": 79,
+      "count": 2364,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 314,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 26,
+       "deficit": 13,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 19,
+      "current_upper": 121,
+      "sufficient_upper": 87,
+      "count": 1903,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|7|0|1|0|0",
+      "d_star": 7,
+      "ports": 20,
+      "current_upper": 121,
+      "sufficient_upper": 86,
+      "count": 1815,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 29,
+      "current_upper": 121,
+      "sufficient_upper": 77,
+      "count": 1784,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 59,
+       "current_orbit": 59,
+       "opened_orbits": 8,
+       "covered_hexagons": 28,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 18,
+      "current_upper": 121,
+      "sufficient_upper": 88,
+      "count": 1604,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 302,
+       "current_orbit": 32,
+       "opened_orbits": 6,
+       "covered_hexagons": 17,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|7|0|1|0|0",
+      "d_star": 7,
+      "ports": 25,
+      "current_upper": 121,
+      "sufficient_upper": 81,
+      "count": 1545,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 69,
+       "current_orbit": 69,
+       "opened_orbits": 7,
+       "covered_hexagons": 24,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 32,
+      "current_upper": 121,
+      "sufficient_upper": 74,
+      "count": 1443,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 494,
+       "current_orbit": 54,
+       "opened_orbits": 9,
+       "covered_hexagons": 31,
+       "deficit": 13,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 33,
+      "current_upper": 121,
+      "sufficient_upper": 73,
+      "count": 1266,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 688,
+       "current_orbit": 111,
+       "opened_orbits": 9,
+       "covered_hexagons": 32,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     }
+    ]
+   },
+   "helper": {
+    "cell": "1|8|1|1|0|0",
+    "J": 105,
+    "target": 106,
+    "with_helper": true,
+    "cap": 200000,
+    "nodes": 200001,
+    "status": "DEFERRED",
+    "detail": "node cap 200000 reached",
+    "ub_calls": 128939,
+    "fallback_calls": 38900,
+    "fallback_fraction": 0.30169304865091245,
+    "useful_p_leaf_count": 89469,
+    "useful_genuine_helper_prunes": 89469,
+    "new_helper_essential_p_leaves": 0,
+    "first_new_helper_prune_depth": null,
+    "helpers_used": {
+     "1|7|0|0|0|0": 312,
+     "0|10|2|0|0|0": 3,
+     "1|6|0|0|0|0": 704,
+     "0|6|2|0|0|0": 83,
+     "1|5|1|0|0|0": 1168,
+     "0|3|0|0|0|0": 950,
+     "1|3|10|0|0|0": 4721,
+     "0|5|2|0|0|0": 130,
+     "1|4|10|0|0|0": 3604,
+     "0|4|2|0|0|0": 385,
+     "0|7|2|0|0|0": 46,
+     "1|2|0|0|0|0": 7577,
+     "0|2|0|0|0|0": 437,
+     "0|1|0|0|0|0": 692,
+     "1|1|0|0|0|0": 4712,
+     "0|8|2|0|0|0": 32,
+     "0|9|2|0|0|0": 12,
+     "1|8|0|0|0|0": 173,
+     "1|9|0|0|0|0": 65,
+     "1|3|1|1|0|0": 38019,
+     "0|2|0|1|0|0": 2559,
+     "0|1|0|1|0|0": 3231,
+     "1|1|0|1|0|0": 16319,
+     "0|0|0|0|0|0": 979,
+     "0|0|0|1|0|0": 2556
+    },
+    "unpruned_query_diagnostics": [
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 23,
+      "current_upper": 121,
+      "sufficient_upper": 83,
+      "count": 3177,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 434,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 22,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 24,
+      "current_upper": 121,
+      "sufficient_upper": 82,
+      "count": 3008,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 486,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 23,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 22,
+      "current_upper": 121,
+      "sufficient_upper": 84,
+      "count": 2692,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 180,
+       "current_orbit": 24,
+       "opened_orbits": 7,
+       "covered_hexagons": 21,
+       "deficit": 13,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 28,
+      "current_upper": 121,
+      "sufficient_upper": 78,
+      "count": 2428,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 492,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 27,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 27,
+      "current_upper": 121,
+      "sufficient_upper": 79,
+      "count": 2364,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 314,
+       "current_orbit": 48,
+       "opened_orbits": 8,
+       "covered_hexagons": 26,
+       "deficit": 13,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 19,
+      "current_upper": 121,
+      "sufficient_upper": 87,
+      "count": 1903,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 453,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 18,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|7|0|1|0|0",
+      "d_star": 7,
+      "ports": 20,
+      "current_upper": 121,
+      "sufficient_upper": 86,
+      "count": 1815,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 585,
+       "current_orbit": 120,
+       "opened_orbits": 6,
+       "covered_hexagons": 19,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|6|0|1|0|0",
+      "d_star": 6,
+      "ports": 29,
+      "current_upper": 121,
+      "sufficient_upper": 77,
+      "count": 1784,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 59,
+       "current_orbit": 59,
+       "opened_orbits": 8,
+       "covered_hexagons": 28,
+       "deficit": 11,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 18,
+      "current_upper": 121,
+      "sufficient_upper": 88,
+      "count": 1604,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 302,
+       "current_orbit": 32,
+       "opened_orbits": 6,
+       "covered_hexagons": 17,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|7|0|1|0|0",
+      "d_star": 7,
+      "ports": 25,
+      "current_upper": 121,
+      "sufficient_upper": 81,
+      "count": 1545,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 69,
+       "current_orbit": 69,
+       "opened_orbits": 7,
+       "covered_hexagons": 24,
+       "deficit": 10,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ],
+       [
+        1,
+        119,
+        "1|7|8|0|0|0"
+       ],
+       [
+        2,
+        59,
+        "0|7|2|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|4|0|1|0|0",
+      "d_star": 4,
+      "ports": 32,
+      "current_upper": 121,
+      "sufficient_upper": 74,
+      "count": 1443,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 494,
+       "current_orbit": 54,
+       "opened_orbits": 9,
+       "covered_hexagons": 31,
+       "deficit": 13,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        53,
+        "1|3|1|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|2|1|0|0"
+       ],
+       [
+        1,
+        53,
+        "1|3|3|1|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|4|10|0|0|0"
+       ],
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ]
+      ]
+     },
+     {
+      "query": "1|5|0|1|0|0",
+      "d_star": 5,
+      "ports": 33,
+      "current_upper": 121,
+      "sufficient_upper": 73,
+      "count": 1266,
+      "analytic_fallback": true,
+      "exemplar": {
+       "endpoint": 688,
+       "current_orbit": 111,
+       "opened_orbits": 9,
+       "covered_hexagons": 32,
+       "deficit": 12,
+       "used_A": 1,
+       "used_B": 0
+      },
+      "nearest_genuine_helpers": [
+       [
+        1,
+        61,
+        "1|5|1|0|0|0"
+       ],
+       [
+        1,
+        64,
+        "1|6|0|0|0|0"
+       ],
+       [
+        1,
+        73,
+        "1|7|0|0|0|0"
+       ],
+       [
+        1,
+        77,
+        "1|8|0|0|0|0"
+       ],
+       [
+        1,
+        81,
+        "1|9|0|0|0|0"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "stages": [
+  {
+   "cell": "1|4|5|1|0|0",
+   "J": 121,
+   "target": 122,
+   "with_helper": true,
+   "cap": 500000,
+   "nodes": 500001,
+   "status": "DEFERRED",
+   "detail": "node cap 500000 reached",
+   "ub_calls": 209553,
+   "fallback_calls": 70823,
+   "fallback_fraction": 0.33797177802274364,
+   "useful_p_leaf_count": 123238,
+   "useful_genuine_helper_prunes": 123238,
+   "new_helper_essential_p_leaves": 8668,
+   "first_new_helper_prune_depth": 17,
+   "helpers_used": {
+    "1|3|10|0|0|0": 21931,
+    "1|3|1|1|0|0": 888,
+    "1|2|0|0|0|0": 4,
+    "1|1|0|0|0|0": 1,
+    "1|1|0|1|0|0": 19,
+    "0|1|0|1|0|0": 21,
+    "1|5|1|0|0|0": 35,
+    "1|2|10|0|0|0": 62331,
+    "1|1|1|0|0|0": 392,
+    "0|1|1|1|0|0": 93,
+    "1|4|10|0|0|0": 9890,
+    "0|2|1|0|0|0": 7,
+    "0|4|2|0|0|0": 164,
+    "0|3|2|0|0|0": 160,
+    "0|2|2|0|0|0": 218,
+    "0|1|2|0|0|0": 475,
+    "1|3|2|1|0|0": 3547,
+    "0|1|0|0|0|0": 4,
+    "0|0|0|1|0|0": 48,
+    "0|0|1|0|0|0": 49,
+    "0|0|1|1|0|0": 175,
+    "0|0|0|0|0|0": 7,
+    "0|0|2|0|0|0": 73,
+    "0|0|2|1|0|0": 304,
+    "0|5|2|0|0|0": 154,
+    "1|3|3|1|0|0": 12718,
+    "0|0|3|0|0|0": 122,
+    "2|0|3|1|0|0": 693,
+    "0|2|0|1|0|0": 3,
+    "0|1|1|0|0|0": 14,
+    "0|6|2|0|0|0": 27,
+    "1|1|5|1|0|0": 8668,
+    "0|7|2|0|0|0": 3
+   },
+   "unpruned_query_diagnostics": [
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 30,
+     "current_upper": 125,
+     "sufficient_upper": 92,
+     "count": 2465,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 44,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 29,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 25,
+     "current_upper": 125,
+     "sufficient_upper": 97,
+     "count": 2233,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 639,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 24,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 31,
+     "current_upper": 125,
+     "sufficient_upper": 91,
+     "count": 2148,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 350,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 30,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 29,
+     "current_upper": 125,
+     "sufficient_upper": 93,
+     "count": 2146,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 647,
+      "current_orbit": 134,
+      "opened_orbits": 8,
+      "covered_hexagons": 28,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 20,
+     "current_upper": 125,
+     "sufficient_upper": 102,
+     "count": 2057,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 585,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 19,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 21,
+     "current_upper": 125,
+     "sufficient_upper": 101,
+     "count": 1982,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 657,
+      "current_orbit": 129,
+      "opened_orbits": 6,
+      "covered_hexagons": 20,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 35,
+     "current_upper": 125,
+     "sufficient_upper": 87,
+     "count": 1972,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 344,
+      "current_orbit": 42,
+      "opened_orbits": 9,
+      "covered_hexagons": 34,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 34,
+     "current_upper": 125,
+     "sufficient_upper": 88,
+     "count": 1962,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 42,
+      "current_orbit": 42,
+      "opened_orbits": 9,
+      "covered_hexagons": 33,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 26,
+     "current_upper": 125,
+     "sufficient_upper": 96,
+     "count": 1913,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 181,
+      "current_orbit": 99,
+      "opened_orbits": 7,
+      "covered_hexagons": 25,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 24,
+     "current_upper": 125,
+     "sufficient_upper": 98,
+     "count": 1840,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 587,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 23,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 19,
+     "current_upper": 125,
+     "sufficient_upper": 103,
+     "count": 1563,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 453,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 18,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 36,
+     "current_upper": 125,
+     "sufficient_upper": 86,
+     "count": 1525,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 628,
+      "current_orbit": 82,
+      "opened_orbits": 9,
+      "covered_hexagons": 35,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "cell": "1|4|5|1|0|0",
+   "J": 121,
+   "target": 122,
+   "with_helper": true,
+   "cap": 1000000,
+   "nodes": 1000001,
+   "status": "DEFERRED",
+   "detail": "node cap 1000000 reached",
+   "ub_calls": 349194,
+   "fallback_calls": 150545,
+   "fallback_fraction": 0.43112138238343156,
+   "useful_p_leaf_count": 179258,
+   "useful_genuine_helper_prunes": 179258,
+   "new_helper_essential_p_leaves": 19998,
+   "first_new_helper_prune_depth": 17,
+   "helpers_used": {
+    "1|3|10|0|0|0": 29018,
+    "1|3|1|1|0|0": 983,
+    "1|2|0|0|0|0": 4,
+    "1|1|0|0|0|0": 1,
+    "1|1|0|1|0|0": 19,
+    "0|1|0|1|0|0": 21,
+    "1|5|1|0|0|0": 35,
+    "1|2|10|0|0|0": 86651,
+    "1|1|1|0|0|0": 420,
+    "0|1|1|1|0|0": 120,
+    "1|4|10|0|0|0": 12579,
+    "0|2|1|0|0|0": 7,
+    "0|4|2|0|0|0": 179,
+    "0|3|2|0|0|0": 166,
+    "0|2|2|0|0|0": 251,
+    "0|1|2|0|0|0": 532,
+    "1|3|2|1|0|0": 4583,
+    "0|1|0|0|0|0": 4,
+    "0|0|0|1|0|0": 52,
+    "0|0|1|0|0|0": 61,
+    "0|0|1|1|0|0": 229,
+    "0|0|0|0|0|0": 7,
+    "0|0|2|0|0|0": 110,
+    "0|0|2|1|0|0": 510,
+    "0|5|2|0|0|0": 166,
+    "1|3|3|1|0|0": 21026,
+    "0|0|3|0|0|0": 195,
+    "2|0|3|1|0|0": 1284,
+    "0|2|0|1|0|0": 3,
+    "0|1|1|0|0|0": 14,
+    "0|6|2|0|0|0": 27,
+    "1|1|5|1|0|0": 19998,
+    "0|7|2|0|0|0": 3
+   },
+   "unpruned_query_diagnostics": [
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 25,
+     "current_upper": 125,
+     "sufficient_upper": 97,
+     "count": 5613,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 639,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 24,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 30,
+     "current_upper": 125,
+     "sufficient_upper": 92,
+     "count": 5464,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 44,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 29,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 26,
+     "current_upper": 125,
+     "sufficient_upper": 96,
+     "count": 5064,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 181,
+      "current_orbit": 99,
+      "opened_orbits": 7,
+      "covered_hexagons": 25,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 29,
+     "current_upper": 125,
+     "sufficient_upper": 93,
+     "count": 4951,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 647,
+      "current_orbit": 134,
+      "opened_orbits": 8,
+      "covered_hexagons": 28,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 24,
+     "current_upper": 125,
+     "sufficient_upper": 98,
+     "count": 4568,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 587,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 23,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 31,
+     "current_upper": 125,
+     "sufficient_upper": 91,
+     "count": 4516,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 350,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 30,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 21,
+     "current_upper": 125,
+     "sufficient_upper": 101,
+     "count": 3949,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 657,
+      "current_orbit": 129,
+      "opened_orbits": 6,
+      "covered_hexagons": 20,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 20,
+     "current_upper": 125,
+     "sufficient_upper": 102,
+     "count": 3853,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 585,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 19,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 34,
+     "current_upper": 125,
+     "sufficient_upper": 88,
+     "count": 3782,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 42,
+      "current_orbit": 42,
+      "opened_orbits": 9,
+      "covered_hexagons": 33,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 35,
+     "current_upper": 125,
+     "sufficient_upper": 87,
+     "count": 3715,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 344,
+      "current_orbit": 42,
+      "opened_orbits": 9,
+      "covered_hexagons": 34,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|5|4|1|0|0",
+     "d_star": 5,
+     "ports": 27,
+     "current_upper": 125,
+     "sufficient_upper": 95,
+     "count": 3446,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 556,
+      "current_orbit": 101,
+      "opened_orbits": 7,
+      "covered_hexagons": 26,
+      "deficit": 8,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       3,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       3,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|5|4|1|0|0",
+     "d_star": 5,
+     "ports": 22,
+     "current_upper": 125,
+     "sufficient_upper": 100,
+     "count": 2913,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 171,
+      "current_orbit": 91,
+      "opened_orbits": 6,
+      "covered_hexagons": 21,
+      "deficit": 8,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       3,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       3,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "cell": "1|4|5|1|0|0",
+   "J": 121,
+   "target": 122,
+   "with_helper": true,
+   "cap": 2000000,
+   "nodes": 2000001,
+   "status": "DEFERRED",
+   "detail": "node cap 2000000 reached",
+   "ub_calls": 632066,
+   "fallback_calls": 305975,
+   "fallback_fraction": 0.4840871048276604,
+   "useful_p_leaf_count": 297399,
+   "useful_genuine_helper_prunes": 297399,
+   "new_helper_essential_p_leaves": 41318,
+   "first_new_helper_prune_depth": 17,
+   "helpers_used": {
+    "1|3|10|0|0|0": 45490,
+    "1|3|1|1|0|0": 1246,
+    "1|2|0|0|0|0": 4,
+    "1|1|0|0|0|0": 1,
+    "1|1|0|1|0|0": 22,
+    "0|1|0|1|0|0": 26,
+    "1|5|1|0|0|0": 41,
+    "1|2|10|0|0|0": 139831,
+    "1|1|1|0|0|0": 509,
+    "0|1|1|1|0|0": 179,
+    "1|4|10|0|0|0": 18922,
+    "0|2|1|0|0|0": 7,
+    "0|4|2|0|0|0": 248,
+    "0|3|2|0|0|0": 222,
+    "0|2|2|0|0|0": 317,
+    "0|1|2|0|0|0": 727,
+    "1|3|2|1|0|0": 6577,
+    "0|1|0|0|0|0": 4,
+    "0|0|0|1|0|0": 74,
+    "0|0|1|0|0|0": 84,
+    "0|0|1|1|0|0": 353,
+    "0|0|0|0|0|0": 9,
+    "0|0|2|0|0|0": 181,
+    "0|0|2|1|0|0": 841,
+    "0|5|2|0|0|0": 211,
+    "1|3|3|1|0|0": 36978,
+    "0|0|3|0|0|0": 377,
+    "2|0|3|1|0|0": 2540,
+    "0|2|0|1|0|0": 3,
+    "0|1|1|0|0|0": 19,
+    "0|6|2|0|0|0": 35,
+    "1|1|5|1|0|0": 41318,
+    "0|7|2|0|0|0": 3
+   },
+   "unpruned_query_diagnostics": [
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 25,
+     "current_upper": 125,
+     "sufficient_upper": 97,
+     "count": 11937,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 639,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 24,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 20,
+     "current_upper": 125,
+     "sufficient_upper": 102,
+     "count": 10989,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 585,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 19,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 21,
+     "current_upper": 125,
+     "sufficient_upper": 101,
+     "count": 10487,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 657,
+      "current_orbit": 129,
+      "opened_orbits": 6,
+      "covered_hexagons": 20,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 24,
+     "current_upper": 125,
+     "sufficient_upper": 98,
+     "count": 10097,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 587,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 23,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 26,
+     "current_upper": 125,
+     "sufficient_upper": 96,
+     "count": 9902,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 181,
+      "current_orbit": 99,
+      "opened_orbits": 7,
+      "covered_hexagons": 25,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 30,
+     "current_upper": 125,
+     "sufficient_upper": 92,
+     "count": 9072,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 44,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 29,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 29,
+     "current_upper": 125,
+     "sufficient_upper": 93,
+     "count": 8713,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 647,
+      "current_orbit": 134,
+      "opened_orbits": 8,
+      "covered_hexagons": 28,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 19,
+     "current_upper": 125,
+     "sufficient_upper": 103,
+     "count": 8467,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 453,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 18,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 31,
+     "current_upper": 125,
+     "sufficient_upper": 91,
+     "count": 6978,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 350,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 30,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|5|4|1|0|0",
+     "d_star": 5,
+     "ports": 22,
+     "current_upper": 125,
+     "sufficient_upper": 100,
+     "count": 6876,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 171,
+      "current_orbit": 91,
+      "opened_orbits": 6,
+      "covered_hexagons": 21,
+      "deficit": 8,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       3,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       3,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|5|1|0|0",
+     "d_star": 3,
+     "ports": 25,
+     "current_upper": 126,
+     "sufficient_upper": 97,
+     "count": 6198,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 163,
+      "current_orbit": 73,
+      "opened_orbits": 7,
+      "covered_hexagons": 25,
+      "deficit": 10,
+      "used_A": 0,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|2|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|5|4|1|0|0",
+     "d_star": 5,
+     "ports": 27,
+     "current_upper": 125,
+     "sufficient_upper": 95,
+     "count": 6023,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 556,
+      "current_orbit": 101,
+      "opened_orbits": 7,
+      "covered_hexagons": 26,
+      "deficit": 8,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       3,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       3,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "cell": "1|4|5|1|0|0",
+   "J": 121,
+   "target": 122,
+   "with_helper": true,
+   "cap": 5000000,
+   "nodes": 2471741,
+   "status": "TREE_BUILT",
+   "detail": null,
+   "ub_calls": 758422,
+   "fallback_calls": 379427,
+   "fallback_fraction": 0.5002848018649249,
+   "useful_p_leaf_count": 347116,
+   "useful_genuine_helper_prunes": 347116,
+   "new_helper_essential_p_leaves": 52548,
+   "first_new_helper_prune_depth": 17,
+   "helpers_used": {
+    "1|3|10|0|0|0": 51397,
+    "1|3|1|1|0|0": 1323,
+    "1|2|0|0|0|0": 4,
+    "1|1|0|0|0|0": 1,
+    "1|1|0|1|0|0": 22,
+    "0|1|0|1|0|0": 26,
+    "1|5|1|0|0|0": 41,
+    "1|2|10|0|0|0": 161293,
+    "1|1|1|0|0|0": 529,
+    "0|1|1|1|0|0": 198,
+    "1|4|10|0|0|0": 21017,
+    "0|2|1|0|0|0": 7,
+    "0|4|2|0|0|0": 264,
+    "0|3|2|0|0|0": 234,
+    "0|2|2|0|0|0": 347,
+    "0|1|2|0|0|0": 773,
+    "1|3|2|1|0|0": 7325,
+    "0|1|0|0|0|0": 4,
+    "0|0|0|1|0|0": 78,
+    "0|0|1|0|0|0": 91,
+    "0|0|1|1|0|0": 393,
+    "0|0|0|0|0|0": 9,
+    "0|0|2|0|0|0": 208,
+    "0|0|2|1|0|0": 993,
+    "0|5|2|0|0|0": 223,
+    "1|3|3|1|0|0": 44019,
+    "0|0|3|0|0|0": 444,
+    "2|0|3|1|0|0": 3242,
+    "0|2|0|1|0|0": 3,
+    "0|1|1|0|0|0": 19,
+    "0|6|2|0|0|0": 36,
+    "1|1|5|1|0|0": 52548,
+    "0|7|2|0|0|0": 3,
+    "1|7|8|0|0|0": 2
+   },
+   "unpruned_query_diagnostics": [
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 20,
+     "current_upper": 125,
+     "sufficient_upper": 102,
+     "count": 14414,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 585,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 19,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 25,
+     "current_upper": 125,
+     "sufficient_upper": 97,
+     "count": 14285,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 639,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 24,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 21,
+     "current_upper": 125,
+     "sufficient_upper": 101,
+     "count": 13252,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 657,
+      "current_orbit": 129,
+      "opened_orbits": 6,
+      "covered_hexagons": 20,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 24,
+     "current_upper": 125,
+     "sufficient_upper": 98,
+     "count": 12447,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 587,
+      "current_orbit": 126,
+      "opened_orbits": 7,
+      "covered_hexagons": 23,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 19,
+     "current_upper": 125,
+     "sufficient_upper": 103,
+     "count": 11447,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 453,
+      "current_orbit": 120,
+      "opened_orbits": 6,
+      "covered_hexagons": 18,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 26,
+     "current_upper": 125,
+     "sufficient_upper": 96,
+     "count": 11447,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 181,
+      "current_orbit": 99,
+      "opened_orbits": 7,
+      "covered_hexagons": 25,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|4|1|0|0",
+     "d_star": 3,
+     "ports": 30,
+     "current_upper": 125,
+     "sufficient_upper": 92,
+     "count": 10030,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 44,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 29,
+      "deficit": 10,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|2|4|1|0|0",
+     "d_star": 2,
+     "ports": 29,
+     "current_upper": 125,
+     "sufficient_upper": 93,
+     "count": 10009,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 647,
+      "current_orbit": 134,
+      "opened_orbits": 8,
+      "covered_hexagons": 28,
+      "deficit": 11,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|2|10|0|0|0"
+      ],
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       53,
+       "1|3|3|1|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       64,
+       "1|1|5|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|5|4|1|0|0",
+     "d_star": 5,
+     "ports": 22,
+     "current_upper": 125,
+     "sufficient_upper": 100,
+     "count": 8298,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 171,
+      "current_orbit": 91,
+      "opened_orbits": 6,
+      "covered_hexagons": 21,
+      "deficit": 8,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       3,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       3,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 16,
+     "current_upper": 125,
+     "sufficient_upper": 106,
+     "count": 8195,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 579,
+      "current_orbit": 33,
+      "opened_orbits": 5,
+      "covered_hexagons": 15,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|3|5|1|0|0",
+     "d_star": 3,
+     "ports": 20,
+     "current_upper": 126,
+     "sufficient_upper": 102,
+     "count": 7809,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 20,
+      "current_orbit": 20,
+      "opened_orbits": 6,
+      "covered_hexagons": 20,
+      "deficit": 10,
+      "used_A": 0,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|2|10|0|0|0"
+      ]
+     ]
+    },
+    {
+     "query": "1|4|4|1|0|0",
+     "d_star": 4,
+     "ports": 31,
+     "current_upper": 125,
+     "sufficient_upper": 91,
+     "count": 7588,
+     "analytic_fallback": true,
+     "exemplar": {
+      "endpoint": 350,
+      "current_orbit": 44,
+      "opened_orbits": 8,
+      "covered_hexagons": 30,
+      "deficit": 9,
+      "used_A": 1,
+      "used_B": 0
+     },
+     "nearest_genuine_helpers": [
+      [
+       1,
+       61,
+       "1|4|10|0|0|0"
+      ],
+      [
+       1,
+       119,
+       "1|7|8|0|0|0"
+      ],
+      [
+       1,
+       129,
+       "1|5|10|0|0|0"
+      ],
+      [
+       2,
+       48,
+       "1|3|10|0|0|0"
+      ],
+      [
+       2,
+       53,
+       "1|3|3|1|0|0"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "semantics": "Each cap is a deterministic restart; cumulative actual node work includes repeated prefixes.",
+ "selected": "1|4|5|1|0|0",
+ "selection": "Positive counterfactual helper-prune effect first; then fallback, useful count, first depth, stable ID. Total cost unknown from caps.",
+ "probe_complete": true,
+ "cumulative_escalation_nodes": 5971744,
+ "certificate": {
+  "path": "r171/certs/extree_J_helper_decision_codex_171.txt.gz",
+  "sha256": "08f61a8bab4a0a7cfb0c1e65c590602d1baab544c66a817a245ab5d95b1d9707",
+  "plain_sha256": "a21396aa6061d7e3443622d28d582cab1046f22b98d6d773566ac60fdb740a48",
+  "nodes": 2471741
+ },
+ "prior_direct_control": {
+  "cell": "1|4|5|1|0|0",
+  "J": 121,
+  "nodes": 2000001,
+  "completed": false,
+  "cap": 2000000,
+  "detail": "node cap 2000000 reached",
+  "helpers_used": {
+   "1|3|10|0|0|0": 30430,
+   "1|3|1|1|0|0": 993,
+   "1|2|0|0|0|0": 4,
+   "1|1|0|0|0|0": 1,
+   "1|1|0|1|0|0": 19,
+   "0|1|0|1|0|0": 21,
+   "1|5|1|0|0|0": 35,
+   "1|2|10|0|0|0": 103199,
+   "1|1|1|0|0|0": 420,
+   "0|1|1|1|0|0": 125,
+   "1|4|10|0|0|0": 13116,
+   "0|2|1|0|0|0": 7,
+   "0|4|2|0|0|0": 180,
+   "0|3|2|0|0|0": 170,
+   "0|2|2|0|0|0": 257,
+   "0|1|2|0|0|0": 546,
+   "1|3|2|1|0|0": 4756,
+   "0|1|0|0|0|0": 4,
+   "0|0|0|1|0|0": 52,
+   "0|0|1|0|0|0": 61,
+   "0|0|1|1|0|0": 238,
+   "0|0|0|0|0|0": 7,
+   "0|0|2|0|0|0": 118,
+   "0|0|2|1|0|0": 554,
+   "0|5|2|0|0|0": 168,
+   "1|3|3|1|0|0": 28619,
+   "0|0|3|0|0|0": 217,
+   "2|0|3|1|0|0": 3152,
+   "0|2|0|1|0|0": 3,
+   "0|1|1|0|0|0": 14,
+   "0|6|2|0|0|0": 27,
+   "0|7|2|0|0|0": 3
+  }
+ },
+ "direct_control": {
+  "cell": "1|4|5|1|0|0",
+  "J": 121,
+  "target": 122,
+  "with_helper": false,
+  "cap": 2594634,
+  "nodes": 2594635,
+  "status": "DEFERRED",
+  "detail": "node cap 2594634 reached",
+  "ub_calls": 653497,
+  "fallback_calls": 413349,
+  "fallback_fraction": 0.6325185884556471,
+  "useful_p_leaf_count": 217954,
+  "useful_genuine_helper_prunes": 217954,
+  "new_helper_essential_p_leaves": 0,
+  "first_new_helper_prune_depth": null,
+  "helpers_used": {
+   "1|3|10|0|0|0": 34336,
+   "1|3|1|1|0|0": 1016,
+   "1|2|0|0|0|0": 4,
+   "1|1|0|0|0|0": 1,
+   "1|1|0|1|0|0": 19,
+   "0|1|0|1|0|0": 21,
+   "1|5|1|0|0|0": 35,
+   "1|2|10|0|0|0": 121151,
+   "1|1|1|0|0|0": 425,
+   "0|1|1|1|0|0": 133,
+   "1|4|10|0|0|0": 14558,
+   "0|2|1|0|0|0": 7,
+   "0|4|2|0|0|0": 191,
+   "0|3|2|0|0|0": 170,
+   "0|2|2|0|0|0": 270,
+   "0|1|2|0|0|0": 579,
+   "1|3|2|1|0|0": 5111,
+   "0|1|0|0|0|0": 4,
+   "0|0|0|1|0|0": 54,
+   "0|0|1|0|0|0": 67,
+   "0|0|1|1|0|0": 258,
+   "0|0|0|0|0|0": 7,
+   "0|0|2|0|0|0": 130,
+   "0|0|2|1|0|0": 624,
+   "0|5|2|0|0|0": 171,
+   "1|3|3|1|0|0": 34663,
+   "0|0|3|0|0|0": 262,
+   "2|0|3|1|0|0": 3640,
+   "0|2|0|1|0|0": 3,
+   "0|1|1|0|0|0": 14,
+   "0|6|2|0|0|0": 27,
+   "0|7|2|0|0|0": 3
+  },
+  "unpruned_query_diagnostics": [
+   {
+    "query": "1|2|4|1|0|0",
+    "d_star": 2,
+    "ports": 24,
+    "current_upper": 125,
+    "sufficient_upper": 98,
+    "count": 14785,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 587,
+     "current_orbit": 126,
+     "opened_orbits": 7,
+     "covered_hexagons": 23,
+     "deficit": 11,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|2|10|0|0|0"
+     ],
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|3|4|1|0|0",
+    "d_star": 3,
+    "ports": 25,
+    "current_upper": 125,
+    "sufficient_upper": 97,
+    "count": 14214,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 639,
+     "current_orbit": 126,
+     "opened_orbits": 7,
+     "covered_hexagons": 24,
+     "deficit": 10,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ],
+     [
+      1,
+      129,
+      "1|5|10|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|2|4|1|0|0",
+    "d_star": 2,
+    "ports": 29,
+    "current_upper": 125,
+    "sufficient_upper": 93,
+    "count": 13384,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 647,
+     "current_orbit": 134,
+     "opened_orbits": 8,
+     "covered_hexagons": 28,
+     "deficit": 11,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|2|10|0|0|0"
+     ],
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|3|4|1|0|0",
+    "d_star": 3,
+    "ports": 30,
+    "current_upper": 125,
+    "sufficient_upper": 92,
+    "count": 11525,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 315,
+     "current_orbit": 69,
+     "opened_orbits": 8,
+     "covered_hexagons": 29,
+     "deficit": 10,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ],
+     [
+      1,
+      129,
+      "1|5|10|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|3|4|1|0|0",
+    "d_star": 3,
+    "ports": 20,
+    "current_upper": 125,
+    "sufficient_upper": 102,
+    "count": 11503,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 585,
+     "current_orbit": 120,
+     "opened_orbits": 6,
+     "covered_hexagons": 19,
+     "deficit": 10,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ],
+     [
+      1,
+      129,
+      "1|5|10|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|4|4|1|0|0",
+    "d_star": 4,
+    "ports": 26,
+    "current_upper": 125,
+    "sufficient_upper": 96,
+    "count": 10417,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 181,
+     "current_orbit": 99,
+     "opened_orbits": 7,
+     "covered_hexagons": 25,
+     "deficit": 9,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ],
+     [
+      1,
+      129,
+      "1|5|10|0|0|0"
+     ],
+     [
+      2,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      2,
+      53,
+      "1|3|3|1|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|2|4|1|0|0",
+    "d_star": 2,
+    "ports": 19,
+    "current_upper": 125,
+    "sufficient_upper": 103,
+    "count": 10384,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 453,
+     "current_orbit": 120,
+     "opened_orbits": 6,
+     "covered_hexagons": 18,
+     "deficit": 11,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|2|10|0|0|0"
+     ],
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|4|4|1|0|0",
+    "d_star": 4,
+    "ports": 21,
+    "current_upper": 125,
+    "sufficient_upper": 101,
+    "count": 9850,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 657,
+     "current_orbit": 129,
+     "opened_orbits": 6,
+     "covered_hexagons": 20,
+     "deficit": 9,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ],
+     [
+      1,
+      129,
+      "1|5|10|0|0|0"
+     ],
+     [
+      2,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      2,
+      53,
+      "1|3|3|1|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|1|4|1|0|0",
+    "d_star": 1,
+    "ports": 23,
+    "current_upper": 125,
+    "sufficient_upper": 99,
+    "count": 8980,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 552,
+     "current_orbit": 2,
+     "opened_orbits": 7,
+     "covered_hexagons": 22,
+     "deficit": 12,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|2|10|0|0|0"
+     ],
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      50,
+      "2|1|4|0|0|0"
+     ],
+     [
+      1,
+      50,
+      "2|1|5|0|0|0"
+     ],
+     [
+      1,
+      50,
+      "2|1|6|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|2|4|1|0|0",
+    "d_star": 2,
+    "ports": 34,
+    "current_upper": 125,
+    "sufficient_upper": 88,
+    "count": 8761,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 325,
+     "current_orbit": 107,
+     "opened_orbits": 9,
+     "covered_hexagons": 33,
+     "deficit": 11,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|2|10|0|0|0"
+     ],
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      53,
+      "1|3|3|1|0|0"
+     ],
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|1|4|1|0|0",
+    "d_star": 1,
+    "ports": 28,
+    "current_upper": 125,
+    "sufficient_upper": 94,
+    "count": 8513,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 471,
+     "current_orbit": 135,
+     "opened_orbits": 8,
+     "covered_hexagons": 27,
+     "deficit": 12,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      48,
+      "1|2|10|0|0|0"
+     ],
+     [
+      1,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      1,
+      50,
+      "2|1|4|0|0|0"
+     ],
+     [
+      1,
+      50,
+      "2|1|5|0|0|0"
+     ],
+     [
+      1,
+      50,
+      "2|1|6|0|0|0"
+     ]
+    ]
+   },
+   {
+    "query": "1|4|4|1|0|0",
+    "d_star": 4,
+    "ports": 31,
+    "current_upper": 125,
+    "sufficient_upper": 91,
+    "count": 8186,
+    "analytic_fallback": true,
+    "exemplar": {
+     "endpoint": 497,
+     "current_orbit": 69,
+     "opened_orbits": 8,
+     "covered_hexagons": 30,
+     "deficit": 9,
+     "used_A": 1,
+     "used_B": 0
+    },
+    "nearest_genuine_helpers": [
+     [
+      1,
+      61,
+      "1|4|10|0|0|0"
+     ],
+     [
+      1,
+      119,
+      "1|7|8|0|0|0"
+     ],
+     [
+      1,
+      129,
+      "1|5|10|0|0|0"
+     ],
+     [
+      2,
+      48,
+      "1|3|10|0|0|0"
+     ],
+     [
+      2,
+      53,
+      "1|3|3|1|0|0"
+     ]
+    ]
+   }
+  ]
+ },
+ "measurement_complete": true,
+ "verifier_A": {
+  "ok": true,
+  "path": "r171/certs/extree_J_helper_decision_codex_171.txt.gz",
+  "sha256": "08f61a8bab4a0a7cfb0c1e65c590602d1baab544c66a817a245ab5d95b1d9707",
+  "plain_sha256": "a21396aa6061d7e3443622d28d582cab1046f22b98d6d773566ac60fdb740a48",
+  "declared_dependencies": 130,
+  "tokens": 2471749,
+  "cells": 1,
+  "nodes": 2471741,
+  "rows": [
+   {
+    "cell": "1|4|5|1|0|0",
+    "cap": 121,
+    "nodes": 2471741,
+    "status": "UPPER_CERTIFIED",
+    "detail": null
+   }
+  ]
+ },
+ "verifier_B": {
+  "ok": true,
+  "path": "r171/certs/extree_J_helper_decision_codex_171.txt.gz",
+  "format": "L6-EXTREE-3",
+  "sha256": "08f61a8bab4a0a7cfb0c1e65c590602d1baab544c66a817a245ab5d95b1d9707",
+  "plain_sha256": "a21396aa6061d7e3443622d28d582cab1046f22b98d6d773566ac60fdb740a48",
+  "rows": [
+   {
+    "cell": "1|4|5|1|0|0",
+    "cap": 121,
+    "nodes": 2471741,
+    "hist_checks": 2471741,
+    "verified": true,
+    "detail": null
+   }
+  ],
+  "own_cells": [
+   "1|4|5|1|0|0"
+  ],
+  "refs": [
+   "r164/certs/extree_prefix_164.txt.gz",
+   "r166/certs/extree_batch2_166.txt.gz",
+   "r166/certs/extree_batch3_166.txt.gz",
+   "r168/certs/extree_batch1_168.txt.gz",
+   "r170/certs/extree_ladder_h_170.txt.gz",
+   "r170/certs/extree_ladder_a2_170.txt.gz",
+   "r170/certs/extree_target_h_170.txt.gz",
+   "r170/certs/extree_target_a2_170.txt.gz",
+   "r171/certs/extree_probe_b1a10_171.txt.gz",
+   "r171/certs/extree_lb_batch1_171.txt.gz",
+   "r171/certs/extree_lb_b1a10_d5_171.txt.gz",
+   "r171/certs/extree_lb_b1a10_d7_171.txt.gz",
+   "r171/certs/extree_lb_b1a10_d7_joint119_171.txt.gz",
+   "r171/certs/extree_J_B1_upper_d1_codex_171.txt.gz"
+  ],
+  "declared_dependencies": 130,
+  "nodes": 2471741,
+  "hist_checks": 2471741
+ },
+ "histogram_mismatches": 0,
+ "jointly_usable": 6,
+ "remaining": 29,
+ "independence_restricted_J_census": {
+  "exposed_closed": 180,
+  "equality": {
+   "(4, (3, 0, 1, 0, 7, 0, 7, 0, 0, 0, 1))": "EQUALITY",
+   "(4, (4, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0))": "EQUALITY"
+  },
+  "tally": {
+   "STRICTLY_CLOSED": 1607,
+   "EQUALITY": 2
+  },
+  "historical_basis_fallback": false
+ },
+ "verdict": "ROUND171_HELPER_TARGET_CERTIFIED"
+}
