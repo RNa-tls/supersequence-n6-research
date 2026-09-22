@@ -49,11 +49,23 @@ def main():
         else:
             assert r['status']=='DEFERRED' and r['nodes']==r['cap']+1
             assert 'node cap' in r['detail'] and registered
+    for t in m['targets']:
+        if t['status']!='GENERATING':continue
+        ident=t['cell'].replace('|','_')+'_c20000000_e2'
+        assert not (W.ROOT/W.BASE/'jobs'/f'{ident}.json').exists()
+        assert not any(a['id']==ident for a in t['attempts'])
+        assert 'BrokenProcessPool' in m.get('error','')
+        record=dict(id=ident,status='WORKER_START_FAILED',nodes=0,
+            reason='No job record exists; build is called only after the atomic GENERATING record.',
+            restart_semantics='Start from root; no proof generation began.')
+        t.setdefault('interruptions',[]).append(record)
+        t['status']='PLANNED';records.append(record)
     assert len(records)==3
     assert not any(t['status']=='GENERATING' for t in m['targets'])
+    last_error=m.pop('error',None)
     m['status']='INTERRUPTION_RECONCILED_READY_TO_RESTART'
     W.atomic(W.MAN,m)
-    report=dict(termination_cause='UNKNOWN',live_python_workers=0,
+    report=dict(termination_cause='UNKNOWN',last_driver_error=last_error,live_python_workers=0,
         interrupted=records,certified=m['certified'],remaining=m['remaining'],
         manifest_before_sha256=W.hashlib.sha256(original).hexdigest(),
         manifest_after_sha256=W.sha(W.MAN),preserved_manifest=dest+'manifest_before.json',

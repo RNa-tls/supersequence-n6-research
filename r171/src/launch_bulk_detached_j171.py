@@ -1,4 +1,7 @@
-"""Launch one bounded pass with durable logs; never automatically restart it."""
+"""Supervise one hidden bounded pass with durable logs; never auto-restart.
+
+The filename is historical. Parent now waits rather than exiting after spawn.
+"""
 import argparse
 import datetime
 import os
@@ -22,13 +25,24 @@ if __name__=='__main__':
     command=[sys.executable,'-u','r171/src/run_bulk_escalation_j171.py','--cap',str(a.cap),'--workers',str(a.workers)]
     with (W.ROOT/base/'stdout.log').open('ab') as out,(W.ROOT/base/'stderr.log').open('ab') as err:
         child=subprocess.Popen(command,cwd=W.ROOT,stdin=subprocess.DEVNULL,stdout=out,stderr=err,
-            creationflags=subprocess.DETACHED_PROCESS|subprocess.CREATE_NEW_PROCESS_GROUP,
+            creationflags=subprocess.CREATE_NO_WINDOW|subprocess.CREATE_NEW_PROCESS_GROUP,
             close_fds=True)
     record=dict(pid=child.pid,command=command,started_utc=stamp,
         manifest_before_sha256=W.sha(W.MAN),driver_sha256=W.sha(W.DRIVER),
         wrapper_sha256=W.sha('r171/src/run_bulk_escalation_j171.py'),
         launcher_sha256=W.sha('r171/src/launch_bulk_detached_j171.py'),
         stdout=base+'stdout.log',stderr=base+'stderr.log',automatic_restart=False,
-        cap=a.cap,workers=a.workers)
+        cap=a.cap,workers=a.workers,launch_mode='NO_WINDOW_PARENT_WAITS')
     W.atomic(base+'launch.json',record)
-    print(W.json.dumps(record,indent=1))
+    print(W.json.dumps(record,indent=1),flush=True)
+    while True:
+        try:
+            code=child.wait(timeout=30)
+            break
+        except subprocess.TimeoutExpired:
+            print('SUPERVISOR alive; child PID',child.pid,flush=True)
+    W.atomic(base+'exit.json',dict(pid=child.pid,exit_code=code,
+        ended_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        automatic_restart=False,manifest_sha256=W.sha(W.MAN)))
+    print('WORKER_EXIT',code,flush=True)
+    sys.exit(code)

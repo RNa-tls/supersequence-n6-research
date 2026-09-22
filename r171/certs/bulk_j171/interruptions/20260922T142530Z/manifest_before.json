@@ -417,6 +417,7 @@
  "cap_policy": "Each capped restart is DEFERRED; never absence or proof. Generation uses J+1 only.",
  "certified": 8,
  "driver_sha256": "210ab50deaa521481e15ec1e3caef6355c4d7ed334c7da569d3f5a35b4c837ea",
+ "error": "BrokenProcessPool('A process in the process pool was terminated abruptly while the future was running or pending.')",
  "initial_backed": [
   "0|15|0|0|0|1",
   "0|18|2|0|0|0",
@@ -503,7 +504,7 @@
   ]
  ],
  "remaining": 27,
- "status": "INTERRUPTION_RECONCILED_READY_TO_RESTART",
+ "status": "VERIFICATION_FAILURE",
  "targets": [
   {
    "attempts": [
@@ -1876,20 +1877,13 @@
      "preserved_path": "r171/certs/bulk_j171/interruptions/20260922T142144Z/2_5_0_0_0_1_c20000000_e2.json",
      "restart_semantics": "Restart from root; no partial proof-tree checkpoint exists.",
      "status": "INTERRUPTED"
-    },
-    {
-     "id": "2_5_0_0_0_1_c20000000_e2",
-     "nodes": 0,
-     "reason": "No job record exists; build is called only after the atomic GENERATING record.",
-     "restart_semantics": "Start from root; no proof generation began.",
-     "status": "WORKER_START_FAILED"
     }
    ],
    "possible_required_predecessors": [],
    "prior_cap": 100000,
    "prior_fallback": 0.5074888836882753,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 116,
    "useful_P1_dominators": {
     "0|0|0|0|0|0": 31,
@@ -2004,20 +1998,13 @@
      "preserved_path": "r171/certs/bulk_j171/interruptions/20260922T142144Z/2_8_2_0_0_0_c20000000_e2.json",
      "restart_semantics": "Restart from root; no partial proof-tree checkpoint exists.",
      "status": "INTERRUPTED"
-    },
-    {
-     "id": "2_8_2_0_0_0_c20000000_e2",
-     "nodes": 0,
-     "reason": "No job record exists; build is called only after the atomic GENERATING record.",
-     "restart_semantics": "Start from root; no proof generation began.",
-     "status": "WORKER_START_FAILED"
     }
    ],
    "possible_required_predecessors": [],
    "prior_cap": 100000,
    "prior_fallback": 0.5410890760761424,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 118,
    "useful_P1_dominators": {
     "0|4|2|0|0|0": 1,
@@ -2083,20 +2070,13 @@
      "preserved_path": "r171/certs/bulk_j171/interruptions/20260922T142144Z/2_10_0_0_0_0_c20000000_e2.json",
      "restart_semantics": "Restart from root; no partial proof-tree checkpoint exists.",
      "status": "INTERRUPTED"
-    },
-    {
-     "id": "2_10_0_0_0_0_c20000000_e2",
-     "nodes": 0,
-     "reason": "No job record exists; build is called only after the atomic GENERATING record.",
-     "restart_semantics": "Start from root; no proof generation began.",
-     "status": "WORKER_START_FAILED"
     }
    ],
    "possible_required_predecessors": [],
    "prior_cap": 100000,
    "prior_fallback": 0.3721617131253461,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 108,
    "useful_P1_dominators": {
     "0|0|0|0|0|0": 6,

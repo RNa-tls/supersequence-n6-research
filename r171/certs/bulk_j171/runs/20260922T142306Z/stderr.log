@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\supersequence-n6-research-round171\r171\src\run_bulk_escalation_j171.py", line 13, in <module>
+    W.run(a.cap,a.workers)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\parks\Documents\Codex\2026-07-20\a-n-ge-4-s-n\supersequence-n6-research-round171\r171\src\bulk_j171.py", line 189, in run
+    try:r=future.result()
+          ~~~~~~~~~~~~~^^
+  File "C:\Users\parks\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\parks\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
