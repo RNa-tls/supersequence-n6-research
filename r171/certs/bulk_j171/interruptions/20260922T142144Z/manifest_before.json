@@ -503,7 +503,7 @@
   ]
  ],
  "remaining": 27,
- "status": "INTERRUPTION_RECONCILED_READY_TO_RESTART",
+ "status": "RUNNING",
  "targets": [
   {
    "attempts": [
@@ -1866,23 +1866,11 @@
    "current_root_P1_query": "2|15|0|0|0|1",
    "family": "b2_H1_B0_E0_AplusD5",
    "helper_policy": "No speculative helper; use accepted DAG, reconsider investment only after measured bottlenecks.",
-   "interruptions": [
-    {
-     "id": "2_5_0_0_0_1_c20000000_e2",
-     "modified_ns": 1790039362196948600,
-     "nodes": null,
-     "original_sha256": "2c095e8212fb097bf19bdd7900d5ade9e6567407106600f9961a5095918d3b02",
-     "original_size": 4452,
-     "preserved_path": "r171/certs/bulk_j171/interruptions/20260922T142144Z/2_5_0_0_0_1_c20000000_e2.json",
-     "restart_semantics": "Restart from root; no partial proof-tree checkpoint exists.",
-     "status": "INTERRUPTED"
-    }
-   ],
    "possible_required_predecessors": [],
    "prior_cap": 100000,
    "prior_fallback": 0.5074888836882753,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 116,
    "useful_P1_dominators": {
     "0|0|0|0|0|0": 31,
@@ -1987,23 +1975,11 @@
    "current_root_P1_query": "2|18|2|0|0|0",
    "family": "b2_H0_B0_E0_AplusD10",
    "helper_policy": "No speculative helper; use accepted DAG, reconsider investment only after measured bottlenecks.",
-   "interruptions": [
-    {
-     "id": "2_8_2_0_0_0_c20000000_e2",
-     "modified_ns": 1790039611993518400,
-     "nodes": null,
-     "original_sha256": "ece0ca18178051742ea4ada57b71aa8da946ed85bb784115b2bbc86db8bdc25b",
-     "original_size": 4452,
-     "preserved_path": "r171/certs/bulk_j171/interruptions/20260922T142144Z/2_8_2_0_0_0_c20000000_e2.json",
-     "restart_semantics": "Restart from root; no partial proof-tree checkpoint exists.",
-     "status": "INTERRUPTED"
-    }
-   ],
    "possible_required_predecessors": [],
    "prior_cap": 100000,
    "prior_fallback": 0.5410890760761424,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 118,
    "useful_P1_dominators": {
     "0|4|2|0|0|0": 1,
@@ -2059,23 +2035,11 @@
    "current_root_P1_query": "2|20|0|0|0|0",
    "family": "b2_H0_B0_E0_AplusD10",
    "helper_policy": "No speculative helper; use accepted DAG, reconsider investment only after measured bottlenecks.",
-   "interruptions": [
-    {
-     "id": "2_10_0_0_0_0_c20000000_e2",
-     "modified_ns": 1790039069686419200,
-     "nodes": null,
-     "original_sha256": "1f29a43a250623caf873a44cf8717888dc7fc2ec6fe59d2e443d38a44b3d8ad5",
-     "original_size": 4454,
-     "preserved_path": "r171/certs/bulk_j171/interruptions/20260922T142144Z/2_10_0_0_0_0_c20000000_e2.json",
-     "restart_semantics": "Restart from root; no partial proof-tree checkpoint exists.",
-     "status": "INTERRUPTED"
-    }
-   ],
    "possible_required_predecessors": [],
    "prior_cap": 100000,
    "prior_fallback": 0.3721617131253461,
    "prior_nodes": 100001,
-   "status": "PLANNED",
+   "status": "GENERATING",
    "target": 108,
    "useful_P1_dominators": {
     "0|0|0|0|0|0": 6,

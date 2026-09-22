@@ -61,6 +61,8 @@ def audit(output):
         accepted_dag_hashes_valid=True, dual_report_rows_and_histograms_agree=True,
         verification_mode='Hash/version-bound prior dual acceptance; no new tree replay claimed.',
         nodes_completed_attempts=dict(nodes),
+        interrupted_attempts_with_unknown_nodes=[r for t in m['targets'] for r in t.get('interruptions',[])],
+        research_cost_scope='Completed cap attempts only; interrupted generation with unknown node count is additional unquantified cost.',
         independence_restricted_census=dict(tally=dict(collections.Counter(verdicts.values())),
             exposed_tally=dict(actual_exposed),granted_genuine_cells=len(dep),
             unbacked_J_not_granted=True,historical_basis_fallback=False),
