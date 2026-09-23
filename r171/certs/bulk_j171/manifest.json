@@ -1131,7 +1131,16 @@
   ]
  ],
  "remaining": 24,
- "status": "PASS_FINISHED",
+ "resource_orchestration": {
+  "automatic_restart": false,
+  "cap": 50000000,
+  "min_available_ram": 6442450944,
+  "min_battery_without_ac": 35,
+  "proof_driver_unchanged": true,
+  "source_sha256": "80e60615436af1e2964476581fd05a21ca465f10938ec29a174170df2640d22d",
+  "workers": 2
+ },
+ "status": "RUNNING",
  "targets": [
   {
    "attempts": [
@@ -1317,6 +1326,13 @@
      "environment_count": 2,
      "id": "1_6_3_0_1_0_c20000000_e2",
      "nodes": 20000001,
+     "status": "DEFERRED"
+    },
+    {
+     "cap": 50000000,
+     "environment_count": 5,
+     "id": "1_6_3_0_1_0_c50000000_e5",
+     "nodes": 50000001,
      "status": "DEFERRED"
     }
    ],
@@ -1536,6 +1552,13 @@
      "environment_count": 2,
      "id": "1_8_1_0_1_0_c20000000_e2",
      "nodes": 20000001,
+     "status": "DEFERRED"
+    },
+    {
+     "cap": 50000000,
+     "environment_count": 5,
+     "id": "1_8_1_0_1_0_c50000000_e5",
+     "nodes": 50000001,
      "status": "DEFERRED"
     }
    ],
@@ -1775,7 +1798,7 @@
    "prior_cap": 100000,
    "prior_fallback": 0.013953488372093023,
    "prior_nodes": 100001,
-   "status": "DEFERRED",
+   "status": "GENERATING",
    "target": 112,
    "useful_P1_dominators": {
     "0|0|0|0|0|0": 599,
