@@ -1,0 +1,64 @@
+{
+ "title": "dual verification of experiment trees (EXPERIMENTAL)",
+ "verifier_sha256": {
+  "r172/src/verifyA172.py": "c389c12692522b527f292885f47bbc13ca67670c538de023d213a78faa8b4f27",
+  "r172/src/verifyB172.py": "393db013cc97dfea167038458fc438a510511941bfdd487e5029507039517dae",
+  "r168/src/verifyA168.py": "5bd136d218a1907a8a847d382f781785ca180458fc7c3f76de8395c240772878",
+  "r168/src/verify168.py": "80161f8b3d42bd367fa22e94f6a4c8f12fb3d3c3f9b06a56cc4554f500f75e73",
+  "r152/src/extree152.py": "390a7d2105fe990bca071d6ac0cd0821df43849f34cb3246bf24e9881cc33124",
+  "r164/src/routeb164.py": "3d73bed9a79bc217f9359fc055767f37d92070ced9b7fcb9bc7c21db7d8c3c99"
+ },
+ "rows": [
+  {
+   "tree": "r172/certs/exp/trees/1_6_3_1_0_0_old_c10000000_e0.extree3.txt.gz",
+   "mode": "old",
+   "cell": "1|6|3|1|0|0",
+   "J": 111,
+   "A3": {
+    "ok": true,
+    "nodes": 7037801
+   },
+   "B3": {
+    "ok": true,
+    "nodes": 7037801,
+    "hist_checks": 7037801
+   },
+   "A_B_agree": true,
+   "generator_counts_match": true,
+   "plain_sha256": "819c1cd9acd2c97374714db04244f0b3cd042799881854ef6a07d1cf7b024775",
+   "seconds_noncanonical": 299.1
+  },
+  {
+   "tree": "r172/certs/exp/trees/1_6_3_1_0_0_r1_c10000000_e0.extree4.txt.gz",
+   "mode": "r1",
+   "cell": "1|6|3|1|0|0",
+   "J": 111,
+   "A4": {
+    "ok": true,
+    "nodes": 5242972,
+    "leaves": {
+     "p_monotone_from_earlier_cells": 2535362,
+     "f_feasibility": 1756466,
+     "r1_token_split": 32958
+    },
+    "error": null
+   },
+   "B4": {
+    "ok": true,
+    "nodes": 5242972,
+    "leaves": {
+     "p_monotone_from_earlier_cells": 2535362,
+     "f_feasibility": 1756466,
+     "r1_token_split": 32958
+    },
+    "hist_checks": 5242972,
+    "error": null
+   },
+   "A_B_agree": true,
+   "generator_counts_match": true,
+   "plain_sha256": "bd3ddfbc6da7f4be1b39ea6f1a934ac014da7cb012836662d31c6aba3862a0e7",
+   "seconds_noncanonical": 281.3
+  }
+ ],
+ "all_agree": true
+}

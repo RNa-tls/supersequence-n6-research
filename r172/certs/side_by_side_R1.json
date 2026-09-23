@@ -1,0 +1,548 @@
+{
+ "title": "OLD vs R1 bounded side-by-side (EXPERIMENTAL)",
+ "rows": [
+  {
+   "cell": "1|6|3|0|1|0",
+   "J": 76,
+   "node_cap": 1000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 1000001,
+    "proof_tokens": 1000000,
+    "internal_nodes": 219568,
+    "p_calls": 276784,
+    "old_p_prunes": 57216,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 723216,
+    "p_fallback_fraction": 0.0147,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 38.03,
+    "mean_depth_by_leaf": {
+     "p_old": 27.63,
+     "f": 38.94
+    },
+    "max_depth": 68,
+    "audit_old_p_leaves": 57216,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 25.3,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 1000001,
+    "proof_tokens": 1000000,
+    "internal_nodes": 196521,
+    "p_calls": 399443,
+    "old_p_prunes": 107463,
+    "r1_only_prunes": 95459,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 600557,
+    "p_fallback_fraction": 0.124,
+    "r1_branch_lookups": 398552,
+    "r1_branch_fallback": 42193,
+    "branch_count_hist_evals": {
+     "1": 185408,
+     "2": 106572
+    },
+    "branch_count_hist_prunes": {
+     "1": 87102,
+     "2": 8357
+    },
+    "mean_depth_nodes": 34.29,
+    "mean_depth_by_leaf": {
+     "r1_only": 32.46,
+     "p_old": 24.86,
+     "f": 36.26
+    },
+    "max_depth": 68,
+    "audit_old_p_leaves": 107463,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 25.5,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  },
+  {
+   "cell": "1|6|3|0|1|0",
+   "J": 76,
+   "node_cap": 10000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 10000001,
+    "proof_tokens": 10000000,
+    "internal_nodes": 2142176,
+    "p_calls": 2713568,
+    "old_p_prunes": 571392,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 7286432,
+    "p_fallback_fraction": 0.0432,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 36.34,
+    "mean_depth_by_leaf": {
+     "p_old": 27.0,
+     "f": 37.16
+    },
+    "max_depth": 68,
+    "audit_old_p_leaves": 571392,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 245.1,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 10000001,
+    "proof_tokens": 10000000,
+    "internal_nodes": 1950031,
+    "p_calls": 3033231,
+    "old_p_prunes": 456916,
+    "r1_only_prunes": 626284,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 6966769,
+    "p_fallback_fraction": 0.0932,
+    "r1_branch_lookups": 3248832,
+    "r1_branch_fallback": 253562,
+    "branch_count_hist_evals": {
+     "1": 1903798,
+     "2": 672517
+    },
+    "branch_count_hist_prunes": {
+     "1": 600982,
+     "2": 25302
+    },
+    "mean_depth_nodes": 39.27,
+    "mean_depth_by_leaf": {
+     "r1_only": 35.88,
+     "p_old": 29.0,
+     "f": 40.26
+    },
+    "max_depth": 78,
+    "audit_old_p_leaves": 456916,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 243.9,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  },
+  {
+   "cell": "1|6|3|0|1|0",
+   "J": 76,
+   "node_cap": 50000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 50000001,
+    "proof_tokens": 50000000,
+    "internal_nodes": 10445938,
+    "p_calls": 12039256,
+    "old_p_prunes": 1593318,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 37960744,
+    "p_fallback_fraction": 0.039,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 39.14,
+    "mean_depth_by_leaf": {
+     "p_old": 30.15,
+     "f": 39.61
+    },
+    "max_depth": 78,
+    "audit_old_p_leaves": 1593318,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 1528.0,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 50000001,
+    "proof_tokens": 50000000,
+    "internal_nodes": 9494088,
+    "p_calls": 13889132,
+    "old_p_prunes": 2224833,
+    "r1_only_prunes": 2170211,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 36110868,
+    "p_fallback_fraction": 0.0805,
+    "r1_branch_lookups": 14375131,
+    "r1_branch_fallback": 1040589,
+    "branch_count_hist_evals": {
+     "1": 8953467,
+     "2": 2710832
+    },
+    "branch_count_hist_prunes": {
+     "1": 2079757,
+     "2": 90454
+    },
+    "mean_depth_nodes": 35.72,
+    "mean_depth_by_leaf": {
+     "r1_only": 35.44,
+     "p_old": 27.02,
+     "f": 36.32
+    },
+    "max_depth": 78,
+    "audit_old_p_leaves": 2224833,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 1547.3,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  },
+  {
+   "cell": "1|6|3|1|0|0",
+   "J": 111,
+   "node_cap": 10000000,
+   "environment_job": "1_6_3_1_0_0_c10000000_e0",
+   "old": {
+    "status": "COMPLETED",
+    "visited_nodes": 7037801,
+    "proof_tokens": 7037801,
+    "internal_nodes": 1270180,
+    "p_calls": 5273171,
+    "old_p_prunes": 4002991,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 1764630,
+    "p_fallback_fraction": 0.1335,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 26.02,
+    "mean_depth_by_leaf": {
+     "p_old": 26.04,
+     "f": 26.22
+    },
+    "max_depth": 79,
+    "audit_old_p_leaves": 4002991,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 170.3,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "COMPLETED",
+    "visited_nodes": 5242972,
+    "proof_tokens": 5242972,
+    "internal_nodes": 918186,
+    "p_calls": 3486506,
+    "old_p_prunes": 2535362,
+    "r1_only_prunes": 32958,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 1756466,
+    "p_fallback_fraction": 0.1746,
+    "r1_branch_lookups": 1667117,
+    "r1_branch_fallback": 614360,
+    "branch_count_hist_evals": {
+     "1": 235171,
+     "2": 715973
+    },
+    "branch_count_hist_prunes": {
+     "1": 190,
+     "2": 32768
+    },
+    "mean_depth_nodes": 25.33,
+    "mean_depth_by_leaf": {
+     "p_old": 24.89,
+     "f": 26.16,
+     "r1_only": 26.58
+    },
+    "max_depth": 65,
+    "audit_old_p_leaves": 2535362,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 126.7,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "node_ratio_r1_over_old": 0.745
+  },
+  {
+   "cell": "1|8|1|1|0|0",
+   "J": 105,
+   "node_cap": 10000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 10000001,
+    "proof_tokens": 10000000,
+    "internal_nodes": 2096677,
+    "p_calls": 6596432,
+    "old_p_prunes": 4499755,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 3403568,
+    "p_fallback_fraction": 0.0751,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 37.08,
+    "mean_depth_by_leaf": {
+     "p_old": 32.97,
+     "f": 41.94
+    },
+    "max_depth": 89,
+    "audit_old_p_leaves": 4499755,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 386.6,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 10000001,
+    "proof_tokens": 10000000,
+    "internal_nodes": 1920943,
+    "p_calls": 6579486,
+    "old_p_prunes": 4614500,
+    "r1_only_prunes": 44043,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 3420514,
+    "p_fallback_fraction": 0.0793,
+    "r1_branch_lookups": 3324038,
+    "r1_branch_fallback": 519642,
+    "branch_count_hist_evals": {
+     "1": 605934,
+     "2": 1359052
+    },
+    "branch_count_hist_prunes": {
+     "1": 28589,
+     "2": 15454
+    },
+    "mean_depth_nodes": 31.06,
+    "mean_depth_by_leaf": {
+     "r1_only": 45.99,
+     "p_old": 30.08,
+     "f": 32.39
+    },
+    "max_depth": 89,
+    "audit_old_p_leaves": 4614500,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 383.0,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  },
+  {
+   "cell": "2|6|4|0|0|0",
+   "J": 95,
+   "node_cap": 1000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 1000001,
+    "proof_tokens": 1000000,
+    "internal_nodes": 225388,
+    "p_calls": 256616,
+    "old_p_prunes": 31228,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 743384,
+    "p_fallback_fraction": 0.6995,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 34.51,
+    "mean_depth_by_leaf": {
+     "f": 34.8,
+     "p_old": 30.0
+    },
+    "max_depth": 62,
+    "audit_old_p_leaves": 31228,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 27.0,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 1000001,
+    "proof_tokens": 1000000,
+    "internal_nodes": 204729,
+    "p_calls": 489996,
+    "old_p_prunes": 48175,
+    "r1_only_prunes": 237092,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 510004,
+    "p_fallback_fraction": 0.8443,
+    "r1_branch_lookups": 716987,
+    "r1_branch_fallback": 46664,
+    "branch_count_hist_evals": {
+     "1": 183673,
+     "2": 241130,
+     "3": 17018
+    },
+    "branch_count_hist_prunes": {
+     "1": 175195,
+     "2": 61649,
+     "3": 248
+    },
+    "mean_depth_nodes": 31.87,
+    "mean_depth_by_leaf": {
+     "r1_only": 28.5,
+     "p_old": 27.87,
+     "f": 33.86
+    },
+    "max_depth": 69,
+    "audit_old_p_leaves": 48175,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 40.6,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  },
+  {
+   "cell": "2|6|4|0|0|0",
+   "J": 95,
+   "node_cap": 10000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 10000001,
+    "proof_tokens": 10000000,
+    "internal_nodes": 2166832,
+    "p_calls": 2388681,
+    "old_p_prunes": 221849,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 7611319,
+    "p_fallback_fraction": 0.7695,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 33.9,
+    "mean_depth_by_leaf": {
+     "f": 34.09,
+     "p_old": 29.5
+    },
+    "max_depth": 70,
+    "audit_old_p_leaves": 221849,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 352.3,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 10000001,
+    "proof_tokens": 10000000,
+    "internal_nodes": 2042302,
+    "p_calls": 4235159,
+    "old_p_prunes": 466281,
+    "r1_only_prunes": 1726576,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 5764841,
+    "p_fallback_fraction": 0.8312,
+    "r1_branch_lookups": 6159770,
+    "r1_branch_fallback": 481288,
+    "branch_count_hist_evals": {
+     "1": 1489144,
+     "2": 2168576,
+     "3": 111158
+    },
+    "branch_count_hist_prunes": {
+     "1": 1355491,
+     "2": 370475,
+     "3": 610
+    },
+    "mean_depth_nodes": 32.94,
+    "mean_depth_by_leaf": {
+     "r1_only": 28.75,
+     "p_old": 28.22,
+     "f": 34.63
+    },
+    "max_depth": 80,
+    "audit_old_p_leaves": 466281,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 270.7,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  },
+  {
+   "cell": "2|6|4|0|0|0",
+   "J": 95,
+   "node_cap": 50000000,
+   "environment_job": "1_6_3_0_1_0_c50000000_e5",
+   "old": {
+    "status": "DEFERRED",
+    "visited_nodes": 50000001,
+    "proof_tokens": 50000000,
+    "internal_nodes": 10642147,
+    "p_calls": 11589025,
+    "old_p_prunes": 946878,
+    "r1_only_prunes": 0,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 38410975,
+    "p_fallback_fraction": 0.8078,
+    "r1_branch_lookups": 0,
+    "r1_branch_fallback": 0,
+    "branch_count_hist_evals": {},
+    "branch_count_hist_prunes": {},
+    "mean_depth_nodes": 34.02,
+    "mean_depth_by_leaf": {
+     "f": 34.19,
+     "p_old": 29.94
+    },
+    "max_depth": 71,
+    "audit_old_p_leaves": 946878,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 1609.4,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   },
+   "r1": {
+    "status": "DEFERRED",
+    "visited_nodes": 50000001,
+    "proof_tokens": 50000000,
+    "internal_nodes": 10737544,
+    "p_calls": 18629250,
+    "old_p_prunes": 1788116,
+    "r1_only_prunes": 6103590,
+    "r1_dead_leaves": 0,
+    "b_leaves": 0,
+    "f_leaves": 31370750,
+    "p_fallback_fraction": 0.8059,
+    "r1_branch_lookups": 26881325,
+    "r1_branch_fallback": 1716240,
+    "branch_count_hist_evals": {
+     "1": 7172760,
+     "2": 9296557,
+     "3": 371817
+    },
+    "branch_count_hist_prunes": {
+     "1": 5060123,
+     "2": 1042761,
+     "3": 706
+    },
+    "mean_depth_nodes": 42.34,
+    "mean_depth_by_leaf": {
+     "r1_only": 34.93,
+     "p_old": 33.68,
+     "f": 44.28
+    },
+    "max_depth": 90,
+    "audit_old_p_leaves": 1788116,
+    "audit_conservativity_failures": 0,
+    "seconds_noncanonical": 1679.2,
+    "generator_sha256": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2"
+   }
+  }
+ ]
+}

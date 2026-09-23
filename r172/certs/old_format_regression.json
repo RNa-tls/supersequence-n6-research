@@ -1,0 +1,35 @@
+{
+ "title": "old-format regression (EXPERIMENTAL round)",
+ "pre_existing_files_changed": null,
+ "base_commit": "0a9884e54659590b617ea8458988bee30fe2494b",
+ "certificate": "r171/certs/bulk_j171/proofs/1_4_5_0_1_0_c10000000_e0.txt.gz",
+ "container_sha256": "035533c906a4c1c3463145b034bfc76c615d1ca5849c2733f5879f28791ca515",
+ "recorded_nodes": 7270523,
+ "results": {
+  "A3_unchanged_verifyA168": {
+   "ok": true,
+   "nodes": 7270523,
+   "trusted_on_hash": false,
+   "seconds_noncanonical": 137.8
+  },
+  "B3_unchanged_verify168": {
+   "ok": true,
+   "nodes": 7270523,
+   "trusted_on_hash": false,
+   "seconds_noncanonical": 147.7
+  },
+  "A4_old_format_delegation": {
+   "ok": true,
+   "nodes": 7270523,
+   "trusted_on_hash": false,
+   "seconds_noncanonical": 139.9
+  },
+  "B4_old_format_delegation": {
+   "ok": true,
+   "nodes": 7270523,
+   "trusted_on_hash": false,
+   "seconds_noncanonical": 149.4
+  }
+ },
+ "passed": true
+}

@@ -1,0 +1,745 @@
+{
+ "title": "R1 mutation suite (EXPERIMENTAL)",
+ "complete": true,
+ "verifier_sha256": {
+  "r172/src/verifyA172.py": "c389c12692522b527f292885f47bbc13ca67670c538de023d213a78faa8b4f27",
+  "r172/src/verifyB172.py": "393db013cc97dfea167038458fc438a510511941bfdd487e5029507039517dae",
+  "r172/src/gen172.py": "7d7453f92a6d834f18e9237028bd43952b27b65f6f31300e6a534907f65accf2",
+  "r172/src/mut172.py": "064c471b5acef988a7443610437d18ff2bb9fd7829c3145b6abf67122a170506"
+ },
+ "total": 48,
+ "passed": 48,
+ "all_passed": true,
+ "results": [
+  {
+   "mutation": "R1 tree with R1-only leaves accepted under EXTREE-4 by A4",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "R1 tree with R1-only leaves accepted under EXTREE-4 by B4",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "same R1-only leaves refused under old format by A3",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "same R1-only leaves refused under old format by B3",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "old-format tree accepted by A4 (old semantics)",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "old-format tree accepted by B4 (old semantics)",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "old-format tree accepted by A3 (old semantics)",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "old-format tree accepted by B3 (old semantics)",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "old L-only tree re-declared EXTREE-4 accepted by A4",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "old L-only tree re-declared EXTREE-4 accepted by B4",
+   "layer": "POSITIVE_CONTROL",
+   "passed": true,
+   "error": null
+  },
+  {
+   "mutation": "dropped_r_branch",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_dropped_r_branch.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 35897 claims 'S:0:1=46'; recomputed d0=0 live=[(0, 35), (1, 46)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35889: stored (0, [(1, 46)]) != recomputed (0, [(0, 35), (1, 46)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "fabricated_empty_live",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_fabricated_empty_live.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 43 claims 'S:-3:-'; recomputed d0=-3 live=[(1, 33)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35: stored (-3, []) != recomputed (-3, [(1, 33)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "gt0_zero_branch_dropped",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_gt0_zero_branch_dropped.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 35897 claims 'S:0:1=46'; recomputed d0=0 live=[(0, 35), (1, 46)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35889: stored (0, [(1, 46)]) != recomputed (0, [(0, 35), (1, 46)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "r_greater_than_t_added",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_r_greater_than_t_added.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 43 claims 'S:-3:1=33,2=33'; recomputed d0=-3 live=[(1, 33)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35: stored (-3, [(1, 33), (2, 33)]) != recomputed (-3, [(1, 33)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "negative_branch_added",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_negative_branch_added.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 43 claims 'S:-3:0=33,1=33'; recomputed d0=-3 live=[(1, 33)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35: stored (-3, [(0, 33), (1, 33)]) != recomputed (-3, [(1, 33)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_t_minus_r_value",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_wrong_t_minus_r_value.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 43 claims 'S:-3:2=33'; recomputed d0=-3 live=[(1, 33)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35: stored (-3, [(2, 33)]) != recomputed (-3, [(1, 33)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_d0",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_wrong_d0.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 43 claims 'S:-4:1=33'; recomputed d0=-3 live=[(1, 33)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35: stored (-4, [(1, 33)]) != recomputed (-3, [(1, 33)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "stronger_unsupported_branch_bound",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_stronger_unsupported_branch_bound.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "S leaf at token 43 claims 'S:-3:1=32'; recomputed d0=-3 live=[(1, 33)]"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: S leaf at 35: stored (-3, [(1, 32)]) != recomputed (-3, [(1, 33)])"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "old_leaf_interpreted_as_R1 (S replaced by L)",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_old_leaf_interpreted_as_R1.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "unjustified L leaf at token 43: ports=29 deficit=11 r1=120 r2=76"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: unjustified L leaf at token 35: ports=29 deficit=11 r1=120 r2=76"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "altered_predecessor_container_hash",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_altered_predecessor_container_hash.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "reference hash mismatch for r164/certs/extree_prefix_164.txt.gz"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "reference hash mismatch for r164/certs/extree_prefix_164.txt.gz"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "altered_predecessor_plain_hash",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_altered_predecessor_plain_hash.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "reference hash mismatch for r164/certs/extree_prefix_164.txt.gz"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "reference hash mismatch for r164/certs/extree_prefix_164.txt.gz"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "dep_claims_stronger_cap_than_predecessor",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_dep_claims_stronger_cap_than_predecessor.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "dep (0, 0, 0, 0, 0, 0) does not match r164/certs/extree_prefix_164.txt.gz"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "dep (0, 0, 0, 0, 0, 0) does not match r164/certs/extree_prefix_164.txt.gz"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "non_predecessor_certificate_dep",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_non_predecessor_certificate_dep.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "dep (0, 4, 0, 0, 0, 0) does not match r164/certs/extree_prefix_164.txt.gz"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "dep (0, 4, 0, 0, 0, 0) does not match r164/certs/extree_prefix_164.txt.gz"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "R1_leaf_placed_in_EXTREE-3",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_R1_leaf_placed_in_EXTREE-3.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "bad token 'S:-3:1=33' at 43"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: bad token 'S:-3:1=33' at 35"
+    },
+    "A3": {
+     "accepts": false,
+     "error": "bad token 'S:-3:1=33' at 43"
+    },
+    "B3": {
+     "accepts": false,
+     "error": "tree invalid for 1|4|0|0|0|0: bad token 'S:-3:1=33' at 35"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "missing_rule_declaration",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_missing_rule_declaration.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "EXTREE-4 without the exact R1 rule declaration on line 2"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "line 2 is not the exact R1 rule declaration"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_rule_declaration",
+   "layer": "T",
+   "base": "r172/certs/test/1_4_0_0_0_0_J61_r1.extree4.txt.gz",
+   "path": "r172/certs/mut/T_wrong_rule_declaration.txt.gz",
+   "verifiers": {
+    "A4": {
+     "accepts": false,
+     "error": "EXTREE-4 without the exact R1 rule declaration on line 2"
+    },
+    "B4": {
+     "accepts": false,
+     "error": "line 2 is not the exact R1 rule declaration"
+    }
+   },
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "dropped_r_branch",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_dropped_r_branch_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 44,
+   "annotations_diverged": 44,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 6687 claims 'S:0:0=35'; recomputed d0=0 live=[(0, 35), (1, 46)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 6679: stored (0, [(0, 35)]) != recomputed (0, [(0, 35), (1, 46)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "dropped_r_branch",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_dropped_r_branch_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 44,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 6687: ports=14 max U=46 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 6679 not justified: ports=14 U_R1=46 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "fabricated_empty_live",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_fabricated_empty_live_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 1,
+   "annotations_diverged": 1,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 8 claims 'S:2:-'; recomputed d0=2 live=[(0, 120), (1, 59)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 0: stored (2, []) != recomputed (2, [(0, 120), (1, 59)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "fabricated_empty_live",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_fabricated_empty_live_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 1,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 8: ports=1 max U=120 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 0 not justified: ports=1 U_R1=120 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "gt0_instead_of_ge0",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_gt0_instead_of_ge0_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 51,
+   "annotations_diverged": 51,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 1090 claims 'S:0:-'; recomputed d0=0 live=[(0, 20)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 1082: stored (0, []) != recomputed (0, [(0, 20)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "gt0_instead_of_ge0",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_gt0_instead_of_ge0_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 51,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 1090: ports=44 max U=20 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 1082 not justified: ports=44 U_R1=20 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "r_greater_than_t_admitted",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_r_greater_than_t_admitted_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": true,
+   "decisions_diverged": 2804,
+   "annotations_diverged": 0,
+   "A4_accepts": true,
+   "B4_accepts": true,
+   "A4_error": "",
+   "B4_error": "",
+   "expected": "ACCEPT",
+   "passed": true
+  },
+  {
+   "mutation": "r_greater_than_t_admitted",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_r_greater_than_t_admitted_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": true,
+   "decisions_diverged": 2804,
+   "annotations_diverged": 0,
+   "A4_accepts": true,
+   "B4_accepts": true,
+   "A4_error": "",
+   "B4_error": "",
+   "expected": "ACCEPT",
+   "passed": true
+  },
+  {
+   "mutation": "negative_d0_plus_5r_admitted",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_negative_d0_plus_5r_admitted_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": true,
+   "decisions_diverged": 740,
+   "annotations_diverged": 349,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 18424 claims 'S:-2:0=35,1=33'; recomputed d0=-2 live=[(1, 33)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 18416: stored (-2, [(0, 35), (1, 33)]) != recomputed (-2, [(1, 33)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "negative_d0_plus_5r_admitted",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_negative_d0_plus_5r_admitted_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": true,
+   "decisions_diverged": 740,
+   "annotations_diverged": 0,
+   "A4_accepts": true,
+   "B4_accepts": true,
+   "A4_error": "",
+   "B4_error": "",
+   "expected": "ACCEPT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_t_minus_r",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|4|0|0|0|0",
+   "J": 61,
+   "path": "r172/certs/mut/G_wrong_t_minus_r_faithful_1_4_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 0,
+   "annotations_diverged": 175,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 35897 claims 'S:0:0=20,1=46'; recomputed d0=0 live=[(0, 35), (1, 46)]",
+   "B4_error": "tree invalid for 1|4|0|0|0|0: S leaf at 35889: stored (0, [(0, 20), (1, 46)]) != recomputed (0, [(0, 35), (1, 46)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_t_minus_r",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|6|1|0|0|0",
+   "J": 111,
+   "path": "r172/certs/mut/G_wrong_t_minus_r_honest_1_6_1_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 1,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 8: ports=1 max U=121 cap=111",
+   "B4_error": "tree invalid for 1|6|1|0|0|0: S leaf at 0 not justified: ports=1 U_R1=121 target=112",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_d0_plus_5r",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_wrong_d0_plus_5r_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 237,
+   "annotations_diverged": 452,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 29 claims 'S:-3:1=20'; recomputed d0=-3 live=[(1, 33)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 21: stored (-3, [(1, 20)]) != recomputed (-3, [(1, 33)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "wrong_d0_plus_5r",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_wrong_d0_plus_5r_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 237,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 29: ports=21 max U=33 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 21 not justified: ports=21 U_R1=33 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "non_predecessor_certificate",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_non_predecessor_certificate_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 73,
+   "annotations_diverged": 105,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 28 claims 'S:1:0=20,1=20'; recomputed d0=1 live=[(0, 35), (1, 59)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 20: stored (1, [(0, 20), (1, 20)]) != recomputed (1, [(0, 35), (1, 59)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "non_predecessor_certificate",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_non_predecessor_certificate_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 73,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 28: ports=20 max U=59 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 20 not justified: ports=20 U_R1=59 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "stronger_unsupported_branch_bound",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_stronger_unsupported_branch_bound_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 113,
+   "annotations_diverged": 683,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "S leaf at token 39 claims 'S:-4:1=17'; recomputed d0=-4 live=[(1, 20)]",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 31: stored (-4, [(1, 17)]) != recomputed (-4, [(1, 20)])",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "stronger_unsupported_branch_bound",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_stronger_unsupported_branch_bound_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 113,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 39: ports=30 max U=20 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 31 not justified: ports=30 U_R1=20 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "off_by_one_m_minus_1",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_off_by_one_m_minus_1_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 113,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 39: ports=30 max U=20 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 31 not justified: ports=30 U_R1=20 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "off_by_one_m_minus_1",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_off_by_one_m_minus_1_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 113,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 39: ports=30 max U=20 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 31 not justified: ports=30 U_R1=20 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "off_by_one_J_plus_1",
+   "layer": "G",
+   "variant": "faithful",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_off_by_one_J_plus_1_faithful_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 113,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 39: ports=30 max U=20 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 31 not justified: ports=30 U_R1=20 target=49",
+   "expected": "REJECT",
+   "passed": true
+  },
+  {
+   "mutation": "off_by_one_J_plus_1",
+   "layer": "G",
+   "variant": "honest",
+   "cell": "1|2|0|0|0|0",
+   "J": 48,
+   "path": "r172/certs/mut/G_off_by_one_J_plus_1_honest_1_2_0_0_0_0.extree4.txt.gz",
+   "conservative": false,
+   "decisions_diverged": 113,
+   "annotations_diverged": 0,
+   "A4_accepts": false,
+   "B4_accepts": false,
+   "A4_error": "unjustified S leaf at token 39: ports=30 max U=20 cap=48",
+   "B4_error": "tree invalid for 1|2|0|0|0|0: S leaf at 31 not justified: ports=30 U_R1=20 target=49",
+   "expected": "REJECT",
+   "passed": true
+  }
+ ]
+}

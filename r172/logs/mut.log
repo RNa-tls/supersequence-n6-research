@@ -1,0 +1,52 @@
+positive controls
+  + R1 tree with R1-only leaves accepted under EXTREE-4 by A4        PASS
+  + R1 tree with R1-only leaves accepted under EXTREE-4 by B4        PASS
+  + same R1-only leaves refused under old format by A3               PASS
+  + same R1-only leaves refused under old format by B3               PASS
+  + old-format tree accepted by A4 (old semantics)                   PASS
+  + old-format tree accepted by B4 (old semantics)                   PASS
+  + old-format tree accepted by A3 (old semantics)                   PASS
+  + old-format tree accepted by B3 (old semantics)                   PASS
+  + old L-only tree re-declared EXTREE-4 accepted by A4              PASS
+  + old L-only tree re-declared EXTREE-4 accepted by B4              PASS
+text-layer mutants
+  T dropped_r_branch                             A4=REJ B4=REJ  PASS
+  T fabricated_empty_live                        A4=REJ B4=REJ  PASS
+  T gt0_zero_branch_dropped                      A4=REJ B4=REJ  PASS
+  T r_greater_than_t_added                       A4=REJ B4=REJ  PASS
+  T negative_branch_added                        A4=REJ B4=REJ  PASS
+  T wrong_t_minus_r_value                        A4=REJ B4=REJ  PASS
+  T wrong_d0                                     A4=REJ B4=REJ  PASS
+  T stronger_unsupported_branch_bound            A4=REJ B4=REJ  PASS
+  T old_leaf_interpreted_as_R1 (S replaced by L) A4=REJ B4=REJ  PASS
+  T altered_predecessor_container_hash           A4=REJ B4=REJ  PASS
+  T altered_predecessor_plain_hash               A4=REJ B4=REJ  PASS
+  T dep_claims_stronger_cap_than_predecessor     A4=REJ B4=REJ  PASS
+  T non_predecessor_certificate_dep              A4=REJ B4=REJ  PASS
+  T R1_leaf_placed_in_EXTREE-3                   A4=REJ B4=REJ A3=REJ B3=REJ  PASS
+  T missing_rule_declaration                     A4=REJ B4=REJ  PASS
+  T wrong_rule_declaration                       A4=REJ B4=REJ  PASS
+generator-layer mutants
+  G dropped_r_branch                     faithful   1|2|0|0|0|0 div=44/44 A4=False B4=False expect=REJECT  PASS
+  G dropped_r_branch                     honest     1|2|0|0|0|0 div=44/0 A4=False B4=False expect=REJECT  PASS
+  G fabricated_empty_live                faithful   1|2|0|0|0|0 div=1/1 A4=False B4=False expect=REJECT  PASS
+  G fabricated_empty_live                honest     1|2|0|0|0|0 div=1/0 A4=False B4=False expect=REJECT  PASS
+  G gt0_instead_of_ge0                   faithful   1|2|0|0|0|0 div=51/51 A4=False B4=False expect=REJECT  PASS
+  G gt0_instead_of_ge0                   honest     1|2|0|0|0|0 div=51/0 A4=False B4=False expect=REJECT  PASS
+  G r_greater_than_t_admitted            faithful   1|2|0|0|0|0 div=2804/0 A4=True B4=True expect=ACCEPT  PASS
+  G r_greater_than_t_admitted            honest     1|2|0|0|0|0 div=2804/0 A4=True B4=True expect=ACCEPT  PASS
+  G negative_d0_plus_5r_admitted         faithful   1|2|0|0|0|0 div=740/349 A4=False B4=False expect=REJECT  PASS
+  G negative_d0_plus_5r_admitted         honest     1|2|0|0|0|0 div=740/0 A4=True B4=True expect=ACCEPT  PASS
+  G wrong_t_minus_r                      faithful   1|4|0|0|0|0 div=0/175 A4=False B4=False expect=REJECT  PASS
+  G wrong_t_minus_r                      honest     1|6|1|0|0|0 div=1/0 A4=False B4=False expect=REJECT  PASS
+  G wrong_d0_plus_5r                     faithful   1|2|0|0|0|0 div=237/452 A4=False B4=False expect=REJECT  PASS
+  G wrong_d0_plus_5r                     honest     1|2|0|0|0|0 div=237/0 A4=False B4=False expect=REJECT  PASS
+  G non_predecessor_certificate          faithful   1|2|0|0|0|0 div=73/105 A4=False B4=False expect=REJECT  PASS
+  G non_predecessor_certificate          honest     1|2|0|0|0|0 div=73/0 A4=False B4=False expect=REJECT  PASS
+  G stronger_unsupported_branch_bound    faithful   1|2|0|0|0|0 div=113/683 A4=False B4=False expect=REJECT  PASS
+  G stronger_unsupported_branch_bound    honest     1|2|0|0|0|0 div=113/0 A4=False B4=False expect=REJECT  PASS
+  G off_by_one_m_minus_1                 faithful   1|2|0|0|0|0 div=113/0 A4=False B4=False expect=REJECT  PASS
+  G off_by_one_m_minus_1                 honest     1|2|0|0|0|0 div=113/0 A4=False B4=False expect=REJECT  PASS
+  G off_by_one_J_plus_1                  faithful   1|2|0|0|0|0 div=113/0 A4=False B4=False expect=REJECT  PASS
+  G off_by_one_J_plus_1                  honest     1|2|0|0|0|0 div=113/0 A4=False B4=False expect=REJECT  PASS
+mutation suite: 48/48 passed
