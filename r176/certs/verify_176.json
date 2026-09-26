@@ -1,0 +1,1652 @@
+{
+ "family": {
+  "5": {
+   "rows": 5,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "6": {
+   "rows": 7,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "7": {
+   "rows": 9,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "8": {
+   "rows": 11,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "9": {
+   "rows": 13,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "10": {
+   "rows": 15,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "11": {
+   "rows": 17,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "12": {
+   "rows": 19,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "13": {
+   "rows": 21,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  },
+  "14": {
+   "rows": 23,
+   "charge": 2,
+   "A": [
+    true,
+    "ok"
+   ],
+   "B": [
+    true,
+    "ok"
+   ]
+  }
+ },
+ "differential": {
+  "5": {
+   "pairs": 20000,
+   "disjoint_disagreements": 0,
+   "compat_disagreements": 0,
+   "conflicts": 6999,
+   "branch_coverage": {
+    "frame_diff_gap": 7903,
+    "frame_same_gap": 8127,
+    "no_common_frame": 1735,
+    "same_special": 2235
+   }
+  },
+  "6": {
+   "pairs": 20000,
+   "disjoint_disagreements": 0,
+   "compat_disagreements": 0,
+   "conflicts": 5854,
+   "branch_coverage": {
+    "frame_diff_gap": 7890,
+    "frame_same_gap": 7145,
+    "no_common_frame": 2871,
+    "same_special": 2094
+   }
+  },
+  "7": {
+   "pairs": 20000,
+   "disjoint_disagreements": 0,
+   "compat_disagreements": 0,
+   "conflicts": 5192,
+   "branch_coverage": {
+    "same_special": 1995,
+    "no_common_frame": 3436,
+    "frame_diff_gap": 7976,
+    "frame_same_gap": 6593
+   }
+  },
+  "8": {
+   "pairs": 20000,
+   "disjoint_disagreements": 0,
+   "compat_disagreements": 0,
+   "conflicts": 4960,
+   "branch_coverage": {
+    "frame_same_gap": 6292,
+    "frame_diff_gap": 8152,
+    "same_special": 1982,
+    "no_common_frame": 3574
+   }
+  },
+  "9": {
+   "pairs": 20000,
+   "disjoint_disagreements": 0,
+   "compat_disagreements": 0,
+   "conflicts": 4810,
+   "branch_coverage": {
+    "no_common_frame": 3678,
+    "frame_diff_gap": 8250,
+    "frame_same_gap": 6196,
+    "same_special": 1876
+   }
+  }
+ },
+ "mutations": {
+  "5": [
+   [
+    "T length +1 (n-2)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "T length -1 (n-4), charge 3",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "extra omission on a full row (charge 3)",
+    [
+     false,
+     "charge"
+    ],
+    [
+     false,
+     "charge"
+    ]
+   ],
+   [
+    "omission at position 0",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "omission at last position",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "orientation swap row 1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "orientation swap row 3",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+vwz",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zvw",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zwv",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "alpha mismatch after T",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "complete R' (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "complete R (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "duplicate row",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "R175 cex: omission row 2 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: second loop phase (F applied)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ]
+  ],
+  "6": [
+   [
+    "T length +1 (n-2)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "T length -1 (n-4), charge 3",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "extra omission on a full row (charge 3)",
+    [
+     false,
+     "charge"
+    ],
+    [
+     false,
+     "charge"
+    ]
+   ],
+   [
+    "omission at position 0",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "omission at last position",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "orientation swap row 2",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "orientation swap row 4",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+vwz",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zvw",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zwv",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "alpha mismatch after T",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "complete R' (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "complete R (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "duplicate row",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "R175 cex: omission row 2 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: second loop phase (F applied)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ]
+  ],
+  "7": [
+   [
+    "T length +1 (n-2)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "T length -1 (n-4), charge 3",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "extra omission on a full row (charge 3)",
+    [
+     false,
+     "charge"
+    ],
+    [
+     false,
+     "charge"
+    ]
+   ],
+   [
+    "omission at position 0",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "omission at last position",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "orientation swap row 3",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "orientation swap row 5",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+vwz",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zvw",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zwv",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "alpha mismatch after T",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "complete R' (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "complete R (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "duplicate row",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "R175 cex: omission row 2 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: second loop phase (F applied)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ]
+  ],
+  "8": [
+   [
+    "T length +1 (n-2)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "T length -1 (n-4), charge 3",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "extra omission on a full row (charge 3)",
+    [
+     false,
+     "charge"
+    ],
+    [
+     false,
+     "charge"
+    ]
+   ],
+   [
+    "omission at position 0",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "omission at last position",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "orientation swap row 4",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "orientation swap row 6",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+vwz",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zvw",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zwv",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "alpha mismatch after T",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "complete R' (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "complete R (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "duplicate row",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "R175 cex: omission row 2 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 6 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: second loop phase (F applied)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ]
+  ],
+  "9": [
+   [
+    "T length +1 (n-2)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "T length -1 (n-4), charge 3",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "extra omission on a full row (charge 3)",
+    [
+     false,
+     "charge"
+    ],
+    [
+     false,
+     "charge"
+    ]
+   ],
+   [
+    "omission at position 0",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "omission at last position",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "orientation swap row 5",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "orientation swap row 7",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+vwz",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zvw",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zwv",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "alpha mismatch after T",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "complete R' (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "complete R (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "duplicate row",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "R175 cex: omission row 2 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 6 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 6 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 7 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: second loop phase (F applied)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ]
+  ],
+  "10": [
+   [
+    "T length +1 (n-2)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "T length -1 (n-4), charge 3",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "extra omission on a full row (charge 3)",
+    [
+     false,
+     "charge"
+    ],
+    [
+     false,
+     "charge"
+    ]
+   ],
+   [
+    "omission at position 0",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "omission at last position",
+    [
+     false,
+     "admissible"
+    ],
+    [
+     false,
+     "admissible"
+    ]
+   ],
+   [
+    "orientation swap row 6",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "orientation swap row 8",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+vwz",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zvw",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "exit D+zwv",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "alpha mismatch after T",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "complete R' (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "complete R (n-2 rows)",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "duplicate row",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ],
+   [
+    "R175 cex: omission row 2 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 3 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 4 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 5 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 6 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 6 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 7 shifted -1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 7 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: omission row 8 shifted +1",
+    [
+     false,
+     "class/block"
+    ],
+    [
+     false,
+     "class/block"
+    ]
+   ],
+   [
+    "R175 cex: second loop phase (F applied)",
+    [
+     false,
+     "compat"
+    ],
+    [
+     false,
+     "compat"
+    ]
+   ]
+  ]
+ }
+}
