@@ -1,0 +1,32 @@
+5 same as first n: True
+6 same as first n: True
+7 same as first n: True
+8 same as first n: True
+9 same as first n: True
+10 same as first n: True
+('long', 'B+uyz') []
+('long', 'B+uzy') [('1', 'n-3')]
+('long', 'B+yuz') same block
+('long', 'B+yzu') [('0', '0'), ('1', 'n-2')]
+('long', 'B+zuy') [('0', 'n-3'), ('n-2', 'n-2')]
+('long', 'B+zyu') [('n-2', '0')]
+('loop', 'A+xyz') same block
+('loop', 'A+xzy') [('0', 'n-2'), ('n-2', '0')]
+('loop', 'A+yxz') []
+('loop', 'A+yzx') [('0', 'n-3')]
+('loop', 'A+zxy') [('n-3', '0')]
+('loop', 'A+zyx') [('n-2', 'n-3'), ('n-3', 'n-2')]
+5 Lemma 7 table same as first n: True
+6 Lemma 7 table same as first n: True
+7 Lemma 7 table same as first n: True
+8 Lemma 7 table same as first n: True
+9 Lemma 7 table same as first n: True
+10 Lemma 7 table same as first n: True
+   lead swap: lambda'=Ayxz vs p_first=Ayxz (loop pos, long pos): same block
+   lead 3cyc: lambda'=Ayxz vs p_first=Ayzx (loop pos, long pos): [('0', 'n-2'), ('n-2', '0')]
+   lead swap: lambda'=Axzy (X) vs p_first=Ayxz (loop pos, long pos): [('n-3', '0')]
+   lead 3cyc: lambda'=Axzy (X) vs p_first=Ayzx (loop pos, long pos): [('n-2', 'n-3'), ('n-3', 'n-2')]
+   trail phi: mu2=Ayxz (Y) vs p_last=xAyz (loop pos, long pos): same block
+   trail psi: mu2=Ayxz (Y) vs p_last=xAzy (loop pos, long pos): [('n-2', 'n-2'), ('n-3', '0')]
+   trail phi: mu2=Azyx (Z) vs p_last=xAyz (loop pos, long pos): [('0', 'n-2')]
+   trail psi: mu2=Azyx (Z) vs p_last=xAzy (loop pos, long pos): [('0', '0'), ('n-2', '1')]

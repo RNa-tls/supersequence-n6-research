@@ -1,0 +1,128 @@
+{
+ "construction": "Round 175 -- the explicit general-n counterexample to marked LL (Theorem B', sharpness).\np = c_1..c_n (identity), A = c_1..c_{n-3}, x = c_{n-2}, y = c_{n-1}, z = c_n:\n  row 1: loop  at A x y z\n  row 2: loop  at A z y x\n  row 3+k (k = 0..n-4): full-length row at phi^k(A y x z) with position n-3-k omitted\nn-1 rows, every charge = 1.  Each row is re-verified from the definitions by\nllsearch175.verify (independent of the search tables).",
+ "walks": {
+  "4": [
+   "abcd:loop",
+   "adcb:loop",
+   "acbd:mark1"
+  ],
+  "5": [
+   "abcde:loop",
+   "abedc:loop",
+   "abdce:mark2",
+   "bdace:mark1"
+  ],
+  "6": [
+   "abcdef:loop",
+   "abcfed:loop",
+   "abcedf:mark3",
+   "bceadf:mark2",
+   "ceabdf:mark1"
+  ],
+  "7": [
+   "abcdefg:loop",
+   "abcdgfe:loop",
+   "abcdfeg:mark4",
+   "bcdfaeg:mark3",
+   "cdfabeg:mark2",
+   "dfabceg:mark1"
+  ],
+  "8": [
+   "abcdefgh:loop",
+   "abcdehgf:loop",
+   "abcdegfh:mark5",
+   "bcdegafh:mark4",
+   "cdegabfh:mark3",
+   "degabcfh:mark2",
+   "egabcdfh:mark1"
+  ],
+  "9": [
+   "abcdefghi:loop",
+   "abcdefihg:loop",
+   "abcdefhgi:mark6",
+   "bcdefhagi:mark5",
+   "cdefhabgi:mark4",
+   "defhabcgi:mark3",
+   "efhabcdgi:mark2",
+   "fhabcdegi:mark1"
+  ],
+  "10": [
+   "abcdefghij:loop",
+   "abcdefgjih:loop",
+   "abcdefgihj:mark7",
+   "bcdefgiahj:mark6",
+   "cdefgiabhj:mark5",
+   "defgiabchj:mark4",
+   "efgiabcdhj:mark3",
+   "fgiabcdehj:mark2",
+   "giabcdefhj:mark1"
+  ],
+  "11": [
+   "abcdefghijk:loop",
+   "abcdefghkji:loop",
+   "abcdefghjik:mark8",
+   "bcdefghjaik:mark7",
+   "cdefghjabik:mark6",
+   "defghjabcik:mark5",
+   "efghjabcdik:mark4",
+   "fghjabcdeik:mark3",
+   "ghjabcdefik:mark2",
+   "hjabcdefgik:mark1"
+  ],
+  "12": [
+   "abcdefghijkl:loop",
+   "abcdefghilkj:loop",
+   "abcdefghikjl:mark9",
+   "bcdefghikajl:mark8",
+   "cdefghikabjl:mark7",
+   "defghikabcjl:mark6",
+   "efghikabcdjl:mark5",
+   "fghikabcdejl:mark4",
+   "ghikabcdefjl:mark3",
+   "hikabcdefgjl:mark2",
+   "ikabcdefghjl:mark1"
+  ],
+  "13": [
+   "abcdefghijklm:loop",
+   "abcdefghijmlk:loop",
+   "abcdefghijlkm:mark10",
+   "bcdefghijlakm:mark9",
+   "cdefghijlabkm:mark8",
+   "defghijlabckm:mark7",
+   "efghijlabcdkm:mark6",
+   "fghijlabcdekm:mark5",
+   "ghijlabcdefkm:mark4",
+   "hijlabcdefgkm:mark3",
+   "ijlabcdefghkm:mark2",
+   "jlabcdefghikm:mark1"
+  ],
+  "14": [
+   "abcdefghijklmn:loop",
+   "abcdefghijknml:loop",
+   "abcdefghijkmln:mark11",
+   "bcdefghijkmaln:mark10",
+   "cdefghijkmabln:mark9",
+   "defghijkmabcln:mark8",
+   "efghijkmabcdln:mark7",
+   "fghijkmabcdeln:mark6",
+   "ghijkmabcdefln:mark5",
+   "hijkmabcdefgln:mark4",
+   "ijkmabcdefghln:mark3",
+   "jkmabcdefghiln:mark2",
+   "kmabcdefghijln:mark1"
+  ]
+ },
+ "verified_n": [
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14
+ ]
+}
