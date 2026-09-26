@@ -1,0 +1,9 @@
+(1) n=5: longest charge<=1 trail with no charge-1 row 3, with exactly one 3 (E1 bound n-2 = 3)
+(1) n=6: longest charge<=1 trail with no charge-1 row 4, with exactly one 4 (E1 bound n-2 = 4)
+(1) n=7: longest charge<=1 trail with no charge-1 row 5, with exactly one 5 (E1 bound n-2 = 5)
+(1) n=8: longest charge<=1 trail with no charge-1 row 6, with exactly one 6 (E1 bound n-2 = 6)
+(2) n=7 certified capTab (g<=36) vs C1 = 5 + 2g: violations []; tight at g = [0, 2, 4]
+    n=5 marked M(g) (R176 checker A) [3, 3, 5, 5] vs C1 [3.0, 4.0, 5.0, 6.0]: ok=True
+    n=6 marked M(g) (R176 checker A) [4, 4, 7, 7] vs C1 [4.0, 5.5, 7.0, 8.5]: ok=True
+    n=7 marked M(g) (R176 checker A) [5, 5, 9] vs C1 [5.0, 7.0, 9.0]: ok=True
+    n=8 marked M(g) (R176 checker A) [6, 6, 11] vs C1 [6.0, 8.5, 11.0]: ok=True
