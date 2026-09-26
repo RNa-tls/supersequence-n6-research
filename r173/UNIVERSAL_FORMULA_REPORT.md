@@ -217,4 +217,4 @@ TSP 정식화 `L_n = n + min Σ ω(v_j, v_{j+1})`는 정확한 알고리즘이�
 - `r173/src/perfect173.py`: 완전 사슬 탐색·철자화 (R3, R5)
 - `r173/src/phi173.py`, `r173/certs/phi_lemma_173.json`: P2 전수 확인
 - `r173/src/chaffin173.c`, `r173/certs/chaffin_n5.tsv`, `r173/certs/chaffin_n6_prefix.tsv`: 독립 Chaffin 구현.
-  n=5 표 30개 값 전부, n=6 표 앞부분 `f(0..88)`이 아카이브와 일치합니다. n=6 값은 구현을 교차 검증할 뿐 하한을 주지는 않습니다.
+  n=5 표 30개 값 전부, n=6 표 앞부분 `f(0..89)`가 아카이브와 일치합니다. n=6 값은 구현을 교차 검증할 뿐 하한을 주지는 않습니다.
