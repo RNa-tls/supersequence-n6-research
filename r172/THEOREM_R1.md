@@ -168,6 +168,18 @@ In both cases, an R1 leaf (`Live = ∅`, or `m − 1 + U_R1 < J + 1`) has no ext
 - **Consequence.** **Every node closed by the old (p) rule is also closed by R1.** R1 never weakens a leaf.
 - **Format level.** An `L` leaf in `L6-EXTREE-4` keeps its old meaning ((b)/(f)/(p) only), and `L6-EXTREE-1/2/3` files are verified by the unchanged Round-152/164/168 code. Old certificates and trust entries are unaffected.
 
+### Lemma 4 (a dead R1 leaf is always already an (f) leaf)
+
+**Claim.** If `Live(s) = ∅`, the feasibility rule (f) closes `s`.
+
+*Proof.*
+1. `Live(s) = ∅` means `d0 + 5t < 0`, that is, `D > dmax + 4 + 5t`.
+2. `D = miss(c0) + Σ_{O ∈ P∖{c0}} miss(O)`, and `miss(c0) ≤ 4`, because the current orbit contains the current port. So `Σ_{non-current} miss > dmax + 5t`.
+3. (f) removes the `t` largest non-current missing counts. Each is at most 4, since every touched orbit has at least one phase.
+4. What remains is `> dmax + 5t − 4t = dmax + t ≥ dmax`. So (f) fails, i.e. (f) closes `s`. ∎
+
+**Consequence.** The standard generator (leaf order b, f, p, R1) never writes a dead `S` leaf, which is why every experiment run reports 0 dead leaves. The verifiers' dead-leaf path is still sound, and it is exercised on purpose by the V2 "dead-first" test prover (`r172/src/e2e172.py`). That prover also counts every node where Lemma 4 would fail.
+
 ## 8. Proof-object format and verifier obligations
 
 ```

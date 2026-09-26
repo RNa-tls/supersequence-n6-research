@@ -1,0 +1,39 @@
+{
+ "verifier": "r172/src/verifyB172.py (routeb164.TreeVerifier-derived, R1)",
+ "verifier_sha256": "393db013cc97dfea167038458fc438a510511941bfdd487e5029507039517dae",
+ "batches": {
+  "r172/certs/exp/trees/1_6_3_0_1_0_r1_c200000000_e5.extree4.txt.gz": {
+   "ok": true,
+   "path": "r172/certs/exp/trees/1_6_3_0_1_0_r1_c200000000_e5.extree4.txt.gz",
+   "format": "L6-EXTREE-4",
+   "rule": "rule R1 token_split_v1 leaves=L:b,f,p S:r1",
+   "sha256": "f5ae8e01b648c105d653e01b3d7df3ba851da184a1feda5d22455fdb6cecb231",
+   "plain_sha256": "458804686dd2bc278874d2dafd1b8f1a4bd0f631b94401c0c4c0da86357d9968",
+   "rows": [
+    {
+     "cell": "1|6|3|0|1|0",
+     "cap": 76,
+     "nodes": 72657745,
+     "hist_checks": 72657745,
+     "leaves": {
+      "r1_token_split": 2830368,
+      "p_monotone_from_earlier_cells": 3766212,
+      "f_feasibility": 52414283
+     },
+     "verified": true,
+     "detail": null
+    }
+   ],
+   "nodes": 72657745,
+   "hist_checks": 72657745,
+   "leaves": {
+    "r1_token_split": 2830368,
+    "p_monotone_from_earlier_cells": 3766212,
+    "f_feasibility": 52414283
+   },
+   "declared_dependencies": 136,
+   "error": null
+  }
+ },
+ "all_ok": true
+}

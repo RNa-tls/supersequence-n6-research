@@ -1,0 +1,39 @@
+{
+ "verifier": "r172/src/verifyA172.py (extree152-derived, R1)",
+ "verifier_sha256": "c389c12692522b527f292885f47bbc13ca67670c538de023d213a78faa8b4f27",
+ "batches": {
+  "r172/certs/exp/trees/1_6_3_0_1_0_r1_c200000000_e5.extree4.txt.gz": {
+   "ok": true,
+   "path": "r172/certs/exp/trees/1_6_3_0_1_0_r1_c200000000_e5.extree4.txt.gz",
+   "format": "L6-EXTREE-4",
+   "rule": "rule R1 token_split_v1 leaves=L:b,f,p S:r1",
+   "sha256": "f5ae8e01b648c105d653e01b3d7df3ba851da184a1feda5d22455fdb6cecb231",
+   "plain_sha256": "458804686dd2bc278874d2dafd1b8f1a4bd0f631b94401c0c4c0da86357d9968",
+   "declared_dependencies": 136,
+   "tokens": 72657753,
+   "cells": 1,
+   "nodes": 72657745,
+   "leaves": {
+    "S_live": 2830368,
+    "L_p": 3766212,
+    "L_f": 52414283
+   },
+   "rows": [
+    {
+     "cell": "1|6|3|0|1|0",
+     "cap": 76,
+     "nodes": 72657745,
+     "leaves": {
+      "S_live": 2830368,
+      "L_p": 3766212,
+      "L_f": 52414283
+     },
+     "status": "UPPER_CERTIFIED",
+     "detail": null
+    }
+   ],
+   "error": null
+  }
+ },
+ "all_ok": true
+}

@@ -2,6 +2,12 @@
 
 **EXPERIMENTAL. R1 has NOT been adopted into the production proof system.**
 
+> **V2 addendum (see `V2_VERIFICATION_REPORT.md`).** This report records the 1M–50M experiment as it was run. At a 200M cap, both modes **complete** `1|6|3|0|1|0 ≤ 76`:
+> - R1 in 72,657,745 nodes; old in 173,815,277 nodes (R1/old = 0.418).
+> - Both trees are dual-verified. The old tree is verified by the unchanged Round-168 verifiers.
+>
+> So for this target the 50M DEFERRED was a cap limit, and direct escalation works. `2|6|4|0|0|0` is still DEFERRED under R1 at 200M.
+
 Scope of this round:
 - No production certificate was generated or promoted.
 - No trust entry was added.
