@@ -1,0 +1,11 @@
+n=9: length 408965, f(n) = 408965, Egan = 408966, superpermutation: True
+{'n': 9, 'kind': 'echols9', 'D': 719, 'm': 719, 'r': 5752, 'a': 0, 'b': 0, 'eta': 0, 'N_nf': 0, 'V_nf': 0, 'u_out': 0, 'd_seg': 0, 'd_S': 0, 'd_tau': 0, 'okA': None, 'okB': True, 'length': 408965, 'identity': True, 'nonneg': True, 'Sigma': 0, 'Omega': 0} (5s)
+Traceback (most recent call last):
+  File "/home/user/supersequence-n6-research/rF/src/echols_check.py", line 23, in <module>
+    print(f"n={n}: length {len(w)}, f(n) = {f}, Egan = {f + 1}, superpermutation: {check_word(w, n)}", flush=True)
+                                                                                   ^^^^^^^^^^^^^^^^
+  File "/home/user/supersequence-n6-research/rF/src/echols_check.py", line 10, in check_word
+    alph = sorted(set(w)); assert len(alph) == n
+                                  ^^^^^^^^^^^^^^
+AssertionError
+n=10: length 4037046, f(n) = 4037046, Egan = 4037047, distinct permutations 3628800 / 3628800, superpermutation: True

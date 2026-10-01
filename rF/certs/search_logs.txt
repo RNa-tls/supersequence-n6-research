@@ -1,0 +1,11 @@
+tmdesign.py (exact cover of all special-s blocks by tm-orbits; Algorithm X):
+  n=6: tm-orbits 30 (length 4); exact cover of 24 s-blocks found, 6 orbits
+  n=7: tm-orbits 144 (length 5); exact cover of 120 s-blocks found, 24 orbits
+  n=8: tm-orbits 840 (length 6); exact cover of 720 s-blocks found, 120 orbits
+  (symbolic cover for all n: Theorem Q, frames of the fixed moving letter Y0)
+phichain.py (m = 0 routes from phi-cycles of ONE moving letter, all junctions cost 4; DFS, node limit 2e6):
+  n=5 found (length 153 = f(5)); n=6,7,8,9 none found within limit
+framecover.py (m = 0, frames of any special / moving letter; 400 exact covers at n=6, 6 at n=7; B&B chains):
+  see framecover.txt: n=6 min junction excess 1 (length 873); n=7 min found 16 (length 5923)
+hypertree.py (greedy kernel-rooted single-attachment growth, most-constrained class first):
+  n=5 complete (7 blocks = target); n=6 stuck at 108/120; n=7 stuck at 595/720; n=8 stuck at 3966/5040
