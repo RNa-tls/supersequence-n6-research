@@ -1,0 +1,4 @@
+n=5 kernel std: 6 distinct completion block-sets, sizes {4}
+basis exchange FAILS: B1 = [((0, 1, 3, 2), 4), ((0, 2, 1, 3), 4), ((0, 3, 2, 4), 1), ((0, 4, 2, 1), 3)] 
+  B2 = [((0, 1, 3, 4), 2), ((0, 2, 1, 3), 4), ((0, 3, 2, 1), 4), ((0, 4, 3, 2), 1)] 
+  x = ((0, 3, 2, 4), 1) -> no y in B2-B1 makes B1-x+y a completion
