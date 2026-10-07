@@ -78,6 +78,11 @@ def solve(n, cands, ncls, tl, workers=3, hint=None):
     if os.environ.get("NONPHI") == "1":
         m.Add(sum(x[i] for i, k in enumerate(keys) if cands[k][1] not in ("PHI",) and not cands[k][1].startswith("CHAIN")) >= 1)
     m.Minimize(sum(cands[k][0] * x[i] for i, k in enumerate(keys)))
+    if hint:
+        hk = set(hint); nh = 0
+        for i, k in enumerate(keys):
+            m.AddHint(x[i], 1 if k in hk else 0); nh += k in hk
+        print(json.dumps(dict(hint_sets=len(hint), hint_matched=nh)), flush=True)
     sv = cp_model.CpSolver(); sv.parameters.max_time_in_seconds = tl; sv.parameters.num_workers = workers
     st = sv.Solve(m)
     sol = [keys[i] for i in range(len(keys)) if st in (cp_model.OPTIMAL, cp_model.FEASIBLE) and sv.Value(x[i])]
@@ -90,7 +95,17 @@ if __name__ == "__main__":
     cls_id, cands, ctx = build(n, words)
     HEX = math.factorial(n - 1); ORB = math.factorial(n - 2); CONST = math.factorial(n) + HEX + ORB + n - 3
     print(json.dumps(dict(n=n, words=words, candidates=len(cands), classes=len(cls_id), build_sec=round(time.time() - t0, 1))), flush=True)
-    st, obj, bd, sol = solve(n, cands, len(cls_id), tl)
+    hint = None
+    if os.environ.get("HINTWORD"):
+        from r0verifyA import load, analyse, cost
+        w, _ = load(os.environ["HINTWORD"]); _, info = analyse(w, n)
+        S, trails = info["S"], info["trails"]; Rinv = lambda s: s[-1:] + s[:-1]
+        end_of = lambda ch: Rinv(S[ch[-1]])
+        cyc, rest = [], []
+        for t in trails: (cyc if cost(end_of(t[-1]), S[t[0][0]], n) == 3 else rest).append(t)
+        if rest: cyc.append([ch for t in rest for ch in t])
+        hint = [frozenset(cls_id[canon(S[i])] for ch in t for i in ch) for t in cyc]
+    st, obj, bd, sol = solve(n, cands, len(cls_id), tl, hint=hint)
     out = dict(status=st, Phi_core=obj, bound=bd,
                L_if_cost4_links=None if obj is None else CONST - ORB - 1 + int(obj),
                L_lower_bound_this_shape_family=CONST - ORB - 1 + math.ceil(bd - 1e-9), f=CONST + math.factorial(n - 3) - 1,
