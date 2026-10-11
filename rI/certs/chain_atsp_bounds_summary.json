@@ -1,0 +1,7 @@
+{
+  "note": "Corrected (hub-cut bug fixed) chain-level ATSP lower bounds. The valid MIP bound is the best OPTIMAL relaxation round (later rounds only add valid cuts); a round that hit its time limit reports a weaker solver bound and is ignored.",
+  "chain_set_46188": {"LP": 46184, "MIP_relaxation_optimal_rounds": "5-7 (value 53)", "length_lower_bound": 46186, "best_known": 46188},
+  "chain_set_46187": {"LP": 46184, "MIP_relaxation_optimal_rounds": "4-5 (value 53)", "length_lower_bound": 46186, "best_known": 46187},
+  "base": 46133,
+  "length_formula": "L = 46133 + sum over links (c - 3)"
+}
