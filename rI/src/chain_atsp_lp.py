@@ -30,6 +30,8 @@ for a, (_, e, _) in enumerate(chs):
     arcs.append((a, H, n - 3)); arcs.append((a, D, 0))
 for b in range(q): arcs.append((H, b, 0)); arcs.append((D, b, 0))
 A = len(arcs)
+# reference route (the input word's own chain order) as an arc-incidence vector, for cut validation
+ref_arcs = set([(D, 0)] + [(a, a + 1) for a in range(q - 1)] + [(q - 1, D)])
 tail = np.array([a for a, _, _ in arcs]); head = np.array([b for _, b, _ in arcs]); cst = np.array([c for _, _, c in arcs], float)
 h = highspy.Highs(); h.setOptionValue("output_flag", False)
 inf = highspy.kHighsInf
@@ -61,6 +63,7 @@ for it in range(maxit):
     if unreached:
         for comp in nx.strongly_connected_components(G.subgraph(unreached)):
             S = set(comp)
+            if not any(v < q for v in S): continue          # the hub alone need not reach the depot
             for v in list(S): S |= nx.descendants(G, v)
             S = frozenset(S - {D})
             if D not in S and S not in seen_sets: seen_sets.add(S); new.append(S)
@@ -74,6 +77,8 @@ for it in range(maxit):
     if not new: break
     for S in new:
         idx = [i for i in range(A) if tail[i] in S and head[i] not in S]
+        ref_out = sum(1 for (a, b) in ref_arcs if a in S and b not in S)
+        if ref_out < 1: print(json.dumps(dict(INVALID_CUT=True, size=len(S), has_H=H in S, has_D=D in S, ref_out=ref_out)), flush=True)
         h.addRow(1, inf, len(idx), np.array(idx, dtype=np.int32), np.ones(len(idx)))
         cuts += 1
     print(json.dumps(dict(it=it, lp=val, new_cuts=len(new), cuts=cuts, sec=round(time.time() - t0, 1))), flush=True)
@@ -91,11 +96,13 @@ if MIP:
         G = nx.DiGraph(); G.add_nodes_from(range(V))
         for i in np.nonzero(x > 0.5)[0]: G.add_edge(int(tail[i]), int(head[i]))
         R = nx.ancestors(G, D) | {D}; unreached = set(range(V)) - R
+        if not any(v < q for v in unreached): unreached = set()
         print(json.dumps(dict(mip_round=rnd, status=st, obj=info_.objective_function_value, bound=info_.mip_dual_bound,
                               unreached=len(unreached), sec=round(time.time() - t0, 1))), flush=True)
         if not unreached or st != "Optimal": break
         for comp_ in nx.weakly_connected_components(G.subgraph(unreached)):
             S = set(comp_)
+            if not any(v < q for v in S): continue
             idx = [i for i in range(A) if tail[i] in S and head[i] not in S]
             h.addRow(1, inf, len(idx), np.array(idx, dtype=np.int32), np.ones(len(idx)))
     print(json.dumps(dict(final_mip_obj=info_.objective_function_value, final_mip_bound=info_.mip_dual_bound,
