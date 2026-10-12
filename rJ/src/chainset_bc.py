@@ -174,10 +174,18 @@ def main():
     nodes = []          # records: dict(id, parent, var, val, kind, ncuts, y (sparse) , lb)
     stack = [(0, None, None, None, if0, if1)]; nid = 0; best = None
     FRONTIER = int(os.environ.get("FRONTIER", "0")); frontier = []
+    NODE_LIMIT = int(os.environ.get("NODE_LIMIT", "1000000000"))     # testing aid: behave as on a time limit after this many nodes
     gfix0 = set(fixed0)
     while stack:
-        if time.time() - t0 > tlimit:
-            log("TIME LIMIT"); break
+        if time.time() - t0 > tlimit or len(nodes) >= NODE_LIMIT:
+            log("TIME LIMIT")
+            if os.environ.get("DELEGATE_ON_TIMEOUT", "1") == "1":
+                # keep the work done so far: every open node becomes a delegated leaf (closed later by its own certificate)
+                for (my_, parent_, var_, val_, f0_, f1_) in stack:
+                    nodes.append(dict(id=my_, parent=parent_, var=var_, val=val_, kind="delegated", fix=[[a, 0] for a in f0_] + [[a, 1] for a in f1_]))
+                    frontier.append(dict(id=my_, fix=[[a, 0] for a in f0_] + [[a, 1] for a in f1_]))
+                stack = []
+            break
         if FRONTIER and len(stack) >= FRONTIER:
             # breadth-first top tree: delegate all open nodes as subtrees
             for (my_, parent_, var_, val_, f0_, f1_) in stack:

@@ -1,28 +1,66 @@
 #!/usr/bin/env python3
 """Composite certificate check: a top certificate whose delegated leaves are each closed by a subtree
-certificate.  Runs chainset_check.py on the top (collecting its delegated fixing sets) and on every
-subtree (with the top's validated global fixings), then checks that every delegated leaf is matched by
-exactly one complete subtree certificate with the same initial fixings and the same T and arc list."""
+certificate; subtree certificates may themselves delegate leaves (nested delegation, e.g. after a time
+limit), which must again be closed by their own certificates.
+
+Runs chainset_check.py on the top (collecting its delegated fixing sets) and on every subtree (with the
+top's validated global fixings), and checks:
+  * every delegated leaf (at any level) is matched by exactly one certificate with the same T, arc list
+    and initial fixings equal to the leaf's fixings;
+  * every delegated leaf of a subtree is strictly deeper than the subtree's root (its fixing set strictly
+    contains the subtree's initial fixings), so the recursion is well founded;
+  * every given certificate is used.
+If all pass: every route on the chain set has weight >= T (length >= BASE + T).
+
+Usage: composite_check.py WORD TOP SUB...  (SUB files may be in any order)"""
 import sys, os, json, subprocess, tempfile, gzip
 def jload(path):
     return json.load(gzip.open(path, 'rt') if path.endswith('.gz') else open(path))
-word, top, subs = sys.argv[1], sys.argv[2], sys.argv[3:]
 PY = sys.executable; CK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chainset_check.py")
-dl = tempfile.NamedTemporaryFile(suffix=".json", delete=False).name
-r = subprocess.run([PY, "-I", CK, word, top], capture_output=True, text=True, env=dict(os.environ, DELEG_OUT=dl))
-assert r.returncode == 0, r.stderr[-2000:]
-topres = json.loads(r.stdout.strip().splitlines()[-1]); delegated = [sorted(map(tuple, d)) for d in json.load(open(dl))]
-T = jload(top); need = {tuple(d): False for d in delegated}
-for sf in subs:
-    S = jload(sf)
-    assert S["T"] == T["T"] and S["arcs"] == T["arcs"] and S["complete"], f"{sf}: mismatch/incomplete"
-    key = tuple(sorted(map(tuple, S["init_fix"])))
-    assert key in need and not need[key], f"{sf}: not a delegated leaf (or duplicate)"
-    r = subprocess.run([PY, "-I", CK, word, sf, top], capture_output=True, text=True)
-    assert r.returncode == 0, f"{sf}: " + r.stderr[-2000:]
-    sub = json.loads(r.stdout.strip().splitlines()[-1]); assert sub["delegated"] == 0
-    need[key] = True
-missing = [k for k, v in need.items() if not v]
-assert not missing, f"{len(missing)} delegated leaves without a subtree certificate"
-print(json.dumps(dict(ok=True, top_leaves=topres["leaves"], delegated=len(delegated), subtrees=len(subs), T=T["T"],
-                      theorem=f"every route on this chain set has weight >= {T['T']}, length >= {T['BASE'] + T['T']}")))
+
+def run_check(word, cert, top=None):
+    fd, dl = tempfile.mkstemp(suffix=".json"); os.close(fd)
+    args = [PY, "-I", CK, word, cert] + ([top] if top else [])
+    r = subprocess.run(args, capture_output=True, text=True, env=dict(os.environ, DELEG_OUT=dl))
+    assert r.returncode == 0, f"{cert}: " + r.stderr[-2000:]
+    res = json.loads(r.stdout.strip().splitlines()[-1])
+    deleg = [tuple(sorted(map(tuple, d))) for d in json.load(open(dl))]
+    os.unlink(dl)
+    assert res["delegated"] == len(deleg)
+    return res, deleg
+
+def main():
+    word, top, subs = sys.argv[1], sys.argv[2], sys.argv[3:]
+    T = jload(top)
+    assert not T.get("init_fix"), "the top certificate must cover the whole space"
+    topres, d0 = run_check(word, top)
+    by_key = {}
+    for sf in subs:
+        S = jload(sf)
+        assert S["T"] == T["T"] and S["BASE"] == T["BASE"] and S["arcs"] == T["arcs"], f"{sf}: T/BASE/arc mismatch"
+        assert S.get("init_fix"), f"{sf}: not a subtree certificate"
+        key = tuple(sorted(map(tuple, S["init_fix"])))
+        assert key not in by_key, f"{sf}: second certificate for the same delegated leaf ({by_key.get(key)})"
+        by_key[key] = sf
+    queue = list(d0); used = set(); leaves = topres["leaves"]; worst = topres["min_leaf_bound"]; maxlevel = 0
+    level = {k: 1 for k in d0}
+    while queue:
+        k = queue.pop()
+        assert k in by_key, f"delegated leaf with fixings {list(k)} has no subtree certificate"
+        sf = by_key[k]; assert sf not in used, f"{sf}: used twice"; used.add(sf)
+        res, dk = run_check(word, sf, top)
+        leaves += res["leaves"]
+        if res["min_leaf_bound"] is not None: worst = res["min_leaf_bound"] if worst is None else min(worst, res["min_leaf_bound"])
+        maxlevel = max(maxlevel, level[k])
+        for k2 in dk:
+            assert set(k) < set(k2), f"{sf}: delegated leaf not strictly below the subtree root"
+            assert k2 not in level, "delegated leaf reached twice"
+            level[k2] = level[k] + 1; queue.append(k2)
+    unused = sorted(set(subs) - used)
+    assert not unused, f"certificates not attached to any delegated leaf: {unused}"
+    print(json.dumps(dict(ok=True, top_leaves=topres["leaves"], delegated_total=len(level), subtrees=len(subs),
+                          nesting_depth=maxlevel, pruned_leaves_total=leaves, min_leaf_bound=worst, T=T["T"],
+                          theorem=f"every route on this chain set has weight >= {T['T']}, length >= {T['BASE'] + T['T']}")))
+
+if __name__ == "__main__":
+    main()
