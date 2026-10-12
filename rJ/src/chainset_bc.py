@@ -201,7 +201,10 @@ def main():
     stack = [(0, None, None, None, if0, if1)]; nid = 0; best = None
     FRONTIER = int(os.environ.get("FRONTIER", "0")); frontier = []
     NODE_LIMIT = int(os.environ.get("NODE_LIMIT", "1000000000"))     # testing aid: behave as on a time limit after this many nodes
+    NODE_RCFIX = os.environ.get("NODE_RCFIX", "1") == "1"              # node-level reduced-cost fixing (recorded in the certificate)
+    STRONG = int(os.environ.get("STRONG", "0"))                          # strong-branching candidates (0 = most fractional)
     gfix0 = set(fixed0)
+    depth_of = {0: len(if0) + len(if1)}                                # branching depth (for logs only)
     while stack:
         if time.time() - t0 > tlimit or len(nodes) >= NODE_LIMIT:
             log("TIME LIMIT")
@@ -237,7 +240,7 @@ def main():
             if not done_:
                 raise RuntimeError("infeasible node without a usable Farkas certificate")
             nodes.append(rec)
-            log(json.dumps(dict(node=my, status=res["status"], lb=rec.get("lb"), depth=len(f0) + len(f1))))
+            log(json.dumps(dict(node=my, status=res["status"], lb=rec.get("lb"), depth=depth_of[my])))
             continue
         lbv, r, ycl = bc.node_bound(res["y"], sorted(gfix0 | set(f0)), f1)
         x = res["x"]
@@ -245,7 +248,7 @@ def main():
         if lbv > THR:
             rec.update(kind="pruned", lb_scaled=int(lbv), y=[(int(k), int(v)) for k, v in enumerate(ycl) if v != 0])
             nodes.append(rec)
-            log(json.dumps(dict(node=my, pruned=True, lp=round(res["obj"], 6), lb=round(lbv / SC, 6), depth=len(f0) + len(f1), open=len(stack), cuts=len(bc.pool), sec=round(time.time() - t0))))
+            log(json.dumps(dict(node=my, pruned=True, lp=round(res["obj"], 6), lb=round(lbv / SC, 6), depth=depth_of[my], nfix=len(f0) + len(f1), open=len(stack), cuts=len(bc.pool), sec=round(time.time() - t0))))
             continue
         if not frac:
             # integral and cut-feasible: a genuine route of weight res["obj"] <= T-1 !
@@ -255,11 +258,35 @@ def main():
             log(json.dumps(dict(node=my, INCUMBENT=res["obj"])))
             break
         j = max(frac, key=lambda j: (0.5 - abs(x[j] - 0.5)))
-        rec.update(kind="branch", branch_var=int(j), lp=res["obj"]); nodes.append(rec)
+        if STRONG > 0 and len(frac) > 1:
+            # strong branching (choice heuristic only; the certificate does not depend on it):
+            # score candidates by the LP values of both children (no separation, warm start)
+            base = res["obj"]; cands = sorted(frac, key=lambda a: abs(x[a] - 0.5))[:STRONG]; best_sc = None
+            for a in cands:
+                vals = []
+                for lo_, hi_ in ((0.0, 0.0), (1.0, 1.0)):
+                    bc.h.changeColBounds(int(a), lo_, hi_); bc.h.run()
+                    ok_ = bc.h.getModelStatus() == highspy.HighsModelStatus.kOptimal
+                    vals.append(bc.h.getInfo().objective_function_value if ok_ else base + 10.0)
+                bc.h.changeColBounds(int(a), 0.0, 1.0)
+                sc = max(vals[0] - base, 1e-3) * max(vals[1] - base, 1e-3)
+                if best_sc is None or sc > best_sc: best_sc, j = sc, a
+        rec.update(kind="branch", branch_var=int(j), lp=res["obj"])
+        rcf = []
+        if NODE_RCFIX:
+            # node reduced-cost fixing: in this node's region every route using arc a has
+            # SCALE*weight >= lbv + r_a > THR, so x_a = 0 for all routes of weight <= T-1 below here
+            fixed_now = gfix0 | set(f0) | set(f1)
+            rcf = [int(a) for a in np.nonzero((r > 0) & (lbv + r > THR))[0] if int(a) not in fixed_now and int(a) != int(j)]
+            if rcf:
+                rec.update(y=[(int(k), int(v)) for k, v in enumerate(ycl) if v != 0], rcfix=rcf)
+        nodes.append(rec)
         nid += 1; c0 = nid; nid += 1; c1 = nid
-        stack.append((c0, my, int(j), 0, f0 + [int(j)], f1))
-        stack.append((c1, my, int(j), 1, f0, f1 + [int(j)]))
-        log(json.dumps(dict(node=my, branch=int(j), x=round(float(x[j]), 4), lp=round(res["obj"], 6), depth=len(f0) + len(f1), open=len(stack), cuts=len(bc.pool), sec=round(time.time() - t0))))
+        depth_of[c0] = depth_of[c1] = depth_of[my] + 1
+        f0n = f0 + rcf
+        stack.append((c0, my, int(j), 0, f0n + [int(j)], f1))
+        stack.append((c1, my, int(j), 1, f0n, f1 + [int(j)]))
+        log(json.dumps(dict(node=my, branch=int(j), x=round(float(x[j]), 4), lp=round(res["obj"], 6), depth=depth_of[my], rcfix=len(rcf), open=len(stack), cuts=len(bc.pool), sec=round(time.time() - t0))))
     complete = (not stack) and best is None and not frontier
     if frontier:
         json.dump(dict(frontier=frontier), open(out + ".frontier.json", "w"))

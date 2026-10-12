@@ -6,7 +6,8 @@ chainset_model.py).  Verifies, in exact integer arithmetic:
  2. every pool cut S: D not in S, S contains a chain  (=> valid for every route);
  3. row structure: out/in = 1 for chains and D, out(H) = in(H), then cut rows;
  4. root reduced-cost fixings justified by the root dual: LB_root + r_j > (T-1)*SCALE;
- 5. the branch tree covers the fixed space (binary splits on one arc each);
+ 5. the branch tree covers the fixed space (binary splits on one arc each; node reduced-cost fixings
+    x_a = 0 below a branch node only when that node's exact bound + r_a > (T-1)*SCALE);
  6. every leaf: exact bound  sum y_k b_k + sum_free min(0, r_j) + sum_fixed1 r_j  > (T-1)*SCALE,
     with y_ge >= 0, r = w*SCALE - A^T y.
 Conclusion if all pass: every ordering of the chains has weight >= T, i.e. word length >= BASE + T."""
@@ -75,6 +76,7 @@ def main():
     for S in pool: assert D not in S and any(v < q for v in S), "invalid cut"
     # 3. rows
     rows = C["rows"]; k = 0
+    assert len(rows) < 2 ** 12, "too many rows for the int64 accumulation bound"
     for v in range(q + 2):
         if v == H: assert rows[k][0] == "eq" and rows[k][2][0] == "H"; k += 1
         else:
@@ -105,6 +107,7 @@ def main():
             for idx, coef in parts: aty[idx] += coef * v
             yb += v * b
         r = w * SC - aty
+        assert int(np.max(np.abs(r))) < (2 ** 62) // A, "magnitudes too large for exact int64 sums"
         free = np.ones(A, dtype=bool)
         if fix0: free[list(fix0)] = False
         if fix1: free[list(fix1)] = False
@@ -137,6 +140,15 @@ def main():
             ch = children.get(i, []); assert len(ch) == 2
             j = nd["branch_var"]; assert {c["val"] for c in ch} == {0, 1} and all(c["var"] == j for c in ch)
             assert j not in fixed0 and j not in f0 and j not in f1
+            rcf = nd.get("rcfix", [])
+            if rcf:
+                # node reduced-cost fixing: x_a = 0 below this node, justified by this node's dual
+                assert len(set(rcf)) == len(rcf) and j not in rcf
+                lb, r = bound(nd["y"], sorted(fixed0 | set(f0)), f1)
+                for a in rcf:
+                    assert a not in fixed0 and a not in f0 and a not in f1, "node fixing of an already fixed arc"
+                    assert r[a] > 0 and lb + int(r[a]) > THR, "unjustified node fixing"
+                f0 = f0 + list(rcf)
             for c in ch: stack.append((c["id"], f0 + [j] if c["val"] == 0 else f0, f1 + [j] if c["val"] == 1 else f1))
         elif nd["kind"] == "delegated":
             assert sorted(map(tuple, nd["fix"])) == sorted([(a, 0) for a in f0] + [(a, 1) for a in f1]), "delegated fixings mismatch"

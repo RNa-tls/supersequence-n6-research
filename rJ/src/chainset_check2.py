@@ -22,7 +22,9 @@ What is verified, from first principles:
   B. For each leaf with duals y (y >= 0 on cut rows) and fixings F0 (x=0), F1 (x=1):
         SCALE*w.x = y.Ax + r.x >= y.b + sum_{j in F1} r_j + sum_{j free} min(0, r_j),  r = SCALE*w - A^T y,
      and this must exceed SCALE*(T-1).  Root fixings x_j = 0 need LB_root + r_j > SCALE*(T-1), r_j > 0.
-  T. Every certificate's branch tree is a binary split on one unfixed arc per branch node, every node
+  T. Every certificate's branch tree is a binary split on one unfixed arc per branch node (plus, if
+     recorded, node reduced-cost fixings x_a = 0 below a node, each justified by that node's own exact
+     bound with x_a forced to 1 exceeding SCALE*(T-1)), every node
      is reachable, no INCUMBENT records; delegated leaves carry exactly the path fixings and are closed
      by exactly one subtree certificate (strictly deeper, same T/BASE/arcs/root fixings); every given
      subtree certificate is used.
@@ -193,6 +195,17 @@ def check_tree(B, cert, init0, init1, fixed0):
             need(isinstance(j, int) and 0 <= j < B.M.A, "bad branch variable")
             need(len(ch) == 2 and sorted(c["val"] for c in ch) == [0, 1] and all(c["var"] == j for c in ch), "bad split at node %d" % i)
             need(j not in fixed0 and j not in f0 and j not in f1, "branch on a fixed arc")
+            rcf = nd.get("rcfix") or []
+            if rcf:
+                # node reduced-cost fixing x_a = 0 below this node: the node's own exact bound with
+                # x_a forced to 1 must already exceed SCALE*(T-1)
+                need(len(set(rcf)) == len(rcf) and j not in rcf, "malformed node fixing list")
+                fz = set(fixed0) | set(f0)
+                lbn, rn = B.bound(nd["y"], sorted(fz), f1, want_r=True)
+                for a in rcf:
+                    need(isinstance(a, int) and 0 <= a < B.M.A and a not in fz and a not in f1, "node fixing of a fixed/bad arc")
+                    need(lbn - min(0, rn[a]) + rn[a] > THR, "unjustified node fixing of arc %d at node %d" % (a, i))
+                f0 = f0 + list(rcf)
             for c in ch:
                 todo.append((c["id"], f0 + [j], f1) if c["val"] == 0 else (c["id"], f0, f1 + [j]))
         elif nd["kind"] == "delegated":
