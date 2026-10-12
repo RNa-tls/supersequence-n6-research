@@ -30,5 +30,36 @@ sv = cp_model.CpSolver(); sv.parameters.max_time_in_seconds = tl; sv.parameters.
 sv.parameters.linearization_level = 2
 t0 = time.time(); st = sv.Solve(m)
 res = dict(status=sv.StatusName(st), arcs=len(arcs), T=T, budget=budget / SC, sec=round(time.time() - t0, 1))
-if st in (cp_model.OPTIMAL, cp_model.FEASIBLE): res.update(weight=sv.ObjectiveValue() - (n - 3), length=M.BASE + sv.ObjectiveValue() - (n - 3))
+if st in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+    res.update(weight=sv.ObjectiveValue() - (n - 3), length=M.BASE + sv.ObjectiveValue() - (n - 3))
+    # extract segments: successor map over chain nodes, segments start after the depot
+    succ = {}; starts = []
+    for (a, b, v) in arcs:
+        if sv.Value(v):
+            if a == 0: starts.append(b - 1)
+            elif b != 0: succ[a - 1] = b - 1
+    order = []
+    for st0 in starts:
+        x = st0
+        while True:
+            order.append(x)
+            if x not in succ: break
+            x = succ[x]
+    assert sorted(order) == list(range(M.q)), "extraction failed"
+    real = M.route_weight(order)
+    res.update(real_weight=real, real_length=M.BASE + real)
+    from chainset_model import ov_cost
+    R_ = lambda s_: s_[1:] + s_[:1]; Fm = lambda s_: s_[1:n - 1] + (s_[0], s_[n - 1])
+    perms = []
+    for c in order:
+        s0, _, l = ch[c]; x = s0
+        for _ in range(l):
+            p_ = x
+            for _ in range(n): perms.append(p_); p_ = R_(p_)
+            x = Fm(x)
+    word_ = list(perms[0])
+    for a_, b_ in zip(perms, perms[1:]):
+        c_ = ov_cost(a_, b_, n); word_.extend(b_[n - c_:])
+    outw = os.path.join(os.path.dirname(os.path.abspath(rootf)), f"cpsat_word_n{n}_{len(word_)}.txt")
+    open(outw, "w").write("".join(str(v + 1) for v in word_) + "\n"); res["word_file"] = outw
 print(json.dumps(res), flush=True)

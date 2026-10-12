@@ -10,7 +10,7 @@ chainset_model.py).  Verifies, in exact integer arithmetic:
  6. every leaf: exact bound  sum y_k b_k + sum_free min(0, r_j) + sum_fixed1 r_j  > (T-1)*SCALE,
     with y_ge >= 0, r = w*SCALE - A^T y.
 Conclusion if all pass: every ordering of the chains has weight >= T, i.e. word length >= BASE + T."""
-import sys, json, math
+import sys, os, json, math
 import numpy as np
 
 def perms_of_word(path):
@@ -107,19 +107,27 @@ def main():
         if fix1: free[list(fix1)] = False
         lb = yb + int(np.sum(np.minimum(0, r[free]))) + (int(np.sum(r[list(fix1)])) if fix1 else 0)
         return lb, r
-    # 4. root fixings
-    lb_root, r_root = bound(C["root"]["y"], [], [])
+    # 4. root fixings (validated only in a top-level certificate; subtrees inherit them)
     fixed0 = set(C["root"]["fixed0"])
-    for j in fixed0: assert r_root[j] > 0 and lb_root + int(r_root[j]) > THR, "unjustified fixing"
+    if not C.get("init_fix"):
+        lb_root, r_root = bound(C["root"]["y"], [], [])
+        for j in fixed0: assert r_root[j] > 0 and lb_root + int(r_root[j]) > THR, "unjustified fixing"
     # 5./6. tree
     nodes = {nd["id"]: nd for nd in C["nodes"]}
     assert 0 in nodes and nodes[0]["parent"] is None
     children = {}
     for nd in C["nodes"]:
         if nd["parent"] is not None: children.setdefault(nd["parent"], []).append(nd)
-    assert all(nd["kind"] != "INCUMBENT" for nd in C["nodes"]) and C["complete"]
+    assert all(nd["kind"] != "INCUMBENT" for nd in C["nodes"])
+    assert C["complete"] or C.get("frontier"), "incomplete certificate"
     leaves = 0; worst = None
-    stack = [(0, [], [])]
+    init = C.get("init_fix", [])
+    if init:                                    # subtree certificate: root fixings must come from the caller
+        global_fixed0 = set(json.load(open(sys.argv[3]))["root"]["fixed0"]) if len(sys.argv) > 3 else None
+        assert global_fixed0 is not None and fixed0 == global_fixed0, "subtree must use the top certificate's validated fixings"
+    i0 = [a for a, v in init if v == 0]; i1 = [a for a, v in init if v == 1]
+    delegated = []
+    stack = [(0, i0, i1)]
     while stack:
         i, f0, f1 = stack.pop(); nd = nodes[i]
         if nd["kind"] == "branch":
@@ -127,13 +135,20 @@ def main():
             j = nd["branch_var"]; assert {c["val"] for c in ch} == {0, 1} and all(c["var"] == j for c in ch)
             assert j not in fixed0 and j not in f0 and j not in f1
             for c in ch: stack.append((c["id"], f0 + [j] if c["val"] == 0 else f0, f1 + [j] if c["val"] == 1 else f1))
+        elif nd["kind"] == "delegated":
+            assert sorted(map(tuple, nd["fix"])) == sorted([(a, 0) for a in f0] + [(a, 1) for a in f1]), "delegated fixings mismatch"
+            delegated.append(sorted(map(tuple, nd["fix"])))
         else:
             assert nd["kind"] in ("pruned", "infeasible_lp")
             lb, _ = bound(nd["y"], sorted(fixed0 | set(f0)), f1)
             assert lb > THR, f"leaf {i} bound {lb / SC} not > {C['T'] - 1}"
             leaves += 1; worst = lb if worst is None else min(worst, lb)
-    print(json.dumps(dict(ok=True, n=n, chains=q, arcs=A, cuts=len(pool), root_fixed=len(fixed0), leaves=leaves,
-                          min_leaf_bound=worst / SC, theorem=f"every route on this chain set has weight >= {C['T']}, length >= {C['BASE'] + C['T']}")))
+    res = dict(ok=True, n=n, chains=q, arcs=A, cuts=len(pool), root_fixed=len(fixed0), leaves=leaves,
+               min_leaf_bound=None if worst is None else worst / SC, delegated=len(delegated), T=C["T"])
+    if not delegated and not C.get("init_fix"):
+        res["theorem"] = f"every route on this chain set has weight >= {C['T']}, length >= {C['BASE'] + C['T']}"
+    if os.environ.get("DELEG_OUT"): json.dump(delegated, open(os.environ["DELEG_OUT"], "w"))
+    print(json.dumps(res))
 
 if __name__ == "__main__":
     main()

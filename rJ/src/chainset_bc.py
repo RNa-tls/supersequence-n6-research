@@ -62,32 +62,35 @@ class BC:
         return True
 
     def separate(self, x):
-        """exact separation: for every chain v, min cut v -> D in the support graph."""
-        M = self.M; G = nx.DiGraph(); G.add_nodes_from(range(M.V))
-        for i in np.nonzero(x > 1e-9)[0]:
+        """exact subtour separation with compiled max-flow (scipy): for every chain v, a minimum
+        v -> D cut in the support graph (capacities x scaled to integers; any returned set S is a
+        structurally valid cut, its violation is re-checked with the float x)."""
+        from scipy.sparse import csr_matrix
+        from scipy.sparse.csgraph import maximum_flow, breadth_first_order
+        M = self.M; V = M.V; SCL = 10 ** 7
+        sup = np.nonzero(x > 1e-9)[0]
+        cap = {}
+        for i in sup:
             a, b = int(self.tail[i]), int(self.head[i])
-            if G.has_edge(a, b): G[a][b]["capacity"] += float(x[i])
-            else: G.add_edge(a, b, capacity=float(x[i]))
-        R = nx.ancestors(G, M.D) | {M.D}
+            cap[(a, b)] = cap.get((a, b), 0.0) + float(x[i])
+        rows = np.array([a for a, b in cap], dtype=np.int32); cols = np.array([b for a, b in cap], dtype=np.int32)
+        vals = np.array([max(1, int(math.floor(c * SCL))) for c in cap.values()], dtype=np.int32)
+        G = csr_matrix((vals, (rows, cols)), shape=(V, V))
+        xa = {k: v for k, v in cap.items()}
         new = 0; covered = set()
-        unreached = [v for v in range(M.q) if v not in R]
-        if unreached:                                   # integral-style violations first
-            for comp in nx.weakly_connected_components(G.subgraph(set(range(M.V)) - R)):
-                S = set(comp)
-                if any(v < M.q for v in S):
-                    S2 = set(S)
-                    for v in list(S): S2 |= nx.descendants(G, v)
-                    S2.discard(M.D)
-                    if self.add_cut(S2): new += 1
-                    covered |= S2
-            return new
         for v in range(M.q):
             if v in covered: continue
-            val, (Sset, _) = nx.minimum_cut(G, v, M.D)
-            if val < 1 - 1e-6:
-                S = set(Sset); S.discard(M.D)
-                if self.add_cut(S): new += 1
-                covered |= S
+            res = maximum_flow(G, v, M.D)
+            if res.flow_value >= SCL - 10: continue
+            # residual reachability from v
+            F = res.flow.tocsr()
+            Rm = (G - F).tocsr(); Rm.data = np.where(Rm.data > 0, Rm.data, 0); Rm.eliminate_zeros()
+            back = (-F).tocsr(); back.data = np.where(back.data > 0, back.data, 0); back.eliminate_zeros()
+            reach = breadth_first_order(Rm + back, v, directed=True, return_predecessors=False)
+            S = set(int(u) for u in reach); S.discard(M.D)
+            val = sum(c for (a, b), c in xa.items() if a in S and b not in S)
+            if val < 1 - 1e-6 and self.add_cut(S): new += 1
+            covered |= S
         return new
 
     def solve_node(self, fix0, fix1, max_rounds=200):
@@ -147,11 +150,19 @@ def main():
         s = " ".join(str(x) for x in a); print(s, flush=True); logf.write(s + "\n"); logf.flush()
     bc = BC(M, T, refs, log)
     t0 = time.time()
+    if os.environ.get("INIT_POOL"):
+        for S in json.load(open(os.environ["INIT_POOL"]))["pool"]: bc.add_cut(S)
+    init = json.loads(os.environ.get("INIT_FIX", "[]"))          # [[arc, 0/1], ...] fixings of this subtree's root
+    if0 = [int(a) for a, v in init if v == 0]; if1 = [int(a) for a, v in init if v == 1]
+    if os.environ.get("GLOBAL_FIX0"):                            # global root fixings validated by the top certificate
+        gf = json.load(open(os.environ["GLOBAL_FIX0"]))["root"]["fixed0"]
+    else: gf = None
     root = bc.solve_node([], [])
     lb_root, r_root, y_root = bc.node_bound(root["y"], [], [])
     SC = bc.SCALE; THR = (T - 1) * SC
     log(json.dumps(dict(stage="root", lp=root["obj"], lb_exact=lb_root / SC, cuts=len(bc.pool), sec=round(time.time() - t0, 1))))
     fixed0 = [int(j) for j in range(bc.A) if r_root[j] > 0 and lb_root + int(r_root[j]) > THR]
+    if gf is not None: fixed0 = [int(j) for j in gf]
     log(json.dumps(dict(stage="rc_fixing", fixed_to_zero=len(fixed0), remaining=bc.A - len(fixed0))))
     rootcert = dict(y=[(int(k), int(v)) for k, v in enumerate(y_root) if v != 0], ncuts=len(bc.pool), fixed0=fixed0, lb_scaled=int(lb_root))
     if os.environ.get("ROOT_ONLY") == "1":
@@ -161,12 +172,19 @@ def main():
         log(json.dumps(dict(stage="root_only_written", file=out))); return
     # depth-first B&B on the reduced problem
     nodes = []          # records: dict(id, parent, var, val, kind, ncuts, y (sparse) , lb)
-    stack = [(0, None, None, None, [], [])]; nid = 0; best = None
+    stack = [(0, None, None, None, if0, if1)]; nid = 0; best = None
+    FRONTIER = int(os.environ.get("FRONTIER", "0")); frontier = []
     gfix0 = set(fixed0)
     while stack:
         if time.time() - t0 > tlimit:
             log("TIME LIMIT"); break
-        my, parent, var, val, f0, f1 = stack.pop()
+        if FRONTIER and len(stack) >= FRONTIER:
+            # breadth-first top tree: delegate all open nodes as subtrees
+            for (my_, parent_, var_, val_, f0_, f1_) in stack:
+                nodes.append(dict(id=my_, parent=parent_, var=var_, val=val_, kind="delegated", fix=[[a, 0] for a in f0_] + [[a, 1] for a in f1_]))
+                frontier.append(dict(id=my_, fix=[[a, 0] for a in f0_] + [[a, 1] for a in f1_]))
+            stack = []; break
+        my, parent, var, val, f0, f1 = (stack.pop(0) if FRONTIER else stack.pop())
         res = bc.solve_node(sorted(gfix0 | set(f0)), f1)
         rec = dict(id=my, parent=parent, var=var, val=val, ncuts=len(bc.pool))
         if res["status"] != "Optimal":
@@ -208,8 +226,10 @@ def main():
         stack.append((c0, my, int(j), 0, f0 + [int(j)], f1))
         stack.append((c1, my, int(j), 1, f0, f1 + [int(j)]))
         log(json.dumps(dict(node=my, branch=int(j), x=round(float(x[j]), 4), lp=round(res["obj"], 6), depth=len(f0) + len(f1), open=len(stack), cuts=len(bc.pool), sec=round(time.time() - t0))))
-    complete = (not stack) and best is None
-    cert = dict(word=os.path.basename(path), n=n, T=T, BASE=M.BASE, SCALE=SC, arcs=[(int(a), int(b), int(c)) for a, b, c in M.arcs], root=rootcert, pool=bc.pool,
+    complete = (not stack) and best is None and not frontier
+    if frontier:
+        json.dump(dict(frontier=frontier), open(out + ".frontier.json", "w"))
+    cert = dict(init_fix=init, frontier=[f["id"] for f in frontier], word=os.path.basename(path), n=n, T=T, BASE=M.BASE, SCALE=SC, arcs=[(int(a), int(b), int(c)) for a, b, c in M.arcs], root=rootcert, pool=bc.pool,
                 rows=[(kind, b, list(tag)) for kind, b, tag in bc.rows_b], nodes=nodes, complete=complete,
                 incumbent=best)
     json.dump(cert, open(out, "w"))
