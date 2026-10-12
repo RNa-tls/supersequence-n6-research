@@ -178,7 +178,9 @@ def main():
     t0 = time.time()
     if os.environ.get("INIT_POOL"):
         for S in json.load(open(os.environ["INIT_POOL"]))["pool"]: bc.add_cut(S)
-    init = json.loads(os.environ.get("INIT_FIX", "[]"))          # [[arc, 0/1], ...] fixings of this subtree's root
+    init_s = os.environ.get("INIT_FIX", "[]")                    # [[arc, 0/1], ...] fixings of this subtree's root
+    if init_s.startswith("@"): init_s = open(init_s[1:]).read()  # (or @file: long lists exceed the env size limit)
+    init = json.loads(init_s)
     if0 = [int(a) for a, v in init if v == 0]; if1 = [int(a) for a, v in init if v == 1]
     if os.environ.get("GLOBAL_FIX0"):                            # global root fixings validated by the top certificate
         gf = json.load(open(os.environ["GLOBAL_FIX0"]))["root"]["fixed0"]
