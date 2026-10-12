@@ -227,12 +227,19 @@ def main():
         if res["status"] != "Optimal":
             # infeasible LP: use a scaled dual ray as the certificate (handled by the same bound formula)
             rec.update(kind="infeasible_lp", status=res["status"])
-            ray_ok, ray = bc.h.getDualRay()
+            def dual_ray():
+                out_ = bc.h.getDualRay()            # highspy >= 1.7: (status, has_ray, ray)
+                return (out_[-2], out_[-1]) if len(out_) == 3 else (out_[0], out_[1])
+            ray_ok, ray = dual_ray()
+            if not ray_ok:
+                # presolve may report infeasibility without a ray: re-solve with the simplex only
+                bc.h.setOptionValue("presolve", "off"); bc.h.run(); ray_ok, ray = dual_ray()
+                bc.h.setOptionValue("presolve", "choose")
             done_ = False
             if ray_ok:
                 ray = np.array(ray); ray = ray / max(1e-12, np.max(np.abs(ray)))
                 for sgn in (1, -1):
-                    for tsc in (1e2, 1e3, 1e4):
+                    for tsc in (1e1, 1e2, 1e3, 1e4, 1e5, 1e6):
                         lbv, _, ycl = bc.node_bound(sgn * tsc * ray, sorted(gfix0 | set(f0)), f1)
                         if lbv > THR:
                             rec.update(lb_scaled=int(lbv), y=[(int(k), int(v)) for k, v in enumerate(ycl) if v != 0]); done_ = True; break
