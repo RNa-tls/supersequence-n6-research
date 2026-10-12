@@ -203,12 +203,15 @@ def main():
     stack = [(0, None, None, None, if0, if1)]; nid = 0; best = None
     FRONTIER = int(os.environ.get("FRONTIER", "0")); frontier = []
     NODE_LIMIT = int(os.environ.get("NODE_LIMIT", "1000000000"))     # testing aid: behave as on a time limit after this many nodes
+    import signal
+    split_now = [False]
+    signal.signal(signal.SIGUSR1, lambda *_: split_now.__setitem__(0, True))   # SIGUSR1: delegate open nodes now
     NODE_RCFIX = os.environ.get("NODE_RCFIX", "1") == "1"              # node-level reduced-cost fixing (recorded in the certificate)
     STRONG = int(os.environ.get("STRONG", "0"))                          # strong-branching candidates (0 = most fractional)
     gfix0 = set(fixed0)
     depth_of = {0: len(if0) + len(if1)}                                # branching depth (for logs only)
     while stack:
-        if time.time() - t0 > tlimit or len(nodes) >= NODE_LIMIT:
+        if time.time() - t0 > tlimit or len(nodes) >= NODE_LIMIT or split_now[0]:
             log("TIME LIMIT")
             if os.environ.get("DELEGATE_ON_TIMEOUT", "1") == "1":
                 # keep the work done so far: every open node becomes a delegated leaf (closed later by its own certificate)
