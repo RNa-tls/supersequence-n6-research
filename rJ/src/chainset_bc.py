@@ -64,7 +64,11 @@ class BC:
     def separate(self, x):
         """exact subtour separation with compiled max-flow (scipy): for every chain v, a minimum
         v -> D cut in the support graph (capacities x scaled to integers; any returned set S is a
-        structurally valid cut, its violation is re-checked with the float x)."""
+        structurally valid cut, its violation is re-checked with the float x).
+        Representatives: if x(v->u) = 1 then every S containing v but not D has x(delta+(S)) >= 1
+        unless u is in S, in which case x(delta+(S)) >= maxflow(u -> D); hence
+        maxflow(v -> D) >= min(1, maxflow(u -> D)) and only the end of each x=1 successor path
+        (or one node of an x=1 cycle) needs a max-flow computation.  Exact."""
         from scipy.sparse import csr_matrix
         from scipy.sparse.csgraph import maximum_flow, breadth_first_order
         M = self.M; V = M.V; SCL = 10 ** 7
@@ -78,7 +82,22 @@ class BC:
         G = csr_matrix((vals, (rows, cols)), shape=(V, V))
         xa = {k: v for k, v in cap.items()}
         new = 0; covered = set()
-        for v in range(M.q):
+        succ1 = {}
+        for i in np.nonzero(x > 1 - 1e-9)[0]:
+            succ1.setdefault(int(self.tail[i]), int(self.head[i]))
+        rep = {}
+        for v0 in range(M.q):
+            path = []; on = set(); v = v0
+            while True:
+                if v in rep: r_ = rep[v]; break
+                if v == M.D: r_ = M.D; break
+                if v in on: r_ = v; break                      # x=1 cycle: any node of it
+                if v not in succ1: r_ = v; break
+                path.append(v); on.add(v); v = succ1[v]
+            for u in path: rep[u] = r_
+            rep[v0] = r_
+        sources = sorted(set(r_ for r_ in rep.values() if r_ != M.D))
+        for v in sources:
             if v in covered: continue
             res = maximum_flow(G, v, M.D)
             if res.flow_value >= SCL - 10: continue
@@ -89,11 +108,13 @@ class BC:
             reach = breadth_first_order(Rm + back, v, directed=True, return_predecessors=False)
             S = set(int(u) for u in reach); S.discard(M.D)
             val = sum(c for (a, b), c in xa.items() if a in S and b not in S)
-            if val < 1 - 1e-6 and self.add_cut(S): new += 1
+            if val < 1 - 1e-6 and Model.cut_structurally_valid(S, M.q) and self.add_cut(S): new += 1
             covered |= S
         return new
 
-    def solve_node(self, fix0, fix1, max_rounds=200):
+    def solve_node(self, fix0, fix1, max_rounds=200, prune_above=None):
+        """LP with cut rounds.  If prune_above is given, stop as soon as the exact bound from the
+        current duals exceeds it (cuts only raise the LP value, so the node is pruned anyway)."""
         ub = self.ub.copy(); lb = np.zeros(self.A)
         for j in fix0: ub[j] = 0.0
         for j in fix1: lb[j] = 1.0
@@ -104,6 +125,11 @@ class BC:
             if st != highspy.HighsModelStatus.kOptimal:
                 return dict(status=self.h.modelStatusToString(st))
             sol = self.h.getSolution(); x = np.array(sol.col_value)
+            if prune_above is not None:
+                lbv, _, _ = self.node_bound(np.array(sol.row_dual), fix0, fix1)
+                if lbv > prune_above:
+                    return dict(status="Optimal", obj=self.h.getInfo().objective_function_value, x=x,
+                                y=np.array(sol.row_dual), r=np.array(sol.col_dual), early=True)
             if self.separate(x) == 0:
                 return dict(status="Optimal", obj=self.h.getInfo().objective_function_value, x=x,
                             y=np.array(sol.row_dual), r=np.array(sol.col_dual))
@@ -193,7 +219,7 @@ def main():
                 frontier.append(dict(id=my_, fix=[[a, 0] for a in f0_] + [[a, 1] for a in f1_]))
             stack = []; break
         my, parent, var, val, f0, f1 = (stack.pop(0) if FRONTIER else stack.pop())
-        res = bc.solve_node(sorted(gfix0 | set(f0)), f1)
+        res = bc.solve_node(sorted(gfix0 | set(f0)), f1, prune_above=THR)
         rec = dict(id=my, parent=parent, var=var, val=val, ncuts=len(bc.pool))
         if res["status"] != "Optimal":
             # infeasible LP: use a scaled dual ray as the certificate (handled by the same bound formula)
