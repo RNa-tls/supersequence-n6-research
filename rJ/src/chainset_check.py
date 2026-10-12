@@ -12,6 +12,9 @@ chainset_model.py).  Verifies, in exact integer arithmetic:
 Conclusion if all pass: every ordering of the chains has weight >= T, i.e. word length >= BASE + T."""
 import sys, os, json, math
 import numpy as np
+import gzip
+def jload(path):
+    return json.load(gzip.open(path, 'rt') if path.endswith('.gz') else open(path))
 
 def perms_of_word(path):
     w = "".join(ch for ch in open(path).read() if not ch.isspace())
@@ -32,7 +35,7 @@ def overlap_cost(x, y, n):
 
 def main():
     word, certf = sys.argv[1], sys.argv[2]
-    C = json.load(open(certf))
+    C = jload(certf)
     perms, n = perms_of_word(word)
     assert len(perms) == math.factorial(n), "word is not a superpermutation"
     # runs of n consecutive rotations, chains of F-steps (independent re-derivation)
@@ -123,7 +126,7 @@ def main():
     leaves = 0; worst = None
     init = C.get("init_fix", [])
     if init:                                    # subtree certificate: root fixings must come from the caller
-        global_fixed0 = set(json.load(open(sys.argv[3]))["root"]["fixed0"]) if len(sys.argv) > 3 else None
+        global_fixed0 = set(jload(sys.argv[3])["root"]["fixed0"]) if len(sys.argv) > 3 else None
         assert global_fixed0 is not None and fixed0 == global_fixed0, "subtree must use the top certificate's validated fixings"
     i0 = [a for a, v in init if v == 0]; i1 = [a for a, v in init if v == 1]
     delegated = []
