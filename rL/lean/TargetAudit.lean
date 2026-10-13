@@ -53,4 +53,10 @@ theorem records : len 768 32 23 = 46187 ∧ len 768 32 24 = 46188 ∧
     (768 - 720) + (32 - 1) + 23 = 102 := by
   unfold len; decide
 
+/-- the new r = 0 record words of Round L (counts read off by `r0verifyA.py`):
+46185: q = 774, τ = 29, λ = 18;  46186: q = 772, τ = 30, λ = 20 -/
+theorem new_records : len 774 29 18 = 46185 ∧ (774 - 720) + (29 - 1) + 18 = 100 ∧
+    len 772 30 20 = 46186 ∧ (772 - 720) + (30 - 1) + 20 = 101 := by
+  unfold len; decide
+
 end TargetAudit

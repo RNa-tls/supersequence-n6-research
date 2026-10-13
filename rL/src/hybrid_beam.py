@@ -15,14 +15,17 @@ import hybrid_relink as H
 def main():
     path = sys.argv[1]; EXC = int(sys.argv[2]) if len(sys.argv) > 2 else 2
     BEAM = int(sys.argv[3]) if len(sys.argv) > 3 else 20000
-    BOTH = "--both" in sys.argv
+    BOTH = "--both" in sys.argv; ALLV = "--allver" in sys.argv
     t0 = time.time()
     seqs, L0, K, alt = H.closed_trails(path)
+    if ALLV:
+        cache = os.path.join(os.environ.get("RL_CACHE", "."), "versions_" + os.path.basename(path) + ".pkl")
+        V = H.all_versions(seqs, cache)
     T = len(seqs)
     const = 8 + sum(9 * (len(s) // 8) for s in seqs) + K
     nodes = []; nid = {}; versions = []
     for ti, s in enumerate(seqs):
-        vs = [s] + ([alt[ti]] if BOTH and alt[ti] is not None else [])
+        vs = V[ti] if ALLV else [s] + ([alt[ti]] if BOTH and alt[ti] is not None else [])
         for s_ in vs:
             vi = len(versions); versions.append((ti, s_))
             for i in range(len(s_)):

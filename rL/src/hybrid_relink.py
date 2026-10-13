@@ -91,6 +91,31 @@ def closed_trails(path):
             alt[-1] = other
     return seqs, len(w), sum(len(t) for t in closed), alt
 
+def all_versions(seqs, cache=None):
+    """for every closed trail, all distinct relabelled copies g.T (g in S_8) with the same class set
+    (the stabiliser images); returns a list of lists of cyclic perm sequences (first = original).
+    Cached in `cache` (pickle) when given."""
+    import pickle
+    if cache and os.path.exists(cache):
+        return pickle.load(open(cache, "rb"))
+    canon = lambda p: min(p[j:] + p[:j] for j in range(n))
+    out = []
+    for s in seqs:
+        S = frozenset(canon(p) for p in s)
+        starts0 = frozenset(s[i] for i in range(0, len(s), 8))
+        vers = [s]; seen = {starts0}
+        for g in itertools.permutations(range(n)):
+            # quick reject: image of one class must be in S
+            if canon(tuple(g[x] for x in s[0])) not in S: continue
+            img = [tuple(g[x] for x in p) for p in s]
+            if frozenset(canon(p) for p in img) != S: continue
+            st = frozenset(img[i] for i in range(0, len(img), 8))
+            if st in seen: continue
+            seen.add(st); vers.append(img)
+        out.append(vers)
+    if cache: pickle.dump(out, open(cache, "wb"))
+    return out
+
 def main():
     import highspy
     path = sys.argv[1]; EXC = int(sys.argv[2]) if len(sys.argv) > 2 else 1

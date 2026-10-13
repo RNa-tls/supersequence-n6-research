@@ -20,14 +20,17 @@ def main():
     fam = sys.argv[1]; seed = sys.argv[2] if len(sys.argv) > 2 and not sys.argv[2].startswith("-") else fam
     WMAX = int(sys.argv[3]) if len(sys.argv) > 3 else 6
     ITERS = int(sys.argv[4]) if len(sys.argv) > 4 else 50
-    BOTH = "--both" in sys.argv
+    BOTH = "--both" in sys.argv; ALLV = "--allver" in sys.argv
     t0 = time.time()
     seqs, L0, K, alt = H.closed_trails(fam)
+    if ALLV:
+        cache = os.path.join(os.environ.get("RL_CACHE", "."), "versions_" + os.path.basename(fam) + ".pkl")
+        V = H.all_versions(seqs, cache)
     T = len(seqs)
     const = 8 + sum(9 * (len(s) // 8) for s in seqs) + K
     nodes = []; nid = {}; versions = []; by_cl = defaultdict(list)
     for ti, s in enumerate(seqs):
-        vs = [s] + ([alt[ti]] if BOTH and alt[ti] is not None else [])
+        vs = V[ti] if ALLV else [s] + ([alt[ti]] if BOTH and alt[ti] is not None else [])
         for s_ in vs:
             vi = len(versions); versions.append((ti, s_))
             for i in range(len(s_)):
