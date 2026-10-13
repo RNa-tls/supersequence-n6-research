@@ -83,6 +83,10 @@ def solve_window(runs, i, j, cmax, tl, workers=4):
     # hint: the current window
     cur_rot = {ci: cls[ci].index(W[ci]) for ci in range(len(W))}
     for (ci, k), s in skip.items(): m.AddHint(s, 0 if cur_rot[ci] == k else 1)
+    cur_nodes = [nid[(ci, cur_rot[ci])] for ci in range(len(W))]
+    cur_arcs = set(zip([0] + cur_nodes, cur_nodes + [1])) | {(1, 0)}
+    for (a, b, l) in arcs:
+        if a != b: m.AddHint(l, 1 if (a, b) in cur_arcs else 0)
     sv = cp_model.CpSolver(); sv.parameters.max_time_in_seconds = tl; sv.parameters.num_workers = workers
     st = sv.Solve(m)
     res = dict(i=i, j=j, classes=len(W), cmax=cmax, current=cur_cost, status=sv.StatusName(st), arcs=len(arcs),
