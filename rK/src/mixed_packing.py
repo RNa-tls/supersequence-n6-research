@@ -84,3 +84,32 @@ if __name__ == "__main__":
             res["best"] = sv.ObjectiveValue()
             res["nA"] = sum(sv.Value(x[i]) for i in range(len(IA))); res["nB"] = sum(sv.Value(x[len(IA) + i]) for i in range(len(IB)))
         print(json.dumps(res), flush=True)
+
+def case_check(IA, IB, PH, nA, nB, exact_cover, tl):
+    """feasibility of nA pairwise-disjoint A-images and nB B-images (A-image 0 fixed if nA > 0),
+    optionally with the remaining classes exactly covered by phi-sets of any pairs"""
+    from ortools.sat.python import cp_model
+    m = cp_model.CpModel()
+    xa = [m.NewBoolVar(f"a{i}") for i in range(len(IA))]; xb = [m.NewBoolVar(f"b{i}") for i in range(len(IB))]
+    xp = [m.NewBoolVar(f"p{i}") for i in range(len(PH))] if exact_cover else []
+    cover = [[] for _ in range(5040)]
+    for i, S in enumerate(IA):
+        for c in S: cover[c].append(xa[i])
+    for i, S in enumerate(IB):
+        for c in S: cover[c].append(xb[i])
+    if exact_cover:
+        for i, S in enumerate(PH):
+            for c in S: cover[c].append(xp[i])
+    for c in range(5040):
+        (m.AddExactlyOne if exact_cover else m.AddAtMostOne)(cover[c])
+    m.Add(sum(xa) == nA); m.Add(sum(xb) == nB)
+    if nA > 0: m.Add(xa[0] == 1)
+    else: m.Add(xb[0] == 1)
+    sv = cp_model.CpSolver(); sv.parameters.max_time_in_seconds = tl; sv.parameters.num_workers = 4
+    st = sv.Solve(m)
+    return sv.StatusName(st), round(sv.WallTime(), 1)
+
+if __name__ == "__main__" and sys.argv[1] == "cases":
+    for nA, nB, ec in [(6, 1, False), (6, 2, False), (5, 3, False), (6, 1, True), (5, 3, True)]:
+        st, sec = case_check(IA, IB, PH, nA, nB, ec, tl)
+        print(json.dumps(dict(stage="case", nA=nA, nB=nB, exact_cover=ec, status=st, sec=sec)), flush=True)
