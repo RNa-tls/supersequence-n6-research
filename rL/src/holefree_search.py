@@ -8,7 +8,7 @@ inside the trail (so the trail needs no repair from outside).  Reported for ever
 classes, chains, saving, rate (k+1)/|T|, whether it is a one-pair phi-union.
 Word families:  'all L'  = every cyclic word of length L over the 12 syllables S0..S5, X0..X5;
                 'esc L K' = S4^L with at most K positions replaced by another syllable.
-usage: holefree_search.py all L | esc L K"""
+usage: holefree_search.py [alpha=S3,S4,X4] all L | esc L K"""
 import sys, os, json, time, itertools
 from fractions import Fraction
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "rK", "src"))
@@ -42,8 +42,9 @@ def one_pair_union(seen):
         if all(v == (n - 2) * (n - 1) for v in groups.values()): return [x, y]
     return None
 
+ALPHA = None
 def words(mode, args):
-    names = sorted(SYL)
+    names = sorted(SYL) if ALPHA is None else ALPHA
     if mode == "all":
         L = args[0]
         for w in itertools.product(names, repeat=L):
@@ -62,7 +63,11 @@ def words(mode, args):
                     seen.add(key); yield w
 
 def main():
-    mode = sys.argv[1]; args = [int(x) for x in sys.argv[2:]]
+    global ALPHA
+    argv = sys.argv[1:]
+    if argv and argv[0].startswith("alpha="):
+        ALPHA = sorted(argv[0][6:].split(",")); argv = argv[1:]
+    mode = argv[0]; args = [int(x) for x in argv[1:]]
     t0 = time.time(); tested = valid = 0; hits = {}
     for w in words(mode, args):
         letters = [x for s in w for x in SYL[s]]
@@ -91,7 +96,7 @@ def main():
         print(json.dumps(dict(HOLEFREE=rec)), flush=True)
     out = dict(mode=mode, args=args, tested=tested, valid_positive=valid, holefree=list(hits.values()), sec=round(time.time() - t0, 1))
     print(json.dumps({k: v for k, v in out.items() if k != "holefree"}), flush=True)
-    json.dump(out, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "certs", f"holefree_{mode}_{'_'.join(map(str, args))}.json"), "w"), indent=1)
+    json.dump(out, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "certs", f"holefree_{mode}_{'_'.join(map(str, args))}" + ("" if ALPHA is None else "_" + "".join(ALPHA)) + ".json"), "w"), indent=1)
 
 if __name__ == "__main__":
     main()
