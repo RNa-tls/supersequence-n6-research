@@ -73,7 +73,8 @@ def main():
         word = list(route[0])
         for p_, q_ in zip(route, route[1:]):
             c = H.wt(p_, q_); word += list(q_[8 - c:])
-        out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "certs", f"hybrid_beam_{Lm}.txt")
+        tag = os.path.basename(path).replace("superperm8_", "").replace(".txt", "")
+        out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "certs", f"hybrid_beam_{Lm}_from_{tag}_exc{EXC}_beam{BEAM}{'_both' if BOTH else ''}.txt")
         open(out, "w").write("".join(str(c + 1) for c in word) + "\n"); res["file"] = out
     print(json.dumps(res), flush=True)
 
