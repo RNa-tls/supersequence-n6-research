@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/user/supersequence-n6-research/rJ/src/queue_driver.py", line 77, in <module>
+    main()
+  File "/home/user/supersequence-n6-research/rJ/src/queue_driver.py", line 51, in main
+    p = subprocess.Popen([PY, "-I", os.path.join(here, "chainset_bc.py"), word, T, name, str(TL)], env=env, stdout=out, stderr=subprocess.STDOUT)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+OSError: [Errno 7] Argument list too long: '/tmp/claude-0/-home-user-supersequence-n6-research/0161dc0f-40e0-56e3-8c56-97df10c350b4/scratchpad/venv/bin/python'
+queue empty
+queue empty
