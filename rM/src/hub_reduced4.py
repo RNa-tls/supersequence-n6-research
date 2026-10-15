@@ -188,6 +188,37 @@ def main():
     integer = {"y", "D", "S1", "S2", "S3", "S4", "S5", "S6", "FD", "F1", "F2", "F3", "F4", "F5", "F6", "X", "s", "sA", "t", "tA"}
     lp.integrality_ = [highspy.HighsVarType.kInteger if c[0] in integer else highspy.HighsVarType.kContinuous for c in cols]
     h.passModel(lp)
+    if os.environ.get("HUB_CONFIGS"):
+        # LP relaxation per A-configuration (start size, end size, multiset of internal block sizes)
+        from itertools import combinations_with_replacement
+        def parts(m, mx=6):
+            if m == 0: yield (); return
+            for k in range(min(m, mx), 0, -1):
+                for rest in parts(m - k, k): yield (k,) + rest
+        h.setOptionValue("solver", "ipm"); h.setOptionValue("run_crossover", "off"); h.setOptionValue("output_flag", False)
+        h.setOptionValue("mip_feasibility_tolerance", 1e-6)
+        # relax integrality
+        h.changeColsIntegrality(ncol, np.arange(ncol, dtype=np.int32), np.array([highspy.HighsVarType.kContinuous] * ncol))
+        gapcols = {k: [c for c in range(ncol) if cols[c][0] in ("S%d" % k, "F%d" % k)] for k in range(1, 7)}
+        startcols = {0: cs, **{k: csK[k] for k in range(1, 7)}}; endcols = {0: ct, **{k: ctK[k] for k in range(1, 7)}}
+        out = []
+        for st in range(7):
+            for en in range(7 - st):
+                for pt in parts(6 - st - en):
+                    nr0 = h.getNumRow(); added = 0
+                    for k in range(1, 7):
+                        nk = sum(1 for x in pt if x == k)
+                        h.addRow(float(nk), float(nk), len(gapcols[k]), np.array(gapcols[k], dtype=np.int32), np.ones(len(gapcols[k]))); added += 1
+                    h.addRow(1.0, 1.0, len(startcols[st]), np.array(startcols[st], dtype=np.int32), np.ones(len(startcols[st]))); added += 1
+                    h.addRow(1.0, 1.0, len(endcols[en]), np.array(endcols[en], dtype=np.int32), np.ones(len(endcols[en]))); added += 1
+                    h.run()
+                    stt = h.modelStatusToString(h.getModelStatus())
+                    val = h.getInfo().objective_function_value if stt == "Optimal" else None
+                    out.append(dict(start=st, end=en, internal=list(pt), status=stt, lp=val))
+                    print(json.dumps(out[-1]), flush=True)
+                    h.deleteRows(added, np.arange(nr0, nr0 + added, dtype=np.int32))
+        json.dump(out, open(os.environ["HUB_CONFIGS"], "w"))
+        return
     print(json.dumps(dict(cols=ncol, rows=Am.shape[0], direct=len(arcsD), s1=len(arcs1), sk={k: len(arcsK[k]) for k in arcsK}, build_sec=round(time.time() - t0, 1))), flush=True)
     it = 0
     while True:
