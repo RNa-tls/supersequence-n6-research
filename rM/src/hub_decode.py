@@ -25,7 +25,7 @@ def main():
     seq = [first]; kinds = []
     while seq[-1] in gaps and gaps[seq[-1]][0] not in seq:
         nxt, kind = gaps[seq[-1]]; kinds.append(kind); seq.append(nxt)
-    need = {"D": 0, "FD": 0, "S1": 1, "F1": 1, "S2": 2, "F2": 2, "F3": 3}
+    need = {"D": 0, "FD": 0, "S1": 1, "F1": 1, "S2": 2, "F2": 2, "S3": 3, "F3": 3, "S4": 4, "F4": 4, "F5": 5}
     slots = [need[k] for k in kinds]
     used = sum(slots)
     print(json.dumps(dict(phi_sequence=seq, gap_kinds=kinds, A_in_gaps=used, covered=len(seq))), flush=True)
