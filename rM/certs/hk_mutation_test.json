@@ -1,0 +1,67 @@
+{
+ "reference_tours": [
+  {
+   "word": "superperm8_46185.txt",
+   "same_starts_as_certificate": true,
+   "tour_cost_in_certificate_model": 10897,
+   "cuts": 823,
+   "violated_cuts": 0,
+   "min_cut_value": 1,
+   "identity_ok": true
+  },
+  {
+   "word": "superperm8_46185_b.txt",
+   "same_starts_as_certificate": false,
+   "tour_cost_in_certificate_model": null,
+   "cuts": 823,
+   "violated_cuts": 0,
+   "min_cut_value": 1,
+   "identity_ok": "n/a (different starts; cuts are class-set statements)"
+  }
+ ],
+ "base": {
+  "word": "/home/user/supersequence-n6-research/rM/src/../../rL/records/superperm8_46185.txt",
+  "cert": "rM/certs/hk_46185_cert.npz",
+  "scale_bits": 20,
+  "cuts": 823,
+  "positive_y": 749,
+  "bound_scaled": 11389508186,
+  "bound": 10861.881433486938,
+  "cost_lb": 10862,
+  "L_lb": 46150,
+  "J_lb": 65,
+  "negative_rc_total": -0.000331878662109375
+ },
+ "mut_a_depot_in_cut": {
+  "returncode": 1,
+  "caught": true
+ },
+ "mut_b_u_v_x1.5": {
+  "returncode": 0,
+  "bound": -18345.376492500305,
+  "valid": true,
+  "neg_rc": -34406.23066520691
+ },
+ "mut_b_y_x2": {
+  "returncode": 0,
+  "bound": -20179.279907226562,
+  "valid": true,
+  "neg_rc": -31505.098572731018
+ },
+ "mut_b_noise": {
+  "returncode": 0,
+  "bound": 8587.926481246948,
+  "valid": true,
+  "neg_rc": -2247.0154705047607
+ },
+ "mut_c_superperm8_46185_b.txt": {
+  "returncode": 0,
+  "bound": 10796.336524963379,
+  "valid": true
+ },
+ "mut_c_superperm8_46187.txt": {
+  "returncode": 0,
+  "bound": 8294.804148674011,
+  "valid": true
+ }
+}
