@@ -53,12 +53,12 @@ def main():
     pairs = [(i, j) for i in range(T) for j in range(T) if i != j]
     NF = len(pairs)
     # column layout
-    cy = 0; cz = cy + NO; ch = cz + NA; cr = ch + NO; cs = cr + NO; ct = cs + NO; cf = ct + NO; cx = cf + NF; ncol = cx + NF
+    cy = 0; cz = cy + NO; ch = cz + NA; cr = ch + NO; cs = cr + NO; ct = cs + NO; cf = ct + NO; cx = cf + NF; cg = cx + NF; cgd = cg + NF; ncol = cgd + T
     cost = np.zeros(ncol)
     for i, (a, b, e) in enumerate(arcs): cost[cz + i] = e
     for o in range(NO): cost[cs + o] = 1.0 if opts[o][3] == 2 else 0.0
     cost[cf:cf + NF] = EMAX + 1
-    lower = np.zeros(ncol); upper = np.ones(ncol)
+    lower = np.zeros(ncol); upper = np.ones(ncol); upper[cg:cg + NF] = T; upper[cgd:cgd + T] = T
     integ = np.zeros(ncol, dtype=np.int32)
     integ[cy:cy + NO] = 1; integ[cz:cz + NA] = 1; integ[cf:cf + NF] = 1; integ[cx:cx + NF] = 1
     rows = []                                                    # (idx list, val list, lo, hi)
@@ -92,6 +92,16 @@ def main():
         return (idx, [1.0] * len(idx), 1.0, highspy.kHighsInf)
     for i in range(T):
         for j in range(i + 1, T): rows.append(sec_row([i, j]))
+    # Gavish-Graves flow: the start trail receives T units from the depot, every trail keeps one
+    gidx = {p: cg + i for i, p in enumerate(pairs)}
+    for t in range(T):
+        idx = [gidx[(u, t)] for u in range(T) if u != t] + [cgd + t] + [gidx[(t, u)] for u in range(T) if u != t]
+        rows.append((idx, [1.0] * (T - 1) + [1.0] + [-1.0] * (T - 1), 1.0, 1.0))
+    rows.append(([cgd + t for t in range(T)], [1.0] * T, float(T), float(T)))
+    for p in pairs:
+        rows.append(([gidx[p], xidx[p]], [1.0, -(T - 1.0)], -highspy.kHighsInf, 0.0))
+    for t in range(T):
+        rows.append(([cgd + t] + [cs + o for o in trail_opts[t]], [1.0] + [-float(T)] * len(trail_opts[t]), -highspy.kHighsInf, 0.0))
     print(json.dumps(dict(trails=T, options=NO, arcs=NA, emax=EMAX, cols=ncol, rows=len(rows), E0=E0,
                           build_sec=round(time.time() - t0, 1))), flush=True)
     h = highspy.Highs(); h.setOptionValue("output_flag", True); h.setOptionValue("log_to_console", True)
