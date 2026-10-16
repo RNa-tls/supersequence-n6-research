@@ -15,6 +15,8 @@ small statements the certificates rely on:
                          (validity of the redundant path-cover clauses of the CNF).
 6. `cap_relaxation`    : Σ min(e, 3) ≤ Σ e  (UNSAT of the capped CNF implies the uncapped claim).
 7. `cut_charge`        : e_in ≥ IN, e_out ≥ OUT, IN + OUT ≥ 1  ⇒  e_in + e_out ≥ 1.
+7b. `group_correction` : Σ x ≤ 1 over a column group, reduced costs ≥ g  ⇒  Σ min(d,0)·x ≥ min(g,0)
+                         (the per-group term of the CC-LP certificate checkers).
 8. `record_46185_*`    : the boundary data of the two 46185 words in every form give J = 100.
 -/
 
@@ -148,6 +150,37 @@ theorem cut_charge (ein eout IN OUT : Int) (h1 : IN ≤ ein) (h2 : OUT ≤ eout)
 
 /-- a bridge φ → A → φ through one A piece costs β_in + β_out = 2 + e_in + e_out ≥ 3 -/
 theorem bridge_three (ein eout : Int) (h : 1 ≤ ein + eout) : 3 ≤ (1 + ein) + (1 + eout) := by omega
+
+/-! ## 7b. group correction of a dual certificate (CC-LP checkers `cc_cert.py`, `cc_cert_b.py`) -/
+
+theorem lsum_nonneg {α : Type} (f : α → Int) (l : List α) (h : ∀ x ∈ l, 0 ≤ f x) : 0 ≤ lsum f l := by
+  induction l with
+  | nil => simp [lsum]
+  | cons a l ih =>
+    simp only [lsum]
+    have h1 := h a (List.mem_cons_self ..)
+    have h2 := ih (fun x hx => h x (List.mem_cons_of_mem _ hx))
+    omega
+
+/-- A group of columns whose 0/1 (or nonnegative) values sum to at most 1 and whose reduced costs
+are all ≥ g contributes at least min(g, 0) to the safe correction Σ min(d, 0)·x of `dual_bound_rhs`
+(Round M, `OpeningJoint.lean`).  This is the per-group term the CC-LP checkers add
+(arcs by tail option, else arcs by tail trail, s, t, z, covers by component). -/
+theorem group_correction {α : Type} (d x : α → Int) (g : Int) (cols : List α)
+    (hg : ∀ j ∈ cols, g ≤ d j) (hx0 : ∀ j ∈ cols, 0 ≤ x j) (hsum : lsum x cols ≤ 1) :
+    min g 0 ≤ lsum (fun j => min (d j) 0 * x j) cols := by
+  have h1 : lsum (fun j => min g 0 * x j) cols ≤ lsum (fun j => min (d j) 0 * x j) cols :=
+    lsum_le _ _ cols (fun j hj => Int.mul_le_mul_of_nonneg_right (by have := hg j hj; omega) (hx0 j hj))
+  have h2 : lsum (fun j => min g 0 * x j) cols = min g 0 * lsum x cols := lsum_mul _ _ _
+  have h4 : min g 0 * 1 ≤ min g 0 * lsum x cols := Int.mul_le_mul_of_nonpos_left (by omega) hsum
+  rw [Int.mul_one] at h4
+  rw [h2] at h1
+  exact Int.le_trans h4 h1
+
+/-- the integer consequence used in the report: a checked scaled total T with T > 16·2^30
+gives Σe + [c0 = 2] ≥ 17 (the cost is an integer), i.e. J ≥ 77 + 17 = 94 -/
+theorem cc_lp_integer (cost T : Int) (h : T ≤ 1073741824 * cost) (hT : 16 * 1073741824 < T) : 17 ≤ cost := by
+  omega
 
 /-! ## 8. the two 46185 words -/
 
