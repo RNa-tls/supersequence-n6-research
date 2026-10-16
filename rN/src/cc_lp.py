@@ -76,6 +76,7 @@ class Master:
         self.arc_cols = []; self.arc_ta = []; self.arc_tb = []; self.else_cols = []; self.else_t = []; self.else_u = []
         self.s_cols = []; self.s_t = []; self.cover_cols = []
         self.cover_sigs = set()
+        self.multi = 8
         cols = []                  # (cost, lb, ub, rows, vals)
         def add(kind, payload, cost, rows, vals, ub=highspy.kHighsInf):
             self._track(kind, payload); cols.append((cost, 0.0, ub, rows, vals))
@@ -290,16 +291,7 @@ class Master:
             arg = np.full(nm, -1); arg[Ss[hit[first]]] = hit[first]
             Cov.append(cur); Arg.append(arg)
         res = []
-        for r in range(1, nt + 1):
-            val = Cov[r][full]
-            if val >= INF / 2: continue
-            rc = val - alpha
-            # backtrack
-            S = full; segs = []
-            for lev in range(r, 0, -1):
-                if lev == 1: U = S
-                else: U = int(Us[Arg[lev][S]])
-                segs.append(U); S ^= U
+        def backtrack_paths(segs):
             paths = []
             for U in segs:
                 j = int(Qa[U]); mask = U; path = [j]
@@ -307,7 +299,34 @@ class Master:
                     p = int(Pp[mask, j]); mask ^= (1 << int(tl[j])); j = p; path.append(j)
                 assert mask == (1 << int(tl[j]))
                 paths.append([int(loc[q]) for q in reversed(path)])
-            res.append((r, rc, paths))
+            return paths
+        def rest_segs(S, lev):
+            segs = []
+            for l in range(lev, 0, -1):
+                if l == 1: U = S
+                else: U = int(Us[Arg[l][S]])
+                segs.append(U); S ^= U
+            return segs
+        low = full & -full
+        for r in range(1, nt + 1):
+            val = Cov[r][full]
+            if val >= INF / 2: continue
+            if r == 1:
+                res.append((1, val - alpha, backtrack_paths([full]))); continue
+            # several first blocks U (containing the lowest trail), best completion each
+            cands = []
+            rest = full ^ low; sub = rest
+            while True:
+                U = sub | low
+                if U != full:
+                    v = Q[U] + Cov[r - 1][full ^ U]
+                    if v < INF / 2: cands.append((v, U))
+                if sub == 0: break
+                sub = (sub - 1) & rest
+            cands.sort()
+            for v, U in cands[:self.multi]:
+                if v - alpha >= -TOL and v != cands[0][0]: break
+                res.append((r, v - alpha, backtrack_paths([U] + rest_segs(full ^ U, r - 1))))
         return res
 
     def rc_of_cover(self, X, paths, M, y=None):
