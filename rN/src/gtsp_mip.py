@@ -34,12 +34,12 @@ def solve(opts, trails, emax=2, C=1, start_cost=1.0, time_limit=600, threads=4, 
     cy = 0; cz = cy + NO; ch = cz + NA; cr = ch + NO; cs = cr + NO; ct = cs + NO; cf = ct + NO; cx = cf + NF; cg = cx + NF; cgd = cg + NF; cs2 = cgd + T; ct2 = cs2 + NO; ncol = ct2 + NO
     cost = np.zeros(ncol)
     for k, (a, b, e) in enumerate(arcs): cost[cz + k] = e
-    for k, o in enumerate(ids): cost[cs + k] = start_cost if opts[o]["cut"] == 2 else 0.0
+    for k, o in enumerate(ids): cost[cs + k] = start_cost * (3 - opts[o]["cut"])
     if start_costs is not None:
         for k, o in enumerate(ids): cost[cs + k] += start_costs.get(o, 0.0)
     if end_costs is not None:
         for k, o in enumerate(ids): cost[ct + k] += end_costs.get(o, 0.0)
-    for k, o in enumerate(ids): cost[cs2 + k] = free_start_fcut if opts[o]["cut"] == 2 else 0.0
+    for k, o in enumerate(ids): cost[cs2 + k] = free_start_fcut * (3 - opts[o]["cut"])
     cost[cf:cf + NF] = emax + 1
     lower = np.zeros(ncol); upper = np.ones(ncol); upper[cg:cg + NF] = T; upper[cgd:cgd + T] = T
     integ = np.zeros(ncol, dtype=bool); integ[cy:cy + NO] = True; integ[cz:cz + NA] = True; integ[cf:cf + NF] = True; integ[cx:cx + NF] = True
@@ -111,7 +111,7 @@ def solve(opts, trails, emax=2, C=1, start_cost=1.0, time_limit=600, threads=4, 
             p = [s]
             while p[-1] in succ: p.append(succ[p[-1]][0])
             paths.append(p)
-        true_cost = sum(e for (_, e) in succ.values()) + sum(start_cost for s in starts if opts[chosen[s]]["cut"] == 2)
+        true_cost = sum(e for (_, e) in succ.values()) + sum(start_cost * (3 - opts[chosen[s]]["cut"]) for s in starts)
         out["endpoints"] = dict(starts=[int(ids[k]) for k in range(NO) if sol[cs + k] > 0.5], free_starts=[int(ids[k]) for k in range(NO) if sol[cs2 + k] > 0.5],
                                 ends=[int(ids[k]) for k in range(NO) if sol[ct + k] > 0.5], free_ends=[int(ids[k]) for k in range(NO) if sol[ct2 + k] > 0.5])
         out.update(paths=paths, true_cost=true_cost, chosen={int(t): (opts[o]["v"], opts[o]["k"]) for t, o in chosen.items()})

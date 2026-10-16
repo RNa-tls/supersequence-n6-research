@@ -38,3 +38,22 @@ def weight_block(exits, entries):
         for i in np.nonzero(hi > lo)[0]:
             W[i, order[lo[i]:hi[i]]] = k
     return W
+
+def load_extended(path, ext_path, kmax=3):
+    """single-piece options plus the extra single-visit options of the exact phi catalog:
+    an option (t, v, y, x, kappa) enters at run y, leaves at run x, internal cost kappa; it is stored
+    with cut = 3 - kappa so that e(o -> o') = w(exit(o), entry(o')) - cut(o') - 1 = w - 4 + kappa(o')
+    and the first-visit cost is 3 - cut = kappa.  Single-piece options keep kappa = 3 - cut."""
+    fam, opts = load(path)
+    for o in opts: o["kappa"] = 3 - o["cut"]; o["ext"] = False
+    have = {(o["t"], o["v"], o["k"], (o["k"] - 1) % o["m"]) for o in opts}
+    ext = json.load(open(ext_path))
+    seqs = {}
+    for (t, v, y, x, kap) in ext["options"]:
+        if kap > kmax or (t, v, y, x) in have: continue
+        if (t, v) not in seqs:
+            s = fam["trails"][t]["versions"][v]
+            seqs[(t, v)] = [tuple(int(c) for c in s[8 * k:8 * k + 8]) for k in range(len(s) // 8)]
+        st = seqs[(t, v)]
+        opts.append(dict(t=t, v=v, k=y, kx=x, entry=st[y], exit=last(st[x]), cut=3 - kap, kappa=kap, m=len(st), ext=True))
+    return fam, opts

@@ -1,0 +1,7 @@
+{"description": "Exact minimum internal excess of path covers of the cube component C1 = {2,3,4,5,6,7,23,24,25,26,27} by c paths in the single-opening option model (C2 is its image under the family group). Metric 'true': EMAX = 3 MIP whose optimum equals the true cost; metric 'capped3': EMAX = 2 relaxation (e >= 3 counted as 3), used by the SAT encoding. Solver: HiGHS MIP (exact, Gavish-Graves flow). Single-opening only.",
+ "C1_true":    {"1": 10, "2": 6, "3": 3, "4": 1, "5": 0, "6": 0},
+ "C1_capped3": {"1": 9,  "2": 6, "3": 3, "4": 1, "5": 0},
+ "formula_true": "PC(c) = C(6 - c, 2) for 1 <= c <= 5, 0 for c >= 5",
+ "LP_relaxation_C1": {"1": 7.333, "2": 5.0, "3": 3.0, "4": 1.0},
+ "with_link_start_penalty": {"1": 10, "2": 6, "3": 3, "4": 1, "5": 0},
+ "optimal_paths_example": {"1": [[7, 5, 3, 25, 26, 27, 4, 24, 23, 6, 2]], "3": [[4, 6, 2], [7, 5, 3], [23, 24, 25, 26, 27]], "5": [[3, 4], [5, 6, 7], [23], [24, 2], [25, 26, 27]]}}

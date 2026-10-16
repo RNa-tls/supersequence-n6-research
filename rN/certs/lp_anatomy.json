@@ -1,0 +1,43 @@
+{
+ "description": "Single-opening LP (EMAX = 2, Gavish-Graves flow; value 16.111 = Round M SEC LP) split by boundary class, compared with the 46185 word. Units: excess e.",
+ "LP_value": 16.111,
+ "LP": {
+  "C1 internal": 3.671,
+  "C2 internal": 3.644,
+  "phi->A": 2.696,
+  "A->phi": 1.323,
+  "A->A": 0.192,
+  "C1<->C2 direct": 2.0,
+  "p0/p14 boundaries (direct, else, with C)": 2.585
+ },
+ "LP_flows": {
+  "C1 internal arcs": 8.325,
+  "C2 internal arcs": 8.311,
+  "phi->A": 4.37,
+  "A->A": 1.64,
+  "A->phi": 4.37
+ },
+ "word_46185": {
+  "C1 internal (4 runs)": 3,
+  "C2 internal (4 runs)": 4,
+  "phi->A": 6,
+  "A->phi": 4,
+  "A->A": 0,
+  "C1<->C2 direct (16->24)": 2,
+  "p0/p14 boundaries without A (9->0, 0->14)": 4
+ },
+ "fixed_run_counts_LP": {
+  "(r1,r2)=(4,4)": 17.0,
+  "(3,3)": 16.2
+ },
+ "path_cover_cuts_LP": 16.143,
+ "fixed_trail_order": "LP = exact DP over options (layered DAG, totally unimodular): 23 for the 46185 order",
+ "M2_phi_extended_options_LP": 16.111,
+ "gap_by_class": {
+  "internal (C1+C2)": -0.315,
+  "A-related (phi->A, A->phi, A->A)": 5.789,
+  "C1<->C2 direct": 0.0,
+  "p0/p14 without A": 1.415,
+  "total": 6.889
+ }
+}

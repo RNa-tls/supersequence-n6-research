@@ -127,6 +127,7 @@ def main():
                     if m >= 3:
                         cnf.append([-st, -su, D[(t, A_t, 1)], D[(A_t, u, 3)]]); cnf.append([-st, -su, D[(t, A_t, 3)], D[(A_t, u, 1)]])
                         cnf.append([-st, -su, D[(t, A_t, 2)], D[(A_t, u, 2)]]); nred += 3
+    runcount_outputs = []
     if a.pc:
         spec = json.load(open(a.pc))
         for Xc, pcv in zip(spec["components"], spec["pc"]):
@@ -139,6 +140,7 @@ def main():
                 for p_ in preds: cnf.append([-y, -p_])
             ilits = [D[(t, u, k)] for t in Xc for u in Xc if t != u for k in (1, 2, 3)]
             oy = bitot(ys, len(ys), pool, cnf); oi = bitot(ilits, max(pcv) + 1, pool, cnf)
+            runcount_outputs.append(oy)
             # oy[j] <-> (#run starts in X >= j+1), oi[j] <-> (internal relaxed cost >= j+1)
             for c, need in enumerate(pcv, start=1):
                 if need <= 0: continue
@@ -149,7 +151,7 @@ def main():
     cnf.to_file(a.out)
     meta = dict(vars=pool.top, clauses=len(cnf.clauses), q=len(Q), options=len(keep), B=a.B, sym=bool(a.sym), redundant=nred)
     json.dump(dict(meta=meta, varmap={"x": {str(o): v for o, v in X.items()}, "s": {"%d_%d" % k: v for k, v in S.items()},
-                                     "b": {str(t): v for t, v in Bv.items()}}), open(a.out + ".map.json", "w"))
+                                     "b": {str(t): v for t, v in Bv.items()}, "runcount": runcount_outputs}), open(a.out + ".map.json", "w"))
     print(json.dumps(meta))
 
 if __name__ == "__main__":
