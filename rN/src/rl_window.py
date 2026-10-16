@@ -178,6 +178,7 @@ def main():
     WMAX = int(sys.argv[4]) if len(sys.argv) > 4 else 5
     TL = float(sys.argv[5]) if len(sys.argv) > 5 else 300
     only_phi = (len(sys.argv) > 6 and sys.argv[6] == "phi")
+    with_A = (len(sys.argv) > 6 and sys.argv[6] == "A")
     fam = json.load(open(famp))
     st = word_runs(word); where, cyc = family_index(fam)
     pos, pcs, vsel = pieces_of(st, where, cyc)
@@ -190,6 +191,7 @@ def main():
             trails = [pos[b[0]][0] for b in blk]
             if len(set(trails)) != k: continue
             if only_phi and any(len(cyc[(t, 0)]) > 42 for t in trails): continue
+            if with_A and not any(len(cyc[(t, 0)]) > 42 for t in trails): continue
             lo = blk[0][0]; hi = blk[-1][-1]
             src = st[lo - 1] if lo > 0 else None; snk = st[hi + 1] if hi + 1 < len(st) else None
             cur = sum(w - 2 for w in tw[max(lo - 1, 0):hi + (1 if snk is not None else 0)])
