@@ -58,6 +58,15 @@ def main():
             paths = [[int(m.topts[t][j % len(m.topts[t])])] for t in trails]
             sig, it = m.cover_column(X, paths)
             if sig not in m.cover_sigs: m.cover_sigs.add(sig); items.append(it)
+    # isolating covers: all singletons with the 46185 reference options, except one trail that uses option o
+    ref = {}
+    for o in seq: ref[int(m.T[o])] = int(o)
+    for X, trails in m.comps.items():
+        for t in trails:
+            for o in m.topts[t]:
+                paths = [[int(o)] if u == t else [ref[u]] for u in trails]
+                sig, it = m.cover_column(X, paths)
+                if sig not in m.cover_sigs: m.cover_sigs.add(sig); items.append(it)
     m.add_cols(items)
     if len(sys.argv) > 8:
         prev = json.load(open(sys.argv[8])); items = []
@@ -97,6 +106,9 @@ def main():
         rec = dict(it=it, status=status, lp=round(z, 6), L=round(Lbest, 6), gap=round(z - Lbest, 6), alpha_used=a, pricings=npr,
                    added=len(new_items), cover_rc={str(X): round(v, 4) for X, v in cmin.items()}, secs=len(m.secs), cols=m.ncol(),
                    solve_s=round(dt, 1), t=round(time.time() - t0, 1))
+        if it % 20 == 19:
+            ck = [dict(X=m.payload[j]["X"], paths=m.payload[j]["paths"], x=float(m.x[j])) for j in range(m.ncol()) if m.kind[j] == "cover" and m.x[j] > 1e-7]
+            json.dump(dict(covers_used=ck, secs=[sorted(S) for S in m.secs], it=it, lp=z, Lbest=Lbest), open(out_p.replace(".json", "_ckpt.json"), "w"))
         if new_items:
             m.add_cols(new_items); print(json.dumps(rec), flush=True); hist.append(rec); continue
         cuts = m.separate(); nadd = m.add_secs(cuts); rec["cuts_added"] = nadd

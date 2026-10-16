@@ -44,12 +44,14 @@ class Master:
         self.topts = [np.nonzero(T == t)[0] for t in range(NT)]
         self.key = {(o["t"], o["v"], o["k"]): i for i, o in enumerate(self.opts)}
         comp = np.zeros(NT, int)
-        if mode in ("cc", "cca"):
+        if mode in ("cc", "cca", "ccr"):
             comp[C1] = 1; comp[C2] = 2
         if mode == "cca":
             comp[AT] = 3
+        if mode == "ccr":
+            comp[AT] = 3; comp[[0, 14]] = 3
         self.comp = comp
-        self.comps = {1: C1, 2: C2, 3: AT}.copy() if mode == "cca" else ({1: C1, 2: C2} if mode == "cc" else {})
+        self.comps = {"cc": {1: C1, 2: C2}, "cca": {1: C1, 2: C2, 3: AT}, "ccr": {1: C1, 2: C2, 3: AT + [0, 14]}}.get(mode, {})
         self.allowed_tt = ~((comp[:, None] == comp[None, :]) & (comp[:, None] > 0)) & ~np.eye(NT, dtype=bool)
         # ---- rows
         r = 0
@@ -235,18 +237,27 @@ class Master:
         P = np.full((nm, nl), INF); Pp = np.full((nm, nl), -1, np.int32)
         P[1 << tl, np.arange(nl)] = din
         member = [np.nonzero((S >> tl) & 1)[0] for S in range(nm)]
+        bst = np.concatenate([[0], np.cumsum([len(self.topts[t]) for t in trails])])   # trail i owns [bst[i], bst[i+1])
         for S in range(1, nm):
-            ii = member[S]
-            v = P[S, ii]
-            if v.min() >= INF / 2: continue
-            oo = np.nonzero(((S >> tl) & 1) == 0)[0]
-            if len(oo) == 0: continue
-            Mm = v[:, None] + Eh[np.ix_(ii, oo)]
-            am = Mm.argmin(0); cand = Mm[am, np.arange(len(oo))]
-            S2 = S | (1 << tl[oo])
-            better = cand < P[S2, oo] - 1e-12
-            if better.any():
-                P[S2[better], oo[better]] = cand[better]; Pp[S2[better], oo[better]] = ii[am[better]]
+            ins = [i for i in range(nt) if (S >> i) & 1]
+            if min(P[S, bst[i]:bst[i + 1]].min() for i in ins) >= INF / 2: continue
+            for j in range(nt):
+                if (S >> j) & 1: continue
+                bj = slice(bst[j], bst[j + 1]); best = None; barg = None
+                for i in ins:
+                    v = P[S, bst[i]:bst[i + 1]]
+                    if v.min() >= INF / 2: continue
+                    Mm = v[:, None] + Eh[bst[i]:bst[i + 1], bj]
+                    am = Mm.argmin(0); c = Mm[am, np.arange(Mm.shape[1])]
+                    if best is None: best = c; barg = am + bst[i]
+                    else:
+                        w = c < best; best = np.where(w, c, best); barg = np.where(w, am + bst[i], barg)
+                if best is None: continue
+                S2 = S | (1 << j); cur = P[S2, bj]
+                w = best < cur - 1e-12
+                if w.any():
+                    idx = np.arange(bst[j], bst[j + 1])[w]
+                    P[S2, idx] = best[w]; Pp[S2, idx] = barg[w]
         Q = np.full(nm, INF); Qa = np.full(nm, -1)
         for S in range(1, nm):
             ii = member[S]; w = P[S, ii] + dout[ii]

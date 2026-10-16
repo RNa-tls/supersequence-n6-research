@@ -72,6 +72,7 @@ def main():
     comps = {}
     if mode in ("cc", "cca"): comp[C1] = 1; comp[C2] = 2; comps = {1: C1, 2: C2}
     if mode == "cca": comp[AT] = 3; comps[3] = AT
+    if mode == "ccr": comp[C1] = 1; comp[C2] = 2; comp[AT] = 3; comp[[0, 14]] = 3; comps = {1: C1, 2: C2, 3: AT + [0, 14]}
     assert np.array_equal(comp, D["comp"])
     # rebuild the row layout
     in_row = np.arange(NO); out_row = NO + np.arange(NO); r = 2 * NO
