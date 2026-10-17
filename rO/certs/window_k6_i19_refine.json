@@ -1,0 +1,168 @@
+{
+ "k": 6,
+ "i": 19,
+ "trails": [
+  8,
+  9,
+  0,
+  14,
+  1,
+  20
+ ],
+ "current": 248,
+ "verdict": "cap reached",
+ "log": [
+  {
+   "obj": 247.0,
+   "bound": 247.0,
+   "status": "no cycle found (else pairing)",
+   "complete": false,
+   "else_arcs": 2,
+   "used_pairs": [
+    [
+     0,
+     14
+    ],
+    [
+     9,
+     20
+    ]
+   ],
+   "refined": [],
+   "sec": 496.1,
+   "t": 499.1
+  },
+  {
+   "obj": 246.99999999999952,
+   "bound": 246.99999999999952,
+   "status": "Optimal",
+   "complete": false,
+   "else_arcs": 2,
+   "used_pairs": [
+    [
+     0,
+     20
+    ],
+    [
+     9,
+     14
+    ]
+   ],
+   "refined": [
+    [
+     0,
+     14,
+     6
+    ],
+    [
+     9,
+     20,
+     6
+    ]
+   ],
+   "sec": 740.4,
+   "t": 1242.5
+  },
+  {
+   "obj": 248.99999999999994,
+   "bound": 245.0,
+   "status": "Time limit reached",
+   "complete": false,
+   "else_arcs": 3,
+   "used_pairs": [
+    [
+     1,
+     14
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     14,
+     20
+    ]
+   ],
+   "refined": [
+    [
+     0,
+     14,
+     6
+    ],
+    [
+     0,
+     20,
+     6
+    ],
+    [
+     9,
+     14,
+     6
+    ],
+    [
+     9,
+     20,
+     6
+    ]
+   ],
+   "sec": 901.5,
+   "t": 2147.2
+  },
+  {
+   "obj": 249.00000000000003,
+   "bound": 246.0,
+   "status": "Time limit reached",
+   "complete": false,
+   "else_arcs": 2,
+   "used_pairs": [
+    [
+     1,
+     20
+    ],
+    [
+     9,
+     14
+    ]
+   ],
+   "refined": [
+    [
+     0,
+     14,
+     6
+    ],
+    [
+     0,
+     20,
+     6
+    ],
+    [
+     1,
+     14,
+     6
+    ],
+    [
+     9,
+     0,
+     6
+    ],
+    [
+     9,
+     14,
+     6
+    ],
+    [
+     9,
+     20,
+     6
+    ],
+    [
+     14,
+     20,
+     6
+    ]
+   ],
+   "sec": 910.9,
+   "t": 3060.8
+  }
+ ]
+}
