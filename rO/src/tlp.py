@@ -99,9 +99,13 @@ def build_and_solve(fam_p, E_p, pool, solver="ipm", verbose=False):
 def main():
     fam_p, E_p, pool_p, out = sys.argv[1:5]
     d = json.load(open(pool_p))
-    pool = [x["order"] for x in d["decomposition"]]
+    pool = [x["order"] for x in (d["decomposition"] if "decomposition" in d else d["orders"])]
+    if len(sys.argv) > 5:                       # optional second pool file (union)
+        d2 = json.load(open(sys.argv[5])); pool += [x["order"] for x in (d2["decomposition"] if "decomposition" in d2 else d2["orders"])]
+    seen = set(); pool = [p for p in pool if not (tuple(p) in seen or seen.add(tuple(p)))]
     a = json.load(open(os.path.join(HERE, "..", "..", "rN", "certs", "audit_superperm8_46185.json")))
-    pool.append([r["trail"] for r in a["table"]])
+    b0 = [r["trail"] for r in a["table"]]
+    if tuple(b0) not in seen: pool.append(b0)
     res = build_and_solve(fam_p, E_p, pool)
     res["pool"] = len(pool)
     res["lam_orders"] = [dict(idx=i, lam=v, order=pool[i]) for i, v in res.pop("lam")]

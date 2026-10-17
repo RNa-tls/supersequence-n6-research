@@ -142,6 +142,18 @@ class TMaster:
             U[:, b, :NT] = ub[:, :NT]; U[:, b, EN] = ub[:, NT]
         return U
 
+    def load_group(self, path):
+        g = np.load(path); self.operm = g["operm"]; self.tperm = g["tperm"]
+
+    def symmetrize(self, U, D2, D3, D4):
+        """average a full dual over the symmetry group (feasibility and the bound are preserved/improved)"""
+        Us = np.zeros_like(U); D2s = np.zeros_like(D2); D3s = np.zeros_like(D3); D4s = np.zeros_like(D4)
+        for P, tp in zip(self.operm, self.tperm):
+            ta = np.concatenate([tp, [S]]); tc = np.concatenate([tp, [S, EN]])
+            Us += U[np.ix_(ta, tp, tc)]; D2s += D2[np.ix_(tp, P)]; D3s += D3[np.ix_(P, tp)]; D4s += D4[np.ix_(tp, tp)]
+        k = float(len(self.operm))
+        return Us / k, D2s / k, D3s / k, D4s / k
+
     def q_corrections(self, U, DR2, DR3):
         """per trail b the q columns sum to 1: correction min(0, min_{a,o,c} rc(q))"""
         Uimp = self.implied_U(DR2, DR3); c = 0.0; NT = self.NT
@@ -238,14 +250,73 @@ class TMaster:
         return val, p, info.mip_dual_bound, status
 
 
+def exact_qtsp_dfj(self, U, time_limit=300.0, max_rounds=60):
+    """exact triple-cost ATSP path: MIP with degree + triple-linking constraints and iteratively added
+    DFJ subtour cuts (sum of arcs inside S <= |S| - 1 for every cycle found).  Returns
+    (value, path, valid_lower_bound, status); the lower bound is the last MIP dual bound (each round is a
+    relaxation of the exact problem)."""
+    NT = self.NT; nodesA = list(range(NT)) + [S]; nodesC = list(range(NT)) + [EN]
+    arcs = [(a, b) for a in nodesA for b in nodesC if a != b and not (a == S and b == EN)]
+    aid = {e: k for k, e in enumerate(arcs)}; NA = len(arcs)
+    tris = [(a, b, c) for b in range(NT) for a in nodesA for c in nodesC if a != b and c != b and a != c]
+    cw = NA; ncol = NA + len(tris)
+    cost = np.zeros(ncol)
+    for k, (a, b, c) in enumerate(tris): cost[cw + k] = U[a, b, c]
+    rows = []
+    for b in range(NT):
+        rows.append(([aid[(a, b)] for a in nodesA if a != b], 1.0, 1.0))
+        rows.append(([aid[(b, c)] for c in nodesC if c != b], 1.0, 1.0))
+    rows.append(([aid[(S, b)] for b in range(NT)], 1.0, 1.0))
+    rows.append(([aid[(a, EN)] for a in range(NT)], 1.0, 1.0))
+    byab = {}; bybc = {}
+    for k, (a, b, c) in enumerate(tris): byab.setdefault((a, b), []).append(cw + k); bybc.setdefault((b, c), []).append(cw + k)
+    lin = []
+    for (a, b), ws in byab.items(): lin.append((ws + [aid[(a, b)]], [1.0] * len(ws) + [-1.0]))
+    for (b, c), ws in bybc.items(): lin.append((ws + [aid[(b, c)]], [1.0] * len(ws) + [-1.0]))
+    h = highspy.Highs(); h.setOptionValue("output_flag", False); h.setOptionValue("mip_rel_gap", 0.0)
+    lp = highspy.HighsLp(); lp.num_col_ = ncol; lp.num_row_ = len(rows) + len(lin)
+    lp.col_cost_ = cost; lp.col_lower_ = np.zeros(ncol); lp.col_upper_ = np.ones(ncol)
+    allr = [(r[0], [1.0] * len(r[0]), r[1], r[2]) for r in rows] + [(l[0], l[1], 0.0, 0.0) for l in lin]
+    lp.row_lower_ = np.array([r[2] for r in allr]); lp.row_upper_ = np.array([r[3] for r in allr])
+    st = [0]; ix = []; vl = []
+    for r in allr: ix += r[0]; vl += r[1]; st.append(len(ix))
+    lp.a_matrix_.format_ = highspy.MatrixFormat.kRowwise
+    lp.a_matrix_.start_ = np.array(st, np.int32); lp.a_matrix_.index_ = np.array(ix, np.int32); lp.a_matrix_.value_ = np.array(vl)
+    lp.integrality_ = [highspy.HighsVarType.kInteger] * NA + [highspy.HighsVarType.kContinuous] * (ncol - NA)
+    h.passModel(lp)
+    t0 = time.time(); bound = -1e18; status = "?"
+    for rnd in range(max_rounds):
+        h.setOptionValue("time_limit", max(1.0, time_limit - (time.time() - t0)))
+        h.run(); status = h.modelStatusToString(h.getModelStatus()); info = h.getInfo()
+        bound = info.mip_dual_bound
+        sol = np.array(h.getSolution().col_value)
+        succ = {a: b for (a, b) in arcs if sol[aid[(a, b)]] > 0.5}
+        p = []; x = succ.get(S); seen = set()
+        while x is not None and x != EN and x not in seen: p.append(x); seen.add(x); x = succ.get(x)
+        if len(p) == NT: return self.path_cost(p, U), p, bound, status
+        if status != "Optimal": return None, p, bound, status
+        rest = [t for t in range(NT) if t not in seen]; left = set(rest); cuts = 0
+        while left:
+            t = left.pop(); cyc = [t]; x = succ.get(t)
+            while x is not None and x in left: cyc.append(x); left.discard(x); x = succ.get(x)
+            idx = [aid[(u, v)] for u in cyc for v in cyc if u != v]
+            h.addRow(-highspy.kHighsInf, float(len(cyc) - 1), len(idx), np.array(idx, np.int32), np.ones(len(idx))); cuts += 1
+        if cuts == 0: return None, p, bound, "stuck"
+    return None, p, bound, "round limit"
+
+TMaster.exact_qtsp_dfj = exact_qtsp_dfj
+
+
 def main():
     fam_p, E_p, audit_p, seed_p, out = sys.argv[1:6]
     max_iter = int(sys.argv[6]) if len(sys.argv) > 6 else 500
     alpha0 = float(sys.argv[7]) if len(sys.argv) > 7 else 0.6
     ipm = (len(sys.argv) > 8 and sys.argv[8] == "ipm")
     qtsp_tl = 180.0
+    sym = os.environ.get("TLP_SYM", "1") == "1"
     t0 = time.time(); rnd = random.Random(3)
     m = TMaster(fam_p, E_p)
+    m.load_group(os.path.join(HERE, "..", "certs", "group_options.npz"))
     base = [r["trail"] for r in json.load(open(audit_p))["table"]]
     sd = json.load(open(seed_p))
     seed = [x["order"] for x in sd["decomposition"]] if "decomposition" in sd else sd["pool"]
@@ -262,28 +333,30 @@ def main():
     print(json.dumps(dict(event="centre", L0=L0)), flush=True)
     for it in range(max_iter):
         st, dt = m.solve(ipm)
-        Um, D2m, D3m, D4m, ucm = m.full_duals()
+        Ur, D2r, D3r, D4r, ucm = m.full_duals()
+        if sym: Um, D2m, D3m, D4m = m.symmetrize(Ur, D2r, D3r, D4r)
+        else: Um, D2m, D3m, D4m = Ur, D2r, D3r, D4r
         support = [m.payload[j] for j in range(len(m.kind)) if m.kind[j] == "lam" and m.x[j] > 1e-9]
         a = alpha0; cand = {}; npr = 0
         while True:
             npr += 1
             U = a * center[0] + (1 - a) * Um; D2 = a * center[1] + (1 - a) * D2m; D3 = a * center[2] + (1 - a) * D3m
             D4 = a * center[3] + (1 - a) * D4m; uc = a * center[4] + (1 - a) * ucm
-            ex_v, ex_p, ex_b, ex_st = m.exact_qtsp(U, time_limit=qtsp_tl)
+            ex_v, ex_p, ex_b, ex_st = m.exact_qtsp_dfj(U, time_limit=qtsp_tl)
             qc = m.q_corrections(U, D2, D3); oc = m.other_corrections(D2, D3, D4)
             L = uc + min(0.0, ex_b - uc) + qc + oc
             if L > Lbest: Lbest = L; center = (U.copy(), D2.copy(), D3.copy(), D4.copy(), uc); best = dict(it=it, L=L)
             # candidate orders: negative reduced cost at the MASTER duals
             starts = support + [tuple(base)] + ([tuple(ex_p)] if ex_v is not None else []) + rnd.sample(m.pool, min(6, len(m.pool)))
             for p in starts:
-                v, q = m.local_search(p, Um)
+                v, q = m.local_search(p, Ur)
                 if v - ucm < -TOL and tuple(q) not in m.pool_set: cand[tuple(q)] = v - ucm
-            if ex_v is not None and tuple(ex_p) not in m.pool_set and m.path_cost(ex_p, Um) - ucm < -TOL:
-                cand[tuple(ex_p)] = m.path_cost(ex_p, Um) - ucm
+            if ex_v is not None and tuple(ex_p) not in m.pool_set:
+                cand[tuple(ex_p)] = m.path_cost(ex_p, Ur) - ucm        # the separation optimum is always added
             if cand or a == 0: break
             a = 0.0 if a < 0.1 else a / 2
         if not cand:   # nothing at the master duals: confirm with an exact pricing at the master duals
-            ev, ep, eb, es = m.exact_qtsp(Um, time_limit=qtsp_tl)
+            ev, ep, eb, es = m.exact_qtsp_dfj(Ur, time_limit=qtsp_tl)
             if ev is not None and ev - ucm < -TOL and tuple(ep) not in m.pool_set: cand[tuple(ep)] = ev - ucm
         rec = dict(it=it, status=st, lp=round(m.obj, 6), alpha=a, pricings=npr, qtsp_sep=None if ex_v is None else round(ex_v, 6), qtsp_bound=round(float(ex_b), 6),
                    q_corr=round(qc, 6), other_corr=round(float(oc), 6), L=round(float(L), 6), Lbest=round(float(Lbest), 6), new_orders=len(cand),
