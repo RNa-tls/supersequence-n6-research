@@ -1,0 +1,35 @@
+options 10080 (A 6 x 1344), mutations 0, group 12 elements, violations 0
+chain tables 55.9s
+trace word: true F with given options 22
+layer 1: 364 states
+layer 2: 1248 states (1248 nonempty), 165232 transitions, 56.4s
+layer 3: 3342 states (3342 nonempty), 678744 transitions, 57.7s
+layer 4: 6494 states (6494 nonempty), 1746738 transitions, 60.2s
+layer 5: 10092 states (10092 nonempty), 3210200 transitions, 64.2s
+layer 6: 15522 states (15522 nonempty), 4626006 transitions, 68.8s
+layer 7: 20970 states (20970 nonempty), 6254496 transitions, 75.6s
+layer 8: 24912 states (24912 nonempty), 7541064 transitions, 83.8s
+layer 9: 28224 states (28224 nonempty), 7865952 transitions, 91.5s
+layer 10: 30000 states (30000 nonempty), 7795620 transitions, 100.2s
+layer 11: 30492 states (30492 nonempty), 7135548 transitions, 107.8s
+layer 12: 30588 states (30588 nonempty), 6233760 transitions, 114.9s
+layer 13: 29190 states (29190 nonempty), 5347008 transitions, 121.3s
+layer 14: 25584 states (25584 nonempty), 4302474 transitions, 126.5s
+layer 15: 22248 states (22248 nonempty), 3237540 transitions, 130.4s
+layer 16: 18762 states (18762 nonempty), 2315574 transitions, 133.0s
+layer 17: 14472 states (14472 nonempty), 1568400 transitions, 134.9s
+layer 18: 11106 states (11106 nonempty), 937986 transitions, 135.9s
+layer 19: 7260 states (7260 nonempty), 554616 transitions, 136.4s
+layer 20: 4482 states (4482 nonempty), 279870 transitions, 136.7s
+layer 21: 2934 states (2934 nonempty), 110352 transitions, 136.8s
+layer 22: 1548 states (1548 nonempty), 46296 transitions, 136.9s
+layer 23: 520 states (520 nonempty), 16764 transitions, 137.0s
+layer 24: 198 states (198 nonempty), 1840 transitions, 137.0s
+final: minimum 22, final states <= THR 66, (state, option) solutions 1116
+trace: survived 24 of 24 layers
+enumeration: 4902 record-level patterns, 1656 distinct orders with exact F <= 23, min exact F 22
+{"checker": "B-search", "THR": 23, "minimum_bound": 22, "final_states_le_thr": 66, "distinct_patterns": 146, "patterns_with_exact_F_le_thr": 75, "best_exact_F": 22, "H_lookup_misses": 0}
+
+real	3m44.703s
+user	6m21.159s
+sys	0m3.688s

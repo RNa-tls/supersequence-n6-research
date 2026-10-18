@@ -1,0 +1,35 @@
+options 10080 (A 6 x 1344), mutations 0, group 12 elements, violations 0
+chain tables 55.5s
+trace word: true F with given options 22
+layer 1: 84 states
+layer 2: 194 states (194 nonempty), 61272 transitions, 55.6s
+layer 3: 620 states (620 nonempty), 148588 transitions, 55.8s
+layer 4: 1050 states (1050 nonempty), 386652 transitions, 56.2s
+layer 5: 1146 states (1146 nonempty), 577080 transitions, 56.8s
+layer 6: 1788 states (1788 nonempty), 586302 transitions, 57.3s
+layer 7: 2250 states (2250 nonempty), 774576 transitions, 58.1s
+layer 8: 2352 states (2352 nonempty), 840174 transitions, 58.9s
+layer 9: 2658 states (2658 nonempty), 787008 transitions, 59.8s
+layer 10: 2796 states (2796 nonempty), 757620 transitions, 60.6s
+layer 11: 2946 states (2946 nonempty), 691908 transitions, 61.5s
+layer 12: 2808 states (2808 nonempty), 638508 transitions, 62.5s
+layer 13: 2826 states (2826 nonempty), 487224 transitions, 63.1s
+layer 14: 2448 states (2448 nonempty), 382800 transitions, 63.6s
+layer 15: 1746 states (1746 nonempty), 300900 transitions, 64.1s
+layer 16: 1536 states (1536 nonempty), 173502 transitions, 64.4s
+layer 17: 1266 states (1266 nonempty), 118656 transitions, 64.6s
+layer 18: 960 states (960 nonempty), 72786 transitions, 64.7s
+layer 19: 540 states (540 nonempty), 41544 transitions, 64.7s
+layer 20: 336 states (336 nonempty), 19380 transitions, 64.8s
+layer 21: 300 states (300 nonempty), 6888 transitions, 64.8s
+layer 22: 126 states (126 nonempty), 4302 transitions, 64.8s
+layer 23: 80 states (80 nonempty), 1584 transitions, 64.8s
+layer 24: 40 states (40 nonempty), 224 transitions, 64.8s
+final: minimum 22, final states <= THR 16, (state, option) solutions 60
+trace: survived 24 of 24 layers
+enumeration: 72 record-level patterns, 24 distinct orders with exact F <= 22, min exact F 22
+{"checker": "B-search", "THR": 22, "minimum_bound": 22, "final_states_le_thr": 16, "distinct_patterns": 30, "patterns_with_exact_F_le_thr": 6, "best_exact_F": 22, "H_lookup_misses": 0}
+
+real	1m6.369s
+user	3m46.202s
+sys	0m1.601s
