@@ -1,0 +1,69 @@
+{
+ "round": "P",
+ "tests": [
+  {
+   "test": "asym",
+   "mutation": "one entry e(a,b) lowered by 1 without its symmetric images (option cost)",
+   "checker_B_backward": "group: 12 elements, invariance violations 22",
+   "checker_B_search": "options 10080 (A 6 x 1344), mutations 1, group 12 elements, violations 22",
+   "detected": true
+  },
+  {
+   "test": "grp_orbit",
+   "mutation": "images of two options swapped in one group element (symmetry orbit)",
+   "checker_B_backward": "group: 12 elements, invariance violations 9568",
+   "checker_B_search": "options 10080 (A 6 x 1344), mutations 0, group 12 elements, violations 9568",
+   "detected": true
+  },
+  {
+   "test": "grp_trail",
+   "mutation": "images of two trails swapped in one group element (symmetry orbit)",
+   "checker_B_backward": "group: 12 elements, invariance violations 168",
+   "checker_B_search": "options 10080 (A 6 x 1344), mutations 0, group 12 elements, violations 168",
+   "detected": true
+  },
+  {
+   "test": "runs_perm",
+   "mutation": "two symbols swapped in one stored run permutation (input / option cost)",
+   "checker_B_backward": "excess matrix done, negative entries 19996",
+   "checker_B_search": "negative excess 19996",
+   "detected": true
+  },
+  {
+   "test": "H_entry",
+   "mutation": "one backward-table entry raised 20 -> 21 (layer 3, on word a's path; certificate weight)",
+   "cross_check_A_vs_B": "12 mismatching entries (one canonical entry = 6 trail images x 2 kappa options)",
+   "trace_word_a_THR22": "survived 2 of 24 layers (pruned at layer 3: value 200 vs true prefix 2)",
+   "final_answer_THR22": "unchanged (24 orders): word a's order is also realised through an equal-cost alternative option",
+   "detected": true
+  },
+  {
+   "test": "planted_F21",
+   "mutation": "e of the A28 -> phi21 link of word a lowered 1 -> 0 together with its 11 symmetric images (12 entries)",
+   "checker_B": {
+    "group_violations": 0,
+    "relaxed_optimum": 20,
+    "THR21_minimum": 21,
+    "THR21_final_states": 6,
+    "enumeration_orders_F_le_21": 6,
+    "word_a_trace_layers": 24,
+    "word_a_true_F": 21
+   },
+   "detected": true,
+   "checker_A": {
+    "pipeline": "prep_conn, prep_chain, prep_t12, symprep.py, phidp_sym7 forward + reverse/combine (THR 21), exact_relevant.py",
+    "THR21_minimum": 21,
+    "final_states": 6,
+    "solutions": 6,
+    "long_chain_transitions_kept": 0
+   }
+  },
+  {
+   "test": "threshold_22",
+   "mutation": "THR raised 21 -> 22 (sharpness)",
+   "checker_B": "24 orders with exact F = 22 (complete enumeration)",
+   "checker_A": "minimum 22, 40 final states",
+   "detected": true
+  }
+ ]
+}
