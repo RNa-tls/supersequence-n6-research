@@ -24,9 +24,11 @@ static int wgt(const uint8_t *x, const uint8_t *y) { for (int s = 1; s < 8; s++)
 static int rin[16384], rout[16384];
 static int THRG; static long nseq = 0, ncand = 0; static int bestG = BIGI; static FILE *wit;
 static int *fw[NTR], *bw[NTR];
+#pragma omp threadprivate(fw, bw)
 static int dpbuf[2][1400];
+#pragma omp threadprivate(dpbuf)
 static int eval_seq(const int *sq, int jj) {
-    nseq++;
+    __atomic_add_fetch(&nseq, 1, __ATOMIC_RELAXED);
     // unforced forward over the whole sequence with a cut at jj: fw[i] for i < jj (P, word start), fw[i] for i >= jj (Z, free start)
     for (int i = 0; i < NTR; i++) { int t = sq[i];
         for (int q = 0; q < tcnt[t]; q++) { int o = tofs[t] + q, v;
@@ -48,7 +50,7 @@ static int eval_seq(const int *sq, int jj) {
         for (int q = 0; q < tcnt[T]; q++) { int oa = tofs[T] + q; if (rin[oa] < 0) continue;
             int through = fw[s][q] + bw[s][q];                         // best cost of T's part with T at a1
             int lb = s < jj ? through + minZ : minP + through; if (lb > THRG) continue;
-            ncand++;
+            __atomic_add_fetch(&ncand, 1, __ATOMIC_RELAXED);
             int Ri = rin[oa], Ro = rout[oa];
             // left value: min_{o_j} Pend(o_j) + e(o_j -> R_in);  right value: min_{o_{j+1}} e(R_out -> o_{j+1}) + Zstart(o_{j+1})
             int left = BIGI, right = BIGI;
@@ -68,13 +70,16 @@ static int eval_seq(const int *sq, int jj) {
                 for (int q2 = 0; q2 < tcnt[tj]; q2++) { int w = fw[jj - 1][q2] + E(tofs[tj] + q2, Ri); if (w < left) left = w; } }
             int G = left + right;
             if (G < best) best = G;
-            if (G <= THRG) { fprintf(wit, "{\"G\": %d, \"trail\": %d, \"pos\": %d, \"a1_option\": %d, \"junction_after\": %d, \"order\": [", G, T, s, q, jj);
-                for (int i = 0; i < NTR; i++) fprintf(wit, "%s%d", i ? ", " : "", sq[i]); fprintf(wit, "]}\n"); fflush(wit); }
+            if (G <= THRG) {
+                #pragma omp critical
+                { fprintf(wit, "{\"G\": %d, \"trail\": %d, \"pos\": %d, \"a1_option\": %d, \"junction_after\": %d, \"order\": [", G, T, s, q, jj);
+                for (int i = 0; i < NTR; i++) fprintf(wit, "%s%d", i ? ", " : "", sq[i]); fprintf(wit, "]}\n"); fflush(wit); } }
         } }
     return best;
 }
 typedef struct { int tr[6]; int n; int unordered; int junction; } Tok;
 static Tok tk[64]; static int ntk; static int pbest;
+#pragma omp threadprivate(tk, ntk, pbest)
 static void expand(int ti, int *sq, int len, int jj) {
     if (ti == ntk) { if (len != NTR || jj <= 0 || jj >= NTR) { fprintf(stderr, "bad pattern\n"); exit(7); } int G = eval_seq(sq, jj); if (G < pbest) pbest = G; return; }
     Tok *t = &tk[ti];
@@ -109,10 +114,14 @@ int main(int argc, char **argv) {
         if (wgt(x, V + 8 * s) != 2) continue;                          // wrap C_end -> C_start
         rin[o] = tofs[t] + v * mrun[t][0] + (s + 7) % m; rout[o] = tofs[t] + v * mrun[t][0] + s; nmid++; }
     fprintf(stderr, "mid-chain runs of full chains: %ld, setup %.1fs\n", nmid, omp_get_wtime() - T0);
-    for (int i = 0; i < NTR; i++) { fw[i] = malloc(4 * 1400); bw[i] = malloc(4 * 1400); }
+    #pragma omp parallel
+    { for (int i = 0; i < NTR; i++) { fw[i] = malloc(4 * 1400); bw[i] = malloc(4 * 1400); } }
     char wp[2100]; snprintf(wp, sizeof wp, "%s.witnesses", outp); wit = fopen(wp, "w");
-    FILE *in = fopen(pf, "r"); char line[8192]; long npat = 0; int hist[64] = {0};
-    while (fgets(line, sizeof line, in)) { ntk = 0; char *s = line; int v, nch;
+    FILE *in = fopen(pf, "r"); long cap = 1 << 16, nl = 0; char **lines = malloc(sizeof(char *) * cap); char line[8192];
+    while (fgets(line, sizeof line, in)) { if (nl == cap) { cap *= 2; lines = realloc(lines, sizeof(char *) * cap); } lines[nl++] = strdup(line); }
+    long npat = 0; int hist[64] = {0}; long done = 0;
+    #pragma omp parallel for schedule(dynamic, 16) reduction(+:npat)
+    for (long li = 0; li < nl; li++) { ntk = 0; char *s = lines[li]; int v, nch;
         while (sscanf(s, "%d%n", &v, &nch) == 1) { s += nch; Tok *t = &tk[ntk++]; memset(t, 0, sizeof *t);
             if (v == -1) t->junction = 1;
             else if (v < 1000) { t->tr[0] = phl[v]; t->n = 1; }
@@ -120,8 +129,9 @@ int main(int argc, char **argv) {
             else { int d = v - 1100; if (d < 64) { for (int i = 0; i < 6; i++) if (d >> i & 1) t->tr[t->n++] = Alist[i]; } else { d -= 64; t->tr[0] = Alist[d / 6]; t->tr[1] = Alist[d % 6]; t->n = 2; } } }
         if (!ntk) continue;
         int sq[NTR]; pbest = BIGI; expand(0, sq, 0, -1); npat++;
-        if (pbest < bestG) bestG = pbest; if (pbest < 64) hist[pbest]++;
-        if (npat % 20000 == 0) fprintf(stderr, "patterns %ld, sequences %ld, candidates %ld, best G %d, %.1fs\n", npat, nseq, ncand, bestG, omp_get_wtime() - T0); }
+        #pragma omp critical
+        { if (pbest < bestG) bestG = pbest; if (pbest < 64) hist[pbest]++; done++;
+          if (done % 50000 == 0) fprintf(stderr, "patterns %ld / %ld, best G %d, %.1fs\n", done, nl, bestG, omp_get_wtime() - T0); } }
     fclose(in); fclose(wit);
     FILE *fo = fopen(outp, "w");
     fprintf(fo, "{\"checker\": \"excise_eval\", \"THRG\": %d, \"patterns\": %ld, \"sequences\": %ld, \"candidates\": %ld, \"best_G_found_le_THRG\": %d, \"G_hist_over_patterns\": {", THRG, npat, nseq, ncand, bestG < BIGI ? bestG : -1);

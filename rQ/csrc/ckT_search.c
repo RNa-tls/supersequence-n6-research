@@ -14,6 +14,11 @@
 // after the last phi trail: end chain D1, then an A-only nonempty second part (cost bounded below by 0).
 // Every single split with G <= THR + 1 (beta = 0 bound) survives; the surviving patterns are written for the exact
 // evaluation (split_eval.c).  An empty result proves G >= THR + 2 for every single split.
+// EXCISION MODE (env CKT_BRIDGE=1): every rotated-chain excision whose remainder R sits at the junction pays at least
+//   hin(x) + hout(y), hin(x) = min_R e(x -> R_in), hout(y) = min_R e(R_out -> y) over all full chains of other trails
+//   (x = last option before the junction, y = first option after it).  These terms are added to the end chain and to the
+//   free-start chain of every junction transition; the result bounds G of excisions from below (not of splits).
+// TRACE MODE (env CKT_TRACE="t0,...,t29;j"): keep only the states of one given junction sequence (completeness test).
 // usage: ckT_search DIR HDIR HTDIR THR OUT.json
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,6 +72,7 @@ static int hvec2(int which, uint32_t S, int t, uint8_t out[NCN][NOP]) {   // whi
 static uint8_t *EPP, *EPA, *EAA, *EAP, S0[NPO];
 static uint8_t *T1, *T2, *KL, *S1, *S2, *SL, *Q1, *Q2, *QL;   // KL/SL/QL: chain lengths 3..6 (index a-3)
 static uint8_t *F1, *F2, *FL;                                  // free-start chains (after the junction)
+static int BRIDGE = 0; static uint8_t *hinO, *houtO; static uint8_t *Q1b, *Q2b, *QLb;   // end chains INTO the junction (with hin)            // excision bridge lower bounds per option (global index)
 static inline uint8_t eget(int a, int b) { if (otr[a] == otr[b]) return BIG; int v = e[(size_t)a * NOPT + b]; return v < 0 ? 0 : v >= BIG ? BIG : (uint8_t)v; }
 static inline int gpo(int y) { return tofs[phl[y / NOP]] + y % NOP; }
 static inline int gao(int z) { return tofs[Alist[z / NAO]] + z % NAO; }
@@ -75,30 +81,30 @@ static void chain_tables(void) {
     size_t P2 = (size_t)NPO * NPO;
     T1 = malloc(6 * P2); T2 = malloc(36 * P2); KL = malloc(4 * P2); memset(T2, BIG, 36 * P2);
     S1 = malloc(6 * NPO); S2 = malloc(36 * NPO); SL = malloc(4 * NPO); Q1 = malloc(6 * NPO); Q2 = malloc(36 * NPO); QL = malloc(4 * NPO);
-    F1 = malloc(6 * NPO); F2 = malloc(36 * NPO); FL = malloc(4 * NPO);
+    F1 = malloc(6 * NPO); F2 = malloc(36 * NPO); FL = malloc(4 * NPO); Q1b = malloc(6 * NPO); Q2b = malloc(36 * NPO); QLb = malloc(4 * NPO); memset(Q2b, BIG, 36 * NPO);
     memset(S2, BIG, 36 * NPO); memset(Q2, BIG, 36 * NPO); memset(F2, BIG, 36 * NPO);
     // source y in 0..NPO-1 (phi option) or y == NPO (word start: cost [cut = 2] of the first A option)
     #pragma omp parallel for schedule(dynamic, 2)
     for (int y = 0; y <= NPO + 1; y++) {            // y = NPO: word start; y = NPO + 1: free start (junction)
         uint8_t *src = malloc(NAA), *cur = malloc(NAA), *nx = malloc(NAA), *row = malloc(NPO), *R2 = malloc(NAO);
-        for (int z = 0; z < NAA; z++) src[z] = y < NPO ? EPA[(size_t)y * NAA + z] : (y == NPO ? (uint8_t)(ocut[gao(z)] == 2) : 0);
+        for (int z = 0; z < NAA; z++) src[z] = y < NPO ? EPA[(size_t)y * NAA + z] : (y == NPO ? (uint8_t)(ocut[gao(z)] == 2) : (BRIDGE ? houtO[gao(z)] : 0));
         int ty = y < NPO ? y / NOP : -1;
         for (int a = 0; a < 6; a++) {                                   // exact single A trail
             memset(row, BIG, NPO); int qm = BIG;
-            for (int q = 0; q < NAO; q++) { int v = src[a * NAO + q]; if (v > CAPV) continue; if (v < qm) qm = v; relax_row(row, EAP + (size_t)(a * NAO + q) * NPO, v, NPO); }
-            if (ty >= 0) { memset(row + ty * NOP, BIG, NOP); memcpy(T1 + ((size_t)a * NPO + y) * NPO, row, NPO); Q1[a * NPO + y] = qm; } else memcpy((y == NPO ? S1 : F1) + a * NPO, row, NPO);
+            int qmb = BIG; for (int q = 0; q < NAO; q++) { int v = src[a * NAO + q]; if (v > CAPV) continue; if (v < qm) qm = v; int vq = v + (BRIDGE ? hinO[gao(a * NAO + q)] : 0); if (vq < qmb) qmb = vq; relax_row(row, EAP + (size_t)(a * NAO + q) * NPO, v, NPO); }
+            if (ty >= 0) { memset(row + ty * NOP, BIG, NOP); memcpy(T1 + ((size_t)a * NPO + y) * NPO, row, NPO); Q1[a * NPO + y] = qm; Q1b[a * NPO + y] = qmb; } else memcpy((y == NPO ? S1 : F1) + a * NPO, row, NPO);
             for (int b = 0; b < 6; b++) { if (b == a) continue;            // exact ordered pair (a, b)
                 memset(R2, BIG, NAO);
                 for (int q = 0; q < NAO; q++) { int v = src[a * NAO + q]; if (v > CAPV) continue; relax_row(R2, EAA + (size_t)(a * NAO + q) * NAA + b * NAO, v, NAO); }
                 memset(row, BIG, NPO); int qm2 = BIG;
-                for (int q = 0; q < NAO; q++) { int v = R2[q]; if (v > CAPV) continue; if (v < qm2) qm2 = v; relax_row(row, EAP + (size_t)(b * NAO + q) * NPO, v, NPO); }
-                if (ty >= 0) { memset(row + ty * NOP, BIG, NOP); memcpy(T2 + ((size_t)(a * 6 + b) * NPO + y) * NPO, row, NPO); Q2[(a * 6 + b) * NPO + y] = qm2; } else memcpy((y == NPO ? S2 : F2) + (a * 6 + b) * NPO, row, NPO);
+                int qm2b = BIG; for (int q = 0; q < NAO; q++) { int v = R2[q]; if (v > CAPV) continue; if (v < qm2) qm2 = v; int vq = v + (BRIDGE ? hinO[gao(b * NAO + q)] : 0); if (vq < qm2b) qm2b = vq; relax_row(row, EAP + (size_t)(b * NAO + q) * NPO, v, NPO); }
+                if (ty >= 0) { memset(row + ty * NOP, BIG, NOP); memcpy(T2 + ((size_t)(a * 6 + b) * NPO + y) * NPO, row, NPO); Q2[(a * 6 + b) * NPO + y] = qm2; Q2b[(a * 6 + b) * NPO + y] = qm2b; } else memcpy((y == NPO ? S2 : F2) + (a * 6 + b) * NPO, row, NPO);
             } }
         memcpy(cur, src, NAA);                                          // identity-free chains (consecutive A trails distinct)
         for (int len = 1; len <= 6; len++) {
             if (len >= 3) { memset(row, BIG, NPO); int qm = BIG;
-                for (int z = 0; z < NAA; z++) { int v = cur[z]; if (v > CAPV) continue; if (v < qm) qm = v; relax_row(row, EAP + (size_t)z * NPO, v, NPO); }
-                if (ty >= 0) { memset(row + ty * NOP, BIG, NOP); memcpy(KL + ((size_t)(len - 3) * NPO + y) * NPO, row, NPO); QL[(len - 3) * NPO + y] = qm; } else memcpy((y == NPO ? SL : FL) + (len - 3) * NPO, row, NPO); }
+                int qmb = BIG; for (int z = 0; z < NAA; z++) { int v = cur[z]; if (v > CAPV) continue; if (v < qm) qm = v; int vq = v + (BRIDGE ? hinO[gao(z)] : 0); if (vq < qmb) qmb = vq; relax_row(row, EAP + (size_t)z * NPO, v, NPO); }
+                if (ty >= 0) { memset(row + ty * NOP, BIG, NOP); memcpy(KL + ((size_t)(len - 3) * NPO + y) * NPO, row, NPO); QL[(len - 3) * NPO + y] = qm; QLb[(len - 3) * NPO + y] = qmb; } else memcpy((y == NPO ? SL : FL) + (len - 3) * NPO, row, NPO); }
             if (len == 6) break;
             memset(nx, BIG, NAA);
             for (int z = 0; z < NAA; z++) { int v = cur[z]; if (v > CAPV) continue; relax_row(nx, EAA + (size_t)z * NAA, v, NAA); }   // same-trail block of EAA is BIG
@@ -138,8 +144,12 @@ static int qval(int D, int t, int y, int alt) { int a = __builtin_popcount(D), y
     if (a == 0) return 0; if (a == 1) return Q1[__builtin_ctz(D) * NPO + yy];
     if (a == 2) { int i = __builtin_ctz(D), j = 31 - __builtin_clz(D); return alt ? Q2[(j * 6 + i) * NPO + yy] : Q2[(i * 6 + j) * NPO + yy]; }
     return QL[(a - 3) * NPO + yy]; }
+static int qvalj(int D, int t, int y, int alt) { if (!BRIDGE) return qval(D, t, y, alt); int a = __builtin_popcount(D), yy = t * NOP + y;   // end chain INTO the junction
+    if (a == 0) return hinO[gpo(yy)]; if (a == 1) return Q1b[__builtin_ctz(D) * NPO + yy];
+    if (a == 2) { int i = __builtin_ctz(D), j = 31 - __builtin_clz(D); return alt ? Q2b[(j * 6 + i) * NPO + yy] : Q2b[(i * 6 + j) * NPO + yy]; }
+    return QLb[(a - 3) * NPO + yy]; }
 static int fval(int D, int u, int x, int alt) { int a = __builtin_popcount(D), xx = u * NOP + x;    // free-start chain of D into phi option xx
-    if (a == 0) return 0; if (a == 1) return F1[__builtin_ctz(D) * NPO + xx];
+    if (a == 0) return BRIDGE ? houtO[gpo(xx)] : 0; if (a == 1) return F1[__builtin_ctz(D) * NPO + xx];
     if (a == 2) { int i = __builtin_ctz(D), j = 31 - __builtin_clz(D); return alt ? F2[(j * 6 + i) * NPO + xx] : F2[(i * 6 + j) * NPO + xx]; }
     return FL[(a - 3) * NPO + xx]; }
 static int sval(int D, int u, int x, int alt) { int a = __builtin_popcount(D), xx = u * NOP + x;    // word-start chain of D into phi option xx
@@ -181,7 +191,7 @@ static void dfs(int k, const Rec *r, const int *s, int *rev, int nrev) {
                 for (int a2 = 0; a2 < nalt(D2); a2++) { int m2 = BIG; for (int x = 0; x < NOP; x++) if (s[x] < BIG) { int v = fval(D2, t, x, a2) + s[x]; if (v < m2) m2 = v; }
                     if (m2 >= BIG) continue;
                     for (int a1 = 0; a1 < nalt(D1); a1++) { int sp[NOP]; int ok = 0;
-                        for (int y = 0; y < NOP; y++) { sp[y] = BIG; if (rp->g[y] >= BIG) continue; int v = qval(D1, tp, y, a1) + m2; sp[y] = v > BIG ? BIG : v; if (rp->g[y] + sp[y] <= THRP) ok = 1; }
+                        for (int y = 0; y < NOP; y++) { sp[y] = BIG; if (rp->g[y] >= BIG) continue; int v = qvalj(D1, tp, y, a1) + m2; sp[y] = v > BIG ? BIG : v; if (rp->g[y] + sp[y] <= THRP) ok = 1; }
                         if (!ok) continue;
                         // tokens (reverse order): [t] [D2] JUNCTION [D1] [tp] ...   (the suffix after t is already in rev)
                         int nr = nrev; if (D2) rev[nr++] = gcode(D2, a2); rev[nr++] = -1; if (D1) rev[nr++] = gcode(D1, a1);
@@ -263,10 +273,34 @@ int main(int argc, char **argv) {
     for (int y = 0; y < NPO; y++) { for (int x = 0; x < NPO; x++) EPP[(size_t)y * NPO + x] = eget(gpo(y), gpo(x)); for (int z = 0; z < NAA; z++) EPA[(size_t)y * NAA + z] = eget(gpo(y), gao(z)); }
     #pragma omp parallel for
     for (int z = 0; z < NAA; z++) { for (int z2 = 0; z2 < NAA; z2++) EAA[(size_t)z * NAA + z2] = eget(gao(z), gao(z2)); for (int x = 0; x < NPO; x++) EAP[(size_t)z * NPO + x] = eget(gao(z), gpo(x)); }
+    BRIDGE = getenv("CKT_BRIDGE") && *getenv("CKT_BRIDGE") == '1';
+    hinO = malloc(NOPT); houtO = malloc(NOPT); memset(hinO, BIG, NOPT); memset(houtO, BIG, NOPT);
+    if (BRIDGE) { int *Rin = malloc(4 * NOPT), *Rout = malloc(4 * NOPT); int nR = 0;
+        for (int t = 0; t < NTR; t++) for (int v = 0; v < 2; v++) { int m = mrun[t][v], base = tofs[t] + v * mrun[t][0];
+            for (int s = 0; s < m; s++) { if (ocut[base + s] != 3) continue; int L = 1; while (L < m && ocut[base + (s + L) % m] == 2) L++;
+                if (L != 7) continue; uint64_t x = pex[base + (s + 7) % m]; (void)x;
+                // wrap C_end -> C_start: the exit permutation of option (s+7) is last(C_end); entry of option s is C_start
+                if (wpk(pex[base + (s + 7) % m], pen[base + s]) != 2) continue;
+                Rin[nR] = base + (s + 7) % m; Rout[nR] = base + s; nR++; } }
+        #pragma omp parallel for schedule(dynamic, 64)
+        for (int o = 0; o < NOPT; o++) { int mi = BIG, mo = BIG;
+            for (int r = 0; r < nR; r++) { if (otr[Rin[r]] == otr[o]) continue; int a = eget(o, Rin[r]), b = eget(Rout[r], o); if (a < mi) mi = a; if (b < mo) mo = b; }
+            hinO[o] = mi; houtO[o] = mo; }
+        long z1 = 0, z2 = 0; for (int o = 0; o < NOPT; o++) { z1 += hinO[o] == 0; z2 += houtO[o] == 0; }
+        fprintf(stderr, "bridge mode: %d full-chain remainders, hin = 0 for %ld options, hout = 0 for %ld options\n", nR, z1, z2); free(Rin); free(Rout); }
     chain_tables();
     fprintf(stderr, "chain tables %.1fs\n", omp_get_wtime() - T0);
     // ---------------------------------------------------------------- layer 1
     THRP = THR;
+    // trace mode (env CKT_TRACE = "t0,t1,...,t29;j"): keep only the states of the given single-split sequence (junction
+    // after j elements) and report the layer at which it is lost (a completeness test on a known solution)
+    uint64_t trk[NPH + 1]; int tron = 0;
+    { const char *tv = getenv("CKT_TRACE"); if (tv && *tv) { int sq[NTR], jj; const char *q = tv; for (int i = 0; i < NTR; i++) { sq[i] = atoi(q); while (*q && *q != ',' && *q != ';') q++; if (*q) q++; } jj = atoi(q);
+        uint32_t S = 0; int M = 0, k = 0; for (int i = 0; i < NTR; i++) { int t = sq[i]; if (isA[t]) M |= 1 << aidx[t]; else { k++; S |= 1u << phidx[t]; trk[k] = skey(S, phidx[t], M & ~0, i >= jj ? 1 : 0); }
+            if (!isA[t]) { /* M at this phi = A trails before it */ } }
+        // recompute M per phi properly (A trails strictly before the phi)
+        S = 0; M = 0; k = 0; for (int i = 0; i < NTR; i++) { int t = sq[i]; if (isA[t]) { M |= 1 << aidx[t]; continue; } k++; S |= 1u << phidx[t]; trk[k] = skey(S, phidx[t], M, i >= jj ? 1 : 0); }
+        tron = 1; fprintf(stderr, "trace on, junction after %d\n", jj); } }
     Layer *all = malloc(sizeof(Layer) * (NPH + 1)); linit(&all[1]);
     { uint8_t hT[NCN][NOP], hH[NCN][NOP], w[NOP];
       for (int t = 0; t < NPH; t++) {
@@ -281,6 +315,7 @@ int main(int argc, char **argv) {
             for (int D1 = m; D1; D1 = (D1 - 1) & m) { int D2 = m & ~D1;
                 for (int x = 0; x < NOP; x++) for (int alt = 0; alt < nalt(D2); alt++) { int v = fval(D2, t, x, alt); if (v + hH[6 - a][x] <= THR && v < w[x]) w[x] = v; } }
             any = 0; for (int x = 0; x < NOP; x++) any |= w[x] < BIG; if (any) put(&all[1], skey(1u << t, t, m, 1), w); } } }
+    if (tron) { const Rec *r = lfind(&all[1], trk[1]); Layer f1; linit(&f1); if (r) put(&f1, r->key, r->g); fprintf(stderr, "trace layer 1: %s\n", r ? "kept" : "LOST"); all[1] = f1; }
     fprintf(stderr, "layer 1: %lld states\n", (long long)all[1].n);
     FILE *jo = fopen(outp, "w"); fprintf(jo, "{\n \"checker\": \"T-search\",\n \"THR\": %d,\n \"mutations\": %d,\n \"layers\": [{\"layer\": 1, \"states\": %lld}", THR, nmut, (long long)all[1].n);
     long long ntr_total = 0;
@@ -295,7 +330,7 @@ int main(int argc, char **argv) {
             int live[NOP], nl = 0; for (int q = 0; q < NOP; q++) if (r->g[q] < BIG) live[nl++] = q; if (!nl) continue;
             uint8_t hX[NCN][NOP], w[NOP], wk[NCN][NOP]; int R = 63 & ~M;
             if (!J) for (int D1 = R; ; D1 = (D1 - 1) & R) { int m1 = BIG;
-                    for (int alt = 0; alt < nalt(D1); alt++) for (int i = 0; i < nl; i++) { int y = live[i]; int v = r->g[y] + qval(D1, t, y, alt); if (v < m1) m1 = v; }
+                    for (int alt = 0; alt < nalt(D1); alt++) for (int i = 0; i < nl; i++) { int y = live[i]; int v = r->g[y] + qvalj(D1, t, y, alt); if (v < m1) m1 = v; }
                     if (m1 <= THR) { uint8_t one[NOP]; memset(one, BIG, NOP); one[0] = (uint8_t)m1; put(pd, skey(S, 0, M | D1, 0), one); }
                     if (!D1) break; }
             for (int u = 0; u < NPH; u++) { if (S >> u & 1) continue; uint32_t S2_ = S | 1u << u;
@@ -328,6 +363,8 @@ int main(int argc, char **argv) {
                     if (!D2) break; } } }
         long long npend = pj.n; free(pj.r); free(pj.ht);
         Layer nxt; linit(&nxt); for (int i = 0; i < nthr; i++) { for (int64_t j = 0; j < part[i].n; j++) put(&nxt, part[i].r[j].key, part[i].r[j].g); free(part[i].r); free(part[i].ht); } free(part);
+        if (tron) { const Rec *r = lfind(&nxt, trk[k + 1]); Layer f1; linit(&f1); if (r) put(&f1, r->key, r->g); int mg = BIG; if (r) for (int q = 0; q < NOP; q++) if (r->g[q] < mg) mg = r->g[q];
+            fprintf(stderr, "trace layer %d: %s (min g %d)\n", k + 1, r ? "kept" : "LOST", mg); nxt = f1; }
         all[k + 1] = nxt; ntr_total += ntr;
         long long nj = 0; for (int64_t i = 0; i < nxt.n; i++) nj += (nxt.r[i].key >> 35) & 1;
         fprintf(stderr, "layer %d: %lld states (%lld after the junction), %lld pending junctions, %lld transitions, %.1fs\n", k + 1, (long long)nxt.n, nj, npend, ntr, omp_get_wtime() - T0);
@@ -339,7 +376,7 @@ int main(int argc, char **argv) {
     for (int64_t ri = 0; ri < F->n; ri++) { const Rec *r = &F->r[ri]; int t = (r->key >> 24) & 31, M = (r->key >> 29) & 63, J = (r->key >> 35) & 1; int R = 63 & ~M; int fin = 0;
         for (int q = 0; q < NOP; q++) { if (r->g[q] >= BIG) continue; int ev = BIG;
             if (J) { for (int alt = 0; alt < nalt(R); alt++) { int v = qval(R, t, q, alt); if (v < ev) ev = v; } }
-            else { if (!R) continue; for (int D1 = R; ; D1 = (D1 - 1) & R) { if (D1 != R) for (int alt = 0; alt < nalt(D1); alt++) { int v = qval(D1, t, q, alt); if (v < ev) ev = v; } if (!D1) break; } }
+            else { if (!R) continue; for (int D1 = R; ; D1 = (D1 - 1) & R) { if (D1 != R) for (int alt = 0; alt < nalt(D1); alt++) { int v = qvalj(D1, t, q, alt); if (v < ev) ev = v; } if (!D1) break; } }
             int tot = r->g[q] + ev; if (tot < best) best = tot; if (J && tot < bestJ1) bestJ1 = tot; if (!J && tot < bestJ0) bestJ0 = tot;
             if (tot <= THR) { fin = 1; nsol++; } }
         nfin += fin; }
@@ -351,7 +388,7 @@ int main(int argc, char **argv) {
         if (J) { for (int alt = 0; alt < nalt(R); alt++) { int sv[NOP]; int ok = 0; for (int x = 0; x < NOP; x++) { sv[x] = r->g[x] < BIG ? qval(R, t, x, alt) : BIG; if (sv[x] < BIG && r->g[x] + sv[x] <= THR) ok = 1; }
                 if (!ok) continue; int nr = 0; if (R) rev[nr++] = gcode(R, alt); dfs(NPH, r, sv, rev, nr); } }
         else { if (!R) continue; for (int D1 = R; ; D1 = (D1 - 1) & R) { if (D1 != R) for (int alt = 0; alt < nalt(D1); alt++) { int sv[NOP]; int ok = 0;
-                    for (int x = 0; x < NOP; x++) { sv[x] = r->g[x] < BIG ? qval(D1, t, x, alt) : BIG; if (sv[x] < BIG && r->g[x] + sv[x] <= THR) ok = 1; }
+                    for (int x = 0; x < NOP; x++) { sv[x] = r->g[x] < BIG ? qvalj(D1, t, x, alt) : BIG; if (sv[x] < BIG && r->g[x] + sv[x] <= THR) ok = 1; }
                     if (!ok) continue; int nr = 0; rev[nr++] = 1000 + 200 + (R & ~D1); rev[nr++] = -1; if (D1) rev[nr++] = gcode(D1, alt); dfs(NPH, r, sv, rev, nr); }
                 if (!D1) break; } } } }
     fclose(patf);

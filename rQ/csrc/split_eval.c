@@ -23,9 +23,12 @@ static int wgt(const uint8_t *x, const uint8_t *y) { for (int s = 1; s < 8; s++)
 #define E(a, b) ((int)e[(size_t)(a) * NOPT + (b)])
 static int THRG; static long nseq = 0, nfeas = 0; static int bestG = BIGI; static int bestSeq[NTR], bestJ, bestS, bestA, bestB, bestOpt[NTR]; static FILE *wit;
 // exact evaluation of one concrete sequence (trails sq[0..29]) with junction after position jj (P = 0..jj-1)
-static int *fw[NTR], *bw[NTR], *zr;   // per position option arrays (max 1344)
+static int *fw[NTR], *bw[NTR];   // per position option arrays (max 1344)
+#pragma omp threadprivate(fw, bw)
+static int dz[2][1400];
+#pragma omp threadprivate(dz)
 static int eval_seq(const int *sq, int jj) {
-    nseq++;
+    __atomic_add_fetch(&nseq, 1, __ATOMIC_RELAXED);
     // P part forward / backward
     for (int i = 0; i < jj; i++) { int t = sq[i];
         for (int q = 0; q < tcnt[t]; q++) { int o = tofs[t] + q, v;
@@ -47,7 +50,7 @@ static int eval_seq(const int *sq, int jj) {
     int minZ = BIGI; { int t = sq[jj]; for (int q = 0; q < tcnt[t]; q++) if (bw[jj][q] < minZ) minZ = bw[jj][q]; }
     int budget = (THRG - 1) - minP - minZ;               // G = 1 + P + Z + beta <= THRG  <=>  beta <= budget (at best)
     if (budget < 0) return BIGI;
-    nfeas++;
+    __atomic_add_fetch(&nfeas, 1, __ATOMIC_RELAXED);
     int best = BIGI; int t1 = sq[jj], tl = sq[NTR - 1];
     for (int s = 0; s < jj; s++) { int S = sq[s];
         // best and second-best P cost per version of S (a = anchor's option in P), for the b != a constraint
@@ -62,7 +65,7 @@ static int eval_seq(const int *sq, int jj) {
             // closing walk: S(b) -> o_{jj} ... -> o_29 -> S(b);  forward DP from the entry of position jj
             int any = 0; for (int q = 0; q < tcnt[t1]; q++) if (E(ob, tofs[t1] + q) <= lim) { any = 1; break; } if (!any) continue;
             any = 0; for (int q = 0; q < tcnt[tl]; q++) if (E(tofs[tl] + q, ob) <= lim) { any = 1; break; } if (!any) continue;
-            static int d[2][1400]; int c2 = 0;
+            int (*d)[1400] = dz; int c2 = 0;
             for (int q = 0; q < tcnt[t1]; q++) d[c2][q] = E(ob, tofs[t1] + q);
             for (int i = jj + 1; i < NTR; i++) { int tp = sq[i - 1], t = sq[i]; int nx = c2 ^ 1;
                 for (int q = 0; q < tcnt[t]; q++) { int o = tofs[t] + q, v = BIGI; for (int q2 = 0; q2 < tcnt[tp]; q2++) { int w = d[c2][q2] + E(tofs[tp] + q2, o); if (w < v) v = w; } d[nx][q] = v; }
@@ -70,14 +73,17 @@ static int eval_seq(const int *sq, int jj) {
             int cz = BIGI; for (int q = 0; q < tcnt[tl]; q++) { int w = d[c2][q] + E(tofs[tl] + q, ob); if (w < cz) cz = w; }
             int G = 1 + pa + cz;
             if (G < best) best = G;
-            if (G <= THRG) { fprintf(wit, "{\"G\": %d, \"anchor_pos\": %d, \"anchor_trail\": %d, \"b_option\": %d, \"junction_after\": %d, \"order\": [", G, s, S, qb, jj);
-                for (int i = 0; i < NTR; i++) fprintf(wit, "%s%d", i ? ", " : "", sq[i]); fprintf(wit, "]}\n"); fflush(wit); }
+            if (G <= THRG) {
+                #pragma omp critical
+                { fprintf(wit, "{\"G\": %d, \"anchor_pos\": %d, \"anchor_trail\": %d, \"b_option\": %d, \"junction_after\": %d, \"order\": [", G, s, S, qb, jj);
+                for (int i = 0; i < NTR; i++) fprintf(wit, "%s%d", i ? ", " : "", sq[i]); fprintf(wit, "]}\n"); fflush(wit); } }
         } }
     return best;
 }
 // pattern expansion: groups with any order -> all permutations
 typedef struct { int tr[6]; int n; int unordered; int junction; } Tok;
 static Tok tk[64]; static int ntk; static int pbest;
+#pragma omp threadprivate(tk, ntk, pbest)
 static void expand(int ti, int *sq, int len, int jj) {
     if (ti == ntk) { if (len != NTR || jj <= 0 || jj >= NTR) { fprintf(stderr, "bad pattern length %d junction %d\n", len, jj); exit(7); }
         int G = eval_seq(sq, jj); if (G < pbest) pbest = G; return; }
@@ -103,10 +109,14 @@ int main(int argc, char **argv) {
     #pragma omp parallel for schedule(dynamic, 16) reduction(+:neg)
     for (int a = 0; a < NOPT; a++) for (int b = 0; b < NOPT; b++) { int v = wgt(oex[a], oen[b]) - ocut[b] - 1; if (otr[a] != otr[b] && v < 0) neg++; e[(size_t)a * NOPT + b] = (int8_t)v; }
     if (neg) { fprintf(stderr, "negative cross-trail excess %ld\n", neg); return 5; }
-    for (int i = 0; i < NTR; i++) { fw[i] = malloc(4 * 1400); bw[i] = malloc(4 * 1400); }
+    #pragma omp parallel
+    { for (int i = 0; i < NTR; i++) { fw[i] = malloc(4 * 1400); bw[i] = malloc(4 * 1400); } }
     char wp[2100]; snprintf(wp, sizeof wp, "%s.witnesses", outp); wit = fopen(wp, "w");
-    FILE *in = fopen(pf, "r"); char line[8192]; long npat = 0; int hist[64] = {0};
-    while (fgets(line, sizeof line, in)) { ntk = 0; char *s = line; int v, nch;
+    FILE *in = fopen(pf, "r"); long cap = 1 << 16, nl = 0; char **lines = malloc(sizeof(char *) * cap); char line[8192];
+    while (fgets(line, sizeof line, in)) { if (nl == cap) { cap *= 2; lines = realloc(lines, sizeof(char *) * cap); } lines[nl++] = strdup(line); }
+    long npat = 0; int hist[64] = {0}; long done = 0;
+    #pragma omp parallel for schedule(dynamic, 16) reduction(+:npat)
+    for (long li = 0; li < nl; li++) { ntk = 0; char *s = lines[li]; int v, nch;
         while (sscanf(s, "%d%n", &v, &nch) == 1) { s += nch; Tok *t = &tk[ntk++]; memset(t, 0, sizeof *t);
             if (v == -1) t->junction = 1;
             else if (v < 1000) { t->tr[0] = phl[v]; t->n = 1; }
@@ -114,8 +124,9 @@ int main(int argc, char **argv) {
             else { int d = v - 1100; if (d < 64) { for (int i = 0; i < 6; i++) if (d >> i & 1) t->tr[t->n++] = Alist[i]; } else { d -= 64; t->tr[0] = Alist[d / 6]; t->tr[1] = Alist[d % 6]; t->n = 2; } } }
         if (!ntk) continue;
         int sq[NTR]; pbest = BIGI; expand(0, sq, 0, -1); npat++;
-        if (pbest < bestG) bestG = pbest; if (pbest < 64) hist[pbest]++;
-        if (npat % 10000 == 0) fprintf(stderr, "patterns %ld, sequences %ld, feasible %ld, best G %d, %.1fs\n", npat, nseq, nfeas, bestG, omp_get_wtime() - T0); }
+        #pragma omp critical
+        { if (pbest < bestG) bestG = pbest; if (pbest < 64) hist[pbest]++; done++;
+          if (done % 50000 == 0) fprintf(stderr, "patterns %ld / %ld, best G %d, %.1fs\n", done, nl, bestG, omp_get_wtime() - T0); } }
     fclose(in); fclose(wit);
     FILE *fo = fopen(outp, "w");
     fprintf(fo, "{\"checker\": \"split_eval\", \"THRG\": %d, \"patterns\": %ld, \"sequences\": %ld, \"sequences_within_budget\": %ld, \"best_G_found_le_THRG\": %d, \"G_hist_over_patterns\": {", THRG, npat, nseq, nfeas, bestG < BIGI ? bestG : -1);

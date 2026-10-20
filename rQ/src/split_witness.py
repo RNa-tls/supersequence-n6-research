@@ -71,6 +71,12 @@ def main():
     seen = set(tuple(w[i:i + 8]) for i in range(len(w) - 7) if len(set(w[i:i + 8])) == 8)
     ok = len(seen) == math.factorial(8)
     open(sys.argv[6], "w").write("".join(str(c + 1) for c in w) + "\n")
-    res = dict(G=G, J=77 + G, L_formula=46085 + 77 + G, L_word=len(w), all_perms=ok, P=Pbest, Z=Zbest, anchor_trail=S, a=list(oa), b=list(ob))
+    # option assignment in checker-B numbering (trail-major, version-major, run index): for planting mutations
+    tofs_ = {}; c0 = 0
+    for t in range(len(V)): tofs_[t] = c0; c0 += sum(len(x) for x in V[t])
+    gid = lambda t, o: tofs_[t] + (len(V[t][0]) if o[0] else 0) + o[1]
+    Popts = [gid(P[i], O[P[i]][popt[i]]) for i in range(j)]; Zopts = [gid(Z[i], O[Z[i]][zopt[i]]) for i in range(len(Z))]
+    res = dict(G=G, J=77 + G, L_formula=46085 + 77 + G, L_word=len(w), all_perms=ok, P=Pbest, Z=Zbest, anchor_trail=S, a=list(oa), b=list(ob),
+               P_options=Popts, Z_options=Zopts, anchor_a_option=gid(S, oa), anchor_b_option=gid(S, ob))
     print(json.dumps(res))
 main()
