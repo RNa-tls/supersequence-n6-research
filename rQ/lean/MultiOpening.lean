@@ -21,6 +21,11 @@ What is formalised (the finite tables and searches are computed by the C checker
    `search_keeps`, `no_word_le`, used for the junction search with states (S, t, M, J).
 6. `single_split_bound`        : no surviving junction pattern with G ≤ 21 ⇒ every single split has J ≥ 99,
                                length ≥ 46184.
+7. `excision_decomposition`, `excision_at_start`, `skip_decomposition`, `junction_consequences`: the one-trail
+                               three-piece families (rotated-chain excision, skip visit) in junction form.
+8. `two_piece_orders`, `three_piece_orders`, `four_piece_orders` (by `decide`): the admissible visit orders of a
+                               single visit in k ≤ 4 pieces (what `kappa3.c` enumerates); `extra_pieces_le3`: with
+                               every trail visited once and at most 3 extra pieces, one trail has 3 or 4 pieces.
 -/
 
 namespace MultiOpening
@@ -163,6 +168,87 @@ theorem excision_decomposition (c1 : Int) (eS : List Int) (r1 r2 J : Int) (hcoun
 theorem excision_at_start (c1 sumE r G : Int) (hc : c1 = 2 ∨ c1 = 3) (hF : 22 ≤ (3 - c1) + sumE) (hr : 0 ≤ r)
     (hG : G = r + sumE) : 21 ≤ G ∧ (G = 21 → c1 = 2 ∧ r = 0 ∧ (3 - c1) + sumE = 22) := by
   rcases hc with h | h <;> subst h <;> omega
+
+
+/-- One trail in three pieces, visited twice: a 2-piece visit [s, α) + [β, s) with the jump α-1 → β (term E' = w - c)
+    and the skipped piece [α, β) between SIGMA_j and SIGMA_{j+1}: 32 fragments, 31 boundaries = 28 kept SIGMA edges,
+    the two edges of the skipped piece and the jump.  J = 77 + G,  G = 1 + E' + F_J + (r1 + r2). -/
+theorem skip_decomposition (c1 : Int) (eS : List Int) (r1 r2 Ep J : Int) (hcount : eS.length = 28)
+    (hJ : J = 48 + (3 - c1) + (isum eS + eS.length) + (r1 + 1) + (r2 + 1) + Ep) :
+    J = 77 + (1 + Ep + ((3 - c1) + isum eS) + (r1 + r2)) := by omega
+
+/-- junction lemma consequences: if every junction sequence has F_J ≥ 21 then (a) a single split has G ≥ 22,
+    (b) a 2-visit 3-piece trail whose jump has E' ≥ 0 has G ≥ 22, (c) a rotated-chain excision (E' = -1) has
+    G ≥ 21, with G = 21 only if F_J = 21 and both edges of the remainder have e = 0. -/
+theorem junction_consequences (FJ beta r1 r2 Ep : Int) (hF : 21 ≤ FJ) (hb : 0 ≤ beta) (h1 : 0 ≤ r1) (h2 : 0 ≤ r2) (hE : 0 ≤ Ep) :
+    22 ≤ 1 + FJ + beta ∧ 22 ≤ 1 + Ep + FJ + (r1 + r2) ∧ 21 ≤ FJ + (r1 + r2) ∧
+    (FJ + (r1 + r2) = 21 → FJ = 21 ∧ r1 = 0 ∧ r2 = 0) := by omega
+
+/-! ## 4b. single visits in k pieces: the admissible visit orders
+
+A trail-version cycle cut at k positions gives pieces B_0 .. B_{k-1} in cyclic order; B_i followed by B_{i+1 mod k}
+is a natural join (the pieces merge).  A k-piece single visit is a permutation of the pieces without a natural
+join; by cyclic relabelling its first piece is B_0.  `kappa3.c` enumerates exactly the orders below. -/
+
+def natJoin (k a b : Nat) : Bool := b == (a + 1) % k
+def noNatJoin (k : Nat) : List Nat → Bool
+  | a :: b :: l => !natJoin k a b && noNatJoin k (b :: l)
+  | _ => true
+def allLists (k : Nat) : Nat → List (List Nat)
+  | 0 => [[]]
+  | n + 1 => (allLists k n).flatMap (fun l => (List.range k).map (fun i => i :: l))
+def isPermOf (k : Nat) (l : List Nat) : Bool := l.length == k && (List.range k).all (fun i => l.contains i)
+def visitOrders (k : Nat) : List (List Nat) :=
+  (allLists k k).filter (fun l => isPermOf k l && l.head? == some 0 && noNatJoin k l)
+
+/-- two pieces always merge (no 2-piece single visit), three pieces: only B0 B2 B1, four pieces: only
+    B0 B2 B1 B3 (exit = the single piece's exit) and B0 B3 B2 B1. -/
+theorem two_piece_orders : visitOrders 2 = [] := by decide
+theorem three_piece_orders : visitOrders 3 = [[0, 2, 1]] := by decide
+theorem four_piece_orders : (visitOrders 4).length = 2 ∧ [0, 2, 1, 3] ∈ visitOrders 4 ∧ [0, 3, 2, 1] ∈ visitOrders 4 := by decide
+
+/-- piece counts with every trail visited once: k_T ≥ 1 and k_T ≠ 2 (no 2-piece single visit).  If the number of
+    extra pieces Σ (k_T - 1) is at most 3, then at most one trail has more than one piece and it has at most 4. -/
+def nsum : List Nat → Nat
+  | [] => 0
+  | a :: l => a + nsum l
+
+theorem extra_pieces_le3 : ∀ (ks : List Nat), (∀ k ∈ ks, 1 ≤ k ∧ k ≠ 2) → nsum (ks.map (· - 1)) ≤ 3 →
+    (ks.filter (fun k => decide (3 ≤ k))).length ≤ 1 ∧ ∀ k ∈ ks, k ≤ 4
+  | [], _, _ => by simp
+  | a :: l, h, hs => by
+    have ha := h a (by simp)
+    have hl : ∀ k ∈ l, 1 ≤ k ∧ k ≠ 2 := fun k hk => h k (by simp [hk])
+    simp only [List.map, nsum] at hs
+    have ih := extra_pieces_le3 l hl (by omega)
+    by_cases h3 : 3 ≤ a
+    · -- a ≥ 3 uses at least 2 extra pieces, so every other trail is a single piece
+      have hrest : nsum (l.map (· - 1)) ≤ 1 := by omega
+      have hone : ∀ k ∈ l, k = 1 := by
+        intro k hk
+        have hk' := hl k hk
+        have : k - 1 ≤ nsum (l.map (· - 1)) := by
+          clear ih h hl hs hrest
+          induction l with
+          | nil => simp at hk
+          | cons b l ihl =>
+            simp only [List.map, nsum]
+            rcases List.mem_cons.mp hk with rfl | hk2
+            · omega
+            · have := ihl hk2; omega
+        omega
+      have hf : (l.filter (fun k => decide (3 ≤ k))).length = 0 := by
+        rw [List.length_eq_zero_iff, List.filter_eq_nil_iff]; intro k hk; have := hone k hk; simp; omega
+      refine ⟨?_, ?_⟩
+      · simp [List.filter, h3, hf]
+      · intro k hk; rcases List.mem_cons.mp hk with rfl | hk2
+        · omega
+        · have := hone k hk2; omega
+    · refine ⟨?_, ?_⟩
+      · simp [List.filter, h3]; exact ih.1
+      · intro k hk; rcases List.mem_cons.mp hk with rfl | hk2
+        · omega
+        · exact ih.2 k hk2
 
 /-! ## 5. generic layered-search soundness (as in Round P `SearchSoundness`) -/
 

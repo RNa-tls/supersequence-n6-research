@@ -81,7 +81,8 @@ typedef struct { int tr[6]; int n; int unordered; int junction; } Tok;
 static Tok tk[64]; static int ntk; static int pbest;
 #pragma omp threadprivate(tk, ntk, pbest)
 static void expand(int ti, int *sq, int len, int jj) {
-    if (ti == ntk) { if (len != NTR || jj <= 0 || jj >= NTR) { fprintf(stderr, "bad pattern\n"); exit(7); } int G = eval_seq(sq, jj); if (G < pbest) pbest = G; return; }
+    if (ti == ntk) { if (len != NTR || jj <= 0 || jj >= NTR) { fprintf(stderr, "bad pattern\n"); exit(7); }
+        { int seen[NTR] = {0}; for (int i = 0; i < NTR; i++) if (sq[i] < 0 || sq[i] >= NTR || seen[sq[i]]++) { fprintf(stderr, "pattern does not expand to a permutation of the 30 trails\n"); exit(9); } } int G = eval_seq(sq, jj); if (G < pbest) pbest = G; return; }
     Tok *t = &tk[ti];
     if (t->junction) { expand(ti + 1, sq, len, len); return; }
     if (!t->unordered || t->n <= 1) { for (int i = 0; i < t->n; i++) sq[len + i] = t->tr[i]; expand(ti + 1, sq, len + t->n, jj); return; }
@@ -124,7 +125,7 @@ int main(int argc, char **argv) {
     for (long li = 0; li < nl; li++) { ntk = 0; char *s = lines[li]; int v, nch;
         while (sscanf(s, "%d%n", &v, &nch) == 1) { s += nch; Tok *t = &tk[ntk++]; memset(t, 0, sizeof *t);
             if (v == -1) t->junction = 1;
-            else if (v < 1000) { t->tr[0] = phl[v]; t->n = 1; }
+            else if (v < 1000) { if (v >= NTR || isA[v]) { fprintf(stderr, "bad phi token %d (phi tokens are trail ids)\n", v); exit(8); } t->tr[0] = v; t->n = 1; }
             else if (v >= 1200) { int m = v - 1200; for (int i = 0; i < 6; i++) if (m >> i & 1) t->tr[t->n++] = Alist[i]; t->unordered = 1; }
             else { int d = v - 1100; if (d < 64) { for (int i = 0; i < 6; i++) if (d >> i & 1) t->tr[t->n++] = Alist[i]; } else { d -= 64; t->tr[0] = Alist[d / 6]; t->tr[1] = Alist[d % 6]; t->n = 2; } } }
         if (!ntk) continue;

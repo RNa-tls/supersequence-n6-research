@@ -5,8 +5,13 @@
 //   move A: T's block := C rotated at a (a1..C_end, C_start..a1-1), the rest R = T minus C (version order) inserted
 //           at the best gap of the route (any gap outside the rotated chain, both ends included);
 //   move B: T's block := R, the rotated chain inserted at the best gap.
-// Every move is a valid multi-opening word; the length change is exact (run weights).  Reports, per order, the
+// Every move is a valid word of the family; the length change is exact (run weights).  Reports, per order, the
 // best change and the number of moves with change <= 0; prints every move with change < 0.
+// CORRECTED (classes): for a = 0 the two gaps next to the moved-away piece are DEGENERATE (a natural version link
+// re-forms: the word is T opened at C_start or N_start, a single opening) and are counted separately; every other
+// move is classified as  boundary (R or X between two blocks of other trails / at a word end: the single excision of
+// section 6.4), adjacent (next to T's piece, a != 0: one visit of T in 3 pieces, case E4) or inside_other (inside a
+// block of another trail, which is then split as well).  Per class: best change over all orders and #moves <= 0.
 // usage: order_excise DIR(runs.bin) ORDERS.txt OUT.json
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +25,9 @@ static int NOPT, otr[16384], over_[16384], okk[16384], ocut[16384], tofs[NTR], t
 static int wgt(const uint8_t *x, const uint8_t *y) { for (int s = 1; s < 8; s++) { int ok = 1; for (int i = 0; s + i < 8; i++) if (x[s + i] != y[i]) { ok = 0; break; } if (ok) return s; } return 8; }
 static inline void lastp(const uint8_t *s, uint8_t *x) { x[0] = s[7]; for (int i = 1; i < 8; i++) x[i] = s[i - 1]; }
 static inline int wr(const uint8_t *a, const uint8_t *b) { uint8_t x[8]; lastp(a, x); return wgt(x, b); }   // join run a -> run b
-typedef struct { long nle0, nlt0; int best; int bt, bc, ba, bkind, bv, verified; } Res;
+typedef struct { long nle0, nlt0; int best; int bt, bc, ba, bkind, bv, verified; int cbest[4]; long cle0[4]; } Res;
+// class codes: 0 boundary, 1 adjacent (a != 0), 2 inside_other, 3 degenerate (a = 0 next to the piece)
+static inline void cupd(Res *r, int c, long d) { if (d < r->cbest[c]) r->cbest[c] = (int)d; if (d <= 0) r->cle0[c]++; }
 int main(int argc, char **argv) {
     const char *dir = argv[1], *ordp = argv[2], *outp = argv[3]; char p[2048]; double T0 = omp_get_wtime();
     snprintf(p, sizeof p, "%s/runs.bin", dir); FILE *f = fopen(p, "rb");
@@ -57,7 +64,8 @@ int main(int argc, char **argv) {
         for (int i = 0; i < NTR; i++) { int t = pi[i], o = tofs[t] + opt[i], v = over_[o], k = okk[o], m = mrun[t][v]; bst[i] = n;
             for (int u = 0; u < m; u++) rt[n++] = runp[t][v] + 8 * ((k + u) % m); ben[i] = n - 1; }
         int *jw = malloc(4 * n); long base = 0; for (int i = 0; i + 1 < n; i++) { jw[i] = wr(rt[i], rt[i + 1]); base += jw[i]; }
-        Res R0 = {0, 0, BIGI, -1, -1, -1, -1, -1, -1}; long nm = 0;
+        Res R0 = {0, 0, BIGI, -1, -1, -1, -1, -1, -1, {BIGI, BIGI, BIGI, BIGI}, {0, 0, 0, 0}}; long nm = 0;
+        char *isb = calloc(n + 1, 1); for (int i = 0; i < NTR; i++) isb[ben[i]] = 1;   // gap g (rt[g] | rt[g+1]) is a block boundary
         int *gin = malloc(4 * (n + 2)), *gout = malloc(4 * (n + 2));
         for (int i = 0; i < NTR; i++) {
             int t = pi[i], o = tofs[t] + opt[i], v = over_[o], m = mrun[t][v]; const uint8_t *V = runp[t][v];
@@ -72,28 +80,32 @@ int main(int argc, char **argv) {
                 const uint8_t *R0p = V + 8 * ((s + 7) % m), *R1p = V + 8 * ((s + m - 1) % m); long cR = 0; for (int u = 7; u < m - 1; u++) cR += wr(V + 8 * ((s + u) % m), V + 8 * ((s + u + 1) % m));
                 // insertion costs of R into the gaps of the route outside T's block: gaps (rt[g], rt[g+1]) for g < i0-1 or g > j0,
                 // plus both ends; best value over those (the gaps next to the new block are handled per move)
-                int bestR = BIGI;
-                { if (i0 > 0) { int c0 = wr(R1p, rt[0]); if (c0 < bestR) bestR = c0; } if (j0 < n - 1) { int c0 = wr(rt[n - 1], R0p); if (c0 < bestR) bestR = c0; }
-                  for (int g = 0; g + 1 < n; g++) { if (g >= i0 - 1 && g <= j0) continue; int c0 = wr(rt[g], R0p) + wr(R1p, rt[g + 1]) - jw[g]; if (c0 < bestR) bestR = c0; } }
+                int bestR = BIGI, bestRc[3] = {BIGI, BIGI, BIGI};
+                { if (i0 > 0) { int c0 = wr(R1p, rt[0]); if (c0 < bestR) bestR = c0; if (c0 < bestRc[0]) bestRc[0] = c0; } if (j0 < n - 1) { int c0 = wr(rt[n - 1], R0p); if (c0 < bestR) bestR = c0; if (c0 < bestRc[0]) bestRc[0] = c0; }
+                  for (int g = 0; g + 1 < n; g++) { if (g >= i0 - 1 && g <= j0) continue; int c0 = wr(rt[g], R0p) + wr(R1p, rt[g + 1]) - jw[g]; if (c0 < bestR) bestR = c0; int cc = isb[g] ? 0 : 2; if (c0 < bestRc[cc]) bestRc[cc] = c0; } }
                 for (int a = 0; a < 7; a++) {
                     const uint8_t *X0 = V + 8 * ((s + a) % m), *X1 = V + 8 * ((s + (a + 6) % 7) % m);    // rotated chain: first, last run
                     long cX = 0; for (int u = 0; u < 6; u++) cX += wr(V + 8 * ((s + (a + u) % 7) % m), V + 8 * ((s + (a + u + 1) % 7) % m));
                     // move A: X at T's place, R at the best gap (including the two gaps next to X)
                     { long here = cX + (P ? wr(P, X0) : 0) + (Nn ? wr(X1, Nn) : 0) - ((P && Nn) ? wr(P, Nn) : 0);
-                      int b2 = bestR;
-                      { int c0 = (P ? wr(P, R0p) : 0) + wr(R1p, X0) - (P ? wr(P, X0) : 0); if (c0 < b2) b2 = c0; }
-                      { int c0 = wr(X1, R0p) + (Nn ? wr(R1p, Nn) : 0) - (Nn ? wr(X1, Nn) : 0); if (c0 < b2) b2 = c0; }
+                      int b2 = bestR, cadj = BIGI;
+                      { int c0 = (P ? wr(P, R0p) : 0) + wr(R1p, X0) - (P ? wr(P, X0) : 0); if (c0 < b2) b2 = c0; if (c0 < cadj) cadj = c0; }
+                      { int c0 = wr(X1, R0p) + (Nn ? wr(R1p, Nn) : 0) - (Nn ? wr(X1, Nn) : 0); if (c0 < b2) b2 = c0; if (c0 < cadj) cadj = c0; }
+                      for (int cc = 0; cc < 3; cc += 2) if (bestRc[cc] < BIGI) cupd(&R0, cc, here + cR + bestRc[cc] - oldc);
+                      cupd(&R0, a ? 1 : 3, here + cR + cadj - oldc);
                       if (i0 == 0 && P == NULL) { } // start handled by the gap before X above
                       long d = here + cR + b2 - oldc; nm++;
                       if (d <= 0) R0.nle0++; if (d < 0) R0.nlt0++;
                       if (d < R0.best) { R0.best = d; R0.bt = t; R0.bc = s; R0.ba = a; R0.bkind = 0; R0.bv = v; } }
                     // move B: R at T's place, X at the best gap
                     { long here = cR + (P ? wr(P, R0p) : 0) + (Nn ? wr(R1p, Nn) : 0) - ((P && Nn) ? wr(P, Nn) : 0);
-                      int bX = BIGI;
-                      if (i0 > 0) { int c0 = wr(X1, rt[0]); if (c0 < bX) bX = c0; } if (j0 < n - 1) { int c0 = wr(rt[n - 1], X0); if (c0 < bX) bX = c0; }
-                      for (int g = 0; g + 1 < n; g++) { if (g >= i0 - 1 && g <= j0) continue; int c0 = wr(rt[g], X0) + wr(X1, rt[g + 1]) - jw[g]; if (c0 < bX) bX = c0; }
-                      { int c0 = (P ? wr(P, X0) : 0) + wr(X1, R0p) - (P ? wr(P, R0p) : 0); if (c0 < bX) bX = c0; }
-                      { int c0 = wr(R1p, X0) + (Nn ? wr(X1, Nn) : 0) - (Nn ? wr(R1p, Nn) : 0); if (c0 < bX) bX = c0; }
+                      int bX = BIGI, bXc[3] = {BIGI, BIGI, BIGI}, cadj = BIGI;
+                      if (i0 > 0) { int c0 = wr(X1, rt[0]); if (c0 < bX) bX = c0; if (c0 < bXc[0]) bXc[0] = c0; } if (j0 < n - 1) { int c0 = wr(rt[n - 1], X0); if (c0 < bX) bX = c0; if (c0 < bXc[0]) bXc[0] = c0; }
+                      for (int g = 0; g + 1 < n; g++) { if (g >= i0 - 1 && g <= j0) continue; int c0 = wr(rt[g], X0) + wr(X1, rt[g + 1]) - jw[g]; if (c0 < bX) bX = c0; int cc = isb[g] ? 0 : 2; if (c0 < bXc[cc]) bXc[cc] = c0; }
+                      { int c0 = (P ? wr(P, X0) : 0) + wr(X1, R0p) - (P ? wr(P, R0p) : 0); if (c0 < bX) bX = c0; if (c0 < cadj) cadj = c0; }
+                      { int c0 = wr(R1p, X0) + (Nn ? wr(X1, Nn) : 0) - (Nn ? wr(R1p, Nn) : 0); if (c0 < bX) bX = c0; if (c0 < cadj) cadj = c0; }
+                      for (int cc = 0; cc < 3; cc += 2) if (bXc[cc] < BIGI) cupd(&R0, cc, here + cX + bXc[cc] - oldc);
+                      cupd(&R0, a ? 1 : 3, here + cX + cadj - oldc);
                       long d = here + cX + bX - oldc; nm++;
                       if (d <= 0) R0.nle0++; if (d < 0) R0.nlt0++;
                       if (d < R0.best) { R0.best = d; R0.bt = t; R0.bc = s; R0.ba = a; R0.bkind = 1; R0.bv = v; } }
@@ -116,12 +128,18 @@ int main(int argc, char **argv) {
         if (R0.best < 0) {
             #pragma omp critical
             { fprintf(neg, "%s{\"order_index\": %d, \"F\": %d, \"delta\": %d, \"delta_verified_from_scratch\": %d, \"trail\": %d, \"version\": %d, \"chain_start\": %d, \"a\": %d, \"kind\": %d}\n", nneg ? "," : "", oi, F, R0.best, R0.verified, R0.bt, R0.bv, R0.bc, R0.ba, R0.bkind); fflush(neg); nneg++; } }
-        free(cur); free(nx); for (int k = 0; k < NTR; k++) free(bk[k]); free(rt); free(jw); free(gin); free(gout);
+        free(cur); free(nx); for (int k = 0; k < NTR; k++) free(bk[k]); free(rt); free(jw); free(gin); free(gout); free(isb);
     }
     int best = BIGI, bo = -1; long nle0 = 0, nlt0 = 0; int bestF = BIGI; long hist[64] = {0};
     for (int oi = 0; oi < no; oi++) { int L = Fo[oi] + res[oi].best; if (L < best) { best = L; bo = oi; } nle0 += res[oi].nle0; nlt0 += res[oi].nlt0; if (Fo[oi] < bestF) bestF = Fo[oi];
         int dd = res[oi].best + 10; if (dd >= 0 && dd < 64) hist[dd]++; }
-    fprintf(neg, "],\n \"orders\": %d, \"moves\": %ld, \"min_order_F\": %d, \"best_F_plus_delta\": %d, \"best_order\": %d, \"moves_le0\": %ld, \"moves_lt0\": %ld, \"best_delta_hist_offset10\": [", no, totmoves, bestF, best, bo, nle0, nlt0);
+    int cb[4] = {BIGI, BIGI, BIGI, BIGI}; long cl[4] = {0, 0, 0, 0}; int cbF[4] = {BIGI, BIGI, BIGI, BIGI};
+    for (int oi = 0; oi < no; oi++) for (int c = 0; c < 4; c++) { if (res[oi].cbest[c] < cb[c]) cb[c] = res[oi].cbest[c]; cl[c] += res[oi].cle0[c];
+        if (res[oi].cbest[c] < BIGI && Fo[oi] + res[oi].cbest[c] < cbF[c]) cbF[c] = Fo[oi] + res[oi].cbest[c]; }
+    fprintf(neg, "],\n \"classes\": {");
+    const char *cn[4] = {"boundary", "adjacent_E4", "inside_other", "degenerate_reopening"};
+    for (int c = 0; c < 4; c++) fprintf(neg, "%s\"%s\": {\"best_delta\": %d, \"best_F_plus_delta\": %d, \"moves_le0\": %ld}", c ? ", " : "", cn[c], cb[c], cbF[c], cl[c]);
+    fprintf(neg, "},\n \"orders\": %d, \"moves\": %ld, \"min_order_F\": %d, \"best_F_plus_delta\": %d, \"best_order\": %d, \"moves_le0\": %ld, \"moves_lt0\": %ld, \"best_delta_hist_offset10\": [", no, totmoves, bestF, best, bo, nle0, nlt0);
     for (int k = 0; k < 64; k++) fprintf(neg, "%s%ld", k ? ", " : "", hist[k]); fprintf(neg, "],\n \"sec\": %.1f}\n", omp_get_wtime() - T0); fclose(neg);
     printf("{\"orders\": %d, \"moves\": %ld, \"best_F_plus_delta\": %d, \"moves_le0\": %ld, \"moves_lt0\": %ld}\n", no, totmoves, best, nle0, nlt0);
     return 0;

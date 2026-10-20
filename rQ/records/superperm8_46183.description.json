@@ -1,0 +1,19 @@
+{
+ "word": "superperm8_46183.txt",
+ "n": 8,
+ "length": 46183,
+ "J": 98,
+ "G": 21,
+ "family": "6A+24phi closed trails (rM/certs/family_46187.json), r = 0",
+ "structure": "single split: A trail 22 cut into two pieces (31 pieces, 31 visits); every other trail one piece",
+ "found_by": "rQ/csrc/ckT_search.c (junction search, THR 20) -> rQ/csrc/split_eval.c (exact single-split evaluation, THRG 21)",
+ "rebuilt_by": "rQ/src/split_witness.py (independent; exact DP over all other options)",
+ "junction_sequence_SIGMA": [3, 5, 27, 21, 19, 17, 29, 7, 6, 4, 1, 0, 22, 14, 15, 28, 18, 10, 9, 20, 16, 2, 26, 23, 24, 25, 8, 11, 12, 13],
+ "junction_after": 26,
+ "anchor_position": 12,
+ "anchor_trail": 22,
+ "anchor_a_version_run": [0, 213],
+ "anchor_b_version_run": [0, 16],
+ "route": "SIGMA[0:12] + [a, b) of trail 22 + Z' + [b, a) of trail 22 + SIGMA[13:26], Z' = SIGMA[26:30] = 8 11 12 13",
+ "rebuild_command": "python3 rQ/src/split_witness.py rM/certs/family_46187.json 3,5,27,21,19,17,29,7,6,4,1,0,22,14,15,28,18,10,9,20,16,2,26,23,24,25,8,11,12,13 26 12 16 OUT.txt"
+}

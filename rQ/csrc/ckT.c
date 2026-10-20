@@ -11,6 +11,11 @@
 // the part after the junction must be nonempty).  Hence HT lower-bounds every completion that contains the junction.
 // Layers are written to OUT/HT%02d.{key,val} with the key/orbit conventions of ckB.c (same meta.bin).
 // Prints the relaxed minimum of 1 + F_junction over all single splits (beta dropped).
+// BRIDGE MODE (env CKT_BRIDGE=1, for the rotated-chain excision of section 6.4): the junction is not free but carries
+// the remainder R of a full chain of another trail: the element x before it pays hin(x) = min_R e(x -> R_in) and the
+// element y after it pays hout(y) = min_R e(R_out -> y) (independent minima, a lower bound).  End chains into the
+// junction get + hin of their last option (Qc), free-start chains after it get hout of their first option (Fc), the
+// A-only parts at the word ends get the least hin / hout over A options.  The layers then bound every excision.
 // usage: ckT DIR(runs.bin, group.bin) HDIR(ckB layers) OUT
 #include <stdio.h>
 #include <stdlib.h>
@@ -113,21 +118,38 @@ int main(int argc, char **argv) {
         if (c != NOR) return 9; }
     for (int s = 0; s < 6; s++) for (int i = 0; i < NPH; i++) for (int j = 0; j < NOR; j++) {
         int o = tofs[phl[i]] + orep[i][j]; int o2 = gop[(size_t)sel[s] * NOPT + o]; int i2 = ptr[s][i]; omapB[s][i][j] = oorb[i2][o2 - tofs[phl[i2]]]; }
+    // bridge mode: hin / hout over the full-chain remainders (chain start s with exactly 7 runs and the w2 wrap)
+    int BRIDGE = getenv("CKT_BRIDGE") && *getenv("CKT_BRIDGE") == '1';
+    uint8_t *hin = calloc(NOPT, 1), *hout = calloc(NOPT, 1); int hinA = 0, houtA = 0;
+    if (BRIDGE) { int *Rin = malloc(4 * NOPT), *Rout = malloc(4 * NOPT), nR = 0;
+        for (int t = 0; t < NTR; t++) for (int v = 0; v < 2; v++) { int m = mrun[t][v], base = tofs[t] + v * mrun[t][0];
+            for (int s0 = 0; s0 < m; s0++) { if (ocut[base + s0] != 3) continue; int L = 1; while (L < m && ocut[base + (s0 + L) % m] == 2) L++;
+                if (L != 7) continue; if (wgt(oex[base + (s0 + 7) % m], oen[base + s0]) != 2) continue;
+                Rin[nR] = base + (s0 + 7) % m; Rout[nR] = base + s0; nR++; } }
+        #pragma omp parallel for schedule(dynamic, 64)
+        for (int o = 0; o < NOPT; o++) { int mi = BIG, mo = BIG;
+            for (int r = 0; r < nR; r++) { if (otr[Rin[r]] == otr[o]) continue; int a = e[(size_t)o * NOPT + Rin[r]], b = e[(size_t)Rout[r] * NOPT + o]; if (a < mi) mi = a; if (b < mo) mo = b; }
+            hin[o] = mi; hout[o] = mo; }
+        long bi = 0; for (int g = 0; g < G; g++) for (int o = 0; o < NOPT; o++) { int o2 = gop[(size_t)g * NOPT + o]; if (hin[o2] != hin[o] || hout[o2] != hout[o]) bi++; }
+        hinA = houtA = BIG; for (int a = 0; a < 6; a++) for (int q = 0; q < tcnt[Alist[a]]; q++) { int o = tofs[Alist[a]] + q; if (hin[o] < hinA) hinA = hin[o]; if (hout[o] < houtA) houtA = hout[o]; }
+        long z1 = 0, z2 = 0; for (int o = 0; o < NOPT; o++) { z1 += hin[o] == 0; z2 += hout[o] == 0; }
+        fprintf(stderr, "bridge mode: %d full-chain remainders, hin = 0 for %ld options, hout = 0 for %ld, least over A options: hin %d hout %d, group violations %ld\n", nR, z1, z2, hinA, houtA, bi);
+        if (bi) return 16; free(Rin); free(Rout); }
     // chain tables on phi options (local index y = i*84 + q), chains of a A trails, consecutive distinct
     int NPO = NPH * NOP; int NAO = tcnt[Alist[0]];
     uint8_t *Kc = malloc((size_t)NCN * NPO * NPO); memset(Kc, BIG, (size_t)NCN * NPO * NPO);
     uint8_t *Sc = malloc(NCN * NPO), *Qc = malloc(NCN * NPO), *Fc = malloc(NCN * NPO); memset(Sc, BIG, NCN * NPO); memset(Qc, BIG, NCN * NPO); memset(Fc, BIG, NCN * NPO);
     for (int y = 0; y < NPO; y++) for (int x = 0; x < NPO; x++) { int oy = tofs[phl[y / NOP]] + y % NOP, ox = tofs[phl[x / NOP]] + x % NOP; if (otr[oy] != otr[ox]) Kc[(size_t)y * NPO + x] = e[(size_t)oy * NOPT + ox]; }
-    for (int x = 0; x < NPO; x++) { int ox = tofs[phl[x / NOP]] + x % NOP; Sc[x] = (ocut[ox] == 2); Qc[x] = 0; Fc[x] = 0; }
+    for (int x = 0; x < NPO; x++) { int ox = tofs[phl[x / NOP]] + x % NOP; Sc[x] = (ocut[ox] == 2); Qc[x] = hin[ox]; Fc[x] = hout[ox]; }   // hin = hout = 0 unless bridged
     // reach[y][A][o] : min cost from phi option y (or from the word start, y = NPO) through a chain ending at option o of A
     #pragma omp parallel for schedule(dynamic, 4)
     for (int y = 0; y <= NPO + 1; y++) {          // y = NPO: word start ([cut = 2]); y = NPO + 1: free start (junction)
         uint8_t *cur = malloc(6 * NAO), *nx = malloc(6 * NAO);
         for (int a = 0; a < 6; a++) for (int q = 0; q < NAO; q++) { int oa = tofs[Alist[a]] + q;
-            cur[a * NAO + q] = (y < NPO) ? e[(size_t)(tofs[phl[y / NOP]] + y % NOP) * NOPT + oa] : (y == NPO ? (ocut[oa] == 2) : 0); }
+            cur[a * NAO + q] = (y < NPO) ? e[(size_t)(tofs[phl[y / NOP]] + y % NOP) * NOPT + oa] : (y == NPO ? (ocut[oa] == 2) : hout[oa]); }
         for (int len = 1; len <= 6; len++) {
             uint8_t row[NPH * NOP]; memset(row, BIG, NPO); int qm = BIG;
-            for (int a = 0; a < 6; a++) for (int q = 0; q < NAO; q++) { int v = cur[a * NAO + q]; if (v >= BIG) continue; if (v < qm) qm = v;
+            for (int a = 0; a < 6; a++) for (int q = 0; q < NAO; q++) { int v = cur[a * NAO + q]; if (v >= BIG) continue; if (v + hin[tofs[Alist[a]] + q] < qm) qm = v + hin[tofs[Alist[a]] + q];
                 const int8_t *er = e + (size_t)(tofs[Alist[a]] + q) * NOPT;
                 for (int x = 0; x < NPO; x++) { int w = v + er[tofs[phl[x / NOP]] + x % NOP]; if (w < row[x]) row[x] = w; } }
             if (y < NPO) { memcpy(Kc + ((size_t)len * NPO + y) * NPO, row, NPO); Qc[len * NPO + y] = qm; }
@@ -172,13 +194,13 @@ int main(int argc, char **argv) {
             uint32_t R = (FULL & ~S) | (1u << t);
             for (int g = 0; g < 6; g++) { uint32_t Rg = pmB(g, R); for (int c = 0; c < NCN; c++) if (vp[c] < BIG) amin8(PLf + (size_t)Rg * NCN + c, (uint8_t)vp[c]); } }
         munmap(hk, s1); munmap(hvv, s2); }
-    PLf[0] = BIG; for (int c = 1; c < NCN; c++) PLf[c] = 0;
+    PLf[0] = BIG; for (int c = 1; c < NCN; c++) PLf[c] = (uint8_t)houtA;      // junction after the last phi: A-only rest (>= least hout)
     { long bad2 = 0; for (size_t R = 1; R < NU; R++) for (int c = 0; c < NCN; c++) if (PLf[R * NCN + c] >= BIG) bad2++; fprintf(stderr, "PLf done, unset entries %ld\n", bad2); }
     snprintf(p, sizeof p, "%s/PLf.bin", out); f = fopen(p, "wb"); fwrite(PLf, 1, NU * NCN, f); fclose(f);
     // backward DP for HT
     Lay Lnext; mklay(&Lnext, NPH);
     for (uint64_t x = 0; x < Lnext.n; x++) { int t = Lnext.k[x] & 31; uint8_t *v = Lnext.v + x * VSZ;
-        for (int c = 0; c < NCN; c++) for (int i = 0; i < NOR; i++) { int m = BIG; for (int a1 = 0; a1 < c; a1++) if (Qred[a1][t][i] < m) m = Qred[a1][t][i]; v[c * NOR + i] = m; } }
+        for (int c = 0; c < NCN; c++) for (int i = 0; i < NOR; i++) { int m = BIG; for (int a1 = 0; a1 < c; a1++) if (Qred[a1][t][i] + houtA < m) m = Qred[a1][t][i] + houtA; v[c * NOR + i] = m > BIG ? BIG : m; } }
     snprintf(p, sizeof p, "%s/HT%02d.key", out, NPH); f = fopen(p, "wb"); fwrite(Lnext.k, 8, Lnext.n, f); fclose(f);
     snprintf(p, sizeof p, "%s/HT%02d.val", out, NPH); f = fopen(p, "wb"); fwrite(Lnext.v, VSZ, Lnext.n, f); fclose(f);
     for (int k = NPH - 1; k >= 1; k--) {
@@ -207,9 +229,10 @@ int main(int argc, char **argv) {
     int best = 1000, bestj = 1000;
     for (uint64_t x = 0; x < Lnext.n; x++) { int t = Lnext.k[x] & 31; const uint8_t *v = Lnext.v + x * VSZ;
         for (int a = 0; a < NCN; a++) for (int i = 0; i < NOR; i++) { int w = Sred[a][t][i] + v[(6 - a) * NOR + i]; if (w < best) best = w; } }
-    for (int a1 = 1; a1 <= 6; a1++) { int w = PLf[(size_t)FULL * NCN + 6 - a1]; if (w < bestj) bestj = w; }
+    for (int a1 = 1; a1 <= 6; a1++) { int w = hinA + PLf[(size_t)FULL * NCN + 6 - a1]; if (w < bestj) bestj = w; }
     int root = best < bestj ? best : bestj;
-    printf("{\"checker\": \"T\", \"relaxed_min_F_junction_after_phi\": %d, \"relaxed_min_F_junction_in_start_chain\": %d, \"relaxed_single_split_G_lower_bound\": %d}\n", best, bestj, 1 + root);
+    if (BRIDGE) printf("{\"checker\": \"T-bridge\", \"relaxed_min_excision_G_junction_after_phi\": %d, \"relaxed_min_excision_G_junction_in_start_chain\": %d, \"relaxed_excision_G_lower_bound\": %d}\n", best, bestj, root);
+    else printf("{\"checker\": \"T\", \"relaxed_min_F_junction_after_phi\": %d, \"relaxed_min_F_junction_in_start_chain\": %d, \"relaxed_single_split_G_lower_bound\": %d}\n", best, bestj, 1 + root);
     // store small tables for the identity-aware search
     snprintf(p, sizeof p, "%s/meta.bin", out); f = fopen(p, "wb");
     fwrite(phl, 4, NPH, f); fwrite(ptr, 4, 6 * NPH, f); fwrite(orep, 4, NPH * NOR, f); fwrite(oorb, 4, NPH * NOP, f); fwrite(omapB, 4, 6 * NPH * NOR, f); fclose(f);
