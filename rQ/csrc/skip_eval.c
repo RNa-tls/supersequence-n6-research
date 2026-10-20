@@ -53,18 +53,23 @@ static int eval_seq(const int *sq, int jj) {
     if (1 + minP + minZ > THRG) return BIGI;
     __atomic_add_fetch(&nfeas, 1, __ATOMIC_RELAXED);
     int best = BIGI;
-    // Bmin[s][v] = least E' + hinT[o_j trail][T(alpha)] + houtT[o_{j+1} trail][T(beta)] over the jump pairs of T's version v:
-    // every member with T at position s pays at least  1 + (cost of its part with T at u) + (other part) + Bmin.
+    // Exact anchor-independent bounds: lft(alpha) >= L0(alpha) = min_x fw[jj-1][x] + e(x -> T(alpha)) (the forced prefix
+    // costs at least the unforced one), rgt(beta) >= R0(beta) = min_y e(T(beta) -> y) + bw[jj][y].  Hence for T at position s
+    // in version v every member costs at least 1 + Bmin[s][v], Bmin = least E' + L0(alpha) + R0(beta) over the jump pairs.
     int budget0 = THRG - 1 - minP - minZ, Bmin[NTR][2], anyok = 0;
     for (int s = 0; s < NTR; s++) { Bmin[s][0] = Bmin[s][1] = BIGI; if (s == jj - 1 || s == jj) continue; int T = sq[s];
-        for (int v = 0; v < 2; v++) { int vb = tofs[T] + v * mrun[T][0]; const JP *L = jp[T][v]; int b = BIGI;
-            for (int r = 0; r < njp[T][v] && L[r].ep <= budget0; r++) { int c = L[r].ep + hinT[tj][vb + L[r].a] + houtT[tk][vb + L[r].b]; if (c < b) b = c; }
-            Bmin[s][v] = b; if (b <= budget0) anyok = 1; } }
+        for (int v = 0; v < 2; v++) { int vb = tofs[T] + v * mrun[T][0], m = mrun[T][v];
+            int *L0 = lft, *R0 = rgt;   // scratch (overwritten later per anchor)
+            for (int k = 0; k < m; k++) { int b = BIGI; for (int q2 = 0; q2 < tcnt[tj]; q2++) { int d = fw[jj - 1][q2]; if (d > THRG) continue; int w = d + E(tofs[tj] + q2, vb + k); if (w < b) b = w; } L0[k] = b; }
+            for (int k = 0; k < m; k++) { int b = BIGI; for (int q2 = 0; q2 < tcnt[tk]; q2++) { int d = bw[jj][q2]; if (d > THRG) continue; int w = E(vb + k, tofs[tk] + q2) + d; if (w < b) b = w; } R0[k] = b; }
+            const JP *L = jp[T][v]; int b = BIGI, lim = THRG - 1;
+            for (int r = 0; r < njp[T][v] && L[r].ep <= budget0; r++) { int c = L[r].ep + L0[L[r].a] + R0[L[r].b]; if (c < b) b = c; }
+            Bmin[s][v] = b <= lim ? b - minP - minZ : BIGI; if (b <= lim) anyok = 1; } }
     if (!anyok) { __atomic_add_fetch(&nskipseq, 1, __ATOMIC_RELAXED); return BIGI; }
     for (int s = 0; s < NTR; s++) { if (s == jj - 1 || s == jj) continue; int T = sq[s]; int have[2] = {0, 0};
         for (int q = 0; q < tcnt[T]; q++) { int ou = tofs[T] + q, v = over_[ou], m = mrun[T][v], u = okk[ou], vb = tofs[T] + v * mrun[T][0];
             if (Bmin[s][v] >= BIGI) continue;
-            int through = fw[s][q] + bw[s][q]; int lb = 1 + (s < jj ? through + minZ : minP + through) + Bmin[s][v]; if (lb > THRG) continue;
+            int through = fw[s][q] + bw[s][q]; int lb = 1 + (s < jj ? through + minZ : minP + through); if (lb > THRG) continue;
             __atomic_add_fetch(&ncand, 1, __ATOMIC_RELAXED);
             // lft[k] = min_{o_j} Pend(o_j) + e(o_j -> T(k));  rgt[k] = min_{o_{j+1}} e(T(k) -> o_{j+1}) + Zstart(o_{j+1}), k = run index in version v.
             // The side away from the anchor does not depend on the anchor: computed once per (position, version).
