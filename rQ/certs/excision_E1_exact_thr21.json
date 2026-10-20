@@ -1,0 +1,259 @@
+{
+ "checker": "excise_eval (case E1: rotated-chain excision, remainder between two other trails)",
+ "THRG": 21,
+ "patterns": 7404,
+ "sequences": 32154,
+ "candidates": 1440,
+ "witnesses_G_le_THRG": 0,
+ "least_exact_G_over_candidates": 23,
+ "note": "candidates = anchors whose exact lower bound (part through T at a1 + other part + least insertion edges) is <= 21; every candidate evaluated exactly has G >= 23; every non-candidate has G > 21",
+ "chunks": [
+  {
+   "checker": "excise_eval",
+   "THRG": 21,
+   "patterns": 1856,
+   "sequences": 8014,
+   "candidates": 306,
+   "best_G_found_le_THRG": 23,
+   "G_hist_over_patterns": {
+    "23": 4,
+    "25": 27,
+    "26": 1
+   },
+   "sec": 56.1
+  },
+  {
+   "checker": "excise_eval",
+   "THRG": 21,
+   "patterns": 1856,
+   "sequences": 8548,
+   "candidates": 260,
+   "best_G_found_le_THRG": 23,
+   "G_hist_over_patterns": {
+    "23": 3,
+    "24": 12,
+    "25": 18,
+    "26": 3,
+    "27": 6,
+    "28": 3,
+    "29": 3
+   },
+   "sec": 61.8
+  },
+  {
+   "checker": "excise_eval",
+   "THRG": 21,
+   "patterns": 1852,
+   "sequences": 8210,
+   "candidates": 310,
+   "best_G_found_le_THRG": 23,
+   "G_hist_over_patterns": {
+    "23": 14,
+    "24": 6,
+    "25": 12,
+    "26": 3,
+    "27": 4,
+    "28": 2,
+    "29": 2
+   },
+   "sec": 55.4
+  },
+  {
+   "checker": "excise_eval",
+   "THRG": 21,
+   "patterns": 1840,
+   "sequences": 7382,
+   "candidates": 564,
+   "best_G_found_le_THRG": 23,
+   "G_hist_over_patterns": {
+    "23": 15,
+    "24": 12,
+    "25": 27,
+    "26": 11,
+    "27": 8,
+    "28": 1,
+    "29": 1
+   },
+   "sec": 49.0
+  }
+ ],
+ "search": {
+  "checker": "T-search",
+  "THR": 21,
+  "mutations": 0,
+  "layers": [
+   {
+    "layer": 1,
+    "states": 172
+   },
+   {
+    "layer": 2,
+    "states": 1348,
+    "after_junction": 304,
+    "pending_junctions": 1536,
+    "transitions": 501676
+   },
+   {
+    "layer": 3,
+    "states": 4696,
+    "after_junction": 1396,
+    "pending_junctions": 13264,
+    "transitions": 4177184
+   },
+   {
+    "layer": 4,
+    "states": 12034,
+    "after_junction": 4310,
+    "pending_junctions": 39904,
+    "transitions": 12082938
+   },
+   {
+    "layer": 5,
+    "states": 21132,
+    "after_junction": 8250,
+    "pending_junctions": 83323,
+    "transitions": 24627380
+   },
+   {
+    "layer": 6,
+    "states": 30822,
+    "after_junction": 13182,
+    "pending_junctions": 137058,
+    "transitions": 37399448
+   },
+   {
+    "layer": 7,
+    "states": 40794,
+    "after_junction": 18624,
+    "pending_junctions": 178740,
+    "transitions": 45493542
+   },
+   {
+    "layer": 8,
+    "states": 48804,
+    "after_junction": 22698,
+    "pending_junctions": 208884,
+    "transitions": 49470612
+   },
+   {
+    "layer": 9,
+    "states": 55056,
+    "after_junction": 26622,
+    "pending_junctions": 221799,
+    "transitions": 48103152
+   },
+   {
+    "layer": 10,
+    "states": 57600,
+    "after_junction": 28830,
+    "pending_junctions": 217876,
+    "transitions": 43428690
+   },
+   {
+    "layer": 11,
+    "states": 57198,
+    "after_junction": 30312,
+    "pending_junctions": 193666,
+    "transitions": 35679266
+   },
+   {
+    "layer": 12,
+    "states": 55568,
+    "after_junction": 29796,
+    "pending_junctions": 165128,
+    "transitions": 28049788
+   },
+   {
+    "layer": 13,
+    "states": 51560,
+    "after_junction": 29190,
+    "pending_junctions": 135202,
+    "transitions": 20965368
+   },
+   {
+    "layer": 14,
+    "states": 45444,
+    "after_junction": 26718,
+    "pending_junctions": 106804,
+    "transitions": 15123856
+   },
+   {
+    "layer": 15,
+    "states": 38664,
+    "after_junction": 24126,
+    "pending_junctions": 78093,
+    "transitions": 10361400
+   },
+   {
+    "layer": 16,
+    "states": 31422,
+    "after_junction": 20598,
+    "pending_junctions": 55530,
+    "transitions": 6692922
+   },
+   {
+    "layer": 17,
+    "states": 24354,
+    "after_junction": 16554,
+    "pending_junctions": 35349,
+    "transitions": 4076640
+   },
+   {
+    "layer": 18,
+    "states": 18210,
+    "after_junction": 12762,
+    "pending_junctions": 21804,
+    "transitions": 2271234
+   },
+   {
+    "layer": 19,
+    "states": 12024,
+    "after_junction": 9012,
+    "pending_junctions": 11718,
+    "transitions": 1171962
+   },
+   {
+    "layer": 20,
+    "states": 7434,
+    "after_junction": 5910,
+    "pending_junctions": 5154,
+    "transitions": 540000
+   },
+   {
+    "layer": 21,
+    "states": 4476,
+    "after_junction": 3852,
+    "pending_junctions": 1941,
+    "transitions": 212700
+   },
+   {
+    "layer": 22,
+    "states": 2258,
+    "after_junction": 2096,
+    "pending_junctions": 450,
+    "transitions": 75816
+   },
+   {
+    "layer": 23,
+    "states": 582,
+    "after_junction": 562,
+    "pending_junctions": 56,
+    "transitions": 22784
+   },
+   {
+    "layer": 24,
+    "states": 144,
+    "after_junction": 144,
+    "pending_junctions": 10,
+    "transitions": 1966
+   }
+  ],
+  "minimum_bound_F_junction": 20,
+  "final_states_le_thr": 42,
+  "solutions_le_thr": 936,
+  "patterns": 7404,
+  "H_lookup_misses": 0,
+  "transitions": 390530324,
+  "sec": 309.2
+ }
+}

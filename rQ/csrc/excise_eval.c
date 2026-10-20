@@ -22,6 +22,8 @@ static int wgt(const uint8_t *x, const uint8_t *y) { for (int s = 1; s < 8; s++)
 // mid-chain runs of full chains: for option o (trail t, version v, run k) with k inside a full chain C (not its start):
 // rin[o] = option T(N_start), rout[o] = option T(C_start); -1 otherwise
 static int rin[16384], rout[16384];
+// hinT[t][o] = min over options x of trail t of e(x -> o);  houtT[t][o] = min over options y of trail t of e(o -> y)
+static uint8_t *hinT[NTR], *houtT[NTR];
 static int THRG; static long nseq = 0, ncand = 0; static int bestG = BIGI; static FILE *wit;
 static int *fw[NTR], *bw[NTR];
 #pragma omp threadprivate(fw, bw)
@@ -49,9 +51,9 @@ static int eval_seq(const int *sq, int jj) {
     for (int s = 0; s < NTR; s++) { if (s == jj - 1 || s == jj) continue; int T = sq[s];
         for (int q = 0; q < tcnt[T]; q++) { int oa = tofs[T] + q; if (rin[oa] < 0) continue;
             int through = fw[s][q] + bw[s][q];                         // best cost of T's part with T at a1
-            int lb = s < jj ? through + minZ : minP + through; if (lb > THRG) continue;
-            __atomic_add_fetch(&ncand, 1, __ATOMIC_RELAXED);
             int Ri = rin[oa], Ro = rout[oa];
+            int lb = (s < jj ? through + minZ : minP + through) + hinT[tj][Ri] + houtT[tk][Ro]; if (lb > THRG) continue;   // R's two edges >= their minima
+            __atomic_add_fetch(&ncand, 1, __ATOMIC_RELAXED);
             // left value: min_{o_j} Pend(o_j) + e(o_j -> R_in);  right value: min_{o_{j+1}} e(R_out -> o_{j+1}) + Zstart(o_{j+1})
             int left = BIGI, right = BIGI;
             if (s < jj) {   // forced forward from s (only a1 alive) to jj-1
@@ -104,6 +106,10 @@ int main(int argc, char **argv) {
     e = malloc((size_t)NOPT * NOPT);
     #pragma omp parallel for schedule(dynamic, 16)
     for (int a = 0; a < NOPT; a++) for (int b = 0; b < NOPT; b++) e[(size_t)a * NOPT + b] = (int8_t)(wgt(oex[a], oen[b]) - ocut[b] - 1);
+    #pragma omp parallel for schedule(dynamic, 1)
+    for (int t = 0; t < NTR; t++) { hinT[t] = malloc(NOPT); houtT[t] = malloc(NOPT);
+        for (int o = 0; o < NOPT; o++) { int mi = 127, mo = 127; if (otr[o] != t) for (int q = 0; q < tcnt[t]; q++) { int x = tofs[t] + q; int a = E(x, o), b = E(o, x); if (a < mi) mi = a; if (b < mo) mo = b; }
+            hinT[t][o] = (uint8_t)(mi < 0 ? 0 : mi); houtT[t][o] = (uint8_t)(mo < 0 ? 0 : mo); } }
     // full chains and their mid runs
     long nmid = 0;
     for (int o = 0; o < NOPT; o++) { rin[o] = rout[o] = -1; int t = otr[o], v = over_[o], m = mrun[t][v], k = okk[o]; const uint8_t *V = runp[t][v];
@@ -132,7 +138,7 @@ int main(int argc, char **argv) {
         int sq[NTR]; pbest = BIGI; expand(0, sq, 0, -1); npat++;
         #pragma omp critical
         { if (pbest < bestG) bestG = pbest; if (pbest < 64) hist[pbest]++; done++;
-          if (done % 50000 == 0) fprintf(stderr, "patterns %ld / %ld, best G %d, %.1fs\n", done, nl, bestG, omp_get_wtime() - T0); } }
+          if (done % 200 == 0) fprintf(stderr, "patterns %ld / %ld, best G %d, %.1fs\n", done, nl, bestG, omp_get_wtime() - T0); } }
     fclose(in); fclose(wit);
     FILE *fo = fopen(outp, "w");
     fprintf(fo, "{\"checker\": \"excise_eval\", \"THRG\": %d, \"patterns\": %ld, \"sequences\": %ld, \"candidates\": %ld, \"best_G_found_le_THRG\": %d, \"G_hist_over_patterns\": {", THRG, npat, nseq, ncand, bestG < BIGI ? bestG : -1);
