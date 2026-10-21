@@ -1,0 +1,139 @@
+{
+ "note": "exact second-bracket neighbourhoods of the two G = 21 single splits (all options re-optimised; pruning by valid lower bounds only); a THRG run lists every move with G <= THRG",
+ "one_block": {
+  "tool": "rQ/csrc/bracket2_ls.c (block B = contiguous, length <= 12, of the path, closed through a second split trail S2)",
+  "base0_THRG21": {
+   "file": "br_base0_21.json",
+   "moves": 13576,
+   "exact_evaluations": 0,
+   "passed_bound": null,
+   "best_G_le_THRG": -1,
+   "candidates": 0,
+   "G_hist": {},
+   "sec": 15.5,
+   "best": []
+  },
+  "base0_THRG23": {
+   "file": "br_base0_23.json",
+   "moves": 13576,
+   "exact_evaluations": 880,
+   "passed_bound": null,
+   "best_G_le_THRG": 22,
+   "candidates": 880,
+   "G_hist": {
+    "23": 752,
+    "22": 128
+   },
+   "sec": 42.4,
+   "best": [
+    {
+     "G": 22,
+     "S2": 15,
+     "s2": 14,
+     "block": [
+      15,
+      18
+     ],
+     "v1": 0,
+     "b1": 16,
+     "v2": 0,
+     "b2": 61,
+     "path": 18,
+     "C1": 1,
+     "C2": 1
+    }
+   ]
+  },
+  "base1_THRG22": {
+   "file": "br_base1_22.json",
+   "moves": 13576,
+   "exact_evaluations": 416,
+   "passed_bound": null,
+   "best_G_le_THRG": 22,
+   "candidates": 416,
+   "G_hist": {
+    "22": 416
+   },
+   "sec": 9.9,
+   "best": [
+    {
+     "G": 22,
+     "S2": 28,
+     "s2": 3,
+     "block": [
+      16,
+      18
+     ],
+     "v1": 0,
+     "b1": 16,
+     "v2": 0,
+     "b2": 95,
+     "path": 17,
+     "C1": 1,
+     "C2": 2
+    }
+   ]
+  }
+ },
+ "two_blocks": {
+  "tool": "rQ/csrc/bracket2seg_ls.c (two disjoint blocks B1, B2 of the path, lengths <= 4, both cycle orders)",
+  "base0_THRG21": {
+   "file": "brseg_base0_21.json",
+   "moves": 244000,
+   "exact_evaluations": 0,
+   "passed_bound": 121712,
+   "best_G_le_THRG": -1,
+   "candidates": 0,
+   "G_hist": {},
+   "sec": 117.8,
+   "best": []
+  },
+  "base1_THRG21": {
+   "file": "brseg_base1_21.json",
+   "moves": 244000,
+   "exact_evaluations": 0,
+   "passed_bound": 121544,
+   "best_G_le_THRG": -1,
+   "candidates": 0,
+   "G_hist": {},
+   "sec": 60.4,
+   "best": []
+  },
+  "base0_THRG23": {
+   "file": "brseg_base0_23.json",
+   "moves": 244000,
+   "exact_evaluations": 416,
+   "passed_bound": 197080,
+   "best_G_le_THRG": 23,
+   "candidates": 416,
+   "G_hist": {
+    "23": 416
+   },
+   "sec": 202.2,
+   "best": [
+    {
+     "G": 23,
+     "S2": 28,
+     "s2": 15,
+     "B1": [
+      14,
+      14
+     ],
+     "B2": [
+      16,
+      18
+     ],
+     "cycle_order": 1,
+     "v1": 0,
+     "b1": 16,
+     "v2": 0,
+     "b2": 95,
+     "path": 19,
+     "C1": 1,
+     "C2": 1
+    }
+   ]
+  }
+ },
+ "conclusion": "no second bracket of these kinds gives G <= 21; best one-block G = 22, best two-block G = 23"
+}

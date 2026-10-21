@@ -43,10 +43,14 @@
      * 최소 22는 E4 등호 단어가 실현한다.
   5. **건너뛰기 방문**(한 trail 3조각·방문 2개, 도약 E′ ≥ 0)도 모두 G ≥ 22이다.
      * F_J ≤ 20인 수열 86,124개 전부가 정확한 삽입 하한만으로 닫혔다(남은 후보 0개).
-  6. 4와 5와 정리 Q7을 합치면 **P ≤ 32이고 V ≤ 31인 다중 개방 가족의 정확한 최적값은 46183(G = 21)이다.** 최적은 조각 2개 분할뿐이다.
+  6. 다음을 합치면 **P ≤ 32이고 V ≤ 31인 다중 개방 가족의 정확한 최적값은 46183(G = 21)이다.** 최적은 조각 2개 분할뿐이다.
+     * P = 30은 Round P(G ≥ 22)이다.
+     * P = 31은 정리 Q6(G ≥ 21)이다. 2조각 단일 방문은 없으므로 V = 31뿐이다.
+     * P = 32, V = 30은 정리 Q7(G ≥ 22)이다.
+     * P = 32, V = 31은 한 trail 3조각·방문 2개뿐이다. 감싸기이면 4, 도약 E′ ≥ 0이면 5에 따라 G ≥ 22이다.
 * **46182(J ≤ 97)는 찾지 못했다.**
   * 새 단어는 완전 3-opt 국소 최적이다(구간 이동 ≤ 2520 run, 인접 교환).
-  * 두 번째 괄호(trail 하나를 더 나눠 다른 구간을 끼우기)의 정확 이웃 27,152개에서 최선은 G = 22이다.
+  * 두 번째 괄호(trail 하나를 더 나눠 다른 구간을 끼우기)의 정확 이웃에서 최선은 G = 22이다(한 블록 27,152개). 두 블록 괄호 488,000개에서는 G = 23이 최선이다.
 * **정정 세 가지**(§11.1).
   * (a) 중간 커밋의 "다중 개방 46184 절제 단어"는 퇴화 이동(단일 개방)이었다.
   * (b) 이음매 보조정리는 거짓이다.
@@ -350,11 +354,17 @@
 ### 6.6 46182를 향한 국소 탐색
 
 * **완전 3-opt**(`runls.c`, 구간 이동 ≤ 2520 run + 인접 교환, 최선 개선 하강): 새 단어에서 최선 Δ = 0이다(`full3opt_46183_word.log`).
-  * run 수준에서 "다른 trail 하나를 잘라 구간을 끼우기"(두 번째 괄호)는 구간 이동 하나이다. 그러므로 고정 선택지의 두 번째 괄호는 모두 개선하지 못한다.
+  * run 수준에서 "다른 trail 하나를 잘라 구간을 끼우기"(두 번째 괄호)는 구간 이동 하나이다. 그러므로 다른 trail들의 선택지를 고정한 채 구간(≤ 2520 run)을 끼우는 두 번째 괄호는 모두 개선하지 못한다.
 * **두 번째 괄호의 정확 이웃**(`bracket2_ls.c`, 모든 선택지 재최적화).
   * 경로 P의 연속 블록 B(길이 ≤ 12)를 두 번째 분할 trail S2의 괄호 안 순환으로 옮긴다.
   * G = 2 + 경로(P − B) + C1 + C2를 정확히 최소화한다. 가지치기는 유효 하한만 쓴다.
   * G = 21 두 기반에서 각각 13,576개 이동을 보았다. 최선은 G = 22이다(예: S2 = 15, B = 28 18 10 9, 경로 18 + C1 1 + C2 1).
+* **두 블록 괄호의 정확 이웃**(`bracket2seg_ls.c`). 46183 단어가 단어 a에서 생긴 방식(떨어진 두 블록을 한 괄호로)을 한 번 더 적용한다.
+  * 경로의 떨어진 두 블록 B1, B2(길이 ≤ 4)를 두 번째 분할 trail S2의 괄호 안 순환(두 순서 모두)으로 옮긴다.
+  * 기반마다 244,000개 이동이다. 하한은 남은 세 구간의 정확 최소 + 블록 내부 최소 + 삽입 변 최소이다.
+  * THRG 21에서는 두 기반 모두 정확 평가까지 남은 이동이 없었다.
+  * 대조 실행(THRG 23)은 후보 416개를 내고, 최선은 G = 23이다(예: S2 = 28, B1 = trail 15, B2 = 18 10 9).
+  * 요약: `second_bracket_local_search.json`.
 * **J ≤ 97의 상태: 미결.**
   * 정리 Q6, Q7과 §6.4–6.5가 닫은 부분 가족에는 G ≤ 20 단어가 없다.
   * 괄호 둘(V = 32) 이상의 가족은 국소 탐색만 했다.
@@ -363,7 +373,7 @@
 
 ## 7. 다중 개방을 포함한 가족 최적값 (항목 7)
 
-* 상한: **46183**(J = 98). 새 단어 두 개와 그 대칭 이미지 24개이다.
+* 상한: **46183**(J = 98). 서로 동치가 아닌 새 단어 두 개가 있고, 대칭 이미지까지 세면 24개이다.
 * 하한: 이 가족 전체의 엄밀한 하한은 다음뿐이다.
   * 전역 r = 0 하한 46128(Round K/L).
   * 판본별 run 수준 LP(J ≥ 59–65).
@@ -389,7 +399,7 @@
 | 회전 사슬 절제 이웃, 범주별(퇴화 제외) | 단어 a–d, F ≤ 23 순서 1656개(13,910,400개 이동) | Δ < 0 없음 |
 | 조각 2개 분할 국소 탐침(Round P 290,580/단어 + 인접 블록 20,880개) | 최적 순서 근방 | 최선 G = 24 |
 | **조각 2개 분할 전역**(이음매 탐색 + 정확 평가) | 모든 순서·선택지 | **G = 21 발견 → 46183** |
-| 완전 3-opt, 두 번째 괄호 정확 이웃 | 새 46183 단어 | 개선 없음(최선 G = 21 / 22) |
+| 완전 3-opt, 두 번째 괄호 정확 이웃(한 블록 27,152개, 두 블록 488,000개) | 새 46183 단어 | 개선 없음(3-opt Δ = 0, 괄호 최선 G = 22 / 23) |
 
 * 국소 탐침(최적 순서 근방의 인접 블록)이 놓친 이유: 46183 단어의 순서는 F = 22 순서가 아니다.
   * 경로(26 trail)는 단일 개방 최적과 다른 순서이다.
@@ -440,7 +450,7 @@
 | 단일 절제 E1 | 브리지 `ckT.c` → 브리지 `ckT_search.c` → `excise_eval.c` | hin/hout 두 구현 일치, 대칭 불변, 추적·종단 시험 | `excision_bridged_search_thr21.*`, `excision_E1_exact_thr21.json` |
 | 단일 절제 E2 | `excise_start.py` | Lean `excision_at_start` | `excision_case_E2_start.json` |
 | 건너뛰기 가족 | `split_eval` 패턴 → `skip_eval.c` | 실제 단어 5개로 공식 검사, 예산 안 수열 수가 `split_eval`과 일치 | `skip_family_exact_thr20.json` |
-| 적대적·국소 탐색 | `runls.c`, `order_excise.c`, `excision_classes.py`, `bracket2_ls.c`, LKH | Δ < 0은 처음부터 재계산 | `full3opt_*.log`, `excision_*classes*.json`, `lkh_*.log` |
+| 적대적·국소 탐색 | `runls.c`, `order_excise.c`, `excision_classes.py`, `bracket2_ls.c`, `bracket2seg_ls.c`, LKH | Δ < 0은 처음부터 재계산, 괄호 탐색은 느슨한 THRG 대조 실행 | `full3opt_*.log`, `excision_*classes*.json`, `second_bracket_local_search.json`, `lkh_*.log` |
 
 ### 11.1 오류와 정정
 
@@ -514,6 +524,7 @@
     # local searches
     python3 $Q/src/word_starts.py w.txt w.bin; gcc -O3 -fopenmp -o $SP/runls $Q/csrc/runls.c; $SP/runls w.bin 2520 1 1
     gcc -O3 -march=native -fopenmp -o $SP/bracket2_ls $Q/csrc/bracket2_ls.c; $SP/bracket2_ls $SP/ckB base.json 21 out.json
+    gcc -O3 -march=native -fopenmp -o $SP/bracket2seg_ls $Q/csrc/bracket2seg_ls.c; $SP/bracket2seg_ls $SP/ckB base.json 21 4 out.json
     python3 $Q/src/excision_classes.py WORD rM/certs/family_46187.json out.json; python3 $Q/src/word_pieces.py WORD rM/certs/family_46187.json
     lean $Q/lean/MultiOpening.lean
 
