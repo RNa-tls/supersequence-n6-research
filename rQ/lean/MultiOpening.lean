@@ -177,6 +177,13 @@ theorem skip_decomposition (c1 : Int) (eS : List Int) (r1 r2 Ep J : Int) (hcount
     (hJ : J = 48 + (3 - c1) + (isum eS + eS.length) + (r1 + 1) + (r2 + 1) + Ep) :
     J = 77 + (1 + Ep + ((3 - c1) + isum eS) + (r1 + r2)) := by omega
 
+/-- Two disjoint brackets (two split trails, 32 fragments, 31 boundaries, all cross-trail): the path edges eP and the two
+    cycles' edges eC1, eC2 (each cycle closed through its split vertex).  J = 77 + G, G = 2 + ([c1 = 2] + Σ eP) + Σ eC1 + Σ eC2. -/
+theorem two_bracket_decomposition (c1 : Int) (eP eC1 eC2 : List Int) (J : Int)
+    (hcount : eP.length + eC1.length + eC2.length = 31)
+    (hJ : J = 48 + (3 - c1) + (isum eP + eP.length) + (isum eC1 + eC1.length) + (isum eC2 + eC2.length)) :
+    J = 77 + (2 + ((3 - c1) + isum eP) + isum eC1 + isum eC2) := by omega
+
 /-- junction lemma consequences: if every junction sequence has F_J ≥ 21 then (a) a single split has G ≥ 22,
     (b) a 2-visit 3-piece trail whose jump has E' ≥ 0 has G ≥ 22, (c) a rotated-chain excision (E' = -1) has
     G ≥ 21, with G = 21 only if F_J = 21 and both edges of the remainder have e = 0. -/

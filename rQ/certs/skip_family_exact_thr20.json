@@ -1,0 +1,62 @@
+{
+ "checker": "skip_eval (one trail in 3 pieces, 2 visits, jump E' >= 0; patterns of the junction search THR 20)",
+ "THRG": 21,
+ "patterns": 231996,
+ "sequences": 1140270,
+ "sequences_within_budget": 86124,
+ "closed_by_insertion_bound": 86124,
+ "anchor_candidates": 0,
+ "witnesses_G_le_21": 0,
+ "bound": "G = 1 + E' + lft(alpha) + rgt(beta) >= 1 + E' + L0(alpha) + R0(beta), L0(alpha) = min_x fw[j-1][x] + e(x -> T(alpha)), R0(beta) = min_y e(T(beta) -> y) + bw[j][y]; jump pairs with E' > THRG-1-minP-minZ already exceed THRG",
+ "note": "every within-budget sequence (exact F_J <= 20) is closed by the bound for every trail position and version: no member with G <= 21",
+ "chunks": [
+  {
+   "checker": "skip_eval",
+   "THRG": 21,
+   "patterns": 58234,
+   "sequences": 298212,
+   "sequences_within_budget": 19286,
+   "closed_by_insertion_bound": 19286,
+   "anchor_candidates": 0,
+   "best_G_found_le_THRG": -1,
+   "G_hist_over_patterns": {},
+   "sec": 2178.9
+  },
+  {
+   "checker": "skip_eval",
+   "THRG": 21,
+   "patterns": 57760,
+   "sequences": 269861,
+   "sequences_within_budget": 23412,
+   "closed_by_insertion_bound": 23412,
+   "anchor_candidates": 0,
+   "best_G_found_le_THRG": -1,
+   "G_hist_over_patterns": {},
+   "sec": 2044.3
+  },
+  {
+   "checker": "skip_eval",
+   "THRG": 21,
+   "patterns": 58122,
+   "sequences": 297786,
+   "sequences_within_budget": 20789,
+   "closed_by_insertion_bound": 20789,
+   "anchor_candidates": 0,
+   "best_G_found_le_THRG": -1,
+   "G_hist_over_patterns": {},
+   "sec": 2193.3
+  },
+  {
+   "checker": "skip_eval",
+   "THRG": 21,
+   "patterns": 57880,
+   "sequences": 274411,
+   "sequences_within_budget": 22637,
+   "closed_by_insertion_bound": 22637,
+   "anchor_candidates": 0,
+   "best_G_found_le_THRG": -1,
+   "G_hist_over_patterns": {},
+   "sec": 2070.0
+  }
+ ]
+}

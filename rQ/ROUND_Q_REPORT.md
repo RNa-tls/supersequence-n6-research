@@ -25,7 +25,7 @@
 * **조각 2개 분할 가족의 정확한 최적값은 G = 21, 곧 길이 46183이다(정리 Q6).**
   * 이음매 탐색(THR 20)이 F_J ≤ 20인 모든 (순서, 이음매)를 패턴 231,996개로 냈다.
   * 정확 평가(`split_eval.c`)가 펼친 수열 1,140,270개를 모두 계산했다.
-  * G ≤ 20인 분할은 없고, G = 21인 분할은 같은 구조의 두 순서뿐이다(대칭 이미지 제외).
+  * G ≤ 20인 분할은 없다. G = 21인 배치(순서, 이음매, 닻)는 12개이고, 가족 대칭군 아래 크기 6인 궤도 두 개를 이룬다.
 * **이음매 최소값은 F_J = 18이다.**
   * THR 17 탐색이 빈 결과이고, `fj_orders.c`가 F_J = 18인 (순서, 이음매)를 보였다.
   * 곧 변 하나를 빼면 최대 4를 아낄 수 있다.
@@ -36,12 +36,14 @@
      * φ trail의 모든 단일 방문.
      * A trail의 조각 ≤ 4개 단일 방문(3조각 1.81 × 10⁹개 방문, 4조각 두 순서 전부).
      * 따름정리: V = 30(모든 trail을 한 번만 방문)이고 A trail마다 조각 ≤ 4개이면 G ≥ 22이다.
-     * 곧 46183을 얻으려면 trail을 **두 번 이상 방문**해야 한다. 새 단어가 바로 그렇다.
+     * 곧 G ≤ 21(길이 ≤ 46183)이려면 trail 하나를 **두 번 이상 방문**하거나, A trail 하나를 조각 ≥ 5개로 한 번에 돌아야 한다(후자는 미결). 새 단어는 전자이다.
   3. **등호 다중 개방 46184 단어**(P = 32, V = 30)가 있다. φ trail 17, A trail 29를 각각 3조각으로 한 번에 도는 단어이다.
   4. **회전 사슬 절제**(감싸기 도약을 쓰는 방문 2개)는 모두 G ≥ 22이다(E1–E4).
      * E1(나머지가 다른 두 trail 사이)은 브리지 탐색 + 정확 평가로 닫았다. 패턴 7404개, 수열 32,154개, 후보 1440개에서 최소 G = 23이다.
      * 최소 22는 E4 등호 단어가 실현한다.
-  5. **건너뛰기 방문**(한 trail 3조각·방문 2개, 도약 E′ ≥ 0): ⟨skip⟩
+  5. **건너뛰기 방문**(한 trail 3조각·방문 2개, 도약 E′ ≥ 0)도 모두 G ≥ 22이다.
+     * F_J ≤ 20인 수열 86,124개 전부가 정확한 삽입 하한만으로 닫혔다(남은 후보 0개).
+  6. 4와 5와 정리 Q7을 합치면 **P ≤ 32이고 V ≤ 31인 다중 개방 가족의 정확한 최적값은 46183(G = 21)이다.** 최적은 조각 2개 분할뿐이다.
 * **46182(J ≤ 97)는 찾지 못했다.**
   * 새 단어는 완전 3-opt 국소 최적이다(구간 이동 ≤ 2520 run, 인접 교환).
   * 두 번째 괄호(trail 하나를 더 나눠 다른 구간을 끼우기)의 정확 이웃 27,152개에서 최선은 G = 22이다.
@@ -237,7 +239,7 @@
 | 31 | 31 | 조각 2개 분할(괄호 하나) | **21** (46183) | 정리 Q6 |
 | 32 | 30 | 한 trail 3조각 단일 방문 | ≥ 22 | 정리 Q7 |
 | 32 | 31 | 한 trail 3조각, 방문 2개, 감싸기(회전 사슬 절제) | ≥ 22 (E1 후보 최소 23) | §6.4 |
-| 32 | 31 | 한 trail 3조각, 방문 2개, 도약 E′ ≥ 0(건너뛰기) | ⟨skip⟩ | §6.5 |
+| 32 | 31 | 한 trail 3조각, 방문 2개, 도약 E′ ≥ 0(건너뛰기) | ≥ 22 (후보 0) | §6.5 |
 | 32 | 32 | 괄호 둘(trail 두 개 분할) 또는 한 trail 3방문 | 미결(국소 최선 22) | §6.6 |
 | 33 | 30 | 한 trail 4조각 단일 방문 | ≥ 22 | 정리 Q7 |
 | 임의 | 30 | A trail마다 조각 ≤ 4개 | ≥ 22 | 정리 Q7 |
@@ -309,7 +311,8 @@
 ### 6.3 단일 방문 재경로
 
 * φ: 모든 단일 방문이 지배된다. A: 조각 ≤ 4개 단일 방문이 모두 지배된다(§3).
-* 그러므로 46183보다 짧은 단어(또는 46184 이하의 새 단어)는 trail 하나를 두 번 이상 방문해야 한다. 예외는 A trail을 조각 ≥ 5개로 한 번에 도는 경우이다(미결).
+* 그러므로 길이 ≤ 46183인 단어는 trail 하나를 두 번 이상 방문해야 한다(V ≥ 31). 예외는 A trail 하나를 조각 ≥ 5개로 한 번에 도는 경우이고, 이 경우는 미결이다.
+* 46183 단어는 V = 31이다. 46182 이하 단어가 있다면 역시 V ≥ 31이거나 위 예외에 속한다.
 
 ### 6.4 단일 회전 사슬 절제(E1–E4)
 
@@ -335,7 +338,14 @@
   * 평가기 `skip_eval.c`의 값은 같은 배치에서 실제 단어 값 이하이고, 3개에서는 같았다.
 * 건너뛴 조각이 맨 앞이면 G ≥ F ≥ 22, 맨 끝이면 G ≥ 1 + F이다. 방문과 이웃하면 3조각 단일 방문(정리 Q7)이다.
 * G ≤ 21이면 F_J ≤ 20이므로, THR 20 패턴(§6.2)이 모든 후보를 담는다.
-* 결과: ⟨skip⟩
+* 결과(`skip_family_exact_thr20.json`): THR 20 패턴 231,996개를 펼친 수열 1,140,270개를 4 덩어리로 계산했다.
+  * 예산 안 수열(정확한 F_J ≤ 20)은 86,124개로, `split_eval`의 수와 정확히 같다(두 구현의 F_J 교차 확인).
+  * 하한은 다음과 같다.
+    * L0(α) = min_x [앞 부분 최소 비용(x에서 끝) + e(x → T(α))].
+    * R0(β) = min_y [e(T(β) → y) + 뒤 부분 최소 비용(y에서 시작)].
+    * G ≥ 1 + E′ + L0(α) + R0(β)이다. 닻을 고정하면 비용이 늘기만 하므로 유효하다.
+  * 이 하한만으로 86,124개 수열 전부가 모든 trail 위치와 판본에서 G > 21로 닫혔다. 남은 닻 후보는 0개이다.
+  * 따라서 건너뛰기 가족은 G ≥ 22이다.
 
 ### 6.6 46182를 향한 국소 탐색
 
@@ -362,7 +372,8 @@
   * 단일 개방: 46184(Round P).
   * 조각 2개 분할: **46183**(정리 Q6)
   * V = 30이고 A trail마다 조각 ≤ 4개: 46184(정리 Q7, E4 등호 단어).
-  * P = 32이고 V = 31(한 trail 3조각·방문 2개): ⟨P32⟩
+  * P = 32이고 V = 31(한 trail 3조각·방문 2개): G ≥ 22(감싸기 E1–E3, 건너뛰기).
+  * **P ≤ 32이고 V ≤ 31인 다중 개방 전체: 46183**(G = 21, 최적은 조각 2개 분할의 두 궤도뿐).
 
 ---
 
@@ -428,7 +439,7 @@
 | 조각 2개 분할 최적 21 | `ckT.c` → `ckT_search.c` → `split_eval.c` | 추적 시험, 종단 시험, 증인 재구성 | `single_split_exact_thr20.json` |
 | 단일 절제 E1 | 브리지 `ckT.c` → 브리지 `ckT_search.c` → `excise_eval.c` | hin/hout 두 구현 일치, 대칭 불변, 추적·종단 시험 | `excision_bridged_search_thr21.*`, `excision_E1_exact_thr21.json` |
 | 단일 절제 E2 | `excise_start.py` | Lean `excision_at_start` | `excision_case_E2_start.json` |
-| 건너뛰기 가족 | `split_eval` 패턴 → `skip_eval.c` | 실제 단어 5개로 공식 검사 | ⟨skip⟩ |
+| 건너뛰기 가족 | `split_eval` 패턴 → `skip_eval.c` | 실제 단어 5개로 공식 검사, 예산 안 수열 수가 `split_eval`과 일치 | `skip_family_exact_thr20.json` |
 | 적대적·국소 탐색 | `runls.c`, `order_excise.c`, `excision_classes.py`, `bracket2_ls.c`, LKH | Δ < 0은 처음부터 재계산 | `full3opt_*.log`, `excision_*classes*.json`, `lkh_*.log` |
 
 ### 11.1 오류와 정정
@@ -460,12 +471,12 @@
 `rQ/lean/MultiOpening.lean`은 Lean 4.22 core로 작성했다. Mathlib은 쓰지 않는다.
 
 * `lean MultiOpening.lean`이 오류 없이 끝난다.
-* `#print axioms`(정리 23개)는 `propext`, `Quot.sound`, 일부에서 `Classical.choice`뿐이다. 순서 열거 두 개는 공리를 쓰지 않는다(`rQ/certs/lean_axioms_Q.txt`).
+* `#print axioms`(정리 24개)는 `propext`, `Quot.sound`, 일부에서 `Classical.choice`뿐이다. 순서 열거 두 개는 공리를 쓰지 않는다(`rQ/certs/lean_axioms_Q.txt`).
 * sorry, admit, 사용자 공리는 없다.
 * 정리:
   * `isum_bterms`, `J_identity`, `cut_sum`, `J_c2form`: 다중 개방 항등식.
   * `jumps_ge`, `visit_kappa_ge_last`, `visit_kappa_nonneg`, `visit_jumps_ge_neg_one`: 방문 보조정리 Q3.
-  * `zero_penalty_rotation`, `single_split_decomposition`, `excision_decomposition`, `excision_at_start`, `skip_decomposition`: 분해 정리.
+  * `zero_penalty_rotation`, `single_split_decomposition`, `two_bracket_decomposition`, `excision_decomposition`, `excision_at_start`, `skip_decomposition`: 분해 정리(`two_bracket_decomposition`은 `bracket2_ls.c`의 G = 2 + 경로 + C1 + C2).
   * `junction_consequences`: 이음매 하한에서 G 하한으로 가는 산술(가정 F_J ≥ 21 꼴로 적었다). 실제 최소 F_J는 18이므로 이 정리를 직접 쓰지 않는다. 정확 평가가 대신한다.
   * `two_piece_orders`, `three_piece_orders`, `four_piece_orders`: 조각 ≤ 4개 단일 방문 순서의 완전 열거(`decide`).
   * `extra_pieces_le3`: V = 30, 추가 조각 ≤ 3이면 trail 하나만 3–4조각.
