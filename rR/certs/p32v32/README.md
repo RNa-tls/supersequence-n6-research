@@ -10,10 +10,17 @@ Claim: no route of the 6A + 24phi multi-opening family with P = 32 pieces and V 
   search `ckM2_search.c`, exact evaluation `ckM_eval.c` of every emitted pattern.  Files here:
   * `ckM2_build.log` -- table build (root 16);
   * `search_thr20.json`, `search_thr20.log` -- forward search and pattern emission (symmetry closure check);
-  * `eval_thr20_summary.json` -- exact evaluation of all patterns (sum over chunks);
-  * `patterns_sha256.txt` -- sha256 of the concatenated pattern file (not stored: size);
-  * `traces.txt` -- completeness traces;
-  * `planted_mutation.txt` -- planted G = 20 configurations (c = 1 and c = 2) found by the mutated pipeline.
+  * `eval_thr20_summary.json` -- exact evaluation of all 759,270 patterns (2,960,139 configurations, none passes stage B);
+  * `patterns_sha256.txt` -- sha256 of the sorted pattern set (not stored: 70 MB; the emission order depends on threads);
+  * `traces.txt`, `trace_jobs.json` -- completeness traces (19 configurations + 3 earlier ones, all kept);
+  * `c1_crosscheck_thr21.json` -- the c = 1 patterns at THRG 21: exactly Round Q's two G = 21 orbits, no G <= 20;
+  * `planted_mutation.txt` -- planted mutation (24 arcs lowered, symmetric): rebuilt tables, both planted configurations
+    (c = 1 and c = 2) kept by the traces at THR 20 and evaluated exactly to G = 19 under the mutation;
+  * `planted_mutation_full19_*` -- the full pipeline under the mutation (symmetry-reduced search at THR 19 + exact
+    evaluation): 135,437 patterns, 10 configurations at G = 19, among them images of both planted configurations under
+    the family group; with the original e the same patterns give nothing at G <= 20 (`..._eval_original_e.json`);
+  * `planted_mutation_full20_partial.log` -- the full mutated search at THR 20 was stopped by the 2-hour job limit at
+    layer 11 (5.85 M states, about 2.5 times the unmutated run); it was not restarted.
 
 Reproduction (scratchpad paths as in the logs):
 

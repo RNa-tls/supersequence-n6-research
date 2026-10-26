@@ -40,3 +40,21 @@ eval a (original e): {"checker": "M-eval", "THRG": 30, "patterns": 1, "configura
 trace c2: lost 0 | final: minimum 19, final states <= THR 1, (state, option) solutions 14
 eval c2 (mutated e): {"checker": "M-eval", "THRG": 20, "patterns": 1, "configurations": 1, "stageA_pass": 1, "stageB_pass": 1, "stageC_evaluated": 1, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 0, "min_G_exact": 19, "G_hist": {"19": 1}, "sec": 1.7}
 eval c2 (original e): {"checker": "M-eval", "THRG": 30, "patterns": 1, "configurations": 1, "stageA_pass": 1, "stageB_pass": 1, "stageC_evaluated": 1, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 3, "min_G_exact": 22, "G_hist": {"22": 1}, "sec": 1.7}
+
+# full pipeline under the mutation (symmetry-reduced search + exact evaluation), THR 19
+# (the full THR-20 mutated search did not fit the 2-hour job limit: planted_mutation_full20_partial.log stops at layer 11;
+#  at THR 19 both planted configurations, which have G = 19 under the mutation, are still inside the threshold)
+search: wall time 8 min 38 s (4 threads)
+final: minimum 17, final states <= THR 678, (state, option) solutions 8880
+symmetry closure check: every image of every final state <= THR is a final state <= THR
+final states expanded (canonical under the trail symmetries) 184, skipped (images) 884; patterns: 135437
+{"checker": "M2-search", "THR": 19, "minimum_bound_G": 17, "final_states_le_thr": 678, "patterns": 135437, "table_misses": 0, "sec": 517.3}
+patterns_sorted_sha256 b09f68ffb9363fff2693acafc5876e42fda85c8eaa3f51a629d3b77509b2f6fa
+eval (mutated e, THRG 19): {"checker": "M-eval", "THRG": 19, "patterns": 135437, "configurations": 380902, "stageA_pass": 15775, "stageB_pass": 10, "stageC_evaluated": 10, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 0, "min_G_exact": 19, "G_hist": {"19": 10}, "sec": 217.1}
+eval (original e, THRG 20): {"checker": "M-eval", "THRG": 20, "patterns": 135437, "configurations": 380902, "stageA_pass": 16699, "stageB_pass": 0, "stageC_evaluated": 0, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 0, "min_G_exact": -1, "G_hist": {}, "sec": 300.3}
+orbit check (trail-level image under the 12-element family group, planted_mutation_full19_witnesses.jsonl):
+  planted a (c = 1, G 21 -> 19): images = witness 8 (group elements 1, 7)
+  planted c2 (c = 2, G 22 -> 19): images = witnesses 0 and 1 (group elements 5, 11 and 1, 7)
+  the other 7 witnesses are further configurations through the lowered arcs (with the original e every one of the
+  135437 patterns is excluded at THRG 20, stage B pass 0)
+result: PASS -- the full pipeline returns both planted orbits at their mutated G and nothing at G <= 20 without the mutation

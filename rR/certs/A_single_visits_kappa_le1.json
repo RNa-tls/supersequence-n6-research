@@ -194,5 +194,35 @@
   },
   "symmetry": "the family group acts transitively on the 12 A trail-versions (orbit of (1,0) = all 12, version cycles mapped in order), so the result holds for every A version"
  },
- "theorem_R9c": "every A single visit with kappa <= 2 (any number of pieces) is dominated by a single piece (max gain 0)"
+ "theorem_R9c": "every A single visit with kappa <= 2 (any number of pieces) is dominated by a single piece (max gain 0)",
+ "kappa_le3": {
+  "program": "rR/csrc/kappa_dfs.c (B = 3); tables for B = 0, 1, 2, 3 are mutually consistent (the B = 3 table restricted to kappa <= k equals the B = k table for k = 0, 1, 2) and B <= 1 is byte-identical to the Python enumerations",
+  "trail": 1,
+  "version": 0,
+  "paths_by_kappa": [
+   104,
+   740,
+   1268,
+   7264
+  ],
+  "nonstandard_pairs_by_least_kappa": [
+   0,
+   168,
+   788,
+   3304
+  ],
+  "dfs_nodes": 124984254488,
+  "sec_4_threads": 2345.4,
+  "dominance": {
+   "program": "rQ/csrc/dominance.c, DOM_BOTH = 1",
+   "checked": 4260,
+   "undominated": 0,
+   "max_gain": 0,
+   "max_slack_any_pair": 6,
+   "file": "rR/certs/A_single_visits_kappa_le3_t1v0_dominance.json"
+  },
+  "symmetry": "the family group acts transitively on the 12 A trail-versions (orbit of (1,0) = all 12, version cycles mapped in order), so the result holds for every A version"
+ },
+ "theorem_R9d": "every A single visit with kappa <= 3 (any number of pieces) is dominated by a single piece (max gain 0)",
+ "open": "kappa = 4, 5: a visit with kappa >= 6 is dominated automatically (max slack over all (entry, exit) pairs = 6, start and end contexts included)"
 }
