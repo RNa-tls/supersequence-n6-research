@@ -1,0 +1,42 @@
+# planted mutation test (Round R, section 21)
+# mutation (CKB_MUT): two symmetric orbits of arcs lowered by 1 (24 arcs)
+1610 360 2
+1652 1032 2
+1715 7843 2
+1757 8515 2
+3444 5995 2
+3486 6667 2
+5306 4056 2
+5348 4728 2
+5411 9187 2
+5453 9859 2
+7140 2299 2
+7182 2971 2
+1776 1884 0
+1818 1926 0
+3365 3277 0
+3407 3319 0
+3540 3648 0
+3582 3690 0
+5472 5580 0
+5514 5622 0
+7061 6973 0
+7103 7015 0
+7236 7344 0
+7278 7386 0
+
+# planted configurations
+{"arc_index": 9, "arc": [1610, 360], "e_old": 3, "e_new": 2, "images": [[1610, 360], [1652, 1032], [1715, 7843], [1757, 8515], [3444, 5995], [3486, 6667], [5306, 4056], [5348, 4728], [5411, 9187], [5453, 9859], [7140, 2299], [7182, 2971]], "G_config_before": 21, "G_config_after": 20, "P_options": [1526, 1701, 7315, 5572, 5390, 5223, 9351, 1853, 1771, 1610, 360, 37, 5841, 3708, 4198, 7764, 5313, 3395, 3283, 5481, 5152, 1463, 7252, 6972, 7056, 7140], "Z_options": [1943, 3481, 3552, 3630], "anchors": [5841, 5644], "second": {"arc": [3365, 3277], "e_old": 1, "e_new": 0, "images": [[1776, 1884], [1818, 1926], [3365, 3277], [3407, 3319], [3540, 3648], [3582, 3690], [5472, 5580], [5514, 5622], [7061, 6973], [7103, 7015], [7236, 7344], [7278, 7386]], "config": "two-bracket P32V32 (G 22 -> 20)"}}
+
+# mutated table build
+mutations applied: 24
+hin hist 6060 3108 912, hout hist 5568 3900 612, least over A options: hin 0 hout 0, group violations 0
+{"checker": "M2", "max_cycles": 2, "relaxed_min_G_P_has_phi": 15, "relaxed_min_G_P_A_only": 19, "relaxed_G_lower_bound": 15, "loop1A": 3, "AZ2": 0, "sec": 3053.7}
+
+# traces and exact evaluations
+trace a: lost 0 | final: minimum 19, final states <= THR 1, (state, option) solutions 14
+eval a (mutated e): {"checker": "M-eval", "THRG": 20, "patterns": 1, "configurations": 1, "stageA_pass": 1, "stageB_pass": 1, "stageC_evaluated": 1, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 0, "min_G_exact": 19, "G_hist": {"19": 1}, "sec": 0.6}
+eval a (original e): {"checker": "M-eval", "THRG": 30, "patterns": 1, "configurations": 1, "stageA_pass": 1, "stageB_pass": 1, "stageC_evaluated": 1, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 0, "min_G_exact": 21, "G_hist": {"21": 1}, "sec": 0.5}
+trace c2: lost 0 | final: minimum 19, final states <= THR 1, (state, option) solutions 14
+eval c2 (mutated e): {"checker": "M-eval", "THRG": 20, "patterns": 1, "configurations": 1, "stageA_pass": 1, "stageB_pass": 1, "stageC_evaluated": 1, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 0, "min_G_exact": 19, "G_hist": {"19": 1}, "sec": 1.7}
+eval c2 (original e): {"checker": "M-eval", "THRG": 30, "patterns": 1, "configurations": 1, "stageA_pass": 1, "stageB_pass": 1, "stageC_evaluated": 1, "stageB_survivors_with_c_ge_3": 0, "same_anchor_trail_le_thr_exact": 3, "min_G_exact": 22, "G_hist": {"22": 1}, "sec": 1.7}
