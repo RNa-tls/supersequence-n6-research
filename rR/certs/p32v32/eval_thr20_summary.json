@@ -1,0 +1,18 @@
+{
+ "checker": "M-eval",
+ "THRG": 20,
+ "patterns": 759270,
+ "configurations": 2960139,
+ "stageA_pass": 73976,
+ "stageB_pass": 0,
+ "stageC_evaluated": 0,
+ "stageB_survivors_with_c_ge_3": 0,
+ "same_anchor_trail_le_thr_exact": 0,
+ "min_G_exact": -1,
+ "G_hist": {},
+ "sec": 705.8,
+ "evaluator": "rR/csrc/ckM_eval.c (stage-B memo, run pruning, stage-A memo, exact same-anchor-trail closing)",
+ "stage_B_cache": "17139 cycles stored, 129100 hits, 18822 misses; stage-A memo: 1511027 entries, 7369053 hits",
+ "patterns_sorted_sha256": "20ba009e14faf6a59e08f1fca9e984d6c009ad5a8393b12bb7c635e017903025",
+ "conclusion": "no bracket tree with c <= 2 (P = 32, V = 32 with c = 2, and c = 1) has G <= 20: every configuration is excluded by the stage-B coupled-closing lower bound"
+}

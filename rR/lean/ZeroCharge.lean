@@ -18,7 +18,8 @@ Results:
                       start -(E = 1)-> mid  (so chi = 0 visits are  ROT (J3m ROT | J3s START)*  when f_1 is mid);
   * `chi_zero_first_mid_wrap` : a chi = 0 visit whose first piece is mid starts with a wrap (E = -1);
   * `count_pos_le_sum`, `positive_visits_le` : the number of visits with chi ≥ 1 is at most sum chi = G + 29;
-  * `zero_sum_all_zero` : a closed walk of total reduced cost 0 under a feasible potential uses only tight edges.
+  * `zero_sum_all_zero` : a closed walk of total reduced cost 0 under a feasible potential uses only tight edges;
+  * `undo_rotation`     : the bookkeeping of Theorem R8 (an isolated zero-charge complete rotation can be undone).
 -/
 
 structure Step where
@@ -200,6 +201,13 @@ theorem zero_sum_all_zero : ∀ l : List Int, AllNonneg l → sumL l = 0 → ∀
 theorem brackets_le (c c1 S G : Int) (hG : G = c + c1 + S) (h1 : 0 ≤ c1) (hS : 0 ≤ S) (h20 : G ≤ 20) : c ≤ 20 := by
   omega
 
+/-- Theorem R8 (bookkeeping): undoing an isolated zero-charge complete rotation.  With the charge identity the change of
+    G is  dG = (e_xy - e_out) - (w_skip - 3); L1 gives e_xy ≤ 1 + e_in + e_out, chi = 0 forces e_in = 0, and every full
+    chain has skip weight w_skip = 4 (machine check), so dG ≤ 0. -/
+theorem undo_rotation (e_xy e_in e_out w_skip dG : Int) (hL1 : e_xy ≤ 1 + e_in + e_out) (hin : e_in = 0)
+    (hskip : w_skip = 4) (hdG : dG = (e_xy - e_out) - (w_skip - 3)) : dG ≤ 0 := by
+  omega
+
 #print axioms chi_eq
 #print axioms chi_nonneg
 #print axioms chi_zero
@@ -210,3 +218,4 @@ theorem brackets_le (c c1 S G : Int) (hG : G = c + c1 + S) (h1 : 0 ≤ c1) (hS :
 #print axioms positive_visits_le
 #print axioms zero_sum_all_zero
 #print axioms brackets_le
+#print axioms undo_rotation

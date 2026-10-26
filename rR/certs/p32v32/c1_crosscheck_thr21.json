@@ -1,0 +1,117 @@
+{
+ "description": "single-bracket (c = 1) patterns of the symmetry-reduced THR-20 bracket search, evaluated exactly at THRG 21",
+ "evaluation": {
+  "checker": "M-eval",
+  "THRG": 21,
+  "patterns": 130,
+  "configurations": 345,
+  "stageA_pass": 37,
+  "stageB_pass": 2,
+  "stageC_evaluated": 2,
+  "stageB_survivors_with_c_ge_3": 0,
+  "same_anchor_trail_le_thr_exact": 0,
+  "min_G_exact": 21,
+  "G_hist": {
+   "21": 2
+  },
+  "sec": 3.5
+ },
+ "witnesses": [
+  {
+   "stage": "C",
+   "G": 21,
+   "c": 1,
+   "anchor_trails": [
+    28,
+    -1
+   ],
+   "nested_inner": -1,
+   "P": [
+    17,
+    11,
+    9,
+    23,
+    4,
+    3,
+    1,
+    13,
+    12,
+    19,
+    29,
+    14,
+    28,
+    0,
+    8,
+    22,
+    25,
+    26,
+    27,
+    24,
+    2,
+    16,
+    10,
+    21,
+    20,
+    18
+   ],
+   "cycles": [
+    [
+     15,
+     5,
+     6,
+     7
+    ]
+   ]
+  },
+  {
+   "stage": "C",
+   "G": 21,
+   "c": 1,
+   "anchor_trails": [
+    28,
+    -1
+   ],
+   "nested_inner": -1,
+   "P": [
+    17,
+    11,
+    9,
+    22,
+    23,
+    4,
+    3,
+    1,
+    13,
+    12,
+    19,
+    29,
+    14,
+    28,
+    0,
+    8,
+    25,
+    26,
+    27,
+    24,
+    2,
+    16,
+    10,
+    21,
+    20,
+    18
+   ],
+   "cycles": [
+    [
+     15,
+     5,
+     6,
+     7
+    ]
+   ]
+  }
+ ],
+ "matches_round_Q": [
+  "image of Round Q configuration a under group element 1 (and 7)",
+  "image of Round Q configuration b under group element 1 (and 7)"
+ ]
+}
