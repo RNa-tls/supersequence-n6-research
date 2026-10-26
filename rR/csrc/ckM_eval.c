@@ -50,10 +50,15 @@ static int inseg(const Seg *s, int t) { for (int i = 0; i < s->n; i++) if (s->tr
 // (a, b) of e(u_k -> z1_a) + path[a][b] + e(zl_b -> u_k).  Returns the three least values over distinct runs with their
 // runs, r[0..5] = {v1, k1, v2, k2, v3, k3}: the exact closing for a main of T at run q is (q == k1 ? v2 : v1); two cycles
 // anchored on the same trail need two distinct runs, both != q (pair_same below).
-static int close3(const Seg *Z, int T, int v, const int *pathm, int n1, int nl, int *r) {
+static int close3(const Seg *Z, int T, int v, const int *pathm, int n1, int nl, int *r, const int *rmin) {
     int bv[3] = {BIGI, BIGI, BIGI}, bk[3] = {-1, -1, -1}; int base = tofs[T] + v * mrun[T][0]; int t1 = Z->tr[0], tl = Z->tr[Z->n - 1];
     int X[MAXOPT];
     for (int k = 0; k < mrun[T][v]; k++) { int u = base + k;
+        // cheap lower bound for this run: min_a (e(u -> a) + min_b path(a, b)) + min_b e(b -> u); a run whose bound is
+        // >= the current third value cannot change the three least values (ties at the third place do not matter)
+        if (rmin && bv[2] < BIGI) { int lb = BIGI; const int8_t *er = e + (size_t)u * NOPT + tofs[t1];
+            for (int a = 0; a < n1; a++) { int w = er[a] + rmin[a]; if (w < lb) lb = w; }
+            if (lb + hinT[tl][u] >= bv[2]) continue; }
         for (int b = 0; b < nl; b++) X[b] = BIGI;
         for (int a = 0; a < n1; a++) { int ea = E(u, tofs[t1] + a); if (ea >= bv[2]) continue; const int *pr = pathm + (size_t)a * nl;
             for (int b = 0; b < nl; b++) { int w = ea + pr[b]; if (w < X[b]) X[b] = w; } }
@@ -89,17 +94,35 @@ static void cache_put(const Seg *s, int (*cb)[2][6], int m) { uint64_t h = seqha
     #pragma omp critical(ccache)
     { if (ncache < CMAX && !cfind(s, h)) { CEnt *q = malloc(sizeof(CEnt)); q->h = h; q->n = s->n; q->m = m; for (int i = 0; i < s->n; i++) q->tr[i] = (int8_t)s->tr[i];
           memcpy(q->cb, cb, sizeof q->cb); q->next = ctab[h & (CHB - 1)]; ctab[h & (CHB - 1)] = q; ncache++; } } }
+// memo of the stage-A values: tag 0 = least cost of the path P (from its first cut), tag 1 = decoupled cycle bound
+typedef struct VEnt { uint64_t h; int n, tag, val; int8_t tr[NTR]; struct VEnt *next; } VEnt;
+#define VHB (1 << 22)
+#define VMAX 20000000
+static VEnt **vtab; static long nvmemo = 0, nvhit = 0;
+static int vmemo_get(int tag, const Seg *s) { uint64_t h = seqhash(s) ^ (uint64_t)(tag + 1) * 0x9E3779B97F4A7C15ull; int v = -1;
+    #pragma omp critical(vmemo)
+    { for (VEnt *q = vtab[h & (VHB - 1)]; q; q = q->next) if (q->h == h && q->tag == tag && q->n == s->n) { int same = 1; for (int i = 0; i < s->n; i++) if (q->tr[i] != s->tr[i]) { same = 0; break; } if (same) { v = q->val; nvhit++; break; } } }
+    return v; }
+static void vmemo_put(int tag, const Seg *s, int val) { uint64_t h = seqhash(s) ^ (uint64_t)(tag + 1) * 0x9E3779B97F4A7C15ull;
+    #pragma omp critical(vmemo)
+    { if (nvmemo < VMAX) { VEnt *q = malloc(sizeof(VEnt)); q->h = h; q->tag = tag; q->n = s->n; q->val = val; for (int i = 0; i < s->n; i++) q->tr[i] = (int8_t)s->tr[i];
+          q->next = vtab[h & (VHB - 1)]; vtab[h & (VHB - 1)] = q; nvmemo++; } } }
 static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
     __atomic_add_fetch(&nconf, 1, __ATOMIC_RELAXED);
     int *b1 = malloc(4 * MAXOPT), *b2 = malloc(4 * MAXOPT), *st = malloc(4 * MAXOPT), *ov = malloc(4 * MAXOPT);
-    // Stage A
-    int t0 = P->tr[0]; for (int q = 0; q < tcnt[t0]; q++) st[q] = ocut[tofs[t0] + q] == 2;
-    seg_dp(P, st, ov, b1, b2); int minP = BIGI; { int tl = P->tr[P->n - 1]; for (int q = 0; q < tcnt[tl]; q++) if (ov[q] < minP) minP = ov[q]; }
+    // Stage A (the path part and every cycle part depend on their own sequence only: memoised)
+    int minP = vmemo_get(0, P);
+    if (minP < 0) { int t0 = P->tr[0]; for (int q = 0; q < tcnt[t0]; q++) st[q] = ocut[tofs[t0] + q] == 2;
+        seg_dp(P, st, ov, b1, b2); minP = BIGI; { int tl = P->tr[P->n - 1]; for (int q = 0; q < tcnt[tl]; q++) if (ov[q] < minP) minP = ov[q]; }
+        vmemo_put(0, P, minP); }
     int lbA = c + minP; int minZ[8];
     for (int i = 0; i < c; i++) { const Seg *s = &Z[i]; int t1 = s->tr[0], tl = s->tr[s->n - 1];
-        for (int q = 0; q < tcnt[t1]; q++) { int m = BIGI; for (int T = 0; T < NTR; T++) if (!inseg(s, T)) { int v = hinT[T][tofs[t1] + q]; if (v < m) m = v; } st[q] = m; }
-        seg_dp(s, st, ov, b1, b2); int mz = BIGI;
-        for (int q = 0; q < tcnt[tl]; q++) { if (ov[q] >= BIGI) continue; int m = BIGI; for (int T = 0; T < NTR; T++) if (!inseg(s, T)) { int v = houtT[T][tofs[tl] + q]; if (v < m) m = v; } if (ov[q] + m < mz) mz = ov[q] + m; }
+        int mz = vmemo_get(1, s);
+        if (mz < 0) {
+            for (int q = 0; q < tcnt[t1]; q++) { int m = BIGI; for (int T = 0; T < NTR; T++) if (!inseg(s, T)) { int v = hinT[T][tofs[t1] + q]; if (v < m) m = v; } st[q] = m; }
+            seg_dp(s, st, ov, b1, b2); mz = BIGI;
+            for (int q = 0; q < tcnt[tl]; q++) { if (ov[q] >= BIGI) continue; int m = BIGI; for (int T = 0; T < NTR; T++) if (!inseg(s, T)) { int v = houtT[T][tofs[tl] + q]; if (v < m) m = v; } if (ov[q] + m < mz) mz = ov[q] + m; }
+            vmemo_put(1, s, mz); }
         minZ[i] = mz; lbA += mz; }
     if (lbA > THRG) goto done;
     __atomic_add_fetch(&nA_pass, 1, __ATOMIC_RELAXED);
@@ -113,9 +136,11 @@ static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
                 pathm[i] = malloc(sizeof(int) * (size_t)n1 * nl);
                 for (int aa = 0; aa < n1; aa++) { for (int q = 0; q < n1; q++) st[q] = q == aa ? 0 : BIGI; seg_dp(s, st, pathm[i] + (size_t)aa * nl, b1, b2); }
                 m = BIGI;
+                int *rmin = malloc(sizeof(int) * n1); for (int aa = 0; aa < n1; aa++) { int mm = BIGI; const int *pr = pathm[i] + (size_t)aa * nl; for (int b = 0; b < nl; b++) if (pr[b] < mm) mm = pr[b]; rmin[aa] = mm; }
                 for (int T = 0; T < NTR; T++) { for (int v = 0; v < 2; v++) for (int j = 0; j < 3; j++) { cb[i * NTR + T][v][2 * j] = BIGI; cb[i * NTR + T][v][2 * j + 1] = -1; }
                     if (inseg(s, T)) continue;
-                    for (int v = 0; v < 2; v++) { int val = close3(s, T, v, pathm[i], n1, nl, cb[i * NTR + T][v]); if (val < m) m = val; } }
+                    for (int v = 0; v < 2; v++) { int val = close3(s, T, v, pathm[i], n1, nl, cb[i * NTR + T][v], rmin); if (val < m) m = val; } }
+                free(rmin);
                 cache_put(s, &cb[i * NTR], m); }
             if (m > slackmax) ok = 0; lbB += m; }
         if (!ok || lbB > THRG) { for (int i = 0; i < c; i++) free(pathm[i]); free(cb); goto done; }   /* free(NULL) is a no-op */
@@ -165,7 +190,7 @@ static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
                             int *tt = cur; cur = nx; nx = tt; }
                         memcpy(pm2 + (size_t)aa * nl, cur, sizeof(int) * nl); }
                     for (int po = 0; po < P->n; po++) { int Tout = P->tr[po]; int fo2[MAXOPT];
-                        int cc2[2][6]; for (int v = 0; v < 2; v++) close3(so, Tout, v, pm2, n1, nl, cc2[v]);
+                        int cc2[2][6]; for (int v = 0; v < 2; v++) close3(so, Tout, v, pm2, n1, nl, cc2[v], NULL);
                         for (int q = 0; q < tcnt[Tout]; q++) { int o = tofs[Tout] + q, v = over_[o]; fo2[q] = okk[o] == cc2[v][1] ? cc2[v][2] : cc2[v][0]; }
                         int r; PDP(Tout, fo2, -1, zero, r);
                         if (r < BIGI && r + 2 < best) { best = r + 2; bT[inner] = Tin; bT[outer] = Tout; bnest = inner; } } }
@@ -244,6 +269,7 @@ int main(int argc, char **argv) {
         for (int o = 0; o < NOPT; o++) { int mi = 127, mo = 127; if (otr[o] != t) for (int q = 0; q < tcnt[t]; q++) { int x = tofs[t] + q; int a = E(x, o), b = E(o, x); if (a < mi) mi = a; if (b < mo) mo = b; }
             hinT[t][o] = mi; houtT[t][o] = mo; } }
     if (getenv("CKM_SAME_ONLY")) SAME_ONLY = atoi(getenv("CKM_SAME_ONLY"));
+    vtab = calloc(VHB, sizeof(VEnt *));
     wit = fopen(argc > 5 ? argv[5] : "/dev/null", "w");
     FILE *pf = fopen(argv[2], "r"); if (!pf) return 2;
     char **lines = NULL; long nl = 0, cap = 0; char buf[8192];
@@ -270,7 +296,7 @@ int main(int argc, char **argv) {
             THRG, npat, nconf, nA_pass, nB_pass, nC_eval, nC_c3, nsame, bestG < BIGI ? bestG : -1);
     int fz = 1; for (int g = 0; g < 64; g++) if (hist[g]) { fprintf(fo, "%s\"%d\": %ld", fz ? "" : ", ", g, hist[g]); fz = 0; } fprintf(fo, "}, \"sec\": %.1f}\n", omp_get_wtime() - T0); fclose(fo);
     fclose(wit);
-    fprintf(stderr, "stage-B cache: %ld cycles stored, %ld hits, %ld misses\n", ncache, nhit, nmiss);
+    fprintf(stderr, "stage-B cache: %ld cycles stored, %ld hits, %ld misses; stage-A memo: %ld entries, %ld hits\n", ncache, nhit, nmiss, nvmemo, nvhit);
     printf("{\"patterns\": %ld, \"configurations\": %ld, \"stageA_pass\": %ld, \"stageB_pass\": %ld, \"stageC_evaluated\": %ld, \"c_ge_3_survivors\": %ld, \"min_G_exact\": %d}\n", npat, nconf, nA_pass, nB_pass, nC_eval, nC_c3, bestG < BIGI ? bestG : -1);
     return 0;
 }

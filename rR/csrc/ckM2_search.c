@@ -6,7 +6,9 @@
 // closes with >= hout(last) + hin(first)).  Pruning with the 4-bit tables of ckM2.c: J = 0: HP, J = 1: HZ1, J = 2: HZ0;
 // pending junction states with PL1 (after the first junction) / PL0 (after the second).  A-only cycle segments are
 // allowed (exact one-A loops, two-A decoupled closing, more A trails identity-free).
-// Every bracket tree with c <= 2 and G <= THR survives; the patterns go to ckM_eval.c (exact anchors).
+// Every bracket tree with c <= 2 and G <= THR survives; the patterns go to ckM_eval.c (exact anchors).  The pattern
+// output (OUT.patterns.NN, one file per thread) expands only the final states that are canonical under the 6 trail
+// symmetries of the family group (every other final state is the image of one of these, with the same exact G).
 // TRACE MODE (env CKM_TRACE = "t0,...,t29;j1[,j2]"): keep only the states of one given sequence (completeness test).
 // usage: ckM2_search DIR HKEYDIR M2DIR THR OUT.json
 #include <stdio.h>
@@ -169,8 +171,19 @@ static inline int closev(int D1, int t, int y, int alt, int J, int Lf) {
 // tokens: phi trail ids (>= 0); A groups 1000 + 100 * kind + data (kind 1: ordered, data = mask (size 1) or 64 + i*6+j;
 // kind 2: unordered set mask); -1 = junction; 1300 + mask = A-only cycle segment(s) covering mask (between junctions,
 // or after the last junction); 1400 + mask = A-only path P at the word start.
-static Layer *ALL; static FILE *patf; static long npat = 0, patcap = 0;
-static void emit(const int *rev, int nrev) { if (patcap && npat >= patcap) { npat++; return; } for (int i = nrev - 1; i >= 0; i--) fprintf(patf, "%d%c", rev[i], i ? ' ' : '\n'); npat++; }
+static Layer *ALL; static FILE *patf; static long npat_t = 0;
+#pragma omp threadprivate(patf, npat_t)
+static void emit(const int *rev, int nrev) { for (int i = nrev - 1; i >= 0; i--) fprintf(patf, "%d%c", rev[i], i ? ' ' : '\n'); npat_t++; }
+// symmetry reduction of the pattern output: a final state (S = all phi, t, M, J, Lf) is expanded only when its key is
+// the least over the 6 trail symmetries (the search, its bounds and G are invariant under the family group, so the
+// patterns of the other final states are the images of these and have the same exact G)
+static int amap[6][6];
+static int canon_final(uint64_t key) {
+    uint32_t S = key & 0xFFFFFF; int t = (key >> 24) & 31, M = (key >> 29) & 63, J = (key >> 35) & 3, Lf = (key >> 37) & 1;
+    for (int g = 0; g < 6; g++) { int M2 = 0; for (int i = 0; i < 6; i++) if (M >> i & 1) M2 |= 1 << amap[g][i];
+        uint32_t S2 = 0; for (int b = 0; b < NPH; b++) if (S >> b & 1) S2 |= 1u << ptr[g][b];
+        uint64_t k2 = skey(S2, ptr[g][t], M2, J, Lf); if (k2 < key) return 0; }
+    return 1; }
 static int gcode(int D, int alt) { int a = __builtin_popcount(D); if (a <= 1) return 1000 + 100 + D; if (a == 2) { int i = __builtin_ctz(D), j = 31 - __builtin_clz(D); return 1000 + 100 + 64 + (alt ? j * 6 + i : i * 6 + j); } return 1000 + 200 + D; }
 // s[x] = least cost of the suffix after (state, option x).  Reconstruct all prefixes with g + s <= THR.
 static void dfs(int k, const Rec *r, const int *s, int *rev, int nrev) {
@@ -375,7 +388,7 @@ int main(int argc, char **argv) {
     fprintf(jo, "],\n");
     // final layer: J >= 1: close the segment with the remaining A trails; J < 2: junction after the last phi trail, then
     // one A-only last segment (J = 0: possibly two A-only segments)
-    Layer *Fl = &all[NPH]; int best = 1 << 20; long nfin = 0, nsol = 0;
+    Layer *Fl = &all[NPH]; int best = 1 << 20; long nfin = 0, nsol = 0; char *finf = calloc(Fl->n + 1, 1);
     #define FINAL_EV(J, Lf, R, t, q, EV) { EV = BIG; \
         if ((J) >= 1) for (int alt = 0; alt < nalt(R); alt++) { int v = closev(R, t, q, alt, J, Lf); if (v < EV) EV = v; } \
         if ((J) < 2 && (R)) for (int D1 = ((R) - 1) & (R); ; D1 = (D1 - 1) & (R)) { int Rr = (R) & ~D1; \
@@ -385,11 +398,24 @@ int main(int argc, char **argv) {
     for (int64_t ri = 0; ri < Fl->n; ri++) { const Rec *r = &Fl->r[ri]; int t = (r->key >> 24) & 31, M = (r->key >> 29) & 63, J = (r->key >> 35) & 3, Lf = (r->key >> 37) & 1; int R = 63 & ~M; int fin = 0;
         for (int q = 0; q < NOP; q++) { if (r->g[q] >= BIG) continue; int ev; FINAL_EV(J, Lf, R, t, q, ev);
             int tot = r->g[q] + ev; if (tot < best) best = tot; if (tot <= THR) { fin = 1; nsol++; } }
-        nfin += fin; }
+        nfin += fin; finf[ri] = (char)fin; }
     fprintf(stderr, "final: minimum %d, final states <= THR %ld, (state, option) solutions %ld\n", best, nfin, nsol);
-    char pp[2100]; snprintf(pp, sizeof pp, "%s.patterns", outp); patf = fopen(pp, "w"); ALL = all; patcap = 20000000;
-    { int rev[512];
+    ALL = all; long npat = 0, ncanon = 0, nnoncanon = 0;
+    for (int g = 0; g < 6; g++) for (int i = 0; i < 6; i++) { int t2 = gt[sel[g]][Alist[i]]; if (!isA[t2]) { fprintf(stderr, "trail symmetry maps an A trail to a phi trail\n"); return 16; } amap[g][i] = aidx[t2]; }
+    // closure check: every image of a final state with a solution <= THR is itself such a final state (else expand all)
+    long nimg_bad = 0; int use_canon = !tron;
+    for (int64_t ri = 0; ri < Fl->n; ri++) { if (!finf[ri]) continue; uint64_t key = Fl->r[ri].key; uint32_t S = key & 0xFFFFFF; int t = (key >> 24) & 31, M = (key >> 29) & 63, J = (key >> 35) & 3, Lf = (key >> 37) & 1;
+        for (int g = 0; g < 6; g++) { int M2 = 0; for (int i = 0; i < 6; i++) if (M >> i & 1) M2 |= 1 << amap[g][i];
+            uint32_t S2 = 0; for (int b = 0; b < NPH; b++) if (S >> b & 1) S2 |= 1u << ptr[g][b];
+            const Rec *im = lfind(Fl, skey(S2, ptr[g][t], M2, J, Lf)); if (!im || !finf[im - Fl->r]) nimg_bad++; } }
+    if (nimg_bad) { fprintf(stderr, "symmetry closure check FAILED (%ld images missing): expanding every final state\n", nimg_bad); use_canon = 0; }
+    else fprintf(stderr, "symmetry closure check: every image of every final state <= THR is a final state <= THR\n");
+    #pragma omp parallel reduction(+:npat, ncanon, nnoncanon)
+    { char pp[2100]; snprintf(pp, sizeof pp, "%s.patterns.%02d", outp, omp_get_thread_num()); patf = fopen(pp, "w"); npat_t = 0; int rev[512];
+      #pragma omp for schedule(dynamic, 1)
       for (int64_t ri = 0; ri < Fl->n; ri++) { const Rec *r = &Fl->r[ri]; int t = (r->key >> 24) & 31, M = (r->key >> 29) & 63, J = (r->key >> 35) & 3, Lf = (r->key >> 37) & 1; int R = 63 & ~M;
+        if (use_canon && !canon_final(r->key)) { nnoncanon++; continue; }
+        ncanon++;
         if (J >= 1) for (int alt = 0; alt < nalt(R); alt++) { int sv[NOP]; int ok = 0; for (int x = 0; x < NOP; x++) { sv[x] = r->g[x] < BIG ? closev(R, t, x, alt, J, Lf) : BIG; if (sv[x] < BIG && r->g[x] + sv[x] <= THR) ok = 1; }
                 if (!ok) continue; int nr = 0; if (R) rev[nr++] = gcode(R, alt); dfs(NPH, r, sv, rev, nr); }
         if (J < 2 && R) for (int D1 = (R - 1) & R; ; D1 = (D1 - 1) & R) { int Rr = R & ~D1;
@@ -399,10 +425,11 @@ int main(int argc, char **argv) {
                     if (J == 0) for (int Da = (Rr - 1) & Rr; Da; Da = (Da - 1) & Rr) { int sv[NOP]; int ok = 0;
                         for (int x = 0; x < NOP; x++) { sv[x] = r->g[x] < BIG ? closev(D1, t, x, alt, J, Lf) + 1 + azseg[Da] + 1 + lastc[Rr & ~Da] : BIG; if (sv[x] < BIG && r->g[x] + sv[x] <= THR) ok = 1; }
                         if (ok) { int nr = 0; rev[nr++] = 1300 + (Rr & ~Da); rev[nr++] = -1; rev[nr++] = 1300 + Da; rev[nr++] = -1; if (D1) rev[nr++] = gcode(D1, alt); dfs(NPH, r, sv, rev, nr); } } }
-                if (!D1) break; } } }
-    fclose(patf);
-    fprintf(stderr, "patterns: %ld\n", npat);
+                if (!D1) break; } }
+      fclose(patf); npat += npat_t; }
+    fprintf(stderr, "final states expanded (canonical under the trail symmetries) %ld, skipped (images) %ld; patterns: %ld\n", ncanon, nnoncanon, npat);
     char bb[32]; if (best < (1 << 20)) snprintf(bb, sizeof bb, "%d", best); else strcpy(bb, "null");
+    fprintf(jo, " \"symmetry_closure_images_missing\": %ld,\n \"final_states_expanded\": %ld,\n \"final_states_skipped_images\": %ld,\n", nimg_bad, ncanon, nnoncanon);
     fprintf(jo, " \"minimum_bound_G\": %s,\n \"final_states_le_thr\": %ld,\n \"solutions_le_thr\": %ld,\n \"patterns\": %ld,\n \"table_misses\": %ld,\n \"transitions\": %lld,\n \"sec\": %.1f\n}\n",
             bb, nfin, nsol, npat, hmiss, ntr_total, omp_get_wtime() - T0); fclose(jo);
     printf("{\"checker\": \"M2-search\", \"THR\": %d, \"minimum_bound_G\": %d, \"final_states_le_thr\": %ld, \"patterns\": %ld, \"table_misses\": %ld}\n", THR, best < (1 << 20) ? best : -1, nfin, npat, hmiss);
