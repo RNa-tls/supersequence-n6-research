@@ -10,7 +10,8 @@
 // parent relation (cycle i -> the segment holding T_i's main) a tree rooted at P.
 // Stage A: decoupled lower bound (u_i any option of any trail outside Z_i, entry and exit minimised separately);
 // Stage B: coupled closing (u_i any option of a trail outside Z_i, one u for both anchor edges);
-// Stage C (c <= 2): exact, with versions, the run exclusion and every tree; witnesses are written as JSON lines.
+// Stage C (c <= 2): exact, with versions, the run exclusion and every tree (including two cycles anchored on one trail,
+// which then has three pieces and needs two distinct anchor runs); witnesses are written as JSON lines.
 // usage: ckM_eval DIR PATTERNS THRG OUT.json [WITNESSES.jsonl]
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,32 +27,68 @@ static uint8_t oen[16384][8], oex[16384][8]; static int8_t *e;
 static int wgt(const uint8_t *x, const uint8_t *y) { for (int s = 1; s < 8; s++) { int ok = 1; for (int i = 0; s + i < 8; i++) if (x[s + i] != y[i]) { ok = 0; break; } if (ok) return s; } return 8; }
 #define E(a, b) ((int)e[(size_t)(a) * NOPT + (b)])
 static uint8_t *hinT[NTR], *houtT[NTR];       // hinT[t][o] = min over options z of trail t of e(z -> o); houtT[t][o] = min_y e(o -> y)
+static int SAME_ONLY = -1;     // env CKM_SAME_ONLY = trail: test mode, only configurations with both cycles anchored on that trail
 static int THRG; static long nconf = 0, nA_pass = 0, nB_pass = 0, nC_eval = 0, nC_c3 = 0, nsame = 0; static int bestG = BIGI; static FILE *wit; static long hist[64];
 typedef struct { int n; int tr[NTR]; } Seg;
 // forward DP over a segment: start vector st (per option of the first trail), returns per option of the last trail
+// one min-plus step of the DP from the options of trail tp to those of trail t (rows of e are contiguous in t's options)
+static inline void step(const int *cur, int tp, int t, int *nx) {
+    int nt = tcnt[t]; for (int q = 0; q < nt; q++) nx[q] = BIGI;
+    for (int q2 = 0; q2 < tcnt[tp]; q2++) { int c = cur[q2]; if (c >= BIGI) continue; const int8_t *row = e + (size_t)(tofs[tp] + q2) * NOPT + tofs[t];
+        for (int q = 0; q < nt; q++) { int w = c + row[q]; nx[q] = w < nx[q] ? w : nx[q]; } }
+}
 static void seg_dp(const Seg *s, const int *st, int *outv, int *buf1, int *buf2) {
     int *cur = buf1, *nx = buf2; int t0 = s->tr[0];
     for (int q = 0; q < tcnt[t0]; q++) cur[q] = st[q];
     for (int i = 1; i < s->n; i++) { int tp = s->tr[i - 1], t = s->tr[i];
-        for (int q = 0; q < tcnt[t]; q++) { int o = tofs[t] + q, v = BIGI; for (int q2 = 0; q2 < tcnt[tp]; q2++) { int c = cur[q2]; if (c >= BIGI) continue; int w = c + E(tofs[tp] + q2, o); if (w < v) v = w; } nx[q] = v; }
+        step(cur, tp, t, nx);
         int *tt = cur; cur = nx; nx = tt; }
     int tl = s->tr[s->n - 1]; for (int q = 0; q < tcnt[tl]; q++) outv[q] = cur[q];
 }
 static int inseg(const Seg *s, int t) { for (int i = 0; i < s->n; i++) if (s->tr[i] == t) return 1; return 0; }
 // closing of cycle Z by an anchor of trail T, version v: for every run k of T_v, val(k) = min over the first / last options
-// (a, b) of e(u_k -> z1_a) + path[a][b] + e(zl_b -> u_k).  Returns the least value (run *k1) and the least value over runs
-// != *k1 (*sec): the exact closing for a main of T at run r is (r == *k1 ? *sec : best).
-static int close2(const Seg *Z, int T, int v, const int *pathm, int n1, int nl, int *k1, int *sec) {
-    int best = BIGI, bk = -1, second = BIGI; int base = tofs[T] + v * mrun[T][0]; int t1 = Z->tr[0], tl = Z->tr[Z->n - 1];
+// (a, b) of e(u_k -> z1_a) + path[a][b] + e(zl_b -> u_k).  Returns the three least values over distinct runs with their
+// runs, r[0..5] = {v1, k1, v2, k2, v3, k3}: the exact closing for a main of T at run q is (q == k1 ? v2 : v1); two cycles
+// anchored on the same trail need two distinct runs, both != q (pair_same below).
+static int close3(const Seg *Z, int T, int v, const int *pathm, int n1, int nl, int *r) {
+    int bv[3] = {BIGI, BIGI, BIGI}, bk[3] = {-1, -1, -1}; int base = tofs[T] + v * mrun[T][0]; int t1 = Z->tr[0], tl = Z->tr[Z->n - 1];
     int X[MAXOPT];
     for (int k = 0; k < mrun[T][v]; k++) { int u = base + k;
         for (int b = 0; b < nl; b++) X[b] = BIGI;
-        for (int a = 0; a < n1; a++) { int ea = E(u, tofs[t1] + a); if (ea >= second) continue; const int *pr = pathm + (size_t)a * nl;
+        for (int a = 0; a < n1; a++) { int ea = E(u, tofs[t1] + a); if (ea >= bv[2]) continue; const int *pr = pathm + (size_t)a * nl;
             for (int b = 0; b < nl; b++) { int w = ea + pr[b]; if (w < X[b]) X[b] = w; } }
         int m = BIGI; for (int b = 0; b < nl; b++) { int w = X[b] + E(tofs[tl] + b, u); if (w < m) m = w; }
-        if (m < best) { second = best; best = m; bk = k; } else if (m < second) second = m; }
-    *k1 = bk; *sec = second; return best;
+        if (m < bv[0]) { bv[2] = bv[1]; bk[2] = bk[1]; bv[1] = bv[0]; bk[1] = bk[0]; bv[0] = m; bk[0] = k; }
+        else if (m < bv[1]) { bv[2] = bv[1]; bk[2] = bk[1]; bv[1] = m; bk[1] = k; }
+        else if (m < bv[2]) { bv[2] = m; bk[2] = k; } }
+    for (int i = 0; i < 3; i++) { r[2 * i] = bv[i]; r[2 * i + 1] = bk[i]; }
+    return bv[0];
 }
+// least val1(k1) + val2(k2) over runs k1 != k2, both != q (two cycles anchored on the trail of the main at run q)
+static int pair_same(const int *r1, const int *r2, int q) {
+    int a[2][2], b[2][2], na = 0, nb = 0;     // two best (value, run) of each list without run q
+    for (int i = 0; i < 3 && na < 2; i++) if (r1[2 * i + 1] != q) { a[na][0] = r1[2 * i]; a[na][1] = r1[2 * i + 1]; na++; }
+    for (int i = 0; i < 3 && nb < 2; i++) if (r2[2 * i + 1] != q) { b[nb][0] = r2[2 * i]; b[nb][1] = r2[2 * i + 1]; nb++; }
+    if (na < 1 || nb < 1) return BIGI;
+    if (a[0][1] != b[0][1] || a[0][1] < 0) return a[0][0] + b[0][0] < BIGI ? a[0][0] + b[0][0] : BIGI;
+    int best = BIGI; if (nb > 1 && b[1][0] < BIGI && a[0][0] + b[1][0] < best) best = a[0][0] + b[1][0]; if (na > 1 && a[1][0] < BIGI && a[1][0] + b[0][0] < best) best = a[1][0] + b[0][0];
+    return best;
+}
+// memo of the stage-B closings per cycle sequence (the anchor closing of a cycle does not depend on the rest)
+typedef struct CEnt { uint64_t h; int n, m; int8_t tr[NTR]; int cb[NTR][2][6]; struct CEnt *next; } CEnt;
+#define CHB (1 << 20)
+#define CMAX 2000000
+static CEnt *ctab[CHB]; static long ncache = 0, nhit = 0, nmiss = 0;
+static uint64_t seqhash(const Seg *s) { uint64_t h = 1469598103934665603ull ^ (uint64_t)s->n; for (int i = 0; i < s->n; i++) { h ^= (uint64_t)(s->tr[i] + 1); h *= 1099511628211ull; h ^= h >> 31; } return h; }
+static CEnt *cfind(const Seg *s, uint64_t h) { for (CEnt *q = ctab[h & (CHB - 1)]; q; q = q->next) if (q->h == h && q->n == s->n) { int same = 1; for (int i = 0; i < s->n; i++) if (q->tr[i] != s->tr[i]) { same = 0; break; } if (same) return q; } return NULL; }
+static int cache_get(const Seg *s, int (*cb)[2][6]) { uint64_t h = seqhash(s); int m = -1;
+    #pragma omp critical(ccache)
+    { CEnt *q = cfind(s, h); if (q) { memcpy(cb, q->cb, sizeof q->cb); m = q->m; nhit++; } else nmiss++; }
+    return m; }
+static void cache_put(const Seg *s, int (*cb)[2][6], int m) { uint64_t h = seqhash(s);
+    #pragma omp critical(ccache)
+    { if (ncache < CMAX && !cfind(s, h)) { CEnt *q = malloc(sizeof(CEnt)); q->h = h; q->n = s->n; q->m = m; for (int i = 0; i < s->n; i++) q->tr[i] = (int8_t)s->tr[i];
+          memcpy(q->cb, cb, sizeof q->cb); q->next = ctab[h & (CHB - 1)]; ctab[h & (CHB - 1)] = q; ncache++; } } }
 static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
     __atomic_add_fetch(&nconf, 1, __ATOMIC_RELAXED);
     int *b1 = malloc(4 * MAXOPT), *b2 = malloc(4 * MAXOPT), *st = malloc(4 * MAXOPT), *ov = malloc(4 * MAXOPT);
@@ -68,16 +105,20 @@ static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
     __atomic_add_fetch(&nA_pass, 1, __ATOMIC_RELAXED);
     {   // Stage B: coupled closing over anchors of trails outside the cycle (both versions, any run)
         int lbB = c + minP; int *pathm[8]; int n1s[8], nls[8]; int ok = 1;
-        int (*cb)[2][3] = calloc(8 * NTR, sizeof(int[2][3]));          // cb[i * NTR + T][v] = {best, run of best, second}
+        int (*cb)[2][6] = calloc(8 * NTR, sizeof(int[2][6]));          // cb[i * NTR + T][v] = {v1, k1, v2, k2, v3, k3} (close3)
         for (int i = 0; i < c; i++) { const Seg *s = &Z[i]; int t1 = s->tr[0], tl = s->tr[s->n - 1]; int n1 = tcnt[t1], nl = tcnt[tl]; n1s[i] = n1; nls[i] = nl;
-            pathm[i] = malloc(sizeof(int) * (size_t)n1 * nl);
-            for (int aa = 0; aa < n1; aa++) { for (int q = 0; q < n1; q++) st[q] = q == aa ? 0 : BIGI; seg_dp(s, st, pathm[i] + (size_t)aa * nl, b1, b2); }
-            int m = BIGI; int slackmax = THRG - (lbA - minZ[i]);
-            for (int T = 0; T < NTR; T++) { for (int v = 0; v < 2; v++) { cb[i * NTR + T][v][0] = cb[i * NTR + T][v][2] = BIGI; cb[i * NTR + T][v][1] = -1; }
-                if (inseg(s, T)) continue;
-                for (int v = 0; v < 2; v++) { int k1, sec; int val = close2(s, T, v, pathm[i], n1, nl, &k1, &sec); cb[i * NTR + T][v][0] = val; cb[i * NTR + T][v][1] = k1; cb[i * NTR + T][v][2] = sec; if (val < m) m = val; } }
+            pathm[i] = NULL; int slackmax = THRG - (lbA - minZ[i]);
+            int m = cache_get(s, &cb[i * NTR]);           // the closings depend on the cycle sequence only: memoised
+            if (m == -1) {
+                pathm[i] = malloc(sizeof(int) * (size_t)n1 * nl);
+                for (int aa = 0; aa < n1; aa++) { for (int q = 0; q < n1; q++) st[q] = q == aa ? 0 : BIGI; seg_dp(s, st, pathm[i] + (size_t)aa * nl, b1, b2); }
+                m = BIGI;
+                for (int T = 0; T < NTR; T++) { for (int v = 0; v < 2; v++) for (int j = 0; j < 3; j++) { cb[i * NTR + T][v][2 * j] = BIGI; cb[i * NTR + T][v][2 * j + 1] = -1; }
+                    if (inseg(s, T)) continue;
+                    for (int v = 0; v < 2; v++) { int val = close3(s, T, v, pathm[i], n1, nl, cb[i * NTR + T][v]); if (val < m) m = val; } }
+                cache_put(s, &cb[i * NTR], m); }
             if (m > slackmax) ok = 0; lbB += m; }
-        if (!ok || lbB > THRG) { for (int i = 0; i < c; i++) free(pathm[i]); free(cb); goto done; }
+        if (!ok || lbB > THRG) { for (int i = 0; i < c; i++) free(pathm[i]); free(cb); goto done; }   /* free(NULL) is a no-op */
         __atomic_add_fetch(&nB_pass, 1, __ATOMIC_RELAXED);
         if (c > 2) { __atomic_add_fetch(&nC_c3, 1, __ATOMIC_RELAXED);
             #pragma omp critical
@@ -93,8 +134,8 @@ static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
         #define PDP(TA, FA, TB, FB, RES) { int *cur = b1, *nx = b2; int tpp = P->tr[0]; RES = BIGI; \
             for (int q = 0; q < tcnt[tpp]; q++) { int o = tofs[tpp] + q; int v0 = ocut[o] == 2; if (tpp == (TA)) v0 += (FA)[q]; if (tpp == (TB)) v0 += (FB)[q]; cur[q] = v0; } \
             for (int ii = 1; ii < P->n; ii++) { int tp = P->tr[ii - 1], t = P->tr[ii]; \
-                for (int q = 0; q < tcnt[t]; q++) { int o = tofs[t] + q, v = BIGI; for (int q2 = 0; q2 < tcnt[tp]; q2++) { int cc = cur[q2]; if (cc >= BIGI) continue; int w = cc + E(tofs[tp] + q2, o); if (w < v) v = w; } \
-                    if (v < BIGI) { if (t == (TA)) v += (FA)[q]; if (t == (TB)) v += (FB)[q]; } nx[q] = v; } \
+                step(cur, tp, t, nx); \
+                for (int q = 0; q < tcnt[t]; q++) { int v = nx[q]; if (v < BIGI) { if (t == (TA)) v += (FA)[q]; if (t == (TB)) v += (FB)[q]; } nx[q] = v; } \
                 int *tt = cur; cur = nx; nx = tt; } \
             int tlp = P->tr[P->n - 1]; for (int q = 0; q < tcnt[tlp]; q++) if (cur[q] < RES) RES = cur[q]; }
         int zero[MAXOPT]; memset(zero, 0, sizeof zero);
@@ -104,24 +145,27 @@ static void eval_config(Seg *P, Seg *Z, int c, const char *line) {
         } else {
             // both anchors in P
             for (int p1 = 0; p1 < P->n; p1++) for (int p2 = 0; p2 < P->n; p2++) { int T1 = P->tr[p1], T2 = P->tr[p2];
+                if (SAME_ONLY >= 0 && (T1 != SAME_ONLY || T2 != SAME_ONLY)) continue;     // test mode: both anchors on one given trail
                 for (int q = 0; q < tcnt[T1]; q++) f1[q] = FNODE(0, T1, q);
                 for (int q = 0; q < tcnt[T2]; q++) f2[q] = FNODE(1, T2, q);
-                int r; if (T1 == T2) { for (int q = 0; q < tcnt[T1]; q++) f1[q] += f2[q]; PDP(T1, f1, -1, zero, r); } else PDP(T1, f1, T2, f2, r);
-                if (r < BIGI && r + 2 < best) { best = r + 2; bT[0] = T1; bT[1] = T2; bnest = -1; }
-                if (T1 == T2 && r < BIGI && r + 2 <= THRG) __atomic_add_fetch(&nsame, 1, __ATOMIC_RELAXED); }
+                int r; if (T1 == T2) {      // both cycles anchored on T1 (three pieces): two distinct anchor runs, both != the main's run
+                    for (int q = 0; q < tcnt[T1]; q++) { int o = tofs[T1] + q, v = over_[o]; f1[q] = pair_same(cb[0 * NTR + T1][v], cb[1 * NTR + T1][v], okk[o]); }
+                    PDP(T1, f1, -1, zero, r); if (r < BIGI && r + 2 <= THRG) __atomic_add_fetch(&nsame, 1, __ATOMIC_RELAXED); }
+                else PDP(T1, f1, T2, f2, r);
+                if (r < BIGI && r + 2 < best) { best = r + 2; bT[0] = T1; bT[1] = T2; bnest = -1; } }
             // nested: inner cycle in (0 or 1), anchored at a trail Tin of the outer cycle; outer anchored at Tout in P
-            for (int inner = 0; inner < 2; inner++) { int outer = 1 - inner; const Seg *so = &Z[outer]; int t1 = so->tr[0], tl = so->tr[so->n - 1]; int n1 = tcnt[t1], nl = tcnt[tl];
+            for (int inner = 0; inner < 2 && SAME_ONLY < 0; inner++) { int outer = 1 - inner; const Seg *so = &Z[outer]; int t1 = so->tr[0], tl = so->tr[so->n - 1]; int n1 = tcnt[t1], nl = tcnt[tl];
                 int *pm2 = malloc(sizeof(int) * (size_t)n1 * nl);
                 for (int pi = 0; pi < so->n; pi++) { int Tin = so->tr[pi]; int fin[MAXOPT]; for (int q = 0; q < tcnt[Tin]; q++) fin[q] = FNODE(inner, Tin, q);
                     for (int aa = 0; aa < n1; aa++) { int *cur = b1, *nx = b2;
                         for (int q = 0; q < n1; q++) cur[q] = q == aa ? (t1 == Tin ? fin[q] : 0) : BIGI;
                         for (int ii = 1; ii < so->n; ii++) { int tp = so->tr[ii - 1], t = so->tr[ii];
-                            for (int q = 0; q < tcnt[t]; q++) { int o = tofs[t] + q, v = BIGI; for (int q2 = 0; q2 < tcnt[tp]; q2++) { int cc = cur[q2]; if (cc >= BIGI) continue; int w = cc + E(tofs[tp] + q2, o); if (w < v) v = w; }
-                                if (v < BIGI && t == Tin) v += fin[q]; nx[q] = v; }
+                            step(cur, tp, t, nx);
+                            if (t == Tin) for (int q = 0; q < tcnt[t]; q++) if (nx[q] < BIGI) nx[q] += fin[q];
                             int *tt = cur; cur = nx; nx = tt; }
                         memcpy(pm2 + (size_t)aa * nl, cur, sizeof(int) * nl); }
                     for (int po = 0; po < P->n; po++) { int Tout = P->tr[po]; int fo2[MAXOPT];
-                        int cc2[2][3]; for (int v = 0; v < 2; v++) cc2[v][0] = close2(so, Tout, v, pm2, n1, nl, &cc2[v][1], &cc2[v][2]);
+                        int cc2[2][6]; for (int v = 0; v < 2; v++) close3(so, Tout, v, pm2, n1, nl, cc2[v]);
                         for (int q = 0; q < tcnt[Tout]; q++) { int o = tofs[Tout] + q, v = over_[o]; fo2[q] = okk[o] == cc2[v][1] ? cc2[v][2] : cc2[v][0]; }
                         int r; PDP(Tout, fo2, -1, zero, r);
                         if (r < BIGI && r + 2 < best) { best = r + 2; bT[inner] = Tin; bT[outer] = Tout; bnest = inner; } } }
@@ -191,10 +235,15 @@ int main(int argc, char **argv) {
     #pragma omp parallel for schedule(dynamic, 16) reduction(+:neg)
     for (int a = 0; a < NOPT; a++) for (int b = 0; b < NOPT; b++) { int v = wgt(oex[a], oen[b]) - ocut[b] - 1; if (otr[a] != otr[b] && v < 0) neg++; e[(size_t)a * NOPT + b] = (int8_t)v; }
     if (neg) return 5;
+    // optional mutation (tests): env CKB_MUT = file of lines "a b v" -> e(a, b) := v (same format as ckB.c / ckM2.c)
+    { const char *mut = getenv("CKB_MUT"); int nmut = 0;
+      if (mut && *mut) { FILE *mf = fopen(mut, "r"); int a, b, v; while (mf && fscanf(mf, "%d %d %d", &a, &b, &v) == 3) { e[(size_t)a * NOPT + b] = (int8_t)v; nmut++; } if (mf) fclose(mf); }
+      if (nmut) fprintf(stderr, "mutations %d\n", nmut); }
     #pragma omp parallel for schedule(dynamic, 1)
     for (int t = 0; t < NTR; t++) { hinT[t] = malloc(NOPT); houtT[t] = malloc(NOPT);
         for (int o = 0; o < NOPT; o++) { int mi = 127, mo = 127; if (otr[o] != t) for (int q = 0; q < tcnt[t]; q++) { int x = tofs[t] + q; int a = E(x, o), b = E(o, x); if (a < mi) mi = a; if (b < mo) mo = b; }
             hinT[t][o] = mi; houtT[t][o] = mo; } }
+    if (getenv("CKM_SAME_ONLY")) SAME_ONLY = atoi(getenv("CKM_SAME_ONLY"));
     wit = fopen(argc > 5 ? argv[5] : "/dev/null", "w");
     FILE *pf = fopen(argv[2], "r"); if (!pf) return 2;
     char **lines = NULL; long nl = 0, cap = 0; char buf[8192];
@@ -217,10 +266,11 @@ int main(int argc, char **argv) {
         exp_seg(0, 0); npat++;
     }
     FILE *fo = fopen(argv[4], "w");
-    fprintf(fo, "{\"checker\": \"M-eval\", \"THRG\": %d, \"patterns\": %ld, \"configurations\": %ld, \"stageA_pass\": %ld, \"stageB_pass\": %ld, \"stageC_evaluated\": %ld, \"stageB_survivors_with_c_ge_3\": %ld, \"same_anchor_trail_le_thr_lower_bound_only\": %ld, \"min_G_exact\": %d, \"G_hist\": {",
+    fprintf(fo, "{\"checker\": \"M-eval\", \"THRG\": %d, \"patterns\": %ld, \"configurations\": %ld, \"stageA_pass\": %ld, \"stageB_pass\": %ld, \"stageC_evaluated\": %ld, \"stageB_survivors_with_c_ge_3\": %ld, \"same_anchor_trail_le_thr_exact\": %ld, \"min_G_exact\": %d, \"G_hist\": {",
             THRG, npat, nconf, nA_pass, nB_pass, nC_eval, nC_c3, nsame, bestG < BIGI ? bestG : -1);
     int fz = 1; for (int g = 0; g < 64; g++) if (hist[g]) { fprintf(fo, "%s\"%d\": %ld", fz ? "" : ", ", g, hist[g]); fz = 0; } fprintf(fo, "}, \"sec\": %.1f}\n", omp_get_wtime() - T0); fclose(fo);
     fclose(wit);
+    fprintf(stderr, "stage-B cache: %ld cycles stored, %ld hits, %ld misses\n", ncache, nhit, nmiss);
     printf("{\"patterns\": %ld, \"configurations\": %ld, \"stageA_pass\": %ld, \"stageB_pass\": %ld, \"stageC_evaluated\": %ld, \"c_ge_3_survivors\": %ld, \"min_G_exact\": %d}\n", npat, nconf, nA_pass, nB_pass, nC_eval, nC_c3, bestG < BIGI ? bestG : -1);
     return 0;
 }

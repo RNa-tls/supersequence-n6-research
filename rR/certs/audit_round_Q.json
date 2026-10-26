@@ -1,0 +1,75 @@
+{
+ "words": {
+  "superperm8_46183.txt": {
+   "sha256": "b4d07ecd63576873fd0c092d93bfd51ea1d07742e581a9bbb256365346155f64",
+   "checkers": [
+    "minicheck.py",
+    "r0verifyA.py",
+    "r0verifyB.py",
+    "verify_r0_independent.py",
+    "permcheck.c"
+   ],
+   "all_pass": true,
+   "rebuild_split_witness_sha256": "b4d07ecd63576873fd0c092d93bfd51ea1d07742e581a9bbb256365346155f64",
+   "P": 31,
+   "V": 31,
+   "G": 21,
+   "J": 98
+  },
+  "superperm8_46183_b.txt": {
+   "sha256": "47af755bfbcb78f01a8ecda0c90b893f4f5989f8f39c28d6e4f0b43ec6118043",
+   "checkers": [
+    "minicheck.py",
+    "r0verifyA.py",
+    "r0verifyB.py",
+    "verify_r0_independent.py",
+    "permcheck.c"
+   ],
+   "all_pass": true,
+   "rebuild_split_witness_sha256": "47af755bfbcb78f01a8ecda0c90b893f4f5989f8f39c28d6e4f0b43ec6118043",
+   "P": 31,
+   "V": 31,
+   "G": 21,
+   "J": 98
+  }
+ },
+ "orbits": {
+  "word_a": {
+   "distinct": 12,
+   "all_valid": true,
+   "hashes_match_rQ_cert": true
+  },
+  "word_b": {
+   "distinct": 12,
+   "all_valid": true,
+   "hashes_match_rQ_cert": true
+  },
+  "disjoint": true,
+  "total_words": 24
+ },
+ "checkerB_H_layers": {
+  "rebuilt": 49,
+  "sha256_match": 49,
+  "cert": "rP/certs/checkerB_H_layers.sha256"
+ },
+ "phi_token_parser": "split_eval.c reads phi tokens as trail ids, aborts on out-of-range or A ids, checks every expansion is a permutation of the 30 trails; ckM_eval.c uses the same convention (finish())",
+ "not_recomputed": "the 1,140,270 junction sequences of Round Q (no discrepancy found); c = 1 is re-covered independently by the Round R c <= 2 bracket search",
+ "equality_words_from_rotation_probe": {
+  "eq_superperm8_46183.json.equal_t28_p4358.word.txt": {
+   "sha256": "fd96bed13259fc323eb5a64a245e5b9ff5b20545ffd4f0b25f57f3c0914a204d",
+   "length": 46183
+  },
+  "eq_superperm8_46183.json.equal_t8_p2512.word.txt": {
+   "sha256": "11c0bd81aba325d287cd073f4cc199e59335b06150e3fcaad0dbc6f03be39db1",
+   "length": 46183
+  },
+  "eq_superperm8_46183_b.json.equal_t28_p380.word.txt": {
+   "sha256": "2467c03f4f3f2427722952ebe0f3f6541216eecd1ad4b2a31ea4931bf2780283",
+   "length": 46183
+  },
+  "eq_superperm8_46183_b.json.equal_t8_p3184.word.txt": {
+   "sha256": "28440bf68a57e8b99ff7f18e73222e1b7328f84e0018edead6473ccfbc774ad5",
+   "length": 46183
+  }
+ }
+}

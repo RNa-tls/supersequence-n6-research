@@ -2,7 +2,8 @@
 """Round R -- rebuild the word of a bracket-tree configuration and measure it (independent of the C search/evaluator).
 Input: a JSON line as written by ckM_eval.c (stage C): P (trail order), cycles (trail orders, each opened at its
 anchor), anchor_trails (trail of the anchor of every cycle), nested_inner (-1: every anchor main is in P; i: cycle i
-is anchored at a trail of the other cycle, which is anchored in P).
+is anchored at a trail of the other cycle, which is anchored in P).  Two cycles anchored on ONE trail of P (that trail then
+has three pieces) are solved by brute force over all anchor pairs.
 The exact optimum over all options is recomputed here by dynamic programming with back-pointers (numpy, options and
 excess rebuilt from runs.bin), the word is assembled run by run:
     trail with main cut a and anchor cut b (same version):  pieces [a, b) and [b, a);  the cycle sits between them,
@@ -62,12 +63,27 @@ def main():
         return nc, ch
     o_first = opt_idx(P[0]); st0 = (cut[o_first] == 2).astype(np.int64)
     choice = {}
-    if nest == -1:
+    same = c == 2 and nest == -1 and AT[0] == AT[1]
+    if same:
+        # both cycles anchored on one trail T (three pieces): for every main option o, brute force over all ordered anchor
+        # pairs (u1, u2) of T's options with version(u) = version(o), u1, u2 at runs != run(o) and run(u1) != run(u2)
+        T = AT[0]; Om = opt_idx(T)
+        U1, best1, arg1 = cycle_close(Z[0], T); U2, best2, arg2 = cycle_close(Z[1], T)
+        assert (U1 == Om).all() and (U2 == Om).all()
+        nc = np.full(len(Om), BIG); pch = [None] * len(Om)
+        for qi, o in enumerate(Om):
+            ok = (V[Om] == V[o]) & (K[Om] != K[o])
+            Smat = np.where(ok[:, None] & ok[None, :] & (K[Om][:, None] != K[Om][None, :]), best1[:, None] + best2[None, :], BIG)
+            j = int(Smat.argmin()); j1, j2 = divmod(j, len(Om)); nc[qi] = Smat[j1, j2]; pch[qi] = (j1, j2)
+        vals, bps = path_dp(P, st0, {T: nc}); q = int(vals[-1].argmin()); G = int(vals[-1][q]) + c
+        popts = back(P, vals, bps, q); mo = popts[P.index(T)]; j1, j2 = pch[mo - Om[0]]
+        v1, b1, q1 = arg1[j1]; choice[0] = (int(U1[j1]), back(Z[0], v1, b1, q1))
+        v2, b2, q2 = arg2[j2]; choice[1] = (int(U2[j2]), back(Z[1], v2, b2, q2))
+    elif nest == -1:
         node = {}; info = {}
         for i in range(c):
             U, best, arg = cycle_close(Z[i], AT[i]); nc, ch = node_from(U, best, AT[i])
             node[AT[i]] = node.get(AT[i], 0) + nc; info[i] = (U, best, arg, ch)
-        if c == 2 and AT[0] == AT[1]: print(json.dumps({"warning": "both anchors on one trail: anchors may coincide; check"}))
         vals, bps = path_dp(P, st0, node); q = int(vals[-1].argmin()); G = int(vals[-1][q]) + c
         popts = back(P, vals, bps, q)
         for i in range(c):
@@ -94,9 +110,16 @@ def main():
             else: out += pieces_single(o)
         return out
     spl_P = {}; spl_Z = {}
-    if nest == -1:
-        for i in range(c): u, zop = choice[i]; spl_P.setdefault(AT[i], [])
-        # (two anchors on the same trail are not assembled here)
+    if same:
+        # main a, anchors u1, u2 in cyclic order after a: pieces [a, first) Z_first [first, second) Z_second [second, a)
+        T = AT[0]; mo = popts[P.index(T)]; m = mlen[T]
+        (u1, z1), (u2, z2) = choice[0], choice[1]; r1 = emit(Z[0], z1, {}); r2 = emit(Z[1], z2, {})
+        d1 = (tv[u1][2] - tv[mo][2]) % m; d2 = (tv[u2][2] - tv[mo][2]) % m; assert 0 < d1 != d2 > 0
+        if d1 > d2: (u1, r1), (u2, r2) = (u2, r2), (u1, r1)
+        tri = piece(mo, u1) + r1 + piece(u1, u2) + r2 + piece(u2, mo)
+        seq = []
+        for t, o in zip(P, popts): seq += tri if t == T else pieces_single(o)
+    elif nest == -1:
         for i in range(c): u, zop = choice[i]; spl_P[AT[i]] = (u, emit(Z[i], zop, {}))
         seq = emit(P, popts, spl_P)
     else:
@@ -116,6 +139,7 @@ def main():
     perms = {tuple(w[i:i + 8]) for i in range(len(w) - 7) if len(set(w[i:i + 8])) == 8}
     s = "".join(str(x + 1) for x in w) + "\n"; open(sys.argv[3], "w").write(s)
     print(json.dumps(dict(G_dp=G, length=Lw, G_word=Lw - 46162, all_perms=len(perms) == 40320, sha256=hashlib.sha256(s.encode()).hexdigest(),
-                          P_options=[int(x) for x in popts], anchors=[choice[i][0] for i in range(c)])))
+                          P_options=[int(x) for x in popts], anchors=[choice[i][0] for i in range(c)],
+                          cycle_options=[[int(x) for x in choice[i][1]] for i in range(c)])))
 
 main()
