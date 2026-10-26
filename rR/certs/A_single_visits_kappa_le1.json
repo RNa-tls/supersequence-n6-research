@@ -171,5 +171,28 @@
    "undominated": 0,
    "max_gain": 0
   }
- ]
+ ],
+ "kappa_le2": {
+  "program": "rR/csrc/kappa_dfs.c (B = 2), validated: B = 0 and B = 1 tables byte-identical to the Python enumerations",
+  "trail": 1,
+  "version": 0,
+  "paths_by_kappa": [
+   104,
+   740,
+   1268
+  ],
+  "nonstandard_pairs_by_least_kappa": [
+   0,
+   168,
+   788
+  ],
+  "dfs_nodes": 2516771524,
+  "dominance": {
+   "checked": 956,
+   "undominated": 0,
+   "max_gain": 0
+  },
+  "symmetry": "the family group acts transitively on the 12 A trail-versions (orbit of (1,0) = all 12, version cycles mapped in order), so the result holds for every A version"
+ },
+ "theorem_R9c": "every A single visit with kappa <= 2 (any number of pieces) is dominated by a single piece (max gain 0)"
 }
