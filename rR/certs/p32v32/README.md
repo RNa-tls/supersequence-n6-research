@@ -20,3 +20,8 @@ Reproduction (scratchpad paths as in the logs):
     ckM2 DIR(runs.bin, group.bin) OUT                                   # 41 min, 15 GB
     ckM2_search DIR HKEYDIR(ckB H??.key) OUT 20 s20.json               # patterns in s20.json.patterns.NN
     ckM_eval DIR PATTERNS 20 OUT.json WIT.jsonl                         # per chunk
+
+Note on trace runs: in trace mode (env CKM_TRACE) the search keeps only the states of one configuration, so the
+symmetry closure check necessarily reports missing images ("FAILED ... expanding every final state"); trace mode
+never uses the symmetry reduction (it expands its single final state).  The check is meaningful only for full runs,
+where it passed (search_thr20.json: symmetry_closure_images_missing = 0).
