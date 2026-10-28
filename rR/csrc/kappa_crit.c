@@ -6,7 +6,8 @@
 // visits:  budget per start run  B(y0) = min(B, max_x S(y0, x) - 1),  and at a node with lower bound L the path is
 // cut when no uncovered run x has S(y0, x) > L (every completion ends at such an x with kappa >= L).
 // Env SLACK_ADD=a adds a to every slack (planted test: with a = 1 the output must be exactly the pairs with
-// least kappa = S(y, x), read off the exact kappa tables).
+// least kappa = S(y, x), read off the exact kappa tables).  Env SKIP_BELOW=b skips the start runs with B(y0) < b (their visits with
+// kappa < b are covered by a run with a smaller B).
 // Lower bound at a node (path ends at x, next join has w >= 3):
 //   Hc      = sum over touched chains of their maximal uncovered w2 intervals (each needs one more paid segment);
 //   units   = the untouched chains and the uncovered intervals of touched chains; every unit must be entered by a
@@ -115,6 +116,7 @@ int main(int argc, char **argv) {
     if (argc < 7) { fprintf(stderr, "usage: kappa_crit DIR TRAIL VERSION B SLACK.bin OUT.json [Y0_FROM Y0_TO]\n"); return 1; }
     const char *dir = argv[1]; int T0 = atoi(argv[2]), V0 = atoi(argv[3]); B = atoi(argv[4]); const char *slp = argv[5]; const char *outp = argv[6]; char p[2048];
     int sadd = getenv("SLACK_ADD") ? atoi(getenv("SLACK_ADD")) : 0;
+    int skip_below = getenv("SKIP_BELOW") ? atoi(getenv("SKIP_BELOW")) : 0;   // skip start runs whose budget B(y0) < this
     if (B > MAXB) return 1;
     snprintf(p, sizeof p, "%s/runs.bin", dir); FILE *f = fopen(p, "rb"); if (!f) return 2;
     for (int t = 0; t < NTR; t++) for (int v = 0; v < 2; v++) { int32_t mm; if (fread(&mm, 4, 1, f) != 1) return 2; mrun[t][v] = mm; runp[t][v] = malloc(8 * mm); if (fread(runp[t][v], 1, 8 * mm, f) != (size_t)(8 * mm)) return 2; }
@@ -157,7 +159,7 @@ int main(int argc, char **argv) {
     for (int y0 = yf; y0 < yt; y0++) {
         Ctx *C = &ctx[omp_get_thread_num()];
         int smax = -100; for (int x = 0; x < m; x++) if (S[(size_t)y0 * m + x] > smax) smax = S[(size_t)y0 * m + x];
-        int Bv = smax - 1 < B ? smax - 1 : B; if (Bv < 0) { y0_skip++; continue; } y0_run++;
+        int Bv = smax - 1 < B ? smax - 1 : B; if (Bv < 0 || Bv < skip_below) { y0_skip++; continue; } y0_run++;
         C->Sy = S + (size_t)y0 * m; for (int t = 0; t <= MAXB + 1; t++) { int n = 0; for (int x = 0; x < m; x++) if (C->Sy[x] > t) n++; C->endc[t] = n; }
         long nodes_before = C->nodes;
         memset(&C->vis, 0, sizeof C->vis); memcpy(C->cnt, cnt0, 4 * m); memcpy(C->avail, avail0, 4 * nchain); C->nblkU = nblk0;

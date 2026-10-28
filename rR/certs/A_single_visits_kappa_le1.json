@@ -224,5 +224,39 @@
   "symmetry": "the family group acts transitively on the 12 A trail-versions (orbit of (1,0) = all 12, version cycles mapped in order), so the result holds for every A version"
  },
  "theorem_R9d": "every A single visit with kappa <= 3 (any number of pieces) is dominated by a single piece (max gain 0)",
- "open": "kappa = 4, 5: a visit with kappa >= 6 is dominated automatically (max slack over all (entry, exit) pairs = 6, start and end contexts included)"
+ "open": "kappa = 4, 5: a visit with kappa >= 6 is dominated automatically (max slack over all (entry, exit) pairs = 6, start and end contexts included)",
+ "independent_checks": {
+  "kappa_dfs2": {
+   "program": "rR/csrc/kappa_dfs2.c (entry-blocked-unit lower bound added to the kappa_dfs.c search)",
+   "B0_B3_tables_byte_identical_to_kappa_dfs": true,
+   "nodes": {
+    "B2": 197553844,
+    "B3": 5927161932
+   },
+   "nodes_kappa_dfs": {
+    "B2": 2516771524,
+    "B3": 124984254488
+   }
+  },
+  "kappa_runlevel": {
+   "program": "rR/csrc/kappa_runlevel.c (run-level DFS: no chains, no segments, no Theorem R7; kappa = sum (w - 2) - (N - 1))",
+   "B0_B2_tables_byte_identical_to_kappa_dfs": true,
+   "B2_nodes": 1399076268,
+   "B2_sec_1_thread": 91.2,
+   "B2_paths": 2112,
+   "B2_pairs_by_least_kappa": [
+    104,
+    736,
+    788
+   ]
+  },
+  "kappa_crit_planted": {
+   "program": "rR/csrc/kappa_crit.c with SLACK_ADD",
+   "B": 3,
+   "SLACK_ADD_0_undominated_pairs": 0,
+   "SLACK_ADD_1_pairs": 4144,
+   "SLACK_ADD_2_pairs": 4260,
+   "result": "each set equals the pairs read off the exact B = 3 table (least kappa < slack + a)"
+  }
+ }
 }
