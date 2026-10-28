@@ -224,7 +224,6 @@
   "symmetry": "the family group acts transitively on the 12 A trail-versions (orbit of (1,0) = all 12, version cycles mapped in order), so the result holds for every A version"
  },
  "theorem_R9d": "every A single visit with kappa <= 3 (any number of pieces) is dominated by a single piece (max gain 0)",
- "open": "kappa = 4, 5: a visit with kappa >= 6 is dominated automatically (max slack over all (entry, exit) pairs = 6, start and end contexts included)",
  "independent_checks": {
   "kappa_dfs2": {
    "program": "rR/csrc/kappa_dfs2.c (entry-blocked-unit lower bound added to the kappa_dfs.c search)",
@@ -258,5 +257,6 @@
    "SLACK_ADD_2_pairs": 4260,
    "result": "each set equals the pairs read off the exact B = 3 table (least kappa < slack + a)"
   }
- }
+ },
+ "theorem_R10": "no A single visit with kappa = 4 or 5 is undominated (rR/certs/kappa45/SUMMARY.json); kappa >= 6 is dominated automatically (max effective slack 6); hence every A single visit, with any number of pieces, is dominated by a single piece"
 }

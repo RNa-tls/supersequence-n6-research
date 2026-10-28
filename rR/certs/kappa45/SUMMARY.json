@@ -1,0 +1,64 @@
+{
+ "claim": "Theorem R10: no A single visit (any number of pieces) with kappa = 4 or 5 is undominated; with Theorem R9 (kappa <= 3) and max effective slack 6 (kappa >= 6), every A single visit is dominated by a single piece",
+ "criterion": "a visit (y, x, kappa) is undominated iff kappa < S(y, x), S = effective slack of rQ/csrc/dominance.c with DOM_BOTH = 1 (both versions' single pieces, start and end contexts), written by rR/csrc/dominance_slack.c",
+ "slack_table_sha256": "b1d335c4840125def42c68cc5a3f0b6e351a549b4702e97b17a5f1d5db8bd4b4",
+ "program": "rR/csrc/kappa_crit.c (DFS and lower bound of rR/csrc/kappa_dfs2.c; per-start budget min(B, max_x S - 1); end pruning)",
+ "symmetry": {
+  "file": "rR/certs/A_version_shift_symmetry_t1v0.json",
+  "automorphism_shifts": [
+   168,
+   336,
+   504
+  ],
+  "consequence": "start runs 0..167 represent all 672 (W and S invariant under run k -> k + 168)"
+ },
+ "kappa_le_4": {
+  "B": 4,
+  "start_runs": [
+   0,
+   336
+  ],
+  "start_runs_searched": 336,
+  "undominated_pairs": 0,
+  "complete_paths_reached": 12544,
+  "nodes": 55619559646,
+  "sec": 1186.2
+ },
+ "kappa_5": {
+  "B": 5,
+  "SKIP_BELOW": 5,
+  "start_runs_needing_budget_5": "max S(y0, .) = 6: 296 of 672, 74 in 0..167",
+  "chunks": [
+   {
+    "start_runs": [
+     0,
+     81
+    ],
+    "searched": 37,
+    "undominated_pairs": 0,
+    "nodes": 107042344117,
+    "sec": 3290.9
+   },
+   {
+    "start_runs": [
+     81,
+     168
+    ],
+    "searched": 37,
+    "undominated_pairs": 0,
+    "nodes": 106105163007,
+    "sec": 2785.3
+   }
+  ],
+  "nodes_total": 213147507124,
+  "sec_total": 6076.2
+ },
+ "planted_checks_B3": {
+  "SLACK_ADD_0": 0,
+  "SLACK_ADD_1": 4144,
+  "SLACK_ADD_2": 4260,
+  "result": "identical to the pair sets read off the exact B = 3 kappa table"
+ },
+ "transfer": "the family group acts transitively on the 12 A trail-versions",
+ "result": "0 undominated visits for kappa <= 5"
+}
