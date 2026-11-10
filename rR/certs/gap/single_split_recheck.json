@@ -1,0 +1,42 @@
+{
+ "search_rerun": {
+  "checker": "T-search",
+  "THR": 20,
+  "mutations": 0,
+  "minimum_bound_F_junction": 18,
+  "final_states_le_thr": 274,
+  "solutions_le_thr": 4788,
+  "patterns": 231996,
+  "H_lookup_misses": 0,
+  "transitions": 1985094176,
+  "sec": 1089.9
+ },
+ "std_eval": {
+  "checker": "gap_eval STD=1 (standard single splits, independent of split_eval.c)",
+  "THRG": 21,
+  "patterns": 231996,
+  "sequences": 1140270,
+  "sequences_within_budget": 86124,
+  "b_candidates": 160104,
+  "witnesses_G_le_THRG": 192,
+  "least_G_found_le_THRG": 21,
+  "least_G_hist_over_patterns": {
+   "21": 12,
+   "22": 192,
+   "23": 60,
+   "24": 330,
+   "25": 1428,
+   "26": 1680,
+   "27": 2238,
+   "28": 2808,
+   "29": 1464,
+   "30": 846,
+   "31": 528
+  },
+  "sec": 1245.5
+ },
+ "witnesses_identical_to_round_Q": true,
+ "witness_count": 192,
+ "patterns_sha256": "247e3cddec3e5a45c85977e52eae9ad2819fecee31af46eb3117f38f72458095",
+ "round_Q_reference": "rQ/certs/single_split_exact_thr20.json"
+}

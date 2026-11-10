@@ -141,7 +141,8 @@ static int eval_seq(const int *sq, int jj) {
             // the 9 best main options of this version (a chain excludes at most 8 of them)
             int bv[9], bq[9], nb = 0;
             for (int q = 0; q < tcnt[S]; q++) { if (over_[tofs[S] + q] != ver) continue; int v = pv[q];
-                int k = nb < 9 ? nb++ : 8; if (k == 8 && nb == 9 && v >= bv[8]) continue;
+                int k;
+                if (nb < 9) k = nb++; else { if (v >= bv[8]) continue; k = 8; }
                 while (k > 0 && bv[k - 1] > v) { bv[k] = bv[k - 1]; bq[k] = bq[k - 1]; k--; } bv[k] = v; bq[k] = q; }
             if (nb == 0 || bv[0] + minZ > THRG) continue;
             for (int gi = gap_first[S][ver]; gi < gap_first[S][ver] + gap_cnt[S][ver]; gi++) { const Gap *g = &gaps[gi];
@@ -229,7 +230,8 @@ int main(int argc, char **argv) {
         if (!ntk) continue;
         int sq[NTR]; pbest = BIGI; expand(0, sq, 0, -1); npat++;
         #pragma omp critical
-        { if (pbest < bestLB) bestLB = pbest; if (pbest < 64) hist[pbest]++; done++;
+        { if (pbest < 0) { fprintf(stderr, "negative value %d\n", pbest); exit(10); }
+          if (pbest < bestLB) bestLB = pbest; if (pbest < 64) hist[pbest]++; done++;
           if (done % 10000 == 0) fprintf(stderr, "patterns %ld / %ld, least value %d, within budget %ld, candidates %ld, survivors %ld, %.1fs\n", done, nl, bestLB, nfeas, ncand, STD ? nwit : nsurv, omp_get_wtime() - T0); } }
     fclose(in); fclose(wit);
     FILE *fo = fopen(outp, "w");

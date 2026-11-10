@@ -1,0 +1,157 @@
+{
+ "E1": {
+  "routes": 500,
+  "P": [
+   32
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 500,
+  "not_reduced": 0,
+  "reasons": {},
+  "max_delta": 0,
+  "cycles_after": [
+   0
+  ],
+  "degenerate": 0,
+  "expected_reducible": true,
+  "as_expected": true
+ },
+ "1a": {
+  "routes": 500,
+  "P": [
+   32,
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 500,
+  "not_reduced": 0,
+  "reasons": {},
+  "max_delta": 0,
+  "cycles_after": [
+   0,
+   1
+  ],
+  "degenerate": 108,
+  "expected_reducible": true,
+  "as_expected": true
+ },
+ "G1p": {
+  "routes": 500,
+  "P": [
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 0,
+  "not_reduced": 500,
+  "reasons": {
+   "open wrap block needed by the tree (gap cut)": 500
+  },
+  "max_delta": null,
+  "cycles_after": [],
+  "degenerate": 0,
+  "expected_reducible": false,
+  "as_expected": true
+ },
+ "G1c": {
+  "routes": 500,
+  "P": [
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 500,
+  "not_reduced": 0,
+  "reasons": {},
+  "max_delta": 0,
+  "cycles_after": [
+   1
+  ],
+  "degenerate": 0,
+  "expected_reducible": true,
+  "as_expected": true
+ },
+ "G1''": {
+  "routes": 500,
+  "P": [
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 0,
+  "not_reduced": 500,
+  "reasons": {
+   "open wrap block needed by the tree (gap cut)": 500
+  },
+  "max_delta": null,
+  "cycles_after": [],
+  "degenerate": 0,
+  "expected_reducible": false,
+  "as_expected": true
+ },
+ "G1''p": {
+  "routes": 500,
+  "P": [
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 500,
+  "not_reduced": 0,
+  "reasons": {},
+  "max_delta": 0,
+  "cycles_after": [
+   1
+  ],
+  "degenerate": 0,
+  "expected_reducible": true,
+  "as_expected": true
+ },
+ "2s": {
+  "routes": 500,
+  "P": [
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 500,
+  "not_reduced": 0,
+  "reasons": {},
+  "max_delta": 0,
+  "cycles_after": [
+   1
+  ],
+  "degenerate": 0,
+  "expected_reducible": true,
+  "as_expected": true
+ },
+ "2d": {
+  "routes": 500,
+  "P": [
+   33
+  ],
+  "wraps": [
+   "open"
+  ],
+  "reduced": 500,
+  "not_reduced": 0,
+  "reasons": {},
+  "max_delta": -1,
+  "cycles_after": [
+   1
+  ],
+  "degenerate": 0,
+  "expected_reducible": true,
+  "as_expected": true
+ },
+ "all_as_expected": true
+}

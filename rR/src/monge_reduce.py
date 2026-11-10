@@ -146,33 +146,22 @@ class Cover:
 class ReductionError(Exception): pass
 
 def choose_tree(F, C, comps, comp, rng=None, choose="random", prefer=(), avoid=()):
-    """kept cuts of a spanning tree of the incidence graph (components x trails), rooted at the path component;
-    leaf cycles (only the anchor kept) are pruned.  `prefer` cuts are taken first, `avoid` cuts last."""
+    """kept cuts of a spanning tree of the incidence graph (components x trails, one edge per cut); leaf cycles (only
+    the anchor kept) are pruned.  Greedy (Kruskal) with the cuts in the order: `prefer`, ordinary, `avoid` -- so the tree
+    uses as few `avoid` cuts as possible (a spanning tree without them is found whenever one exists)."""
     ncomp = len(comps); T = F.T
-    cuts_of = {}
-    for u in C.cuts: cuts_of.setdefault((comp[u], int(T[u])), []).append(u)
-    adj_c = {i: set() for i in range(ncomp)}; adj_t = {t: set() for t in range(30)}
-    for (i, t) in cuts_of: adj_c[i].add(t); adj_t[t].add(i)
-    def pick(cand):
-        pf = [c for c in cand if c in prefer]
-        if pf: return pf[0]
-        ok = [c for c in cand if c not in avoid] or cand
-        return rng.choice(ok) if (rng and choose == "random") else ok[0]
-    keep = set(); seen_c = {0}; seen_t = set(); frontier = [("c", 0)]
-    while frontier:
-        nf = []
-        for kind, x in frontier:
-            if kind == "c":
-                for t in sorted(adj_c[x]):
-                    if t in seen_t: continue
-                    seen_t.add(t); keep.add(pick(cuts_of[(x, t)])); nf.append(("t", t))
-            else:
-                for i in sorted(adj_t[x]):
-                    if i in seen_c: continue
-                    seen_c.add(i); keep.add(pick(cuts_of[(i, x)])); nf.append(("c", i))
-        if rng and choose == "random": rng.shuffle(nf)
-        frontier = nf
-    if not (len(seen_t) == 30 and len(seen_c) == ncomp): raise ReductionError("incidence graph not connected")
+    cuts = list(C.cuts)
+    if rng and choose == "random": rng.shuffle(cuts)
+    cuts.sort(key=lambda u: 0 if u in prefer else (2 if u in avoid else 1))
+    parent = list(range(ncomp + 30))
+    def find(x):
+        while parent[x] != x: parent[x] = parent[parent[x]]; x = parent[x]
+        return x
+    keep = set()
+    for u in cuts:
+        a = find(comp[u]); b = find(ncomp + int(T[u]))
+        if a != b: parent[a] = b; keep.add(u)
+    if len(keep) != ncomp + 30 - 1: raise ReductionError("incidence graph not connected")
     kept_in = {i: [u for u in comps[i] if u in keep] for i in range(ncomp)}
     for i in range(1, ncomp):
         if len(kept_in[i]) == 1: keep.discard(kept_in[i][0]); kept_in[i] = []

@@ -12,51 +12,51 @@
  ],
  "A_random_pieces_wrap_free": {
   "routes": 3000,
-  "deleted": 269707,
-  "delta_sum": -1524374,
-  "max_P": 337,
+  "deleted": 267880,
+  "delta_sum": -1513583,
+  "max_P": 347,
   "ladders": 0,
-  "tight_steps": 159,
-  "max_cycles_after": 7,
-  "whole_cycles": 4057,
+  "tight_steps": 158,
+  "max_cycles_after": 8,
+  "whole_cycles": 2306,
   "bypassed_blocks": 0,
-  "max_delta": -21,
+  "max_delta": -23,
   "direct_trees": 9000,
-  "direct_max_delta": -20,
+  "direct_max_delta": -21,
   "direct_violations": 0,
-  "skipped_with_wrap": 17
+  "skipped_with_wrap": 28
  },
  "B_perturbed_words_wrap_free": {
   "routes": 6000,
-  "deleted": 227777,
-  "delta_sum": -1176074,
+  "deleted": 204045,
+  "delta_sum": -904399,
   "max_P": 107,
   "ladders": 0,
-  "tight_steps": 4146,
-  "max_cycles_after": 7,
-  "whole_cycles": 72119,
+  "tight_steps": 26565,
+  "max_cycles_after": 13,
+  "whole_cycles": 48087,
   "bypassed_blocks": 0,
   "max_delta": 0,
   "direct_trees": 18000,
   "direct_max_delta": 0,
   "direct_violations": 0,
-  "skipped_with_wrap": 2
+  "skipped_with_wrap": 0
  },
  "C_forced_ladders": {
   "ss": {
    "routes": 500,
    "ladders_deleted": 500,
-   "max_ladder_delta": -6
+   "max_ladder_delta": -7
   },
   "sw": {
    "routes": 500,
    "ladders_deleted": 500,
-   "max_ladder_delta": -7
+   "max_ladder_delta": -6
   },
   "ws": {
    "routes": 500,
    "ladders_deleted": 500,
-   "max_ladder_delta": -6
+   "max_ladder_delta": -7
   },
   "ww": {
    "routes": 500,
@@ -66,59 +66,60 @@
  },
  "D_rotations_with_skip": {
   "routes": 6000,
-  "deleted": 139394,
-  "delta_sum": -529953,
-  "max_P": 101,
+  "deleted": 125400,
+  "delta_sum": -373540,
+  "max_P": 106,
   "ladders": 0,
-  "tight_steps": 2129,
-  "max_cycles_after": 7,
-  "whole_cycles": 50218,
+  "tight_steps": 15336,
+  "max_cycles_after": 11,
+  "whole_cycles": 36670,
   "bypassed_blocks": 0,
   "max_delta": 0,
   "direct_trees": 18000,
   "direct_max_delta": 0,
   "direct_violations": 0,
   "blocks_by_k": {
-   "1": 6417,
-   "2": 3970,
-   "4": 1862,
-   "3": 1962
+   "2": 3973,
+   "1": 6384,
+   "3": 1849,
+   "4": 1861
   },
-  "generated_not_closed": 1177
+  "generated_not_closed": 1116
  },
  "E_open_gaps": {
   "routes": 2000,
-  "reduced": 1877,
-  "failed": 123,
+  "reduced": 1993,
+  "failed": 7,
   "reasons": {
-   "open wrap block needed by the tree (gap cut)": 118,
-   "bypassing a wrap block would create a tight arc": 5
+   "bypassing a wrap block would create a tight arc": 4,
+   "open wrap block needed by the tree (gap cut)": 3
   },
   "direct_min_delta_hist": {
-   "-23": 139,
-   "-28": 447,
-   "-26": 341,
-   "-27": 523,
-   "-25": 142,
-   "-22": 130,
-   "-20": 37,
-   "-21": 90,
-   "-18": 13,
-   "-16": 22,
-   "-24": 67,
-   "-15": 8,
-   "-17": 18,
-   "-12": 2,
-   "-19": 14,
-   "-10": 2,
-   "-11": 2,
-   "-14": 2,
-   "-13": 1
+   "-18": 82,
+   "-28": 285,
+   "-16": 153,
+   "-26": 233,
+   "-17": 179,
+   "-27": 378,
+   "-12": 37,
+   "-25": 114,
+   "-19": 33,
+   "-13": 32,
+   "-22": 112,
+   "-21": 70,
+   "-20": 28,
+   "-23": 98,
+   "-24": 54,
+   "-14": 25,
+   "-15": 62,
+   "-11": 19,
+   "-10": 5,
+   "-9": 1
   },
   "direct_trees": 16000,
   "some_tree_nonpositive": 2000,
   "all_trees_positive": 0,
   "examples": []
  },
- "seconds": 438.0
+ "seconds": 443.2
 }
