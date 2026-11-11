@@ -165,6 +165,28 @@ theorem wrap_bypass (way s r : Nat) (hM : way + 4 ≤ s + r) : way + 3 + 3 ≤ s
 theorem ladder_long (m wnew wold : Nat) (hm : 4 ≤ m) (hnew : wnew ≤ 8) (hold : 4 * (m + 1) ≤ wold) :
     wnew + 3 * m ≤ wold := by omega
 
+/-- a ladder in general (singleton or wrap steps): the `m + 1` junctions join different trails, so each weighs at least
+    (cut weight of its target) + 1; `sumc` = cut weights of the `m` deleted cuts, `clast >= 2` = cut weight of the kept
+    last cut, the new junction weighs at most 8.  For `m >= 6` the deletion never increases the weight. -/
+theorem ladder_general (m wnew sumc clast sumw : Nat) (hm : 6 ≤ m) (hnew : wnew ≤ 8) (hc : 2 ≤ clast)
+    (hold : sumc + clast + (m + 1) ≤ sumw) : wnew + sumc ≤ sumw := by omega
+
+/-- deleting a whole cover cycle: every cut weighs at most 3 and every junction at least 3 (the invariant of the
+    reduction), so the restored natural links weigh at most as much as the removed junctions. -/
+theorem cycle_deletion (cw : List (Nat × Nat)) (h : ∀ p ∈ cw, p.1 ≤ 3 ∧ 3 ≤ p.2) :
+    (cw.map (fun p => p.1)).sum ≤ (cw.map (fun p => p.2)).sum := by
+  induction cw with
+  | nil => simp
+  | cons p t ih =>
+    have hp := h p (List.mem_cons_self ..)
+    have ht := ih (fun q hq => h q (List.mem_cons_of_mem _ hq))
+    simp only [List.map_cons, List.sum_cons]
+    omega
+
+/-- a closed wrap block (k wraps of weight 2 and the skip junction of weight 3 + k) is deleted at no cost:
+    the k + 1 restored natural links weigh 3 each. -/
+theorem skip_cycle_deletion (k : Nat) : 3 * (k + 1) = 2 * k + (3 + k) := by omega
+
 /-- length threshold: G = (sum of link weights) - 10874 and length = 46162 + G. -/
 theorem length_of_weight (W G : Nat) (hW : W = 10874 + G) : 35288 + W = 46162 + G := by omega
 
@@ -181,4 +203,7 @@ theorem length_of_weight (W G : Nat) (hW : W = 10874 + G) : 35288 + W = 46162 + 
 #print axioms reattach
 #print axioms wrap_bypass
 #print axioms ladder_long
+#print axioms ladder_general
+#print axioms cycle_deletion
+#print axioms skip_cycle_deletion
 #print axioms length_of_weight

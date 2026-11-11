@@ -24,8 +24,8 @@
   * Round R 정리 R8(고립된 완전 회전)의 일반화이다. 정리 R5의 하한 E′(skip) − k는 이 경우 정확히 0이다.
 * **정리 S3과 남는 구조.** 숙주가 건너뛰지 않는 감싸기(열린 틈)도 양쪽 이웃 이음의 무게가 3 + k 이상이고 그 절단이 나무에 필요하지 않으면 지울 수 있다. 환원되지 않고 남는 것은 **틈 절단**(틈 자체가 주나 닻으로 쓰이는 경우), 가벼운 이웃, 사슬 5개 이상을 회전한 φ뿐이다.
   * Round Q의 E1(회전 사슬 절제, P = 32)은 S3으로 단일 개방에 환원된다. Round Q가 탐색으로 얻은 G ≥ 22가 따름정리가 된다.
-  * P ≤ 33에서 감싸기가 있는 경로는 두 부류만 남는다(§5).
-* **틈 닻 괄호(k = 1)의 정확 평가**: §6. 결과는 그 절에 적는다.
+  * P ≤ 33에서 감싸기가 있는 경로 중 환원되지 않는 부류는 둘이고, 하나(G1p)는 정리 S4로 닫혔다. 남은 것은 G1″ 하나이다(§5, §6.4).
+* **정리 S4 (틈 닻 괄호; 계산 증명서).** 남는 구조 중 가장 작은 것, 곧 틈에 괄호 하나를 건 경로(P = 33, V = 32)를 Round Q의 패턴 231,996개 위에서 정확 평가했다. 하한 pa + cz ≤ 20인 배치는 0개이다. G ≥ 21이다(§6).
 * **독립 검사기 두 개.**
   * κ = 4, 5 표적 탐색: 역방향 구현 `kappa_rev.c`. κ ≤ 3 표와 심은 slack 목록이 Round R과 완전히 같고, κ = 4에서 지배되지 않는 방문은 0개이다. κ = 5의 상태는 §8에 적는다.
   * 단일 분할 정확 평가: `gap_eval.c`(STD = 1)가 Round Q의 증인 192개(모두 G = 21)를 집합으로 똑같이 재현했다.
@@ -97,7 +97,7 @@
   * **교착 = 사다리**: 지울 절단이 모두 안전하지 않으면, 남긴 두 절단 사이의 지울 절단들은 두 trail T ≠ S가 번갈아 나오는 사다리 d₀, d₁, …, d_{m+1}(m 짝수, (d_{i−1}, d_{i+1})가 꼭 맞는 쌍)이다. 남긴 두 절단이 같은 trail이면 나무가 아니므로 m은 짝수이고 양 끝은 서로 다른 trail이다.
   * **보조정리 S1.4 (사다리).** 사다리 전체를 한 번에 지우면 무게 변화 ≤ 0이다.
     * m ≥ 6: 이음 m + 1개가 모두 다른 trail 사이이므로 w ≥ c + 1이고, 새 이음은 ≤ 8이다. 셈으로 끝난다.
-    * m = 2, 4: **계산 증명서**(`rR/csrc/ladders.c`, `ladder_lemma.json`). 모든 trail 쌍·판본·계단 종류에서 m = 2는 113,589,120개 최대 −5, m = 4는 160,583,040개 최대 −13, m = 6은 235,319,808개 최대 −21이다.
+    * m = 2, 4: **계산 증명서**(`rR/csrc/ladders.c`, `ladder_lemma.json`). 모든 trail 쌍·판본·계단 종류에서 m = 2는 113,589,120개 최대 −5, m = 4는 160,583,040개 최대 −13, m = 6은 235,319,808개 최대 −21이다. 둘째 구현 `rR/src/ladders_check.py`(numpy)가 m = 2, 4에서 같은 개수와 같은 최댓값을 냈다(`ladder_lemma_numpy.json`).
   * 남긴 절단이 없는 순환은 통째로 지운다(이음마다 w ≥ 3 ≥ c).
 * **알고리즘과 종단 시험**(`rR/src/monge_reduce.py`, `monge_reduce_test.py`, `reduction_selftest_seed2026.json`). 단계마다 가설과 ΔG ≤ 0을 검사하고, 환원한 경로를 다시 만들어 (i) run 5040개의 순열, (ii) 무게 = 원래 무게 + 단계 변화의 합, (iii) 괄호 나무(V = P, c = P − 30, 도약 없음)를 확인한다.
 
@@ -126,7 +126,7 @@
   * A에서 연속한 완전 사슬은 많아야 4개이다. φ에서 k = 5이면 남은 사슬의 감싸기(무게 2)가 된다.
 * 뜻: 자연 통과((k+1)개의 w3 + 6k개의 w2 = 15k + 3)와 떼어 낸 구조(건너뛰기 3 + k와 닫힌 7-순환 k개 = 15k + 3)의 무게가 **같다**.
   * Round R 정리 R5의 장부 ΔG ≥ E′(skip) − k에서 E′(skip) = k이므로 하한은 0이다. 완전 사슬만 건너뛸 때는 "하한이 음이 되는 구멍"이 없다.
-  * 경로 사슬이 섞인 건너뛰기(예: FpF의 무게 4)는 3 + k 꼴이 아니다. 그러나 경로 사슬은 감쌀 수 없으므로 그런 구조는 감싸기 없는 구조이고 정리 S1에 들어간다.
+  * 경로 사슬이 섞인 건너뛰기(예: FpF의 무게 4)는 3 + k 꼴이 아니다. 이때 감싸기 덩이는 완전 사슬의 연속 구간마다 따로 생기고, 숙주의 건너뛰기 이음에 닿은 덩이는 열린 덩이가 된다(§4.3). 그 이음의 무게가 3 + (덩이 크기) 이상이면 정리 S3의 조건이 그쪽에서 성립한다. 건너뛴 사슬이 13개 이하이면 언제나 그렇다. 사슬 14개 이상을 건너뛰는 먼 도약 가운데 2,352개(119,136개 중)는 그보다 가볍고, 이것은 §4.4의 '가벼운 이웃'이다.
 
 ### 4.2 감싸기 덩이와 정리 S2
 
@@ -173,17 +173,54 @@
 | 2 | 틈이 주, 다른 trail S의 괄호 | 33 | S3 → S의 단일 괄호 | G ≥ 21 |
 | G1c | T′를 m과 틈에서 자름, 틈에 괄호, R이 괄호 안 | 33 | S3 → 닻 T(C_a)의 단일 괄호 | G ≥ 21 |
 | G1″p | 틈이 경로 위, m에 괄호, R이 경로 위 | 33 | S3 → 단일 괄호 | G ≥ 21 |
-| **G1p (틈 닻 괄호)** | T′를 m과 틈에서 자름, 틈에 괄호, R이 경로 위 | 33 | 환원 안 됨(틈 절단) | **§6에서 정확 평가** |
-| **G1″** | 틈이 경로 위(주), m에 괄호, R이 그 괄호 안 | 33 | 환원 안 됨(틈 절단) | **열림** |
+| **G1p (틈 닻 괄호)** | T′를 m과 틈에서 자름, 틈에 괄호, R이 경로 위 | 33 | 환원 안 됨(틈 절단) | **G ≥ 21 (정리 S4, §6)** |
+| **G1″** | 틈이 경로 위(주), m에 괄호, R이 그 괄호 안 | 33 | 환원 안 됨(틈 절단) | **열림** (부분 심사 §6.4) |
 
 * 환원 여부는 구조만으로 정해진다. 부류마다 무작위 경로 500개로 확인했다(`rR/src/p33_classes_test.py`, `one_wrap_classes_P33.json`): 환원된다고 한 여섯 부류는 500/500 환원(무게 변화 ≤ 0), G1p와 G1″는 500/500 "틈 절단"으로 멈춘다.
-* 따라서 **P = 33의 열린 부분은 (i) 순환 3개짜리 괄호 나무(항목 a), (ii) G1″, (iii) §6의 결과에 따라 G1p**뿐이다. Round R이 예로 든 "한 trail의 두 방문이 조각 4개(2 + 2 또는 3 + 1)"는 감싸기가 없으면 S1b로, 건너뛰기형이면 S2로 닫힌다.
+* G1p는 §6에서 닫혔다(정리 S4). 따라서 **P = 33의 열린 부분은 (i) 순환 3개짜리 괄호 나무(항목 a)와 (ii) G1″**뿐이다. Round R이 예로 든 "한 trail의 두 방문이 조각 4개(2 + 2 또는 3 + 1)"는 감싸기가 없으면 S1b로, 건너뛰기형이면 S2로 닫힌다.
 
 ---
 
 ## 6. 틈 닻 괄호의 정확 평가 (§6)
 
-⟦GAP⟧
+### 6.1 구조와 장부
+
+* 부류 G1p: trail S(판본 v)의 완전 사슬 C를 떼어 낸다. S − C를 주 m(m ∉ C ∪ {N₀})과 틈에서 자르고, 틈에 순환 Z′ = z₁ … z_k를 매단다.
+
+      … [m .. Q_end]  z₁ … z_k  [N₀ .. pred m] …        (C는 회전 덩이 R = C_a .. C₆ C₀ .. C_{a−1}로 다른 곳에, a = 1..6)
+
+* Σ = P ++ Z′(접합 위치 j, S ∈ P)로 쓰면 **G = 1 + F_J + β_gap + ins(R)**이다.
+  * β_gap = e(z_k → S(N₀)) + e(S(C₀) → z₁). 틈의 진입은 N₀, 진출은 Q_end이다.
+  * 틈으로 들어가는 호의 할인 −1과 늘어난 조각 +1이 상쇄되어 상수가 1이다.
+  * ins(R) = e(x, R) + e(R, y) − e(x, y) ≥ −1. Monge(무게 2 결합 C_{a−1} → C_a)이다. C를 여러 조각으로 나누어도 조각마다 +1과 ≥ −1이 생기므로 하한은 같다.
+  * 그러므로 **G ≥ pa + cz**이다. pa는 P 부분의 정확 최소(닻 trail의 판본 고정, 주는 C와 N₀ 밖), cz는 틈을 지나는 닫힘 보행의 정확 최소이다.
+* 포괄성: G ≤ 20 ⇒ pa + cz ≤ 20 ⇒ F_J ≤ 20. 그런 (Σ, j)는 모두 THR 20 패턴 231,996개 안에 있다(Round Q 이음매 탐색의 성질).
+
+### 6.2 결과
+
+`rR/csrc/gap_eval.c`, `rR/certs/gap/gap_anchor_thr20.json` (4스레드 1121초). 틈 후보는 두 판본의 완전 사슬 1200개 전부이다.
+
+| 패턴 | 수열 | 예산 안 수열 | 틈 후보(정확 하한 통과) | pa + cz ≤ 20 |
+|---|---|---|---|---|
+| 231,996 | 1,140,270 | 86,124 | 2,040 | **0** |
+
+* 평가까지 간 후보의 최소 심사값은 23이다.
+* **정리 S4 (계산 증명서).** 틈 닻 괄호가 하나이고 떼어 낸 사슬이 하나인 경로는 사슬의 조각 배치와 상관없이 G ≥ 21이다. 특히 P = 33의 G1p 부류에 G ≤ 20은 없다.
+
+### 6.3 검증과 정정
+
+* **장부 공식**: 무작위 배치 60개를 `rR/src/gap_witness.py`가 자체 DP(numpy)로 풀고, 경로를 run 단위로 조립해 무게를 직접 쟀다. 공식 값과 60/60 같다. 모두 P = 33, 덮개 순환 1개, 열린 덩이이다.
+* **평가기**: 패턴 601개를 느슨한 문턱 25로 돌려 생존 760개를 얻고 전부 `gap_witness.py`로 다시 만들었다. `gap_eval.c`의 정확값과 측정값이 760/760 같다(`gap_anchor_crosscheck_thr25_subset.json`).
+  * G − (pa + cz)는 0..4이고 0이 60개이다. 곧 ins(R) = −1은 실제로 달성된다. 틈 닻이 지는 까닭은 삽입 쪽이 아니라 pa + cz가 큰 데 있다.
+* **오류와 정정.** 첫 실행은 세그폴트로 끝났고 생존 목록에 말이 안 되는 값(음의 심사값, 정확값 − 심사값 ≥ 7)이 있었다. 원인은 주 선택지 상위 9개 목록의 초기화되지 않은 칸이었다(틈 모드에만 있는 코드). 고친 뒤 위 교차 확인을 하고 전체를 다시 돌렸다. STD 모드(§8.2)는 이 코드를 지나지 않는다.
+
+### 6.4 G1″의 부분 심사
+
+* G1″: 틈이 경로 위의 주이고(진입 N₀, 진출 Q_end), 같은 trail의 다른 절단 m에 괄호가 걸리며, R이 그 괄호 안에 있다.
+* 장부: G = 1 + paH + cz(m) + ins(R) ≥ paH + cz(m). paH = fw[s][S(N₀)] + bw[s][S(C₀)]이다(N₀에서 자른 선택지의 앞쪽 값과 C₀에서 자른 선택지의 뒤쪽 값).
+* 같은 패턴 위에서 심사했다(`GAP2 = 1`, `hybrid_main_own_bracket_partial_thr20.json`): 후보 78,864개, **심사값 ≤ 20은 0개, 최솟값 21**.
+* **이것은 부분 결과이다.** 틈 포트는 문맥에 따라 표준 선택지보다 3–4 쌀 수 있다(§4.4). 그래서 표준 F_J가 21 이상이어도 paH + cz ≤ 20일 수 있고, 그런 수열은 THR 20 패턴에 없다. G1″는 열려 있다.
+* 관측: 심사값 21이 나온다. G1″에 G = 21인 단어가 있을 수 있으나 만들어 보지 않았다.
 
 ---
 
@@ -217,7 +254,7 @@
 
 ### 8.1 κ = 4, 5 표적 탐색의 둘째 구현
 
-* `rR/csrc/kappa_rev.c`: Round R의 소스에서 옮기지 않고 수학적 진술에서 새로 썼다. **탐색 방향이 반대**이다(진출 run에서 시작해 w2 구간을 앞에 붙여 나간다). 하한도 거울상이다(구간 수 + "진출이 막힌 단위"). 표적 가지치기는 진출 run별 예산 min(B, max_y S(y, x) − 1)과 "남은 시작 run 중 S > L인 것이 없으면 자름"이다.
+* `rR/csrc/kappa_rev.c`: Round R의 `kappa_crit.c`를 읽어 설계(구간 단위 DFS, 막힌 단위 하한)를 안 상태에서, 코드를 옮기지 않고 처음부터 새로 썼다. **탐색 방향이 반대**이다(진출 run에서 시작해 w2 구간을 앞에 붙여 나간다). 하한도 거울상이다(구간 수 + "진출이 막힌 단위"). 표적 가지치기는 진출 run별 예산 min(B, max_y S(y, x) − 1)과 "남은 시작 run 중 S > L인 것이 없으면 자름"이다.
 * 교차 확인(trail 1 판본 0).
 
 | 비교 | Round R | `kappa_rev.c` | 일치 |
@@ -270,9 +307,9 @@
 | **감싸기 없는 경로 중 괄호 나무가 아닌 것(P ≤ 33), 그리고 환원 뒤 c′ ≤ 2가 되는 모든 감싸기 없는 경로** | 정리 S1 + Round R |
 | **모든 감싸기 덩이가 닫힌 경로(환원 뒤 c′ ≤ 2)** | 정리 S2 |
 | **열린 틈이 S3 조건을 만족하고 나무에 필요하지 않은 경로(환원 뒤 c′ ≤ 2)** | 정리 S3 |
-| **P = 33, 감싸기 있음: G1″와 G1p를 뺀 전부** | §5 |
+| **P = 33, 감싸기 있음: G1″를 뺀 전부** | §5, §6 |
 | **괄호 나무, 순환 9개 이상** | §7 |
-| ⟦GAPROW⟧ | §6 |
+| **틈 닻 괄호 하나, 떼어 낸 사슬 하나(P = 33의 G1p 포함)** | 정리 S4 (§6) |
 
 * **열린 부분**:
   * (a) 괄호 나무, 3 ≤ c′ ≤ 8. 감싸기 없는 모든 경로가 여기로 환원된다.
@@ -287,7 +324,7 @@
 |---|---|---|---|
 | Monge 부등식 S0 | 증명(Lean) | `rR/lean/Monge.lean` | `monge_nat.c` 전수(자연 결합 전부), numpy 표본 |
 | 감싸기는 자연이 아닌 유일한 w2 결합, w1 없음 | 계산 증명서 | `monge_nat.c` | `chains.py` (Round R) |
-| 사다리 보조정리 S1.4 | 계산 증명서 | `ladders.c` (m = 2, 4, 6 전수) | `monge_reduce.py`가 심은 사다리 2,000개에서 실제 무게로 확인 |
+| 사다리 보조정리 S1.4 | 계산 증명서 | `ladders.c` (m = 2, 4, 6 전수) | `ladders_check.py` (numpy, m = 2, 4 전수, 수치 일치); 심은 사다리 2,000개에서 실제 무게로 확인 |
 | 정리 S1, S2, S3 | 증명 + 계산 증명서(S1.4, 건너뛰기 법칙) | `monge_reduce.py` 단계별 환원(장부 정확 일치) | `direct_tree`(삭제 순서 없이 직접 실현), 경로 17,000개 |
 | 건너뛰기 무게 3 + k | 계산 증명서 | `skip_weights.py` (60 판본) | Round R `skip_weight_full_chains.json` (k = 1) |
 | P ≤ 33 감싸기 부류의 환원 여부 | 증명(구조) + 관측 | `p33_classes_test.py` (부류당 500개) | — |
@@ -299,7 +336,7 @@
 | 셈 하한 c′ ≥ 9 | 계산 증명서 | `pathlb.c` + `bracket_count_bound.py` | F[24][6] = 20이 `ckB.c`의 완화 최적값과 일치 |
 
 * **정직한 한계.**
-  * 정리 S1의 증명에서 사다리 m = 2, 4는 계산 증명서에 기대고, 그 프로그램(`ladders.c`)은 구현이 하나이다. 심은 사다리 시험이 실제 무게로 같은 부등식을 확인하지만 전수는 아니다.
+  * 정리 S1의 증명에서 사다리 m = 2, 4와 건너뛰기 무게 법칙은 계산 증명서에 기댄다(사다리는 구현 둘, 건너뛰기 법칙은 구현 하나에 k = 1만 Round R과 겹친다).
   * 정리 S1–S3의 전체 논증(안전한 삭제 순서, 교착 = 사다리, 실현)은 Lean으로 형식화하지 않았다. 형식화한 것은 Monge 부등식과 장부 산술이다.
   * §5의 부류 분류는 구조 논증이고, 시험은 무작위 표본이다.
   * c ≤ 2 괄호 탐색은 여전히 구현이 하나이다(§8.3).
@@ -308,9 +345,9 @@
 
 ## 12. Lean (§12)
 
-* `rR/lean/Monge.lean` (새로 씀): `Ov`, `prefix_split`, `suffix_split`, **`monge`**, `monge_weight`, **`monge_four_point`**, `cut_deletion`, `detour_L1`, `detour_L2`, `chain_deletion`, `reattach_weight`, `reattach`, `wrap_bypass`, `ladder_long`, `length_of_weight`.
+* `rR/lean/Monge.lean` (새로 씀): `Ov`, `prefix_split`, `suffix_split`, **`monge`**, `monge_weight`, **`monge_four_point`**, `cut_deletion`, `detour_L1`, `detour_L2`, `chain_deletion`, `reattach_weight`, `reattach`, `wrap_bypass`, `skip_cycle_deletion`, `ladder_long`, `ladder_general`, `cycle_deletion`, `length_of_weight`.
 * Lean 4.22.0(core만, Mathlib 없음)으로 컴파일된다. 종료 코드 0, sorry 경고 0, 주석 밖의 sorry/admit/axiom 토큰 0. `#print axioms`는 propext, Quot.sound만 보인다(`rR/certs/monge/lean_axioms_Monge.txt`).
-* 형식화한 범위: 임의 문자열의 겹침 Monge 부등식(무게형 포함), 절단 삭제·L1·L2·사슬 삭제·사슬 재부착·덩이 우회·긴 사다리의 산술, G와 길이의 관계.
+* 형식화한 범위: 임의 문자열의 겹침 Monge 부등식(무게형 포함), 절단 삭제·L1·L2·사슬 삭제·사슬 재부착·닫힌 덩이 삭제·덩이 우회·긴 사다리(m ≥ 6)·순환 통째 삭제의 산술, G와 길이의 관계.
 * 형식화하지 않은 것: run 무게가 문자열 겹침이라는 모델 대응, 건너뛰기 무게 법칙과 사다리 m = 2, 4(계산 증명서), 정리 S1–S3의 조합 논증, 탐색.
 * `BracketTree.lean`, `ZeroCharge.lean`(Round R)은 다시 컴파일해 확인했다.
 
@@ -318,7 +355,7 @@
 
 ## 13. 최종 보고 (13항목)
 
-1. **P = 32, V = 32의 정확한 결과**: Round R 그대로 G ≥ 21이다. 이번 라운드는 그 위에서 P = 33을 정리했다. 감싸기 없는 P = 33 경로는 순환 3개짜리 괄호 나무가 아니면 G ≥ 21이다(정리 S1). 감싸기가 있는 P = 33 경로는 G1″(와 §6의 결과에 따라 G1p)를 빼고 모두 G ≥ 21이다(§5).
+1. **P = 32, V = 32의 정확한 결과**: Round R 그대로 G ≥ 21이다. 이번 라운드는 그 위에서 P = 33을 정리했다. 감싸기 없는 P = 33 경로는 순환 3개짜리 괄호 나무가 아니면 G ≥ 21이다(정리 S1). 감싸기가 있는 P = 33 경로는 G1″ 부류를 빼고 모두 G ≥ 21이다(§5, 정리 S4).
 2. **χ = 0 방문의 완전한 분류**: Round R의 분류(ROT (J3m ROT | J3s START)*)는 그대로이다. 새로 보탠 것은 그 회전들이 언제 사라지는가이다. 숙주가 회전된 사슬들을 결합 하나로 건너뛰면 모두 되돌릴 수 있다(정리 S2).
 3. **영전하 압축 정리**: 전역 압축을 부분적으로 얻었다.
    * 건너뛰기 무게 법칙 w = 3 + k (k ≤ 4, 60 판본 전수). 정리 R5의 하한 E′(skip) − k는 이 경우 0이다.
@@ -329,10 +366,44 @@
 6. **조각 ≥ 5인 A 방문**: Round R의 정리 R10은 그대로이다. 둘째 구현 `kappa_rev.c`가 κ ≤ 3 표, 심은 slack 목록, κ ≤ 4의 "지배 안 됨 0"을 재현했다. κ = 5는 §8.1에 적은 상태이다. 감싸기 없는 방문은 정리 S1이 탐색 없이 지배를 준다.
 7. **φ 다중 방문**: 감싸기 없는 φ 다중 방문은 정리 S1로, 건너뛰기형 φ 회전(k ≤ 4)은 정리 S2로 닫혔다. φ의 사슬 5개 이상을 회전하는 구조(완전 해체 포함)는 열려 있다.
 8. **임의 다중 개방 가족의 정확한 최적값**: 증명하지 못했다. 알려진 최선은 G = 21(46183)이다. 열린 부분은 (a) 3 ≤ c′ ≤ 8인 괄호 나무와 (c′) 틈 절단 구조로 줄었다.
-9. **G ≤ 20의 존재**: 찾지 못했다. 없음을 증명한 범위는 §10의 표이다.
-10. **새 ≤ 46182 단어**: 없다. ⟦NEWWORDS⟧
+9. **G ≤ 20의 존재**: 찾지 못했다. 없음을 증명한 범위는 §10의 표이다. 이번 라운드에 더한 것은 감싸기 없는 경로의 환원(S1), 건너뛰기 순환(S2), 열린 틈의 우회(S3), 틈 닻 괄호(S4), 순환 9개 이상인 괄호 나무이다.
+10. **새 ≤ 46182 단어**: 없다. 새 길이의 단어도 없다. 검증용으로 조립한 경로들(틈 닻 괄호, 최소 G = 25)은 기록으로 남기지 않았다.
 11. **증명서/검사기**: §11 표. Monge는 Lean + 전수 C, 환원은 단계별 구현 + 직접 실현 구현, κ와 단일 분할 평가에 둘째 구현을 더했다. c ≤ 2 괄호 탐색은 여전히 구현이 하나이다.
 12. **Lean**: `Monge.lean`이 Lean 4.22.0 core로 컴파일된다. sorry/admit/사용자 공리는 없다. Round R의 두 파일도 다시 컴파일했다.
 13. **전역 r = 0에 대한 결과**: 변화 없다. 가족 밖의 단어가 있으므로 L_r0(8) ≥ 46183은 따라 나오지 않는다. Monge 부등식 자체는 가족과 무관하게 모든 run에 성립하지만, 환원 정리는 이 가족의 자연 결합 구조(c ∈ {2, 3}, 건너뛰기 법칙)에 기댄다.
+
+## 부록 A. 재현
+
+    SP=<scratch>; R=rR
+    python3 rP/src/ckB_prep.py rM/certs/family_46187.json rO/certs/group_options.npz $SP/ckB        # runs.bin, group.bin
+    # Monge: Lean and the exhaustive check
+    lean $R/lean/Monge.lean
+    gcc -O3 -march=native -fopenmp -o $SP/monge_nat $R/csrc/monge_nat.c; $SP/monge_nat $SP/ckB monge.json       # ~3.5 min
+    gcc -O3 -march=native -fopenmp -o $SP/ladders $R/csrc/ladders.c;     $SP/ladders $SP/ckB ladders.json       # seconds
+    python3 $R/src/skip_weights.py $SP/ckB/runs.bin skip.json
+    # reduction: one word, self-tests, one-wrap classes
+    python3 $R/src/monge_reduce.py $SP/ckB/runs.bin WORD.txt rM/certs/family_46187.json
+    python3 $R/src/monge_reduce_test.py $SP/ckB/runs.bin out.json 2026 3000 6000 500 6000 2000 WORDS...          # ~7.5 min
+    python3 $R/src/p33_classes_test.py $SP/ckB/runs.bin 500 2026 classes.json
+    # Round P / Q tables and the THR-20 junction patterns (about 18 + 17 + 18 min, 19 GB of disk)
+    gcc -O3 -march=native -fopenmp -o $SP/ckB_bin rP/csrc/ckB.c;        $SP/ckB_bin $SP/ckB $SP/ckB/out
+    gcc -O3 -march=native -fopenmp -o $SP/ckT rQ/csrc/ckT.c;            $SP/ckT $SP/ckB $SP/ckB/out $SP/ckT_out
+    gcc -O3 -march=native -fopenmp -o $SP/ckT_search rQ/csrc/ckT_search.c; $SP/ckT_search $SP/ckB $SP/ckB/out $SP/ckT_out 20 out20.json
+    # exact evaluations on the patterns
+    gcc -O3 -march=native -fopenmp -o $SP/gap_eval $R/csrc/gap_eval.c
+    STD=1  $SP/gap_eval $SP/ckB out20.json.patterns 21 std21.json     # single splits: 192 witnesses, G = 21      (~21 min)
+           $SP/gap_eval $SP/ckB out20.json.patterns 20 gap20.json     # gap-anchored brackets: 0 survivors       (~19 min)
+    GAP2=1 $SP/gap_eval $SP/ckB out20.json.patterns 20 gap2.json      # class G1'' (partial): 0 survivors        (~19 min)
+    python3 $R/src/gap_witness.py $SP/ckB/runs.bin SURVIVORS.jsonl                                             # rebuild and measure
+    # brackets
+    python3 $R/src/cheap_cycles.py $SP/ckB/runs.bin $SP/ckB/group.bin cheap.json 2
+    gcc -O3 -march=native -fopenmp -o $SP/pathlb $R/csrc/pathlb.c;      $SP/pathlb $SP/ckB $SP/ckB/out paths.json
+    python3 $R/src/bracket_count_bound.py cheap.json paths.json bound.json
+    # kappa: second implementation
+    gcc -O3 -march=native -fopenmp -o $SP/kappa_rev $R/csrc/kappa_rev.c
+    $SP/kappa_rev $SP/ckB 1 0 3 rev_B3.bin                                                  # exact table, compare with kappa_dfs2
+    DOM_BOTH=1 SLACK_OUT=slack.bin $SP/dominance_slack $SP/ckB 1 0 dfs2_B3.bin 0 dom.json      # slack table (Round R)
+    SLACK=slack.bin $SP/kappa_rev $SP/ckB 1 0 4 rev_B4.json 0 336                           # ~16 min
+    SLACK=slack.bin SKIP_BELOW=5 $SP/kappa_rev $SP/ckB 1 0 5 rev_B5.json 0 168              # hours
 
 **L8_UNSOLVED**

@@ -40,6 +40,24 @@ def main():
                     elif isA and k <= 6:
                         mixed[("".join("F" if c["full"] else "p" for c in sk), w)] += 1
                     if not all(c["full"] for c in sk) and not isA: break
+    # host junctions end(Q) -> start(N) that skip several chains (mixed runs): the wrap blocks that touch the junction are
+    # the run of full chains right after Q and the run right before N; Theorem S3 needs weight >= 3 + (block size).
+    jb_tot = 0; jb_viol = 0; jb_min_skipped = None
+    for t in range(30):
+        for v in range(2):
+            chs = sorted([c for c in ci["chains"] if c["t"] == t and c["v"] == v], key=lambda c: c["start"]); n = len(chs)
+            for i in range(n):
+                for k in range(1, n - 1):
+                    sk = [chs[(i + 1 + j) % n]["full"] for j in range(k)]; w = int(W[chs[i]["runs"][-1], chs[(i + 1 + k) % n]["runs"][0]])
+                    a = 0
+                    while a < k and sk[a]: a += 1
+                    b = 0
+                    while b < k and sk[k - 1 - b]: b += 1
+                    if a == 0 and b == 0: continue
+                    if a == k and k > 4: continue                      # phi: all other chains (the wrap of the remaining chain)
+                    jb_tot += 1
+                    if w < 3 + max(a, b):
+                        jb_viol += 1; jb_min_skipped = k if jb_min_skipped is None else min(jb_min_skipped, k)
     # links between different trails: weight >= 3; weight 3 only from an inner run (not a chain end) to a mid run (not a chain start);
     # hence a junction from another trail into a chain start has weight >= 4, and so has a junction out of a chain end.
     T = np.array([x[0] for x in tv]); cross = T[:, None] != T[None, :]
@@ -53,7 +71,9 @@ def main():
                longest_run_of_consecutive_full_chains=[dict(kind=a, length=l, versions=c) for (a, l), c in sorted(maxrun.items())],
                all_other_chains_skipped=[dict(kind=a, k=k, weight=w, count=c) for (a, k, w), c in sorted(wrap5.items())],
                mixed_runs_A_versions_k_le_6=[dict(pattern=p, weight=w, count=c) for (p, w), c in sorted(mixed.items())],
+               host_junctions_with_adjacent_full_block=jb_tot, of_these_lighter_than_3_plus_block=jb_viol,
+               fewest_skipped_chains_among_the_lighter_ones=jb_min_skipped,
                skip_weight_law_holds=(viol == 0))
     json.dump(out, open(sys.argv[2], "w"), indent=1)
-    print(json.dumps({k: out[k] for k in ("cross_trail_min_weight", "cross_trail_w3_links", "cross_trail_w3_by_source_and_target_position", "violations_of_3_plus_k", "longest_run_of_consecutive_full_chains", "all_other_chains_skipped")}))
+    print(json.dumps({k: out[k] for k in ("cross_trail_min_weight", "cross_trail_w3_links", "cross_trail_w3_by_source_and_target_position", "violations_of_3_plus_k", "longest_run_of_consecutive_full_chains", "all_other_chains_skipped", "host_junctions_with_adjacent_full_block", "of_these_lighter_than_3_plus_block", "fewest_skipped_chains_among_the_lighter_ones")}))
 main()
