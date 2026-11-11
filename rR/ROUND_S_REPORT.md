@@ -121,7 +121,7 @@
 
 ### 4.1 건너뛰기 무게 법칙
 
-* **계산 증명서**(`rR/src/skip_weights.py`, `skip_weight_law.json`): 연속한 완전 사슬 k개 C¹..Cᵏ의 앞 run Q_end와 뒤 run N₀에 대해 **w(Q_end, N₀) = 3 + k**.
+* **계산 증명서**(`rR/src/skip_weights.py`, `skip_weight_law.json`; 둘째 구현 `skip_weights_check.py`가 가족 JSON에서 직접 같은 표를 냈다): 연속한 완전 사슬 k개 C¹..Cᵏ의 앞 run Q_end와 뒤 run N₀에 대해 **w(Q_end, N₀) = 3 + k**.
   * A 판본 12개: k = 1, 2, 3, 4에서 912 / 624 / 384 / 144개. φ 판본 48개: k = 1..4에서 각 288개. 위반 0.
   * A에서 연속한 완전 사슬은 많아야 4개이다. φ에서 k = 5이면 남은 사슬의 감싸기(무게 2)가 된다.
 * 뜻: 자연 통과((k+1)개의 w3 + 6k개의 w2 = 15k + 3)와 떼어 낸 구조(건너뛰기 3 + k와 닫힌 7-순환 k개 = 15k + 3)의 무게가 **같다**.
@@ -326,7 +326,7 @@
 | 감싸기는 자연이 아닌 유일한 w2 결합, w1 없음 | 계산 증명서 | `monge_nat.c` | `chains.py` (Round R) |
 | 사다리 보조정리 S1.4 | 계산 증명서 | `ladders.c` (m = 2, 4, 6 전수) | `ladders_check.py` (numpy, m = 2, 4 전수, 수치 일치); 심은 사다리 2,000개에서 실제 무게로 확인 |
 | 정리 S1, S2, S3 | 증명 + 계산 증명서(S1.4, 건너뛰기 법칙) | `monge_reduce.py` 단계별 환원(장부 정확 일치) | `direct_tree`(삭제 순서 없이 직접 실현), 경로 17,000개 |
-| 건너뛰기 무게 3 + k | 계산 증명서 | `skip_weights.py` (60 판본) | Round R `skip_weight_full_chains.json` (k = 1) |
+| 건너뛰기 무게 3 + k | 계산 증명서 | `skip_weights.py` (60 판본) | `skip_weights_check.py` (가족 JSON에서 직접, 같은 표); Round R `skip_weight_full_chains.json` (k = 1) |
 | P ≤ 33 감싸기 부류의 환원 여부 | 증명(구조) + 관측 | `p33_classes_test.py` (부류당 500개) | — |
 | 틈 닻 괄호 | 계산 증명서 | `gap_eval.c` | `gap_witness.py`(numpy DP, 경로를 조립해 무게 직접 측정) |
 | 단일 분할 최적 21 (Q6) | 계산 증명서 | `split_eval.c` (Round Q) | `gap_eval.c` STD = 1 (증인 집합 일치) |
@@ -336,7 +336,7 @@
 | 셈 하한 c′ ≥ 9 | 계산 증명서 | `pathlb.c` + `bracket_count_bound.py` | F[24][6] = 20이 `ckB.c`의 완화 최적값과 일치 |
 
 * **정직한 한계.**
-  * 정리 S1의 증명에서 사다리 m = 2, 4와 건너뛰기 무게 법칙은 계산 증명서에 기댄다(사다리는 구현 둘, 건너뛰기 법칙은 구현 하나에 k = 1만 Round R과 겹친다).
+  * 정리 S1의 사다리 m = 2, 4와 정리 S2·S3의 건너뛰기 무게 법칙은 증명이 아니라 계산 증명서에 기댄다(둘 다 구현이 둘이다).
   * 정리 S1–S3의 전체 논증(안전한 삭제 순서, 교착 = 사다리, 실현)은 Lean으로 형식화하지 않았다. 형식화한 것은 Monge 부등식과 장부 산술이다.
   * §5의 부류 분류는 구조 논증이고, 시험은 무작위 표본이다.
   * c ≤ 2 괄호 탐색은 여전히 구현이 하나이다(§8.3).
