@@ -1,0 +1,34 @@
+{
+ "checker": "hk_check_b (backward DP, numpy, own arc enumeration)",
+ "arcs": 40488,
+ "arcs_by_cost": {
+  "0": 840,
+  "1": 4312,
+  "2": 35336
+ },
+ "max_arc_cost": 2,
+ "overlap_cap": 7,
+ "plant": null,
+ "optimal_J": 24,
+ "optimal_length": 46173,
+ "first_arcs_by_J": {
+  "24": 4,
+  "25": 132,
+  "26": 1328,
+  "27": 6900
+ },
+ "states": 1326710784,
+ "sec": 123.7,
+ "plans": [
+  {
+   "plan": "reference.plan",
+   "J": 25,
+   "length": 46174
+  },
+  {
+   "plan": "solution.plan",
+   "J": 24,
+   "length": 46173
+  }
+ ]
+}
