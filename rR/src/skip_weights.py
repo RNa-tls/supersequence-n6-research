@@ -40,11 +40,20 @@ def main():
                     elif isA and k <= 6:
                         mixed[("".join("F" if c["full"] else "p" for c in sk), w)] += 1
                     if not all(c["full"] for c in sk) and not isA: break
-    out = dict(law_counts=[dict(kind=a, k=k, weight=w, count=c) for (a, k, w), c in sorted(law.items())], violations_of_3_plus_k=viol,
+    # links between different trails: weight >= 3; weight 3 only from an inner run (not a chain end) to a mid run (not a chain start);
+    # hence a junction from another trail into a chain start has weight >= 4, and so has a junction out of a chain end.
+    T = np.array([x[0] for x in tv]); cross = T[:, None] != T[None, :]
+    pos, clen = ci["pos"], ci["clen"]
+    a3, b3 = np.nonzero((W == 3) & cross)
+    x3 = Counter((("end" if pos[a] == clen[a] - 1 else "inner"), ("start" if pos[b] == 0 else "mid")) for a, b in zip(a3.tolist(), b3.tolist()))
+    cross_min = int(W[cross].min())
+    out = dict(cross_trail_min_weight=cross_min, cross_trail_w3_links=int(len(a3)),
+               cross_trail_w3_by_source_and_target_position={"%s->%s" % k: v for k, v in sorted(x3.items())},
+               law_counts=[dict(kind=a, k=k, weight=w, count=c) for (a, k, w), c in sorted(law.items())], violations_of_3_plus_k=viol,
                longest_run_of_consecutive_full_chains=[dict(kind=a, length=l, versions=c) for (a, l), c in sorted(maxrun.items())],
                all_other_chains_skipped=[dict(kind=a, k=k, weight=w, count=c) for (a, k, w), c in sorted(wrap5.items())],
                mixed_runs_A_versions_k_le_6=[dict(pattern=p, weight=w, count=c) for (p, w), c in sorted(mixed.items())],
                skip_weight_law_holds=(viol == 0))
     json.dump(out, open(sys.argv[2], "w"), indent=1)
-    print(json.dumps({k: out[k] for k in ("law_counts", "violations_of_3_plus_k", "longest_run_of_consecutive_full_chains", "all_other_chains_skipped")}))
+    print(json.dumps({k: out[k] for k in ("cross_trail_min_weight", "cross_trail_w3_links", "cross_trail_w3_by_source_and_target_position", "violations_of_3_plus_k", "longest_run_of_consecutive_full_chains", "all_other_chains_skipped")}))
 main()

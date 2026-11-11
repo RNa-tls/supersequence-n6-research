@@ -16,6 +16,12 @@
 // SCREEN: all (sequence, anchor position, version, full chain) with pa + cz <= THRG are listed; for these the exact G
 // (R as one block, all 31 insertion places, all 6 rotations) is computed.
 //
+// GAP2=1 (class G1''): the gap is the MAIN of S - C on the path (hybrid ports: entry N_0, exit Q_end) and the bracket hangs
+// at another cut m of S (standard anchor), with the block of C inside the bracket.  Then
+//      G = 1 + paH + cz(m) + ins(R) >= paH + cz(m),      paH = fw[s][S(N_0)] + bw[s][S(C_0)]
+// (the forward value of the option cut at N_0 plus the backward value of the option cut at C_0).  Only the screen
+// paH + cz <= THRG is evaluated, and only on the given patterns (sequences with standard F_J <= 20); sequences whose
+// standard F_J is larger but whose hybrid path is cheaper are NOT covered -- a partial result.
 // STD=1: standard anchors S(b) (b != main, same version):  G = 1 + pa + cz, cz = closing walk through S(b); witnesses
 // with G <= THRG are written (must reproduce rQ/certs/single_split_exact_thr20.json: least G 21, 192 witnesses).
 //
@@ -40,7 +46,7 @@ typedef struct { int tr, ver, oC, oN, opt[7]; } Gap;       // oC = option cut at
 static Gap *gaps; static int ngaps; static int gap_first[NTR][2], gap_cnt[NTR][2];
 static uint8_t *ghin, *ghout;                                // per gap, per trail: min e(z -> S(N_0)), min e(S(C_0) -> y)
 static uint8_t *hinT[NTR], *houtT[NTR];                      // standard anchors (as in split_eval)
-static int THRG, STD;
+static int THRG, STD, GAP2;
 static long nseq = 0, nfeas = 0, ncand = 0, nsurv = 0, nwit = 0; static int bestLB = BIGI, bestG = BIGI; static long lbh[64]; static FILE *wit;
 static int *fw[NTR + 2], *bw[NTR + 2], *fx[NTR + 2], *bx[NTR + 2];
 #pragma omp threadprivate(fw, bw, fx, bx)
@@ -113,7 +119,8 @@ static int eval_seq(const int *sq, int jj) {
             bw[i][q] = v; } }
     int minZ = BIGI; { int t = sq[jj]; for (int q = 0; q < tcnt[t]; q++) if (bw[jj][q] < minZ) minZ = bw[jj][q]; }
     int slackthr = STD ? THRG - 1 : THRG;                 // STD: 1 + pa + cz <= THRG;  gap screen: pa + cz <= THRG
-    if (minP + minZ > slackthr) return BIGI;
+    if (!GAP2 && minP + minZ > slackthr) return BIGI;     // (GAP2: the hybrid path may be cheaper than every standard one)
+    if (GAP2 && minZ > THRG) return BIGI;
     __atomic_add_fetch(&nfeas, 1, __ATOMIC_RELAXED);
     int best = BIGI; int t1 = sq[jj], tl = sq[NTR - 1];
     // the P part lists are still in ol[0..jj-1]; closing walks need the Z lists: build them after the P scans
@@ -136,6 +143,22 @@ static int eval_seq(const int *sq, int jj) {
                     #pragma omp critical
                     { nwit++; fprintf(wit, "{\"G\": %d, \"anchor_pos\": %d, \"anchor_trail\": %d, \"b_option\": %d, \"junction_after\": %d, \"order\": [", G, s, S, qb, jj);
                       for (int i = 0; i < NTR; i++) fprintf(wit, "%s%d", i ? ", " : "", sq[i]); fprintf(wit, "]}\n"); } } }
+            continue; }
+        if (GAP2) {
+            for (int ver = 0; ver < 2; ver++) for (int gi = gap_first[S][ver]; gi < gap_first[S][ver] + gap_cnt[S][ver]; gi++) { const Gap *g = &gaps[gi];
+                int paH = fw[s][g->oN - tofs[S]] + bw[s][g->oC - tofs[S]];
+                if (paH + minZ > THRG) continue;
+                for (int qb = 0; qb < tcnt[S]; qb++) { int ob = tofs[S] + qb; if (over_[ob] != ver || ob == g->oN) continue; int ex = 0; for (int a = 0; a < 7; a++) if (ob == g->opt[a]) ex = 1; if (ex) continue;
+                    int lim = THRG - paH - minZ; if ((int)houtT[t1][ob] + (int)hinT[tl][ob] > lim) continue;
+                    __atomic_add_fetch(&ncand, 1, __ATOMIC_RELAXED);
+                    int m = 0; for (int k = jj; k < NTR; k++) { trail_list(&ol[NTR + 1], sq[k]); ol[m++] = ol[NTR + 1]; }
+                    int cz = closing(m, ob, ob);
+                    for (int i = 0; i < jj; i++) trail_list(&ol[i], sq[i]);
+                    int LB = paH + cz; if (LB < best) best = LB;
+                    if (LB <= THRG) {
+                        #pragma omp critical
+                        { nsurv++; fprintf(wit, "{\"class\": \"G1pp\", \"LB\": %d, \"anchor_pos\": %d, \"anchor_trail\": %d, \"version\": %d, \"gap_C0_option\": %d, \"b_option\": %d, \"junction_after\": %d, \"order\": [", LB, s, S, ver, g->oC - tofs[S], qb, jj);
+                          for (int i = 0; i < NTR; i++) fprintf(wit, "%s%d", i ? ", " : "", sq[i]); fprintf(wit, "]}\n"); fflush(wit); } } } }
             continue; }
         for (int ver = 0; ver < 2; ver++) { if (!gap_cnt[S][ver]) continue;
             // the 9 best main options of this version (a chain excludes at most 8 of them)
@@ -183,7 +206,7 @@ static void expand(int ti, int *sq, int len, int jj) {
 int main(int argc, char **argv) {
     if (argc < 5) { fprintf(stderr, "usage: gap_eval DIR PATTERNS THRG OUT.json   (env STD=1: standard anchors)\n"); return 1; }
     const char *dir = argv[1], *pf = argv[2]; THRG = atoi(argv[3]); const char *outp = argv[4]; char p[2048]; double T0 = omp_get_wtime();
-    STD = getenv("STD") && atoi(getenv("STD"));
+    STD = getenv("STD") && atoi(getenv("STD")); GAP2 = getenv("GAP2") && atoi(getenv("GAP2"));
     snprintf(p, sizeof p, "%s/runs.bin", dir); FILE *f = fopen(p, "rb"); if (!f) return 2;
     for (int t = 0; t < NTR; t++) for (int v = 0; v < 2; v++) { int32_t m; if (fread(&m, 4, 1, f) != 1) return 2; mrun[t][v] = m; runp[t][v] = malloc(8 * m); if (fread(runp[t][v], 1, 8 * m, f) != (size_t)(8 * m)) return 2; }
     fclose(f);
@@ -236,7 +259,7 @@ int main(int argc, char **argv) {
     fclose(in); fclose(wit);
     FILE *fo = fopen(outp, "w");
     if (STD) fprintf(fo, "{\"checker\": \"gap_eval STD=1 (standard single splits, independent of split_eval.c)\", \"THRG\": %d, \"patterns\": %ld, \"sequences\": %ld, \"sequences_within_budget\": %ld, \"b_candidates\": %ld, \"witnesses_G_le_THRG\": %ld, \"least_G_found_le_THRG\": %d, \"least_G_hist_over_patterns\": {", THRG, npat, nseq, nfeas, ncand, nwit, bestLB < BIGI ? bestLB : -1);
-    else fprintf(fo, "{\"checker\": \"gap_eval (gap-anchored single brackets)\", \"THRG\": %d, \"full_chains\": %d, \"patterns\": %ld, \"sequences\": %ld, \"sequences_within_budget\": %ld, \"gap_candidates\": %ld, \"screen_survivors_pa_plus_cz_le_THRG\": %ld, \"least_screen_value_found_le_THRG\": %d, \"least_exact_G_one_block\": %d, \"least_screen_hist_over_patterns\": {", THRG, ngaps, npat, nseq, nfeas, ncand, nsurv, bestLB < BIGI ? bestLB : -1, bestG < BIGI ? bestG : -1);
+    else fprintf(fo, "{\"checker\": \"gap_eval (%s)\", \"THRG\": %d, \"full_chains\": %d, \"patterns\": %ld, \"sequences\": %ld, \"sequences_within_budget\": %ld, \"gap_candidates\": %ld, \"screen_survivors_pa_plus_cz_le_THRG\": %ld, \"least_screen_value_found_le_THRG\": %d, \"least_exact_G_one_block\": %d, \"least_screen_hist_over_patterns\": {", GAP2 ? "class G1'': hybrid main with its own bracket, screen only, partial" : "gap-anchored single brackets", THRG, ngaps, npat, nseq, nfeas, ncand, nsurv, bestLB < BIGI ? bestLB : -1, bestG < BIGI ? bestG : -1);
     int fz = 1; for (int g = 0; g < 64; g++) if (hist[g]) { fprintf(fo, "%s\"%d\": %ld", fz ? "" : ", ", g, hist[g]); fz = 0; } fprintf(fo, "}, \"sec\": %.1f}\n", omp_get_wtime() - T0); fclose(fo);
     printf("{\"patterns\": %ld, \"sequences\": %ld, \"within_budget\": %ld, \"candidates\": %ld, \"survivors\": %ld, \"least\": %d, \"least_exact_G\": %d}\n", npat, nseq, nfeas, ncand, STD ? nwit : nsurv, bestLB < BIGI ? bestLB : -1, bestG < BIGI ? bestG : -1);
     return 0;

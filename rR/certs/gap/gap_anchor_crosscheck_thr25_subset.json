@@ -1,0 +1,57 @@
+{
+ "what": "cross-check of gap_eval.c (gap mode) on a pattern subset with a loose threshold: every survivor is rebuilt by gap_witness.py (own DP, route assembled run by run, weight measured)",
+ "patterns": "lines 100000..100600 of the THR-20 pattern file",
+ "THRG": 25,
+ "gap_eval": {
+  "checker": "gap_eval (gap-anchored single brackets)",
+  "THRG": 25,
+  "full_chains": 1200,
+  "patterns": 601,
+  "sequences": 1827,
+  "sequences_within_budget": 1372,
+  "gap_candidates": 128988,
+  "screen_survivors_pa_plus_cz_le_THRG": 760,
+  "least_screen_value_found_le_THRG": 23,
+  "least_exact_G_one_block": 25,
+  "least_screen_hist_over_patterns": {
+   "23": 2,
+   "24": 20,
+   "25": 104,
+   "26": 233,
+   "27": 32,
+   "28": 30,
+   "29": 8,
+   "30": 2,
+   "31": 3,
+   "32": 35
+  },
+  "sec": 42.2
+ },
+ "survivors_checked": 760,
+ "mismatches": 0,
+ "least_measured_G": 25,
+ "measured_G_hist": {
+  "25": 66,
+  "26": 132,
+  "27": 188,
+  "28": 338,
+  "29": 36
+ },
+ "G_minus_screen_hist": {
+  "0": 60,
+  "1": 136,
+  "2": 160,
+  "3": 338,
+  "4": 66
+ },
+ "monge_reduction": {
+  "reduced to a bracket tree": 706,
+  "not reducible": 54
+ },
+ "P": [
+  33
+ ],
+ "cover_cycles": [
+  1
+ ]
+}
