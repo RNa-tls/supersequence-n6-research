@@ -39,7 +39,8 @@
 |---|---|---|
 | `rev_B3_slackadd0.json`, `rev_B3_slackadd1_planted.json`, `rev_B3_slackadd2_planted.json` | 심은 slack 시험(B = 3): 쌍 0 / 4,144 / 4,260개, `rR/certs/kappa45/`의 목록과 같음 | `rR/csrc/kappa_rev.c` |
 | `rev_B4_x0_336.json`, `nodes_B4_x0_336.txt` | κ ≤ 4 표적 탐색, 진출 run 0..335: 지배 안 됨 0 | `rR/csrc/kappa_rev.c` |
-| `rev_B5_*.json`, `SUMMARY.json` | κ = 5 표적 탐색과 전체 요약(있는 범위는 SUMMARY에 적혀 있다) | `rR/csrc/kappa_rev.c`, `rR/src/kappa_rev_summary.py` |
+| `rev_B5_x0_84.json`, `rev_B5_x84_168.json`, `nodes_B5_x0_84.txt`, `nodes_B5_x84_168.txt` | κ = 5 표적 탐색, slack 6인 진출 run 74개(대표 0..167 전부): 지배 안 됨 0, 248,910,302,454 마디 | `rR/csrc/kappa_rev.c` |
+| `SUMMARY.json` | 위 교차 확인 전체의 요약(κ ≤ 3 표 일치, 심은 slack 목록 일치, κ ≤ 4와 κ = 5의 결과) | `rR/src/kappa_rev_summary.py` |
 
 ## 저장소에 넣지 않은 것
 

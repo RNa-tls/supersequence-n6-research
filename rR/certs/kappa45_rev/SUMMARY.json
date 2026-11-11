@@ -1,0 +1,114 @@
+{
+ "program": "rR/csrc/kappa_rev.c (backward search from the exit run, mirrored exit-blocked bound)",
+ "trail": 1,
+ "version": 0,
+ "exact_tables_B0_to_B3": {
+  "0": {
+   "pairs": 104,
+   "identical_to_kappa_dfs2": true,
+   "differences": 0
+  },
+  "1": {
+   "pairs": 840,
+   "identical_to_kappa_dfs2": true,
+   "differences": 0
+  },
+  "2": {
+   "pairs": 1628,
+   "identical_to_kappa_dfs2": true,
+   "differences": 0
+  },
+  "3": {
+   "pairs": 4932,
+   "identical_to_kappa_dfs2": true,
+   "differences": 0
+  }
+ },
+ "slack_table_sha256": "b1d335c4840125def42c68cc5a3f0b6e351a549b4702e97b17a5f1d5db8bd4b4",
+ "planted_slack_B3": {
+  "SLACK_ADD_0": {
+   "pairs": 0,
+   "kappa_crit_pairs": 0,
+   "identical_lists": true,
+   "nodes": 6743545104
+  },
+  "SLACK_ADD_1": {
+   "pairs": 4144,
+   "kappa_crit_pairs": 4144,
+   "identical_lists": true,
+   "nodes": 6743639740
+  },
+  "SLACK_ADD_2": {
+   "pairs": 4260,
+   "kappa_crit_pairs": 4260,
+   "identical_lists": true,
+   "nodes": 6743639784
+  }
+ },
+ "target_runs": {
+  "rev_B4_x0_336.json": {
+   "B": 4,
+   "x_range": [
+    0,
+    336
+   ],
+   "undominated_pairs": 0,
+   "undominated_paths": 0,
+   "exit_runs_searched": 336,
+   "exit_runs_skipped": 0,
+   "complete_paths_reached": 12288,
+   "nodes": 64047299054,
+   "sec": 963.7
+  },
+  "rev_B5_x0_84.json": {
+   "B": 5,
+   "x_range": [
+    0,
+    84
+   ],
+   "undominated_pairs": 0,
+   "undominated_paths": 0,
+   "exit_runs_searched": 39,
+   "exit_runs_skipped": 45,
+   "complete_paths_reached": 6898,
+   "nodes": 136403351046,
+   "sec": 2085.7
+  },
+  "rev_B5_x84_168.json": {
+   "B": 5,
+   "x_range": [
+    84,
+    168
+   ],
+   "undominated_pairs": 0,
+   "undominated_paths": 0,
+   "exit_runs_searched": 35,
+   "exit_runs_skipped": 49,
+   "complete_paths_reached": 6148,
+   "nodes": 112506951408,
+   "sec": 1638.0
+  }
+ },
+ "kappa_le_4": {
+  "undominated": 0,
+  "kappa_crit_undominated": 0
+ },
+ "kappa_5": {
+  "exit_ranges_done": [
+   [
+    0,
+    84
+   ],
+   [
+    84,
+    168
+   ]
+  ],
+  "exit_runs_searched": 74,
+  "undominated": 0,
+  "nodes": 248910302454,
+  "complete_for_representatives_0_167": true,
+  "kappa_crit_nodes": 213147507124,
+  "kappa_crit_undominated": 0
+ }
+}
