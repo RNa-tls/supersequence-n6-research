@@ -249,26 +249,6 @@ def reduce_to_bracket_tree(F, route, rng=None, verbose=False, choose="random", p
         if d > 0: raise ReductionError("deleting a whole cover cycle of %d cuts increases the weight by %d" % (m, d))
         delta += d; steps += m; whole.append((m, d))
         for u in cs: alive.discard(u)
-    # phase 1: open wrap blocks in components with kept cuts
-    bypassed = []
-    for b in blocks:
-        if b["cuts"][0] not in alive: continue
-        if any(u in keep for u in b["cuts"]): raise ReductionError("open wrap block needed by the tree (gap cut): k=%d s=%s r=%s" % (b["k"], b["s"], b["r"]))
-        if b["all_wraps_cycle"]: raise ReductionError("cycle of wraps only inside a kept component")
-        cs = b["cuts"]; k = b["k"]; l = L[cs[0]]; r = R[cs[-1]]
-        inside = sum(arc_w(cs[j], cs[j + 1]) for j in range(len(cs) - 1))
-        if l is None and r is None: raise ReductionError("path would become empty")
-        if l == cs[-1]: raise ReductionError("closed block inside a kept component")
-        if l is None: d = 3 * (k + 1) - inside - arc_w(cs[-1], r)
-        elif r is None: d = 3 * (k + 1) - inside - arc_w(l, cs[0])
-        else:
-            if F.tight_pair(l, r) or l == r: raise ReductionError("bypassing a wrap block would create a tight arc")
-            d = arc_w(l, r) + 3 * (k + 1) - inside - arc_w(l, cs[0]) - arc_w(cs[-1], r)
-        if d > 0: raise ReductionError("wrap block with a light neighbour: k=%d s=%s r=%s, bypass costs %d" % (k, b["s"], b["r"], d))
-        delta += d; steps += len(cs); bypassed.append((k, b["s"], b["r"], d))
-        for u in cs: alive.discard(u)
-        if l is not None: R[l] = r
-        if r is not None: L[r] = l
     def is_safe(v):
         l, r = L[v], R[v]
         if l is None or r is None: return True
@@ -304,6 +284,43 @@ def reduce_to_bracket_tree(F, route, rng=None, verbose=False, choose="random", p
         if r is not None: L[r] = l
         if l is not None and l == r:                         # l is now a self loop
             L[l] = R[l] = l
+    # phase 1: open wrap blocks in components with kept cuts
+    bypassed = []
+    for b in blocks:
+        if b["cuts"][0] not in alive: continue
+        if any(u in keep for u in b["cuts"]): raise ReductionError("open wrap block needed by the tree (gap cut): k=%d s=%s r=%s" % (b["k"], b["s"], b["r"]))
+        if b["all_wraps_cycle"]: raise ReductionError("cycle of wraps only inside a kept component")
+        cs = b["cuts"]; k = b["k"]; l = L[cs[0]]; r = R[cs[-1]]
+        inside = sum(arc_w(cs[j], cs[j + 1]) for j in range(len(cs) - 1))
+        if l is None and r is None: raise ReductionError("path would become empty")
+        if l == cs[-1]: raise ReductionError("closed block inside a kept component")
+        if l is None: d = 3 * (k + 1) - inside - arc_w(cs[-1], r)
+        elif r is None: d = 3 * (k + 1) - inside - arc_w(l, cs[0])
+        else:
+            guard = 0
+            while l is not None and r is not None and l != r and F.tight_pair(l, r) and guard < 8:
+                # the two neighbours are cuts of one trail (at most one of them is kept): delete a deletable one first
+                guard += 1; done1 = False
+                for nb in (l, r):
+                    if nb in keep or nb not in alive: continue
+                    ln, rn = L[nb], R[nb]
+                    if ln is not None and rn is not None and ln != rn and F.tight_pair(ln, rn): continue
+                    try: eliminate(nb); done1 = True; break
+                    except ReductionError: continue
+                if not done1: raise ReductionError("bypassing a wrap block would create a tight arc")
+                l = L[cs[0]]; r = R[cs[-1]]
+            if l is None or r is None: raise ReductionError("wrap block reached a path end after deleting a neighbour")
+            if l == r:      # the component is {l} + block: the new arc l -> l is the natural link of l
+                d = int(cut[l]) + 3 * (k + 1) - inside - arc_w(l, cs[0]) - arc_w(cs[-1], r)
+            else:
+                if F.tight_pair(l, r): raise ReductionError("bypassing a wrap block would create a tight arc")
+                d = arc_w(l, r) + 3 * (k + 1) - inside - arc_w(l, cs[0]) - arc_w(cs[-1], r)
+        if d > 0: raise ReductionError("wrap block with a light neighbour: k=%d s=%s r=%s, bypass costs %d" % (k, b["s"], b["r"], d))
+        delta += d; steps += len(cs); bypassed.append((k, b["s"], b["r"], d))
+        for u in cs: alive.discard(u)
+        if l is not None: R[l] = r
+        if r is not None: L[r] = l
+        if l is not None and l == r: L[l] = R[l] = l            # l is now a self loop (deleted below as a trivial cut)
     # greedy safe eliminations
     pending = [v for v in D if v in alive]
     if rng: rng.shuffle(pending)

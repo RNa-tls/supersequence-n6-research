@@ -78,7 +78,18 @@ def main():
                                          by_vertices_and_A_vertices={"%d,%d" % k: v for k, v in sorted(comp.items())}, distinct_trail_sets=len(trailsets),
                                          representatives=[dict(options=[[Tl[o], int(tv[o][1]), int(tv[o][2])] for o in p], e=[int(El[p[i], p[(i + 1) % len(p)]]) for i in range(len(p))], orbit=n) for p, n in orbits[:200]])
         print("cost", c, "cycles", len(cyc), "by size", dict(sorted(by.items())), "orbits", len(orbits), "distinct trail sets", len(trailsets))
+    # second enumeration of the cost-1 cycles: a cost-1 cycle is a simple zero path closed by one arc with e = 1
+    zadj = [[b for (b, c) in adj[a] if c == 0] for a in range(N)]
+    alt = Counter()
+    def zp(path, used):
+        if len(path) >= 2 and int(El[path[-1], path[0]]) == 1: alt[len(path)] += 1
+        for b in zadj[path[-1]]:
+            if Tl[b] in used: continue
+            used.add(Tl[b]); path.append(b); zp(path, used); path.pop(); used.discard(Tl[b])
+    for o in range(N): zp([o], {Tl[o]})
+    out["cost_1_cycles_second_enumeration_zero_path_plus_closing_arc"] = dict(total=sum(alt.values()), by_number_of_vertices=dict(sorted(alt.items())),
+                                                                              agrees=(sum(alt.values()) == out["cost_1_cycles"]["total"]))
     json.dump(out, open(sys.argv[3], "w"), indent=1)
-    print("zero paths", out["zero_paths_by_number_of_options"])
+    print("zero paths", out["zero_paths_by_number_of_options"], "cost-1 second enumeration", dict(alt))
 
 main()
