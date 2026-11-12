@@ -15,7 +15,7 @@
 #include <omp.h>
 #define T 16
 #define MAXO 6000
-#define MAXG 700
+#define MAXG 1000
 #define INF 100
 static int no, otr[MAXO], oco[MAXO], first[T + 1]; static char ohd[MAXO][8], otl[MAXO][8];
 static int hid[8][MAXO], tid[8][MAXO], nk[8], koff[9], G;        /* keys = head prefixes */
