@@ -1,0 +1,39 @@
+{
+ "cutoff_100.25": {
+  "free_loops": 88,
+  "columns": 3582,
+  "status": "Infeasible",
+  "proved_above_cutoff": true,
+  "best_total": null,
+  "sec": 56.3,
+  "control_A_images": [
+   0,
+   107
+  ],
+  "cutoff": 100.25
+ },
+ "cutoff_100.75": {
+  "free_loops": 88,
+  "columns": 3582,
+  "status": "Optimal",
+  "proved_above_cutoff": false,
+  "best_total": 100.5,
+  "sec": 38.0,
+  "Q_total": 66,
+  "T_total": 23,
+  "walk_lengths": [
+   27,
+   23,
+   20,
+   16,
+   16
+  ],
+  "control_A_images": [
+   0,
+   107
+  ],
+  "cutoff": 100.75
+ },
+ "known_optimum_from_orbit_branch_A_sets": 100.5,
+ "note": "controls of the cutoff-row method of src/orbit_branch_oneA2.py on the A set [0, 107] (two A walks)"
+}
