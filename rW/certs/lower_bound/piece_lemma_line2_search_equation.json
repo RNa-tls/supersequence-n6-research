@@ -1,0 +1,24 @@
+{
+ "equation": {
+  "search": "line",
+  "params": [
+   17,
+   38,
+   264
+  ],
+  "found": false,
+  "chains_visited": 47288632630,
+  "chains_with_keep": 5807830513,
+  "greatest_number_of_pieces": 382,
+  "split_depth": 9,
+  "frontier": 43,
+  "sec": 1891.5
+ },
+ "ptab": "1:1,18:2,35:3,52:4,69:5,86:6,103:11,112:16,121:21,130:26,139:31,148:36,157:41,166:46,175:55,176:64,177:69,186:74,195:83,196:92,197:97,206:102,215:107,224:112,233:121,234:148,237:153,246:158,255:212,261:248",
+ "positive_control": {
+  "ptab": "18:3",
+  "found": true,
+  "chains_visited": 24
+ },
+ "meaning": "bad = (value 17r - 38d >= v and fewer than m pieces) for the 30 step points (v:m) of the line-2 piece-count table; found = false proves the table used by dmin"
+}
