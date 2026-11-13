@@ -18,7 +18,7 @@
                 beta(g2 -> g1) = min over Y subset of U14 of PG[U14 - Y][g2] + cost(g2) + BG[Y][g2]
      beta1(g1) = least F over the full set (the path ends with any state).
    Tables are kept for two consecutive layers (subset sizes) only.  OpenMP over the representatives.
-   usage: beta_letter ARCS.txt GAPS.txt REPS.txt OUT_beta1.txt OUT_beta2.bin [NTHREADS]
+   usage: [BETA1_ONLY=1] beta_letter ARCS.txt GAPS.txt REPS.txt OUT_beta1.txt OUT_beta2.bin [NTHREADS]
           OUT_beta2.bin: int8 [nrep][ngap], 100 where the hosts coincide.                                       */
 #include <stdio.h>
 #include <stdlib.h>
@@ -180,7 +180,11 @@ int main(int argc, char **argv) {
     for (int ri = 0; ri < nrep; ri++) {
         int g1 = rep[ri], h1 = ghost[g1]; Univ U; mkuniv(&U, 0xFFFF & ~(1u << h1));
         i8 *FG = malloc((size_t)65536 * ng), *BG = malloc((size_t)65536 * ng); memset(FG, INF, (size_t)65536 * ng); memset(BG, INF, (size_t)65536 * ng);
-        int b1 = INF; forward(&U, 1, g1, FG, &b1); backward(&U, 1, g1, BG); B1[ri] = b1;
+        int b1 = INF; forward(&U, 1, g1, FG, &b1); if (!getenv("BETA1_ONLY")) backward(&U, 1, g1, BG); B1[ri] = b1;
+        if (getenv("BETA1_ONLY")) { for (int g2 = 0; g2 < ng; g2++) B2[(size_t)ri * ng + g2] = INF; free(FG); free(BG);
+            #pragma omp critical
+            { fprintf(stderr, "rep %d (gap %d host %d) beta1 %d\n", ri, gid[g1], h1, b1); }
+            continue; }
         for (int g2 = 0; g2 < ng; g2++) { int h2 = ghost[g2];
             if (h2 == h1) { B2[(size_t)ri * ng + g2] = INF; continue; }
             unsigned U14 = 0xFFFF & ~(1u << h1) & ~(1u << h2); int best = INF;
