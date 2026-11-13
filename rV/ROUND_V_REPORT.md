@@ -130,7 +130,7 @@
   * 그러므로 가장 짧은 초순열은 모든 순열을 정확히 한 번 지정해 지나는 해밀턴 경로로 잡을 수 있다. 실현된 단어에 우연히 생기는 반복 창(아홉째 창 56개 등)은 상관없다.
   * Round U가 "순열을 반복하는 단어는 단계 구조 밖"이라고 남긴 틈은 이것으로 닫힌다. 임의 조각 모형 = 전역 문제라는 진술은 그대로이다.
 * **run 수준의 교차.** 감싸기가 없으면 교차 구조도 S1로 괄호 나무가 된다(이미 닫힘). 감싸기 하나도 S1′로 닫혔다. 줄지 않는 가장 작은 교차 구조는 §C.4의 "같은 숙주의 두 틈"이다.
-* **글자 수준의 교차.** 클래스 안 절단(자연 결합 무게 1)의 삭제는 Monge로 언제나 길이를 늘리지 않는다. 막는 것은 **문 결합**(지정된 순열 사이의 자연이 아닌 무게 2 결합)이다.
+* **글자 수준의 교차.** S1의 전제는 "감싸기 말고는 자연이 아닌 무게 ≤ 2 결합이 없다"이다. 글자 수준에서는 이 전제가 **문 결합**(지정된 순열 사이의 자연이 아닌 무게 2 결합) 때문에 깨진다. 클래스 안 절단(무게 1인 자연 결합에서 자르기)은 자연 결합이라 전제를 깨지 않는다. 그렇다고 클래스 안 절단을 없앨 수 있는 것은 아니다(Round U: 표 값을 최대 3 낮춘다; §B: 감싸기와 함께 1을 번다).
   * 개수(전수): 36,064 = run 안쪽 순열의 문 35,280 + 부분 slice 끝의 문 196 + 감싸기 588.
   * 감싸기는 문 결합의 1.6%일 뿐이다. 글자 수준의 일반 환원 정리는 나머지 35,476개를 다뤄야 한다. 하지 못했다.
 * **실패한 환원(반례).**
@@ -375,13 +375,21 @@
     python3 -I rV/src/entry_lemma.py entry.json types.txt
     gcc -O3 -march=native -o $WV/cols_within rV/csrc/cols_within.c
     python3 rV/src/orbit_branch.py types_lib.txt $WV out.json --lam 1.5 --target 88                  # scipy/highspy 필요
+    python3 rV/src/orbit_branch_A.py types_lib.txt $WV outA.json --lam 1.5                          # A 보행 둘 이상
+    python3 rV/src/orbit_branch_oneA2.py types_lib.txt $WV out1A.json --cutoff 87.75                 # A 보행 정확히 하나, 151 하위 분기
+    python3 rV/src/orbit_branch_oneA2.py types_lib.txt $WV ctl.json --control 0,107 --cutoff 100.25  # 대조(불가능이어야 함)
     python3 rV/src/price.py selections.jsonl priced.jsonl $WV
+    # B, E: 글자 수준 가족
+    gcc -O3 -march=native -o $WV/path_witness_big rV/csrc/path_witness.c                           # MAXO 60000, 5.3 GB
+    gcc -O3 -march=native -o $WV/path_layer rV/csrc/path_layer.c                                    # 층별 DP, 17 trail 2 GB / 18 trail 3.7 GB
+    rV/src/run_letters.sh $WU $WV letters1.jsonl <사슬 번호들>          # 감싸기 하나, 가족당 ~40 s
+    rV/src/run_letters2.sh $WU $WV letters2.jsonl <C1,C2 쌍들>          # 감싸기 둘, 가족당 ~60 s
     # G, H: 하한
     gcc -O3 -march=native -fopenmp -o dsearch rV/csrc/dsearch.c
     ./dsearch line 4 9 56;  ./dsearch zone 4 9 56 2 17 38 264 6;  ./dsearch line 17 38 264          # 2 / 8 / 14 min
     CENSUS=1 ./dsearch line 4 9 56 9 > census1.json;  CENSUS=1 ./dsearch line 17 38 264 9 > census2.json
     python3 -I rV/src/cells_tight.py census1.json census2.json cells.json
-    lean rV/lean/RoundV.lean
+    lean rV/lean/RoundV.lean;  lean rV/lean/PieceLemma.lean
 
 판정: 46173 구성은 §E의 가족(Round U의 가족 + 감싸기 둘의 경로형)에서 최적이다. 전역 하한은 46134 그대로이고 ≤ 46172 단어는 없다.
 
