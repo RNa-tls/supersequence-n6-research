@@ -35,5 +35,62 @@
   "cutoff": 100.75
  },
  "known_optimum_from_orbit_branch_A_sets": 100.5,
- "note": "controls of the cutoff-row method of src/orbit_branch_oneA2.py on the A set [0, 107] (two A walks)"
+ "note": "controls of the cutoff-row method of src/orbit_branch_oneA2.py on the A set [0, 107] (two A walks)",
+ "objective_bound_option_87.75_on_W27_branch_optimum_88": [
+  {
+   "branch": 0,
+   "A_count": 0,
+   "cutoff": 87.75,
+   "type": "266646664666466466646664666",
+   "L": 27,
+   "Q": 16,
+   "T": 1,
+   "density": 0.6481,
+   "free_loops": 93,
+   "columns": 17037,
+   "A_columns": 18,
+   "status": "Optimal",
+   "best_total": 88.0,
+   "lower_bound_total": 88.0,
+   "proved_total_above_cutoff": null,
+   "sec": 23.5,
+   "Q_total": 64,
+   "T_total": 16,
+   "walk_lengths": [
+    27,
+    27,
+    27,
+    27
+   ]
+  }
+ ],
+ "objective_bound_option_88.25_on_W27_branch_optimum_88": [
+  {
+   "branch": 0,
+   "A_count": 0,
+   "cutoff": 88.25,
+   "type": "266646664666466466646664666",
+   "L": 27,
+   "Q": 16,
+   "T": 1,
+   "density": 0.6481,
+   "free_loops": 93,
+   "columns": 17037,
+   "A_columns": 18,
+   "status": "Optimal",
+   "best_total": 88.0,
+   "lower_bound_total": 88.0,
+   "proved_total_above_cutoff": null,
+   "sec": 21.2,
+   "Q_total": 64,
+   "T_total": 16,
+   "walk_lengths": [
+    27,
+    27,
+    27,
+    27
+   ]
+  }
+ ],
+ "note_objective_bound": "HiGHS option objective_bound is NOT a reliable cutoff here: with objective_bound = 87.75 - base on a branch of optimum 88 it still returned 88 (status Optimal). The explicit cost row of orbit_branch_oneA2.py is used instead."
 }
