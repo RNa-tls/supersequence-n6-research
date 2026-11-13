@@ -3,7 +3,7 @@
 (wraps natural, not cut), hosts with skip links.  Trails: 0 = C1, 1 = C2, 2..17 = the original trails 0..15.
 Writes the run-level arcs and checks the facts behind the reduction (no other non-natural link of weight <= 2,
 ladder lemma m = 2, 4 with the gap heads never deleted).
-usage: wrapfam2.py SEL TSV BASE WORK C1 C2 OUT_ARCS.txt   (JSON line on stdout)"""
+usage: wrapfam2.py SEL TSV BASE WORK C1 C2 OUT_ARCS.txt [--arcs-only]   (JSON line on stdout; --arcs-only skips the fact checks)"""
 import sys, os, json
 import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "rU", "src"))
@@ -28,6 +28,7 @@ pred2 = np.empty(n, np.int64); pred2[succ2] = np.arange(n); cut2 = cn2[pred2]
 assert (W[np.arange(n), succ2] == cn2).all()
 rows = sorted((int(tr2[y]), y, 0, 3 - int(cut2[y]), ent[y][:7], ent[int(pred2[y])][:7]) for y in range(n) if y not in (A[0], B[0]))
 open(outp, "w").write("".join("%d %d %d %d %s %s\n" % r for r in rows))
+if "--arcs-only" in sys.argv: print(json.dumps(dict(c1=c1, c2=c2, adjacent=bool(adj), arcs=len(rows)))); sys.exit(0)
 natural = np.zeros((n, n), bool); natural[np.arange(n), succ2] = True
 w2 = (W <= 2) & ~natural & ~np.eye(n, dtype=bool); xs, ys = np.nonzero(w2)
 ch2 = WF.chains_of(cn2, succ2, pred2); wrapR = {int(succ2[ch[-1]]): ch[0] for ch in ch2}; wrapset = {(ch[-1], ch[0]) for ch in ch2}
