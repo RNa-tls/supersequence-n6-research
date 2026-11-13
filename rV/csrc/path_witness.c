@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define MAXT 20
-#define MAXO 9000
+#define MAXO 60000
 #define INF 100
 static int T, no, otr[MAXO], ost[MAXO], oco[MAXO]; static char ohd[MAXO][8], otl[MAXO][8];
 static int hid[8][MAXO], tid[8][MAXO], nk[8], koff[9], G, first[MAXT + 1];
