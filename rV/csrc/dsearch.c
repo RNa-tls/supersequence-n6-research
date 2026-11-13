@@ -9,6 +9,8 @@
      line a b c       : keep = b d < a r <= b d + c,   bad = b d + c < a r
      zone a1 b1 c1 u1 a2 b2 c2 u2 : keep = b1 d <= a1 r + u1 && b2 d <= a2 r + u2,
                                      bad  = b1 d + c1 <= a1 r + u1 && b2 d + c2 <= a2 r + u2 && a1 r != b1 d + c1
+   With PTAB="v1:m1,v2:m2,.." (line mode) a chain is also bad if its value a r - b d is >= v_i and it has fewer than
+   m_i pieces: "found = false" is then the search equation of the piece-count lemma.
    Output: found (0/1), number of chains visited (calls of the search below a chain), chains with keep, greatest depth.
    Parallel: the chains with SPLIT pieces are collected first, then searched independently.
    usage: dsearch line a b c | zone a1 b1 c1 u1 a2 b2 c2 u2   [SPLIT] */
@@ -20,7 +22,8 @@ typedef unsigned int u32; typedef unsigned long long u64;
 #define K 8
 static int mode, A1, B1, C1, U1, A2, B2, C2, U2, SPLIT = 4;
 static inline int keepf(long r, long d) { if (mode == 0) return B1 * d < A1 * r && A1 * r <= B1 * d + C1; return B1 * d <= A1 * r + U1 && B2 * d <= A2 * r + U2; }
-static inline int badf(long r, long d) { if (mode == 0) return B1 * d + C1 < A1 * r; return B1 * d + C1 <= A1 * r + U1 && B2 * d + C2 <= A2 * r + U2 && A1 * r != B1 * d + C1; }
+static int nptab, ptv[64], ptm[64];
+static inline int badf(long r, long d) { if (mode == 0) { if (B1 * d + C1 < A1 * r) return 1; if (nptab) { long v = A1 * r - B1 * d; for (int i = 0; i < nptab; i++) if (v >= ptv[i] && r < ptm[i]) return 1; } return 0; } return B1 * d + C1 <= A1 * r + U1 && B2 * d + C2 <= A2 * r + U2 && A1 * r != B1 * d + C1; }
 static inline u32 exc(u32 c) { return (c & 15u) << 28 | c >> 4; }
 static inline u32 door(u32 x) { return (x & 0xFFFFFFu) << 8 | ((x >> 24) & 15u) << 4 | x >> 28; }
 static inline u32 cidx(u32 c) { while ((c >> 28) != K) c = c << 4 | c >> 28; u32 v = 0; for (int i = 6; i >= 0; i--) v = v * 8 + (((c >> (4 * i)) & 15u) - 1); return v; }
@@ -58,6 +61,7 @@ static void go(ctx_t *c, int r, int d, u32 y, int collect, u32 *stack, int ns) {
 int main(int argc, char **argv) {
     if (!strcmp(argv[1], "line")) { mode = 0; A1 = atoi(argv[2]); B1 = atoi(argv[3]); C1 = atoi(argv[4]); if (argc > 5) SPLIT = atoi(argv[5]); }
     else { mode = 1; A1 = atoi(argv[2]); B1 = atoi(argv[3]); C1 = atoi(argv[4]); U1 = atoi(argv[5]); A2 = atoi(argv[6]); B2 = atoi(argv[7]); C2 = atoi(argv[8]); U2 = atoi(argv[9]); if (argc > 10) SPLIT = atoi(argv[10]); }
+    if (getenv("PTAB")) { const char *q = getenv("PTAB"); while (*q && nptab < 64) { int v, m, n = 0; if (sscanf(q, "%d:%d%n", &v, &m, &n) < 2) break; ptv[nptab] = v; ptm[nptab++] = m; q += n; if (*q == ',') q++; } }
     double t0 = omp_get_wtime(); int census = getenv("CENSUS") != NULL; u64 *HVg = calloc(HV, sizeof(u64)), *TGg = calloc(HR, sizeof(u64)); int *MRg = malloc(sizeof(int) * HV); for (int i = 0; i < HV; i++) MRg[i] = 1 << 30;
     ctx_t top = {calloc(1 << 21, 1), 0, 0, 0, 0, census ? HVg : NULL, census ? TGg : NULL, MRg}; u32 stack[4096];
     walk(&top, K - 1, 0x12345678u, 0, 0, 1, stack, 0);            /* the first piece; chains with SPLIT pieces are collected */

@@ -34,4 +34,5 @@ for t in sorted(words):
     for s, k in OP.options(c):
         if ci >= 0 and t == 0 and s == 0 and k >= 1 and "--allow-wrap-cut" not in sys.argv: continue      # the arc that cuts the wrap C6 -> C0 (then the wrap is not used)
         piece = d[s:s + R + 7 - k]; fo.write("%d %d %d %d %s %s\n" % (t, s, k, 2 - k, piece[:7], piece[-7:])); hist[2 - k] += 1; tot += 1
+if "--words" in sys.argv: json.dump({str(t): words[t] for t in words}, open(sys.argv[sys.argv.index("--words") + 1], "w"))
 fo.close(); print(json.dumps(dict(chain=ci, trails=len(words), sum_R=sum(len(c) for c in words.values()), arcs=tot, arcs_by_cost={str(k): v for k, v in sorted(hist.items())})))
