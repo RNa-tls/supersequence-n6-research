@@ -1,0 +1,5424 @@
+{
+ "cells": 69,
+ "clusters": {
+  "S0": 7,
+  "SL": 28,
+  "SM": 34
+ },
+ "margin_histogram": {
+  "-6": 3,
+  "-5": 11,
+  "-4": 10,
+  "-3": 11,
+  "-2": 11,
+  "-1": 13,
+  "0": 10
+ },
+ "dmin_all": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  2,
+  2,
+  2,
+  3,
+  3,
+  4,
+  4,
+  4,
+  5,
+  5,
+  6,
+  6,
+  6,
+  7,
+  7,
+  8,
+  8,
+  8,
+  9,
+  9,
+  10,
+  10,
+  10,
+  11,
+  11,
+  12,
+  12,
+  12,
+  13,
+  13,
+  14,
+  14,
+  14,
+  15,
+  15,
+  16,
+  16,
+  16,
+  17,
+  17,
+  18,
+  18,
+  19,
+  19,
+  20,
+  20,
+  20,
+  21,
+  21,
+  22,
+  22,
+  23,
+  23,
+  24,
+  24,
+  24,
+  25,
+  25,
+  26,
+  26,
+  26,
+  27,
+  27,
+  28,
+  28,
+  28,
+  29,
+  29,
+  30,
+  30,
+  31,
+  31,
+  32,
+  32,
+  32,
+  33,
+  33,
+  34,
+  34,
+  35,
+  35,
+  36,
+  36,
+  36,
+  37,
+  37,
+  38,
+  38,
+  38,
+  39,
+  39,
+  40,
+  40,
+  40,
+  41,
+  41,
+  42,
+  42,
+  42,
+  43,
+  43,
+  44,
+  44,
+  44,
+  45,
+  45,
+  46,
+  46,
+  47,
+  47,
+  48,
+  48,
+  48,
+  49,
+  49,
+  50,
+  50,
+  51,
+  51,
+  52,
+  52,
+  53,
+  53,
+  53,
+  54,
+  54,
+  55,
+  55,
+  56,
+  56,
+  57,
+  57,
+  57,
+  58,
+  58,
+  59,
+  59,
+  60,
+  60,
+  60,
+  61,
+  61,
+  62,
+  62,
+  62,
+  63,
+  63,
+  64,
+  64,
+  64,
+  65,
+  65,
+  66,
+  66,
+  67,
+  67,
+  68,
+  68,
+  69,
+  69,
+  69,
+  70,
+  70,
+  71,
+  71,
+  72,
+  72,
+  73,
+  73,
+  73,
+  74,
+  74,
+  75,
+  75,
+  76,
+  76,
+  77,
+  77,
+  77,
+  78,
+  78,
+  79,
+  79,
+  80,
+  80,
+  81,
+  81,
+  81,
+  82,
+  82,
+  83,
+  83,
+  84,
+  84,
+  85,
+  85,
+  86,
+  86,
+  86,
+  87,
+  87,
+  88,
+  88,
+  88,
+  89,
+  89,
+  90,
+  90,
+  91,
+  91,
+  92,
+  92,
+  93,
+  93,
+  93,
+  94,
+  94,
+  95,
+  95,
+  96,
+  96,
+  97,
+  97,
+  98,
+  98,
+  98,
+  99,
+  99,
+  100,
+  100,
+  101,
+  101,
+  102,
+  102,
+  102,
+  103,
+  103,
+  104,
+  104,
+  104,
+  105,
+  106,
+  106,
+  106,
+  107,
+  107,
+  108,
+  108,
+  109,
+  109,
+  110,
+  110,
+  110,
+  111,
+  111,
+  112,
+  112,
+  113,
+  113,
+  114,
+  114,
+  115,
+  115,
+  115,
+  116,
+  116,
+  117,
+  117,
+  118,
+  118,
+  119,
+  119,
+  119,
+  120,
+  120,
+  121,
+  121,
+  122,
+  122,
+  123,
+  123,
+  123,
+  124,
+  124,
+  125,
+  125,
+  126,
+  126,
+  127,
+  127,
+  127,
+  128,
+  128,
+  129,
+  129,
+  130,
+  130,
+  131,
+  131,
+  131,
+  132,
+  132,
+  133,
+  133,
+  134,
+  134,
+  135,
+  135,
+  135,
+  136,
+  136,
+  137,
+  137,
+  138,
+  138,
+  139,
+  139,
+  139,
+  140,
+  140,
+  141,
+  141,
+  142,
+  142,
+  143,
+  143,
+  143,
+  144,
+  144,
+  145,
+  145,
+  146,
+  146,
+  147,
+  147,
+  147,
+  148,
+  148,
+  149,
+  149,
+  150,
+  150,
+  151,
+  151,
+  151,
+  152,
+  152,
+  153,
+  153,
+  154,
+  154,
+  155,
+  155,
+  155,
+  156,
+  156,
+  157,
+  157,
+  158,
+  158,
+  159,
+  159,
+  160,
+  160,
+  160,
+  161,
+  161,
+  162,
+  162,
+  163,
+  163,
+  164,
+  164,
+  164,
+  165,
+  165,
+  166,
+  166,
+  167,
+  167,
+  168,
+  168,
+  168,
+  169,
+  169,
+  170,
+  170,
+  171,
+  171,
+  172,
+  172,
+  172,
+  173,
+  173,
+  174,
+  174,
+  175,
+  175,
+  176,
+  176,
+  177,
+  177,
+  177,
+  178,
+  178,
+  179,
+  179,
+  180,
+  180,
+  181,
+  181,
+  181,
+  182,
+  182,
+  183,
+  183,
+  184,
+  184,
+  185,
+  185,
+  185,
+  186,
+  186,
+  187,
+  187,
+  188,
+  188,
+  189,
+  189,
+  189,
+  190,
+  190,
+  191,
+  191,
+  192,
+  192,
+  193,
+  193,
+  194,
+  194,
+  194,
+  195,
+  195,
+  196,
+  196,
+  197,
+  197,
+  198,
+  198,
+  198,
+  199,
+  199,
+  200,
+  200,
+  201,
+  201,
+  202,
+  202,
+  202,
+  203,
+  203,
+  204,
+  204,
+  205,
+  205,
+  206,
+  206,
+  206,
+  207,
+  207,
+  208,
+  208,
+  209,
+  209,
+  210,
+  210,
+  211,
+  211,
+  211,
+  212,
+  212,
+  213,
+  213,
+  214,
+  214,
+  215,
+  215,
+  215,
+  216,
+  216,
+  217,
+  217,
+  218,
+  218,
+  219,
+  219,
+  219,
+  220,
+  220,
+  221,
+  221,
+  222,
+  222,
+  223,
+  223,
+  223,
+  224,
+  224,
+  225,
+  225,
+  226,
+  226,
+  227,
+  227,
+  228,
+  228,
+  228,
+  229,
+  229,
+  230,
+  230,
+  231,
+  231,
+  232,
+  232,
+  232,
+  233,
+  233,
+  234,
+  234,
+  235,
+  235,
+  236,
+  236,
+  236,
+  237,
+  237,
+  238,
+  238,
+  239,
+  239,
+  240,
+  240,
+  240,
+  241,
+  241,
+  242,
+  242,
+  243,
+  243,
+  244,
+  244,
+  245,
+  245,
+  245,
+  246,
+  246,
+  247,
+  247,
+  248,
+  248,
+  249,
+  249,
+  249,
+  250,
+  250,
+  251,
+  251,
+  252,
+  252,
+  253,
+  253,
+  253,
+  254,
+  254,
+  255,
+  255,
+  256,
+  256,
+  257,
+  257,
+  257,
+  258,
+  258,
+  259,
+  259,
+  260,
+  260,
+  261,
+  261,
+  262,
+  262,
+  262,
+  263,
+  263,
+  264,
+  264,
+  265,
+  265,
+  266,
+  266,
+  266,
+  267,
+  267,
+  268,
+  268,
+  269,
+  269,
+  270,
+  270,
+  270,
+  271,
+  271,
+  272,
+  272,
+  273,
+  273,
+  274,
+  274,
+  274,
+  275,
+  275,
+  276,
+  276,
+  277,
+  277,
+  278,
+  278,
+  279,
+  279,
+  279,
+  280,
+  280,
+  281,
+  281,
+  282,
+  282,
+  283,
+  283,
+  283,
+  284,
+  284,
+  285,
+  285,
+  286,
+  286,
+  287,
+  287,
+  287,
+  288,
+  288,
+  289,
+  289,
+  290,
+  290,
+  291,
+  291,
+  291,
+  292,
+  292,
+  293,
+  293,
+  294,
+  294,
+  295,
+  295,
+  296,
+  296,
+  296,
+  297,
+  297,
+  298,
+  298,
+  299,
+  299,
+  300,
+  300,
+  300,
+  301,
+  301,
+  302,
+  302,
+  303,
+  303,
+  304,
+  304,
+  304,
+  305,
+  305,
+  306,
+  306,
+  307,
+  307,
+  308,
+  308,
+  308,
+  309,
+  309,
+  310,
+  310,
+  311,
+  311,
+  312,
+  312,
+  313,
+  313,
+  313,
+  314,
+  314,
+  315,
+  315,
+  316,
+  316,
+  317,
+  317,
+  317,
+  318,
+  318,
+  319,
+  319,
+  320,
+  320,
+  321,
+  321,
+  321,
+  322,
+  322,
+  323,
+  323,
+  324,
+  324,
+  325,
+  325,
+  325,
+  326,
+  326,
+  327,
+  327,
+  328,
+  328,
+  329,
+  329,
+  330,
+  330,
+  330,
+  331,
+  331,
+  332,
+  332,
+  333,
+  333,
+  334,
+  334,
+  334,
+  335,
+  335,
+  336,
+  336,
+  337,
+  337,
+  338,
+  338,
+  338,
+  339,
+  339,
+  340,
+  340,
+  341,
+  341,
+  342,
+  342,
+  342,
+  343,
+  343,
+  344,
+  344,
+  345,
+  345,
+  346,
+  346,
+  347,
+  347,
+  347,
+  348,
+  348,
+  349,
+  349,
+  350,
+  350,
+  351,
+  351,
+  351
+ ],
+ "rows": [
+  {
+   "R": 763,
+   "p": 6,
+   "F": 0,
+   "chains": 7,
+   "Delta": 301,
+   "N_extra_rows": 43,
+   "V1": 343,
+   "V2": 1533,
+   "tri_slack1": 49,
+   "tri_slack2": 315,
+   "line1_junction_slack": 49,
+   "line2_junction_slack": 315,
+   "min_deficit": 300,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 7,
+     "rows_in_chains": 763
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 36,
+      "dmin": 12,
+      "v1": 36,
+      "v2": 156
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 763,
+   "p": 6,
+   "F": 1,
+   "chains": 8,
+   "Delta": 301,
+   "N_extra_rows": 43,
+   "V1": 343,
+   "V2": 1533,
+   "tri_slack1": 105,
+   "tri_slack2": 579,
+   "line1_junction_slack": 44,
+   "line2_junction_slack": 309,
+   "min_deficit": 301,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 7,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 26,
+      "dmin": 8,
+      "v1": 32,
+      "v2": 138
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 763,
+   "p": 6,
+   "F": 2,
+   "chains": 9,
+   "Delta": 301,
+   "N_extra_rows": 43,
+   "V1": 343,
+   "V2": 1533,
+   "tri_slack1": 161,
+   "tri_slack2": 843,
+   "line1_junction_slack": 39,
+   "line2_junction_slack": 303,
+   "min_deficit": 301,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 7,
+     "rows_in_chains": 761
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 160,
+      "dmin": 65,
+      "v1": 55,
+      "v2": 250
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 41,
+      "dmin": 14,
+      "v1": 38,
+      "v2": 165
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 0,
+   "chains": 6,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 52,
+   "tri_slack2": 300,
+   "line1_junction_slack": 52,
+   "line2_junction_slack": 300,
+   "min_deficit": 304,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 1,
+   "chains": 7,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 108,
+   "tri_slack2": 564,
+   "line1_junction_slack": 47,
+   "line2_junction_slack": 294,
+   "min_deficit": 305,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 763
+    }
+   ],
+   "example_partition": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 102,
+      "dmin": 40,
+      "v1": 48,
+      "v2": 214
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 2,
+   "chains": 8,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 164,
+   "tri_slack2": 828,
+   "line1_junction_slack": 42,
+   "line2_junction_slack": 288,
+   "min_deficit": 306,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 46,
+      "dmin": 16,
+      "v1": 40,
+      "v2": 174
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 3,
+   "chains": 9,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 220,
+   "tri_slack2": 1092,
+   "line1_junction_slack": 37,
+   "line2_junction_slack": 282,
+   "min_deficit": 306,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 3,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 761
+    }
+   ],
+   "example_partition": {
+    "F_loops": 3,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 160,
+      "dmin": 65,
+      "v1": 55,
+      "v2": 250
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 4,
+   "chains": 10,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 276,
+   "tri_slack2": 1356,
+   "line1_junction_slack": 32,
+   "line2_junction_slack": 276,
+   "min_deficit": 307,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 4,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 760
+    }
+   ],
+   "example_partition": {
+    "F_loops": 4,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 169,
+      "dmin": 69,
+      "v1": 55,
+      "v2": 251
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 97,
+      "dmin": 38,
+      "v1": 46,
+      "v2": 205
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 5,
+   "chains": 11,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 332,
+   "tri_slack2": 1620,
+   "line1_junction_slack": 27,
+   "line2_junction_slack": 270,
+   "min_deficit": 307,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 5,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 5,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 764,
+   "p": 5,
+   "F": 6,
+   "chains": 12,
+   "Delta": 308,
+   "N_extra_rows": 44,
+   "V1": 284,
+   "V2": 1284,
+   "tri_slack1": 388,
+   "tri_slack2": 1884,
+   "line1_junction_slack": 22,
+   "line2_junction_slack": 264,
+   "min_deficit": 308,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 6,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 6,
+     "rows_in_chains": 758
+    }
+   ],
+   "example_partition": {
+    "F_loops": 6,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     },
+     {
+      "r": 97,
+      "dmin": 38,
+      "v1": 46,
+      "v2": 205
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 0,
+   "chains": 5,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 55,
+   "tri_slack2": 285,
+   "line1_junction_slack": 55,
+   "line2_junction_slack": 285,
+   "min_deficit": 310,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 765
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 189,
+      "dmin": 78,
+      "v1": 54,
+      "v2": 249
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 102,
+      "dmin": 40,
+      "v1": 48,
+      "v2": 214
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 1,
+   "chains": 6,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 111,
+   "tri_slack2": 549,
+   "line1_junction_slack": 50,
+   "line2_junction_slack": 279,
+   "min_deficit": 310,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 178,
+      "dmin": 73,
+      "v1": 55,
+      "v2": 252
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 2,
+   "chains": 7,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 167,
+   "tri_slack2": 813,
+   "line1_junction_slack": 45,
+   "line2_junction_slack": 273,
+   "min_deficit": 311,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 763
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 102,
+      "dmin": 40,
+      "v1": 48,
+      "v2": 214
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 3,
+   "chains": 8,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 223,
+   "tri_slack2": 1077,
+   "line1_junction_slack": 40,
+   "line2_junction_slack": 267,
+   "min_deficit": 312,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 3,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 3,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 214,
+      "dmin": 89,
+      "v1": 55,
+      "v2": 256
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 74,
+      "dmin": 28,
+      "v1": 44,
+      "v2": 194
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 4,
+   "chains": 9,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 279,
+   "tri_slack2": 1341,
+   "line1_junction_slack": 35,
+   "line2_junction_slack": 261,
+   "min_deficit": 312,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 4,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 761
+    }
+   ],
+   "example_partition": {
+    "F_loops": 4,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 180,
+      "dmin": 74,
+      "v1": 54,
+      "v2": 248
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 5,
+   "chains": 10,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 335,
+   "tri_slack2": 1605,
+   "line1_junction_slack": 30,
+   "line2_junction_slack": 255,
+   "min_deficit": 313,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 5,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 760
+    }
+   ],
+   "example_partition": {
+    "F_loops": 5,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 74,
+      "dmin": 28,
+      "v1": 44,
+      "v2": 194
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 6,
+   "chains": 11,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 391,
+   "tri_slack2": 1869,
+   "line1_junction_slack": 25,
+   "line2_junction_slack": 249,
+   "min_deficit": 313,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 6,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 6,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 178,
+      "dmin": 73,
+      "v1": 55,
+      "v2": 252
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 7,
+   "chains": 12,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 447,
+   "tri_slack2": 2133,
+   "line1_junction_slack": 20,
+   "line2_junction_slack": 243,
+   "min_deficit": 314,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 7,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 758
+    }
+   ],
+   "example_partition": {
+    "F_loops": 7,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 97,
+      "dmin": 38,
+      "v1": 46,
+      "v2": 205
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 8,
+   "chains": 13,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 503,
+   "tri_slack2": 2397,
+   "line1_junction_slack": 15,
+   "line2_junction_slack": 237,
+   "min_deficit": 314,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 8,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 8,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 171,
+      "dmin": 70,
+      "v1": 54,
+      "v2": 247
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 9,
+   "chains": 14,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 559,
+   "tri_slack2": 2661,
+   "line1_junction_slack": 10,
+   "line2_junction_slack": 231,
+   "min_deficit": 315,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 9,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 756
+    }
+   ],
+   "example_partition": {
+    "F_loops": 9,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 180,
+      "dmin": 74,
+      "v1": 54,
+      "v2": 248
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 102,
+      "dmin": 40,
+      "v1": 48,
+      "v2": 214
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 10,
+   "chains": 15,
+   "Delta": 315,
+   "N_extra_rows": 45,
+   "V1": 225,
+   "V2": 1035,
+   "tri_slack1": 615,
+   "tri_slack2": 2925,
+   "line1_junction_slack": 5,
+   "line2_junction_slack": 225,
+   "min_deficit": 315,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 10,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 755
+    }
+   ],
+   "example_partition": {
+    "F_loops": 10,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 169,
+      "dmin": 69,
+      "v1": 55,
+      "v2": 251
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 0,
+   "chains": 4,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 58,
+   "tri_slack2": 270,
+   "line1_junction_slack": 58,
+   "line2_junction_slack": 270,
+   "min_deficit": 316,
+   "margin": -6,
+   "spare_deficit": 6,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 766
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 1,
+   "chains": 5,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 114,
+   "tri_slack2": 534,
+   "line1_junction_slack": 53,
+   "line2_junction_slack": 264,
+   "min_deficit": 317,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 764
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 765
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 178,
+      "dmin": 73,
+      "v1": 55,
+      "v2": 252
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 2,
+   "chains": 6,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 170,
+   "tri_slack2": 798,
+   "line1_junction_slack": 48,
+   "line2_junction_slack": 258,
+   "min_deficit": 317,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 3,
+   "chains": 7,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 226,
+   "tri_slack2": 1062,
+   "line1_junction_slack": 43,
+   "line2_junction_slack": 252,
+   "min_deficit": 318,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 3,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 763
+    }
+   ],
+   "example_partition": {
+    "F_loops": 3,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 160,
+      "dmin": 65,
+      "v1": 55,
+      "v2": 250
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 4,
+   "chains": 8,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 282,
+   "tri_slack2": 1326,
+   "line1_junction_slack": 38,
+   "line2_junction_slack": 246,
+   "min_deficit": 318,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 4,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 4,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 198,
+      "dmin": 82,
+      "v1": 54,
+      "v2": 250
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 5,
+   "chains": 9,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 338,
+   "tri_slack2": 1590,
+   "line1_junction_slack": 33,
+   "line2_junction_slack": 240,
+   "min_deficit": 319,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 5,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 761
+    }
+   ],
+   "example_partition": {
+    "F_loops": 5,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 6,
+   "chains": 10,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 394,
+   "tri_slack2": 1854,
+   "line1_junction_slack": 28,
+   "line2_junction_slack": 234,
+   "min_deficit": 319,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 6,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 760
+    }
+   ],
+   "example_partition": {
+    "F_loops": 6,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 7,
+   "chains": 11,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 450,
+   "tri_slack2": 2118,
+   "line1_junction_slack": 23,
+   "line2_junction_slack": 228,
+   "min_deficit": 320,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 7,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 7,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 8,
+   "chains": 12,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 506,
+   "tri_slack2": 2382,
+   "line1_junction_slack": 18,
+   "line2_junction_slack": 222,
+   "min_deficit": 321,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 7,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 757
+    },
+    {
+     "F_loops": 8,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 758
+    }
+   ],
+   "example_partition": {
+    "F_loops": 7,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 171,
+      "dmin": 70,
+      "v1": 54,
+      "v2": 247
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 9,
+   "chains": 13,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 562,
+   "tri_slack2": 2646,
+   "line1_junction_slack": 13,
+   "line2_junction_slack": 216,
+   "min_deficit": 321,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 9,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 9,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 10,
+   "chains": 14,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 618,
+   "tri_slack2": 2910,
+   "line1_junction_slack": 8,
+   "line2_junction_slack": 210,
+   "min_deficit": 322,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 9,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 5,
+     "rows_in_chains": 755
+    },
+    {
+     "F_loops": 10,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 756
+    }
+   ],
+   "example_partition": {
+    "F_loops": 9,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 169,
+      "dmin": 69,
+      "v1": 55,
+      "v2": 251
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 11,
+   "chains": 15,
+   "Delta": 322,
+   "N_extra_rows": 46,
+   "V1": 166,
+   "V2": 786,
+   "tri_slack1": 674,
+   "tri_slack2": 3174,
+   "line1_junction_slack": 3,
+   "line2_junction_slack": 204,
+   "min_deficit": 322,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 11,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 755
+    }
+   ],
+   "example_partition": {
+    "F_loops": 11,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 0,
+   "chains": 3,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 61,
+   "tri_slack2": 255,
+   "line1_junction_slack": 61,
+   "line2_junction_slack": 255,
+   "min_deficit": 323,
+   "margin": -6,
+   "spare_deficit": 6,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 767
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 402,
+      "dmin": 173,
+      "v1": 51,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 1,
+   "chains": 4,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 117,
+   "tri_slack2": 519,
+   "line1_junction_slack": 56,
+   "line2_junction_slack": 249,
+   "min_deficit": 324,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 765
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 766
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 252,
+      "dmin": 106,
+      "v1": 54,
+      "v2": 256
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 2,
+   "chains": 5,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 173,
+   "tri_slack2": 783,
+   "line1_junction_slack": 51,
+   "line2_junction_slack": 243,
+   "min_deficit": 324,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 1,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 764
+    },
+    {
+     "F_loops": 2,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 765
+    }
+   ],
+   "example_partition": {
+    "F_loops": 1,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 3,
+   "chains": 6,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 229,
+   "tri_slack2": 1047,
+   "line1_junction_slack": 46,
+   "line2_junction_slack": 237,
+   "min_deficit": 325,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 763
+    },
+    {
+     "F_loops": 3,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 160,
+      "dmin": 65,
+      "v1": 55,
+      "v2": 250
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 4,
+   "chains": 7,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 285,
+   "tri_slack2": 1311,
+   "line1_junction_slack": 41,
+   "line2_junction_slack": 231,
+   "min_deficit": 325,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 3,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 762
+    },
+    {
+     "F_loops": 4,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 763
+    }
+   ],
+   "example_partition": {
+    "F_loops": 3,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 198,
+      "dmin": 82,
+      "v1": 54,
+      "v2": 250
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 5,
+   "chains": 8,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 341,
+   "tri_slack2": 1575,
+   "line1_junction_slack": 36,
+   "line2_junction_slack": 225,
+   "min_deficit": 326,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 4,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 761
+    },
+    {
+     "F_loops": 5,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 4,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 6,
+   "chains": 9,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 397,
+   "tri_slack2": 1839,
+   "line1_junction_slack": 31,
+   "line2_junction_slack": 219,
+   "min_deficit": 326,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 5,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 760
+    },
+    {
+     "F_loops": 6,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 761
+    }
+   ],
+   "example_partition": {
+    "F_loops": 5,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 7,
+   "chains": 10,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 453,
+   "tri_slack2": 2103,
+   "line1_junction_slack": 26,
+   "line2_junction_slack": 213,
+   "min_deficit": 327,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 6,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 759
+    },
+    {
+     "F_loops": 7,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 760
+    }
+   ],
+   "example_partition": {
+    "F_loops": 6,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 8,
+   "chains": 11,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 509,
+   "tri_slack2": 2367,
+   "line1_junction_slack": 21,
+   "line2_junction_slack": 207,
+   "min_deficit": 327,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 8,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 8,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 353,
+      "dmin": 151,
+      "v1": 53,
+      "v2": 263
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 9,
+   "chains": 12,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 565,
+   "tri_slack2": 2631,
+   "line1_junction_slack": 16,
+   "line2_junction_slack": 201,
+   "min_deficit": 328,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 8,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 757
+    },
+    {
+     "F_loops": 9,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 758
+    }
+   ],
+   "example_partition": {
+    "F_loops": 8,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 10,
+   "chains": 13,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 621,
+   "tri_slack2": 2895,
+   "line1_junction_slack": 11,
+   "line2_junction_slack": 195,
+   "min_deficit": 328,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SL",
+   "optimal_patterns": [
+    {
+     "F_loops": 10,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 10,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 261,
+      "dmin": 110,
+      "v1": 54,
+      "v2": 257
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 11,
+   "chains": 14,
+   "Delta": 329,
+   "N_extra_rows": 47,
+   "V1": 107,
+   "V2": 537,
+   "tri_slack1": 677,
+   "tri_slack2": 3159,
+   "line1_junction_slack": 6,
+   "line2_junction_slack": 189,
+   "min_deficit": 329,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 10,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 755
+    },
+    {
+     "F_loops": 11,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 756
+    }
+   ],
+   "example_partition": {
+    "F_loops": 10,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 0,
+   "chains": 2,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 64,
+   "tri_slack2": 240,
+   "line1_junction_slack": 64,
+   "line2_junction_slack": 240,
+   "min_deficit": 330,
+   "margin": -6,
+   "spare_deficit": 6,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 768
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 610,
+      "dmin": 266,
+      "v1": 46,
+      "v2": 262
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 1,
+   "chains": 3,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 120,
+   "tri_slack2": 504,
+   "line1_junction_slack": 59,
+   "line2_junction_slack": 234,
+   "min_deficit": 331,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 766
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 767
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 411,
+      "dmin": 177,
+      "v1": 51,
+      "v2": 261
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 2,
+   "chains": 4,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 176,
+   "tri_slack2": 768,
+   "line1_junction_slack": 54,
+   "line2_junction_slack": 228,
+   "min_deficit": 331,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 764
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 765
+    },
+    {
+     "F_loops": 2,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 766
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 3,
+   "chains": 5,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 232,
+   "tri_slack2": 1032,
+   "line1_junction_slack": 49,
+   "line2_junction_slack": 222,
+   "min_deficit": 332,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 1,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 763
+    },
+    {
+     "F_loops": 2,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 764
+    },
+    {
+     "F_loops": 3,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 765
+    }
+   ],
+   "example_partition": {
+    "F_loops": 1,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 160,
+      "dmin": 65,
+      "v1": 55,
+      "v2": 250
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 4,
+   "chains": 6,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 288,
+   "tri_slack2": 1296,
+   "line1_junction_slack": 44,
+   "line2_junction_slack": 216,
+   "min_deficit": 332,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 762
+    },
+    {
+     "F_loops": 3,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 763
+    },
+    {
+     "F_loops": 4,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 198,
+      "dmin": 82,
+      "v1": 54,
+      "v2": 250
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 5,
+   "chains": 7,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 344,
+   "tri_slack2": 1560,
+   "line1_junction_slack": 39,
+   "line2_junction_slack": 210,
+   "min_deficit": 333,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 3,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 761
+    },
+    {
+     "F_loops": 4,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 762
+    },
+    {
+     "F_loops": 5,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 763
+    }
+   ],
+   "example_partition": {
+    "F_loops": 3,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 6,
+   "chains": 8,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 400,
+   "tri_slack2": 1824,
+   "line1_junction_slack": 34,
+   "line2_junction_slack": 204,
+   "min_deficit": 333,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 4,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 760
+    },
+    {
+     "F_loops": 5,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 761
+    },
+    {
+     "F_loops": 6,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 4,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 7,
+   "chains": 9,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 456,
+   "tri_slack2": 2088,
+   "line1_junction_slack": 29,
+   "line2_junction_slack": 198,
+   "min_deficit": 334,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 5,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 759
+    },
+    {
+     "F_loops": 6,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 760
+    },
+    {
+     "F_loops": 7,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 761
+    }
+   ],
+   "example_partition": {
+    "F_loops": 5,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 8,
+   "chains": 10,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 512,
+   "tri_slack2": 2352,
+   "line1_junction_slack": 24,
+   "line2_junction_slack": 192,
+   "min_deficit": 334,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 7,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 7,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 353,
+      "dmin": 151,
+      "v1": 53,
+      "v2": 263
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 9,
+   "chains": 11,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 568,
+   "tri_slack2": 2616,
+   "line1_junction_slack": 19,
+   "line2_junction_slack": 186,
+   "min_deficit": 335,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 7,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 757
+    },
+    {
+     "F_loops": 8,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 758
+    },
+    {
+     "F_loops": 9,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 7,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 10,
+   "chains": 12,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 624,
+   "tri_slack2": 2880,
+   "line1_junction_slack": 14,
+   "line2_junction_slack": 180,
+   "min_deficit": 335,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 9,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 9,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 261,
+      "dmin": 110,
+      "v1": 54,
+      "v2": 257
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 11,
+   "chains": 13,
+   "Delta": 336,
+   "N_extra_rows": 48,
+   "V1": 48,
+   "V2": 288,
+   "tri_slack1": 680,
+   "tri_slack2": 3144,
+   "line1_junction_slack": 9,
+   "line2_junction_slack": 174,
+   "min_deficit": 336,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 9,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 755
+    },
+    {
+     "F_loops": 10,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 756
+    },
+    {
+     "F_loops": 11,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 9,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 0,
+   "chains": 1,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 67,
+   "tri_slack2": 225,
+   "line1_junction_slack": 67,
+   "line2_junction_slack": 225,
+   "min_deficit": 338,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "S0",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 1,
+     "rows_in_chains": 769
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 769,
+      "dmin": 338,
+      "v1": 34,
+      "v2": 229
+     }
+    ],
+    "end_pieces": 0,
+    "end_piece_deficit_lower_bound": 0
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 1,
+   "chains": 2,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 123,
+   "tri_slack2": 489,
+   "line1_junction_slack": 62,
+   "line2_junction_slack": 219,
+   "min_deficit": 338,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 767
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 1,
+     "rows_in_chains": 768
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 619,
+      "dmin": 270,
+      "v1": 46,
+      "v2": 263
+     },
+     {
+      "r": 148,
+      "dmin": 60,
+      "v1": 52,
+      "v2": 236
+     }
+    ],
+    "end_pieces": 2,
+    "end_piece_deficit_lower_bound": 8
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 2,
+   "chains": 3,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 179,
+   "tri_slack2": 753,
+   "line1_junction_slack": 57,
+   "line2_junction_slack": 213,
+   "min_deficit": 338,
+   "margin": -5,
+   "spare_deficit": 5,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 765
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 766
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 400,
+      "dmin": 172,
+      "v1": 52,
+      "v2": 264
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 3,
+   "chains": 4,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 235,
+   "tri_slack2": 1017,
+   "line1_junction_slack": 52,
+   "line2_junction_slack": 207,
+   "min_deficit": 339,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 0,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 763
+    },
+    {
+     "F_loops": 1,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 764
+    },
+    {
+     "F_loops": 2,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 765
+    },
+    {
+     "F_loops": 3,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 1,
+     "rows_in_chains": 766
+    }
+   ],
+   "example_partition": {
+    "F_loops": 0,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 160,
+      "dmin": 65,
+      "v1": 55,
+      "v2": 250
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 4,
+   "chains": 5,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 291,
+   "tri_slack2": 1281,
+   "line1_junction_slack": 47,
+   "line2_junction_slack": 201,
+   "min_deficit": 339,
+   "margin": -4,
+   "spare_deficit": 4,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 1,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 762
+    },
+    {
+     "F_loops": 2,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 763
+    },
+    {
+     "F_loops": 3,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 1,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 198,
+      "dmin": 82,
+      "v1": 54,
+      "v2": 250
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 5,
+   "chains": 6,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 347,
+   "tri_slack2": 1545,
+   "line1_junction_slack": 42,
+   "line2_junction_slack": 195,
+   "min_deficit": 340,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 2,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 761
+    },
+    {
+     "F_loops": 3,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 762
+    },
+    {
+     "F_loops": 4,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 763
+    },
+    {
+     "F_loops": 5,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 1,
+     "rows_in_chains": 764
+    }
+   ],
+   "example_partition": {
+    "F_loops": 2,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 107,
+      "dmin": 42,
+      "v1": 50,
+      "v2": 223
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 6,
+   "chains": 7,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 403,
+   "tri_slack2": 1809,
+   "line1_junction_slack": 37,
+   "line2_junction_slack": 189,
+   "min_deficit": 340,
+   "margin": -3,
+   "spare_deficit": 3,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 3,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 760
+    },
+    {
+     "F_loops": 4,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 761
+    },
+    {
+     "F_loops": 5,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 3,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 7,
+   "chains": 8,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 459,
+   "tri_slack2": 2073,
+   "line1_junction_slack": 32,
+   "line2_junction_slack": 183,
+   "min_deficit": 341,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 4,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 759
+    },
+    {
+     "F_loops": 5,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 760
+    },
+    {
+     "F_loops": 6,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 761
+    },
+    {
+     "F_loops": 7,
+     "F_pairs": 0,
+     "shared_rows": 0,
+     "nonempty_chains": 1,
+     "rows_in_chains": 762
+    }
+   ],
+   "example_partition": {
+    "F_loops": 4,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 187,
+      "dmin": 77,
+      "v1": 55,
+      "v2": 253
+     },
+     {
+      "r": 112,
+      "dmin": 44,
+      "v1": 52,
+      "v2": 232
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 8,
+   "chains": 9,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 515,
+   "tri_slack2": 2337,
+   "line1_junction_slack": 27,
+   "line2_junction_slack": 177,
+   "min_deficit": 341,
+   "margin": -2,
+   "spare_deficit": 2,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 6,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 6,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 353,
+      "dmin": 151,
+      "v1": 53,
+      "v2": 263
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 9,
+   "chains": 10,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 571,
+   "tri_slack2": 2601,
+   "line1_junction_slack": 22,
+   "line2_junction_slack": 171,
+   "min_deficit": 342,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 6,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 757
+    },
+    {
+     "F_loops": 7,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 758
+    },
+    {
+     "F_loops": 8,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 759
+    }
+   ],
+   "example_partition": {
+    "F_loops": 6,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 212,
+      "dmin": 88,
+      "v1": 56,
+      "v2": 260
+     },
+     {
+      "r": 121,
+      "dmin": 48,
+      "v1": 52,
+      "v2": 233
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 10,
+   "chains": 11,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 627,
+   "tri_slack2": 2865,
+   "line1_junction_slack": 17,
+   "line2_junction_slack": 165,
+   "min_deficit": 342,
+   "margin": -1,
+   "spare_deficit": 1,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 8,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 8,
+    "F_pairs": 2,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 261,
+      "dmin": 110,
+      "v1": 54,
+      "v2": 257
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     }
+    ],
+    "end_pieces": 4,
+    "end_piece_deficit_lower_bound": 16
+   }
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 11,
+   "chains": 12,
+   "Delta": 343,
+   "N_extra_rows": 49,
+   "V1": -11,
+   "V2": 39,
+   "tri_slack1": 683,
+   "tri_slack2": 3129,
+   "line1_junction_slack": 12,
+   "line2_junction_slack": 159,
+   "min_deficit": 343,
+   "margin": 0,
+   "spare_deficit": 0,
+   "cluster": "SM",
+   "optimal_patterns": [
+    {
+     "F_loops": 8,
+     "F_pairs": 3,
+     "shared_rows": 0,
+     "nonempty_chains": 4,
+     "rows_in_chains": 755
+    },
+    {
+     "F_loops": 9,
+     "F_pairs": 2,
+     "shared_rows": 0,
+     "nonempty_chains": 3,
+     "rows_in_chains": 756
+    },
+    {
+     "F_loops": 10,
+     "F_pairs": 1,
+     "shared_rows": 0,
+     "nonempty_chains": 2,
+     "rows_in_chains": 757
+    }
+   ],
+   "example_partition": {
+    "F_loops": 8,
+    "F_pairs": 3,
+    "shared_rows": 0,
+    "chains": [
+     {
+      "r": 248,
+      "dmin": 104,
+      "v1": 56,
+      "v2": 264
+     },
+     {
+      "r": 196,
+      "dmin": 81,
+      "v1": 55,
+      "v2": 254
+     },
+     {
+      "r": 158,
+      "dmin": 64,
+      "v1": 56,
+      "v2": 254
+     },
+     {
+      "r": 153,
+      "dmin": 62,
+      "v1": 54,
+      "v2": 245
+     }
+    ],
+    "end_pieces": 6,
+    "end_piece_deficit_lower_bound": 24
+   }
+  }
+ ]
+}
