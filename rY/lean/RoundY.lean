@@ -9,6 +9,7 @@ Round Y -- Lean 4 core only (no Mathlib).
 3. `single_label_excluded`: the arithmetic that excludes covers with one moving symbol from the 46134 frontier
    (run lemma + all holes parallel: partial pieces ≤ 2 M, M ≤ E; line 1 with free junctions bounds F).
 4. `deficit_decomposition`: Δ = 7R − 5040 = W + 7M from R = U + M and 7U = 5040 + W.
+5. `bridge_46135`: the logical shape of "no surviving frontier cell ⇒ L(8) ≥ 46135" (not usable: 40 cells survive).
 -/
 
 /-! ### 1. Integrated tail -/
@@ -168,6 +169,19 @@ theorem deficit_decomposition (R U M W : Nat) (h1 : R = U + M) (h2 : 7 * U = 504
     7 * R - 5040 = W + 7 * M := by
   omega
 
+/-! ### 5. The bridge (logical skeleton) -/
+
+/-- If a superpermutation of length 46134 determines a frontier cell `(R, p, F)` with `R + p = 769` (Halfar's
+coverage bound and Theorem D give `R + p ≤ 769` and `≥ 769`), and every frontier cell is excluded, then the length
+is at least 46135.  With 40 cells not excluded, `hexcl` is not available; this is only the shape of the final step. -/
+theorem bridge_46135 (len : Nat) (hge : 46134 ≤ len) (cell : Nat → Nat → Nat → Prop)
+    (hcell : len = 46134 → ∃ R p F, R + p = 769 ∧ cell R p F)
+    (hexcl : ∀ R p F, R + p = 769 → cell R p F → False) : 46135 ≤ len := by
+  by_cases h : len = 46134
+  · obtain ⟨R, p, F, h1, h2⟩ := hcell h
+    exact (hexcl R p F h1 h2).elim
+  · omega
+
 #print axioms tailSum_eq_sum
 #print axioms tail_bound
 #print axioms runs_le
@@ -175,3 +189,4 @@ theorem deficit_decomposition (R U M W : Nat) (h1 : R = U + M) (h2 : 7 * U = 504
 #print axioms segments_full_le
 #print axioms single_label_excluded
 #print axioms deficit_decomposition
+#print axioms bridge_46135
