@@ -180,3 +180,42 @@ theorem exc_knapsack (f g : Nat → Nat) (P Q : Nat → Nat → Nat) (hP0 : P 0 
 #print axioms twosided
 #print axioms plain_knapsack
 #print axioms exc_knapsack
+
+/-! ### 3. The knapsack with typed chains and resources (the packing knapsack of `frontier_packing.py`)
+
+Chains are triples (type, pieces, deficit).  A chain of type `t` with `r` pieces has deficit `≥ f t r`; adding it
+moves the resource state `s` to `use s t`.  A table `P s m x` with `P s0 0 0 = 0` and
+`P (use s t) (m+1) (x+r) ≤ P s m x + f t r` bounds the total deficit from below at the final state of the list.
+In `frontier_packing.py` the state is (Σ nu, number of chains with parts of value ≥ 50, number of line-2 exceptional
+chains), the packing lemmas say that the final state of every Hamiltonian path is within the caps (2, 1, 1), and the
+script minimises `P` over the capped states. -/
+
+def stTyped {τ σ : Type} (use : σ → τ → σ) (s0 : σ) : List (τ × Nat × Nat) → σ
+  | [] => s0
+  | c :: l => use (stTyped use s0 l) c.1
+
+def sumPt {τ : Type} : List (τ × Nat × Nat) → Nat
+  | [] => 0
+  | c :: l => c.2.1 + sumPt l
+
+def sumDt {τ : Type} : List (τ × Nat × Nat) → Nat
+  | [] => 0
+  | c :: l => c.2.2 + sumDt l
+
+theorem typed_knapsack {τ σ : Type} (f : τ → Nat → Nat) (use : σ → τ → σ) (s0 : σ) (P : σ → Nat → Nat → Nat)
+    (hP0 : P s0 0 0 = 0) (hP : ∀ s m x t r, P (use s t) (m + 1) (x + r) ≤ P s m x + f t r) :
+    ∀ L : List (τ × Nat × Nat), (∀ c ∈ L, f c.1 c.2.1 ≤ c.2.2) →
+      P (stTyped use s0 L) L.length (sumPt L) ≤ sumDt L := by
+  intro L
+  induction L with
+  | nil => intro _; simp [stTyped, sumPt, sumDt, hP0]
+  | cons c l ih =>
+    intro hd
+    have h1 : f c.1 c.2.1 ≤ c.2.2 := hd c (List.mem_cons_self ..)
+    have h2 := ih (fun c' hc' => hd c' (List.mem_cons_of_mem _ hc'))
+    have h3 := hP (stTyped use s0 l) l.length (sumPt l) c.1 c.2.1
+    simp only [List.length_cons, stTyped, sumPt, sumDt]
+    rw [Nat.add_comm c.2.1 (sumPt l)]
+    omega
+
+#print axioms typed_knapsack

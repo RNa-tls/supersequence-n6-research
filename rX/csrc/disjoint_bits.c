@@ -5,6 +5,8 @@
    canonical word of c).  For a chain Y,  M = OR over the classes c' of Y of G_X(c')  is the set of relabelings g with
    X and g(Y) not disjoint; the placements g(Y) disjoint from X are the zeros of M.  The reversed orientation uses the
    classes of reverse(Y).  Output per pair: nameX nameY zeros zeros_rev (exact counts).
+   With LIST=1 the Lehmer ranks of the disjoint relabelings are appended to each line with a nonzero count:
+   "| o:rank o:rank ..." (o = 0 for g(Y), 1 for g(reverse Y)).
    usage: disjoint_bits LIST_X LIST_Y   (UPPER=1: same list twice, pairs x <= y only) */
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,7 +51,7 @@ int main(int argc, char **argv) {
           for (int a = i + 1, b = 6; a < b; a++, b--) { t = p[a]; p[a] = p[b]; p[b] = t; } }
       if (n != 5040) return 2; }
     int nx = load(argv[1], LX), ny = load(argv[2], LY); if (nx < 0 || ny < 0) return 1;
-    int upper = getenv("UPPER") != NULL;
+    int upper = getenv("UPPER") != NULL, list = getenv("LIST") != NULL;
     /* inverse words: pos[c][s] = position of symbol s in cw[c] */
     static int pos[5040][8]; for (int c = 0; c < 5040; c++) for (int i = 0; i < 8; i++) pos[c][cw[c][i]] = i;
     /* class action table, transposed: TT[c2][g] = class of g(c2), g by Lehmer rank */
@@ -81,7 +83,7 @@ int main(int argc, char **argv) {
             }
             size_t cap = 1 << 16, len = 0; char *buf = malloc(cap);
             for (int y = upper ? x : 0; y < ny; y++) {
-                long z[2];
+                long z[2]; char extra[4096]; int el = 0; extra[0] = 0;
                 for (int o = 0; o < 2; o++) {
                     u64 M[NW]; memset(M, 0, sizeof M); const int *cl = o ? LY[y].rcls : LY[y].cls;
                     for (int q = 0; q < LY[y].nb; q++) {
@@ -90,8 +92,9 @@ int main(int argc, char **argv) {
                     }
                     long ones = 0; for (int w = 0; w < NW; w++) ones += __builtin_popcountll(M[w]);
                     z[o] = 40320 - ones;
+                    if (list && z[o]) for (int w = 0; w < NW; w++) for (int i = 0; i < 64; i++) if (!(M[w] >> i & 1) && el < 4000) el += snprintf(extra + el, sizeof extra - el, " %d:%d", o, w * 64 + i);
                 }
-                char tmp[200]; int l = snprintf(tmp, sizeof tmp, "%s %s %ld %ld\n", LX[x].name, LY[y].name, z[0], z[1]);
+                char tmp[4400]; int l = snprintf(tmp, sizeof tmp, "%s %s %ld %ld%s%s\n", LX[x].name, LY[y].name, z[0], z[1], el ? " |" : "", extra);
                 if (len + l + 1 > cap) { cap *= 2; buf = realloc(buf, cap); }
                 memcpy(buf + len, tmp, l); len += l; buf[len] = 0;
             }

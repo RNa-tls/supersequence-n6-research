@@ -9,7 +9,9 @@ binary (exceptional for line 1 only, line 2 only, both), sum z1 + sum w <= 1, su
    subject to  sum of all chain variables <= n - F_loops - s,   sum r (all chain variables) = R - F_loops - 2 F_pairs + s.
 The deficit tables:  dmin from (v1 feasible or <= 0) and (v2 feasible or <= 0) and the zone statement, as in the
 first implementation, but read from the second implementation's feasible sets.
-usage: frontier_exceptional_ilp.py CTS1_FULL CTS2_FULL CTS1_RESTR CTS2_RESTR ROUNDW_KNAPSACK.json CROSS FIRST_IMPL_OUT.json OUT.json"""
+Cells already excluded by Round W stay excluded (the new tables are pointwise >= the Round W table, checked here), so
+only the 69 Round W survivors are solved; PART k/K solves every K-th of them.
+usage: frontier_exceptional_ilp.py CTS1_FULL CTS2_FULL CTS1_RESTR CTS2_RESTR ROUNDW_KNAPSACK.json CROSS FIRST_IMPL_OUT.json OUT.json [k K]"""
 import sys, json
 import numpy as np, highspy
 
@@ -33,6 +35,9 @@ def dtab(F1, F2):
 F1, F2, F1r, F2r = (feas(p) for p in sys.argv[1:5]); W = json.load(open(sys.argv[5])); cross = int(sys.argv[6])
 first = {(c["R"], c["F"]): c for c in json.load(open(sys.argv[7]))["rows"]}; outp = sys.argv[8]
 dF, dR, d1, d2 = dtab(F1, F2), dtab(F1r, F2r), dtab(F1, F2r), dtab(F1r, F2)
+dW = W["dmin_first"]
+assert all(min(dF[r], dR[r], d1[r], d2[r]) >= dW[r] for r in range(1, 60)), "new tables below the Round W table"
+part = (int(sys.argv[9]), int(sys.argv[10])) if len(sys.argv) > 10 else (0, 1)
 def solve_pattern(pieces, chains, base):
     if pieces == 0: return base
     if chains <= 0: return None
@@ -59,7 +64,8 @@ def solve_pattern(pieces, chains, base):
     if h.getModelStatus() != highspy.HighsModelStatus.kOptimal: return None
     return int(round(h.getInfo().objective_function_value)) + base
 rows = []; mism = 0
-for c in W["rows"]:
+todo = [c for c in W["rows"] if not c["excluded_junctions"]]
+for c in todo[part[0]::part[1]]:
     R, n, F, D = c["R"], c["chains"], c["F"], c["Delta"]; best = None
     for Fi in range(F + 1):
         Fii = F - Fi
