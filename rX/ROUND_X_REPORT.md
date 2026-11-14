@@ -222,7 +222,7 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
 * **배낭(`frontier_packing.py`).** 사슬 유형 T0(ν = 0, 48 미만으로 자른 집계), T1(ν = 1, 50 미만, 경우 B의 u₁, u₂ ≥ 48 금지), T1e(ν = 1, 전체 집계, 같은 금지), T2(ν = 2, 50 미만), T2e(ν = 2, 전체, 경우 B의 u₁, u₂ ≥ 50 금지)와 직선 2의 유형 두 가지를 곱한 10가지. 제약은 Σν ≤ 2, (T1e, T2e)는 하나 이하, 직선 2 예외 사슬 하나 이하. 산술 골격은 Lean `typed_knapsack`.
   * 새 두 방향 표 셋(48 미만, 50 미만 + 경우 B 금지, 전체 + 경우 B 금지)은 두 구현에서 같다.
   * **θ = 46에서도 같은 검사(증명서 확인 계산, 단계마다 구현 둘):** 첫 도달 사슬 3,224개, 쌍 5,198,700개(`disjoint_bits.c`) 가운데 겹치지 않는 배치가 있는 쌍 307개, 배치 761개; 배치마다 셋째 사슬 3,224개 × 두 방향을 대어 보면 **0**(`triple_test.c`). 그래서 κ(46) ≤ 2이다(`threshold46_*`). `disjoint_fast.c`가 쌍 5,198,700개 전부에서 같은 수를, 셋 검사 2,453,464쌍 전부에서 0을 냈다. θ = 46용 두 방향 표 셋은 두 구현에서 같다.
-  * 결과(κ(48) ≤ 2): **(764, 2), (765, 5), (766, 7)이 더 지워져 43칸.** κ(46) ≤ 2를 쓰면 (764, 1), (765, 4), (766, 6)이 더 지워져 **40칸**(C 표와 파이썬 표의 배낭이 170칸 모두 같음, `frontier_46135_packing46_knapsack*.json`). C 표와 파이썬 표로 돌린 두 배낭이 170칸 모두 같고, 정수계획 둘째 구현(`frontier_packing_ilp.py`)도 46칸 모두에서 최소 결손까지 같다(불일치 0).
+  * 결과(κ(48) ≤ 2): **(764, 2), (765, 5), (766, 7)이 더 지워져 43칸.** κ(46) ≤ 2를 쓰면 (764, 1), (765, 4), (766, 6)이 더 지워져 **40칸**(C 표와 파이썬 표의 배낭이 170칸 모두 같고, 정수계획 둘째 구현도 43칸 모두에서 같음, `frontier_46135_packing46_knapsack*.json`). C 표와 파이썬 표로 돌린 두 배낭이 170칸 모두 같고, 정수계획 둘째 구현(`frontier_packing_ilp.py`)도 46칸 모두에서 최소 결손까지 같다(불일치 0).
 
 ### E.4 남은 칸 (정확한 생존자)
 
@@ -296,7 +296,8 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
 | 묶음 κ(46) ≤ 2 | 증명서 확인 계산 | `disjoint_bits.c` 5,198,700쌍(0이 아닌 쌍 307, 배치 761) + `triple_test.c` 761 × 3,224 × 2 방향, 셋 0 | `disjoint_fast.c`: 5,198,700쌍 모두 같은 수; 합집합 의사 사슬 761개 × 3,224개 = 2,453,464쌍 모두 0 | — |
 | 두 방향 표 6개 | 증명서 확인 계산 | `twosided.c` | `check_twosided.py`(머리를 고르면 꼬리가 정해지는 다른 루프): 6개 표 모두 행·값·경우 표시까지 동일 | — |
 | 경계 배낭 46칸 | 증명서 확인 계산 | `frontier_exceptional.py` | `frontier_exceptional_ilp.py`(HiGHS, 파이썬 표): 69칸 최소 결손 일치, 불일치 0; 교차 가정 유무 둘 다 46; Lean `exc_knapsack` | 단계별 69/67/51/46 |
-| 묶음 배낭 43칸 | 증명서 확인 계산 | `frontier_packing.py`(C 표) | 같은 프로그램을 파이썬 표로: 170칸 일치; `frontier_packing_ilp.py`(HiGHS, 파이썬 표): 46칸 최소 결손 일치, 불일치 0 | Lean `typed_knapsack` |
+| 묶음 배낭 43칸 (κ(48)) | 증명서 확인 계산 | `frontier_packing.py`(C 표) | 같은 프로그램을 파이썬 표로: 170칸 일치; `frontier_packing_ilp.py`(HiGHS, 파이썬 표): 46칸 최소 결손 일치, 불일치 0 | Lean `typed_knapsack` |
+| 묶음 배낭 40칸 (κ(46)) | 증명서 확인 계산 | `frontier_packing.py`(C 표) | 파이썬 표로 170칸 일치; `frontier_packing_ilp.py`: 43칸 최소 결손 일치, 불일치 0 (`frontier_46135_packing46_knapsack_ilp.json`) | 단조성: 46 수준 표는 48 수준 표 이상 |
 | 숙주 분할 J17 | 증명서 확인 계산(표본) | `split_engine.c` | `path_layer.c` 17-trail: 5쌍(D 3, W 2) 일치; D 궤도별 분포 일치; 대칭 지도 검사 | — |
 | 숙주 분할 J19 | 전수 계산(구현 하나) | `split19.py` + `path_layer.c` | — | — |
 | β₃⁺ⁱ | 전수 계산(구현 하나) | `triple_plus_one_batch.py` + `path_layer.c` | 호 구성을 `wrapfam3_arcs.py`와 문자 단위 대조 | — |
@@ -338,6 +339,97 @@ python3 -I rX/src/frontier_packing.py ts1_lt48.txt ts1_lt50_th48.txt ts1_full_th
 
 * 모든 표·덤프·쌍 목록은 `rX/certs/lower_bound/`에 있다(파일 이름이 위 단계와 대응). 해시 목록은 `python3 rX/src/cert_hashes.py`.
 
+### I.3 증명서 해시 (sha256 앞 16자리, `python3 rX/src/cert_hashes.py`)
+
+<details><summary>파일 82개</summary>
+
+* `lean_axioms_RoundX.txt` `6baa98318529c009…` (231 bytes)
+* `lower_bound/census_points_line_17_38_264.txt` `fb88589b04320042…` (8384 bytes)
+* `lower_bound/census_points_line_4_9_56.txt` `2c46fee2a6b6d144…` (6008 bytes)
+* `lower_bound/disjoint_placements_line1_v50_all_pairs.txt.gz` `6c38192045a5e064…` (177822 bytes)
+* `lower_bound/disjoint_placements_line1_v50_all_pairs_second_implementation.txt.gz` `4986a5d9c1978159…` (164535 bytes)
+* `lower_bound/disjoint_placements_line2_v230_all_pairs.txt.gz` `7091ffe59516b2f3…` (189756 bytes)
+* `lower_bound/disjoint_placements_line2_v230_all_pairs_second_implementation.txt.gz` `197be992d6a7830b…` (180504 bytes)
+* `lower_bound/disjoint_placements_prefix_controls.txt` `65cb2dae90d55b44…` (1085 bytes)
+* `lower_bound/disjoint_placements_prefix_controls_second_implementation.txt` `950a75db8295ead0…` (815 bytes)
+* `lower_bound/extremal_chains_independent_check.txt` `081ac9af1ccdab22…` (150 bytes)
+* `lower_bound/extremal_chains_line_17_38_264_value_ge_230.jsonl.gz` `457a9bc7e6eb2bd1…` (337155 bytes)
+* `lower_bound/extremal_chains_line_4_9_56_value_ge_50.jsonl.gz` `6d338b415aada34a…` (312988 bytes)
+* `lower_bound/frontier_46135_46_cells.json` `6612c66db35365a3…` (22123 bytes)
+* `lower_bound/frontier_46135_69_cells_canonical.json` `d8b002e3a2026ea7…` (80532 bytes)
+* `lower_bound/frontier_46135_exceptional_knapsack_cross0.json` `2e4b964bbd15088f…` (54181 bytes)
+* `lower_bound/frontier_46135_exceptional_knapsack_cross1.json` `3ffb8a1b59842181…` (54181 bytes)
+* `lower_bound/frontier_46135_exceptional_knapsack_ilp_part0.json` `bdf222d5ecea322d…` (6278 bytes)
+* `lower_bound/frontier_46135_exceptional_knapsack_ilp_part1.json` `83797d382c6aeccc…` (6106 bytes)
+* `lower_bound/frontier_46135_exceptional_knapsack_line1_only.json` `4d0a4647e8804ccc…` (54190 bytes)
+* `lower_bound/frontier_46135_packing46_knapsack.json` `c0d1c65bed9b9646…` (38324 bytes)
+* `lower_bound/frontier_46135_packing46_knapsack_ilp.json` `9fa3650ec2084aa6…` (7695 bytes)
+* `lower_bound/frontier_46135_packing46_knapsack_second_tables.json` `c0d1c65bed9b9646…` (38324 bytes)
+* `lower_bound/frontier_46135_packing_knapsack.json` `fbe13c44963359d2…` (38328 bytes)
+* `lower_bound/frontier_46135_packing_knapsack_ilp.json` `41f96862f9ff75f0…` (8226 bytes)
+* `lower_bound/frontier_46135_packing_knapsack_second_tables.json` `fbe13c44963359d2…` (38328 bytes)
+* `lower_bound/frontier_46135_twosided_knapsack.json` `68291d4d229726f2…` (63336 bytes)
+* `lower_bound/threshold46_all_pairs_summary.json` `641d5ddaeb6d98ec…` (512 bytes)
+* `lower_bound/threshold46_disjoint_placements.txt` `60ec66542b94a158…` (20238 bytes)
+* `lower_bound/threshold46_first_passage_chains.txt.gz` `7bf2eb7690c1c918…` (4146835 bytes)
+* `lower_bound/threshold46_triple_test.txt` `54e13e94cd37f676…` (56 bytes)
+* `lower_bound/threshold46_triple_test_second_implementation_summary.json` `77bd34f3bcb71b5d…` (319 bytes)
+* `lower_bound/threshold48_all_pairs_bitset_tool.txt.gz` `81d69bffecd4a9a3…` (1505543 bytes)
+* `lower_bound/threshold48_all_pairs_fast_tool.txt.gz` `0928fbe2a9383bb8…` (1567952 bytes)
+* `lower_bound/threshold48_counterexample_chains.txt.gz` `356fe9a6e14a2907…` (7367 bytes)
+* `lower_bound/threshold48_counterexample_exact_counts.txt` `4448f5e68c760b21…` (2128 bytes)
+* `lower_bound/threshold48_disjoint_placements.txt` `5e70d15d08975bec…` (1654 bytes)
+* `lower_bound/threshold48_first_passage_chains.txt.gz` `fc04a68e0466e632…` (1528480 bytes)
+* `lower_bound/threshold48_triple_test.txt` `bec372db632c7e8f…` (55 bytes)
+* `lower_bound/threshold48_triple_test_second_implementation.txt.gz` `febc0ac5b0752e6d…` (244458 bytes)
+* `lower_bound/twosided_feasible_line1_ts1_full_th46.txt` `0a999d32981c33b6…` (26341 bytes)
+* `lower_bound/twosided_feasible_line1_ts1_full_th48.txt` `65a3b3f9233756fd…` (26746 bytes)
+* `lower_bound/twosided_feasible_line1_ts1_lt46.txt` `dfa62b4505960ac3…` (24801 bytes)
+* `lower_bound/twosided_feasible_line1_ts1_lt48.txt` `3e667005e43c56a2…` (25636 bytes)
+* `lower_bound/twosided_feasible_line1_ts1_lt50_th46.txt` `7dd7ee554d362c91…` (25616 bytes)
+* `lower_bound/twosided_feasible_line1_ts1_lt50_th48.txt` `e9b63f7601fac537…` (26021 bytes)
+* `lower_bound/twosided_feasible_line2_ts2_lt230_th200.txt` `3e05caa578431359…` (30625 bytes)
+* `lower_bound/twosided_feasible_line2_ts2_lt230_th210.txt` `55b23fd45e4e6c8c…` (31133 bytes)
+* `lower_bound/twosided_feasible_line2_ts2_lt230_th220.txt` `686164cb5a186d10…` (31664 bytes)
+* `lower_bound/twosided_feasible_line_17_38_264.txt` `d85cc3d22f8f171d…` (35267 bytes)
+* `lower_bound/twosided_feasible_line_17_38_264_exceptional_caseB_230.txt` `dc50281d56777eb0…` (33114 bytes)
+* `lower_bound/twosided_feasible_line_17_38_264_truncated_below_230.txt` `c73430be01c5dfe9…` (32269 bytes)
+* `lower_bound/twosided_feasible_line_4_9_56.txt` `8b5a1c13b1946abb…` (28849 bytes)
+* `lower_bound/twosided_feasible_line_4_9_56_exceptional_caseB_50.txt` `2639e416b254f9fc…` (27144 bytes)
+* `lower_bound/twosided_feasible_line_4_9_56_truncated_below_50.txt` `7f9abb1eff7478a3…` (26438 bytes)
+* `lower_bound/twosided_second_implementation_cts1.txt` `ad3e6dabdbd26b93…` (28880 bytes)
+* `lower_bound/twosided_second_implementation_cts1_full_th46.txt` `e7b78dc264267a2f…` (26356 bytes)
+* `lower_bound/twosided_second_implementation_cts1_full_th48.txt` `0597b2645a679cf1…` (26761 bytes)
+* `lower_bound/twosided_second_implementation_cts1_full_th50.txt` `2360aabf1e849ec2…` (27159 bytes)
+* `lower_bound/twosided_second_implementation_cts1_lt46.txt` `c3df87e57646f9ac…` (24816 bytes)
+* `lower_bound/twosided_second_implementation_cts1_lt48.txt` `9860624ecccc01df…` (25651 bytes)
+* `lower_bound/twosided_second_implementation_cts1_lt50.txt` `fcaab3f3dcfa2e50…` (26469 bytes)
+* `lower_bound/twosided_second_implementation_cts1_lt50_th46.txt` `b12d62870cdbb472…` (25631 bytes)
+* `lower_bound/twosided_second_implementation_cts1_lt50_th48.txt` `1fe4cf31c76394b2…` (26036 bytes)
+* `lower_bound/twosided_second_implementation_cts2.txt` `8840d624d5e4a1a8…` (35298 bytes)
+* `lower_bound/twosided_second_implementation_cts2_full_th230.txt` `f623f4e95b033f41…` (33129 bytes)
+* `lower_bound/twosided_second_implementation_cts2_lt230.txt` `a41bf14e20647ca0…` (32284 bytes)
+* `wraps/host_split_J17_host_0.txt` `95bca6692b32e2de…` (286 bytes)
+* `wraps/host_split_J17_host_1.txt` `41d319b386ee6b72…` (292 bytes)
+* `wraps/host_split_J17_host_10.txt` `6fc121c2d4377ede…` (304 bytes)
+* `wraps/host_split_J17_host_11.txt` `104873195f6be451…` (304 bytes)
+* `wraps/host_split_J17_host_12.txt` `17bc3459b29ecc5c…` (135513 bytes)
+* `wraps/host_split_J17_host_2.txt` `c1b029d58855a09f…` (304 bytes)
+* `wraps/host_split_J17_host_3.txt` `3e0033c9e3a5a25d…` (304 bytes)
+* `wraps/host_split_J17_host_4.txt` `facf3aa3a8ae88ca…` (304 bytes)
+* `wraps/host_split_J17_host_5.txt` `d3447aa8a817e91e…` (304 bytes)
+* `wraps/host_split_J17_host_6.txt` `355c831e97a85355…` (304 bytes)
+* `wraps/host_split_J17_host_7.txt` `703a5a0e24054a31…` (304 bytes)
+* `wraps/host_split_J17_host_8.txt` `628576e74860dcb1…` (304 bytes)
+* `wraps/host_split_J17_host_9.txt` `a83fbbacac3b8b79…` (304 bytes)
+* `wraps/host_split_J19_dangerous_D_pairs.jsonl` `de0179775fbed37c…` (524 bytes)
+* `wraps/host_split_symmetry_check.json` `af2cc202e002e996…` (691 bytes)
+* `wraps/three_wrap_beta3_plus_one_chain.jsonl` `38fb3e6b16a583b4…` (483337 bytes)
+
+</details>
+
+* 큰 원자료(θ = 46 쌍 5,198,700개의 수, 셋째 사슬 재검사 2,453,464쌍)는 저장소에 넣지 않고 요약 파일에 전체 출력의 sha256을 적었다(`threshold46_all_pairs_summary.json`, `threshold46_triple_test_second_implementation_summary.json`). 첫 도달 사슬과 도구로 다시 만들 수 있다.
+
 ## J. 남은 틈
 
 1. **46135:** 40칸. S0 6칸과 여유가 큰 칸은 덮개 전체의 밀도 제약이 필요하다. 여유 0–1인 17칸은 더 낮은 문턱의 묶음 수 κ(θ)로 일부 지울 수 있을지 모른다.
@@ -352,7 +444,7 @@ python3 -I rX/src/frontier_packing.py ts1_lt48.txt ts1_lt50_th48.txt ts1_full_th
 **전역 구간: 46134 ≤ L(8) ≤ 46173** (하한: Halfar Theorem D, 형식 정리 + native_decide; 상한: 검증된 46173 단어).
 
 * 증명된 것: 보조정리 X1(두 방향, 핵심은 Lean), X2(예외 사슬, 증명 + 두 구현 계산), X2′(묶음 κ(48) ≤ 2와 κ(46) ≤ 2, 증명 + 두 구현 계산), X3(공짜 삽입은 무게 ≥ 4 이음뿐), 정리 X-A(제한 가족), 정리 X-B(제한 가족, §B.4).
-* 계산 증거: 46135 경계 43칸(모든 단계 두 구현), 40칸(κ(46) 단계는 §I 참조), β₃⁺ⁱ의 삼중쌍 판정(구현 하나), 숙주 분할 J19(구현 하나).
-* 관측: J_exact − β₃ ≥ 4, 공짜 삽입이 비싼 이음을 요구한다는 해석.
+* 계산 증거: 46135 경계 40칸(모든 단계 두 구현), β₃⁺ⁱ의 삼중쌍 판정(구현 하나), 숙주 분할 J19(구현 하나), β₃ 표(구현 하나, 표본 대조).
+* 관측(하한이 아님): 공짜 삽입은 사슬 하나에서는 일어나지만 6,461개 삼중쌍 어디에서도 세 사슬에 동시에 일어나지 않았다; J_exact − β₃ ≥ 4는 Round W의 최저 279개에서의 관측이다; 예외·묶음 논법은 단계마다 몇 칸씩만 지우고 S0 칸에는 닿지 않는다.
 
 **N8_GLOBAL_STRUCTURE_ADVANCED** · **N8_46173_FAMILY_EXACT** · **L8_UNSOLVED**
