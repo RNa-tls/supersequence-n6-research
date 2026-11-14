@@ -38,7 +38,7 @@ A = (N₀(C₁) … Q(C₂)), B = (N₀(C₂) … Q(C₁)), 각각 skip 결합(�
 ### A.2 엔진과 둘째 구현
 
 * **`rX/csrc/split_engine.c`(새 엔진).** 경로는 [S₁] A [S₂] B [S₃] 또는 [S₁] B [S₂] A [S₃]이다. 15개 trail의 부분집합 S마다 Pre_C[S](경로 뒤 N₀(C)로 들어가는 이음까지), Suf_C[S](Q(C)에서 나오는 이음부터), Mid_C[S](Q(C)에서 N₀(C)까지)을 층별 Held–Karp와 7글자 접두·접미 클래스 묶음으로 만든다. 그 뒤 PS_C[U] = min Pre_C[S₁] + Suf_C[U − S₁](3¹⁵)를 구하면 J_AB(C₁, C₂) = min_{S₂} Mid_{C₂}[S₂] + PS_{C₁}[나머지] − 2이다. 쌍마다 2¹⁵ 연산이다.
-* **둘째 구현:** Round V의 `path_layer.c`(층별 Held–Karp, 상태 = (부분집합, 끝 호), A·B를 호 하나짜리 trail로 넣은 17-trail 문제)를 그대로 돌렸다. D 숙주 0의 세 쌍 (0, 2), (2, 4), (3, 5)에서 24, 26, 25로 엔진과 같다.
+* **둘째 구현:** Round V의 `path_layer.c`(층별 Held–Karp, 상태 = (부분집합, 끝 호), A·B를 호 하나짜리 trail로 넣은 17-trail 문제)를 그대로 돌렸다. D 숙주 0의 세 쌍 (0, 2), (2, 4), (3, 5)에서 24, 26, 25, W 숙주 12의 두 쌍 (72, 74), (73, 82)에서 24, 26으로 엔진과 같다.
 * **19조각 정확값:** `rX/src/split19.py`가 사슬 조각(감싸기 절단 호 제외)을 넣은 19-trail 문제를 `path_layer.c`로 푼다.
 
 ### A.3 결과
@@ -85,6 +85,7 @@ run 수준에서 감싸기 사슬 조각은 안쪽 결합 c_k → c_{k+1}(무게
 * **보조정리 X3 (증명).** 사슬 밖의 a, b에 대해 W[a, c_{k+1}] ≥ 3, W[c_k, b] ≥ 3이다. 입구로 들어오는 무게 2 걸음과 출구에서 나가는 무게 2 걸음은 문 걸음 하나씩뿐이고 둘 다 사슬 안에 있기 때문이다. 그러므로 **공짜 삽입(ins = 0)은 무게 ≥ 4인 이음에서만 가능하고**, 경로 끝에 넣으면 비용 ≥ 1이다.
 * 한 이음에 사슬을 여럿 쌓으면 ins_stack ≥ (각 사슬을 그 이음에 혼자 넣은 ins)이다(다른 것을 먼저 빼면 됨).
 * 따라서 J ≥ β₃ + #{공짜 자리가 없는 사슬}이다.
+* 공짜 자리를 이음 무게별로 세면(전수 계산, `free_slots.json`) 무게 4 이음(= 3 + 3 − 2)에는 사슬 588개 전체에 1,384개뿐이고, 무게 5: 16,196, 6: 128,908, 7: 928,308, 8: 6,503,328개이다.
 * **음성 결과(전수 계산).** 무게 5–8 이음까지 허용하면 공짜 자리가 사슬마다 1,132–17,274개(모두 7,578,124개)라서, 이 걸러내기로는 6,740개 삼중쌍이 하나도 지워지지 않는다(`free_slots.json`). 공짜 삽입이 되려면 R이 비싼 이음을 품어야 한다는 점이 J_exact − β₃ ≥ 4의 원인으로 보이지만(관측), 그 비용을 세는 것은 정확 DP의 일이다. 계산하면서 사슬 안쪽 결합 3,528개 각각에 대해 모든 run 쌍(5,040²)에서 ins ≥ 0을 다시 확인했다(위반 0).
 
 ### B.2 사슬 하나를 남긴 하한 β₃⁺ⁱ
@@ -97,14 +98,14 @@ run 수준에서 감싸기 사슬 조각은 안쪽 결합 c_k → c_{k+1}(무게
 
 * 정리 없음. B.1의 구조(무게 ≥ 4 이음에서만 공짜)는 감싸기 수와 무관하게 성립하므로, t개 감싸기에서 J ≥ β_t + #{공짜 자리 없는 사슬}이다. β_t 표(t ≥ 4)는 만들지 않았다.
 
----
-
 ### B.4 정리 X-B (제한 가족)
 
 **정리 X-B (제한 가족 정리, 전수 계산 + 증명).** 공개 선택에서 서로 다른 숙주의 사슬 셋을 감싸기로 쓰는 run 수준 경로형 경로는 모두 J ≥ 24이다.
 * 증명의 갈래: (1) 세 숙주 모두 틈에서 잘림: β₃ ≥ 24인 삼중쌍은 Monge 하한(J ≥ β₃)으로 끝난다. β₃ ≤ 22인 279개는 Round W의 19-trail 정확값 ≥ 26, β₃ = 23인 6,461개는 §B.2의 β₃⁺ⁱ ≥ 24. (2) 어느 숙주가 틈에서 잘리지 않음: 그 감싸기를 되돌리면 ΔL = −ins ≤ 0(W-undo, 상수 0)이므로 감싸기 둘의 경우(정리 V2·W1, J ≥ 24)로 간다.
 * 계산 근거의 등급: β₃ 표(`beta3.c`)는 구현 하나에 표본 직접 DP 31개 대조(Round W)이다. 표가 틀려 β₃ ≤ 23인 삼중쌍이 목록에서 빠졌다면 이 정리에 틈이 생긴다. β₃⁺ⁱ는 구현 하나(Round V의 층별 DP)이다.
 * 관측: 모든 삼중쌍이 첫 사슬 하나만으로 닫혔다(β₃⁺¹ ≥ 24). 곧 사슬 하나를 넣는 비용만으로 β₃ = 23에서 1 이상 오른다.
+
+---
 
 # 우선순위 4 — 교차 이상
 
@@ -168,7 +169,8 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
 조합 핵심(j, i의 존재와 두 경우의 산술)은 Lean `twosided`로 형식화했다(§H). 집계 점은 Round W의 조각 수별 집계(`census_by_pieces_line_*.json`)에서 그대로 꺼냈다(`census_points.py`). 실행 가능 집합은 `rX/csrc/twosided.c`가 계산한다(`twosided_feasible_line_*.txt`).
 
 * 예: 직선 2, r = 196. 이전 상한은 v₂ = 254(38행 접두 값 0 + 158행 원시 사슬 254)였다. 값 254인 유지 사슬은 158조각짜리 하나뿐이므로 경우 A는 i = 158, j = 0을 강요하는데 196 − 0 ≠ 158이고, 경우 B는 r ≥ 316을 요구한다. 그래서 v₂ ≤ 216이다.
-* 결과(전수 계산): δmin이 r ≤ 790 중 **117곳에서 1씩 오른다**(내려가는 곳 없음, 검사함). 배낭을 다시 돌리면 **(765, 4, 10)과 (766, 3, 11)이 지워져 67칸**이다(`frontier_46135_twosided_knapsack.json`).
+* 표의 검증(증명서 확인 계산): 실행 가능 집합은 `twosided.c`와 `check_twosided.py`(머리를 고르면 꼬리가 정해지는 다른 루프)가 같은 결과를 낸다(이번에 쓴 표 9개 모두). 집계 점은 Round W의 집계 실행 하나에서 오지만, 값이 높은 점(직선 1의 값 ≥ 50: 48점, 직선 2의 값 ≥ 230: 53점)은 이번의 극값 덤프(따로 돌린 탐색, 사슬마다 독립 검사기로 확인)에서 나온 (r, v) 점과 정확히 같다.
+* 결과: δmin이 r ≤ 790 중 **117곳에서 1씩 오른다**(내려가는 곳 없음, 검사함). 배낭을 다시 돌리면 **(765, 4, 10)과 (766, 3, 11)이 지워져 67칸**이다(`frontier_46135_twosided_knapsack.json`).
 
 ### E.3 예외 사슬 보조정리 (새 전역 제약)
 
@@ -188,7 +190,7 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
 * 두 구현은 자료 구조와 알고리즘이 다르다. A는 재표기마다 Y의 클래스를 X의 비트맵에 대어 보고 처음 겹치는 곳에서 멈춘다. B는 40,320 × 5,040 클래스 작용 표를 만들고 Y의 클래스를 하나씩 대어 겹치는 재표기를 지워 나간다.
 * 대조: 158조각 꼭대기 사슬의 접두(7, 50, 100, 200, 300, 500, 700블록)끼리는 겹치지 않는 배치가 40,019개에서 0개까지 고르게 줄어든다. 두 구현은 36쌍 모두 같은 수를 냈다(`ctrl`). 도구는 겹치지 않는 배치가 있으면 그것을 실제로 센다.
 
-**결과(전수 계산).** `frontier_exceptional.py`(예외 사슬 하나 허용 배낭, Lean `exc_knapsack`)로 다시 돌렸다.
+**결과(증명서 확인 계산: 배낭 두 구현).** `frontier_exceptional.py`(예외 사슬 하나 허용 배낭, Lean `exc_knapsack`)로 다시 돌렸다.
 
 | 단계 | 남는 칸 | 지워진 칸 |
 |---|---|---|
@@ -209,7 +211,7 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
   * 첫 도달 사슬(값 ≥ 48에 처음 닿는 유지 사슬): 1,096개(`dsearch_dump.c` FIRST 모드, 방문·유지 수가 Halfar와 같음). 이 집합에서 판정하면 충분하고 또 필요하다.
   * 쌍: 601,156쌍(자기 쌍 포함) 전부. `disjoint_bits.c`(대칭군 위의 비트셋, 셋째 구현)와 `disjoint_fast.c`(재표기마다 미리 계산한 상 K개 + 전체 확인)가 **모든 쌍에서 같은 수**를 냈다. 겹치지 않는 배치가 있는 쌍 24개, 배치 77개(`threshold48_disjoint_placements.txt`).
   * 셋: 배치 77개마다 합집합 U = X ∪ g(Y)를 만들고 1,096개 사슬을 두 방향으로 모두 대어 보았다. `triple_test.c`(비트셋)와 `disjoint_fast.c`(U를 의사 사슬로 넣음) 둘 다 **0**. 양성 대조(접두 사슬 100·200·300블록): 20,939개의 셋을 찾는다.
-  * 셋이 서로 겹치지 않으면 번호가 가장 작은 사슬을 항등·앞방향으로 놓을 수 있으므로(전체를 뒤집어도 겹침은 그대로), 그 사슬과 다음 사슬의 쌍이 목록에 반드시 있다. 그래서 이 검사로 충분하다.
+  * 셋이 서로 겹치지 않으면 번호가 가장 작은 사슬을 항등·앞방향으로 놓을 수 있으므로(전체를 뒤집어도 겹침은 그대로), 그 사슬과 나머지 둘 중 하나의 쌍(그 배치 그대로)이 목록에 반드시 있다. 그래서 이 검사로 충분하다.
 * **배낭(`frontier_packing.py`).** 사슬 유형 T0(ν = 0, 48 미만으로 자른 집계), T1(ν = 1, 50 미만, 경우 B의 u₁, u₂ ≥ 48 금지), T1e(ν = 1, 전체 집계, 같은 금지), T2(ν = 2, 50 미만), T2e(ν = 2, 전체, 경우 B의 u₁, u₂ ≥ 50 금지)와 직선 2의 유형 두 가지를 곱한 10가지. 제약은 Σν ≤ 2, (T1e, T2e)는 하나 이하, 직선 2 예외 사슬 하나 이하. 산술 골격은 Lean `typed_knapsack`.
   * 새 두 방향 표 셋(48 미만, 50 미만 + 경우 B 금지, 전체 + 경우 B 금지)은 두 구현에서 같다.
   * 결과: **(764, 2), (765, 5), (766, 7)이 더 지워져 43칸.** C 표와 파이썬 표로 돌린 두 배낭이 170칸 모두 같다. 정수계획 둘째 구현은 §I.
@@ -281,7 +283,7 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
 | 두 방향 표 6개 | 증명서 확인 계산 | `twosided.c` | `check_twosided.py`(머리를 고르면 꼬리가 정해지는 다른 루프): 6개 표 모두 행·값·경우 표시까지 동일 | — |
 | 경계 배낭 46칸 | 증명서 확인 계산 | `frontier_exceptional.py` | `frontier_exceptional_ilp.py`(HiGHS, 파이썬 표): 69칸 최소 결손 일치, 불일치 0; 교차 가정 유무 둘 다 46; Lean `exc_knapsack` | 단계별 69/67/51/46 |
 | 묶음 배낭 43칸 | 증명서 확인 계산 | `frontier_packing.py`(C 표) | 같은 프로그램을 파이썬 표로: 170칸 일치; `frontier_packing_ilp.py`(HiGHS): 아래 | Lean `typed_knapsack` |
-| 숙주 분할 J17 | 증명서 확인 계산 | `split_engine.c` | `path_layer.c` 17-trail: 3쌍 일치; 궤도별 분포 일치 | — |
+| 숙주 분할 J17 | 증명서 확인 계산(표본) | `split_engine.c` | `path_layer.c` 17-trail: 5쌍(D 3, W 2) 일치; D 궤도별 분포 일치; 대칭 지도 검사 | — |
 | 숙주 분할 J19 | 전수 계산(구현 하나) | `split19.py` + `path_layer.c` | — | — |
 | β₃⁺ⁱ | 전수 계산(구현 하나) | `triple_plus_one_batch.py` + `path_layer.c` | 호 구성을 `wrapfam3_arcs.py`와 문자 단위 대조 | — |
 | W-ins (run 수준, 사슬 안쪽 결합 3,528개 × 모든 run 쌍) | 전수 계산 | `free_slots.py`(assert) | Round W `ins_lemma.c` | — |
@@ -302,6 +304,25 @@ Halfar의 Theorem D(길이 46134)에서 칸은 (R, p, F)로 정해진다: R 행,
 
 * 시간 초과로 끝난 계산은 없다. 중간에 멈춘 계산(θ₂ = 200 덤프, 직선 교차 쌍, 처음의 θ₁ = 48 부분 쌍 검사)은 결과로 쓰지 않았다. θ₁ = 48의 쌍 검사는 나중에 두 구현으로 끝까지 다시 했다.
 * 작업 중 컨테이너가 한 번 재시작되었다. 재시작 전에 끝난 계산은 출력 파일로 확인했고(줄 수, JSON 구문), 전선 B 작업자는 출력 파일에서 이어서 다시 시작했다.
+
+### I.2 재현 순서 (46135 경계)
+
+```
+gcc -O2 -fopenmp -o twosided rX/csrc/twosided.c
+gcc -O2 -fopenmp -o dsearch_dump rX/csrc/dsearch_dump.c
+gcc -O3 -march=native -fopenmp -o disjoint_bits rX/csrc/disjoint_bits.c      # also disjoint.c, disjoint_fast.c, triple_test.c
+python3 -I rX/src/census_points.py rW/certs/lower_bound/census_by_pieces_line_4_9_56.json pts1.txt   # and line 2
+awk -v th=50 '…' pts1.txt > pts1_lt50.txt                                    # truncated census (values < th)
+./twosided pts1.txt 800 4 > ts1.txt; ./twosided pts1_lt50.txt 800 4 > ts1_lt50.txt; ./twosided pts1.txt 800 4 50 > ts1_full_th50.txt
+./dsearch_dump 4 9 56 50 9 > dump_line1.jsonl                               # FIRST=1 for first-passage chains
+python3 -I rX/src/check_chains.py 4 9 56 dump_line1.jsonl --reverse
+./disjoint ext1_all.txt > pairs.txt; python3 -I rX/src/disjoint2.py ext1_all.txt all > pairs2.txt
+UPPER=1 LIST=1 ./disjoint_bits ext1_first48.txt ext1_first48.txt > p48.txt; ./triple_test ext1_first48.txt p48_nonzero.txt
+python3 -I rX/src/frontier_exceptional.py ts1_full_th50.txt ts2_full_th230.txt ts1_lt50.txt ts2_lt230.txt rW/certs/lower_bound/frontier_46135_knapsack.json 0 out46.json
+python3 -I rX/src/frontier_packing.py ts1_lt48.txt ts1_lt50_th48.txt ts1_full_th48.txt ts1_lt50.txt ts1_full_th50.txt ts2_lt230.txt ts2_full_th230.txt rW/certs/lower_bound/frontier_46135_knapsack.json out43.json
+```
+
+* 모든 표·덤프·쌍 목록은 `rX/certs/lower_bound/`에 있다(파일 이름이 위 단계와 대응). 해시 목록은 `python3 rX/src/cert_hashes.py`.
 
 ## J. 남은 틈
 
