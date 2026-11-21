@@ -1,0 +1,1505 @@
+{
+ "config": {
+  "rmax": 800,
+  "nmax": 14,
+  "cells": "/home/user/supersequence-n6-research/rW/certs/lower_bound/frontier_46135_knapsack.json",
+  "only": "/home/user/supersequence-n6-research/rZ/certs/frontier/packing_p_45_200_222.json",
+  "line1": {
+   "levels": [
+    45,
+    50
+   ],
+   "compat": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "kinds": [
+    {
+     "name": "Z",
+     "nu": 0,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts1_lt45.txt"
+    },
+    {
+     "name": "S45",
+     "nu": 1,
+     "level": 0,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts1_lt50_th45.txt"
+    },
+    {
+     "name": "S50",
+     "nu": 1,
+     "level": 1,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts1_full_th45.txt"
+    },
+    {
+     "name": "D45",
+     "nu": 2,
+     "level": 0,
+     "table": "/home/user/supersequence-n6-research/rX/certs/lower_bound/twosided_feasible_line_4_9_56_truncated_below_50.txt"
+    },
+    {
+     "name": "D50",
+     "nu": 2,
+     "level": 1,
+     "table": "/home/user/supersequence-n6-research/rX/certs/lower_bound/twosided_feasible_line_4_9_56_exceptional_caseB_50.txt"
+    }
+   ]
+  },
+  "line2": {
+   "levels": [
+    200,
+    222
+   ],
+   "compat": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "kinds": [
+    {
+     "name": "Z",
+     "nu": 0,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts2_lt200.txt"
+    },
+    {
+     "name": "S200",
+     "nu": 1,
+     "level": 0,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts2_lt222_th200.txt"
+    },
+    {
+     "name": "S222",
+     "nu": 1,
+     "level": 1,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts2_full_th200.txt"
+    },
+    {
+     "name": "D200",
+     "nu": 2,
+     "level": 0,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts2_lt222.txt"
+    },
+    {
+     "name": "D222",
+     "nu": 2,
+     "level": 1,
+     "table": "/tmp/claude-0/-home-user-supersequence-n6-research/261d6b7a-942f-5455-8d67-c3845f59612f/scratchpad/tabZ/ts2_full_th222.txt"
+    }
+   ]
+  }
+ },
+ "cells": 34,
+ "excluded": 0,
+ "survivors": 34,
+ "rows": [
+  {
+   "R": 765,
+   "p": 4,
+   "F": 0,
+   "chains": 5,
+   "Delta": 315,
+   "min_deficit": 314,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 5,
+    "pieces": 765
+   },
+   "decomposition": [
+    {
+     "r": 212,
+     "d": 88,
+     "v1": 56,
+     "v2": 260,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 120,
+     "d": 48,
+     "v1": 48,
+     "v2": 216,
+     "line1_kind": "S45",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 195,
+     "d": 82,
+     "v1": 42,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 1,
+   "chains": 6,
+   "Delta": 315,
+   "min_deficit": 315,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 5,
+    "pieces": 764
+   },
+   "decomposition": [
+    {
+     "r": 212,
+     "d": 88,
+     "v1": 56,
+     "v2": 260,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 195,
+     "d": 82,
+     "v1": 42,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 765,
+   "p": 4,
+   "F": 2,
+   "chains": 7,
+   "Delta": 315,
+   "min_deficit": 315,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 5,
+    "pieces": 763
+   },
+   "decomposition": [
+    {
+     "r": 212,
+     "d": 88,
+     "v1": 56,
+     "v2": 260,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 156,
+     "d": 64,
+     "v1": 48,
+     "v2": 220,
+     "line1_kind": "S45",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 157,
+     "d": 65,
+     "v1": 43,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 0,
+   "chains": 4,
+   "Delta": 322,
+   "min_deficit": 320,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 4,
+    "pieces": 766
+   },
+   "decomposition": [
+    {
+     "r": 153,
+     "d": 62,
+     "v1": 54,
+     "v2": 245,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 299,
+     "d": 128,
+     "v1": 44,
+     "v2": 219,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 195,
+     "d": 82,
+     "v1": 42,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 1,
+   "chains": 5,
+   "Delta": 322,
+   "min_deficit": 320,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 4,
+    "pieces": 765
+   },
+   "decomposition": [
+    {
+     "r": 248,
+     "d": 104,
+     "v1": 56,
+     "v2": 264,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 165,
+     "d": 68,
+     "v1": 48,
+     "v2": 221,
+     "line1_kind": "S45",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 233,
+     "d": 99,
+     "v1": 41,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 2,
+   "chains": 6,
+   "Delta": 322,
+   "min_deficit": 321,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 4,
+    "pieces": 764
+   },
+   "decomposition": [
+    {
+     "r": 158,
+     "d": 64,
+     "v1": 56,
+     "v2": 254,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 254,
+     "d": 108,
+     "v1": 44,
+     "v2": 214,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 233,
+     "d": 99,
+     "v1": 41,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 3,
+   "chains": 7,
+   "Delta": 322,
+   "min_deficit": 322,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 3,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 4,
+    "pieces": 763
+   },
+   "decomposition": [
+    {
+     "r": 208,
+     "d": 87,
+     "v1": 49,
+     "v2": 230,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 766,
+   "p": 3,
+   "F": 4,
+   "chains": 8,
+   "Delta": 322,
+   "min_deficit": 322,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 4,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 4,
+    "pieces": 762
+   },
+   "decomposition": [
+    {
+     "r": 158,
+     "d": 64,
+     "v1": 56,
+     "v2": 254,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 290,
+     "d": 124,
+     "v1": 44,
+     "v2": 218,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    },
+    {
+     "r": 195,
+     "d": 82,
+     "v1": 42,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 0,
+   "chains": 3,
+   "Delta": 329,
+   "min_deficit": 326,
+   "excluded": false,
+   "margin": -3,
+   "junction_argmin": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 767
+   },
+   "decomposition": [
+    {
+     "r": 217,
+     "d": 91,
+     "v1": 49,
+     "v2": 231,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 233,
+     "d": 99,
+     "v1": 41,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 1,
+   "chains": 4,
+   "Delta": 329,
+   "min_deficit": 326,
+   "excluded": false,
+   "margin": -3,
+   "junction_argmin": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 766
+   },
+   "decomposition": [
+    {
+     "r": 158,
+     "d": 64,
+     "v1": 56,
+     "v2": 254,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 299,
+     "d": 128,
+     "v1": 44,
+     "v2": 219,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 309,
+     "d": 133,
+     "v1": 39,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 2,
+   "chains": 5,
+   "Delta": 329,
+   "min_deficit": 327,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 765
+   },
+   "decomposition": [
+    {
+     "r": 253,
+     "d": 107,
+     "v1": 49,
+     "v2": 235,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 195,
+     "d": 82,
+     "v1": 42,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 3,
+   "chains": 6,
+   "Delta": 329,
+   "min_deficit": 327,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 3,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 764
+   },
+   "decomposition": [
+    {
+     "r": 212,
+     "d": 88,
+     "v1": 56,
+     "v2": 260,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 281,
+     "d": 120,
+     "v1": 44,
+     "v2": 217,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 271,
+     "d": 116,
+     "v1": 40,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 4,
+   "chains": 7,
+   "Delta": 329,
+   "min_deficit": 328,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 4,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 763
+   },
+   "decomposition": [
+    {
+     "r": 289,
+     "d": 123,
+     "v1": 49,
+     "v2": 239,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 157,
+     "d": 65,
+     "v1": 43,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 5,
+   "chains": 8,
+   "Delta": 329,
+   "min_deficit": 328,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 5,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 762
+   },
+   "decomposition": [
+    {
+     "r": 212,
+     "d": 88,
+     "v1": 56,
+     "v2": 260,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 233,
+     "d": 99,
+     "v1": 41,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 6,
+   "chains": 9,
+   "Delta": 329,
+   "min_deficit": 329,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 6,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 761
+   },
+   "decomposition": [
+    {
+     "r": 325,
+     "d": 139,
+     "v1": 49,
+     "v2": 243,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 119,
+     "d": 48,
+     "v1": 44,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 767,
+   "p": 2,
+   "F": 7,
+   "chains": 10,
+   "Delta": 329,
+   "min_deficit": 329,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 7,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 3,
+    "pieces": 760
+   },
+   "decomposition": [
+    {
+     "r": 248,
+     "d": 104,
+     "v1": 56,
+     "v2": 264,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 195,
+     "d": 82,
+     "v1": 42,
+     "v2": 199,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 0,
+   "chains": 2,
+   "Delta": 336,
+   "min_deficit": 332,
+   "excluded": false,
+   "margin": -4,
+   "junction_argmin": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 768
+   },
+   "decomposition": [
+    {
+     "r": 308,
+     "d": 132,
+     "v1": 44,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    },
+    {
+     "r": 460,
+     "d": 200,
+     "v1": 40,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 1,
+   "chains": 3,
+   "Delta": 336,
+   "min_deficit": 332,
+   "excluded": false,
+   "margin": -4,
+   "junction_argmin": {
+    "F_loops": 1,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 767
+   },
+   "decomposition": [
+    {
+     "r": 307,
+     "d": 131,
+     "v1": 49,
+     "v2": 241,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 460,
+     "d": 200,
+     "v1": 40,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 2,
+   "chains": 4,
+   "Delta": 336,
+   "min_deficit": 333,
+   "excluded": false,
+   "margin": -3,
+   "junction_argmin": {
+    "F_loops": 2,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 766
+   },
+   "decomposition": [
+    {
+     "r": 344,
+     "d": 148,
+     "v1": 44,
+     "v2": 224,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 422,
+     "d": 183,
+     "v1": 41,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 3,
+   "chains": 5,
+   "Delta": 336,
+   "min_deficit": 333,
+   "excluded": false,
+   "margin": -3,
+   "junction_argmin": {
+    "F_loops": 3,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 765
+   },
+   "decomposition": [
+    {
+     "r": 343,
+     "d": 147,
+     "v1": 49,
+     "v2": 245,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 422,
+     "d": 183,
+     "v1": 41,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 4,
+   "chains": 6,
+   "Delta": 336,
+   "min_deficit": 334,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 4,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 764
+   },
+   "decomposition": [
+    {
+     "r": 371,
+     "d": 160,
+     "v1": 44,
+     "v2": 227,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 393,
+     "d": 170,
+     "v1": 42,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 5,
+   "chains": 7,
+   "Delta": 336,
+   "min_deficit": 334,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 5,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 763
+   },
+   "decomposition": [
+    {
+     "r": 248,
+     "d": 104,
+     "v1": 56,
+     "v2": 264,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 515,
+     "d": 225,
+     "v1": 35,
+     "v2": 205,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 6,
+   "chains": 8,
+   "Delta": 336,
+   "min_deficit": 335,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 6,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 762
+   },
+   "decomposition": [
+    {
+     "r": 407,
+     "d": 176,
+     "v1": 44,
+     "v2": 231,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 355,
+     "d": 153,
+     "v1": 43,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 7,
+   "chains": 9,
+   "Delta": 336,
+   "min_deficit": 335,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 7,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 761
+   },
+   "decomposition": [
+    {
+     "r": 248,
+     "d": 104,
+     "v1": 56,
+     "v2": 264,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 513,
+     "d": 224,
+     "v1": 36,
+     "v2": 209,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 768,
+   "p": 1,
+   "F": 8,
+   "chains": 10,
+   "Delta": 336,
+   "min_deficit": 336,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 8,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 760
+   },
+   "decomposition": [
+    {
+     "r": 443,
+     "d": 192,
+     "v1": 44,
+     "v2": 235,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 0,
+   "chains": 1,
+   "Delta": 343,
+   "min_deficit": 339,
+   "excluded": false,
+   "margin": -4,
+   "junction_argmin": {
+    "F_loops": 0,
+    "F_pairs": 0,
+    "shared_rows": 0,
+    "chains_used": 1,
+    "pieces": 769
+   },
+   "decomposition": [
+    {
+     "r": 769,
+     "d": 339,
+     "v1": 25,
+     "v2": 191,
+     "line1_kind": "Z",
+     "line2_kind": "Z"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 1,
+   "chains": 2,
+   "Delta": 343,
+   "min_deficit": 339,
+   "excluded": false,
+   "margin": -4,
+   "junction_argmin": {
+    "F_loops": 0,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 767
+   },
+   "decomposition": [
+    {
+     "r": 307,
+     "d": 131,
+     "v1": 49,
+     "v2": 241,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 460,
+     "d": 200,
+     "v1": 40,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 2,
+   "chains": 3,
+   "Delta": 343,
+   "min_deficit": 340,
+   "excluded": false,
+   "margin": -3,
+   "junction_argmin": {
+    "F_loops": 1,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 766
+   },
+   "decomposition": [
+    {
+     "r": 344,
+     "d": 148,
+     "v1": 44,
+     "v2": 224,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 422,
+     "d": 183,
+     "v1": 41,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 3,
+   "chains": 4,
+   "Delta": 343,
+   "min_deficit": 340,
+   "excluded": false,
+   "margin": -3,
+   "junction_argmin": {
+    "F_loops": 2,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 765
+   },
+   "decomposition": [
+    {
+     "r": 343,
+     "d": 147,
+     "v1": 49,
+     "v2": 245,
+     "line1_kind": "S45",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 422,
+     "d": 183,
+     "v1": 41,
+     "v2": 220,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 4,
+   "chains": 5,
+   "Delta": 343,
+   "min_deficit": 341,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 3,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 764
+   },
+   "decomposition": [
+    {
+     "r": 371,
+     "d": 160,
+     "v1": 44,
+     "v2": 227,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 393,
+     "d": 170,
+     "v1": 42,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 5,
+   "chains": 6,
+   "Delta": 343,
+   "min_deficit": 341,
+   "excluded": false,
+   "margin": -2,
+   "junction_argmin": {
+    "F_loops": 4,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 763
+   },
+   "decomposition": [
+    {
+     "r": 248,
+     "d": 104,
+     "v1": 56,
+     "v2": 264,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 515,
+     "d": 225,
+     "v1": 35,
+     "v2": 205,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 6,
+   "chains": 7,
+   "Delta": 343,
+   "min_deficit": 342,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 5,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 762
+   },
+   "decomposition": [
+    {
+     "r": 407,
+     "d": 176,
+     "v1": 44,
+     "v2": 231,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 355,
+     "d": 153,
+     "v1": 43,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 7,
+   "chains": 8,
+   "Delta": 343,
+   "min_deficit": 342,
+   "excluded": false,
+   "margin": -1,
+   "junction_argmin": {
+    "F_loops": 6,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 761
+   },
+   "decomposition": [
+    {
+     "r": 248,
+     "d": 104,
+     "v1": 56,
+     "v2": 264,
+     "line1_kind": "S50",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 513,
+     "d": 224,
+     "v1": 36,
+     "v2": 209,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  },
+  {
+   "R": 769,
+   "p": 0,
+   "F": 8,
+   "chains": 9,
+   "Delta": 343,
+   "min_deficit": 343,
+   "excluded": false,
+   "margin": 0,
+   "junction_argmin": {
+    "F_loops": 7,
+    "F_pairs": 1,
+    "shared_rows": 0,
+    "chains_used": 2,
+    "pieces": 760
+   },
+   "decomposition": [
+    {
+     "r": 443,
+     "d": 192,
+     "v1": 44,
+     "v2": 235,
+     "line1_kind": "Z",
+     "line2_kind": "S222"
+    },
+    {
+     "r": 317,
+     "d": 136,
+     "v1": 44,
+     "v2": 221,
+     "line1_kind": "Z",
+     "line2_kind": "S200"
+    }
+   ]
+  }
+ ]
+}
