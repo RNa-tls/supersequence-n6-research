@@ -20,8 +20,12 @@
   * 이 표들은 θ = 200(직선 2), θ = 45(직선 1)의 **완전한** 배치 목록을 접두 축소로 정제해 정확히 얻었고(§I.1, Lean
     `coexistence_from_prefixes`), 핵심 "불가" 항목은 다른 코드(Round X의 `disjoint_bits.c`)로 쌍 목록을 직접 다시 판정해
     확인했다.
+  * 교차 직선(직선 1 부분 대 다른 사슬의 직선 2 부분)도 계산했다: 직선 2 ≥ 231은 직선 1 ≥ 43과, 직선 1 ≥ 51은 직선 2 ≥ 190과
+    공존할 수 없다. 이 표는 참이지만 배낭의 최소 결손을 한 칸에서도 바꾸지 못했다.
   * 배낭(수준별 사슬 유형 + 공존표)은 두 구현이 칸마다 최소 결손까지 같다: 상태 동적 계획(`frontier_compat.py`)과 특수
     사슬 배치 명시 열거(`frontier_compat_enum.py`).
+  * 필요 강도(가설 계산): "150행 이상 사슬은 v₂ ≤ 50" 꼴의 덮개 정리면 (769, 0, 0)만 남고, κ₂(190) ≤ 2(약 10억 쌍의 계산)는
+    한 칸만 더 지운다(§Q). 남은 장애물은 고가 부분의 개수가 아니라 150–400행 사슬의 가운데 밀도이다.
 * **(769, 0, 0)은 살아남는다(margin −4).** 이 칸은 "769행, 이음매가 모두 무게 3인 해밀턴 사슬"의 존재와 같다. Round Z의
   계수 완화에서 HiGHS가 중복 첨자 때문에 제약 한 줄을 **조용히 버리고 있었음**을 찾아 고쳤다. 고쳐도 결론(실행 가능)은
   같다. 기호 구간마다 직선 상한과 구간 사이 공존 제약을 더한 새 완화도 실행 가능하며, 명시적 해(거의 한 세계, 쪼개진
@@ -66,7 +70,7 @@
 | X2 예외 사슬 | 직선 1 ≥ 50(49), 직선 2 ≥ 230 → 222 (67 → 46, 이후 강화) | 증명서 확인 | X, Z |
 | κ 묶음 | κ₁(48), κ₁(46), κ₁(45) ≤ 2; κ₂(210), κ₂(200) ≤ 2 (46 → 34) | 증명서 확인 | X, Z |
 | 문턱 정확성 | κ₁(44) ≤ 2 거짓(반례), X2(221) 거짓(반례 3배치) | 전수 + 독립 검사기 | Z |
-| **공존표 (신규)** | Compat₂(231, 200), Compat₂(222, 219), Compat₁(51, 43), Compat₁(53, 42), Compat₁(51, 45), Compat₁(49, 49) 거짓 (34 → 27) | 전수(완전 목록의 접두 정제) + 핵심 항목 독립 재판정 + Lean 논리 핵심 | **Ω** |
+| **공존표 (신규)** | Compat₂(231, 190), Compat₂(222, 219), Compat₁(51, 43), Compat₁(53, 42), Compat₁(49, 49) 거짓; 교차 직선 (직선 2 231, 직선 1 43), (직선 1 51, 직선 2 190), (직선 1 49, 직선 2 219), (직선 2 222, 직선 1 49) 거짓 (34 → 27) | 전수(완전 목록의 접두 정제) + 핵심 항목 독립 재판정 + Lean 논리 핵심 | **Ω** |
 | Y3, Y8 | 기호 일관성(θ₁ ≥ 46), 한 기호 덮개는 경계에 없다 | 증명 + Lean 산술 | Y |
 | R1–R3, S6 | 완전 행 연속 ≤ 6, 6블록 행 보조정리 | 증명 + 탐색 전체 위반 0 | Y |
 | 결손 분해 | Δ = W + 7M | 형식 | Y |
@@ -236,6 +240,8 @@ removed relative to the input list: [(765, 4, 1), (765, 4, 2), (766, 3, 3), (766
 | 1 | ≥ 53 | 값 ≥ 42인 부분 없음; 40과는 28배치 | 같음 |
 | 교차 | 직선 2 222–230 | 직선 1 값 48 이하인 부분만 | 교차 목록 FP₂(222) × FP₁(43) 12,865,239쌍(104배치) |
 | 교차 | 직선 2 ≥ 231 | 직선 1 값 ≥ 43인 부분 없음 | 같음 |
+| 교차 | 직선 1 49–50 | 직선 2 값 219 미만인 부분만 | 교차 목록 FP₁(49) × FP₂(190) 19,960,251쌍(148배치) |
+| 교차 | 직선 1 ≥ 51 | 직선 2 값 ≥ 190인 부분 없음 | 같음 |
 
 * 찾은 배치는 **모두 이동 기호를 지킨다**(g(8) = 8; 교차 목록 포함). Round Z의 기호 일관성 관측이 새 목록에서도 예외 없이
   성립한다.
@@ -256,9 +262,10 @@ removed relative to the input list: [(765, 4, 1), (765, 4, 2), (766, 3, 3), (766
 
 * 증명된 제약으로 34 → 27칸. 남은 칸의 최적 분해는 (i) 예외 사슬 하나(값 ≥ 231) + 고가 부분이 없는 긴 사슬들, (ii) 서로
   공존 가능한 중간 고가 사슬 둘(예: 222 + 215, 219 + 219), (iii) 고가 부분 둘을 품은 긴 사슬 하나(769행 칸들) 셋으로 나뉜다(§F).
-* (i)의 긴 사슬은 고가 부분 없이도 직선 2 기울기를 거의 유지하는 사슬(예: 519행 v₂ = 189)이다. 공존표는 "얼마나 높은
+* (i)의 긴 사슬은 고가 부분 없이도 직선 2 기울기를 거의 유지하는 사슬(예: (768, 1, 6)의 514행 v₂ = 188)이다. 공존표는 "얼마나 높은
   부분이 함께 있을 수 있는가"를 묶을 뿐 긴 사슬의 가운데가 얼마나 효율적인지는 묶지 않는다. 그래서 이 꼴의 명제를 아무리
-  늘려도 남는 칸이 있다: 가설 "값 ≥ 231인 부분은 값 ≥ 150인 부분과도 공존 불가"는 190과 같은 칸 수를 남겼다(§Q 표).
+  늘려도 남는 칸이 있다: 가설 "값 ≥ 231인 부분은 값 ≥ 150인 부분과도 공존 불가"(증명 안 됨)는 190에서 증명된 명제와 같은 칸
+  수를 남겼다(`HYPOTHETICAL_cut_231_150.json`), 그리고 κ₂(190) ≤ 2 가설은 한 칸만 더 지운다(§Q 표).
 
 ## J. 교차 정규형 상태
 
@@ -295,7 +302,37 @@ removed relative to the input list: [(765, 4, 1), (765, 4, 2), (766, 3, 3), (766
 
 ## M. 하중을 받는 증명서와 해시
 
-__HASHES__
+하중을 받는 증명서(전체 sha256). 각 라운드의 나머지 증명서 해시는 그 라운드 보고서의 해시 부록에 있다(Round X §I.3,
+Round Z 부록 등). 이번 라운드의 모든 증명서는 `python3 -I rOmega/src/cert_hashes.py`로 다시 낸다.
+
+| 파일 | sha256 | 역할 |
+|---|---|---|
+| `rT/external/tholsh_46173/solution.txt` | `9ec23c8c05d60e51786d5fedea27aa3b6b2841c96fe15cf82c6095ecede7b475` | 상한 46173 (공개 단어) |
+| `rV/certs/one_wrap_word_46173.txt` | `d7de2c7dad48040985b2d15ff48d20997f3d7d2de38c5d35f06dcc2c1ae8b503` | 동치 아닌 46173 단어 (r = 0) |
+| `rV/certs/one_wrap_inside_cut_word_46173.txt` | `be4025dd3a1a229d33f3b0353e7e2f9ea9ed529bc03ecd62036f8e20d8e1121d` | 동치 아닌 46173 단어 (r = 1) |
+| `rW/certs/lower_bound/frontier_46135_knapsack.json` | `a92518ed816e878aff322b17d4579a885768e24579037e85768668bb954dcd73` | 46134의 칸 목록(170칸)과 접합 배낭 |
+| `rX/certs/lower_bound/census_points_line_4_9_56.txt` | `2c46fee2a6b6d14475f7cf7174d143ab76300f1fc42d09b06b62c28a5c65c9f8` | 직선 1 집계 점(두 방향 표의 입력) |
+| `rX/certs/lower_bound/census_points_line_17_38_264.txt` | `fb88589b04320042e20bdfe4332241b368685dcc32598cfe7fe091c837241e0b` | 직선 2 집계 점 |
+| `rZ/certs/coexistence/line2_theta200_pairs_disjoint_z.txt.gz` | `8d54ea2154ab6a367a0f5352bbd5821c727b9162627732153667511058dd4f12` | 직선 2 θ = 200 완전 배치 목록(공존표의 기반) |
+| `rZ/certs/coexistence/line1_theta45_pairs_disjoint_z.txt` | `9db9a70d28ef0714efd9ca28cffabb7e383c21bdc1150ee97b7db68941f5db1c` | 직선 1 θ = 45 완전 배치 목록 |
+| `rZ/certs/firstpassage/first_passage_lists_sha256.txt` | `d701e2e2f43dedbc498b9690f9264f5ae92cc19fc416f352228e90d9eaf5722a` | 첫 도달 목록(직선 1 40–50, 직선 2 200–230)의 해시 |
+| `rZ/certs/frontier/packing_p_45_200_222.json` | `ad7b54881f7f54aa8fd7e7ac913c418968a5d92770cedfde90de747ac41ef2f4` | Round Z 34칸(출발점) |
+| `rOmega/certs/firstpassage/first_passage_lists_sha256_round_omega.txt` | `8f25c88f5fa8f94e9703b4fbe5917ad168c6cfaa2a8e6c0fa68297ba493e3c9a` | 이번 첫 도달 목록(직선 2 190, 195, 226–264; 직선 1 51–56)의 해시 |
+| `rOmega/certs/coexistence/compat_line2_base200.json` | `482fbff08515d9b905e455ead45bded346b19768e54b6d405c00771d4f598d61` | 직선 2 공존표 |
+| `rOmega/certs/coexistence/compat_line1_base45.json` | `1d371e012b02a4f299d56721de6b9d51ab6b851c2fbd4372fd848364a096d6ed` | 직선 1 공존표 |
+| `rOmega/certs/coexistence/compat_line1_cross_51x40.json` | `55e95b453f0af8ccb7c5f2177355f1514750069fbfb930d1320c29408981ed32` | 직선 1 하위 수준 공존표 |
+| `rOmega/certs/coexistence/compat_line2_cross_231x190.json` | `cf9ededae37dfa902a0602cd7be647e641208d348009e3959f9dc3942c36833e` | 직선 2 하위 수준 공존표 |
+| `rOmega/certs/coexistence/compat_cross_line2_222_x_line1_43.json` | `e1db7965d1f333a646e56809111f2487fbf75e25474e22b05fb235a03510520e` | 교차 직선 공존표 |
+| `rOmega/certs/coexistence/compat_cross_line1_49_x_line2_190.json` | `502af08367e7a8bc3b68de25dea29114f05b892406fb85544b859e815c6d013e` | 교차 직선 공존표(반대 방향) |
+| `rOmega/certs/frontier/tables_sha256.txt` | `9d07690a713356b02db5aaf7b7dedd327921632f4bd71f00ae043654913e3b33` | 배낭이 쓴 두 방향 표 163개의 해시 |
+| `rOmega/certs/frontier/config_final.json` | `fccb9c87a45487072bc26c355041be911af3abca64f275a61cd03a7c18378111` | 최종 배낭 설정 |
+| `rOmega/certs/frontier/frontier27_final.json` | `83bedc2335149d37a8101867ff5b327036d33ed44d14c3c6a8a7a19dfeb8d8a0` | **최종 27칸** (구현 A) |
+| `rOmega/certs/frontier/frontier27_final_second_implementation.json` | `6d342db6a452fd51d6a868827c2b8d4edda4d54c929a68db76cd2d0ce354fb36` | 최종 27칸 (구현 B, 불일치 0) |
+| `rOmega/certs/lean_axioms_RoundOmega.txt` | `f0d7291bdc22a2f077b9bad4aa8d764be3a6b0aad2e4cf3190afab0b834b1ba2` | Lean 출력 |
+
+* 독립 재판정(`rOmega/certs/coexistence/independent_checks/`): 쌍 수, 배치 수, 전체 출력의 sha256, 배치가 있는 줄.
+* 큰 중간 파일(첫 도달 목록 수백 MB, 직접 판정의 전체 출력)은 저장소에 넣지 않고 해시만 남겼다. `rZ/csrc/fpdump.c` +
+  `rZ/src/fp_split.py`(THETAS를 바꿔), Round X `disjoint_bits.c`로 다시 만든다.
 
 ### M.1 두 언어의 사전 (세 46173 단어, `rOmega/certs/words/dictionary_46173_words.json`)
 
@@ -306,7 +343,7 @@ __HASHES__
 | 행 R, N = R − 720 | 787, 67 | 786, 66 | 787, 67 |
 | Σ(w − 3) (이음매), 갈린 클래스 | 21, 0 | 22, 0 | 20, 1 |
 | **46085 + N + Σ(w − 3) + 갈림** | **46173** | **46173** | **46173** |
-| Δ = W + 7M | 469 = 448 + 21 | 462 = 448 + 14 | 468 + (1) = 448 + 21 |
+| Δ = W + 7M (r = 1이면 Δ + 갈림) | 469 = 448 + 21 | 462 = 448 + 14 | 468 + 1 = 448 + 21 |
 | 쓰인 2-순환 | 784 | 784 | 784 |
 | 사슬 / 무거운 이음매(X) | 15 / 14 | 16 / 15 | 15 / 14 |
 | 기호(행 수) / 기호 변화 | 6: 651, 7: 136 / 56 | 6: 650, 7: 136 / 56 | 6: 651, 7: 136 / 57 |
@@ -328,9 +365,9 @@ __HASHES__
 | 세 탐색 방정식(46134) | 전수 | Halfar(native_decide) | `rV/csrc/dsearch.c` 외 4회 재현 | 상수를 줄인 직선에서 반례 |
 | 공존표 직선 2 (기반 200) | 전수 | `rOmega/src/compat2d.py`(정제) | 기반 목록: `disjoint_z.c` = `disjoint_bits.c` 쌍마다(Round Z); "불가" 핵심 (231, 200), (222, 219): `disjoint_bits.c` 직접 판정 | 대각 항목이 Round Z의 κ 배치 수(154, 89, 3, 3, 3)를 재현 |
 | 공존표 직선 1 (기반 45) | 전수 | `compat2d.py` | (51, 45): `disjoint_bits.c` 직접 판정 | 대각 항목이 Round X/Z 수(761, 89, 77, 0, 0) 재현 |
-| (231, 190), (51, 43), 교차 직선 | 전수 | `disjoint_z.c` 교차 목록 + `compat_cross.py` | 기반 목록의 줄마다 배치 수 assert | — |
+| (231, 190), (51, 43), 교차 직선 | 전수 | `disjoint_z.c` 교차 목록 + `compat_cross.py` | **구현 하나**(기반 목록의 줄마다 배치 수 assert, 정제 클래스 계산은 C 도구와 독립) | 같은 도구가 양성 대조 (222, 215), (49, 48)을 `disjoint_bits.c`와 같은 수로 냄 |
 | 두 방향 표(수준별) | 증명서 확인 | Round X `twosided.c`(경우 A + 단일 문턱 B) | `twosided_compat.py`(경우 B 새로 작성): 단일 문턱에서 `twosided.c`와 바이트 일치(직선 1 4개, 직선 2 2개) | 문턱 없는 판과 일치 |
-| 수준별 배낭 | 증명서 확인 | `rOmega/src/frontier_compat.py`(상태 DP, 정확한 상태 축약) | `rOmega/src/frontier_compat_enum.py`(고가 배치 명시 열거 + Z형 거듭제곱): 34칸 전부 최소 결손 일치(30, 28, 27칸 단계) | Round Z 34칸을 칸마다 재현; 축약 전후 동일 |
+| 수준별 배낭 | 증명서 확인 | `rOmega/src/frontier_compat.py`(상태 DP, 정확한 상태 축약) | `rOmega/src/frontier_compat_enum.py`(고가 배치 명시 열거 + Z형 거듭제곱): 34칸 전부 최소 결손 일치(30, 28, 27칸 단계와 교차 직선 포함 최종 27칸, 배치 4,216개) | Round Z 34칸을 칸마다 재현; 축약 전후 동일 |
 | 계수 완화 | 정수계획 | `counting_relaxation_roundZ_fixed.py`, `counting_relaxation2.py` | 행 함수가 합친 계수를 assert(거부된 행 없음) | 원래 판의 결함 재현(`addRow` → kError) |
 | 단어 사전 | 계산 | 기존 장부·해부 증명서 | 길이 공식 46085 + N + Σ(w − 3) + 갈림 = 46173(세 단어) | — |
 
@@ -375,15 +412,63 @@ __HASHES__
    상한; (c) 기호 세계 둘(6, 7)의 블록 구조(Z-D1)와 d-걷기의 블록 순회를 함께 세는 정수계획.
 2. **나머지 칸: 긴 사슬의 가운데 밀도.** 필요한 강도(가설 계산, 증명 아님; 최종 증명된 제약 위에 하나씩 더함):
 
-__STRENGTH__
+   | 가설 (증명 아님) | 남는 칸 | 남는 칸 |
+   |---|---|---|
+   | 150행 이상인 사슬은 모두 v₂ ≤ 1 | 0 | — |
+   | 150행 이상 v₂ ≤ 50 | 1 | (769, 0, 0) |
+   | 150행 이상 v₂ ≤ 100 | 7 | (767, 2, 0), (768, 1, 0–2), (769, 0, 0–2) |
+   | 150행 이상 v₂ ≤ 150 | 15 | (766, 3, 0), (767, 2, 0–2), (768, 1, 0–4), (769, 0, 0–5) |
+   | 150행 이상 v₂ ≤ 189 | 23 | |
+   | 250행 이상 v₂ ≤ 100 | 15 | |
+   | 400행 이상 v₂ ≤ 100 | 26 | |
+   | 400행 이상 v₂ ≤ 1 | 25 | (769, 0, 0)만 지워진다 |
+   | κ₂(190) ≤ 2 (나머지는 증명된 제약 그대로) | 26 | (765, 4, 0)만 지워진다 |
 
-3. **공존표를 더 낮은 문턱으로**: κ₂(190) ≤ 2(첫 도달 사슬 45,057개, 약 10억 쌍), 공존표의 (222–230, 200–218) 영역의 삼중
-   조건(공존하는 두 고가 부분 옆에 셋째 중간 부분이 올 수 있는가; 배치 목록이 수 개뿐이라 유한 완성 문제가 된다).
+   읽는 법: 경계를 붙잡는 것은 **150–400행의 사슬이 직선 2 값 50–190을 함께 유지하는 것**이다. 이 영역의 사슬은 유지 사슬
+   집계가 정확히 알고(값 264까지 실제로 있다) 하나씩은 거짓이 아니므로, 필요한 명제는 사슬마다가 아니라 덮개 전체에서
+   "그런 사슬들이 함께 있을 수 없다"이다. 400행 이상만 묶는 명제는 (769, 0, 0) 하나만 지운다. 묶음 수를 한 단계 낮추는
+   κ₂(190) ≤ 2는 첫 도달 사슬 45,057개의 쌍 약 10억 개를 판정해야 하는데 칸은 하나만 지운다
+   (`rOmega/certs/frontier/strength/`, `HYPOTHETICAL_kappa2_190_on_final.json`).
+
+3. **공존표의 다음 단계는 개수가 아니라 완성이다**: κ₂(190)처럼 문턱을 내리는 것은 비용(약 10억 쌍)에 비해 한 칸뿐이다. 대신
+   (222–230, 200–218)·(219, 219) 영역의 배치는 수 개(4, 3, 8 …)뿐이므로, 그 배치를 고정하고 나머지 클래스를 칸의 예산 안에서
+   덮을 수 있는지 묻는 유한 완성 문제가 (ii) 무늬의 칸들을 직접 겨냥한다.
 4. **상한**: L ≥ 45 또는 밀도 > 1.0인 보행 유형을 포함한 선택 탐색(밀도 < 0.6인 긴 보행이 있으면 대리 목적이 88 아래로 내려갈
    수 있다), 또는 J/T < 1.5인 조인 구조. 공개 선택 안에서는 §G의 여섯 부류를 닫아야 "선택 전체"에 가까워진다(U0 때문에 그것도
    결국 전역 문제이다).
 5. **형식화**: 모형 사슬의 이음매 기하(R1–R3, S6, 이음매 입구), 첫 도달 목록·배치 목록의 생성(탐색의 건전성은 Halfar의
    DSound와 같은 꼴로 가능), 배낭 표의 수치 검증(DP 건전성 `dp_sound`의 틀).
+
+## 부록: 재현
+
+```
+# 첫 도달 목록 (Round Z 도구; 방문·유지 수가 Halfar와 같아야 함)
+THETAS=226,227,228,231,232,235,238,240,245,248,250,254,257,260,261,264 ./fpdump 17 38 264 14 > d2h.txt
+THETAS=51,52,53,54,55,56 ./fpdump 4 9 56 9 > d1h.txt;  THETAS=190,195 ./fpdump 17 38 264 14 > d2l.txt
+python3 -I rZ/src/fp_split.py d2h.txt fp2h L2   # (fp1h L1, fp2l L2 likewise)
+# 공존표: 기반 목록(Round Z 증명서)의 정제, 그리고 교차 목록
+python3 -I rOmega/src/compat2d.py 17,38 L2_fp200.txt <line2_theta200_pairs> compat_line2_base200.json 200:L2_fp200.txt ... 264:L2_fp264.txt
+python3 -I rOmega/src/compat2d.py 4,9 L1_fp45.txt <line1_theta45_pairs> compat_line1_base45.json 45:L1_fp45.txt ... 56:L1_fp56.txt
+LIST=1 ./disjoint_z L1_fp51.txt L1_fp40.txt > dz1_51x40.txt;   LIST=1 ./disjoint_z L2_fp231.txt L2_fp190.txt > dz2_231x190.txt
+LIST=1 ./disjoint_z L2_fp222.txt L1_fp43.txt > dzx_222x43.txt; LIST=1 ./disjoint_z L1_fp49.txt L2_fp190.txt > dzx_49x190.txt
+python3 -I rOmega/src/compat_cross.py 4,9 4,9 L1_fp51.txt L1_fp40.txt dz1_51x40.txt out.json x:51:... y:40:...   # etc.
+# 독립 재판정 (Round X)
+LIST=1 ./disjoint_bits L2_fp231.txt L2_fp200.txt;  ./disjoint_bits L2_fp222.txt L2_fp219.txt;  ./disjoint_bits L1_fp51.txt L1_fp45.txt
+# 두 방향 표: 경우 A는 twosided.c(문턱 없이), 경우 B는 직사각형을 넣어 다시 계산
+./twosided pts.txt 800 4 > ts_noth.txt;  python3 -I rOmega/src/twosided_compat.py pts.txt ts_noth.txt 800 222,219 231,200 > ts_D.txt
+# 배낭: 설정 → 구현 A → 구현 B
+python3 -I rOmega/src/make_compat_config.py cfg.json rW/certs/lower_bound/frontier_46135_knapsack.json rZ/certs/frontier/packing_p_45_200_222.json 14 L1:... L2:...
+python3 -I rOmega/src/hyp_sublevels.py cfg.json cfg1.json 1 TABDIR ts1 40,42,43 table:compat_line1_cross_51x40.json   # proved table rule
+python3 -I rOmega/src/hyp_sublevels.py cfg1.json cfg2.json 2 TABDIR ts2 190 table:compat_line2_cross_231x190.json
+python3 -I rOmega/src/add_cross.py cfg2.json config_final.json compat_cross_line2_222_x_line1_43.json:2 compat_cross_line1_49_x_line2_190.json:1
+python3 -I rOmega/src/frontier_compat.py config_final.json frontier27_final.json
+python3 -I rOmega/src/frontier_compat_enum.py config_final.json frontier27_final.json frontier27_final_second_implementation.json
+# 계수 완화 (highspy 필요, -I 없이)
+python3 rOmega/src/counting_relaxation_roundZ_fixed.py 769 0 0 4 0 264 minL;  python3 rOmega/src/counting_relaxation2.py 769 0 0 4 minL
+# 가설 강도(증명 아님)
+python3 -I rOmega/src/strength_runs.py config_final.json strength 150:1 150:50 150:100 150:150 150:189 250:100 400:100 400:1
+lean rOmega/lean/RoundOmega.lean
+```
 
 ---
 
