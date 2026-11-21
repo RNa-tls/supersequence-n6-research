@@ -30,6 +30,7 @@ def feas(path):
 def main():
     cfg = json.load(open(sys.argv[1])); outp = sys.argv[2]
     RMAX = cfg.get('rmax', 800); NMAX = cfg.get('nmax', 14)
+    HYPCAP = cfg.get('HYPOTHESIS_cap')      # [r0, c]: chains of >= r0 rows have v2 <= c (NOT proved; strength runs)
     lines = []
     for key in ('line1', 'line2'):
         L = cfg[key]; nlev = len(L['levels'])
@@ -85,6 +86,7 @@ def main():
             d = 0
             while d <= 7 * r:
                 v1, v2 = 4 * r - 9 * d, 17 * r - 38 * d
+                if HYPCAP is not None and r >= HYPCAP[0] and v2 > HYPCAP[1]: d += 1; continue    # HYPOTHESIS only
                 if (v1 <= 0 or v1 in F1.get(r, ())) and (v2 <= 0 or v2 in F2.get(r, ())) and not (v1 >= 54 and v2 >= 258 and v1 != 56): break
                 d += 1
             dm[r] = d
@@ -122,6 +124,28 @@ def main():
         if a >= 0 and m2 >= 0 and not X12[a][m2]: return False
         if b >= 0 and m1 >= 0 and not X12[m1][b]: return False
         return True
+    # Exact state reduction: two levels of one line with identical rows (own joint matrix and cross matrix) can never
+    # be told apart by a later test.  Rows of an antitone relation are pointwise decreasing, so equal rows form
+    # intervals, and the interval of max(h, j) is that of max(rep(h), j): replacing h (and l) by the least level of
+    # its interval commutes with every transition.
+    def reps(li):
+        L = lines[li]; n = L['q'] + L['nlev']; rep = {}
+        for i in range(n):
+            sig = tuple(L['C'][i][j] for j in range(n))
+            if X12 is not None: sig += tuple(X12[i]) if li == 0 else tuple(X12[k][i] for k in range(len(X12)))
+            rep[i] = min(j for j in range(n) if tuple(L['C'][j][k] for k in range(n)) + ((tuple(X12[j]) if li == 0 else tuple(X12[k][j] for k in range(len(X12)))) if X12 is not None else ()) == sig)
+        return rep
+    REP = [reps(0), reps(1)]
+    def canon(li, t):
+        if t is None: return None
+        L = lines[li]; nu, h, l = t; q = L['q']
+        if h >= 0: h = REP[li][q + h] - q
+        if l >= 0: l = REP[li][l]
+        if l >= q: l = -1                # (never happens: sub-levels map to sub-levels)
+        return (nu, h, l)
+    _trans = trans
+    def trans(li, s, kind): return canon(li, _trans(li, s, kind))
+    S1 = sorted({canon(0, s) for s in S1}); S2 = sorted({canon(1, s) for s in S2})
     groups = {}
     for s1 in S1:
         for s2 in S2:

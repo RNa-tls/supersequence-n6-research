@@ -37,3 +37,11 @@ python -m experiments.n6_search_baseline  # honest n=6 attempt (inconclusive)
   lower-bound attempt. Much further along than `src/`, but its own headline
   claims (conditional `L_6 >= 872`, unconditional `L_6 = 872`) are marked
   **open** by the material itself. See `legacy_research/README.md`.
+
+## n = 8 (Rounds T–Ω, separate from the n = 6 material above)
+
+The n = 8 research lives in `rT/` … `rZ/` and `rOmega/`. Current state: **46134 ≤ L(8) ≤ 46173**, unsolved
+(lower bound: Halfar's Theorem D with three search equations, independently recounted here; upper bound: the public
+46173 word, independently verified here). See [rOmega/N8_STATUS.md](rOmega/N8_STATUS.md) for the status and
+[rOmega/FINAL_REPORT.md](rOmega/FINAL_REPORT.md) for the closure report. Files named `HYPOTHETICAL_*` are strength
+measurements with unproved statements, not certificates.

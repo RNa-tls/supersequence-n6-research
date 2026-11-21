@@ -64,9 +64,27 @@ def high_sets(L):
         if ok(L, joint(L, L['kinds'][a]), joint(L, L['kinds'][b])): out.append((a, b))
     out += [(i,) for i in Dk]
     return out
-def allowed_Z(L, H):
+X12 = cfg.get('cross')               # optional cross-line table on the joint grids (line-1 index, line-2 index)
+if X12 is not None:
+    q1, q2 = lines[0]['q'], lines[1]['q']
+    for i in range(q1):
+        for j in range(q2): assert X12[i][j], 'sub-level/sub-level cross entries must be unused (true)'
+def xok(a, b):                       # a: joint index on line 1 (None = bottom), b: joint index on line 2
+    if X12 is None or a is None or b is None: return True
+    return bool(X12[a][b])
+def allowed_Z(L, H, other=(), li=0):
+    # Z kinds of line li compatible with every high level of the same line (H) and, across lines, with every
+    # high item of the other line carried by a DIFFERENT chain (other = joint levels of those items)
     lv = [joint(L, L['kinds'][i]) for i in H]
-    return [i for i, k in enumerate(L['kinds']) if k['nu'] == 0 and all(ok(L, joint(L, k), x) for x in lv)]
+    out = []
+    for i, k in enumerate(L['kinds']):
+        if k['nu'] != 0: continue
+        z = joint(L, k)
+        if not all(ok(L, z, x) for x in lv): continue
+        if li == 0 and not all(xok(z, y) for y in other): continue
+        if li == 1 and not all(xok(y, z) for y in other): continue
+        out.append(i)
+    return out
 NMAX = max(c['chains'] for c in first['rows'])
 CAP = max(c['R'] for c in first['rows'])
 H1s, H2s = high_sets(lines[0]), high_sets(lines[1])
@@ -82,23 +100,34 @@ def zpow(Z1, Z2):
 best = [np.full(CAP + 1, INF, dtype=np.int64) for _ in range(NMAX + 1)]
 nconf = 0
 for H1 in H1s:
-    Z1 = allowed_Z(lines[0], H1)
-    if not Z1: continue
+    J1 = [joint(lines[0], lines[0]['kinds'][i]) for i in H1]
     for H2 in H2s:
-        Z2 = allowed_Z(lines[1], H2)
-        if not Z2: continue
+        J2 = [joint(lines[1], lines[1]['kinds'][i]) for i in H2]
+        Z1 = allowed_Z(lines[0], H1, J2, 0); Z2 = allowed_Z(lines[1], H2, J1, 1)     # kinds of the Z/Z chains
+        if not Z1 or not Z2: continue
         P = zpow(Z1, Z2)
         # matchings between the items of H1 and H2
         items1, items2 = list(range(len(H1))), list(range(len(H2)))
         for k in range(0, min(len(H1), len(H2)) + 1):
             for A in itertools.combinations(items1, k):
                 for B in itertools.permutations(items2, k):
-                    chains = []
+                    same = set(zip(A, B))
+                    # cross pairs carried by different chains must be compatible
+                    if not all(xok(J1[x], J2[y]) for x in items1 for y in items2 if (x, y) not in same): continue
+                    chains = []; bad = False
                     for x, y in zip(A, B): chains.append(D(H1[x], H2[y]))
                     for x in items1:
-                        if x not in A: chains.append(np.minimum.reduce([D(H1[x], b) for b in Z2]))
+                        if x not in A:
+                            Zo = allowed_Z(lines[1], H2, [J1[u] for u in items1 if u != x], 1)
+                            if not Zo: bad = True; break
+                            chains.append(np.minimum.reduce([D(H1[x], b) for b in Zo]))
                     for y in items2:
-                        if y not in B: chains.append(np.minimum.reduce([D(a, H2[y]) for a in Z1]))
+                        if bad: break
+                        if y not in B:
+                            Zo = allowed_Z(lines[0], H1, [J2[u] for u in items2 if u != y], 0)
+                            if not Zo: bad = True; break
+                            chains.append(np.minimum.reduce([D(a, H2[y]) for a in Zo]))
+                    if bad: continue
                     nconf += 1
                     acc = np.full(CAP + 1, INF, dtype=np.int64); acc[0] = 0
                     for t in chains:
