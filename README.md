@@ -4,6 +4,7 @@ Research into the minimal-length superpermutation on 6 symbols. See
 [STATUS.md](STATUS.md) for what is actually proven, what is cited from the
 literature, and what remains open.
 
+- [INDEX.md](INDEX.md) — map of every directory (n = 6, general n, n = 8) and where each round's report is.
 - [STATUS.md](STATUS.md) — what is proven, cited, and open.
 - **[ROUNDS.md](ROUNDS.md) — the round-by-round research log, updated every round.**
 - [research/SUPERPERMUTATION_N6_MASTER_STATUS.md](research/SUPERPERMUTATION_N6_MASTER_STATUS.md)
