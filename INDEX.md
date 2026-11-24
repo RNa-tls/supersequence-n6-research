@@ -70,68 +70,68 @@
   명제를 넣은 강도 측정이다.
 * 외부 저장소의 코드는 읽기만 하고 실행하지 않았다. 외부 자료는 `rT/external/`에 출처와 함께 있다.
 
-## 브랜치와 보관 태그
+## 브랜치 지도
 
-2026-11-24에 GitHub 브랜치를 정리했다. 기록은 하나도 지우지 않았다: 지운 브랜치의 끝 커밋은 모두 남은 브랜치의 역사에
-들어 있고, 브랜치 이름과 끝 커밋의 대응은 `archive/<브랜치 이름>` 태그로 남겼다(`git checkout archive/<이름>`으로 그대로
-볼 수 있고, `git branch <이름> archive/<이름>`으로 되살릴 수 있다). `main`은 이때 개발 브랜치의 끝으로 fast-forward했다
-(역사 재작성 없음).
+2026-11-24 정리: `main`을 개발 브랜치의 끝으로 fast-forward했다(역사 재작성 없음). 원격 브랜치 46개 가운데 아래 40개는
+끝 커밋이 남은 브랜치 셋 중 하나의 역사에 모두 들어 있는 중복 포인터이다. 이들을 `archive/<브랜치 이름>` 태그로 보존한 뒤
+지우려 했으나, 이 작업 환경에서는 태그 푸시가 거부되었다(HTTP 403). 그래서 **브랜치는 지우지 않았다.** 아래 표의 전체
+SHA로 어디서든 같은 태그를 만들 수 있다: `git tag -a archive/<이름> <SHA> -m "archived branch <이름>"`.
 
-남은 브랜치:
+끝 커밋이 다른 브랜치에 없는 고유 기록을 가진 브랜치(지우면 안 되는 것):
 
 | 브랜치 | 역할 |
 |---|---|
-| `main` | 기본 브랜치, 최종 상태 |
+| `main` | 기본 브랜치, 최종 상태(= 개발 브랜치) |
 | `claude/n6-supersequence-length-rn17wf` | 개발 브랜치(Round T–Ω와 그 앞의 모든 claude 라운드를 포함) |
 | `codex/round-r1-37-hex82-t4` | codex 라운드 40–61 계열의 끝(개발 브랜치에 없는 고유 커밋 30개) |
 | `codex/round143-dirty-threshold` | codex 라운드 136–143 계열의 끝(고유 커밋 92개) |
 | `codex/round171-joint-audit` | codex 라운드 171(고유 커밋 6개; 손대지 않음) |
 | `ccr-beb17f74-5zemcj` | 작업 환경이 만든 세션 브랜치(초기 커밋) |
 
-보관 태그(지운 브랜치 40개; 끝 커밋, 그 커밋을 품은 남은 브랜치):
+중복 포인터 40개(끝 커밋 전체 SHA, 마지막 날짜, 그 커밋을 품은 브랜치):
 
-| 태그 | 끝 커밋 | 마지막 날짜 | 포함하는 브랜치 |
+| 브랜치 | 끝 커밋 | 마지막 날짜 | 포함하는 브랜치 |
 |---|---|---|---|
-| `archive/claude/final-attack` | `f3047baa26` | 2026-10-06 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/final-universal` | `c0ecce1311` | 2026-10-01 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/n6-master-status-index` | `2730c99432` | 2026-08-10 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round-i-r0-score` | `7d65fd8a4b` | 2026-10-11 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round-j-l8` | `e8de8ca3f7` | 2026-10-13 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round-k-global` | `ccaee70192` | 2026-10-13 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round-l-antibundle` | `9766a70c3c` | 2026-10-13 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round-m-joint` | `ae35c720e5` | 2026-10-15 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round-n-linking` | `750aa03737` | 2026-10-16 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round174-universal-structure` | `2df2f6fcbd` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round175-row-run-lemma` | `f1d0781aaa` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round176-charge2-capacity` | `e426c0b453` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round177-separator-e2` | `b3ce04f69b` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round178-coarsening-bridge` | `eb0f649e61` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round179-audit-payload` | `968ea02429` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round180-large-charge` | `dc9e423928` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round181-global-packing` | `c38544c54f` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/round182-nonfull-control` | `e44d2a96cf` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/claude/structured-hypergraph` | `5038269ee7` | 2026-10-07 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/codex/round-r1-37-all13-pilot-plan` | `c394624f04` | 2026-08-08 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round-r1-37-all13-pilot-results` | `e280d325f5` | 2026-08-08 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round-r1-37-dangerous-entry-results` | `681113270a` | 2026-08-09 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round-r1-37-first-component-z3-stage-d` | `9342018cd3` | 2026-08-09 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round-r1-37-frontier-analysis` | `fae8ded9a8` | 2026-08-04 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round-r2-literal-source-correction` | `b09f1d55cc` | 2026-08-02 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round-v6-endpoint-v7-plan` | `4792891075` | 2026-08-03 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round136-g2-k3-delta1` | `7d7cedf454` | 2026-09-08 | `codex/round143-dirty-threshold` |
-| `archive/codex/round137-mr-hard-core` | `ec8a5f1aaa` | 2026-09-08 | `codex/round143-dirty-threshold` |
-| `archive/codex/round138-universal-privacy` | `703538c0c1` | 2026-09-09 | `codex/round143-dirty-threshold` |
-| `archive/codex/round139-g2-k2-multidefect` | `ab16be1533` | 2026-09-09 | `codex/round143-dirty-threshold` |
-| `archive/codex/round140-g3-general-splicing` | `92b62a9e3a` | 2026-09-09 | `codex/round143-dirty-threshold` |
-| `archive/codex/round141-outer-slack-and-nr6` | `fb792c2bf2` | 2026-09-10 | `codex/round143-dirty-threshold` |
-| `archive/codex/round142-dirty-first-occurrence` | `6f39f6cb4f` | 2026-09-11 | `codex/round143-dirty-threshold` |
-| `archive/codex/round150-feas-audit` | `30f72ed007` | 2026-09-15 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/codex/round40-short5-r1-complete` | `abfcdca4b6` | 2026-07-31 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round43-short-ell0-taxonomy` | `24002fdd73` | 2026-08-01 | `codex/round-r1-37-hex82-t4` |
-| `archive/codex/round51-short5-child-outcomes` | `dfc314fa0a` | 2026-08-03 | `codex/round-r1-37-hex82-t4` |
-| `archive/round149-opus-hmodels-audit` | `195d11bdbf` | 2026-09-14 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/round152-capacity-certificates` | `64e851e104` | 2026-09-15 | `claude/n6-supersequence-length-rn17wf` |
-| `archive/round153-equality-coexistence` | `0029fe2905` | 2026-09-20 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/final-attack` | `f3047baa2681bea280ba6521e1a8458f4e506fc1` | 2026-10-06 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/final-universal` | `c0ecce1311f73f23ad9f0b3611f06354f1345bf4` | 2026-10-01 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/n6-master-status-index` | `2730c9943287ac0dddc08e5e8db1d991cabd9fb0` | 2026-08-10 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round-i-r0-score` | `7d65fd8a4bd5ea4729934cd538a98bd7e193406c` | 2026-10-11 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round-j-l8` | `e8de8ca3f76d8e314c32dea00f937403c405bd17` | 2026-10-13 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round-k-global` | `ccaee7019201c3c787e53bbff51ca50d6a67b5c1` | 2026-10-13 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round-l-antibundle` | `9766a70c3cd35078ec5a35edc793954faaf6dbee` | 2026-10-13 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round-m-joint` | `ae35c720e5cce514e5b6bdc452d3a12ad57ded67` | 2026-10-15 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round-n-linking` | `750aa037374689f13d2fe648049f253ad2787904` | 2026-10-16 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round174-universal-structure` | `2df2f6fcbd3a4986d8eaf33cc8d5eaa10594dda3` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round175-row-run-lemma` | `f1d0781aaa2e319e4941068b9600d793efc0126c` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round176-charge2-capacity` | `e426c0b453d9debd46752c6611a3500d478e9637` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round177-separator-e2` | `b3ce04f69b70d2ff6f16de6cfa898e4c29163110` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round178-coarsening-bridge` | `eb0f649e6122bf4242baf0026afbe7759a1f9b7f` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round179-audit-payload` | `968ea024298844e78813659575f5e28ceb40ed37` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round180-large-charge` | `dc9e4239284711ba6b68ad7defb6d6953778c0c2` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round181-global-packing` | `c38544c54f2024179bc49cb47c9c375276140435` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/round182-nonfull-control` | `e44d2a96cfa8d5cdaa156b22fc8d1b52fc82c922` | 2026-09-26 | `claude/n6-supersequence-length-rn17wf` |
+| `claude/structured-hypergraph` | `5038269ee772d3dc1944f7339af3e045c5914aa5` | 2026-10-07 | `claude/n6-supersequence-length-rn17wf` |
+| `codex/round-r1-37-all13-pilot-plan` | `c394624f046930ec4257228cad4e13aaba70231f` | 2026-08-08 | `codex/round-r1-37-hex82-t4` |
+| `codex/round-r1-37-all13-pilot-results` | `e280d325f59de8aebdcb0b149403ad770cf6ad18` | 2026-08-08 | `codex/round-r1-37-hex82-t4` |
+| `codex/round-r1-37-dangerous-entry-results` | `681113270ac8811af3392ac1c3efd412a52be5b3` | 2026-08-09 | `codex/round-r1-37-hex82-t4` |
+| `codex/round-r1-37-first-component-z3-stage-d` | `9342018cd3499de187a534d403aa2d7b85a81ed5` | 2026-08-09 | `codex/round-r1-37-hex82-t4` |
+| `codex/round-r1-37-frontier-analysis` | `fae8ded9a8fe5e2958e602fafb2ac4e337ef8958` | 2026-08-04 | `codex/round-r1-37-hex82-t4` |
+| `codex/round-r2-literal-source-correction` | `b09f1d55cce6b556f266f7e7629fd7977f8b109e` | 2026-08-02 | `codex/round-r1-37-hex82-t4` |
+| `codex/round-v6-endpoint-v7-plan` | `479289107591ce887097550d370dd7f3785475d9` | 2026-08-03 | `codex/round-r1-37-hex82-t4` |
+| `codex/round136-g2-k3-delta1` | `7d7cedf4542176026626153c17e00e786c3c733e` | 2026-09-08 | `codex/round143-dirty-threshold` |
+| `codex/round137-mr-hard-core` | `ec8a5f1aaa2d5b42dc885dca86420877287555aa` | 2026-09-08 | `codex/round143-dirty-threshold` |
+| `codex/round138-universal-privacy` | `703538c0c11d893fd8a233709c0d061221692f62` | 2026-09-09 | `codex/round143-dirty-threshold` |
+| `codex/round139-g2-k2-multidefect` | `ab16be1533e8ad0a21b7e32b769a807846216298` | 2026-09-09 | `codex/round143-dirty-threshold` |
+| `codex/round140-g3-general-splicing` | `92b62a9e3acccc8334c91ce93859d87f3d33fec0` | 2026-09-09 | `codex/round143-dirty-threshold` |
+| `codex/round141-outer-slack-and-nr6` | `fb792c2bf2b51e5b0da3536df310b48c3400ca58` | 2026-09-10 | `codex/round143-dirty-threshold` |
+| `codex/round142-dirty-first-occurrence` | `6f39f6cb4f0c3455eb602e6bad5b68d3658708bc` | 2026-09-11 | `codex/round143-dirty-threshold` |
+| `codex/round150-feas-audit` | `30f72ed007ed05122008899faff68b2985de1f14` | 2026-09-15 | `claude/n6-supersequence-length-rn17wf` |
+| `codex/round40-short5-r1-complete` | `abfcdca4b638b6ab76527a59dbe876bc7949386b` | 2026-07-31 | `codex/round-r1-37-hex82-t4` |
+| `codex/round43-short-ell0-taxonomy` | `24002fdd73bb61b1ed18cbc09956fa287ff5692f` | 2026-08-01 | `codex/round-r1-37-hex82-t4` |
+| `codex/round51-short5-child-outcomes` | `dfc314fa0a0cf6555f08f8815427ab379596b1e6` | 2026-08-03 | `codex/round-r1-37-hex82-t4` |
+| `round149-opus-hmodels-audit` | `195d11bdbfa68666b118010232258686195893fc` | 2026-09-14 | `claude/n6-supersequence-length-rn17wf` |
+| `round152-capacity-certificates` | `64e851e104edf2a049a617cacc7f4f066c1fbf83` | 2026-09-15 | `claude/n6-supersequence-length-rn17wf` |
+| `round153-equality-coexistence` | `0029fe2905d01db805d162230b54e9a1e2d2b161` | 2026-09-20 | `claude/n6-supersequence-length-rn17wf` |
 
 ## 정리 기록
 
